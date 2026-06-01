@@ -1,0 +1,253 @@
+{
+  "BUS.G11.T2.SETUP.A1": {
+    "title": "Setting up a business venture",
+    "description": "Initiating and setting up a business venture based on an action plan to generate income, and acquiring funding where needed — equity capital, loans/debt capital and other sources of capital.",
+    "grade": 11,
+    "strand": "T2 — Creative thinking, stress & change, action plans, setting up, ethics & presentation",
+    "skill_ids": ["BUS.G11.T2.SETUP.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T2",
+    "caps_topic": "Setting up a business",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+    "recovery_strategy": "Equity capital = the owner's own money or money from investors (no repayment, but shared ownership). Loan/debt capital = borrowed money that must be repaid with interest. A new venture is set up by working through its action plan and securing funding.",
+    "questions": [
+      {
+        "ref": "G11.SETUP.A1.01",
+        "question": "Money the owner or investors put into a business, which need not be repaid like a loan, is called _________ capital.",
+        "input_type": "cloze",
+        "options": ["equity", "loan", "debt", "interest"],
+        "expected": "equity",
+        "memo": "Equity capital is the owners' or investors' own money. It is not repaid like a loan, but it gives investors a share of ownership.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SETUP.A1.02",
+        "question": "A bank loan is an example of _________ capital.",
+        "input_type": "choice",
+        "options": ["loan (debt)", "equity", "donated", "free"],
+        "expected": "loan (debt)",
+        "memo": "Borrowed money such as a bank loan is loan or debt capital, which must be repaid with interest.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SETUP.A1.03",
+        "question": "True or false: Loan capital must be repaid, usually with interest.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Loan (debt) capital is borrowed, so it must be paid back over time, normally with interest added.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SETUP.A1.04",
+        "question": "Setting up a new venture should be based on the business's _________ plan.",
+        "input_type": "cloze",
+        "options": ["action", "seating", "lunch", "holiday"],
+        "expected": "action",
+        "memo": "A venture is set up by working through the action plan — the list of dated, assigned tasks that turn the idea into a real business.",
+        "error_signals": ["ERR_BUS_SETUP_PROCESS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SETUP.A1.05",
+        "question": "True or false: Equity capital does not have to be repaid in the way a loan does.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Equity is not a loan, so there are no fixed repayments — but investors expect a share of ownership and profit in return.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SETUP.A1.06",
+        "question": "What is the main purpose of setting up a business venture?",
+        "input_type": "choice",
+        "options": ["To generate income", "To avoid all work", "To lose money on purpose", "To keep the idea secret forever"],
+        "expected": "To generate income",
+        "memo": "A venture is set up to trade and generate income for its owners.",
+        "error_signals": ["ERR_BUS_SETUP_PROCESS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SETUP.A1.07",
+        "question": "Sort each source of funding into equity capital or loan/debt capital.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "equity", "label": "Equity capital"},
+          {"id": "debt", "label": "Loan / debt capital"}
+        ],
+        "items": [
+          {"id": "i1", "text": "The owner's own savings", "correct_bucket": "equity"},
+          {"id": "i2", "text": "A bank loan", "correct_bucket": "debt"},
+          {"id": "i3", "text": "Money from investors in exchange for shares", "correct_bucket": "equity"},
+          {"id": "i4", "text": "A bank overdraft", "correct_bucket": "debt"},
+          {"id": "i5", "text": "Profit kept in the business (retained profit)", "correct_bucket": "equity"},
+          {"id": "i6", "text": "Credit from a supplier that must be repaid", "correct_bucket": "debt"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Owners' savings, investor share money and retained profit are equity. Bank loans, overdrafts and supplier credit are debt that must be repaid.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SETUP.A1.08",
+        "question": "What is an advantage of equity capital over loan capital?",
+        "input_type": "choice",
+        "options": ["There are no fixed repayments or interest", "It always comes from a bank", "It must be repaid within a month", "It charges the highest interest"],
+        "expected": "There are no fixed repayments or interest",
+        "memo": "Equity has no compulsory repayments or interest, which eases pressure on a new business's cash flow.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SETUP.A1.09",
+        "question": "What is a disadvantage of raising equity capital from investors?",
+        "input_type": "choice",
+        "options": ["The owner has to share ownership and profit", "The money must be repaid with high interest", "It is always illegal", "It can never be used to grow the business"],
+        "expected": "The owner has to share ownership and profit",
+        "memo": "Investors who provide equity take a share of the business and its profits, so the original owner gives up some control and reward.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SETUP.A1.10",
+        "question": "A _________ is borrowed money that a business must repay over time.",
+        "input_type": "cloze",
+        "options": ["loan", "share", "donation", "grant"],
+        "expected": "loan",
+        "memo": "A loan is borrowed money that must be repaid, usually in instalments with interest.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SETUP.A1.11",
+        "question": "True or false: The business plan and action plan guide how a venture is set up.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "The business plan sets out the idea and the action plan turns it into tasks, together guiding the setting up of the venture.",
+        "error_signals": ["ERR_BUS_SETUP_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SETUP.A1.12",
+        "question": "Thesis: 'A new venture should fund itself with a mix of the owner's own equity and not only loans.' Choose the THREE strongest supporting reasons.",
+        "input_type": "argument-builder",
+        "thesis": "A new venture should fund itself with a mix of the owner's own equity and not only loans.",
+        "pool": [
+          {"id": "a1", "text": "Equity has no fixed repayments, easing cash-flow pressure early on", "strength": "strong"},
+          {"id": "a2", "text": "Investing own money shows commitment and reassures lenders", "strength": "strong"},
+          {"id": "a3", "text": "Too much debt means heavy repayments that can sink a young business", "strength": "strong"},
+          {"id": "a4", "text": "Equity must always be repaid faster than any loan", "strength": "counter"},
+          {"id": "a5", "text": "The owner likes the look of the bank's logo", "strength": "red_herring"},
+          {"id": "a6", "text": "Loans are never useful for any business", "strength": "weak"}
+        ],
+        "pick_n": 3,
+        "correct_selection": ["a1", "a2", "a3"],
+        "expected": ["a1", "a2", "a3"],
+        "memo": "The strong reasons are easier cash flow, showing commitment, and avoiding crippling debt. The others are false or irrelevant.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SETUP.A1.13",
+        "question": "Why might a founder prefer a loan rather than bringing in equity investors?",
+        "input_type": "choice",
+        "options": ["A loan lets the founder keep full ownership of the business", "A loan never has to be repaid", "A loan gives investors control of the business", "A loan charges no interest at all"],
+        "expected": "A loan lets the founder keep full ownership of the business",
+        "memo": "With a loan the founder keeps full ownership; equity investors would take a share of the business in return for their money.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SETUP.A1.14",
+        "question": "Sort each statement under the funding choice it best supports.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "equity", "label": "Reason to choose equity"},
+          {"id": "loan", "label": "Reason to choose a loan"}
+        ],
+        "items": [
+          {"id": "i1", "text": "You want to avoid fixed monthly repayments", "correct_bucket": "equity"},
+          {"id": "i2", "text": "You want to keep 100% ownership", "correct_bucket": "loan"},
+          {"id": "i3", "text": "You are willing to share profit with investors", "correct_bucket": "equity"},
+          {"id": "i4", "text": "You can comfortably afford regular repayments", "correct_bucket": "loan"},
+          {"id": "i5", "text": "Cash flow is uncertain in the early months", "correct_bucket": "equity"},
+          {"id": "i6", "text": "You do not want to give away any control", "correct_bucket": "loan"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Equity suits those who want no repayments and will share ownership; a loan suits those who can afford repayments and want to keep full control.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SETUP.A1.15",
+        "question": "What is a sensible first step when actually setting up a venture from an action plan?",
+        "input_type": "choice",
+        "options": ["Work through the action-plan tasks and secure the funding needed", "Spend all the money before any plan is made", "Ignore the action plan completely", "Wait indefinitely without doing anything"],
+        "expected": "Work through the action-plan tasks and secure the funding needed",
+        "memo": "Setting up means following the action plan and arranging the capital required so the tasks can be carried out.",
+        "error_signals": ["ERR_BUS_SETUP_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SETUP.A1.16",
+        "question": "Interest is best described as the _________ of borrowing money.",
+        "input_type": "cloze",
+        "options": ["cost", "profit", "owner", "product"],
+        "expected": "cost",
+        "memo": "Interest is the cost a borrower pays a lender for the use of money over time.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SETUP.A1.17",
+        "question": "An early-stage venture has very uncertain income. Which funding choice usually puts less pressure on it, and why?",
+        "input_type": "choice",
+        "options": ["Equity, because there are no fixed repayments while income is uncertain", "A large loan, because the repayments are comforting", "A loan, because interest reduces risk", "Neither, because funding is never needed"],
+        "expected": "Equity, because there are no fixed repayments while income is uncertain",
+        "memo": "When income is unpredictable, equity is safer because the business is not forced to make fixed loan repayments it may not be able to afford.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.SETUP.A1.18",
+        "question": "Why can relying too heavily on loans be risky for a brand-new business?",
+        "input_type": "choice",
+        "options": ["High repayments and interest can sink the business before it becomes profitable", "Loans make a business impossible to register", "Loans remove the owner's need to work", "Loans always turn into equity"],
+        "expected": "High repayments and interest can sink the business before it becomes profitable",
+        "memo": "Heavy debt means large fixed repayments that a young, not-yet-profitable business may struggle to meet, threatening its survival.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.SETUP.A1.19",
+        "question": "Why do many ventures use a mix of equity and loan capital rather than only one?",
+        "input_type": "choice",
+        "options": ["It balances keeping control with limiting repayment pressure", "It is required by law to use both", "It doubles the amount that must be repaid for no reason", "It guarantees the business cannot fail"],
+        "expected": "It balances keeping control with limiting repayment pressure",
+        "memo": "A blend lets the owner keep some control (loans) while easing cash-flow pressure (equity), spreading the risks of each.",
+        "error_signals": ["ERR_BUS_SETUP_FUNDING"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.SETUP.A1.20",
+        "question": "A founder launches following the action plan but has not arranged any funding. What is the likely result?",
+        "input_type": "choice",
+        "options": ["The venture stalls, because tasks cannot be paid for without capital", "The venture runs perfectly without any money", "Funding appears automatically once trading starts", "Capital is never needed to set up a business"],
+        "expected": "The venture stalls, because tasks cannot be paid for without capital",
+        "memo": "Even a good action plan needs capital to fund its tasks; without securing funding, the setup quickly stalls.",
+        "error_signals": ["ERR_BUS_SETUP_PROCESS"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

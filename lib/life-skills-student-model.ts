@@ -33,6 +33,13 @@ export interface LifeSkillsProfile {
   mastery: Record<string, LifeSkillsTopicStatus>;
   /** topic_id → question refs already served (so the learner sees fresh items). */
   used_questions: Record<string, string[]>;
+  /**
+   * topic_id → cumulative correct/attempt counts across every sitting. Backs
+   * the content-mastery accuracy bar (≥ 75% counted cumulatively, not per
+   * session). Absent ⇒ no answers yet. Older profiles without this field are
+   * tolerated by the readers below (treated as empty).
+   */
+  topic_totals?: Record<string, { correct: number; attempts: number }>;
   total_attempts: number;
   total_correct: number;
   session_count: number;
@@ -217,19 +224,36 @@ export function getLifeSkillsUsedRefs(skillId: string): string[] {
   return loadLifeSkillsProfile()?.used_questions?.[skillId] ?? [];
 }
 
+/** Cumulative correct/attempt counts for a topic across every sitting. */
+export function getLifeSkillsTopicTotals(
+  skillId: string,
+): { correct: number; attempts: number } {
+  return loadLifeSkillsProfile()?.topic_totals?.[skillId] ?? { correct: 0, attempts: 0 };
+}
+
 /**
  * Records a single answer: marks the question used (so it is not repeated) and
- * rolls up running totals. Persists to localStorage + Supabase.
+ * rolls up running totals — both the profile-wide totals and the per-topic
+ * cumulative totals that back the content-mastery accuracy bar. Persists to
+ * localStorage + Supabase.
  */
 export function recordLifeSkillsAnswer(skillId: string, questionRef: string, isCorrect: boolean): void {
   const profile = loadLifeSkillsProfile();
   if (!profile) return;
   const existingRefs = profile.used_questions[skillId] ?? [];
+  const priorTotals = profile.topic_totals?.[skillId] ?? { correct: 0, attempts: 0 };
   const updated: LifeSkillsProfile = {
     ...profile,
     used_questions: {
       ...profile.used_questions,
       [skillId]: [...existingRefs, questionRef],
+    },
+    topic_totals: {
+      ...(profile.topic_totals ?? {}),
+      [skillId]: {
+        correct: priorTotals.correct + (isCorrect ? 1 : 0),
+        attempts: priorTotals.attempts + 1,
+      },
     },
     total_attempts: profile.total_attempts + 1,
     total_correct: profile.total_correct + (isCorrect ? 1 : 0),

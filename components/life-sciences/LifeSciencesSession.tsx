@@ -26,6 +26,12 @@ import {
   trackSessionEnded,
   trackSkillMastered,
 } from "@/lib/analytics";
+import {
+  ACCURACY_TARGET,
+  contentAbilityLevel,
+  isContentMastered,
+  requiredCoverageCount,
+} from "@/lib/content-mastery";
 import type {
   LifeSciencesBank,
   LifeSciencesGeneratedQuestion,
@@ -39,14 +45,15 @@ import type {
 const tree = lifeSciencesTreeData as unknown as LifeSciencesSkillTree;
 const bank = lifeSciencesBankData as unknown as LifeSciencesBank;
 
-function targetItemCount(skillId: string): number {
-  const topic = bank.topics[skillId];
-  if (topic) return topic.target_item_count ?? topic.questions.length;
-  return 20;
+// Total distinct questions authored for a topic — the coverage denominator.
+function poolSize(skillId: string): number {
+  return bank.topics[skillId]?.questions.length ?? 0;
 }
 
-function passThreshold(skillId: string): number {
-  return bank.topics[skillId]?.pass_threshold ?? 0.6;
+// Distinct questions the student must answer to master this topic
+// (80% of the pool, capped at 20 — see lib/content-mastery.ts).
+function requiredCount(skillId: string): number {
+  return requiredCoverageCount(poolSize(skillId));
 }
 
 function findSkill(skillId: string) {
@@ -74,6 +81,7 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
   const [correctCount, setCorrectCount] = useState(0);
   const [attemptCount, setAttemptCount] = useState(0);
   const [consecutiveWrong, setConsecutiveWrong] = useState(0);
+  const [didMasterTopic, setDidMasterTopic] = useState(false);
 
   const sessionStartRef = useRef<number>(Date.now());
 
@@ -113,8 +121,8 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
           correct_count: correct,
           attempt_count: attempts,
           accuracy,
-          target_item_count: targetItemCount(topicId),
-          pass_threshold: passThreshold(topicId),
+          target_item_count: requiredCount(topicId),
+          pass_threshold: ACCURACY_TARGET,
           mastered: didMaster,
           duration_ms: Date.now() - sessionStartRef.current,
         };
@@ -140,16 +148,32 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
   );
 
   const loadNextQuestion = useCallback(
-    async (topicId: string, currentProfile: LifeSciencesStudentProfile | null) => {
+    async (
+      topicId: string,
+      currentProfile: LifeSciencesStudentProfile | null,
+      sessionCorrect = 0,
+      sessionAttempts = 0,
+    ) => {
       setPhase("loading");
       setError(null);
       setAnswer("");
       const used = currentProfile ? getLifeSciencesUsedRefs(currentProfile, topicId) : [];
+      // Difficulty matching: derive ability from running accuracy (prior
+      // recorded totals + this sitting's answers so far).
+      const prior = currentProfile?.skill_mastery[topicId];
+      const abilityLevel = contentAbilityLevel(
+        (prior?.correct_count ?? 0) + sessionCorrect,
+        (prior?.attempt_count ?? 0) + sessionAttempts,
+      );
       try {
         const res = await apiFetch("/api/life-sciences/generate-question", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ skill_id: topicId, used_refs: used }),
+          body: JSON.stringify({
+            skill_id: topicId,
+            used_refs: used,
+            ability_level: abilityLevel,
+          }),
         });
         if (!res.ok) {
           setError("Could not load a question. Please try again.");
@@ -181,6 +205,7 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
       setCorrectCount(0);
       setAttemptCount(0);
       setConsecutiveWrong(0);
+      setDidMasterTopic(false);
       sessionStartRef.current = Date.now();
       // Mark skill in_progress immediately so the tree UI updates on return.
       if (profile) {
@@ -229,10 +254,12 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
         const data = (await res.json()) as LifeSciencesSubmitAnswerResponse;
         setResult(data);
 
-        if (profile) {
-          const updated = markLifeSciencesQuestionUsed(profile, skillId, question.question_ref);
-          setProfile(updated);
-        }
+        // Mark this question used and work from the updated profile so the
+        // coverage count includes the answer we just took.
+        const workingProfile = profile
+          ? markLifeSciencesQuestionUsed(profile, skillId, question.question_ref)
+          : null;
+        if (workingProfile) setProfile(workingProfile);
 
         const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
         const nextAttempts = attemptCount + 1;
@@ -251,10 +278,32 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
           decision: data.is_correct ? "practice" : "reteach",
         });
 
-        const allAnswered = nextAttempts >= targetItemCount(skillId);
-        if (allAnswered) {
-          const accuracy = nextAttempts > 0 ? nextCorrect / nextAttempts : 0;
-          const didMaster = accuracy >= passThreshold(skillId);
+        // ── Cumulative mastery check ────────────────────────────────────────
+        // Coverage + accuracy are measured across all sittings, not just this
+        // run. Prior totals live in skill_mastery; this run's deltas are the
+        // session counters. Distinct coverage is deduped from used_questions.
+        const prior = profile?.skill_mastery[skillId];
+        const cumulativeCorrect = (prior?.correct_count ?? 0) + nextCorrect;
+        const cumulativeAttempts = (prior?.attempt_count ?? 0) + nextAttempts;
+        const distinctAnswered = workingProfile
+          ? new Set(getLifeSciencesUsedRefs(workingProfile, skillId)).size
+          : nextAttempts;
+        const size = poolSize(skillId);
+        const required = requiredCount(skillId);
+
+        const didMaster = isContentMastered(
+          distinctAnswered,
+          size,
+          cumulativeCorrect,
+          cumulativeAttempts,
+        );
+
+        // End the run when the topic is mastered, when this sitting has covered
+        // a full batch, or when the pool is exhausted — otherwise keep going.
+        const runOver =
+          didMaster || nextAttempts >= required || distinctAnswered >= size;
+
+        if (runOver) {
           if (profile) {
             const finalProfile = recordLifeSciencesSkillResult(profile, skillId, {
               correct: nextCorrect,
@@ -263,6 +312,7 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
             });
             setProfile(finalProfile);
           }
+          setDidMasterTopic(didMaster);
           if (didMaster) {
             trackSkillMastered({
               subject: "life-sciences",
@@ -276,7 +326,7 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
             subject: "life-sciences",
             questions_answered: nextAttempts,
             correct: nextCorrect,
-            accuracy,
+            accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
@@ -307,24 +357,29 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
   // ─── Render: end-of-topic ─────────────────────────────────────────────────
   if (phase === "mastered" && skillId) {
     const skill = findSkill(skillId)?.skill;
-    const accuracy = attemptCount > 0 ? correctCount / attemptCount : 0;
-    const didMaster = accuracy >= passThreshold(skillId);
+    const m = profile?.skill_mastery[skillId];
+    const cumAccuracy = m && m.attempt_count > 0 ? m.correct_count / m.attempt_count : 0;
+    const size = poolSize(skillId);
+    const required = requiredCount(skillId);
+    const distinct = profile
+      ? Math.min(new Set(getLifeSciencesUsedRefs(profile, skillId)).size, size)
+      : 0;
     return (
       <div className="relative flex items-center justify-center h-full bg-[#F4F4F5] p-6">
         <EduBackground />
         <div className="relative bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-4">
-          <div className="text-6xl">{didMaster ? "🎉" : "💪"}</div>
+          <div className="text-6xl">{didMasterTopic ? "🎉" : "💪"}</div>
           <h2 className="text-2xl font-bold text-[#1a2744]">
-            {didMaster ? "Topic complete" : "Keep going"}
+            {didMasterTopic ? "Topic mastered" : "Keep going"}
           </h2>
           <p className="text-gray-600 text-base">
-            {didMaster ? (
-              <>You passed <span className="font-semibold">{skill?.title ?? "this topic"}</span> at {Math.round(accuracy * 100)}%.</>
+            {didMasterTopic ? (
+              <>You mastered <span className="font-semibold">{skill?.title ?? "this topic"}</span> — {Math.round(cumAccuracy * 100)}% correct overall.</>
             ) : (
-              <>You finished <span className="font-semibold">{skill?.title ?? "this topic"}</span>. Try it again to pass — you need 60%.</>
+              <>You&apos;ve answered <span className="font-semibold">{distinct} of {required}</span> questions on {skill?.title ?? "this topic"}. Master it by reaching {required} at {Math.round(ACCURACY_TARGET * 100)}% correct.</>
             )}
           </p>
-          <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct.</p>
+          <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct this round.</p>
           <button
             onClick={() => {
               setSkillId(null);
@@ -381,7 +436,7 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
                   Master this topic
                 </span>
                 <span className="text-sm font-semibold text-emerald-700">
-                  Q {Math.min(attemptCount + 1, targetItemCount(skillId))} of {targetItemCount(skillId)} · ⭐ {correctCount}
+                  Q {Math.min(attemptCount + 1, requiredCount(skillId))} of {requiredCount(skillId)} · ⭐ {correctCount}
                 </span>
               </div>
               <div className="h-2 bg-emerald-100 rounded-full overflow-hidden">
@@ -389,15 +444,15 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
                   className="h-full bg-emerald-500 rounded-full transition-all"
                   style={{
                     width: `${Math.round(
-                      (Math.min(attemptCount, targetItemCount(skillId)) /
-                        targetItemCount(skillId)) *
+                      (Math.min(attemptCount, requiredCount(skillId)) /
+                        Math.max(requiredCount(skillId), 1)) *
                         100,
                     )}%`,
                   }}
                 />
               </div>
               <p className="text-[11px] text-emerald-700 mt-1.5">
-                Pass mark: {Math.round(passThreshold(skillId) * 100)}% of {targetItemCount(skillId)}
+                Master: {requiredCount(skillId)} questions at {Math.round(ACCURACY_TARGET * 100)}%
               </p>
             </div>
           )}
@@ -481,7 +536,7 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
 
               {phase === "feedback" && (
                 <button
-                  onClick={() => skillId && loadNextQuestion(skillId, profile)}
+                  onClick={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
                   disabled={submitting}
                   className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
                 >
@@ -502,7 +557,7 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
 
 // ─── Diagram image (with png → svg → text fallback) ─────────────────────────
 
-const LSC_IMAGE_EXTS = ["png", "svg", "jpg"];
+const LSC_IMAGE_EXTS = ["webp", "png", "svg", "jpg"];
 
 function DiagramImage({ imageKey, alt }: { imageKey: string; alt: string }) {
   const [extIdx, setExtIdx] = useState(0);

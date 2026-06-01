@@ -1,0 +1,266 @@
+{
+  "BUS.G11.T1.CHALLENGES.A1": {
+    "title": "Challenges of the micro, market and macro environments",
+    "description": "Identifying the challenges of each environment: micro (difficult employees, weak vision, poor management, strikes), market (competition, supply shortages, changing consumer behaviour) and macro (legislation, income changes, globalisation, socio-economic issues).",
+    "grade": 11,
+    "strand": "T1 — Business environments, socio-economic issues, sectors, ownership & acquiring a business",
+    "skill_ids": ["BUS.G11.T1.CHALLENGES.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T1",
+    "caps_topic": "Micro, market and macro environments",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source"],
+    "recovery_strategy": "Sort a challenge by where it comes from: inside the business = micro (staff, vision, management); close outside = market (competitors, suppliers, customers); broad outside = macro (laws, economy, globalisation).",
+    "questions": [
+      {
+        "ref": "G11.CHALLENGES.A1.01",
+        "question": "A lack of vision and difficult employees are challenges of which environment?",
+        "input_type": "choice",
+        "options": ["The micro (internal) environment", "The market environment", "The macro environment", "The global environment"],
+        "expected": "The micro (internal) environment",
+        "memo": "Vision and employees are inside the business, so problems with them are micro-environment challenges.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.02",
+        "question": "Strong competition and supply shortages are challenges of which environment?",
+        "input_type": "choice",
+        "options": ["The market environment", "The micro environment", "The macro environment", "The internal environment"],
+        "expected": "The market environment",
+        "memo": "Competitors and suppliers are part of the market environment, so problems with them are market-environment challenges.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.03",
+        "question": "True or false: New legislation and globalisation are challenges of the macro environment.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Laws and globalisation are broad outside forces, which makes them macro-environment challenges.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.04",
+        "question": "A strike by the business's own workers is a challenge of the _________ environment.",
+        "input_type": "cloze",
+        "options": ["micro", "market", "macro", "global"],
+        "expected": "micro",
+        "memo": "The workers are inside the business, so a strike by them is a micro-environment challenge.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.05",
+        "question": "Which of these is a market-environment challenge?",
+        "input_type": "choice",
+        "options": ["A change in consumer buying behaviour", "A demotivated workforce", "A rise in the national inflation rate", "A weak company mission"],
+        "expected": "A change in consumer buying behaviour",
+        "memo": "Consumers are part of the market environment. A demotivated workforce and weak mission are micro; inflation is macro.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.06",
+        "question": "True or false: A supplier running out of stock is a micro-environment challenge.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "False",
+        "memo": "A supplier is part of the market environment, so a supply shortage is a market-environment challenge, not a micro one.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.07",
+        "question": "Sort each challenge into the environment it belongs to.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "micro", "label": "Micro challenge"},
+          {"id": "market", "label": "Market challenge"},
+          {"id": "macro", "label": "Macro challenge"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Difficult, demotivated employees", "correct_bucket": "micro"},
+          {"id": "i2", "text": "A new competitor opening nearby", "correct_bucket": "market"},
+          {"id": "i3", "text": "Rising interest rates", "correct_bucket": "macro"},
+          {"id": "i4", "text": "Managers who lack the right skills", "correct_bucket": "micro"},
+          {"id": "i5", "text": "A supplier who cannot deliver stock", "correct_bucket": "market"},
+          {"id": "i6", "text": "A new labour law", "correct_bucket": "macro"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Inside the business = micro (staff, managers). Close outside = market (competitors, suppliers). Broad outside = macro (interest rates, laws).",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.08",
+        "question": "Read the case and select the MACRO-environment challenges it mentions.",
+        "input_type": "highlight-source",
+        "source_text": "A furniture maker is under pressure. A new import tax has raised the price of its timber. The economy has slowed and customers are spending less. On top of this, two of its machine operators have resigned and its main competitor has dropped its prices.",
+        "task": "Tap the parts that describe macro-environment challenges (broad outside forces the business cannot control).",
+        "targets": [
+          {"phrase": "A new import tax has raised the price of its timber", "reason": "Taxes and laws are a legal/economic macro force."},
+          {"phrase": "The economy has slowed and customers are spending less", "reason": "A slowing economy is an economic macro force."}
+        ],
+        "min_correct": 2,
+        "max_wrong": 1,
+        "expected": "A new import tax has raised the price of its timber; The economy has slowed and customers are spending less",
+        "memo": "The import tax and the slowing economy are macro forces. The resigning operators are a micro challenge; the competitor's price drop is a market challenge.",
+        "error_signals": ["ERR_BUS_CHALLENGE_MACRO"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.09",
+        "question": "Why is competition treated as a MARKET challenge rather than a macro one?",
+        "input_type": "choice",
+        "options": ["Competitors are specific firms close to the business, not a broad force affecting everyone", "Competition only ever affects large businesses", "Competition is controlled by the government", "Competition has no effect on a business"],
+        "expected": "Competitors are specific firms close to the business, not a broad force affecting everyone",
+        "memo": "Market challenges come from specific close parties (competitors, suppliers, customers). Macro challenges are broad forces like the economy or laws.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.10",
+        "question": "Changes in income levels, political changes and globalisation are challenges of the _________ environment.",
+        "input_type": "cloze",
+        "options": ["macro", "micro", "market", "internal"],
+        "expected": "macro",
+        "memo": "Income levels, politics and globalisation are broad outside forces — macro-environment challenges.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.11",
+        "question": "A business is struggling because its managers lack skills and its staff are demotivated. These are challenges of the _________ environment.",
+        "input_type": "choice",
+        "options": ["micro", "market", "macro", "global"],
+        "expected": "micro",
+        "memo": "Managers and staff are inside the business, so these are micro-environment challenges that management can act on directly.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.12",
+        "question": "True or false: Changes in demographics and socio-cultural values can challenge a business through both its market and its macro environment.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Shifts in what specific customers want show up in the market environment, while broad social and demographic change is a macro force — both are challenges.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.13",
+        "question": "Which best describes a macro-environment challenge?",
+        "input_type": "choice",
+        "options": ["A broad force, like the economy or new laws, that affects all businesses", "A single unhappy employee", "One supplier raising its prices", "The business choosing a new logo"],
+        "expected": "A broad force, like the economy or new laws, that affects all businesses",
+        "memo": "Macro challenges are broad, society-wide forces. A single employee is micro; one supplier is market; a logo is an internal choice.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.14",
+        "question": "Sort each challenge into the environment it belongs to.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "micro", "label": "Micro challenge"},
+          {"id": "market", "label": "Market challenge"},
+          {"id": "macro", "label": "Macro challenge"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Workers staging a go-slow", "correct_bucket": "micro"},
+          {"id": "i2", "text": "Customers switching to a rival brand", "correct_bucket": "market"},
+          {"id": "i3", "text": "A national recession", "correct_bucket": "macro"},
+          {"id": "i4", "text": "A weak, unclear company vision", "correct_bucket": "micro"},
+          {"id": "i5", "text": "A key supplier raising its prices", "correct_bucket": "market"},
+          {"id": "i6", "text": "Stricter government import rules", "correct_bucket": "macro"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Go-slows and a weak vision are inside (micro); customers and suppliers are close outside (market); a recession and import rules are broad outside (macro).",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.15",
+        "question": "A new minimum-wage law raises a factory's labour costs. This is a challenge of which environment?",
+        "input_type": "choice",
+        "options": ["The macro environment", "The micro environment", "The market environment", "The internal environment"],
+        "expected": "The macro environment",
+        "memo": "Laws are part of the macro environment. The factory must adapt because it cannot control legislation.",
+        "error_signals": ["ERR_BUS_CHALLENGE_MACRO"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.16",
+        "question": "Read the case and select the MARKET-environment challenges it mentions.",
+        "input_type": "highlight-source",
+        "source_text": "A bakery is battling on several fronts. Its head baker keeps arriving late. A bigger bakery has opened across the road and is undercutting its prices. Its flour supplier has run short and cannot deliver, while a new health regulation has forced it to upgrade its kitchen.",
+        "task": "Tap the parts that describe market-environment challenges (close outside parties the business deals with).",
+        "targets": [
+          {"phrase": "A bigger bakery has opened across the road and is undercutting its prices", "reason": "A competitor is part of the market environment."},
+          {"phrase": "Its flour supplier has run short and cannot deliver", "reason": "A supplier is part of the market environment."}
+        ],
+        "min_correct": 2,
+        "max_wrong": 1,
+        "expected": "A bigger bakery has opened across the road and is undercutting its prices; Its flour supplier has run short and cannot deliver",
+        "memo": "The rival bakery and the flour supplier are market challenges. The late head baker is micro; the new health regulation is macro.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.17",
+        "question": "A company faces difficult unions inside the business and fierce competition outside it. How are these two challenges best classified?",
+        "input_type": "choice",
+        "options": ["The union issue is micro; the competition is market", "Both are macro", "The union issue is market; the competition is micro", "Both are micro"],
+        "expected": "The union issue is micro; the competition is market",
+        "memo": "Unions and staff sit inside the business (micro); competitors sit close outside (market). Classifying them correctly shapes how the business responds.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.18",
+        "question": "Why does it matter whether a challenge is micro, market or macro?",
+        "input_type": "choice",
+        "options": ["Because the business has different levels of control over each, so its response must differ", "Because only macro challenges are real", "Because micro challenges can always be ignored", "Because the classification changes the law"],
+        "expected": "Because the business has different levels of control over each, so its response must differ",
+        "memo": "A micro challenge can be fixed directly, a market challenge influenced, and a macro challenge only adapted to. Knowing the type guides the response.",
+        "error_signals": ["ERR_BUS_CHALLENGE_RESPONSE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.19",
+        "question": "Read the case and select ONLY the macro-environment challenges.",
+        "input_type": "highlight-source",
+        "source_text": "A clothing factory reports its problems. Load-shedding from the national grid keeps halting production. A weaker rand has raised the cost of imported zips. Meanwhile, two sewing machines have broken down and a long-standing customer has placed a smaller order than usual.",
+        "task": "Tap only the macro-environment challenges (broad forces beyond the factory's control).",
+        "targets": [
+          {"phrase": "Load-shedding from the national grid keeps halting production", "reason": "The national power supply is a macro (institutional/economic) force."},
+          {"phrase": "A weaker rand has raised the cost of imported zips", "reason": "The exchange rate is an economic/international macro force."}
+        ],
+        "min_correct": 2,
+        "max_wrong": 1,
+        "expected": "Load-shedding from the national grid keeps halting production; A weaker rand has raised the cost of imported zips",
+        "memo": "Load-shedding and the weaker rand are macro forces. The broken machines are micro; the smaller customer order is a market challenge.",
+        "error_signals": ["ERR_BUS_CHALLENGE_MACRO"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.CHALLENGES.A1.20",
+        "question": "A business lists 'go-slows by staff' as a market-environment challenge. Why is this wrong?",
+        "input_type": "choice",
+        "options": ["Staff are inside the business, so a go-slow is a micro challenge", "Go-slows are actually macro challenges", "Go-slows are not challenges at all", "Staff are part of the macro environment"],
+        "expected": "Staff are inside the business, so a go-slow is a micro challenge",
+        "memo": "A go-slow comes from the business's own workers, who are inside the business — that makes it a micro-environment challenge.",
+        "error_signals": ["ERR_BUS_CHALLENGE_CLASSIFY"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

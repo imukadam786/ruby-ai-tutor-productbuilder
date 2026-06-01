@@ -19,12 +19,23 @@ const SUBJECT = "natural-sciences-tech";
 
 export type NstTopicStatus = "available" | "in_progress" | "mastered";
 
+export interface NstSkillCounts {
+  correct_count: number;
+  attempt_count: number;
+}
+
 export interface NstProfile {
   id: string;
   name: string;
   grade: number;
   /** topic_id → status. Absent ⇒ "available". */
   mastery: Record<string, NstTopicStatus>;
+  /**
+   * topic_id → cumulative correct / attempt counts across every sitting.
+   * Drives the content-mastery accuracy bar (see lib/content-mastery.ts).
+   * Optional for back-compat with profiles saved before this field existed.
+   */
+  skill_counts?: Record<string, NstSkillCounts>;
   /** topic_id → question refs already served (so the learner sees fresh items). */
   used_questions: Record<string, string[]>;
   total_attempts: number;
@@ -170,6 +181,34 @@ export function getNstMasteryMap(): Record<string, NstTopicStatus> {
 /** Refs already served for a topic this learner. */
 export function getNstUsedRefs(skillId: string): string[] {
   return loadNstProfile()?.used_questions?.[skillId] ?? [];
+}
+
+/** Cumulative correct / attempt counts for a topic (0/0 when none yet). */
+export function getNstSkillCounts(skillId: string): NstSkillCounts {
+  return loadNstProfile()?.skill_counts?.[skillId] ?? { correct_count: 0, attempt_count: 0 };
+}
+
+/**
+ * Adds this run's correct / attempt deltas onto a topic's cumulative counts so
+ * the content-mastery accuracy bar is measured across every sitting (mirrors
+ * how recordHistorySkillResult accumulates). Persists to localStorage + Supabase.
+ */
+export function addNstSkillCounts(skillId: string, correctDelta: number, attemptDelta: number): void {
+  const profile = loadNstProfile();
+  if (!profile) return;
+  const existing = profile.skill_counts?.[skillId] ?? { correct_count: 0, attempt_count: 0 };
+  const updated: NstProfile = {
+    ...profile,
+    skill_counts: {
+      ...(profile.skill_counts ?? {}),
+      [skillId]: {
+        correct_count: existing.correct_count + correctDelta,
+        attempt_count: existing.attempt_count + attemptDelta,
+      },
+    },
+    last_active: new Date().toISOString(),
+  };
+  saveNstProfile(updated);
 }
 
 /**

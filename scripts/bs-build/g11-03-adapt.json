@@ -1,0 +1,255 @@
+{
+  "BUS.G11.T1.ADAPT.A1": {
+    "title": "Adapting to environmental challenges",
+    "description": "How a business adapts to challenges of the three environments: information management, strategic responses, mergers/takeovers/alliances, organisation design and flexibility, social responsibility, and lobbying, networking and power relationships.",
+    "grade": 11,
+    "strand": "T1 — Business environments, socio-economic issues, sectors, ownership & acquiring a business",
+    "skill_ids": ["BUS.G11.T1.ADAPT.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T1",
+    "caps_topic": "Micro, market and macro environments",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+    "recovery_strategy": "Lobbying = influencing decision-makers. Networking = building useful contacts. Power relationships = strategic alliances and persuading big investors. Mergers/takeovers combine firms; flexibility and information management prepare the business for change it cannot control.",
+    "questions": [
+      {
+        "ref": "G11.ADAPT.A1.01",
+        "question": "When a business cannot control an environment, what is the realistic response?",
+        "input_type": "choice",
+        "options": ["Adapt to it", "Pretend it does not exist", "Take it to court", "Wait for it to disappear"],
+        "expected": "Adapt to it",
+        "memo": "A business cannot control the market or macro environment, so it must adapt — change its own plans to fit the new situation.",
+        "error_signals": ["ERR_BUS_ADAPT_RESPONSE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ADAPT.A1.02",
+        "question": "When two businesses combine to form one, it is called a _________.",
+        "input_type": "cloze",
+        "options": ["merger", "lockout", "strike", "budget"],
+        "expected": "merger",
+        "memo": "A merger is when two businesses join together to become a single, larger business.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ADAPT.A1.03",
+        "question": "True or false: Lobbying is one way a business can respond to its macro environment.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Lobbying — influencing decision-makers and regulators — is a recognised way of getting involved in the macro environment.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ADAPT.A1.04",
+        "question": "Building useful contacts and relationships to help cope with the business environment is called _________.",
+        "input_type": "choice",
+        "options": ["networking", "lobbying", "merging", "striking"],
+        "expected": "networking",
+        "memo": "Networking is building contacts and relationships — for example to find new customers or partners.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ADAPT.A1.05",
+        "question": "True or false: A takeover (acquisition) is when one business buys another business.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "In a takeover or acquisition, one business buys another and takes control of it.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ADAPT.A1.06",
+        "question": "Cooperating with another business while each stays separate is called forming a _________ alliance.",
+        "input_type": "cloze",
+        "options": ["strategic", "hostile", "single", "closed"],
+        "expected": "strategic",
+        "memo": "A strategic alliance is an agreement where two businesses cooperate for mutual benefit while remaining separate companies.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ADAPT.A1.07",
+        "question": "Sort each way of adapting into the right group.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "combine", "label": "Combining or buying firms"},
+          {"id": "influence", "label": "Influencing outsiders"},
+          {"id": "internal", "label": "Internal flexibility"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Merging with another company", "correct_bucket": "combine"},
+          {"id": "i2", "text": "Lobbying the government for fair rules", "correct_bucket": "influence"},
+          {"id": "i3", "text": "Networking to find new customers", "correct_bucket": "influence"},
+          {"id": "i4", "text": "Reorganising departments to react faster", "correct_bucket": "internal"},
+          {"id": "i5", "text": "Taking over a smaller rival", "correct_bucket": "combine"},
+          {"id": "i6", "text": "Cross-training staff so they can switch roles", "correct_bucket": "internal"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Mergers and takeovers combine firms; lobbying and networking influence outsiders; reorganising and cross-training build internal flexibility.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ADAPT.A1.08",
+        "question": "A business merges with a competitor to cope with tough competition. This adaptation is best described as a:",
+        "input_type": "choice",
+        "options": ["strategic response (a merger)", "go-slow", "budget cut", "social responsibility project"],
+        "expected": "strategic response (a merger)",
+        "memo": "Merging with a competitor is a strategic response to market pressure — combining strengths to compete better.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ADAPT.A1.09",
+        "question": "_________ management means gathering and using information about the environment so the business can make better decisions.",
+        "input_type": "cloze",
+        "options": ["Information", "Stock", "Conflict", "Petty cash"],
+        "expected": "Information",
+        "memo": "Information management is collecting and using reliable information about the environment to respond well to change.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ADAPT.A1.10",
+        "question": "Why might a business form a strategic alliance with another firm?",
+        "input_type": "choice",
+        "options": ["To gain strength to cope with an environment it cannot control", "To break the law together", "To stop trading completely", "To avoid paying any staff"],
+        "expected": "To gain strength to cope with an environment it cannot control",
+        "memo": "Alliances pool strengths and contacts so each business is better able to cope with pressures it cannot face alone.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ADAPT.A1.11",
+        "question": "True or false: Acting with social responsibility can be a way for a business to respond positively to its environment.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Social responsibility — giving back to the community and protecting the environment — is one recognised way a business responds to its environment and builds goodwill.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ADAPT.A1.12",
+        "question": "Thesis: 'A small business should network actively to help it cope with its business environment.' Choose the THREE strongest supporting reasons.",
+        "input_type": "argument-builder",
+        "thesis": "A small business should network actively to help it cope with its business environment.",
+        "pool": [
+          {"id": "a1", "text": "Networking can bring in new customers and suppliers", "strength": "strong"},
+          {"id": "a2", "text": "Contacts can share useful information about coming changes", "strength": "strong"},
+          {"id": "a3", "text": "Partnerships built through networking can open new opportunities", "strength": "strong"},
+          {"id": "a4", "text": "Networking lets the business control the whole economy", "strength": "counter"},
+          {"id": "a5", "text": "The owner enjoys free snacks at networking events", "strength": "red_herring"},
+          {"id": "a6", "text": "Networking is only worth doing once the business is already huge", "strength": "weak"}
+        ],
+        "pick_n": 3,
+        "correct_selection": ["a1", "a2", "a3"],
+        "expected": ["a1", "a2", "a3"],
+        "memo": "The strong reasons are new customers/suppliers, early information, and new opportunities. The others overclaim, are irrelevant, or wrongly limit networking to big businesses.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ADAPT.A1.13",
+        "question": "A firm redesigns its structure so it can react faster when the market changes. This is an example of:",
+        "input_type": "choice",
+        "options": ["organisation design and flexibility", "a hostile takeover", "load-shedding", "a trade union"],
+        "expected": "organisation design and flexibility",
+        "memo": "Changing the structure to respond quickly is organisation design and flexibility — building the ability to adapt into the business itself.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ADAPT.A1.14",
+        "question": "Sort each action into the type of involvement it shows.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "lobbying", "label": "Lobbying"},
+          {"id": "networking", "label": "Networking"},
+          {"id": "power", "label": "Power relationship"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Petitioning regulators to change a proposed rule", "correct_bucket": "lobbying"},
+          {"id": "i2", "text": "Meeting potential clients at a trade fair", "correct_bucket": "networking"},
+          {"id": "i3", "text": "Forming a strategic alliance with a major firm", "correct_bucket": "power"},
+          {"id": "i4", "text": "Bargaining with government over an industry law", "correct_bucket": "lobbying"},
+          {"id": "i5", "text": "Swapping contacts with other small business owners", "correct_bucket": "networking"},
+          {"id": "i6", "text": "Persuading large investors to back the business", "correct_bucket": "power"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Lobbying influences rule-makers; networking builds contacts; power relationships use alliances and big investors to gain strength.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ADAPT.A1.15",
+        "question": "What is the difference between a merger and a takeover?",
+        "input_type": "choice",
+        "options": ["A merger combines two firms into one; a takeover is one firm buying another", "A merger is illegal; a takeover is legal", "A merger only happens between small firms", "There is no difference between them"],
+        "expected": "A merger combines two firms into one; a takeover is one firm buying another",
+        "memo": "In a merger both firms join as equals into one business; in a takeover one firm buys and controls the other.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ADAPT.A1.16",
+        "question": "Persuading large investors to back the business and forming alliances are examples of using _________ relationships.",
+        "input_type": "cloze",
+        "options": ["power", "family", "customer", "supplier"],
+        "expected": "power",
+        "memo": "Power relationships use strategic alliances and the influence of large investors to give the business more strength in its environment.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ADAPT.A1.17",
+        "question": "A rise in fuel prices (a macro factor) has pushed up a delivery firm's costs. Which response shows it adapting sensibly?",
+        "input_type": "choice",
+        "options": ["Planning more efficient routes and reviewing its prices", "Demanding that fuel prices be lowered for it alone", "Ignoring the increase entirely", "Closing down immediately"],
+        "expected": "Planning more efficient routes and reviewing its prices",
+        "memo": "It cannot control fuel prices, so it adapts — cutting fuel use through better routes and adjusting prices to stay viable.",
+        "error_signals": ["ERR_BUS_ADAPT_RESPONSE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.ADAPT.A1.18",
+        "question": "Two firms agree to share a distribution network while staying fully independent companies. This is best described as:",
+        "input_type": "choice",
+        "options": ["a strategic alliance", "a merger", "a takeover", "a strike"],
+        "expected": "a strategic alliance",
+        "memo": "Cooperating for mutual benefit while remaining separate companies is a strategic alliance — not a merger (one firm) or takeover (one buys the other).",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.ADAPT.A1.19",
+        "question": "Evaluate: 'A business facing a macro challenge can only sit back and suffer.' Which response is best?",
+        "input_type": "choice",
+        "options": ["Incorrect — it can adapt, manage information, build flexibility, and lobby or network", "Correct — there is nothing any business can ever do", "Correct — only mergers can help", "Incorrect — it can simply control the macro environment"],
+        "expected": "Incorrect — it can adapt, manage information, build flexibility, and lobby or network",
+        "memo": "A business cannot control the macro environment but has many active responses: adapting, gathering information, staying flexible, and lobbying or networking.",
+        "error_signals": ["ERR_BUS_ADAPT_RESPONSE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.ADAPT.A1.20",
+        "question": "A struggling business buys out the supplier it depends on so it can secure its raw materials. This adaptation is a:",
+        "input_type": "choice",
+        "options": ["takeover (acquisition)", "go-slow", "lockout", "lobbying campaign"],
+        "expected": "takeover (acquisition)",
+        "memo": "Buying out another business — here a supplier — is a takeover or acquisition, used as a strategic response to secure supply.",
+        "error_signals": ["ERR_BUS_ADAPT_METHOD"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

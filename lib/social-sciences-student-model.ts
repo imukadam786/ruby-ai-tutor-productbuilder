@@ -12,11 +12,22 @@ const SUBJECT = "social-sciences";
 
 export type SocialSciencesTopicStatus = "available" | "in_progress" | "mastered";
 
+export interface SocialSciencesSkillCounts {
+  correct_count: number;
+  attempt_count: number;
+}
+
 export interface SocialSciencesProfile {
   id: string;
   name: string;
   grade: number;
   mastery: Record<string, SocialSciencesTopicStatus>;
+  /**
+   * topic_id → cumulative correct / attempt counts across every sitting.
+   * Drives the content-mastery accuracy bar (see lib/content-mastery.ts).
+   * Optional for back-compat with profiles saved before this field existed.
+   */
+  skill_counts?: Record<string, SocialSciencesSkillCounts>;
   used_questions: Record<string, string[]>;
   total_attempts: number;
   total_correct: number;
@@ -140,6 +151,34 @@ export function getSocialSciencesMasteryMap(): Record<string, SocialSciencesTopi
 
 export function getSocialSciencesUsedRefs(skillId: string): string[] {
   return loadSocialSciencesProfile()?.used_questions?.[skillId] ?? [];
+}
+
+/** Cumulative correct / attempt counts for a topic (0/0 when none yet). */
+export function getSocialSciencesSkillCounts(skillId: string): SocialSciencesSkillCounts {
+  return loadSocialSciencesProfile()?.skill_counts?.[skillId] ?? { correct_count: 0, attempt_count: 0 };
+}
+
+/**
+ * Adds this run's correct / attempt deltas onto a topic's cumulative counts so
+ * the content-mastery accuracy bar is measured across every sitting (mirrors
+ * how recordHistorySkillResult accumulates). Persists to localStorage + Supabase.
+ */
+export function addSocialSciencesSkillCounts(skillId: string, correctDelta: number, attemptDelta: number): void {
+  const profile = loadSocialSciencesProfile();
+  if (!profile) return;
+  const existing = profile.skill_counts?.[skillId] ?? { correct_count: 0, attempt_count: 0 };
+  const updated: SocialSciencesProfile = {
+    ...profile,
+    skill_counts: {
+      ...(profile.skill_counts ?? {}),
+      [skillId]: {
+        correct_count: existing.correct_count + correctDelta,
+        attempt_count: existing.attempt_count + attemptDelta,
+      },
+    },
+    last_active: new Date().toISOString(),
+  };
+  saveSocialSciencesProfile(updated);
 }
 
 export function recordSocialSciencesAnswer(skillId: string, questionRef: string, isCorrect: boolean): void {

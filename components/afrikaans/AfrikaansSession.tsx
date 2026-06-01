@@ -43,6 +43,7 @@ import {
 } from "@/lib/analytics";
 import {
   ACCURACY_TARGET,
+  contentAbilityLevel,
   isContentMastered,
   requiredCoverageCount,
 } from "@/lib/content-mastery";
@@ -182,7 +183,8 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
   );
 
   // ─── Load next question for the current skill ──────────────────────────────
-  const loadNextQuestion = useCallback(async (sid: string) => {
+  const loadNextQuestion = useCallback(
+    async (sid: string, sessionCorrect = 0, sessionAttempts = 0) => {
     setPhase("loading");
     setError(null);
     setAnswer("");
@@ -190,11 +192,18 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
     // Read used refs from the source of truth (localStorage) to avoid stale state.
     const current = loadAfrikaansProfile();
     const used = current?.used_questions?.[sid] ?? [];
+    // Difficulty matching: derive ability from running accuracy (prior
+    // recorded totals + this sitting's answers so far).
+    const prior = current?.skill_mastery[sid];
+    const abilityLevel = contentAbilityLevel(
+      (prior?.correct_count ?? 0) + sessionCorrect,
+      (prior?.attempt_count ?? 0) + sessionAttempts,
+    );
     try {
       const res = await apiFetch("/api/afrikaans/generate-question", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ skill_id: sid, used_refs: used }),
+        body: JSON.stringify({ skill_id: sid, used_refs: used, ability_level: abilityLevel }),
       });
       if (!res.ok) {
         setError("Could not load a question. Please try again.");
@@ -218,7 +227,9 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
       setError("Could not load a question. Please try again.");
       setPhase("feedback");
     }
-  }, []);
+    },
+    [],
+  );
 
   // ─── Skill picked from the tree ────────────────────────────────────────────
   const handlePickSkill = useCallback(
@@ -567,7 +578,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
 
             {phase === "feedback" && (
               <button
-                onClick={() => skillId && loadNextQuestion(skillId)}
+                onClick={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
                 disabled={submitting}
                 className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
               >

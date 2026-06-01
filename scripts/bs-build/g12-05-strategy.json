@@ -1,0 +1,273 @@
+{
+  "BUS.G12.T1.STRATEGY.A1": {
+    "title": "Macro-environment business strategies",
+    "description": "Devising strategies for how a business can respond to challenges of the macro environment, then evaluating them: SWOT-based formulation, implementation and evaluation; integration strategies (forward, backward, horizontal), intensive strategies (market penetration, market and product development), diversification strategies, and defensive strategies (retrenchment, divestiture, liquidation).",
+    "grade": 12,
+    "strand": "T1 — Legislation, Human Resources, ethics, creative thinking & business strategies",
+    "skill_ids": ["BUS.G12.T1.STRATEGY.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T1",
+    "caps_topic": "Micro, market and macro environments",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+    "recovery_strategy": "Integration = take over another level (supplier = backward, distributor = forward, competitor = horizontal). Intensive = grow current/new products and markets. Diversification = move into new areas. Defensive = cut back (retrench, divest, liquidate).",
+    "questions": [
+      {
+        "ref": "G12.STRATEGY.A1.01",
+        "question": "A business taking over its own supplier is using _________ integration.",
+        "input_type": "choice",
+        "options": ["backward", "forward", "horizontal", "lateral"],
+        "expected": "backward",
+        "memo": "Backward integration is taking control of a supplier — moving 'back' up the supply chain.",
+        "error_signals": ["ERR_BUS_STRAT_INTEGRATION"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.STRATEGY.A1.02",
+        "question": "A business taking over a distributor or retailer that sells its products is using _________ integration.",
+        "input_type": "choice",
+        "options": ["forward", "backward", "horizontal", "reverse"],
+        "expected": "forward",
+        "memo": "Forward integration is taking control of a distributor or retailer — moving 'forward' down the supply chain towards the customer.",
+        "error_signals": ["ERR_BUS_STRAT_INTEGRATION"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.STRATEGY.A1.03",
+        "question": "A business taking over a competitor at the same level is using _________ integration.",
+        "input_type": "cloze",
+        "options": ["horizontal", "backward", "forward", "vertical"],
+        "expected": "horizontal",
+        "memo": "Horizontal integration is taking over a competitor operating at the same level of the market.",
+        "error_signals": ["ERR_BUS_STRAT_INTEGRATION"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.STRATEGY.A1.04",
+        "question": "True or false: Market penetration means selling more of existing products in existing markets.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Market penetration grows sales of current products in current markets, for example through more advertising or lower prices.",
+        "error_signals": ["ERR_BUS_STRAT_INTENSIVE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.STRATEGY.A1.05",
+        "question": "Closing a business down completely and selling off all its assets is called _________.",
+        "input_type": "choice",
+        "options": ["liquidation", "penetration", "diversification", "induction"],
+        "expected": "liquidation",
+        "memo": "Liquidation is a defensive strategy where the business is closed and its assets sold off.",
+        "error_signals": ["ERR_BUS_STRAT_DEFENSIVE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.STRATEGY.A1.06",
+        "question": "A _________ analysis of strengths, weaknesses, opportunities and threats helps a business formulate strategy.",
+        "input_type": "cloze",
+        "options": ["SWOT", "PAYE", "SABS", "COIDA"],
+        "expected": "SWOT",
+        "memo": "A SWOT analysis identifies internal strengths and weaknesses and external opportunities and threats, guiding strategy.",
+        "error_signals": ["ERR_BUS_STRAT_SWOT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.STRATEGY.A1.07",
+        "question": "Sort each strategy into its category.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "integration", "label": "Integration"},
+          {"id": "intensive", "label": "Intensive"},
+          {"id": "diversification", "label": "Diversification"},
+          {"id": "defensive", "label": "Defensive"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Taking over a supplier", "correct_bucket": "integration"},
+          {"id": "i2", "text": "Selling more of the current product through heavy advertising", "correct_bucket": "intensive"},
+          {"id": "i3", "text": "Launching a completely new product in a new industry", "correct_bucket": "diversification"},
+          {"id": "i4", "text": "Retrenching staff to cut costs", "correct_bucket": "defensive"},
+          {"id": "i5", "text": "Buying a competitor at the same level", "correct_bucket": "integration"},
+          {"id": "i6", "text": "Entering a new geographic market with the existing product", "correct_bucket": "intensive"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Integration takes over suppliers/distributors/competitors; intensive grows current and new products/markets; diversification enters new areas; defensive cuts back.",
+        "error_signals": ["ERR_BUS_STRAT_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.STRATEGY.A1.08",
+        "question": "What does market development mean?",
+        "input_type": "choice",
+        "options": ["Selling existing products in new markets", "Inventing brand-new products", "Closing down a division", "Buying a supplier"],
+        "expected": "Selling existing products in new markets",
+        "memo": "Market development takes existing products into new markets — for example new regions or new customer groups.",
+        "error_signals": ["ERR_BUS_STRAT_INTENSIVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.STRATEGY.A1.09",
+        "question": "What does product development mean?",
+        "input_type": "choice",
+        "options": ["Creating new or improved products for existing markets", "Selling old products in old markets unchanged", "Selling off a division", "Taking over a competitor"],
+        "expected": "Creating new or improved products for existing markets",
+        "memo": "Product development creates new or improved products aimed at the markets the business already serves.",
+        "error_signals": ["ERR_BUS_STRAT_INTENSIVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.STRATEGY.A1.10",
+        "question": "_________ strategies include retrenchment, divestiture and liquidation.",
+        "input_type": "cloze",
+        "options": ["Defensive", "Intensive", "Integration", "Diversification"],
+        "expected": "Defensive",
+        "memo": "Defensive strategies cut a business back — retrenching staff, selling off parts (divestiture) or closing entirely (liquidation).",
+        "error_signals": ["ERR_BUS_STRAT_DEFENSIVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.STRATEGY.A1.11",
+        "question": "True or false: Diversification means moving into new products and new markets.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Diversification spreads the business into new products and often new markets or industries, reducing reliance on one area.",
+        "error_signals": ["ERR_BUS_STRAT_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.STRATEGY.A1.12",
+        "question": "Read both firms' strategies, then decide which each statement matches.",
+        "input_type": "source-comparison",
+        "source_a": {
+          "text": "Sales of our existing drinks are flat, so we are advertising harder and cutting prices to sell more of them in the markets we already serve.",
+          "provenance": "Firm A"
+        },
+        "source_b": {
+          "text": "Demand has collapsed and we are losing money, so we are retrenching staff and selling off a loss-making division to survive.",
+          "provenance": "Firm B"
+        },
+        "statements": [
+          {"id": "s1", "text": "Is using an intensive (market penetration) strategy", "correct_answer": "a_only"},
+          {"id": "s2", "text": "Is using a defensive strategy", "correct_answer": "b_only"},
+          {"id": "s3", "text": "Is responding to a challenge in its environment", "correct_answer": "both"},
+          {"id": "s4", "text": "Is taking over a supplier", "correct_answer": "neither"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "s1=a_only, s2=b_only, s3=both, s4=neither",
+        "memo": "Firm A pushes existing products harder (intensive/penetration); Firm B cuts back to survive (defensive). Both respond to their environment; neither integrates a supplier.",
+        "error_signals": ["ERR_BUS_STRAT_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.STRATEGY.A1.13",
+        "question": "Sort each situation by the type of strategy it most calls for.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "growth", "label": "Growth strategy"},
+          {"id": "defensive", "label": "Defensive strategy"}
+        ],
+        "items": [
+          {"id": "i1", "text": "A profitable firm wants to expand into new regions", "correct_bucket": "growth"},
+          {"id": "i2", "text": "A loss-making firm must cut costs to survive", "correct_bucket": "defensive"},
+          {"id": "i3", "text": "A firm launches an improved product to win more sales", "correct_bucket": "growth"},
+          {"id": "i4", "text": "A firm closes an unprofitable division", "correct_bucket": "defensive"},
+          {"id": "i5", "text": "A firm enters a new industry to spread risk", "correct_bucket": "growth"},
+          {"id": "i6", "text": "A failing firm sells all its assets and shuts down", "correct_bucket": "defensive"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Expanding, improving products and entering new industries are growth strategies; cutting costs, closing divisions and liquidating are defensive.",
+        "error_signals": ["ERR_BUS_STRAT_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.STRATEGY.A1.14",
+        "question": "A bakery buys the wheat farm that supplies its flour. Which strategy is this?",
+        "input_type": "choice",
+        "options": ["Backward integration", "Forward integration", "Market development", "Liquidation"],
+        "expected": "Backward integration",
+        "memo": "Taking over a supplier (the farm) is backward integration, securing the bakery's raw materials.",
+        "error_signals": ["ERR_BUS_STRAT_INTEGRATION"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.STRATEGY.A1.15",
+        "question": "When is a defensive strategy most appropriate?",
+        "input_type": "choice",
+        "options": ["When the business is struggling or declining and must cut back to survive", "When the business is growing strongly", "When demand for its products is rising fast", "When it has more orders than it can fill"],
+        "expected": "When the business is struggling or declining and must cut back to survive",
+        "memo": "Defensive strategies suit a business under pressure that needs to retrench, divest or liquidate to survive.",
+        "error_signals": ["ERR_BUS_STRAT_DEFENSIVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.STRATEGY.A1.16",
+        "question": "Selling off a part or division of the business is called _________.",
+        "input_type": "cloze",
+        "options": ["divestiture", "penetration", "induction", "integration"],
+        "expected": "divestiture",
+        "memo": "Divestiture is a defensive strategy where the business sells off a part or division, often to focus or raise cash.",
+        "error_signals": ["ERR_BUS_STRAT_DEFENSIVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.STRATEGY.A1.17",
+        "question": "Read both struggling firms' plans, then decide which each statement matches.",
+        "input_type": "source-comparison",
+        "source_a": {
+          "text": "We will keep the whole business but sell off one loss-making division to raise cash and refocus.",
+          "provenance": "Firm A"
+        },
+        "source_b": {
+          "text": "The business cannot be saved, so we will close it entirely and sell all the assets to repay debts.",
+          "provenance": "Firm B"
+        },
+        "statements": [
+          {"id": "s1", "text": "Is using divestiture", "correct_answer": "a_only"},
+          {"id": "s2", "text": "Is using liquidation", "correct_answer": "b_only"},
+          {"id": "s3", "text": "Is using a defensive strategy", "correct_answer": "both"},
+          {"id": "s4", "text": "Is expanding into a new market", "correct_answer": "neither"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "s1=a_only, s2=b_only, s3=both, s4=neither",
+        "memo": "Selling one division is divestiture; closing entirely and selling all assets is liquidation. Both are defensive; neither is expansion.",
+        "error_signals": ["ERR_BUS_STRAT_DEFENSIVE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.STRATEGY.A1.18",
+        "question": "A firm's main product is dying and it has cash to invest. Which strategy most directly reduces its reliance on that one product?",
+        "input_type": "choice",
+        "options": ["Diversification into new products or industries", "Liquidating the whole business", "Retrenching all staff", "Doing nothing and waiting"],
+        "expected": "Diversification into new products or industries",
+        "memo": "Diversifying into new products or industries spreads risk so the firm no longer depends on its declining product.",
+        "error_signals": ["ERR_BUS_STRAT_TYPE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.STRATEGY.A1.19",
+        "question": "In a market where almost everyone already owns the product, why might market penetration alone be a weak strategy?",
+        "input_type": "choice",
+        "options": ["There is little room left to grow sales in a saturated market, so new markets or products may be needed", "Penetration always works in every market", "Saturated markets have unlimited new customers", "Penetration is illegal in saturated markets"],
+        "expected": "There is little room left to grow sales in a saturated market, so new markets or products may be needed",
+        "memo": "When a market is saturated, pushing existing products harder yields little; market development or product development may work better.",
+        "error_signals": ["ERR_BUS_STRAT_INTENSIVE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.STRATEGY.A1.20",
+        "question": "Why should a business evaluate its strategies after implementing them?",
+        "input_type": "choice",
+        "options": ["To compare actual results with what was expected and take corrective action", "Because strategies never need checking", "To make the strategy secret", "To avoid ever changing course"],
+        "expected": "To compare actual results with what was expected and take corrective action",
+        "memo": "Strategy evaluation checks whether results match expectations and prompts corrective action where they fall short.",
+        "error_signals": ["ERR_BUS_STRAT_EVALUATE"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

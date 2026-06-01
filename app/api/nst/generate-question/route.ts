@@ -28,10 +28,12 @@ export async function POST(req: NextRequest) {
       skill_id,
       used_refs = [],
       attempt_number = 1,
+      ability_level,
     }: {
       skill_id: string;
       used_refs?: string[];
       attempt_number?: number;
+      ability_level?: number;
     } = await req.json();
 
     const topicId = getDomainForSkill(skill_id);
@@ -42,7 +44,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const bankQ = selectQuestion(topicId, used_refs, attempt_number > 1, skill_id);
+    const bankQ = selectQuestion(topicId, used_refs, attempt_number > 1, skill_id, ability_level);
     if (!bankQ) {
       const empty: NstGenerateQuestionResponse = { question: null };
       return NextResponse.json(empty);

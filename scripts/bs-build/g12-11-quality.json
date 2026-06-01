@@ -1,0 +1,254 @@
+{
+  "BUS.G12.T2.QUALITY.A1": {
+    "title": "Quality of performance & TQM",
+    "description": "How the quality of performance within the business functions influences the success or failure of a business: the concept of quality, its relation to the various functions, and the elements of Total Quality Management (TQM) — continuous skills development, total client satisfaction and continuous improvement of processes and systems.",
+    "grade": 12,
+    "strand": "T2 — CSR, human rights, teams, sector & environment, leadership & quality",
+    "skill_ids": ["BUS.G12.T2.QUALITY.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T2",
+    "caps_topic": "Quality of performance",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+    "recovery_strategy": "TQM means everyone in every function continuously improves quality: total client satisfaction, ongoing skills development and constant improvement of processes and systems. Poor quality in any function can sink the business.",
+    "questions": [
+      {
+        "ref": "G12.QUALITY.A1.01",
+        "question": "What does 'quality' mean in business?",
+        "input_type": "choice",
+        "options": ["Meeting or exceeding the standards customers expect", "Charging the highest possible price", "Producing as much as possible regardless of standards", "Ignoring what customers want"],
+        "expected": "Meeting or exceeding the standards customers expect",
+        "memo": "Quality is about meeting or exceeding the standards and expectations of customers.",
+        "error_signals": ["ERR_BUS_QUAL12_CONCEPT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.QUALITY.A1.02",
+        "question": "TQM stands for Total _________ Management.",
+        "input_type": "cloze",
+        "options": ["Quality", "Quantity", "Question", "Quick"],
+        "expected": "Quality",
+        "memo": "TQM is Total Quality Management — a whole-business approach to continuously improving quality.",
+        "error_signals": ["ERR_BUS_QUAL12_TQM"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.QUALITY.A1.03",
+        "question": "True or false: Quality applies to every business function, not just production.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Quality matters in every function — finance, HR, marketing, admin — not only in making the product.",
+        "error_signals": ["ERR_BUS_QUAL12_SCOPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.QUALITY.A1.04",
+        "question": "Which of these is an element of Total Quality Management?",
+        "input_type": "choice",
+        "options": ["Continuous improvement of processes", "Doing the bare minimum once", "Ignoring customer feedback", "Cutting all training"],
+        "expected": "Continuous improvement of processes",
+        "memo": "Continuous improvement of processes and systems is a core element of TQM.",
+        "error_signals": ["ERR_BUS_QUAL12_TQM"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.QUALITY.A1.05",
+        "question": "Total client _________ is one of the elements of TQM.",
+        "input_type": "cloze",
+        "options": ["satisfaction", "confusion", "complaints", "avoidance"],
+        "expected": "satisfaction",
+        "memo": "Total client satisfaction — fully meeting customers' needs — is a key element of TQM.",
+        "error_signals": ["ERR_BUS_QUAL12_TQM"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.QUALITY.A1.06",
+        "question": "True or false: Poor quality can contribute to the failure of a business.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Poor quality drives away customers, raises costs through returns and damages reputation, which can lead to failure.",
+        "error_signals": ["ERR_BUS_QUAL12_SUCCESS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.QUALITY.A1.07",
+        "question": "Sort each item into whether it is a TQM element or not.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "tqm", "label": "TQM element"},
+          {"id": "not", "label": "Not a TQM element"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Continuous skills development", "correct_bucket": "tqm"},
+          {"id": "i2", "text": "Ignoring customer complaints", "correct_bucket": "not"},
+          {"id": "i3", "text": "Total client satisfaction", "correct_bucket": "tqm"},
+          {"id": "i4", "text": "Cutting quality to save money", "correct_bucket": "not"},
+          {"id": "i5", "text": "Continuous improvement of processes and systems", "correct_bucket": "tqm"},
+          {"id": "i6", "text": "Doing a task right once and never reviewing it", "correct_bucket": "not"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "TQM elements include continuous skills development, total client satisfaction and continuous improvement. Ignoring complaints or cutting quality are not.",
+        "error_signals": ["ERR_BUS_QUAL12_TQM"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.QUALITY.A1.08",
+        "question": "How does high quality of performance support business success?",
+        "input_type": "choice",
+        "options": ["It satisfies customers, reduces returns and builds a strong reputation", "It guarantees the business pays no tax", "It removes the need for any customers", "It increases waste and complaints"],
+        "expected": "It satisfies customers, reduces returns and builds a strong reputation",
+        "memo": "Good quality keeps customers happy, cuts the cost of returns and rework, and builds the reputation that drives future sales.",
+        "error_signals": ["ERR_BUS_QUAL12_SUCCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.QUALITY.A1.09",
+        "question": "Thesis: 'Quality must be managed across all business functions, not just production.' Choose the THREE strongest supporting reasons.",
+        "input_type": "argument-builder",
+        "thesis": "Quality must be managed across all business functions, not just production.",
+        "pool": [
+          {"id": "a1", "text": "Poor quality in finance, admin or service also loses customers and money", "strength": "strong"},
+          {"id": "a2", "text": "Customers judge the whole experience, not only the product", "strength": "strong"},
+          {"id": "a3", "text": "Weakness in one function can drag down the whole business", "strength": "strong"},
+          {"id": "a4", "text": "Only the production line ever affects customers", "strength": "counter"},
+          {"id": "a5", "text": "Quality posters look nice on the wall", "strength": "red_herring"},
+          {"id": "a6", "text": "Quality is a one-time task that never needs reviewing", "strength": "weak"}
+        ],
+        "pick_n": 3,
+        "correct_selection": ["a1", "a2", "a3"],
+        "expected": ["a1", "a2", "a3"],
+        "memo": "The strong reasons are that poor quality anywhere loses money, customers judge the whole experience, and one weak function harms the whole. The others are false or irrelevant.",
+        "error_signals": ["ERR_BUS_QUAL12_SCOPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.QUALITY.A1.10",
+        "question": "Continuous _________ development keeps staff skilled and is part of TQM.",
+        "input_type": "cloze",
+        "options": ["skills", "debt", "stock", "waste"],
+        "expected": "skills",
+        "memo": "Continuous skills development keeps the workforce capable of delivering and improving quality — a TQM element.",
+        "error_signals": ["ERR_BUS_QUAL12_TQM"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.QUALITY.A1.11",
+        "question": "What does quality look like in the finance function?",
+        "input_type": "choice",
+        "options": ["Accurate, reliable financial records", "Frequent calculation errors", "Lost invoices", "Late, incorrect statements"],
+        "expected": "Accurate, reliable financial records",
+        "memo": "Quality in finance means accurate, reliable records and reporting — errors here harm the whole business.",
+        "error_signals": ["ERR_BUS_QUAL12_SCOPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.QUALITY.A1.12",
+        "question": "True or false: TQM is a once-off project that is finished and then forgotten.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "False",
+        "memo": "TQM is ongoing — it is about continuous improvement, not a single completed task.",
+        "error_signals": ["ERR_BUS_QUAL12_TQM"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.QUALITY.A1.13",
+        "question": "Sort each example of quality under the business function it belongs to.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "production", "label": "Production"},
+          {"id": "finance", "label": "Finance"},
+          {"id": "hr", "label": "Human Resources"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Defect-free products", "correct_bucket": "production"},
+          {"id": "i2", "text": "Accurate financial statements", "correct_bucket": "finance"},
+          {"id": "i3", "text": "Well-trained, skilled staff", "correct_bucket": "hr"},
+          {"id": "i4", "text": "Consistent product standards", "correct_bucket": "production"},
+          {"id": "i5", "text": "Correct, on-time payments", "correct_bucket": "finance"},
+          {"id": "i6", "text": "Fair, effective recruitment", "correct_bucket": "hr"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Defect-free, consistent goods = production quality; accurate, timely records and payments = finance quality; skilled staff and fair recruitment = HR quality.",
+        "error_signals": ["ERR_BUS_QUAL12_SCOPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.QUALITY.A1.14",
+        "question": "What is a likely impact of consistently poor quality?",
+        "input_type": "choice",
+        "options": ["Returns, lost customers and higher costs", "More loyal customers", "Lower costs and waste", "A stronger reputation"],
+        "expected": "Returns, lost customers and higher costs",
+        "memo": "Poor quality causes returns, drives customers away and raises costs through rework — the opposite of what a business needs.",
+        "error_signals": ["ERR_BUS_QUAL12_SUCCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.QUALITY.A1.15",
+        "question": "How does the need for quality differ between a sole trader and a large business?",
+        "input_type": "choice",
+        "options": ["Both need quality, but a large business needs formal systems to maintain it across many staff", "Only large businesses need quality", "Only sole traders need quality", "Neither needs to worry about quality"],
+        "expected": "Both need quality, but a large business needs formal systems to maintain it across many staff",
+        "memo": "Every business needs quality; a large business relies on formal quality systems to keep standards consistent across many people and sites.",
+        "error_signals": ["ERR_BUS_QUAL12_SCOPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.QUALITY.A1.16",
+        "question": "Continuous _________ of processes and systems is a key TQM element.",
+        "input_type": "cloze",
+        "options": ["improvement", "neglect", "reduction", "hiding"],
+        "expected": "improvement",
+        "memo": "TQM relies on continuously improving processes and systems so quality keeps rising over time.",
+        "error_signals": ["ERR_BUS_QUAL12_TQM"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.QUALITY.A1.17",
+        "question": "A well-made product is ruined by slow, rude service and billing errors. How does this affect the business?",
+        "input_type": "choice",
+        "options": ["Quality failures in service and finance can still drive customers away despite the good product", "Nothing changes, because the product is good", "It increases customer loyalty", "Only the production function matters"],
+        "expected": "Quality failures in service and finance can still drive customers away despite the good product",
+        "memo": "Because customers judge the whole experience, poor service and billing can lose them even when the product itself is excellent.",
+        "error_signals": ["ERR_BUS_QUAL12_SCOPE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.QUALITY.A1.18",
+        "question": "A manager wants to cut quality checks to save money. How should this be evaluated?",
+        "input_type": "choice",
+        "options": ["Risky — short-term savings can be outweighed by returns, lost customers and reputational damage", "Always a good idea with no downside", "It guarantees higher quality", "Quality checks never affect cost"],
+        "expected": "Risky — short-term savings can be outweighed by returns, lost customers and reputational damage",
+        "memo": "Cutting quality control may save a little now but often costs far more later through defects, returns and lost trust.",
+        "error_signals": ["ERR_BUS_QUAL12_SUCCESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.QUALITY.A1.19",
+        "question": "Why does TQM treat quality as everyone's responsibility?",
+        "input_type": "choice",
+        "options": ["Because quality depends on every function and person, so all must continuously improve", "Because only managers affect quality", "Because quality is fixed and cannot change", "Because customers do not notice quality"],
+        "expected": "Because quality depends on every function and person, so all must continuously improve",
+        "memo": "TQM recognises that quality is created across every function, so it makes continuous improvement everyone's job.",
+        "error_signals": ["ERR_BUS_QUAL12_TQM"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.QUALITY.A1.20",
+        "question": "How does consistent quality of performance influence whether a business succeeds or fails?",
+        "input_type": "choice",
+        "options": ["High quality builds loyalty and reputation that drive success; poor quality erodes them towards failure", "Quality has no link to success or failure", "Only price determines success", "Failure happens regardless of quality"],
+        "expected": "High quality builds loyalty and reputation that drive success; poor quality erodes them towards failure",
+        "memo": "Quality is a major driver of success: it builds the loyalty and reputation a business depends on, while poor quality steadily undermines them.",
+        "error_signals": ["ERR_BUS_QUAL12_SUCCESS"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

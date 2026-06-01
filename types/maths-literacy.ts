@@ -124,6 +124,9 @@ export interface MathsLiteracyStudentProfile {
   total_correct: number;
   created_at: string;
   last_active: string;
+  // Cumulative distinct question ids answered per skill (deduped for the
+  // content-mastery coverage check). Mirrors History's used_questions.
+  used_questions?: Record<string, string[]>;
 }
 
 // ─── API contracts ──────────────────────────────────────────────────────────
@@ -147,6 +150,9 @@ export interface MathsLiteracyGenerateResponse {
   // is fine because it's only sent back to the server.
   expected_answer_key: string; // JSON string of { mode, expectedAnswer?, tolerance?, options?, fields? }
   working_steps: string[];
+  // Total distinct questions authored for this skill's bank — the coverage
+  // denominator used by the content-mastery rule (lib/content-mastery.ts).
+  pool_size: number;
 }
 
 export interface MathsLiteracySubmitRequest {

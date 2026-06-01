@@ -1,0 +1,273 @@
+{
+  "BUS.G11.T3.CITIZEN.A1": {
+    "title": "Citizenship roles & responsibilities",
+    "description": "The citizenship roles and responsibilities business practitioners perform: how citizens, through business, contribute to the social and economic development of their communities, the concept of the business community, and the role of business, civil society, NGOs and CBOs.",
+    "grade": 11,
+    "strand": "T3 — Entrepreneurial success, citizenship, marketing & production functions",
+    "skill_ids": ["BUS.G11.T3.CITIZEN.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T3",
+    "caps_topic": "Social responsibility",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+    "recovery_strategy": "NGO = non-governmental organisation (independent, often national). CBO = community-based organisation (local). Business practitioners are citizens who can give time, effort and resources to develop their communities.",
+    "questions": [
+      {
+        "ref": "G11.CITIZEN.A1.01",
+        "question": "The letters 'NGO' stand for a _________ organisation.",
+        "input_type": "cloze",
+        "options": ["non-governmental", "national-government", "newly-grouped", "non-growing"],
+        "expected": "non-governmental",
+        "memo": "An NGO is a non-governmental organisation — an independent body, not run by the government, that works for a public cause.",
+        "error_signals": ["ERR_BUS_CITIZEN_NGO"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CITIZEN.A1.02",
+        "question": "A CBO is a _________ organisation.",
+        "input_type": "choice",
+        "options": ["community-based", "company-based", "commercially-banked", "centrally-budgeted"],
+        "expected": "community-based",
+        "memo": "A CBO is a community-based organisation that works to meet the needs of a specific local community.",
+        "error_signals": ["ERR_BUS_CITIZEN_CBO"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CITIZEN.A1.03",
+        "question": "True or false: Business practitioners are also citizens who can help their communities.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Business people are citizens too, and through their businesses they can contribute to community development.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CITIZEN.A1.04",
+        "question": "Which is a way a business person can contribute to their community?",
+        "input_type": "choice",
+        "options": ["Volunteering time and skills to a local cause", "Refusing to employ anyone local", "Polluting the local river", "Ignoring community needs"],
+        "expected": "Volunteering time and skills to a local cause",
+        "memo": "Giving time, skills or resources to a community cause is a clear example of a business person fulfilling a citizenship role.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CITIZEN.A1.05",
+        "question": "Giving _________ and effort to a community cause is part of a business person's citizenship role.",
+        "input_type": "cloze",
+        "options": ["time", "litter", "noise", "debt"],
+        "expected": "time",
+        "memo": "Contributing time and effort to help others is a key way business practitioners act as good citizens.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CITIZEN.A1.06",
+        "question": "True or false: An NGO is simply a government department.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "False",
+        "memo": "An NGO is non-governmental — independent of the government — even though it often works alongside it for public benefit.",
+        "error_signals": ["ERR_BUS_CITIZEN_NGO"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CITIZEN.A1.07",
+        "question": "Sort each organisation into the correct type.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "ngo", "label": "NGO"},
+          {"id": "cbo", "label": "CBO"},
+          {"id": "govt", "label": "Government body"}
+        ],
+        "items": [
+          {"id": "i1", "text": "A national charity independent of government", "correct_bucket": "ngo"},
+          {"id": "i2", "text": "A local soup kitchen run by neighbourhood volunteers", "correct_bucket": "cbo"},
+          {"id": "i3", "text": "The Department of Health", "correct_bucket": "govt"},
+          {"id": "i4", "text": "An international relief organisation", "correct_bucket": "ngo"},
+          {"id": "i5", "text": "A street committee fixing a local park", "correct_bucket": "cbo"},
+          {"id": "i6", "text": "A municipality", "correct_bucket": "govt"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "NGOs are independent (often national/international) bodies; CBOs serve a specific local community; government bodies are run by the state.",
+        "error_signals": ["ERR_BUS_CITIZEN_NGO"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CITIZEN.A1.08",
+        "question": "How can a business contribute to the social and economic development of its community?",
+        "input_type": "choice",
+        "options": ["By creating jobs, training people and supporting community projects", "By refusing to hire anyone", "By keeping all its profit hidden offshore", "By avoiding the community entirely"],
+        "expected": "By creating jobs, training people and supporting community projects",
+        "memo": "Creating jobs, building skills and backing local projects all develop the community both socially and economically.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CITIZEN.A1.09",
+        "question": "Build a 3-part explanation of why a business practitioner should contribute to their community.",
+        "input_type": "paragraph-template",
+        "prompt": "Build a 3-part explanation of why a business practitioner should contribute to their community.",
+        "template": [
+          {
+            "slot": "point",
+            "label": "Pick the main claim",
+            "options": [
+              {"id": "p1", "text": "Business practitioners should contribute because they are citizens with a role in their community", "correct": true},
+              {"id": "p2", "text": "Business practitioners should contribute only if forced by law", "correct": false},
+              {"id": "p3", "text": "Business practitioners should never get involved in their community", "correct": false}
+            ]
+          },
+          {
+            "slot": "evidence",
+            "label": "Pick the supporting evidence",
+            "options": [
+              {"id": "e1", "text": "Their skills, resources and influence can address real local needs", "correct": true},
+              {"id": "e2", "text": "Businesses have no resources that could ever help anyone", "correct": false},
+              {"id": "e3", "text": "Communities never benefit from local businesses", "correct": false}
+            ]
+          },
+          {
+            "slot": "explanation",
+            "label": "Pick the best explanation",
+            "options": [
+              {"id": "x1", "text": "A stronger community provides customers, workers and goodwill, benefiting the business too", "correct": true},
+              {"id": "x2", "text": "Helping the community always destroys the business", "correct": false},
+              {"id": "x3", "text": "Community development has no link to business at all", "correct": false}
+            ]
+          }
+        ],
+        "expected": ["p1", "e1", "x1"],
+        "memo": "Claim: practitioners are citizens with a community role. Evidence: their skills and resources can meet real needs. Explanation: a stronger community also benefits the business through customers, workers and goodwill.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CITIZEN.A1.10",
+        "question": "The people connected to and served by a business make up its business _________.",
+        "input_type": "cloze",
+        "options": ["community", "invoice", "inventory", "overdraft"],
+        "expected": "community",
+        "memo": "The business community is the network of people — customers, staff, neighbours — connected to and affected by the business.",
+        "error_signals": ["ERR_BUS_CITIZEN_COMMUNITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CITIZEN.A1.11",
+        "question": "What is the main role of a community-based organisation (CBO)?",
+        "input_type": "choice",
+        "options": ["To address the needs of a specific local community", "To run the national government", "To make profit for shareholders", "To import goods from overseas"],
+        "expected": "To address the needs of a specific local community",
+        "memo": "CBOs focus on meeting the needs of their own local community, such as feeding schemes or local clean-ups.",
+        "error_signals": ["ERR_BUS_CITIZEN_CBO"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CITIZEN.A1.12",
+        "question": "True or false: Contributing to the community can also improve a business's reputation.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "When a business gives back, the community and customers see it positively, which strengthens its reputation.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CITIZEN.A1.13",
+        "question": "Sort each action into whether it is a citizenship contribution or not.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "contribution", "label": "Citizenship contribution"},
+          {"id": "not", "label": "Not a contribution"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Sponsoring a local youth sports team", "correct_bucket": "contribution"},
+          {"id": "i2", "text": "Dumping waste illegally to save money", "correct_bucket": "not"},
+          {"id": "i3", "text": "Volunteering as an HIV/Aids counsellor", "correct_bucket": "contribution"},
+          {"id": "i4", "text": "Overcharging poor customers", "correct_bucket": "not"},
+          {"id": "i5", "text": "Mentoring young local entrepreneurs", "correct_bucket": "contribution"},
+          {"id": "i6", "text": "Ignoring a local skills shortage", "correct_bucket": "not"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Sponsoring, volunteering and mentoring are contributions; dumping waste, overcharging and ignoring needs are not.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CITIZEN.A1.14",
+        "question": "Which is an example of an individual giving back to the community through business?",
+        "input_type": "choice",
+        "options": ["An owner mentoring local youth and offering work experience", "An owner refusing to speak to anyone local", "An owner hiding all business activity", "An owner blocking a community project"],
+        "expected": "An owner mentoring local youth and offering work experience",
+        "memo": "Mentoring young people and offering experience uses the owner's position to develop the community.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CITIZEN.A1.15",
+        "question": "Why can individual business practitioners make a real difference in community development?",
+        "input_type": "choice",
+        "options": ["They have skills, resources and influence they can direct towards local needs", "They have no ability to affect anything", "Only the government can ever help communities", "Businesses are always separate from communities"],
+        "expected": "They have skills, resources and influence they can direct towards local needs",
+        "memo": "Business practitioners control resources, skills and networks they can put to work solving community problems.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CITIZEN.A1.16",
+        "question": "Civil society includes _________ and CBOs that work for the public good.",
+        "input_type": "cloze",
+        "options": ["NGOs", "banks", "factories", "mines"],
+        "expected": "NGOs",
+        "memo": "Civil society is made up of independent groups such as NGOs and CBOs that act for the public good alongside business and government.",
+        "error_signals": ["ERR_BUS_CITIZEN_NGO"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CITIZEN.A1.17",
+        "question": "A business owner gives staff paid time off each month to volunteer at a local clinic. How is this best evaluated?",
+        "input_type": "choice",
+        "options": ["It fulfils a citizenship role and can build goodwill, though it has a cost", "It is pointless because only government should help", "It harms the community", "It has no possible benefit to the business"],
+        "expected": "It fulfils a citizenship role and can build goodwill, though it has a cost",
+        "memo": "Releasing staff to volunteer supports the community and builds the business's goodwill, even though it costs some working time.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.CITIZEN.A1.18",
+        "question": "Why is contributing to the community described as a responsibility, not just optional charity?",
+        "input_type": "choice",
+        "options": ["Because businesses use community resources and people, so they have a duty to give back", "Because the law requires every business to donate half its profit", "Because charity and responsibility are unrelated", "Because communities owe businesses their support"],
+        "expected": "Because businesses use community resources and people, so they have a duty to give back",
+        "memo": "Businesses depend on the community for customers, workers and infrastructure, which is why giving back is seen as a citizenship responsibility.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.CITIZEN.A1.19",
+        "question": "How do business, NGOs and CBOs ideally work together for community development?",
+        "input_type": "choice",
+        "options": ["Each contributes resources and reach to tackle social and economic needs together", "They compete to avoid helping anyone", "Only one of them is allowed to act at a time", "They should never co-operate"],
+        "expected": "Each contributes resources and reach to tackle social and economic needs together",
+        "memo": "Business brings resources, NGOs bring reach and expertise, and CBOs bring local knowledge — together they can address community needs more effectively.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.CITIZEN.A1.20",
+        "question": "A successful local manufacturer wants to act as a responsible corporate citizen. Which plan fits best?",
+        "input_type": "choice",
+        "options": ["Partner with a CBO to run a skills programme for unemployed local youth", "Quietly cut all ties with the surrounding area", "Stop paying wages to fund a billboard", "Move profits offshore and ignore local needs"],
+        "expected": "Partner with a CBO to run a skills programme for unemployed local youth",
+        "memo": "Partnering with a local CBO to build skills directly develops the community and reflects responsible corporate citizenship.",
+        "error_signals": ["ERR_BUS_CITIZEN_ROLE"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

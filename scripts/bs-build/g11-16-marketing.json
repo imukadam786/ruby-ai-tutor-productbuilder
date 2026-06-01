@@ -1,0 +1,259 @@
+{
+  "BUS.G11.T3.MARKETING.A1": {
+    "title": "The marketing function",
+    "description": "Aspects of the marketing function: marketing activities, product policy (development, design, packaging, trademarks), pricing policy, distribution policy (channels, intermediaries, direct/indirect), communication policy (advertising, sales promotion, publicity, personal selling) and foreign marketing (imports and exports).",
+    "grade": 11,
+    "strand": "T3 — Entrepreneurial success, citizenship, marketing & production functions",
+    "skill_ids": ["BUS.G11.T3.MARKETING.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T3",
+    "caps_topic": "Business functions",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source"],
+    "recovery_strategy": "Tie each activity to its marketing policy: product = design, packaging and brand; pricing = setting the price; distribution = getting it to the customer (channels, intermediaries); communication = telling customers about it (advertising, selling). Foreign marketing = imports and exports.",
+    "questions": [
+      {
+        "ref": "G11.MARKETING.A1.01",
+        "question": "The four Ps of the marketing mix are product, price, place and _________.",
+        "input_type": "cloze",
+        "options": ["promotion", "profit", "premises", "packaging"],
+        "expected": "promotion",
+        "memo": "The four Ps are product, price, place (distribution) and promotion (marketing communication).",
+        "error_signals": ["ERR_BUS_MARKETING_MIX"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.MARKETING.A1.02",
+        "question": "Which marketing policy covers a product's design, packaging and branding?",
+        "input_type": "choice",
+        "options": ["Product policy", "Pricing policy", "Distribution policy", "Communication policy"],
+        "expected": "Product policy",
+        "memo": "Product policy deals with the product itself — its development, design, packaging and trademark.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.MARKETING.A1.03",
+        "question": "True or false: Advertising is part of marketing communication.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Advertising is one form of marketing communication, used to tell customers about a product.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.MARKETING.A1.04",
+        "question": "Distribution (place) is mainly about:",
+        "input_type": "choice",
+        "options": ["Getting the product to the customer", "Designing the product's logo", "Deciding the product's price", "Writing the advertisement"],
+        "expected": "Getting the product to the customer",
+        "memo": "Distribution is about the channels and intermediaries that move the product from the producer to the customer.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.MARKETING.A1.05",
+        "question": "Selling goods to customers in other countries is called _________.",
+        "input_type": "cloze",
+        "options": ["exporting", "importing", "branding", "pricing"],
+        "expected": "exporting",
+        "memo": "Exporting is selling goods to other countries; importing is buying goods from other countries.",
+        "error_signals": ["ERR_BUS_MARKETING_FOREIGN"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.MARKETING.A1.06",
+        "question": "True or false: Pricing policy decides how much to charge for a product.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Pricing policy sets the price, using factors such as cost, demand and competition.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.MARKETING.A1.07",
+        "question": "Sort each activity under the marketing policy it belongs to.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "product", "label": "Product policy"},
+          {"id": "pricing", "label": "Pricing policy"},
+          {"id": "distribution", "label": "Distribution policy"},
+          {"id": "communication", "label": "Communication policy"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Designing the packaging", "correct_bucket": "product"},
+          {"id": "i2", "text": "Setting a discount for bulk buyers", "correct_bucket": "pricing"},
+          {"id": "i3", "text": "Choosing wholesalers to carry the product", "correct_bucket": "distribution"},
+          {"id": "i4", "text": "Running a radio advert", "correct_bucket": "communication"},
+          {"id": "i5", "text": "Deciding the selling price", "correct_bucket": "pricing"},
+          {"id": "i6", "text": "Improving the product's design", "correct_bucket": "product"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Packaging and design = product; discounts and price = pricing; wholesalers = distribution; adverts = communication.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.MARKETING.A1.08",
+        "question": "What is an intermediary in distribution?",
+        "input_type": "choice",
+        "options": ["A middleman, such as a wholesaler or retailer, between producer and consumer", "The factory that makes the product", "The final customer who uses the product", "The advertising agency"],
+        "expected": "A middleman, such as a wholesaler or retailer, between producer and consumer",
+        "memo": "Intermediaries — wholesalers and retailers — sit between the producer and the consumer and help move the product along.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.MARKETING.A1.09",
+        "question": "Read the case and select the marketing COMMUNICATION (promotion) activities.",
+        "input_type": "highlight-source",
+        "source_text": "To launch its new juice, a company redesigned the bottle and lowered the price for the first month. It also ran television adverts and offered free samples in supermarkets, while signing a deal with a national chain of stores to stock it.",
+        "task": "Tap the parts that are marketing communication (promotion) activities.",
+        "targets": [
+          {"phrase": "ran television adverts", "reason": "Advertising is a communication activity."},
+          {"phrase": "offered free samples in supermarkets", "reason": "Free samples are a sales-promotion (communication) activity."}
+        ],
+        "min_correct": 2,
+        "max_wrong": 1,
+        "expected": "ran television adverts; offered free samples in supermarkets",
+        "memo": "TV adverts and free samples are communication/promotion. Redesigning the bottle is product, lowering the price is pricing, and the store deal is distribution.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.MARKETING.A1.10",
+        "question": "_________ marketing involves selling to and buying from other countries through exports and imports.",
+        "input_type": "cloze",
+        "options": ["Foreign", "Local", "Internal", "Personal"],
+        "expected": "Foreign",
+        "memo": "Foreign marketing deals with trade across borders — exporting goods abroad and importing goods from abroad.",
+        "error_signals": ["ERR_BUS_MARKETING_FOREIGN"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.MARKETING.A1.11",
+        "question": "What is the difference between direct and indirect distribution?",
+        "input_type": "choice",
+        "options": ["Direct sells straight to the customer; indirect uses intermediaries like wholesalers", "Direct uses many middlemen; indirect uses none", "Direct is always cheaper for the customer", "There is no difference between them"],
+        "expected": "Direct sells straight to the customer; indirect uses intermediaries like wholesalers",
+        "memo": "Direct distribution goes straight from producer to customer; indirect distribution passes through intermediaries such as wholesalers and retailers.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.MARKETING.A1.12",
+        "question": "True or false: Packaging both protects the product and helps to market it.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Good packaging protects the product and also attracts customers and carries the brand, so it is part of product policy.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.MARKETING.A1.13",
+        "question": "Sort each example into direct or indirect distribution.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "direct", "label": "Direct distribution"},
+          {"id": "indirect", "label": "Indirect distribution"}
+        ],
+        "items": [
+          {"id": "i1", "text": "A farmer selling vegetables at their own farm stall", "correct_bucket": "direct"},
+          {"id": "i2", "text": "A factory selling through wholesalers and shops", "correct_bucket": "indirect"},
+          {"id": "i3", "text": "A baker selling directly from their shopfront", "correct_bucket": "direct"},
+          {"id": "i4", "text": "A producer using a chain of retailers", "correct_bucket": "indirect"},
+          {"id": "i5", "text": "An online store shipping straight to the buyer", "correct_bucket": "direct"},
+          {"id": "i6", "text": "A manufacturer supplying a supermarket group", "correct_bucket": "indirect"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Selling straight to the customer is direct; using wholesalers or retailers in between is indirect.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.MARKETING.A1.14",
+        "question": "Which of these is a factor that influences a product's price?",
+        "input_type": "choice",
+        "options": ["The cost of making it, demand, and competitors' prices", "The colour of the owner's car", "The day of the week the owner was born", "The number of letters in the brand name"],
+        "expected": "The cost of making it, demand, and competitors' prices",
+        "memo": "Pricing is influenced by production cost, customer demand and what competitors charge.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.MARKETING.A1.15",
+        "question": "What is personal selling?",
+        "input_type": "choice",
+        "options": ["A salesperson dealing directly with a customer to make a sale", "Printing posters with no human contact", "A television advert", "Designing the packaging"],
+        "expected": "A salesperson dealing directly with a customer to make a sale",
+        "memo": "Personal selling is face-to-face (or direct) contact between a salesperson and a customer, a form of marketing communication.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.MARKETING.A1.16",
+        "question": "Read the case and select the DISTRIBUTION (place) decisions.",
+        "input_type": "highlight-source",
+        "source_text": "A shoe brand improved its leather quality and set a premium price. It then appointed regional wholesalers and opened branded outlets in three cities, while filming a glossy advert for social media.",
+        "task": "Tap the parts that are distribution (place) decisions.",
+        "targets": [
+          {"phrase": "appointed regional wholesalers", "reason": "Using wholesalers is a distribution decision."},
+          {"phrase": "opened branded outlets in three cities", "reason": "Opening outlets is about getting the product to customers — distribution."}
+        ],
+        "min_correct": 2,
+        "max_wrong": 1,
+        "expected": "appointed regional wholesalers; opened branded outlets in three cities",
+        "memo": "Wholesalers and outlets are distribution. Improving leather is product, the premium price is pricing, and the advert is communication.",
+        "error_signals": ["ERR_BUS_MARKETING_POLICY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.MARKETING.A1.17",
+        "question": "Sales of a good product are slow because few people know it exists. Which marketing policy most needs attention?",
+        "input_type": "choice",
+        "options": ["Communication (promotion) — to make customers aware of it", "Product — the product is the problem", "Distribution — only the shelves matter", "Nothing needs to change"],
+        "expected": "Communication (promotion) — to make customers aware of it",
+        "memo": "If a good product is simply not known, the gap is in communication/promotion, which builds awareness.",
+        "error_signals": ["ERR_BUS_MARKETING_MIX"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.MARKETING.A1.18",
+        "question": "How does effective marketing help a business achieve its objectives?",
+        "input_type": "choice",
+        "options": ["It attracts and keeps customers, driving sales and income towards the business's goals", "It only adds costs with no benefit", "It replaces the need to make a good product", "It guarantees the business never competes"],
+        "expected": "It attracts and keeps customers, driving sales and income towards the business's goals",
+        "memo": "Marketing brings in and retains customers, generating the sales and income a business needs to meet its objectives.",
+        "error_signals": ["ERR_BUS_MARKETING_MIX"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.MARKETING.A1.19",
+        "question": "Why must foreign marketing be aligned with the production function?",
+        "input_type": "choice",
+        "options": ["Production must be able to meet export demand with the right quantity and quality", "Foreign marketing has nothing to do with production", "Production should ignore export orders", "Exports never affect how much is produced"],
+        "expected": "Production must be able to meet export demand with the right quantity and quality",
+        "memo": "Winning export orders is pointless if production cannot supply the right quantity and quality on time, so the two functions must align.",
+        "error_signals": ["ERR_BUS_MARKETING_FOREIGN"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.MARKETING.A1.20",
+        "question": "A new premium snack is well-made but priced the same as cheap rivals and sold only at a remote farm stall. Which combination of fixes fits the marketing mix?",
+        "input_type": "choice",
+        "options": ["Set a price that reflects its quality and widen distribution to reach more customers", "Lower the quality to match the price", "Stop all production immediately", "Remove the brand name entirely"],
+        "expected": "Set a price that reflects its quality and widen distribution to reach more customers",
+        "memo": "A premium product needs a matching price (pricing) and broader distribution (place) so the right customers can find and buy it.",
+        "error_signals": ["ERR_BUS_MARKETING_MIX"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "BUS.G12.T2.CSR.A1": {
+    "title": "Social responsibility, CSR & CSI",
+    "description": "Critically examining social responsibility and its implications for business and communities: Corporate Social Responsibility (nature, process, benefits, challenges, components) and Corporate Social Investment (nature, projects, responsible business practice), and meaningfully contributing time and effort to others' well-being.",
+    "grade": 12,
+    "strand": "T2 — CSR, human rights, teams, sector & environment, leadership & quality",
+    "skill_ids": ["BUS.G12.T2.CSR.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T2",
+    "caps_topic": "Social responsibility",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+    "recovery_strategy": "CSR = the whole responsible way a business operates (ethics, environment, health and safety). CSI = the specific projects and money a business invests in communities (a part of CSR). Both go beyond what the law requires.",
+    "questions": [
+      {
+        "ref": "G12.CSR.A1.01",
+        "question": "What do the letters 'CSR' stand for?",
+        "input_type": "choice",
+        "options": ["Corporate Social Responsibility", "Customer Sales Record", "Company Stock Return", "Central Supply Route"],
+        "expected": "Corporate Social Responsibility",
+        "memo": "CSR is Corporate Social Responsibility — a business operating responsibly towards society and the environment.",
+        "error_signals": ["ERR_BUS_CSR_TERM"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.CSR.A1.02",
+        "question": "What do the letters 'CSI' stand for?",
+        "input_type": "choice",
+        "options": ["Corporate Social Investment", "Company Sales Income", "Central Stock Index", "Customer Service Initiative"],
+        "expected": "Corporate Social Investment",
+        "memo": "CSI is Corporate Social Investment — the specific projects and resources a business invests in communities.",
+        "error_signals": ["ERR_BUS_CSR_TERM"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.CSR.A1.03",
+        "question": "True or false: Corporate Social Responsibility goes beyond what the law strictly requires.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "CSR is voluntary responsibility beyond the legal minimum — giving back to society and protecting the environment.",
+        "error_signals": ["ERR_BUS_CSR_CONCEPT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.CSR.A1.04",
+        "question": "Funding and running a community school project is an example of corporate social _________.",
+        "input_type": "cloze",
+        "options": ["investment", "income", "interest", "inventory"],
+        "expected": "investment",
+        "memo": "Specific community projects a business funds, like a school, are Corporate Social Investment (CSI).",
+        "error_signals": ["ERR_BUS_CSR_CSI"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.CSR.A1.05",
+        "question": "True or false: CSR can benefit both the business and the community.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Done well, CSR helps the community and also builds the business's reputation, staff morale and customer goodwill.",
+        "error_signals": ["ERR_BUS_CSR_BENEFIT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.CSR.A1.06",
+        "question": "CSR includes caring for the _________, for example by reducing pollution.",
+        "input_type": "cloze",
+        "options": ["environment", "shareholders", "competitors", "exchange rate"],
+        "expected": "environment",
+        "memo": "Protecting the environment — reducing pollution and waste — is one component of CSR.",
+        "error_signals": ["ERR_BUS_CSR_COMPONENT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.CSR.A1.07",
+        "question": "Sort each example into CSR (broad responsible practice) or CSI (a specific community project).",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "csr", "label": "CSR (responsible practice)"},
+          {"id": "csi", "label": "CSI (community project)"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Reducing factory emissions and waste", "correct_bucket": "csr"},
+          {"id": "i2", "text": "Building a clinic for a township", "correct_bucket": "csi"},
+          {"id": "i3", "text": "Treating all staff and suppliers fairly", "correct_bucket": "csr"},
+          {"id": "i4", "text": "Funding bursaries for local students", "correct_bucket": "csi"},
+          {"id": "i5", "text": "Operating safely and ethically as standard", "correct_bucket": "csr"},
+          {"id": "i6", "text": "Sponsoring a community sports field", "correct_bucket": "csi"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "CSR is the overall responsible way of operating; CSI is the specific projects and investments in communities.",
+        "error_signals": ["ERR_BUS_CSR_CSI"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CSR.A1.08",
+        "question": "What is the difference between CSR and CSI?",
+        "input_type": "choice",
+        "options": ["CSR is the overall responsible way a business operates; CSI is the specific community projects it invests in", "CSR is illegal; CSI is legal", "CSR is only about profit; CSI is only about tax", "They are exactly the same thing"],
+        "expected": "CSR is the overall responsible way a business operates; CSI is the specific community projects it invests in",
+        "memo": "CSR is the broad responsibility; CSI is the concrete investment in projects — CSI is one part of CSR.",
+        "error_signals": ["ERR_BUS_CSR_CSI"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CSR.A1.09",
+        "question": "Thesis: 'A profitable business should invest some of its resources in its community.' Choose the THREE strongest supporting reasons.",
+        "input_type": "argument-builder",
+        "thesis": "A profitable business should invest some of its resources in its community.",
+        "pool": [
+          {"id": "a1", "text": "It helps address real social needs like education and health", "strength": "strong"},
+          {"id": "a2", "text": "It builds goodwill and a strong reputation", "strength": "strong"},
+          {"id": "a3", "text": "A healthier, more skilled community provides better customers and workers", "strength": "strong"},
+          {"id": "a4", "text": "Investing in the community always bankrupts a business", "strength": "counter"},
+          {"id": "a5", "text": "The CEO enjoys cutting ribbons at events", "strength": "red_herring"},
+          {"id": "a6", "text": "It is only worth doing if it is legally forced", "strength": "weak"}
+        ],
+        "pick_n": 3,
+        "correct_selection": ["a1", "a2", "a3"],
+        "expected": ["a1", "a2", "a3"],
+        "memo": "The strong reasons are meeting real needs, building goodwill, and a stronger community of customers and workers. The others are false, irrelevant or miss the voluntary nature of CSR.",
+        "error_signals": ["ERR_BUS_CSR_BENEFIT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CSR.A1.10",
+        "question": "A key benefit of CSR to a business is an improved _________.",
+        "input_type": "cloze",
+        "options": ["reputation", "tax bill", "pollution", "debt"],
+        "expected": "reputation",
+        "memo": "Visible responsibility improves a business's reputation, which helps attract customers, staff and partners.",
+        "error_signals": ["ERR_BUS_CSR_BENEFIT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CSR.A1.11",
+        "question": "What is a challenge of CSR for a business?",
+        "input_type": "choice",
+        "options": ["It costs money and time that must be balanced against other needs", "It always makes an instant profit with no cost", "It is completely free to run", "It never involves any planning"],
+        "expected": "It costs money and time that must be balanced against other needs",
+        "memo": "CSR requires real resources — money, time and effort — which the business must balance against its other priorities.",
+        "error_signals": ["ERR_BUS_CSR_CHALLENGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CSR.A1.12",
+        "question": "True or false: CSI projects can help address human-rights issues in a community.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "CSI projects — such as supporting education, health or access for people with disabilities — can advance human rights in a community.",
+        "error_signals": ["ERR_BUS_CSR_CSI"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CSR.A1.13",
+        "question": "Sort each outcome into whether it mainly benefits the business or the community.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "business", "label": "Benefit to the business"},
+          {"id": "community", "label": "Benefit to the community"}
+        ],
+        "items": [
+          {"id": "i1", "text": "A stronger brand reputation", "correct_bucket": "business"},
+          {"id": "i2", "text": "Better local schooling", "correct_bucket": "community"},
+          {"id": "i3", "text": "More loyal customers and staff", "correct_bucket": "business"},
+          {"id": "i4", "text": "Cleaner local environment", "correct_bucket": "community"},
+          {"id": "i5", "text": "Improved staff morale", "correct_bucket": "business"},
+          {"id": "i6", "text": "More local job opportunities", "correct_bucket": "community"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Reputation, loyalty and morale mainly benefit the business; schooling, a cleaner environment and jobs mainly benefit the community — though the two often overlap.",
+        "error_signals": ["ERR_BUS_CSR_BENEFIT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CSR.A1.14",
+        "question": "Which of these is a component of CSR?",
+        "input_type": "choice",
+        "options": ["Caring for the environment, health and safety, and acting ethically", "Maximising pollution", "Ignoring worker safety", "Misleading customers"],
+        "expected": "Caring for the environment, health and safety, and acting ethically",
+        "memo": "CSR components include environmental care, health and safety, and ethical conduct.",
+        "error_signals": ["ERR_BUS_CSR_COMPONENT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CSR.A1.15",
+        "question": "What does responsible business practice involve over the longer term?",
+        "input_type": "choice",
+        "options": ["Meeting the longer-term needs of the society in which the business operates", "Ignoring society entirely", "Focusing only on this month's profit", "Avoiding all community contact"],
+        "expected": "Meeting the longer-term needs of the society in which the business operates",
+        "memo": "Responsible business practice considers the long-term well-being of society, not just immediate profit.",
+        "error_signals": ["ERR_BUS_CSR_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CSR.A1.16",
+        "question": "Meaningfully contributing _________ and effort helps advance the well-being of others.",
+        "input_type": "cloze",
+        "options": ["time", "pollution", "debt", "waste"],
+        "expected": "time",
+        "memo": "Giving time and effort — not only money — is part of contributing meaningfully to others' well-being.",
+        "error_signals": ["ERR_BUS_CSR_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CSR.A1.17",
+        "question": "A company wants its CSI to make a real, lasting difference. Which project fits best?",
+        "input_type": "choice",
+        "options": ["A skills-training centre that helps locals find lasting employment", "A one-off photo opportunity with no follow-up", "A donation announced loudly but never paid", "A project that benefits only the executives"],
+        "expected": "A skills-training centre that helps locals find lasting employment",
+        "memo": "Lasting CSI builds capacity — like a skills centre — rather than one-off gestures that fade quickly.",
+        "error_signals": ["ERR_BUS_CSR_CSI"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.CSR.A1.18",
+        "question": "How should one critically evaluate CSR that is used mainly for publicity?",
+        "input_type": "choice",
+        "options": ["Genuine CSR creates real, lasting benefit; CSR used only for image risks being seen as 'window-dressing'", "All CSR is automatically genuine", "Publicity is the only purpose of CSR", "CSR can never be judged"],
+        "expected": "Genuine CSR creates real, lasting benefit; CSR used only for image risks being seen as 'window-dressing'",
+        "memo": "CSR should be judged by real impact; doing it only for publicity, without lasting benefit, can backfire as hollow 'window-dressing'.",
+        "error_signals": ["ERR_BUS_CSR_CONCEPT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.CSR.A1.19",
+        "question": "Why can CSR support a business's long-term success, not just its image?",
+        "input_type": "choice",
+        "options": ["A healthier, more skilled, more stable community provides better customers, workers and operating conditions", "Because CSR removes the need to make any profit", "Because society has no link to business", "Because reputation never affects sales"],
+        "expected": "A healthier, more skilled, more stable community provides better customers, workers and operating conditions",
+        "memo": "Investing in the community strengthens the very base of customers, workers and conditions the business depends on for long-term success.",
+        "error_signals": ["ERR_BUS_CSR_BENEFIT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.CSR.A1.20",
+        "question": "How are CSR and CSI best understood together?",
+        "input_type": "choice",
+        "options": ["CSI (specific community projects) is one way a business puts its broader CSR into practice", "CSI replaces CSR entirely", "CSR and CSI have nothing in common", "CSR is only for charities and CSI only for governments"],
+        "expected": "CSI (specific community projects) is one way a business puts its broader CSR into practice",
+        "memo": "CSR is the broad responsibility; CSI is a concrete part of it — the projects through which a business acts on that responsibility.",
+        "error_signals": ["ERR_BUS_CSR_CSI"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

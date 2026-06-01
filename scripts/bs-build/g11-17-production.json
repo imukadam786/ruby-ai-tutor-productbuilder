@@ -1,0 +1,251 @@
+{
+  "BUS.G11.T3.PRODUCTION.A1": {
+    "title": "The production function",
+    "description": "Aspects of the production function: production systems (mass, batch, job), production planning and control, safety management (the Occupational Health and Safety Act), quality control (SABS), and production cost calculations (total cost, unit cost, selling price, profit, break-even).",
+    "grade": 11,
+    "strand": "T3 — Entrepreneurial success, citizenship, marketing & production functions",
+    "skill_ids": ["BUS.G11.T3.PRODUCTION.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T3",
+    "caps_topic": "Business functions",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+    "recovery_strategy": "Job = one custom item; batch = a group of identical items at a time; mass = continuous large-scale identical output. Total cost = fixed + variable costs. Break-even = where total income equals total cost (no profit, no loss).",
+    "questions": [
+      {
+        "ref": "G11.PRODUCTION.A1.01",
+        "question": "Making a single, one-off custom item is an example of _________ production.",
+        "input_type": "choice",
+        "options": ["job", "mass", "batch", "bulk"],
+        "expected": "job",
+        "memo": "Job production makes one custom item at a time, such as a tailor-made suit or a single wedding cake.",
+        "error_signals": ["ERR_BUS_PROD_SYSTEM"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.02",
+        "question": "Producing large quantities of identical items continuously is _________ production.",
+        "input_type": "choice",
+        "options": ["mass", "job", "batch", "custom"],
+        "expected": "mass",
+        "memo": "Mass production turns out large volumes of identical products continuously, like bottled drinks on a production line.",
+        "error_signals": ["ERR_BUS_PROD_SYSTEM"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.03",
+        "question": "Producing a set group of identical items at a time, then switching to another group, is _________ production.",
+        "input_type": "cloze",
+        "options": ["batch", "job", "mass", "single"],
+        "expected": "batch",
+        "memo": "Batch production makes a group of identical items together (a 'batch'), such as a tray of one bread type, before moving to the next.",
+        "error_signals": ["ERR_BUS_PROD_SYSTEM"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.04",
+        "question": "True or false: The break-even point is where total income equals total cost.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "At break-even, income exactly covers cost — the business makes neither a profit nor a loss.",
+        "error_signals": ["ERR_BUS_PROD_BREAKEVEN"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.05",
+        "question": "The Act that governs health and safety in the workplace is the Occupational Health and _________ Act.",
+        "input_type": "cloze",
+        "options": ["Safety", "Salary", "Security", "Standards"],
+        "expected": "Safety",
+        "memo": "The Occupational Health and Safety Act sets the rules for keeping workers safe in the workplace.",
+        "error_signals": ["ERR_BUS_PROD_SAFETY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.06",
+        "question": "True or false: Quality control checks that products meet the required standards.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Quality control inspects products against set standards (such as SABS) to catch and prevent defects.",
+        "error_signals": ["ERR_BUS_PROD_QUALITY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.07",
+        "question": "Sort each example into the production system it best fits.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "job", "label": "Job"},
+          {"id": "batch", "label": "Batch"},
+          {"id": "mass", "label": "Mass"}
+        ],
+        "items": [
+          {"id": "i1", "text": "A tailor making one custom suit", "correct_bucket": "job"},
+          {"id": "i2", "text": "A bakery baking 50 loaves of one bread type, then switching", "correct_bucket": "batch"},
+          {"id": "i3", "text": "A bottling plant filling thousands of identical cans non-stop", "correct_bucket": "mass"},
+          {"id": "i4", "text": "An architect designing one unique house", "correct_bucket": "job"},
+          {"id": "i5", "text": "A factory producing a run of one shirt size, then another", "correct_bucket": "batch"},
+          {"id": "i6", "text": "A car plant assembling identical cars continuously", "correct_bucket": "mass"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "One custom item = job; a group at a time = batch; continuous large-scale identical output = mass.",
+        "error_signals": ["ERR_BUS_PROD_SYSTEM"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.08",
+        "question": "Production planning includes which set of activities?",
+        "input_type": "choice",
+        "options": ["Planning, routing, scheduling and loading", "Advertising, pricing and branding", "Hiring, firing and payroll", "Auditing, taxing and banking"],
+        "expected": "Planning, routing, scheduling and loading",
+        "memo": "Production planning decides what to make and how — planning, routing, scheduling and loading the work.",
+        "error_signals": ["ERR_BUS_PROD_PLANNING"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.09",
+        "question": "Put the production control steps in a sensible order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "dispatch", "text": "Dispatch the work to start production"},
+          {"id": "follow", "text": "Follow up on progress"},
+          {"id": "inspect", "text": "Inspect the output for quality"},
+          {"id": "correct", "text": "Take corrective action on any problems"}
+        ],
+        "expected_order": ["dispatch", "follow", "inspect", "correct"],
+        "options": ["dispatch, follow, inspect, correct", "correct, inspect, follow, dispatch", "inspect, dispatch, correct, follow"],
+        "expected": "dispatch, follow, inspect, correct",
+        "memo": "Production control runs: dispatch the work, follow up on progress, inspect the output, then correct any problems found.",
+        "error_signals": ["ERR_BUS_PROD_CONTROL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.10",
+        "question": "The SABS sets _________ standards that products can be tested against.",
+        "input_type": "cloze",
+        "options": ["quality", "tax", "salary", "advertising"],
+        "expected": "quality",
+        "memo": "The South African Bureau of Standards (SABS) sets quality standards used in quality control.",
+        "error_signals": ["ERR_BUS_PROD_QUALITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.11",
+        "question": "Total cost of production is best calculated as:",
+        "input_type": "choice",
+        "options": ["Fixed costs plus variable costs", "Fixed costs minus variable costs", "Selling price times profit", "Variable costs divided by units"],
+        "expected": "Fixed costs plus variable costs",
+        "memo": "Total cost = fixed costs (which stay the same) + variable costs (which change with output).",
+        "error_signals": ["ERR_BUS_PROD_COST"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.12",
+        "question": "True or false: Unit cost is the total cost divided by the number of units produced.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Unit cost = total cost ÷ number of units, showing how much each item costs to make.",
+        "error_signals": ["ERR_BUS_PROD_COST"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.13",
+        "question": "Sort each task into production planning or production control.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "planning", "label": "Production planning"},
+          {"id": "control", "label": "Production control"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Scheduling when each job will run", "correct_bucket": "planning"},
+          {"id": "i2", "text": "Inspecting finished goods for defects", "correct_bucket": "control"},
+          {"id": "i3", "text": "Routing work through the machines", "correct_bucket": "planning"},
+          {"id": "i4", "text": "Following up on a delayed order", "correct_bucket": "control"},
+          {"id": "i5", "text": "Loading tasks onto each workstation", "correct_bucket": "planning"},
+          {"id": "i6", "text": "Taking corrective action on faults", "correct_bucket": "control"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Planning sets up the work (scheduling, routing, loading); control monitors and fixes it (inspecting, following up, correcting).",
+        "error_signals": ["ERR_BUS_PROD_PLANNING"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.14",
+        "question": "A workshop has fixed costs of R1 000 and variable costs of R2 per unit. If it makes 500 units, what is the total cost?",
+        "input_type": "choice",
+        "options": ["R2 000", "R1 500", "R1 002", "R3 000"],
+        "expected": "R2 000",
+        "memo": "Total cost = fixed + variable = R1 000 + (R2 × 500) = R1 000 + R1 000 = R2 000.",
+        "error_signals": ["ERR_BUS_PROD_COST"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.15",
+        "question": "A product sells for R10 and costs R6 in variable cost per unit. The business has R2 000 in fixed costs. How many units must it sell to break even?",
+        "input_type": "choice",
+        "options": ["500 units", "200 units", "2 000 units", "333 units"],
+        "expected": "500 units",
+        "memo": "Each unit contributes R10 − R6 = R4 towards fixed costs. Break-even = R2 000 ÷ R4 = 500 units.",
+        "error_signals": ["ERR_BUS_PROD_BREAKEVEN"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.16",
+        "question": "What is the main aim of safety management in production?",
+        "input_type": "choice",
+        "options": ["To prevent workplace injuries and protect workers", "To slow production down", "To raise the price of the product", "To replace the marketing function"],
+        "expected": "To prevent workplace injuries and protect workers",
+        "memo": "Safety management — guided by the Occupational Health and Safety Act — aims to keep workers safe and prevent accidents.",
+        "error_signals": ["ERR_BUS_PROD_SAFETY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.17",
+        "question": "A business has fixed costs of R3 000, sells each unit for R20 and has a variable cost of R12 per unit. What is its break-even quantity?",
+        "input_type": "choice",
+        "options": ["375 units", "150 units", "250 units", "600 units"],
+        "expected": "375 units",
+        "memo": "Contribution per unit = R20 − R12 = R8. Break-even = R3 000 ÷ R8 = 375 units.",
+        "error_signals": ["ERR_BUS_PROD_BREAKEVEN"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.18",
+        "question": "Which production system best suits a business making one-of-a-kind custom furniture to order?",
+        "input_type": "choice",
+        "options": ["Job production", "Mass production", "Batch production", "Continuous flow production"],
+        "expected": "Job production",
+        "memo": "Custom, made-to-order pieces are produced one at a time, which is job production.",
+        "error_signals": ["ERR_BUS_PROD_SYSTEM"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.19",
+        "question": "Why is strong quality control important to a producer's costs and reputation?",
+        "input_type": "choice",
+        "options": ["It reduces waste and returns and protects the brand's reputation", "It only adds cost with no benefit", "It makes products fail more often", "It has no link to customer trust"],
+        "expected": "It reduces waste and returns and protects the brand's reputation",
+        "memo": "Catching defects early cuts the cost of waste and returns and keeps customers trusting the brand.",
+        "error_signals": ["ERR_BUS_PROD_QUALITY"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.PRODUCTION.A1.20",
+        "question": "How do production planning and production control work together?",
+        "input_type": "choice",
+        "options": ["Planning sets up what to make and when; control monitors and corrects the work as it happens", "They are unrelated and never interact", "Control happens before any planning", "Planning replaces the need for control entirely"],
+        "expected": "Planning sets up what to make and when; control monitors and corrects the work as it happens",
+        "memo": "Planning organises the production in advance; control then tracks progress and fixes problems so the plan is met.",
+        "error_signals": ["ERR_BUS_PROD_CONTROL"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

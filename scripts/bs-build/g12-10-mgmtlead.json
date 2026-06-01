@@ -1,0 +1,272 @@
+{
+  "BUS.G12.T2.MGMTLEAD.A1": {
+    "title": "Management & leadership",
+    "description": "Differentiating between management and leadership styles and approaches: the difference between leadership and management, leadership styles (democratic, autocratic, laissez-faire), theories of management and leadership (situational, transactional, transformational), and the role of personal attitude in success and leadership.",
+    "grade": 12,
+    "strand": "T2 — CSR, human rights, teams, sector & environment, leadership & quality",
+    "skill_ids": ["BUS.G12.T2.MGMTLEAD.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T2",
+    "caps_topic": "Management and leadership",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+    "recovery_strategy": "Management = planning, organising and controlling the work. Leadership = inspiring and influencing people toward a vision. Autocratic leaders decide alone; democratic leaders involve the team; laissez-faire leaders are hands-off.",
+    "questions": [
+      {
+        "ref": "G12.MGMTLEAD.A1.01",
+        "question": "What is the main difference between management and leadership?",
+        "input_type": "choice",
+        "options": ["Management organises the work; leadership inspires and guides people", "They are exactly the same thing", "Management only applies to factories", "Leadership only means giving orders"],
+        "expected": "Management organises the work; leadership inspires and guides people",
+        "memo": "Management is about planning, organising and controlling tasks; leadership is about inspiring and influencing people toward a vision.",
+        "error_signals": ["ERR_BUS_MGMT_DIFF"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.02",
+        "question": "An autocratic leader mainly:",
+        "input_type": "choice",
+        "options": ["Makes decisions alone and tells the team what to do", "Lets the team decide everything", "Never makes any decision", "Always asks customers to decide"],
+        "expected": "Makes decisions alone and tells the team what to do",
+        "memo": "An autocratic leader keeps decision-making to themselves and directs the team.",
+        "error_signals": ["ERR_BUS_MGMT_STYLE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.03",
+        "question": "A _________ leader involves the team in making decisions.",
+        "input_type": "cloze",
+        "options": ["democratic", "autocratic", "absent", "hostile"],
+        "expected": "democratic",
+        "memo": "A democratic leader consults the team and involves them in decisions.",
+        "error_signals": ["ERR_BUS_MGMT_STYLE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.04",
+        "question": "True or false: Leadership is about inspiring and influencing people towards a vision.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Leadership focuses on inspiring, motivating and influencing people to pursue a shared vision.",
+        "error_signals": ["ERR_BUS_MGMT_DIFF"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.05",
+        "question": "A laissez-faire leadership style is best described as:",
+        "input_type": "choice",
+        "options": ["Hands-off, leaving staff to make their own decisions", "Tightly controlling every detail", "Refusing to let anyone work", "Making all decisions in secret"],
+        "expected": "Hands-off, leaving staff to make their own decisions",
+        "memo": "Laissez-faire leaders take a hands-off approach, giving staff freedom to decide how to do their work.",
+        "error_signals": ["ERR_BUS_MGMT_STYLE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.06",
+        "question": "_________ leadership inspires major change and motivates people beyond their normal expectations.",
+        "input_type": "cloze",
+        "options": ["Transformational", "Transactional", "Autocratic", "Absent"],
+        "expected": "Transformational",
+        "memo": "Transformational leadership inspires people with a vision and motivates them to achieve more than expected.",
+        "error_signals": ["ERR_BUS_MGMT_THEORY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.07",
+        "question": "Sort each activity into management or leadership.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "management", "label": "Management"},
+          {"id": "leadership", "label": "Leadership"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Drawing up a work schedule", "correct_bucket": "management"},
+          {"id": "i2", "text": "Inspiring the team with a vision", "correct_bucket": "leadership"},
+          {"id": "i3", "text": "Controlling the budget", "correct_bucket": "management"},
+          {"id": "i4", "text": "Motivating staff to give their best", "correct_bucket": "leadership"},
+          {"id": "i5", "text": "Organising tasks and resources", "correct_bucket": "management"},
+          {"id": "i6", "text": "Building trust and influencing people", "correct_bucket": "leadership"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Scheduling, budgeting and organising are management tasks; inspiring, motivating and influencing are leadership.",
+        "error_signals": ["ERR_BUS_MGMT_DIFF"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.08",
+        "question": "In which situation is an autocratic style often most useful?",
+        "input_type": "choice",
+        "options": ["An urgent crisis where fast, clear decisions are needed", "A relaxed brainstorming session", "A long-term creative project", "A team-building day"],
+        "expected": "An urgent crisis where fast, clear decisions are needed",
+        "memo": "Autocratic leadership suits crises where quick, decisive direction matters more than wide consultation.",
+        "error_signals": ["ERR_BUS_MGMT_STYLE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.09",
+        "question": "Read both leaders, then decide which each statement matches.",
+        "input_type": "source-comparison",
+        "source_a": {
+          "text": "I make the decisions and expect my team to carry them out without debate. It is faster this way.",
+          "provenance": "Leader A"
+        },
+        "source_b": {
+          "text": "I gather my team's views and we decide together. People are more committed when they have a say.",
+          "provenance": "Leader B"
+        },
+        "statements": [
+          {"id": "s1", "text": "Uses an autocratic style", "correct_answer": "a_only"},
+          {"id": "s2", "text": "Uses a democratic style", "correct_answer": "b_only"},
+          {"id": "s3", "text": "Is in a leadership position", "correct_answer": "both"},
+          {"id": "s4", "text": "Refuses to make any decision ever", "correct_answer": "neither"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "s1=a_only, s2=b_only, s3=both, s4=neither",
+        "memo": "Leader A decides alone (autocratic); Leader B involves the team (democratic). Both lead; neither refuses all decisions.",
+        "error_signals": ["ERR_BUS_MGMT_STYLE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.10",
+        "question": "_________ leadership adapts its style to fit the situation and the people involved.",
+        "input_type": "cloze",
+        "options": ["Situational", "Autocratic", "Absent", "Fixed"],
+        "expected": "Situational",
+        "memo": "Situational leadership changes its approach depending on the task, the team and the circumstances.",
+        "error_signals": ["ERR_BUS_MGMT_THEORY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.11",
+        "question": "Transactional leadership mainly motivates people through:",
+        "input_type": "choice",
+        "options": ["Rewards for good performance and consequences for poor performance", "Inspiring a long-term vision", "Leaving staff entirely alone", "Avoiding all targets"],
+        "expected": "Rewards for good performance and consequences for poor performance",
+        "memo": "Transactional leadership works through exchanges — rewarding good performance and correcting poor performance.",
+        "error_signals": ["ERR_BUS_MGMT_THEORY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.12",
+        "question": "True or false: A positive personal attitude supports good leadership.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A leader's positive attitude influences the team's morale and is linked to success in leadership.",
+        "error_signals": ["ERR_BUS_MGMT_ATTITUDE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.13",
+        "question": "Sort each description under the leadership style it fits.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "autocratic", "label": "Autocratic"},
+          {"id": "democratic", "label": "Democratic"},
+          {"id": "laissez", "label": "Laissez-faire"}
+        ],
+        "items": [
+          {"id": "i1", "text": "The leader decides alone and directs the team", "correct_bucket": "autocratic"},
+          {"id": "i2", "text": "The leader consults the team before deciding", "correct_bucket": "democratic"},
+          {"id": "i3", "text": "The leader lets staff decide for themselves", "correct_bucket": "laissez"},
+          {"id": "i4", "text": "Strict control with little input from staff", "correct_bucket": "autocratic"},
+          {"id": "i5", "text": "Shared decision-making with the team", "correct_bucket": "democratic"},
+          {"id": "i6", "text": "Minimal interference from the leader", "correct_bucket": "laissez"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Deciding alone = autocratic; consulting the team = democratic; hands-off = laissez-faire.",
+        "error_signals": ["ERR_BUS_MGMT_STYLE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.14",
+        "question": "What is the difference between transactional and transformational leadership?",
+        "input_type": "choice",
+        "options": ["Transactional uses rewards and rules; transformational inspires change through a vision", "They are identical", "Transactional avoids all targets; transformational sets none", "Transformational only uses punishments"],
+        "expected": "Transactional uses rewards and rules; transformational inspires change through a vision",
+        "memo": "Transactional leadership runs on rewards and consequences; transformational leadership inspires people to embrace change and a shared vision.",
+        "error_signals": ["ERR_BUS_MGMT_THEORY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.15",
+        "question": "In which situation does a democratic style usually work well?",
+        "input_type": "choice",
+        "options": ["When team input is valuable and there is time to consult", "When a decision is needed in seconds during a crisis", "When no one in the team has any knowledge", "When the leader wants to avoid all input"],
+        "expected": "When team input is valuable and there is time to consult",
+        "memo": "Democratic leadership suits situations where the team's knowledge adds value and there is time to involve them.",
+        "error_signals": ["ERR_BUS_MGMT_STYLE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.16",
+        "question": "Management mainly focuses on planning, organising and _________.",
+        "input_type": "cloze",
+        "options": ["controlling", "inspiring", "dreaming", "guessing"],
+        "expected": "controlling",
+        "memo": "The management tasks are planning, organising, leading/activating and controlling the work.",
+        "error_signals": ["ERR_BUS_MGMT_DIFF"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.17",
+        "question": "Read two managers handling a sudden safety emergency, then decide which each statement matches.",
+        "input_type": "source-comparison",
+        "source_a": {
+          "text": "During the gas leak I gave clear, direct orders immediately and everyone followed them. There was no time for discussion.",
+          "provenance": "Manager A"
+        },
+        "source_b": {
+          "text": "For our new product strategy I held workshops, gathered ideas from the whole team and we shaped the plan together.",
+          "provenance": "Manager B"
+        },
+        "statements": [
+          {"id": "s1", "text": "Used an autocratic style suited to a crisis", "correct_answer": "a_only"},
+          {"id": "s2", "text": "Used a democratic style suited to a creative task", "correct_answer": "b_only"},
+          {"id": "s3", "text": "Chose a style to fit the situation", "correct_answer": "both"},
+          {"id": "s4", "text": "Failed to make any decision", "correct_answer": "neither"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "s1=a_only, s2=b_only, s3=both, s4=neither",
+        "memo": "Manager A was autocratic in a crisis; Manager B democratic for a creative task. Both matched their style to the situation; neither failed to decide.",
+        "error_signals": ["ERR_BUS_MGMT_STYLE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.18",
+        "question": "A manager keeps every decision to themselves even for creative, long-term projects, and staff feel unmotivated. How is this best evaluated?",
+        "input_type": "choice",
+        "options": ["The autocratic style is poorly matched here; a more democratic style would likely raise motivation", "Autocratic is always the best style for everything", "The staff are simply wrong to feel demotivated", "Leadership style never affects motivation"],
+        "expected": "The autocratic style is poorly matched here; a more democratic style would likely raise motivation",
+        "memo": "Style should fit the situation; for creative, long-term work, involving the team (democratic) usually lifts motivation more than strict autocratic control.",
+        "error_signals": ["ERR_BUS_MGMT_STYLE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.19",
+        "question": "Why is matching leadership style to the situation important?",
+        "input_type": "choice",
+        "options": ["Different situations call for different approaches, and the right style improves results and morale", "One fixed style is always best in every case", "Style has no effect on a team", "Leaders should change style at random"],
+        "expected": "Different situations call for different approaches, and the right style improves results and morale",
+        "memo": "Situational leadership recognises that the best style depends on the task and people; matching them improves both results and morale.",
+        "error_signals": ["ERR_BUS_MGMT_THEORY"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.MGMTLEAD.A1.20",
+        "question": "How do strong management and strong leadership together benefit a business?",
+        "input_type": "choice",
+        "options": ["Management keeps work organised and controlled, while leadership inspires people towards the vision", "They cancel each other out", "Only one is ever needed at a time", "Both simply mean giving orders"],
+        "expected": "Management keeps work organised and controlled, while leadership inspires people towards the vision",
+        "memo": "A business needs both: management to organise and control the work, and leadership to inspire and guide people towards its goals.",
+        "error_signals": ["ERR_BUS_MGMT_DIFF"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

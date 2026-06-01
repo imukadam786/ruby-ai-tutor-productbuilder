@@ -1,0 +1,258 @@
+{
+  "BUS.G11.T4.TEAM.A1": {
+    "title": "Team dynamics & conflict management",
+    "description": "Team development stages (forming, storming, norming, performing), team dynamics theories (Belbin roles, Jungian insights, group consensus), and conflict management — causes of conflict, conflict-management theories and skills, and the function of workplace forums.",
+    "grade": 11,
+    "strand": "T4 — Team dynamics, conflict & Human Resources",
+    "skill_ids": ["BUS.G11.T4.TEAM.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T4",
+    "caps_topic": "Relationship and team performance",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+    "recovery_strategy": "Team stages in order: forming (getting to know each other) → storming (conflict) → norming (settling) → performing (working well). Conflict managed well can strengthen a team; a workplace forum is where workers and management consult.",
+    "questions": [
+      {
+        "ref": "G11.TEAM.A1.01",
+        "question": "The four stages of team development are forming, storming, norming and _________.",
+        "input_type": "cloze",
+        "options": ["performing", "leaving", "pausing", "resting"],
+        "expected": "performing",
+        "memo": "The stages run forming → storming → norming → performing, ending with the team working effectively together.",
+        "error_signals": ["ERR_BUS_TEAM_STAGE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.TEAM.A1.02",
+        "question": "At which stage do team members first get to know one another?",
+        "input_type": "choice",
+        "options": ["Forming", "Storming", "Norming", "Performing"],
+        "expected": "Forming",
+        "memo": "Forming is the first stage, where members meet and get to know each other and the task.",
+        "error_signals": ["ERR_BUS_TEAM_STAGE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.TEAM.A1.03",
+        "question": "True or false: The storming stage often involves conflict as members' true characters show.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Storming is the stage where disagreements and clashes often surface as people assert themselves.",
+        "error_signals": ["ERR_BUS_TEAM_STAGE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.TEAM.A1.04",
+        "question": "What does conflict management aim to do?",
+        "input_type": "choice",
+        "options": ["Resolve differences constructively", "Make every disagreement worse", "Ignore all problems forever", "Force one person to always win"],
+        "expected": "Resolve differences constructively",
+        "memo": "Conflict management seeks to settle differences in a constructive way so the team can move forward.",
+        "error_signals": ["ERR_BUS_TEAM_CONFLICT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.TEAM.A1.05",
+        "question": "A workplace _________ is a body where workers and management discuss and consult on issues.",
+        "input_type": "cloze",
+        "options": ["forum", "factory", "freezer", "ferry"],
+        "expected": "forum",
+        "memo": "A workplace forum is a structure for consultation between workers and management on workplace matters.",
+        "error_signals": ["ERR_BUS_TEAM_FORUM"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.TEAM.A1.06",
+        "question": "True or false: Belbin's theory describes the different roles people play in a team.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Belbin's role theory groups team contributions into roles such as action-oriented, people-oriented and thinking (cerebral) roles.",
+        "error_signals": ["ERR_BUS_TEAM_THEORY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.TEAM.A1.07",
+        "question": "Put the stages of team development in the correct order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "forming", "text": "Forming — members get to know each other"},
+          {"id": "storming", "text": "Storming — disagreements surface"},
+          {"id": "norming", "text": "Norming — the team settles and agrees how to work"},
+          {"id": "performing", "text": "Performing — the team works well towards the goal"}
+        ],
+        "expected_order": ["forming", "storming", "norming", "performing"],
+        "options": ["forming, storming, norming, performing", "performing, norming, storming, forming", "storming, forming, performing, norming"],
+        "expected": "forming, storming, norming, performing",
+        "memo": "Teams typically move through forming, storming, norming and performing as they develop.",
+        "error_signals": ["ERR_BUS_TEAM_STAGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.TEAM.A1.08",
+        "question": "What happens at the norming stage of a team?",
+        "input_type": "choice",
+        "options": ["The team settles, agrees how to work, and cooperation improves", "The team meets for the very first time", "The team breaks into open conflict", "The team is performing at its peak"],
+        "expected": "The team settles, agrees how to work, and cooperation improves",
+        "memo": "At norming the team resolves its early conflicts, agrees on norms and starts working together more smoothly.",
+        "error_signals": ["ERR_BUS_TEAM_STAGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.TEAM.A1.09",
+        "question": "Match each description to the team stage by sorting them.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "forming", "label": "Forming"},
+          {"id": "storming", "label": "Storming"},
+          {"id": "performing", "label": "Performing"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Members are polite and unsure of each other", "correct_bucket": "forming"},
+          {"id": "i2", "text": "Members clash over roles and ideas", "correct_bucket": "storming"},
+          {"id": "i3", "text": "The team delivers results smoothly together", "correct_bucket": "performing"},
+          {"id": "i4", "text": "People are still learning who does what", "correct_bucket": "forming"},
+          {"id": "i5", "text": "Tension and disagreement are high", "correct_bucket": "storming"},
+          {"id": "i6", "text": "The team is confident and highly productive", "correct_bucket": "performing"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Forming = polite and unsure; storming = clashes and tension; performing = smooth, productive teamwork.",
+        "error_signals": ["ERR_BUS_TEAM_STAGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.TEAM.A1.10",
+        "question": "Which of these is a common cause of conflict in a team?",
+        "input_type": "choice",
+        "options": ["Poor communication and competing goals", "Members who communicate clearly", "Shared, agreed objectives", "Mutual trust and respect"],
+        "expected": "Poor communication and competing goals",
+        "memo": "Conflict often arises from poor communication, unclear roles and competing goals; the other options reduce conflict.",
+        "error_signals": ["ERR_BUS_TEAM_CONFLICT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.TEAM.A1.11",
+        "question": "At the _________ stage, the team works well together towards its goal.",
+        "input_type": "cloze",
+        "options": ["performing", "forming", "storming", "norming"],
+        "expected": "performing",
+        "memo": "Performing is the stage where the team is effective and focused on achieving its goal.",
+        "error_signals": ["ERR_BUS_TEAM_STAGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.TEAM.A1.12",
+        "question": "True or false: Conflict, when managed well, can lead to better solutions for a team.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Handled well, conflict surfaces different views and can produce stronger, better-considered solutions.",
+        "error_signals": ["ERR_BUS_TEAM_CONFLICT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.TEAM.A1.13",
+        "question": "Sort each approach into a healthy or an unhealthy way of handling team conflict.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "healthy", "label": "Healthy approach"},
+          {"id": "unhealthy", "label": "Unhealthy approach"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Listening to both sides calmly", "correct_bucket": "healthy"},
+          {"id": "i2", "text": "Shouting down anyone who disagrees", "correct_bucket": "unhealthy"},
+          {"id": "i3", "text": "Looking for a fair compromise", "correct_bucket": "healthy"},
+          {"id": "i4", "text": "Spreading rumours about a colleague", "correct_bucket": "unhealthy"},
+          {"id": "i5", "text": "Focusing on the problem, not the person", "correct_bucket": "healthy"},
+          {"id": "i6", "text": "Refusing to speak to the other party", "correct_bucket": "unhealthy"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Healthy: listen, compromise, focus on the problem. Unhealthy: shouting, rumours and refusing to engage.",
+        "error_signals": ["ERR_BUS_TEAM_CONFLICT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.TEAM.A1.14",
+        "question": "What is the function of a workplace forum?",
+        "input_type": "choice",
+        "options": ["To allow workers and management to consult on workplace issues", "To set the company's product prices", "To replace the marketing department", "To audit the company accounts"],
+        "expected": "To allow workers and management to consult on workplace issues",
+        "memo": "A workplace forum is a consultation structure where workers and management discuss matters affecting the workplace.",
+        "error_signals": ["ERR_BUS_TEAM_FORUM"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.TEAM.A1.15",
+        "question": "Belbin's team roles are often grouped into action-oriented, people-oriented and _________ roles.",
+        "input_type": "choice",
+        "options": ["thinking (cerebral)", "financial", "marketing", "legal"],
+        "expected": "thinking (cerebral)",
+        "memo": "Belbin groups roles as action-oriented, people-oriented and thinking (cerebral) — a balanced team needs all three.",
+        "error_signals": ["ERR_BUS_TEAM_THEORY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.TEAM.A1.16",
+        "question": "_________ resolution skills help a team settle disputes and move forward.",
+        "input_type": "cloze",
+        "options": ["Conflict", "Stock", "Tax", "Logo"],
+        "expected": "Conflict",
+        "memo": "Conflict-resolution skills — listening, negotiating, finding common ground — help teams settle disputes.",
+        "error_signals": ["ERR_BUS_TEAM_CONFLICT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.TEAM.A1.17",
+        "question": "Put the steps of resolving a team conflict in a sensible order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "identify", "text": "Identify the real cause of the conflict"},
+          {"id": "discuss", "text": "Let each side explain their view"},
+          {"id": "agree", "text": "Agree on a fair way forward"},
+          {"id": "follow", "text": "Follow up to check the solution holds"}
+        ],
+        "expected_order": ["identify", "discuss", "agree", "follow"],
+        "options": ["identify, discuss, agree, follow", "follow, agree, discuss, identify", "discuss, identify, follow, agree"],
+        "expected": "identify, discuss, agree, follow",
+        "memo": "Find the real cause, hear both sides, agree a fair solution, then follow up to make sure it works.",
+        "error_signals": ["ERR_BUS_TEAM_CONFLICT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.TEAM.A1.18",
+        "question": "A team is stuck in the storming stage with constant arguments. What best helps it move forward?",
+        "input_type": "choice",
+        "options": ["Agreeing clear roles and team norms so cooperation can begin", "Letting the arguments continue with no structure", "Removing all communication between members", "Cancelling the project at the first disagreement"],
+        "expected": "Agreeing clear roles and team norms so cooperation can begin",
+        "memo": "Setting clear roles and norms helps a team move from storming into norming, where it can start working together.",
+        "error_signals": ["ERR_BUS_TEAM_STAGE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.TEAM.A1.19",
+        "question": "Why does understanding team dynamics help a manager?",
+        "input_type": "choice",
+        "options": ["It helps the manager guide the team through its stages and use members' strengths", "It lets the manager ignore the team entirely", "It guarantees there will never be any conflict", "It removes the need for any leadership"],
+        "expected": "It helps the manager guide the team through its stages and use members' strengths",
+        "memo": "Knowing the stages and roles lets a manager support the team through difficulties and place people where they add most value.",
+        "error_signals": ["ERR_BUS_TEAM_THEORY"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.TEAM.A1.20",
+        "question": "Two colleagues clash because each thinks they should lead. What is the best conflict-management response?",
+        "input_type": "choice",
+        "options": ["Discuss the cause openly and agree clear, separate responsibilities", "Let them keep fighting until one quits", "Pretend the conflict is not happening", "Side with the louder colleague immediately"],
+        "expected": "Discuss the cause openly and agree clear, separate responsibilities",
+        "memo": "Addressing the cause and agreeing clear, distinct roles resolves the clash constructively and lets the team perform.",
+        "error_signals": ["ERR_BUS_TEAM_CONFLICT"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

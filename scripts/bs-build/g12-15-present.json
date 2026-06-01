@@ -1,0 +1,257 @@
+{
+  "BUS.G12.T3.PRESENT.A1": {
+    "title": "Presentation & data response",
+    "description": "Accurate, succinct verbal and non-verbal presentation of business information, including the criteria for a logical and effective presentation, the process and style of using visual aids, responding professionally to questions and feedback, and amending plans and documents as necessary.",
+    "grade": 12,
+    "strand": "T3 — Investment (securities & insurance), ownership & presentation",
+    "skill_ids": ["BUS.G12.T3.PRESENT.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T3",
+    "caps_topic": "Presentation of information",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+    "recovery_strategy": "An effective presentation knows its audience, puts the most important information first, and uses clear visuals. After feedback, amend the plan and documents and carry the improvements into future work.",
+    "questions": [
+      {
+        "ref": "G12.PRESENT.A1.01",
+        "question": "An effective presentation should be designed around:",
+        "input_type": "choice",
+        "options": ["The needs and level of its audience", "The presenter's favourite colour", "As much jargon as possible", "The longest possible running time"],
+        "expected": "The needs and level of its audience",
+        "memo": "Knowing the audience lets you pitch the content and language at the right level so the message lands.",
+        "error_signals": ["ERR_BUS_PRES12_AUDIENCE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.PRESENT.A1.02",
+        "question": "True or false: The most important information should be presented first.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Leading with the key information ensures the audience gets the main message, even if attention or time fades.",
+        "error_signals": ["ERR_BUS_PRES12_STRUCTURE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.PRESENT.A1.03",
+        "question": "Answering questions about figures and business information presented is called a _________ response.",
+        "input_type": "cloze",
+        "options": ["data", "delay", "denial", "doodle"],
+        "expected": "data",
+        "memo": "A data response involves reading, interpreting and answering questions on presented business information and figures.",
+        "error_signals": ["ERR_BUS_PRES12_DATA"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.PRESENT.A1.04",
+        "question": "Which of these is a visual aid for presenting data clearly?",
+        "input_type": "choice",
+        "options": ["A graph", "A long unbroken paragraph", "A whispered comment", "A blank page"],
+        "expected": "A graph",
+        "memo": "A graph is a visual (non-verbal) aid that shows data and trends clearly.",
+        "error_signals": ["ERR_BUS_PRES12_AID"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.PRESENT.A1.05",
+        "question": "True or false: After receiving feedback, a presenter should amend the work where needed.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Acting on feedback by amending plans and documents improves the work and future presentations.",
+        "error_signals": ["ERR_BUS_PRES12_FEEDBACK"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.PRESENT.A1.06",
+        "question": "When responding to questions, a presenter should not _________.",
+        "input_type": "cloze",
+        "options": ["argue", "listen", "clarify", "answer"],
+        "expected": "argue",
+        "memo": "A professional presenter answers and clarifies calmly rather than arguing with the questioner.",
+        "error_signals": ["ERR_BUS_PRES12_FEEDBACK"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.PRESENT.A1.07",
+        "question": "Sort each feature into effective or ineffective presentation.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "effective", "label": "Effective"},
+          {"id": "ineffective", "label": "Ineffective"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Clear headings and key points first", "correct_bucket": "effective"},
+          {"id": "i2", "text": "Tiny, cluttered, unreadable slides", "correct_bucket": "ineffective"},
+          {"id": "i3", "text": "Simple charts that show the data", "correct_bucket": "effective"},
+          {"id": "i4", "text": "Reading dense text word-for-word", "correct_bucket": "ineffective"},
+          {"id": "i5", "text": "Language pitched to the audience", "correct_bucket": "effective"},
+          {"id": "i6", "text": "Ignoring all questions", "correct_bucket": "ineffective"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Effective: clear structure, simple charts, suitable language. Ineffective: cluttered slides, reading dense text, ignoring questions.",
+        "error_signals": ["ERR_BUS_PRES12_STRUCTURE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.PRESENT.A1.08",
+        "question": "Which is a criterion for a logical, effective presentation of information?",
+        "input_type": "choice",
+        "options": ["Know your audience and use clear headings, charts and the most important points first", "Use as many long words as possible", "Hide the key message at the very end", "Avoid any structure"],
+        "expected": "Know your audience and use clear headings, charts and the most important points first",
+        "memo": "Effective presentations are audience-aware, well-structured, and lead with the key points supported by clear visuals.",
+        "error_signals": ["ERR_BUS_PRES12_STRUCTURE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.PRESENT.A1.09",
+        "question": "Put the stages of delivering and improving a presentation in order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "prepare", "text": "Prepare the content and visuals for the audience"},
+          {"id": "present", "text": "Deliver the presentation clearly"},
+          {"id": "questions", "text": "Respond professionally to questions and feedback"},
+          {"id": "amend", "text": "Amend the work based on the feedback"}
+        ],
+        "expected_order": ["prepare", "present", "questions", "amend"],
+        "options": ["prepare, present, questions, amend", "amend, questions, present, prepare", "present, prepare, amend, questions"],
+        "expected": "prepare, present, questions, amend",
+        "memo": "Prepare, present, handle questions and feedback, then amend the work — that order improves both the message and future versions.",
+        "error_signals": ["ERR_BUS_PRES12_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.PRESENT.A1.10",
+        "question": "Knowing your _________ lets you pitch a presentation at the right level.",
+        "input_type": "cloze",
+        "options": ["audience", "competitor", "supplier", "auditor"],
+        "expected": "audience",
+        "memo": "Understanding the audience shapes the content, depth and language so the message is understood.",
+        "error_signals": ["ERR_BUS_PRES12_AUDIENCE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.PRESENT.A1.11",
+        "question": "How should a presenter handle critical but fair feedback?",
+        "input_type": "choice",
+        "options": ["Listen, thank the person, and use it to improve the work", "Argue and dismiss it", "Take it personally and refuse to continue", "Pretend not to hear it"],
+        "expected": "Listen, thank the person, and use it to improve the work",
+        "memo": "Fair feedback is valuable; a professional listens, acknowledges it and amends the work accordingly.",
+        "error_signals": ["ERR_BUS_PRES12_FEEDBACK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.PRESENT.A1.12",
+        "question": "True or false: Amending plans and documents after feedback can improve future presentations.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Carrying improvements from feedback into the documents and future plans makes later work stronger.",
+        "error_signals": ["ERR_BUS_PRES12_FEEDBACK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.PRESENT.A1.13",
+        "question": "Sort each response to questions and feedback into professional or unprofessional.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "professional", "label": "Professional"},
+          {"id": "unprofessional", "label": "Unprofessional"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Answering all questions calmly", "correct_bucket": "professional"},
+          {"id": "i2", "text": "Becoming aggressive when challenged", "correct_bucket": "unprofessional"},
+          {"id": "i3", "text": "Admitting and correcting an error", "correct_bucket": "professional"},
+          {"id": "i4", "text": "Blaming the audience for not understanding", "correct_bucket": "unprofessional"},
+          {"id": "i5", "text": "Offering to follow up on an unknown answer", "correct_bucket": "professional"},
+          {"id": "i6", "text": "Refusing to take any feedback", "correct_bucket": "unprofessional"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Professional: answer calmly, correct errors, offer to follow up. Unprofessional: aggression, blaming the audience, refusing feedback.",
+        "error_signals": ["ERR_BUS_PRES12_FEEDBACK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.PRESENT.A1.14",
+        "question": "Why are charts and graphs useful in a data-response presentation?",
+        "input_type": "choice",
+        "options": ["They show figures, patterns and comparisons quickly and clearly", "They hide the data from the audience", "They always replace the need for any explanation", "They make the data impossible to read"],
+        "expected": "They show figures, patterns and comparisons quickly and clearly",
+        "memo": "Charts and graphs turn raw figures into clear visual patterns, helping the audience grasp the data fast.",
+        "error_signals": ["ERR_BUS_PRES12_AID"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.PRESENT.A1.15",
+        "question": "A presenter is asked a question they genuinely cannot answer. What is the professional response?",
+        "input_type": "choice",
+        "options": ["Admit it honestly and offer to find out and follow up", "Make up a confident but false answer", "Ignore the question", "Blame the person for asking"],
+        "expected": "Admit it honestly and offer to find out and follow up",
+        "memo": "Honesty plus a commitment to follow up keeps the presenter credible; bluffing risks giving wrong information.",
+        "error_signals": ["ERR_BUS_PRES12_FEEDBACK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.PRESENT.A1.16",
+        "question": "Clear _________ help organise information so the audience can follow it.",
+        "input_type": "cloze",
+        "options": ["headings", "rumours", "delays", "excuses"],
+        "expected": "headings",
+        "memo": "Clear headings (and subheadings) structure the information so the audience can follow the flow.",
+        "error_signals": ["ERR_BUS_PRES12_STRUCTURE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.PRESENT.A1.17",
+        "question": "Put the steps of an effective data-response presentation in order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "read", "text": "Read and understand the data provided"},
+          {"id": "organise", "text": "Organise the key figures and points"},
+          {"id": "present", "text": "Present them clearly with suitable visuals"},
+          {"id": "respond", "text": "Respond to questions and amend if needed"}
+        ],
+        "expected_order": ["read", "organise", "present", "respond"],
+        "options": ["read, organise, present, respond", "respond, present, organise, read", "organise, read, respond, present"],
+        "expected": "read, organise, present, respond",
+        "memo": "Understand the data, organise the key points, present them with clear visuals, then respond to questions and amend.",
+        "error_signals": ["ERR_BUS_PRES12_PROCESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.PRESENT.A1.18",
+        "question": "After a presentation, the audience raises several valid concerns. What is the best response?",
+        "input_type": "choice",
+        "options": ["Note the concerns, amend the plan and documents, and apply the lessons next time", "Dismiss the concerns as unimportant", "Argue that the audience misunderstood everything", "Refuse to change anything"],
+        "expected": "Note the concerns, amend the plan and documents, and apply the lessons next time",
+        "memo": "Valid feedback should be recorded and acted on by amending the work and improving future presentations.",
+        "error_signals": ["ERR_BUS_PRES12_FEEDBACK"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.PRESENT.A1.19",
+        "question": "Why is the ability to amend information after feedback an important business skill?",
+        "input_type": "choice",
+        "options": ["It keeps plans and documents accurate and shows responsiveness, building trust", "It is unnecessary because first drafts are always perfect", "It wastes time with no benefit", "It signals weakness and should be avoided"],
+        "expected": "It keeps plans and documents accurate and shows responsiveness, building trust",
+        "memo": "Updating work in response to feedback keeps it accurate and relevant and shows stakeholders the business listens and improves.",
+        "error_signals": ["ERR_BUS_PRES12_FEEDBACK"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.PRESENT.A1.20",
+        "question": "Which presenter is most likely to communicate business data effectively?",
+        "input_type": "choice",
+        "options": ["One who knows the audience, leads with key points, uses clear visuals and handles questions calmly", "One who reads dense text aloud and argues with questioners", "One who hides the main message and uses cluttered slides", "One who ignores the audience entirely"],
+        "expected": "One who knows the audience, leads with key points, uses clear visuals and handles questions calmly",
+        "memo": "Effective communication combines audience awareness, a clear structure, good visuals and a calm, professional handling of questions.",
+        "error_signals": ["ERR_BUS_PRES12_STRUCTURE"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

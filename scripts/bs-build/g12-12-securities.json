@@ -1,0 +1,244 @@
+{
+  "BUS.G12.T3.SECURITIES.A1": {
+    "title": "Investment: securities",
+    "description": "A range of business investment opportunities: business investments and the JSE, types of shares, unit trusts and government retail bonds; returns such as dividends and interest; and calculations including the difference between simple and compound interest.",
+    "grade": 12,
+    "strand": "T3 — Investment (securities & insurance), ownership & presentation",
+    "skill_ids": ["BUS.G12.T3.SECURITIES.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T3",
+    "caps_topic": "Investment: securities",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets"],
+    "recovery_strategy": "Simple interest is on the original amount only; compound interest is on the amount plus past interest, so it grows faster. Shares pay dividends (a share of profit); savings and bonds pay interest. Unit trusts spread money across many investments.",
+    "questions": [
+      {
+        "ref": "G12.SECURITIES.A1.01",
+        "question": "The JSE is the Johannesburg _________ Exchange, where shares are bought and sold.",
+        "input_type": "cloze",
+        "options": ["Stock", "Sales", "Storage", "Skills"],
+        "expected": "Stock",
+        "memo": "The JSE (Johannesburg Stock Exchange) is the market where shares in listed companies are traded.",
+        "error_signals": ["ERR_BUS_SEC_JSE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.SECURITIES.A1.02",
+        "question": "What does owning a share in a company give you?",
+        "input_type": "choice",
+        "options": ["Part-ownership of the company", "A loan from the company", "A job at the company", "Free products for life"],
+        "expected": "Part-ownership of the company",
+        "memo": "A share represents part-ownership of a company, entitling the holder to a share of profits (dividends).",
+        "error_signals": ["ERR_BUS_SEC_SHARE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.SECURITIES.A1.03",
+        "question": "True or false: Shares can pay their owners dividends.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Companies may pay dividends — a share of their profit — to shareholders.",
+        "error_signals": ["ERR_BUS_SEC_RETURN"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.SECURITIES.A1.04",
+        "question": "_________ interest is calculated only on the original amount invested.",
+        "input_type": "cloze",
+        "options": ["Simple", "Compound", "Double", "Hidden"],
+        "expected": "Simple",
+        "memo": "Simple interest is worked out only on the original principal, the same amount each period.",
+        "error_signals": ["ERR_BUS_SEC_INTEREST"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.SECURITIES.A1.05",
+        "question": "Compound interest is calculated on:",
+        "input_type": "choice",
+        "options": ["The original amount plus the interest already earned", "Only the original amount, forever", "Only the first year's interest", "The amount minus all interest"],
+        "expected": "The original amount plus the interest already earned",
+        "memo": "Compound interest is calculated on the principal plus accumulated interest, so it grows faster than simple interest.",
+        "error_signals": ["ERR_BUS_SEC_INTEREST"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.SECURITIES.A1.06",
+        "question": "True or false: A government retail bond is a form of investment.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A government retail bond is a relatively safe investment in which you lend money to the government and earn interest.",
+        "error_signals": ["ERR_BUS_SEC_TYPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.SECURITIES.A1.07",
+        "question": "Sort each item into the type of investment it describes.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "share", "label": "Shares"},
+          {"id": "unit", "label": "Unit trust"},
+          {"id": "bond", "label": "Government retail bond"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Part-ownership of a single listed company", "correct_bucket": "share"},
+          {"id": "i2", "text": "A pooled fund spread across many investments", "correct_bucket": "unit"},
+          {"id": "i3", "text": "Lending money to the government for interest", "correct_bucket": "bond"},
+          {"id": "i4", "text": "Earns dividends when the company profits", "correct_bucket": "share"},
+          {"id": "i5", "text": "Managed by a fund manager on investors' behalf", "correct_bucket": "unit"},
+          {"id": "i6", "text": "A relatively low-risk, fixed-interest investment", "correct_bucket": "bond"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Shares = part-ownership earning dividends; unit trusts = pooled, managed funds; government retail bonds = lending to the state for interest.",
+        "error_signals": ["ERR_BUS_SEC_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECURITIES.A1.08",
+        "question": "What is the difference between dividends and interest?",
+        "input_type": "choice",
+        "options": ["Dividends are a share of a company's profit; interest is a reward for lending or saving money", "They are exactly the same", "Dividends are paid on savings; interest is paid on shares", "Neither is a form of return"],
+        "expected": "Dividends are a share of a company's profit; interest is a reward for lending or saving money",
+        "memo": "Shares earn dividends (a portion of profit); savings and bonds earn interest (a reward for lending money).",
+        "error_signals": ["ERR_BUS_SEC_RETURN"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECURITIES.A1.09",
+        "question": "What is the simple interest on R5 000 invested at 10% per year for 2 years?",
+        "input_type": "choice",
+        "options": ["R1 000", "R500", "R1 050", "R10 000"],
+        "expected": "R1 000",
+        "memo": "Simple interest = R5 000 × 10% × 2 = R500 × 2 = R1 000.",
+        "error_signals": ["ERR_BUS_SEC_CALC"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECURITIES.A1.10",
+        "question": "A _________ trust pools many investors' money to buy a spread of shares and other assets.",
+        "input_type": "cloze",
+        "options": ["unit", "single", "private", "petty"],
+        "expected": "unit",
+        "memo": "A unit trust pools investors' money, which a fund manager spreads across many investments to reduce risk.",
+        "error_signals": ["ERR_BUS_SEC_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECURITIES.A1.11",
+        "question": "Why does compound interest grow an investment faster than simple interest?",
+        "input_type": "choice",
+        "options": ["Because the interest itself earns further interest over time", "Because it ignores the original amount", "Because it is calculated only once", "Because it removes interest each year"],
+        "expected": "Because the interest itself earns further interest over time",
+        "memo": "With compounding, each period's interest is added to the balance and then earns interest too, so growth accelerates.",
+        "error_signals": ["ERR_BUS_SEC_INTEREST"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECURITIES.A1.12",
+        "question": "True or false: Investing in shares carries the risk that their value can fall.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Share prices rise and fall, so there is a real risk that an investment in shares can lose value.",
+        "error_signals": ["ERR_BUS_SEC_RISK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECURITIES.A1.13",
+        "question": "Sort each return into whether it comes from shares or from lending/saving.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "shares", "label": "Return from shares"},
+          {"id": "lending", "label": "Return from lending/saving"}
+        ],
+        "items": [
+          {"id": "i1", "text": "A dividend paid out of company profit", "correct_bucket": "shares"},
+          {"id": "i2", "text": "Interest from a government bond", "correct_bucket": "lending"},
+          {"id": "i3", "text": "A rise in a share's market value", "correct_bucket": "shares"},
+          {"id": "i4", "text": "Interest from a fixed savings account", "correct_bucket": "lending"},
+          {"id": "i5", "text": "A share of profits distributed to owners", "correct_bucket": "shares"},
+          {"id": "i6", "text": "Interest earned on a retail bond", "correct_bucket": "lending"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Dividends and share-value growth come from shares; interest comes from lending or saving money (bonds, savings accounts).",
+        "error_signals": ["ERR_BUS_SEC_RETURN"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECURITIES.A1.14",
+        "question": "What is the simple interest on R2 000 invested at 8% per year for 3 years?",
+        "input_type": "choice",
+        "options": ["R480", "R160", "R600", "R2 480"],
+        "expected": "R480",
+        "memo": "Simple interest = R2 000 × 8% × 3 = R160 × 3 = R480.",
+        "error_signals": ["ERR_BUS_SEC_CALC"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECURITIES.A1.15",
+        "question": "What is a key benefit of a unit trust for a small investor?",
+        "input_type": "choice",
+        "options": ["It spreads money across many investments, reducing risk", "It guarantees the investor will never lose money", "It gives full control of a single company", "It avoids all fees and charges"],
+        "expected": "It spreads money across many investments, reducing risk",
+        "memo": "A unit trust diversifies across many assets, so a small investor is less exposed to any single investment failing.",
+        "error_signals": ["ERR_BUS_SEC_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECURITIES.A1.16",
+        "question": "A _________ is a portion of a company that an investor can buy on the stock exchange.",
+        "input_type": "cloze",
+        "options": ["share", "bond", "loan", "levy"],
+        "expected": "share",
+        "memo": "A share is a unit of ownership in a company that can be bought and sold, for example on the JSE.",
+        "error_signals": ["ERR_BUS_SEC_SHARE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECURITIES.A1.17",
+        "question": "R1 000 is invested for 2 years at 10% per year. Which earns more — simple or compound interest — and roughly by how much?",
+        "input_type": "choice",
+        "options": ["Compound earns more (R210 vs R200)", "Simple earns more (R210 vs R200)", "They earn exactly the same", "Neither earns any interest"],
+        "expected": "Compound earns more (R210 vs R200)",
+        "memo": "Simple = R1 000 × 10% × 2 = R200. Compound = R1 000 × 1.1² − R1 000 = R1 210 − R1 000 = R210. Compound earns R10 more.",
+        "error_signals": ["ERR_BUS_SEC_CALC"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.SECURITIES.A1.18",
+        "question": "An investor wants low risk and a predictable return. Which option fits best?",
+        "input_type": "choice",
+        "options": ["A government retail bond", "Shares in a single small start-up", "Borrowing to bet on one volatile share", "Putting everything into one speculative company"],
+        "expected": "A government retail bond",
+        "memo": "A government retail bond is relatively low-risk with predictable interest, suiting a cautious investor; single shares carry more risk.",
+        "error_signals": ["ERR_BUS_SEC_RISK"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.SECURITIES.A1.19",
+        "question": "Why do many investors spread their money across different types of investments?",
+        "input_type": "choice",
+        "options": ["Diversifying reduces the impact if any single investment performs badly", "It guarantees the highest possible return", "It removes all risk completely", "It is required by law"],
+        "expected": "Diversifying reduces the impact if any single investment performs badly",
+        "memo": "Spreading investments (diversification) means a loss in one is cushioned by others, lowering overall risk.",
+        "error_signals": ["ERR_BUS_SEC_RISK"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.SECURITIES.A1.20",
+        "question": "A young investor saving for retirement in 30 years asks why compound interest matters so much over a long period.",
+        "input_type": "choice",
+        "options": ["Over many years, interest earning interest causes the investment to grow dramatically", "Compound interest only matters for one year", "Time makes no difference to compound growth", "Compound interest shrinks an investment over time"],
+        "expected": "Over many years, interest earning interest causes the investment to grow dramatically",
+        "memo": "Compounding builds on itself, so over decades the growth becomes very large — time is a powerful ally for long-term investors.",
+        "error_signals": ["ERR_BUS_SEC_INTEREST"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

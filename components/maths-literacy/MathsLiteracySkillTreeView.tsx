@@ -88,9 +88,13 @@ export default function MathsLiteracySkillTreeView({
             title: skill.title,
             status,
             replay: canReplay,
+            // In-progress label shows cumulative distinct questions answered
+            // toward mastery (coverage), not the old correct/3 streak. The
+            // exact required count depends on the skill's pool size (known only
+            // server-side), so we surface progress as "<n> answered".
             label:
               base === "in_progress" && m
-                ? `${m.correct_count}/${skill.mastery_criteria.correct_required}`
+                ? `${new Set(profile?.used_questions?.[skill.id] ?? []).size || m.attempt_count} answered`
                 : undefined,
             onClick: canResume
               ? onContinue
