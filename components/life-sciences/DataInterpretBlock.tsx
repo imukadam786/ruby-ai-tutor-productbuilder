@@ -5,7 +5,7 @@ import type { LifeSciencesDataBlock } from "@/types/life-sciences";
 /**
  * Renders the inline `data` block on data-interpret items. Fall-through order
  * matches the data shape: image → table → calculation → description →
- * chart_type label fallback. Image lives at /life-sciences/<key>.png|svg.
+ * chart_type label fallback. Image lives at /life-sciences/<key>.webp|png|svg.
  * When the file is missing the broken-image alt label is the chart_type label.
  */
 export function DataInterpretBlock({ data }: { data: LifeSciencesDataBlock | undefined }) {
@@ -27,11 +27,15 @@ export function DataInterpretBlock({ data }: { data: LifeSciencesDataBlock | und
         <div className="mb-3 flex justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`/life-sciences/${data.image_ref}.png`}
+            src={`/life-sciences/${data.image_ref}.webp`}
             alt={data.chart_type ?? data.description ?? "Diagram"}
             className="max-h-72 rounded"
             onError={(e) => {
               const el = e.currentTarget as HTMLImageElement;
+              if (el.src.endsWith(".webp")) {
+                el.src = `/life-sciences/${data.image_ref}.png`;
+                return;
+              }
               if (el.src.endsWith(".png")) {
                 el.src = `/life-sciences/${data.image_ref}.svg`;
                 return;

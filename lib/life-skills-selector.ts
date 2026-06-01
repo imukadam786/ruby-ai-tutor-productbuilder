@@ -122,6 +122,7 @@ export function bankQuestionToGenerated(
     context: q.context,
     options: q.options,
     image_refs: q.image_refs,
+    stem_image: q.stem_image,
     expected_answer: q.expected,
     memo: q.memo,
     difficulty: q.difficulty,

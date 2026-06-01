@@ -38,6 +38,10 @@ export interface LifeSkillsBankQuestion {
    *  public/life-skills/<key>.<ext>; the session falls back to the option text
    *  when a file is absent. Optional — items without it render as text. */
   image_refs?: string[];
+  /** Single illustration shown ABOVE the question stem (not an answer tile).
+   *  File at public/life-skills/<key>.<ext>. Use on choice/true-false items
+   *  where one picture sets the scene. Independent of `image_refs`. */
+  stem_image?: string;
   expected: string | number;    // correct answer (or comma-separated order for sequence)
   memo: string;                 // why the answer is correct + wrong-answer hint
   error_signals: string[];      // 1–3 ERR_LS_* codes
@@ -192,6 +196,8 @@ export interface LifeSkillsGeneratedQuestion {
   options?: string[];
   /** Image keys parallel to `options` (image-match), or undefined for text. */
   image_refs?: string[];
+  /** Single illustration shown above the question stem (choice/true-false). */
+  stem_image?: string;
   expected_answer: string | number;
   memo: string;
   difficulty?: number;
