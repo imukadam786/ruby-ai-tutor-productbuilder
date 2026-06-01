@@ -1,8 +1,8 @@
 {
   "subject": "matric-physical-sciences",
-  "version": "1.1",
+  "version": "1.0",
   "description": "Combined Matric Physical Sciences question bank, produced by scripts/build-matric-phys-sci-bank.mjs from data/matric-physical-sciences-question-banks/*.json. Re-run after editing any per-skill bank.",
-  "built_at": "2026-05-28T17:31:33.310Z",
+  "built_at": "2026-06-01T09:10:25.269Z",
   "skills": {
     "L1.T1.A1": {
       "skill": "L1.T1.A1",
@@ -11,7 +11,7 @@
         12
       ],
       "paper": "P1",
-      "version": "1.1",
+      "version": "1.2",
       "notes": "v1.1: Expanded scope to match tree v1.1 — A1 now includes drawing free-body diagrams. Added 6 FBD items (q21–q26: 4 lifted from NSC P1 papers, 2 fresh). Existing q01–q20 (Newton's-law recall and identification) unchanged from v1.0.",
       "items": [
         {
@@ -637,7 +637,7 @@
         12
       ],
       "paper": "P1",
-      "version": "1.0",
+      "version": "1.1",
       "notes": "20 items: 7 lifted from NSC P1 papers, 13 fresh. Single-body Fnet = ma on horizontal or vertical surfaces (no inclines, no connected bodies — those are A3). Includes friction on horizontal surfaces and apparent weight in lifts.",
       "items": [
         {
@@ -1046,7 +1046,7 @@
         12
       ],
       "paper": "P1",
-      "version": "1.0",
+      "version": "1.1",
       "notes": "20 items: 12 lifted from NSC P1 papers (connected-body and incline problems), 8 fresh. Covers two-body pulley systems (same tension throughout, system acceleration first then isolate), inclined planes (mg sinθ down the slope, mg cosθ perpendicular), and friction on inclines.",
       "items": [
         {
@@ -1097,9 +1097,32 @@
           "gate": "B",
           "source": "lifted-from-paper",
           "source_ref": "P1 May/Jun 2025 Q2.4",
-          "question": "A block sits on a rough incline. The angle θ is gradually increased until the block is on the VERGE of sliding down. Show that the coefficient of static friction μ_s = tanθ.",
-          "answerMode": "text",
-          "expectedAnswer": "On the verge of sliding (Newton's First Law: still at rest, Fnet = 0). Along the slope: mg sinθ − μ_s × N = 0. Perpendicular: N = mg cosθ. Substitute: mg sinθ = μ_s × mg cosθ ⇒ μ_s = sinθ / cosθ = tanθ.",
+          "question": "A block sits on a rough incline. The angle θ is gradually increased until the block is on the VERGE of sliding down. Put the steps of the proof in the correct order to show that the coefficient of static friction μ_s = tanθ.",
+          "answerMode": "sequence",
+          "items": [
+            {
+              "id": "s1",
+              "text": "On the verge of sliding, the block is still at rest, so the net force is zero (Newton's First Law)."
+            },
+            {
+              "id": "s2",
+              "text": "Along the slope: mg sinθ − μ_s·N = 0."
+            },
+            {
+              "id": "s3",
+              "text": "Perpendicular to the slope: N = mg cosθ."
+            },
+            {
+              "id": "s4",
+              "text": "Substitute N: mg sinθ = μ_s·mg cosθ, so μ_s = sinθ ⁄ cosθ = tanθ."
+            }
+          ],
+          "expected_order": [
+            "s1",
+            "s2",
+            "s3",
+            "s4"
+          ],
           "marks": 3,
           "explanation": "Limiting friction equals applied force just before slipping. Setting f_max = mg sinθ and using N = mg cosθ gives μ_s = tanθ.",
           "errorSignals": [

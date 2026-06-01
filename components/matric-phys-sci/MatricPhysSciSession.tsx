@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { apiFetch } from "@/lib/fetch";
 import EduBackground from "@/components/EduBackground";
 import MatricPhysSciSkillTreeView from "./MatricPhysSciSkillTreeView";
+import SequenceQuestion from "./SequenceQuestion";
 import treeData from "@/data/matric-physical-sciences-skill-tree.json";
 import bankData from "@/data/matric-physical-sciences-question-bank.json";
 import { supabase } from "@/lib/supabase";
@@ -477,7 +478,18 @@ function MatricAnswerInput({
   onSubmit,
   submitting,
 }: AnswerInputProps) {
-  const { answerMode, options, fields, unit } = question;
+  const { answerMode, options, fields, items, unit } = question;
+
+  if (answerMode === "sequence" && items) {
+    return (
+      <SequenceQuestion
+        key={question.question_ref}
+        items={items}
+        submitting={submitting}
+        onSubmit={onSubmit}
+      />
+    );
+  }
 
   if (answerMode === "choice" && options) {
     return (

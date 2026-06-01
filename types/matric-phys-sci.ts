@@ -13,7 +13,8 @@ export type MatricPhysSciAnswerMode =
   | "text"
   | "choice"
   | "numeric"
-  | "multiField";
+  | "multiField"
+  | "sequence";
 
 export type MatricPhysSciSource = "lifted-from-paper" | "fresh";
 
@@ -22,6 +23,14 @@ export type MatricPhysSciGate = "A" | "B" | "NONE";
 export interface MatricPhysSciMultiField {
   label: string;
   expectedAnswer: string | number;
+}
+
+// For sequence (tap-to-order) items: the steps to order. The correct order is
+// stored in the bank item's `expected_order` (ids) and graded server-side — it
+// is never sent to the client.
+export interface MatricPhysSciSequenceItem {
+  id: string;
+  text: string;
 }
 
 export interface MatricPhysSciBankItem {
@@ -37,6 +46,8 @@ export interface MatricPhysSciBankItem {
   tolerance?: number;                          // for numeric
   unit?: string;                               // for numeric
   fields?: MatricPhysSciMultiField[];          // for multiField
+  items?: MatricPhysSciSequenceItem[];         // for sequence (steps to order)
+  expected_order?: string[];                   // for sequence (correct id order — server-side only)
   marks: number;
   explanation: string;                         // why the answer is correct
   errorSignals: string[];                      // 1–N ERR_* codes
@@ -117,6 +128,7 @@ export interface MatricPhysSciGeneratedQuestion {
   question: string;
   options?: string[];
   fields?: MatricPhysSciMultiField[];
+  items?: MatricPhysSciSequenceItem[];         // for sequence (expected_order withheld)
   expected_answer?: string | number;
   tolerance?: number;
   unit?: string;

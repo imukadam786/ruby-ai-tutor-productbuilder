@@ -56,9 +56,32 @@
       "gate": "B",
       "source": "lifted-from-paper",
       "source_ref": "P1 May/Jun 2025 Q2.4",
-      "question": "A block sits on a rough incline. The angle θ is gradually increased until the block is on the VERGE of sliding down. Show that the coefficient of static friction μ_s = tanθ.",
-      "answerMode": "text",
-      "expectedAnswer": "On the verge of sliding (Newton's First Law: still at rest, Fnet = 0). Along the slope: mg sinθ − μ_s × N = 0. Perpendicular: N = mg cosθ. Substitute: mg sinθ = μ_s × mg cosθ ⇒ μ_s = sinθ / cosθ = tanθ.",
+      "question": "A block sits on a rough incline. The angle θ is gradually increased until the block is on the VERGE of sliding down. Put the steps of the proof in the correct order to show that the coefficient of static friction μ_s = tanθ.",
+      "answerMode": "sequence",
+      "items": [
+        {
+          "id": "s1",
+          "text": "On the verge of sliding, the block is still at rest, so the net force is zero (Newton's First Law)."
+        },
+        {
+          "id": "s2",
+          "text": "Along the slope: mg sinθ − μ_s·N = 0."
+        },
+        {
+          "id": "s3",
+          "text": "Perpendicular to the slope: N = mg cosθ."
+        },
+        {
+          "id": "s4",
+          "text": "Substitute N: mg sinθ = μ_s·mg cosθ, so μ_s = sinθ ⁄ cosθ = tanθ."
+        }
+      ],
+      "expected_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
       "marks": 3,
       "explanation": "Limiting friction equals applied force just before slipping. Setting f_max = mg sinθ and using N = mg cosθ gives μ_s = tanθ.",
       "errorSignals": [

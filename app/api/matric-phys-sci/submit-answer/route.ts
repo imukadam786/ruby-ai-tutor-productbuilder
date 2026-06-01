@@ -56,6 +56,21 @@ function scoreSingleField(
 }
 
 /**
+ * For sequence items, the student answer is a JSON-stringified array of step
+ * ids in the chosen order. Correct iff it exactly matches `expected_order`.
+ */
+function scoreSequence(studentAnswer: string, expectedOrder: string[]): boolean {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(studentAnswer);
+  } catch {
+    return false;
+  }
+  if (!Array.isArray(parsed) || parsed.length !== expectedOrder.length) return false;
+  return parsed.every((id, i) => id === expectedOrder[i]);
+}
+
+/**
  * For multiField items, the bank stores an array of {label, expectedAnswer}.
  * The session serialises the student's answers in the same order joined by
  * "|". We split on "|" and score each field. Numeric tolerance for multiField
@@ -114,6 +129,8 @@ export async function POST(req: NextRequest) {
     let isCorrect = false;
     if (item.answerMode === "multiField" && item.fields) {
       isCorrect = scoreMultiField(submission.student_answer, item.fields);
+    } else if (item.answerMode === "sequence" && item.expected_order) {
+      isCorrect = scoreSequence(submission.student_answer, item.expected_order);
     } else if (
       item.answerMode === "text" ||
       item.answerMode === "choice" ||
