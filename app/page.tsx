@@ -111,6 +111,16 @@ const FEATURE_TUTORIAL_KEYS: Partial<Record<ActiveView, string>> = {
   progress:          "ruby_tut_progress",
 };
 
+// Views where the learner answers questions ("skill questions"). Freebie users
+// see their daily usage counters pinned to the top of these (chat shows its own
+// counters in its header, so it's intentionally excluded here).
+const SESSION_VIEWS: ActiveView[] = [
+  "ruby", "discover-maths", "reading", "discover-reading",
+  "life-skills", "social-sciences", "natural-sciences-tech", "matric-phys-sci",
+  "afrikaans-fal", "maths-literacy", "life-sciences", "history",
+  "business-studies", "tourism", "geography",
+];
+
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
 function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { initialView?: ActiveView; onPostDiscovery?: () => void; showUpgradeOnMount?: boolean }) {
   const { t } = useT();
@@ -127,6 +137,13 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
   const [survey, setSurvey] = useState<{ type: "maths" | "reading" | "chat" } | null>(null);
   const [activeTutorial, setActiveTutorial] = useState<ActiveView | null>(null);
   const [userPlan, setUserPlan] = useState<string | null>(null);
+  // The tutor whose chat is currently open (null = general Ruby chat).
+  const [selectedTutor, setSelectedTutor] = useState<string | null>(null);
+
+  // Only the freebie plan has daily limits; paid plans are unlimited, so the
+  // usage counters are removed for them entirely. (Matches UsageMeter, which
+  // only renders for plan === "freebie".)
+  const isFreebie = userPlan === "freebie";
 
   const viewLabels: Record<ActiveView, string> = {
     home: t("sidebar.home"),
@@ -311,6 +328,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       if (count % 3 === 0) setSurvey({ type: "chat" });
       setChatEngaged(false);
     }
+    // Opening chat from the nav is the general Ruby chat; a tutor card sets the
+    // tutor right after this call, so the last write (the tutor) wins.
+    if (view === "chat") setSelectedTutor(null);
     setActiveView(view);
     if (view === "skill-tree" || view === "student-dashboard" || view === "ruby" || view === "discover-maths") {
       void hydrateStudentProfileFromSupabase().then((p) => setRubyProfile(p));
@@ -452,9 +472,19 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
 
       {showLangPicker && <LanguagePickerModal onClose={() => setShowLangPicker(false)} />}
 
-      <main className="flex-1 overflow-hidden h-full">
-        {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} onOpenLangPicker={() => setShowLangPicker(true)} />}
-        {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} />}
+      <main className="flex-1 overflow-hidden h-full flex flex-col min-h-0">
+        {/* Daily usage counters pinned to the top of skill-question views for
+            freebie users (desktop). Mobile already shows them in the top bar;
+            paid plans are unlimited, so nothing renders for them. */}
+        {isFreebie && SESSION_VIEWS.includes(activeView) && (
+          <div className="hidden md:flex flex-shrink-0 items-center justify-center gap-2 bg-white border-b border-gray-200 px-4 py-2">
+            <span className="text-xs font-medium text-gray-500">Today&apos;s usage:</span>
+            <UsageMeter variant="compact" theme="light" />
+          </div>
+        )}
+        <div className="flex-1 min-h-0 overflow-hidden">
+        {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} onOpenLangPicker={() => setShowLangPicker(true)} onOpenChatWithTutor={(name) => { handleViewChange("chat"); setSelectedTutor(name); }} />}
+        {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} tutorName={selectedTutor} />}
         {activeView === "progress" && <ProgressTracker
           onMathsReplaySkill={startMathsReplay}
           onReadingReplaySkill={startReadingReplay}
@@ -517,6 +547,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "prep-papers-2026" && <PrepPapers2026 onBack={() => handleViewChange("matrics")} />}
         {activeView === "watch" && <WatchComingSoon />}
         {activeView === "study-guides" && <StudyGuides onBack={() => handleViewChange("matrics")} />}
+        </div>
       </main>
 
       </div>{/* end inner row */}

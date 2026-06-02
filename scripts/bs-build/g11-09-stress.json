@@ -1,0 +1,273 @@
+{
+  "BUS.G11.T2.STRESS.A1": {
+    "title": "Stress, crisis & change management",
+    "description": "Concepts relating to stress and how to manage it, the importance of stress management in pressurised workplaces, crisis management (deadlines, loss, illness), and theories of change management — dealing with and adapting to change such as retrenchment, globalisation and affirmative action.",
+    "grade": 11,
+    "strand": "T2 — Creative thinking, stress & change, action plans, setting up, ethics & presentation",
+    "skill_ids": ["BUS.G11.T2.STRESS.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T2",
+    "caps_topic": "Stress, crisis, change and conflict management",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+    "recovery_strategy": "Stress = pressure on a person (manage with time management, exercise, support). Crisis = a sudden serious threat to the business. Change management = leading people through change so they adapt rather than resist.",
+    "questions": [
+      {
+        "ref": "G11.STRESS.A1.01",
+        "question": "_________ is the body's reaction to pressure or excessive demands.",
+        "input_type": "cloze",
+        "options": ["Stress", "Profit", "Capital", "Quality"],
+        "expected": "Stress",
+        "memo": "Stress is the physical and emotional reaction to pressure or demands that feel hard to cope with.",
+        "error_signals": ["ERR_BUS_STRESS_CONCEPT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.STRESS.A1.02",
+        "question": "Which of these is a healthy way to manage stress?",
+        "input_type": "choice",
+        "options": ["Good time management, exercise and asking for support", "Ignoring it until you burn out", "Taking on even more work", "Skipping sleep to keep working"],
+        "expected": "Good time management, exercise and asking for support",
+        "memo": "Healthy stress management includes planning your time, exercising and seeking support — not piling on more pressure.",
+        "error_signals": ["ERR_BUS_STRESS_MANAGE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.STRESS.A1.03",
+        "question": "True or false: A crisis is a sudden, serious threat to the business.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A crisis is a sudden, serious event — such as a fire or major loss — that threatens the business and needs a fast response.",
+        "error_signals": ["ERR_BUS_CRISIS_CONCEPT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.STRESS.A1.04",
+        "question": "_________ management helps people accept and adjust to new ways of working.",
+        "input_type": "cloze",
+        "options": ["Change", "Stock", "Cash", "Quality"],
+        "expected": "Change",
+        "memo": "Change management is the process of helping people move through and adapt to change with less resistance.",
+        "error_signals": ["ERR_BUS_CHANGE_CONCEPT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.STRESS.A1.05",
+        "question": "True or false: Good stress management can improve productivity in a pressurised workplace.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "When stress is managed well, staff stay healthier and more focused, which keeps productivity up under pressure.",
+        "error_signals": ["ERR_BUS_STRESS_MANAGE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.STRESS.A1.06",
+        "question": "Which of these is an example of a business crisis?",
+        "input_type": "choice",
+        "options": ["A fire destroying the factory overnight", "Choosing a new font for a poster", "A routine weekly stock count", "Sending a regular invoice"],
+        "expected": "A fire destroying the factory overnight",
+        "memo": "A fire is a sudden, serious threat — a crisis. The other options are ordinary day-to-day activities.",
+        "error_signals": ["ERR_BUS_CRISIS_CONCEPT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.STRESS.A1.07",
+        "question": "Sort each situation into the type of management it mainly calls for.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "stress", "label": "Stress management"},
+          {"id": "crisis", "label": "Crisis management"},
+          {"id": "change", "label": "Change management"}
+        ],
+        "items": [
+          {"id": "i1", "text": "A worker is overwhelmed by tight daily deadlines", "correct_bucket": "stress"},
+          {"id": "i2", "text": "A burst pipe floods the warehouse overnight", "correct_bucket": "crisis"},
+          {"id": "i3", "text": "Staff must learn a brand-new computer system", "correct_bucket": "change"},
+          {"id": "i4", "text": "An employee feels constant pressure and cannot switch off", "correct_bucket": "stress"},
+          {"id": "i5", "text": "A key supplier suddenly goes bankrupt", "correct_bucket": "crisis"},
+          {"id": "i6", "text": "The company is restructuring all its departments", "correct_bucket": "change"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Personal pressure = stress; a sudden serious threat = crisis; helping people adjust to something new = change management.",
+        "error_signals": ["ERR_BUS_STRESS_CLASSIFY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.STRESS.A1.08",
+        "question": "Why is stress management important in a pressurised workplace?",
+        "input_type": "choice",
+        "options": ["It reduces burnout and keeps staff healthy and productive", "It guarantees the business never makes a loss", "It removes the need to pay staff", "It makes deadlines disappear"],
+        "expected": "It reduces burnout and keeps staff healthy and productive",
+        "memo": "Managing stress protects employees' health and prevents burnout, which keeps the workforce productive under pressure.",
+        "error_signals": ["ERR_BUS_STRESS_MANAGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.STRESS.A1.09",
+        "question": "Build a 3-part explanation of why a business should manage change well.",
+        "input_type": "paragraph-template",
+        "prompt": "Build a 3-part explanation of why a business should manage change well.",
+        "template": [
+          {
+            "slot": "point",
+            "label": "Pick the main claim",
+            "options": [
+              {"id": "p1", "text": "A business should manage change well because people often resist change", "correct": true},
+              {"id": "p2", "text": "A business should manage change well because change never affects staff", "correct": false},
+              {"id": "p3", "text": "A business should manage change well because change is always harmful", "correct": false}
+            ]
+          },
+          {
+            "slot": "evidence",
+            "label": "Pick the supporting evidence",
+            "options": [
+              {"id": "e1", "text": "Without support, employees may feel anxious, resist and become less productive", "correct": true},
+              {"id": "e2", "text": "Employees are completely unaffected by new systems or restructuring", "correct": false},
+              {"id": "e3", "text": "Change can be hidden from staff forever", "correct": false}
+            ]
+          },
+          {
+            "slot": "explanation",
+            "label": "Pick the best explanation",
+            "options": [
+              {"id": "x1", "text": "Good change management communicates, involves and supports staff so they adapt rather than resist", "correct": true},
+              {"id": "x2", "text": "Good change management means forcing change with no explanation", "correct": false},
+              {"id": "x3", "text": "Good change management means never changing anything", "correct": false}
+            ]
+          }
+        ],
+        "expected": ["p1", "e1", "x1"],
+        "memo": "Claim: change must be managed because people resist it. Evidence: unsupported change breeds anxiety and lower productivity. Explanation: communicating and involving staff helps them adapt.",
+        "error_signals": ["ERR_BUS_CHANGE_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.STRESS.A1.10",
+        "question": "Retrenchment, globalisation and affirmative action are examples of _________ that a business and its staff must adapt to.",
+        "input_type": "cloze",
+        "options": ["change", "stress", "profit", "stock"],
+        "expected": "change",
+        "memo": "These are all forms of change that affect the workplace and must be managed so staff can adapt.",
+        "error_signals": ["ERR_BUS_CHANGE_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.STRESS.A1.11",
+        "question": "Which is a sound crisis-management step?",
+        "input_type": "choice",
+        "options": ["Acting quickly with a clear plan to limit the damage", "Pretending the crisis is not happening", "Blaming staff and doing nothing", "Waiting several weeks before responding"],
+        "expected": "Acting quickly with a clear plan to limit the damage",
+        "memo": "Good crisis management means responding fast with a clear plan to contain the damage and protect the business.",
+        "error_signals": ["ERR_BUS_CRISIS_MANAGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.STRESS.A1.12",
+        "question": "True or false: Ignoring high stress levels among staff has no cost to the business.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "False",
+        "memo": "Unmanaged stress leads to burnout, absenteeism and lower productivity — all of which cost the business.",
+        "error_signals": ["ERR_BUS_STRESS_MANAGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.STRESS.A1.13",
+        "question": "Sort each response into a healthy or an unhealthy way of dealing with stress.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "healthy", "label": "Healthy response"},
+          {"id": "unhealthy", "label": "Unhealthy response"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Planning the day and prioritising tasks", "correct_bucket": "healthy"},
+          {"id": "i2", "text": "Skipping meals and sleep to keep working", "correct_bucket": "unhealthy"},
+          {"id": "i3", "text": "Taking short breaks and exercising", "correct_bucket": "healthy"},
+          {"id": "i4", "text": "Bottling everything up and never asking for help", "correct_bucket": "unhealthy"},
+          {"id": "i5", "text": "Talking to a manager about an unrealistic workload", "correct_bucket": "healthy"},
+          {"id": "i6", "text": "Taking on even more tasks to avoid the problem", "correct_bucket": "unhealthy"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Healthy: planning, breaks, exercise, asking for help. Unhealthy: skipping rest, bottling up stress and overloading yourself further.",
+        "error_signals": ["ERR_BUS_STRESS_MANAGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.STRESS.A1.14",
+        "question": "What is the aim of change management theories?",
+        "input_type": "choice",
+        "options": ["To help people move through change with less resistance", "To stop any change from ever happening", "To hide change from employees", "To make change as confusing as possible"],
+        "expected": "To help people move through change with less resistance",
+        "memo": "Change management theories guide how to lead people through change so they accept and adapt to it rather than resist.",
+        "error_signals": ["ERR_BUS_CHANGE_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.STRESS.A1.15",
+        "question": "Which of these is a warning sign of too much stress in an employee?",
+        "input_type": "choice",
+        "options": ["Constant exhaustion and poor concentration", "Feeling calm and well-rested", "Steady, focused work", "Enjoying a balanced workload"],
+        "expected": "Constant exhaustion and poor concentration",
+        "memo": "Ongoing exhaustion and difficulty concentrating are common signs that stress levels are too high.",
+        "error_signals": ["ERR_BUS_STRESS_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.STRESS.A1.16",
+        "question": "A plan that prepares a business in advance to respond to emergencies is a _________ plan.",
+        "input_type": "cloze",
+        "options": ["crisis", "marketing", "payroll", "seating"],
+        "expected": "crisis",
+        "memo": "A crisis (or contingency) plan sets out in advance how the business will respond to an emergency so it can act fast.",
+        "error_signals": ["ERR_BUS_CRISIS_MANAGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.STRESS.A1.17",
+        "question": "A data centre suffers a sudden power failure during peak trading. Which response shows the best crisis management?",
+        "input_type": "choice",
+        "options": ["Switch to a backup plan immediately and communicate clearly with customers", "Wait to see if the power returns on its own", "Send all staff home and lock the doors", "Deny that anything has gone wrong"],
+        "expected": "Switch to a backup plan immediately and communicate clearly with customers",
+        "memo": "Good crisis management responds at once using a prepared plan and keeps customers informed to limit the damage.",
+        "error_signals": ["ERR_BUS_CRISIS_MANAGE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.STRESS.A1.18",
+        "question": "Why is it worth a business spending time and money on staff stress management?",
+        "input_type": "choice",
+        "options": ["Healthier, less stressed staff are more productive and take less sick leave", "It removes the need to manage the business at all", "Stress management increases burnout", "It has no effect on the business"],
+        "expected": "Healthier, less stressed staff are more productive and take less sick leave",
+        "memo": "Investing in stress management pays off through higher productivity, lower absenteeism and better staff retention.",
+        "error_signals": ["ERR_BUS_STRESS_MANAGE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.STRESS.A1.19",
+        "question": "A company is introducing automation that worries staff about their jobs. Which approach reflects good change management?",
+        "input_type": "choice",
+        "options": ["Explain the reasons, retrain affected staff and involve them in the rollout", "Spring the change on staff with no warning", "Refuse to answer any questions about it", "Pretend nothing is changing"],
+        "expected": "Explain the reasons, retrain affected staff and involve them in the rollout",
+        "memo": "Good change management communicates the reasons, supports staff with retraining and involves them, reducing resistance and anxiety.",
+        "error_signals": ["ERR_BUS_CHANGE_CONCEPT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.STRESS.A1.20",
+        "question": "How are stress, crisis and change management related in a business?",
+        "input_type": "choice",
+        "options": ["A crisis or major change can raise stress, so all three often need managing together", "They have nothing to do with one another", "Only stress ever affects a business", "Managing one makes the others impossible"],
+        "expected": "A crisis or major change can raise stress, so all three often need managing together",
+        "memo": "Crises and big changes create pressure on people, so handling stress, crisis and change well often go hand in hand.",
+        "error_signals": ["ERR_BUS_STRESS_CLASSIFY"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

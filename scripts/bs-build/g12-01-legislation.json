@@ -1,0 +1,259 @@
+{
+  "BUS.G12.T1.LEGISLATION.A1": {
+    "title": "Impact of recent legislation on business",
+    "description": "The impact of recent legislation, developed for redress and equity, on small and large business: the Skills Development Act, Labour Relations Act, Employment Equity Act, Basic Conditions of Employment Act, COIDA, BEE and BBBEE, National Credit Act and Consumer Protection Act, plus human rights, inclusivity and environmental issues.",
+    "grade": 12,
+    "strand": "T1 — Legislation, Human Resources, ethics, creative thinking & business strategies",
+    "skill_ids": ["BUS.G12.T1.LEGISLATION.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T1",
+    "caps_topic": "Micro, market and macro environments",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source"],
+    "recovery_strategy": "Tie each Act to its purpose: EEA = fair, equal workplaces; BCEA = minimum working conditions; LRA = fair labour relations and unions; SDA = skills and SETAs; CPA = consumer rights; NCA = fair credit; BBBEE = economic redress; COIDA = injury compensation.",
+    "questions": [
+      {
+        "ref": "G12.LEGISLATION.A1.01",
+        "question": "What does the Employment Equity Act (EEA) mainly promote?",
+        "input_type": "choice",
+        "options": ["Equity and protection from unfair discrimination at work", "Higher product prices", "Lower taxes for big business", "Cheaper imports"],
+        "expected": "Equity and protection from unfair discrimination at work",
+        "memo": "The EEA promotes equal opportunity and fair treatment, prohibiting unfair discrimination in the workplace.",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.02",
+        "question": "The Basic Conditions of Employment Act (BCEA) mainly sets:",
+        "input_type": "choice",
+        "options": ["Minimum working conditions such as hours and leave", "The price of consumer goods", "The exchange rate", "Company share prices"],
+        "expected": "Minimum working conditions such as hours and leave",
+        "memo": "The BCEA sets minimum employment conditions — working hours, leave, notice and similar protections.",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.03",
+        "question": "Which Act compensates employees who are injured or fall ill at work?",
+        "input_type": "cloze",
+        "options": ["COIDA", "CPA", "NCA", "SDA"],
+        "expected": "COIDA",
+        "memo": "COIDA — the Compensation for Occupational Injuries and Diseases Act — pays compensation to workers injured or made ill on the job.",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.04",
+        "question": "True or false: Broad-Based Black Economic Empowerment (BBBEE) aims to redress past economic inequality.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "BBBEE seeks to redress the economic imbalances of the past by broadening participation in the economy.",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.05",
+        "question": "The _________ Protection Act protects the rights of consumers.",
+        "input_type": "cloze",
+        "options": ["Consumer", "Producer", "Supplier", "Investor"],
+        "expected": "Consumer",
+        "memo": "The Consumer Protection Act (CPA) protects consumers' rights to fair, safe and honest treatment.",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.06",
+        "question": "True or false: The Skills Development Act supports training, funded through a skills levy and SETAs.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "The Skills Development Act funds and coordinates training through the skills levy and Sector Education and Training Authorities (SETAs).",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.07",
+        "question": "Sort each Act under the area it mainly deals with.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "work", "label": "Workplace conditions & relations"},
+          {"id": "consumer", "label": "Consumer & credit protection"},
+          {"id": "equity", "label": "Equity & skills"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Basic Conditions of Employment Act", "correct_bucket": "work"},
+          {"id": "i2", "text": "Labour Relations Act", "correct_bucket": "work"},
+          {"id": "i3", "text": "National Credit Act", "correct_bucket": "consumer"},
+          {"id": "i4", "text": "Consumer Protection Act", "correct_bucket": "consumer"},
+          {"id": "i5", "text": "Employment Equity Act", "correct_bucket": "equity"},
+          {"id": "i6", "text": "Skills Development Act", "correct_bucket": "equity"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "BCEA and LRA govern the workplace; NCA and CPA protect consumers and credit users; EEA and SDA address equity and skills.",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.08",
+        "question": "What does the Labour Relations Act (LRA) mainly govern?",
+        "input_type": "choice",
+        "options": ["Fair labour relations, including unions and disputes", "The pricing of imported goods", "The design of company logos", "The interest rate on home loans"],
+        "expected": "Fair labour relations, including unions and disputes",
+        "memo": "The LRA governs the relationship between employers, employees and unions, covering bargaining, strikes and dispute resolution.",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.09",
+        "question": "Read the case and select the parts that show legislation affecting the business.",
+        "input_type": "highlight-source",
+        "source_text": "A manufacturer reviews its obligations. It must register staff for injury compensation under COIDA and pay the skills levy that funds SETA training. Its head office was recently repainted, and it has set fair, non-discriminatory hiring rules to meet the Employment Equity Act.",
+        "task": "Tap the parts that show legislation affecting the business.",
+        "targets": [
+          {"phrase": "register staff for injury compensation under COIDA", "reason": "COIDA is legislation requiring injury cover."},
+          {"phrase": "pay the skills levy that funds SETA training", "reason": "The skills levy comes from the Skills Development Act."},
+          {"phrase": "set fair, non-discriminatory hiring rules to meet the Employment Equity Act", "reason": "The EEA requires fair, non-discriminatory employment."}
+        ],
+        "min_correct": 2,
+        "max_wrong": 1,
+        "expected": "register staff for injury compensation under COIDA; pay the skills levy that funds SETA training; set fair, non-discriminatory hiring rules to meet the Employment Equity Act",
+        "memo": "COIDA, the skills levy (SDA) and the EEA are all legislation shaping the business. Repainting the office is not a legal obligation.",
+        "error_signals": ["ERR_BUS_LEG_IMPACT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.10",
+        "question": "BBBEE stands for Broad-Based Black _________ Empowerment.",
+        "input_type": "cloze",
+        "options": ["Economic", "Educational", "Electrical", "Electronic"],
+        "expected": "Economic",
+        "memo": "BBBEE is Broad-Based Black Economic Empowerment, aimed at broadening economic participation.",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.11",
+        "question": "What is the main purpose of the National Credit Act (NCA)?",
+        "input_type": "choice",
+        "options": ["To protect consumers in credit agreements and promote responsible lending", "To set minimum wages", "To register companies", "To compensate injured workers"],
+        "expected": "To protect consumers in credit agreements and promote responsible lending",
+        "memo": "The NCA protects consumers who buy on credit and requires lenders to lend responsibly.",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.12",
+        "question": "True or false: The Consumer Protection Act gives consumers the right to fair, safe and honest treatment.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "The CPA protects consumers' rights to safe products, honest information and fair business practice.",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.13",
+        "question": "Sort each item into whether it is mainly a cost of compliance or a benefit of the legislation.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "cost", "label": "Cost of compliance"},
+          {"id": "benefit", "label": "Benefit of the legislation"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Paying the skills levy", "correct_bucket": "cost"},
+          {"id": "i2", "text": "A better-skilled workforce from SETA training", "correct_bucket": "benefit"},
+          {"id": "i3", "text": "Extra admin to meet equity reporting", "correct_bucket": "cost"},
+          {"id": "i4", "text": "A fairer, more inclusive workplace", "correct_bucket": "benefit"},
+          {"id": "i5", "text": "Registering and paying COIDA contributions", "correct_bucket": "cost"},
+          {"id": "i6", "text": "Injured workers being compensated", "correct_bucket": "benefit"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Legislation brings compliance costs (levies, admin, contributions) but also real benefits (skills, fairness, worker protection).",
+        "error_signals": ["ERR_BUS_LEG_IMPACT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.14",
+        "question": "How does the Skills Development Act, through SETAs, benefit business?",
+        "input_type": "choice",
+        "options": ["It funds and coordinates training to build a more skilled workforce", "It lowers the price of raw materials", "It removes the need to pay any tax", "It bans all imports"],
+        "expected": "It funds and coordinates training to build a more skilled workforce",
+        "memo": "The SDA uses the skills levy and SETAs to fund training, helping businesses access better-skilled workers.",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.15",
+        "question": "Human rights in the Constitution include the rights to:",
+        "input_type": "choice",
+        "options": ["Equality, dignity and fair treatment", "Free electricity for all businesses", "Guaranteed profit", "Unlimited credit"],
+        "expected": "Equality, dignity and fair treatment",
+        "memo": "Constitutional human rights include equality, human dignity and fair treatment, which businesses must respect.",
+        "error_signals": ["ERR_BUS_LEG_RIGHTS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.16",
+        "question": "Read the case and select the examples of INCLUSIVITY and human-rights measures.",
+        "input_type": "highlight-source",
+        "source_text": "A company updates its policies. It makes its building wheelchair-accessible for staff with disabilities and adopts a hiring policy that welcomes people of all races and genders. It also buys a new delivery van and repaints the canteen.",
+        "task": "Tap the parts that show inclusivity or human-rights measures.",
+        "targets": [
+          {"phrase": "makes its building wheelchair-accessible for staff with disabilities", "reason": "Accessibility for disabled staff is an inclusivity/human-rights measure."},
+          {"phrase": "adopts a hiring policy that welcomes people of all races and genders", "reason": "Inclusive, non-discriminatory hiring reflects equity and human rights."}
+        ],
+        "min_correct": 2,
+        "max_wrong": 1,
+        "expected": "makes its building wheelchair-accessible for staff with disabilities; adopts a hiring policy that welcomes people of all races and genders",
+        "memo": "Accessibility and inclusive hiring are inclusivity and human-rights measures. Buying a van and repainting the canteen are not.",
+        "error_signals": ["ERR_BUS_LEG_RIGHTS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.17",
+        "question": "An employee is dismissed without a fair hearing. Which Act most directly applies?",
+        "input_type": "choice",
+        "options": ["The Labour Relations Act (LRA)", "The Consumer Protection Act", "The National Credit Act", "The Skills Development Act"],
+        "expected": "The Labour Relations Act (LRA)",
+        "memo": "Unfair dismissal is a labour-relations matter governed by the LRA, which requires fair procedures.",
+        "error_signals": ["ERR_BUS_LEG_APPLY"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.18",
+        "question": "How does redress-and-equity legislation typically affect small versus large businesses?",
+        "input_type": "choice",
+        "options": ["It adds compliance costs and admin, which can weigh more heavily on small businesses, while promoting fairer workplaces overall", "It has no effect on any business", "It only ever benefits businesses with no costs", "It applies only to large businesses and never to small ones"],
+        "expected": "It adds compliance costs and admin, which can weigh more heavily on small businesses, while promoting fairer workplaces overall",
+        "memo": "Compliance has real costs that can press harder on small firms, even as the legislation makes workplaces fairer and more inclusive for everyone.",
+        "error_signals": ["ERR_BUS_LEG_IMPACT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.19",
+        "question": "Why was legislation such as the EEA and BBBEE introduced?",
+        "input_type": "choice",
+        "options": ["To redress past inequality and create fairer access to the economy", "To make business impossible", "To raise the price of consumer goods", "To remove all worker protections"],
+        "expected": "To redress past inequality and create fairer access to the economy",
+        "memo": "These Acts respond to demands for redress and equity, broadening fair participation in the workplace and economy.",
+        "error_signals": ["ERR_BUS_LEG_PURPOSE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.LEGISLATION.A1.20",
+        "question": "A retailer sells a customer a dangerous, faulty appliance and refuses a refund. Which Act protects the customer, and how?",
+        "input_type": "choice",
+        "options": ["The Consumer Protection Act — it gives the right to safe goods and fair redress", "The Skills Development Act — it trains the customer", "COIDA — it compensates the retailer", "The Labour Relations Act — it governs the sale"],
+        "expected": "The Consumer Protection Act — it gives the right to safe goods and fair redress",
+        "memo": "The CPA protects consumers' rights to safe products and fair treatment, including remedies such as refunds for defective goods.",
+        "error_signals": ["ERR_BUS_LEG_APPLY"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

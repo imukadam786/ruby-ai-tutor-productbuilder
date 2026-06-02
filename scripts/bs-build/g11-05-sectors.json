@@ -1,0 +1,266 @@
+{
+  "BUS.G11.T1.SECTORS.A1": {
+    "title": "Links between the business sectors",
+    "description": "Investigating the links between primary, secondary and tertiary enterprises — how raw materials from primary enterprises flow to secondary enterprises that process them and to tertiary enterprises that distribute and service them.",
+    "grade": 11,
+    "strand": "T1 — Business environments, socio-economic issues, sectors, ownership & acquiring a business",
+    "skill_ids": ["BUS.G11.T1.SECTORS.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T1",
+    "caps_topic": "Business sectors",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+    "recovery_strategy": "Follow the chain: primary extracts raw materials (farm, mine) → secondary processes them (factory, bakery) → tertiary sells and services (shop, bank, transport). Each sector depends on the one before it.",
+    "questions": [
+      {
+        "ref": "G11.SECTORS.A1.01",
+        "question": "What do primary enterprises do?",
+        "input_type": "choice",
+        "options": ["Extract or grow raw materials", "Turn raw materials into finished goods", "Provide services to customers", "Lend money to businesses"],
+        "expected": "Extract or grow raw materials",
+        "memo": "Primary enterprises extract or grow raw materials — for example mining, farming, fishing and forestry.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SECTORS.A1.02",
+        "question": "What do secondary enterprises do?",
+        "input_type": "choice",
+        "options": ["Process raw materials into finished or semi-finished goods", "Dig minerals out of the ground", "Sell services like banking", "Grow crops on a farm"],
+        "expected": "Process raw materials into finished or semi-finished goods",
+        "memo": "Secondary enterprises process raw materials — factories, mills and bakeries that make products.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SECTORS.A1.03",
+        "question": "What do tertiary enterprises do?",
+        "input_type": "choice",
+        "options": ["Provide services and distribute goods", "Mine raw materials", "Manufacture furniture", "Grow vegetables"],
+        "expected": "Provide services and distribute goods",
+        "memo": "Tertiary enterprises provide services and distribute goods — shops, banks, transport and insurance.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SECTORS.A1.04",
+        "question": "True or false: A bakery is a secondary enterprise.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A bakery turns flour (a raw material) into bread, so it processes materials — making it a secondary enterprise.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SECTORS.A1.05",
+        "question": "Mining is an example of a _________ enterprise.",
+        "input_type": "cloze",
+        "options": ["primary", "secondary", "tertiary", "quaternary"],
+        "expected": "primary",
+        "memo": "Mining extracts raw materials from the earth, so it is a primary enterprise.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SECTORS.A1.06",
+        "question": "True or false: The three business sectors depend on each other.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "The sectors are linked: secondary needs raw materials from primary, and tertiary distributes and services what secondary makes.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SECTORS.A1.07",
+        "question": "Sort each enterprise into the correct sector.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "primary", "label": "Primary"},
+          {"id": "secondary", "label": "Secondary"},
+          {"id": "tertiary", "label": "Tertiary"}
+        ],
+        "items": [
+          {"id": "i1", "text": "A wheat farm", "correct_bucket": "primary"},
+          {"id": "i2", "text": "A flour mill", "correct_bucket": "secondary"},
+          {"id": "i3", "text": "A supermarket", "correct_bucket": "tertiary"},
+          {"id": "i4", "text": "A coal mine", "correct_bucket": "primary"},
+          {"id": "i5", "text": "A furniture factory", "correct_bucket": "secondary"},
+          {"id": "i6", "text": "A bank", "correct_bucket": "tertiary"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Farms and mines extract (primary); mills and factories process (secondary); supermarkets and banks serve and distribute (tertiary).",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SECTORS.A1.08",
+        "question": "Put the bread supply chain in the correct order, from raw material to customer.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "farm", "text": "A farm grows wheat"},
+          {"id": "mill", "text": "A mill grinds the wheat into flour"},
+          {"id": "bakery", "text": "A bakery bakes the flour into bread"},
+          {"id": "shop", "text": "A shop sells the bread to customers"}
+        ],
+        "expected_order": ["farm", "mill", "bakery", "shop"],
+        "options": ["farm, mill, bakery, shop", "shop, bakery, mill, farm", "mill, farm, shop, bakery"],
+        "expected": "farm, mill, bakery, shop",
+        "memo": "The chain runs primary (farm) → secondary (mill, bakery) → tertiary (shop). Each step depends on the one before it.",
+        "error_signals": ["ERR_BUS_SECTOR_CHAIN"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SECTORS.A1.09",
+        "question": "How does a secondary enterprise depend on a primary enterprise?",
+        "input_type": "choice",
+        "options": ["It needs the raw materials the primary enterprise produces", "It lends money to the primary enterprise", "It sells services to the public", "It mines its own minerals"],
+        "expected": "It needs the raw materials the primary enterprise produces",
+        "memo": "Secondary enterprises process raw materials, so they rely on primary enterprises to supply those materials.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SECTORS.A1.10",
+        "question": "A clothing factory buys raw cotton. It buys this from a _________ enterprise.",
+        "input_type": "cloze",
+        "options": ["primary", "secondary", "tertiary", "retail"],
+        "expected": "primary",
+        "memo": "Raw cotton is grown on a farm — a primary enterprise — which supplies the secondary clothing factory.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SECTORS.A1.11",
+        "question": "Which statement shows the correct links between the sectors?",
+        "input_type": "choice",
+        "options": ["Primary supplies secondary, and secondary supplies tertiary", "Tertiary supplies primary, and primary supplies secondary", "Secondary supplies primary, and primary supplies tertiary", "The sectors never supply each other"],
+        "expected": "Primary supplies secondary, and secondary supplies tertiary",
+        "memo": "Materials flow primary → secondary → tertiary: extracted, then processed, then distributed and serviced.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SECTORS.A1.12",
+        "question": "True or false: Tertiary enterprises distribute and sell the goods that secondary enterprises make.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Tertiary enterprises such as shops and transport firms move and sell the goods that secondary enterprises produce.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SECTORS.A1.13",
+        "question": "Sort each enterprise into the correct sector.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "primary", "label": "Primary"},
+          {"id": "secondary", "label": "Secondary"},
+          {"id": "tertiary", "label": "Tertiary"}
+        ],
+        "items": [
+          {"id": "i1", "text": "A fishing trawler", "correct_bucket": "primary"},
+          {"id": "i2", "text": "A canning factory", "correct_bucket": "secondary"},
+          {"id": "i3", "text": "A delivery and courier company", "correct_bucket": "tertiary"},
+          {"id": "i4", "text": "A vegetable farm", "correct_bucket": "primary"},
+          {"id": "i5", "text": "A car assembly plant", "correct_bucket": "secondary"},
+          {"id": "i6", "text": "An insurance company", "correct_bucket": "tertiary"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Trawlers and farms extract (primary); canning and assembly plants process (secondary); couriers and insurers provide services (tertiary).",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SECTORS.A1.14",
+        "question": "Which tertiary service most directly helps link the sectors together?",
+        "input_type": "choice",
+        "options": ["Transport that carries goods between farms, factories and shops", "Mining that digs up ore", "A factory that welds steel", "A farm that grows maize"],
+        "expected": "Transport that carries goods between farms, factories and shops",
+        "memo": "Transport is a tertiary service that physically moves goods between the sectors, keeping the chain connected.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SECTORS.A1.15",
+        "question": "Put the leather-shoe supply chain in the correct order, from raw material to customer.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "farm", "text": "A cattle farm produces hides"},
+          {"id": "tannery", "text": "A tannery turns the hides into leather"},
+          {"id": "factory", "text": "A factory makes the leather into shoes"},
+          {"id": "store", "text": "A store sells the shoes to customers"}
+        ],
+        "expected_order": ["farm", "tannery", "factory", "store"],
+        "options": ["farm, tannery, factory, store", "store, factory, tannery, farm", "tannery, factory, farm, store"],
+        "expected": "farm, tannery, factory, store",
+        "memo": "Primary (farm) supplies hides; secondary (tannery, factory) processes them into shoes; tertiary (store) sells them.",
+        "error_signals": ["ERR_BUS_SECTOR_CHAIN"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SECTORS.A1.16",
+        "question": "If a drought sharply reduces a region's farm output, what is the likely knock-on effect?",
+        "input_type": "choice",
+        "options": ["Secondary and tertiary enterprises also suffer because their supply is disrupted", "Only the farms are affected and nothing else changes", "Factories and shops benefit from the drought", "The drought lowers the businesses' electricity bills"],
+        "expected": "Secondary and tertiary enterprises also suffer because their supply is disrupted",
+        "memo": "Because the sectors are linked, a fall in primary output starves secondary enterprises of materials and reduces what tertiary enterprises have to sell.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SECTORS.A1.17",
+        "question": "Why is it wrong to say the three sectors operate independently of each other?",
+        "input_type": "choice",
+        "options": ["Because each sector relies on the others for materials, processing or distribution", "Because all three sectors are actually the same enterprise", "Because only the primary sector matters", "Because the sectors never trade with one another"],
+        "expected": "Because each sector relies on the others for materials, processing or distribution",
+        "memo": "The sectors are interdependent — primary supplies, secondary processes, tertiary distributes — so none works in isolation.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.SECTORS.A1.18",
+        "question": "A butchery slaughters cattle and also sells the meat directly to the public over a counter. Which best describes it?",
+        "input_type": "choice",
+        "options": ["It combines secondary activity (processing) with tertiary activity (selling)", "It is purely a primary enterprise", "It is purely a tertiary enterprise", "It belongs to no sector at all"],
+        "expected": "It combines secondary activity (processing) with tertiary activity (selling)",
+        "memo": "Processing the meat is secondary; selling it directly to the public is tertiary, so the butchery spans both sectors.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.SECTORS.A1.19",
+        "question": "A secondary manufacturer wants to secure its raw-material supply. Which strategy uses the sector links to do this?",
+        "input_type": "choice",
+        "options": ["Buying or partnering with a primary enterprise that supplies its materials", "Closing its factory permanently", "Refusing to deal with any primary enterprise", "Becoming a bank"],
+        "expected": "Buying or partnering with a primary enterprise that supplies its materials",
+        "memo": "By linking up the chain to its primary supplier, the manufacturer secures the raw materials its secondary processing depends on.",
+        "error_signals": ["ERR_BUS_SECTOR_LINK"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.SECTORS.A1.20",
+        "question": "Put the stages of a wooden-furniture chain in the correct order, from raw material to customer.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "forest", "text": "A forestry company harvests timber"},
+          {"id": "sawmill", "text": "A sawmill cuts the timber into planks"},
+          {"id": "factory", "text": "A factory builds the planks into furniture"},
+          {"id": "showroom", "text": "A showroom sells the furniture to customers"}
+        ],
+        "expected_order": ["forest", "sawmill", "factory", "showroom"],
+        "options": ["forest, sawmill, factory, showroom", "showroom, factory, sawmill, forest", "sawmill, forest, showroom, factory"],
+        "expected": "forest, sawmill, factory, showroom",
+        "memo": "Forestry (primary) supplies timber; the sawmill and factory (secondary) process it into furniture; the showroom (tertiary) sells it.",
+        "error_signals": ["ERR_BUS_SECTOR_CHAIN"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

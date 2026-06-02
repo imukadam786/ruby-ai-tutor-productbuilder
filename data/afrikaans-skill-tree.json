@@ -1,7 +1,7 @@
 {
   "version": "0.1",
   "subject": "afrikaans-fal",
-  "description": "Afrikaans First Additional Language skill tree, Grades 1-6 (CAPS Foundation Phase 1-3 + Intermediate Phase 4-6). Strands shift at IP: Foundation Phase uses Luister / Klanke / Woordeskat / Lees & Kyk / Taalstruktuur (oral-heavy); Intermediate Phase uses Luister / Lees en Kyk / Skryf en Aanbied / Taalstrukture (reading + writing become first-class). Praat (speaking-aloud) and essay-length writing remain DEFERRED. Item delivery follows the same tap/choice/cloze/sequence templates as Life Skills (no LLM grading in scope).",
+  "description": "Afrikaans First Additional Language skill tree, Grades 1-6 (CAPS Foundation Phase 1-3 + Intermediate Phase 4-6) plus Grades 10-12 (CAPS FET FAL). Strands shift by phase: Foundation Phase uses Luister / Klanke / Woordeskat / Lees & Kyk / Taalstruktuur (oral-heavy); Intermediate Phase uses Luister / Lees en Kyk / Skryf en Aanbied / Taalstrukture (reading + writing become first-class); FET Grades 10-12 use Luister / Lees en kyk / Letterkunde / Skryf en aanbied / Taalstrukture mapped to the four exam papers (V1 Taal in konteks, V2 Letterkunde, V3 Skryf, V4 Mondeling). NOTE a gap at Grades 7-9 (Senior Phase), not yet authored. At FET, BOTH the question and the answer options are in Afrikaans (immersive); earlier phases keep English scaffolding. Praat (speaking-aloud) and essay/oral PRODUCTION remain DEFERRED. Item delivery follows the same tap/choice/cloze/sequence templates as Life Skills (no LLM grading in scope).",
   "levels": [
     {
       "id": 1,
@@ -5859,6 +5859,3723 @@
                 }
               ],
               "recovery_strategy": "Give the literal picture (what the words say) and then the figurative meaning, side by side.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "grade": 10,
+      "title": "Graad 10 — Afrikaans Eerste Addisionele Taal",
+      "description": "CAPS FET Phase Grade 10 FAL. Older learners (15-16) working toward the four exam papers (Vraestel 1 Taal in konteks, 2 Letterkunde, 3 Skryf, 4 Mondeling). Both the questions AND the answer options are in Afrikaans (immersive FET delivery), unlike the English-scaffolded Foundation/Intermediate phases. Tap/choice/true-false/cloze/sequence delivery; deterministic grading; no free-text essay or spoken oral (Praat) in scope — Writing is delivered as tappable structure/planning/editing knowledge. Strands: Luister, Lees en kyk, Letterkunde, Skryf en aanbied, Taalstrukture en -konvensies.",
+      "tiers": [
+        {
+          "id": "AF.G10.LUI",
+          "title": "Luister (Listening comprehension)",
+          "description": "Receptive listening only (Praat / speaking-aloud is deferred — needs voice capture). af-ZA audio plays a longer Afrikaans text (announcement, interview, speech, news item); the learner taps/chooses. FET level adds viewpoint, attitude and critical listening for bias.",
+          "atomic_skills": [
+            {
+              "id": "AF.G10.LUI.01",
+              "bank_skill_id": "AF.G10.LUI.01",
+              "title": "Luister vir spesifieke inligting (listen for specific information)",
+              "description": "Listen to a spoken Afrikaans text (announcement, interview, weather/news) and pick out specific facts: names, times, numbers, places.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "key_detail_missed",
+                  "description": "A key time / number / name is missed",
+                  "example": "Audio says 'om 14:30'; learner picks '16:30'."
+                },
+                {
+                  "type": "distractor_confused",
+                  "description": "Picks a plausible detail that was not stated",
+                  "example": "Audio names Kaapstad; learner picks Pretoria."
+                }
+              ],
+              "recovery_strategy": "Tell learners the question before the audio replays so they listen with a purpose; note the key word as they hear it.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LUI.02",
+              "bank_skill_id": "AF.G10.LUI.02",
+              "title": "Luister vir hoofgedagte en som op (main idea & summary)",
+              "description": "Listen to a longer Afrikaans text and identify the main idea and the best one-line summary, separating it from supporting detail.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LUI.01"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "detail_as_main",
+                  "description": "Picks a supporting detail as the main idea",
+                  "example": "Talk on recycling; learner picks 'glass can be melted' as the main point."
+                },
+                {
+                  "type": "topic_too_broad",
+                  "description": "Picks a too-broad option missing the focus",
+                  "example": "Text about water-saving at home; learner picks 'the environment'."
+                }
+              ],
+              "recovery_strategy": "After listening, say the text in ONE sentence. If a detail would not fit that sentence, it is support, not the main idea.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LUI.03",
+              "bank_skill_id": "AF.G10.LUI.03",
+              "title": "Luister vir houding en standpunt (attitude & viewpoint)",
+              "description": "Listen to an Afrikaans opinion, interview or panel discussion and identify the speaker's viewpoint, attitude and the reasons they give.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LUI.02"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "viewpoint_reversed",
+                  "description": "Identifies the opposite of the speaker's actual position",
+                  "example": "Speaker is FOR free transport; learner says AGAINST."
+                },
+                {
+                  "type": "tone_misread",
+                  "description": "Misreads tone (e.g. sarcasm read as praise)",
+                  "example": "Sarcastic 'wonderlik' read as genuine approval."
+                }
+              ],
+              "recovery_strategy": "Listen for the opinion words ('ek dink', 'ek voel', 'na my mening') and the reason words ('want', 'omdat'); mark them separately.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LUI.04",
+              "bank_skill_id": "AF.G10.LUI.04",
+              "title": "Kritiese luister: vooroordeel en partydigheid (critical listening: bias)",
+              "description": "Listen critically to a persuasive or one-sided Afrikaans text and detect bias, prejudice, generalisation and emotive/manipulative language.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LUI.03"
+              ],
+              "templates": [
+                "audio",
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "bias_unnoticed",
+                  "description": "Treats a one-sided text as neutral fact",
+                  "example": "Accepts 'almal weet...' as proof."
+                },
+                {
+                  "type": "emotive_missed",
+                  "description": "Does not flag emotive / loaded wording",
+                  "example": "Misses 'skokkende', 'gevaarlike' as persuasion."
+                }
+              ],
+              "recovery_strategy": "Ask: who benefits from this message, and who is left out? Loaded words and 'almal/altyd/nooit' are bias signals.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G10.LEE",
+          "title": "Lees en kyk (Reading & viewing comprehension)",
+          "description": "A written or visual Afrikaans text is shown on screen (passage, advert, cartoon, graph); the learner answers tappable comprehension questions. Covers reading strategies, fact vs opinion, the writer's viewpoint, inference, visual literacy and critical language awareness — the Vraestel 1 (Taal in konteks) skill set.",
+          "atomic_skills": [
+            {
+              "id": "AF.G10.LEE.01",
+              "bank_skill_id": "AF.G10.LEE.01",
+              "title": "Leesstrategieë: vluglees, soeklees, aandagtige lees (skim, scan, close reading)",
+              "description": "Use the right reading strategy to locate explicit information in an Afrikaans passage and answer literal questions.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "info_not_located",
+                  "description": "Cannot find the stated answer in the text",
+                  "example": "Answer is in line 2; learner guesses."
+                },
+                {
+                  "type": "wrong_section",
+                  "description": "Answers from the wrong part of the text",
+                  "example": "Pulls a detail from the wrong paragraph."
+                }
+              ],
+              "recovery_strategy": "Scan for the key word from the question, then read the whole sentence around it before choosing.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LEE.02",
+              "bank_skill_id": "AF.G10.LEE.02",
+              "title": "Feit teenoor mening (fact vs opinion)",
+              "description": "Distinguish statements of fact from statements of opinion in an Afrikaans text.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "opinion_as_fact",
+                  "description": "Labels an opinion as a fact",
+                  "example": "'Dit is die beste fliek' read as fact."
+                },
+                {
+                  "type": "fact_as_opinion",
+                  "description": "Labels a verifiable fact as opinion",
+                  "example": "'Water kook by 100°C' read as opinion."
+                }
+              ],
+              "recovery_strategy": "A fact can be checked or proved; an opinion shows what someone thinks or feels (dink, voel, beste, mooiste).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LEE.03",
+              "bank_skill_id": "AF.G10.LEE.03",
+              "title": "Skrywer se houding en standpunt (writer's attitude & viewpoint)",
+              "description": "Identify and justify the writer's attitude, tone and viewpoint in an article, letter or media text.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.02"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "attitude_misread",
+                  "description": "Misreads the writer's attitude",
+                  "example": "Critical article read as supportive."
+                },
+                {
+                  "type": "no_evidence",
+                  "description": "Cannot point to wording that shows the attitude",
+                  "example": "Chooses an attitude with no textual support."
+                }
+              ],
+              "recovery_strategy": "Find the words that carry feeling (positive or negative) and let them point you to the writer's stance.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LEE.04",
+              "bank_skill_id": "AF.G10.LEE.04",
+              "title": "Afleidings en gevolgtrekkings (inference & conclusion)",
+              "description": "Read between the lines of an Afrikaans text to infer meaning and draw conclusions not stated directly.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.03"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "literal_only",
+                  "description": "Stays literal and misses the implied meaning",
+                  "example": "Misses that 'sy het haar tas gegryp' implies she left in a hurry."
+                },
+                {
+                  "type": "overreach",
+                  "description": "Draws a conclusion the text does not support",
+                  "example": "Adds information not implied."
+                }
+              ],
+              "recovery_strategy": "Combine a clue from the text with what you already know: clue + knowledge = inference.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LEE.05",
+              "bank_skill_id": "AF.G10.LEE.05",
+              "title": "Visuele tekste: advertensies, spotprente, grafieke (visual texts)",
+              "description": "Read visual Afrikaans texts — adverts, cartoons (spotprente), graphs and photos — for message, persuasion and humour.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "visual_literal",
+                  "description": "Reads a cartoon/advert literally, missing the message",
+                  "example": "Misses the irony in a spotprent."
+                },
+                {
+                  "type": "persuasion_missed",
+                  "description": "Does not see the persuasive technique",
+                  "example": "Misses slogan / exaggeration / appeal."
+                }
+              ],
+              "recovery_strategy": "In a visual text ask: what does the picture WANT me to think or do, and which trick (humour, exaggeration, slogan) does it use?",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LEE.06",
+              "bank_skill_id": "AF.G10.LEE.06",
+              "title": "Kritiese taalbewustheid (critical language awareness)",
+              "description": "Detect bias, stereotyping, assumptions, manipulation, and denotation vs connotation in Afrikaans media texts; ask who benefits.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.03",
+                "AF.G10.LEE.05"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "bias_unnoticed",
+                  "description": "Treats a slanted text as neutral",
+                  "example": "Accepts a one-sided report as balanced."
+                },
+                {
+                  "type": "connotation_missed",
+                  "description": "Misses the connotation of a loaded word",
+                  "example": "Reads 'goedkoop' only as 'low price', not 'inferior'."
+                }
+              ],
+              "recovery_strategy": "Separate what a word literally says (denotasie) from the feeling it carries (konnotasie); ask who gains and who is left out.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G10.LET",
+          "title": "Letterkunde (Literature)",
+          "description": "Transferable literary skills taught on short original / public-domain Afrikaans passages and poems (no prescribed set-works, so it works for any school's text list). Theme, character, plot, figures of speech, style/rhetoric and poem structure — the Vraestel 2 (Letterkunde) skill set.",
+          "atomic_skills": [
+            {
+              "id": "AF.G10.LET.01",
+              "bank_skill_id": "AF.G10.LET.01",
+              "title": "Tema en boodskap (theme & message)",
+              "description": "Identify the central theme / motif and the message of a short Afrikaans story or poem.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "plot_as_theme",
+                  "description": "Gives the plot instead of the underlying theme",
+                  "example": "'A boy loses his dog' instead of 'loss / growing up'."
+                },
+                {
+                  "type": "theme_too_narrow",
+                  "description": "Picks a surface detail as the theme",
+                  "example": "Names a single event, not the bigger idea."
+                }
+              ],
+              "recovery_strategy": "The theme is the big idea the text is really about (e.g. courage, loss); the plot is only what happens.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LET.02",
+              "bank_skill_id": "AF.G10.LET.02",
+              "title": "Karakter en karakterisering (character & characterisation)",
+              "description": "Analyse characters: their traits, motives and how the writer reveals them (direct description vs actions/words).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "trait_unsupported",
+                  "description": "Names a trait the text does not support",
+                  "example": "Calls a character 'brave' with no evidence."
+                },
+                {
+                  "type": "action_motive_confused",
+                  "description": "Confuses what a character does with why",
+                  "example": "States the action, not the motive."
+                }
+              ],
+              "recovery_strategy": "Judge a character by what they say and do, and how others react to them — not only by what the narrator tells you.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LET.03",
+              "bank_skill_id": "AF.G10.LET.03",
+              "title": "Intrige / plot (plot)",
+              "description": "Identify plot structure — exposition, conflict, climax, resolution — and order events in an Afrikaans story or drama.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.01"
+              ],
+              "templates": [
+                "choice",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "climax_misplaced",
+                  "description": "Misidentifies the climax / turning point",
+                  "example": "Picks a minor event as the climax."
+                },
+                {
+                  "type": "sequence_inversion",
+                  "description": "Orders events incorrectly",
+                  "example": "Places the resolution before the climax."
+                }
+              ],
+              "recovery_strategy": "Track the story arc: setup → the problem builds → the highest tension (climax) → how it ends (resolution).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LET.04",
+              "bank_skill_id": "AF.G10.LET.04",
+              "title": "Beeldspraak: vergelyking, metafoor, personifikasie (figures of speech)",
+              "description": "Identify and interpret simile (vergelyking), metaphor (metafoor) and personification (personifikasie) and link them to meaning.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "simile_metaphor_confused",
+                  "description": "Confuses simile and metaphor",
+                  "example": "Calls 'so vinnig soos die wind' a metaphor."
+                },
+                {
+                  "type": "literal_reading",
+                  "description": "Reads the image literally",
+                  "example": "'Die see brul' read as a real animal."
+                }
+              ],
+              "recovery_strategy": "Vergelyking uses 'soos/asof'; metafoor says one thing IS another; personifikasie gives human action to a non-human thing.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LET.05",
+              "bank_skill_id": "AF.G10.LET.05",
+              "title": "Stylfigure en retoriese middele (style figures & rhetorical devices)",
+              "description": "Recognise irony, contrast, repetition, hyperbole, climax and euphemism, and explain their effect.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.04"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "irony_missed",
+                  "description": "Misses irony / takes the words at face value",
+                  "example": "Reads sarcasm as sincerity."
+                },
+                {
+                  "type": "device_mislabelled",
+                  "description": "Names the wrong device",
+                  "example": "Calls repetition 'contrast'."
+                }
+              ],
+              "recovery_strategy": "Ask what effect the writer wanted (emphasis, surprise, humour) and match it to the device that creates it.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.LET.06",
+              "bank_skill_id": "AF.G10.LET.06",
+              "title": "Gedigbou: rym, strofe, innerlike en uiterlike bou (poem structure)",
+              "description": "Analyse a poem's outer form (stanzas, lines, rhyme scheme) and inner build (mood, turn) in a short Afrikaans poem.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.04"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "rhyme_misread",
+                  "description": "Mislabels the rhyme scheme",
+                  "example": "Calls aabb an abab pattern."
+                },
+                {
+                  "type": "form_content_split",
+                  "description": "Cannot link form to meaning",
+                  "example": "Notes a stanza break but not its effect."
+                }
+              ],
+              "recovery_strategy": "Count lines/stanzas and mark line-end sounds for the rhyme scheme; then ask how a break or rhyme supports the mood.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G10.SKR",
+          "title": "Skryf en aanbied (Writing knowledge)",
+          "description": "Writing taught as tappable knowledge (essay/transactional PRODUCTION is deferred — same playbook as the deferred handwriting/speaking in Gr1-6). Learners identify the correct text-type structure, order paragraphs, choose register and tone, fix errors and select key summary points — the planning and editing half of Vraestel 3 (Skryf).",
+          "atomic_skills": [
+            {
+              "id": "AF.G10.SKR.01",
+              "bank_skill_id": "AF.G10.SKR.01",
+              "title": "Briewe: vriendskaplik teenoor formeel (friendly vs formal letters)",
+              "description": "Identify the correct structure and conventions of friendly vs formal letters (address, date, salutation, closing) and choose the right format.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "format_mixed",
+                  "description": "Mixes friendly and formal conventions",
+                  "example": "Uses 'Liewe Jan' to open a complaint to a newspaper."
+                },
+                {
+                  "type": "element_missing",
+                  "description": "Omits a required element",
+                  "example": "Formal letter without sender + receiver address."
+                }
+              ],
+              "recovery_strategy": "A formal letter needs two addresses + a formal salutation/closing; a friendly letter is one address and a warm greeting.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.SKR.02",
+              "bank_skill_id": "AF.G10.SKR.02",
+              "title": "Transaksionele tekssoorte herken (identify transactional text-types)",
+              "description": "Match purpose and key features to the right transactional text: e-pos, uitnodiging, advertensie, dagboek, koerantberig, agenda/notule, CV.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.01"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "texttype_confused",
+                  "description": "Chooses the wrong text-type for the purpose",
+                  "example": "Picks 'dagboek' to advertise an event."
+                },
+                {
+                  "type": "feature_misplaced",
+                  "description": "Assigns a feature to the wrong text",
+                  "example": "Puts a byline on a diary entry."
+                }
+              ],
+              "recovery_strategy": "Match the PURPOSE (inform, invite, persuade, record) to the text-type, then check its signature features.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.SKR.03",
+              "bank_skill_id": "AF.G10.SKR.03",
+              "title": "Paragraafbou: kernsin en ondersteunende besonderhede (paragraph building)",
+              "description": "Build a coherent Afrikaans paragraph: identify the topic sentence (kernsin), order supporting detail logically and use process-writing steps.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.01"
+              ],
+              "templates": [
+                "choice",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "no_topic_sentence",
+                  "description": "Cannot identify / place the topic sentence",
+                  "example": "Buries the main point mid-paragraph."
+                },
+                {
+                  "type": "order_illogical",
+                  "description": "Orders sentences illogically",
+                  "example": "Conclusion placed before the supporting reasons."
+                }
+              ],
+              "recovery_strategy": "Lead with the kernsin (main idea), then the supporting detail, then a closing sentence — one idea per paragraph.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.SKR.04",
+              "bank_skill_id": "AF.G10.SKR.04",
+              "title": "Register, styl en toon (register, style & tone)",
+              "description": "Choose the appropriate register, style and tone (formal/informal) for the audience and purpose of a text.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "register_mismatch",
+                  "description": "Picks the wrong register for the audience",
+                  "example": "Slang in a letter to the principal."
+                },
+                {
+                  "type": "tone_inappropriate",
+                  "description": "Tone does not fit the purpose",
+                  "example": "Jokey tone in a complaint."
+                }
+              ],
+              "recovery_strategy": "Ask who will read it and why: a boss/newspaper needs formal language; a friend allows informal, warmer wording.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.SKR.05",
+              "bank_skill_id": "AF.G10.SKR.05",
+              "title": "Redigeer: vind en verbeter die taalfout (editing: find & fix the error)",
+              "description": "Proofread an Afrikaans sentence and identify or correct the language, spelling or punctuation error.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "error_unseen",
+                  "description": "Does not spot the error",
+                  "example": "Passes a wrong tense / spelling."
+                },
+                {
+                  "type": "wrong_fix",
+                  "description": "Applies an incorrect correction",
+                  "example": "‘Corrects’ a right word."
+                }
+              ],
+              "recovery_strategy": "Check one thing at a time: agreement, tense, spelling, then punctuation. Read the sentence aloud in your head.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.SKR.06",
+              "bank_skill_id": "AF.G10.SKR.06",
+              "title": "Opsomming: kies die kernpunte (summary: select key points)",
+              "description": "Select the main points for a summary of an Afrikaans text, dropping examples and repetition, within a point limit.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.03"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "detail_included",
+                  "description": "Keeps a minor detail / example as a key point",
+                  "example": "Lists an example instead of the main idea."
+                },
+                {
+                  "type": "point_merged",
+                  "description": "Misses that two 'points' are the same idea",
+                  "example": "Counts a repeated idea twice."
+                }
+              ],
+              "recovery_strategy": "Keep only points that change the meaning; drop examples, repetition and anything you could leave out and still understand the text.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G10.TAA",
+          "title": "Taalstrukture en -konvensies (Language structures & conventions)",
+          "description": "The grammar core, taught explicitly and tappable: nouns, pronouns, adjectives & comparison, verbs & tenses, conjunctions, sentence types & negation, direct/indirect speech, active/passive, punctuation, semantics, idioms and word-formation/spelling. Reinforced from earlier phases and extended for FET; assessed inside Vraestel 1 (Taal in konteks).",
+          "atomic_skills": [
+            {
+              "id": "AF.G10.TAA.01",
+              "bank_skill_id": "AF.G10.TAA.01",
+              "title": "Selfstandige naamwoorde: meervoud, verkleining, geslag (nouns)",
+              "description": "Form and recognise noun plurals (-e, -s, -ers, deelteken, kappie), diminutives (-tjie/-jie/-ie/-etjie/-pie/-kie) and gender forms.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "plural_rule_wrong",
+                  "description": "Applies the wrong plural rule",
+                  "example": "'boom' → 'booms' instead of 'bome'."
+                },
+                {
+                  "type": "diminutive_form_wrong",
+                  "description": "Forms the diminutive incorrectly",
+                  "example": "'hond' → 'hondtjie' instead of 'hondjie'."
+                }
+              ],
+              "recovery_strategy": "Plurals follow patterns (often -e or -s, with deelteken/kappie when needed); diminutive endings depend on the last sound of the word.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.TAA.02",
+              "bank_skill_id": "AF.G10.TAA.02",
+              "title": "Voornaamwoorde (pronouns)",
+              "description": "Use personal, possessive, demonstrative and relative pronouns (ek/jy/hy; my/sy/hare/s'n; hierdie/daardie; wat/wie se).",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "possessive_wrong",
+                  "description": "Wrong possessive form",
+                  "example": "'die boek is myne' written as 'my' where 'myne' is needed."
+                },
+                {
+                  "type": "relative_wrong",
+                  "description": "Wrong relative pronoun",
+                  "example": "'die man wat se' instead of 'die man wie se'."
+                }
+              ],
+              "recovery_strategy": "Match the pronoun to its job: who is doing (persoonlik), whose it is (besitlik), pointing (aanwysend), or joining (betreklik).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.TAA.03",
+              "bank_skill_id": "AF.G10.TAA.03",
+              "title": "Byvoeglike naamwoorde en trappe van vergelyking (adjectives & comparison)",
+              "description": "Use attributive vs predicative adjectives, inflection (verbuiging), and degrees of comparison (stellend/vergrotend/oortreffend).",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "inflection_wrong",
+                  "description": "Wrong adjective inflection",
+                  "example": "'die lang man' written 'die lange man' incorrectly, or vice versa."
+                },
+                {
+                  "type": "comparison_irregular",
+                  "description": "Wrong comparative/superlative, esp. irregulars",
+                  "example": "'goed → gooder' instead of 'beter / beste'."
+                }
+              ],
+              "recovery_strategy": "Vergrotende trap usually adds -er, oortreffende -ste; learn the irregulars (goed-beter-beste, baie-meer-meeste).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.TAA.04",
+              "bank_skill_id": "AF.G10.TAA.04",
+              "title": "Werkwoorde en tye: teenwoordige, verlede en toekomende tyd (verbs & tenses)",
+              "description": "Form present, past (het ge-) and future (sal) tense correctly, including with separable verbs.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "past_form_wrong",
+                  "description": "Wrong past-tense formation",
+                  "example": "'het gekom' written 'het kom' / 'gekomt'."
+                },
+                {
+                  "type": "tense_mismatch",
+                  "description": "Tense does not match the time marker",
+                  "example": "'Gister speel ek' instead of 'Gister het ek gespeel'."
+                }
+              ],
+              "recovery_strategy": "Verlede tyd = het + ge-werkwoord; toekomende = sal + werkwoord; let the time word (gister/môre) cue the tense.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.TAA.05",
+              "bank_skill_id": "AF.G10.TAA.05",
+              "title": "Voegwoorde: groep 1, 2 en 3 en woordorde (conjunctions & word order)",
+              "description": "Join clauses with group 1 (en, maar, want), group 2 (dus, daarom — word order changes) and group 3 (omdat, terwyl, dat — verb to the end).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "word_order_wrong",
+                  "description": "Wrong word order after the conjunction",
+                  "example": "After 'omdat' the verb is not sent to the end."
+                },
+                {
+                  "type": "conjunction_group_confused",
+                  "description": "Uses a conjunction from the wrong group",
+                  "example": "Treats 'daarom' like 'en'."
+                }
+              ],
+              "recovery_strategy": "Groep 1 keeps normal order; groep 2 swaps subject/verb (dus kom hy); groep 3 pushes the verb to the end (...omdat hy kom).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.TAA.06",
+              "bank_skill_id": "AF.G10.TAA.06",
+              "title": "Sinsoorte, sinsbou en ontkenning (sentence types, building & negation)",
+              "description": "Identify sentence types (stel-, vraag-, bevel-, uitroepsin), build simple sentences and apply the double negative (nie ... nie; geen ... nie).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "double_negative_wrong",
+                  "description": "Drops the second 'nie'",
+                  "example": "'Ek het nie geld' instead of 'Ek het nie geld nie'."
+                },
+                {
+                  "type": "sentence_type_confused",
+                  "description": "Mislabels the sentence type",
+                  "example": "Calls a vraagsin a bevelsin."
+                }
+              ],
+              "recovery_strategy": "Afrikaans usually needs a closing 'nie' at the end of a negative sentence; match the punctuation to the sentence type (.?!).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.TAA.07",
+              "bank_skill_id": "AF.G10.TAA.07",
+              "title": "Direkte en indirekte rede (direct & indirect speech)",
+              "description": "Convert between direct and indirect speech: change punctuation, pronouns and adverbs of time/place.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "pronoun_not_shifted",
+                  "description": "Pronouns not adjusted",
+                  "example": "'Ek' kept instead of 'hy/sy' in reported speech."
+                },
+                {
+                  "type": "time_marker_kept",
+                  "description": "Time/place word not shifted",
+                  "example": "'vandag' not changed to 'daardie dag'."
+                }
+              ],
+              "recovery_strategy": "Going to indirect speech: drop the quotation marks, shift the pronouns, and move time/place words (nou→toe, hier→daar).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.TAA.08",
+              "bank_skill_id": "AF.G10.TAA.08",
+              "title": "Bedrywende en lydende vorm (active & passive voice)",
+              "description": "Convert between active (bedrywend) and passive (lydend) voice across tenses, using word/is/was/sal ... word.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "agent_misplaced",
+                  "description": "Loses or misplaces the 'deur' agent",
+                  "example": "Passive without 'deur die ...'."
+                },
+                {
+                  "type": "aux_wrong",
+                  "description": "Wrong passive auxiliary for the tense",
+                  "example": "Present passive built with 'is' instead of 'word'."
+                }
+              ],
+              "recovery_strategy": "Passive: object becomes the subject + word/is/was + ...ge-werkwoord + (deur die agent). Match the helper to the tense.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.TAA.09",
+              "bank_skill_id": "AF.G10.TAA.09",
+              "title": "Leestekens en punktuasie (punctuation)",
+              "description": "Apply punctuation correctly: komma, punt, vraagteken, dubbelpunt, kommapunt, aanhalingstekens, koppelteken, afkappingsteken.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "quotation_wrong",
+                  "description": "Quotation punctuation incorrect",
+                  "example": "Misplaces the comma/quotes in direct speech."
+                },
+                {
+                  "type": "apostrophe_wrong",
+                  "description": "Wrong apostrophe / deelteken use",
+                  "example": "'die kind se boek' vs incorrect 's' use."
+                }
+              ],
+              "recovery_strategy": "Each mark has a job: ? ends a question, : introduces, ; links two close sentences, “ ” frame the exact words spoken.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.TAA.10",
+              "bank_skill_id": "AF.G10.TAA.10",
+              "title": "Betekenisleer: sinonieme, antonieme, homofone (semantics)",
+              "description": "Work with synonyms, antonyms, homophones (ly/lei), homonyms and paronyms (one word vs another that looks/sounds close).",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "homophone_confused",
+                  "description": "Confuses homophones in spelling/meaning",
+                  "example": "'ly' (suffer) vs 'lei' (lead)."
+                },
+                {
+                  "type": "antonym_synonym_swapped",
+                  "description": "Gives a synonym when an antonym is asked (or vice versa)",
+                  "example": "Asked for the opposite, gives a similar word."
+                }
+              ],
+              "recovery_strategy": "Sinoniem = same meaning, antoniem = opposite; homofone sound the same but differ in spelling and meaning — use the sentence to choose.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.TAA.11",
+              "bank_skill_id": "AF.G10.TAA.11",
+              "title": "Idiome en spreekwoorde (idioms & proverbs)",
+              "description": "Interpret common Afrikaans idioms, idiomatic expressions and proverbs by their figurative meaning, not literally.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.10"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "literal_interpretation",
+                  "description": "Reads the idiom literally",
+                  "example": "'die aap uit die mou laat' read about a real monkey."
+                },
+                {
+                  "type": "idiom_mismatched",
+                  "description": "Picks an idiom that does not fit the situation",
+                  "example": "Uses a 'luck' idiom for a 'secret revealed' context."
+                }
+              ],
+              "recovery_strategy": "Picture what the words say, then ask what people really mean by it; learn idioms as whole units, not word-by-word.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G10.TAA.12",
+              "bank_skill_id": "AF.G10.TAA.12",
+              "title": "Woordvorming en spelling: afleiding, samestelling, afkortings (word-formation & spelling)",
+              "description": "Build and spell words through prefixes/suffixes (afleiding), compounds (samestelling), and handle abbreviations, acronyms and spelling patterns.",
+              "caps_term": "T1-T4",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "compound_split",
+                  "description": "Writes a compound as two words",
+                  "example": "'tafel doek' instead of 'tafeldoek'."
+                },
+                {
+                  "type": "affix_wrong",
+                  "description": "Wrong prefix/suffix changes meaning",
+                  "example": "'on-' vs 'wan-' confused (onreg vs wanorde)."
+                }
+              ],
+              "recovery_strategy": "Afrikaans writes most compounds as ONE word; a prefix/suffix changes meaning (on- = not, -loos = without) — build from the stem.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Graad 12 — Afrikaans Eerste Addisionele Taal",
+      "description": "CAPS FET Phase Grade 12 FAL (Matric). Highest FET level, toward the four exam papers (V1 Taal in konteks, V2 Letterkunde, V3 Skryf, V4 Mondeling). Both the question AND the answer options are in Afrikaans (immersive FET delivery). Tap/choice/true-false/cloze/sequence; deterministic grading; no free-text essay or spoken oral (Praat) — Writing is delivered as tappable structure/planning/editing knowledge (incl. CV + covering letter and reflective essays). Soft prerequisites chain to the Grade 10 counterpart (Grade 11 authored separately; re-point optional after merge). Strands: Luister, Lees en kyk, Letterkunde, Skryf en aanbied, Taalstrukture en -konvensies.",
+      "tiers": [
+        {
+          "id": "AF.G12.LUI",
+          "title": "Luister (Listening comprehension)",
+          "description": "Receptive listening only (Praat / speaking-aloud deferred). af-ZA audio plays a Grade 12 Afrikaans text (news / autobiographical / job interview, formal speech, report-back); the learner taps/chooses. Matric level: viewpoint, tone and critical listening dominate.",
+          "atomic_skills": [
+            {
+              "id": "AF.G12.LUI.01",
+              "bank_skill_id": "AF.G12.LUI.01",
+              "title": "Luister vir spesifieke inligting (onderhoud, nuus, werksonderhoud)",
+              "description": "Listen to a Grade 12 Afrikaans text (interview, news item, job interview) and pick out specific facts: names, dates, figures, conditions.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LUI.01"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "key_detail_missed",
+                  "description": "A key fact (date / figure / name) is missed",
+                  "example": "Audio says salaris R12 000; learner picks R20 000."
+                },
+                {
+                  "type": "distractor_confused",
+                  "description": "Picks a plausible but unstated detail",
+                  "example": "Names the wrong company/role."
+                }
+              ],
+              "recovery_strategy": "Read the question before the replay; note the exact key word as you hear it.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LUI.02",
+              "bank_skill_id": "AF.G12.LUI.02",
+              "title": "Luister vir hoofgedagte, opsomming en verslag",
+              "description": "Listen to a longer Afrikaans text and identify the main idea, the best summary, and the gist of a report-back.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LUI.02"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "detail_as_main",
+                  "description": "Picks a supporting detail as the main idea",
+                  "example": "Names one statistic as the whole point."
+                },
+                {
+                  "type": "topic_too_broad",
+                  "description": "Picks a too-broad option",
+                  "example": "Talk on youth unemployment; learner picks 'the economy'."
+                }
+              ],
+              "recovery_strategy": "Say the text in one sentence; if a detail wouldn't fit that sentence, it is support, not the main idea.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LUI.03",
+              "bank_skill_id": "AF.G12.LUI.03",
+              "title": "Luister vir houding, toon en standpunt",
+              "description": "Listen to an Afrikaans opinion or autobiographical interview and identify the speaker's attitude, tone (incl. sarcasm) and viewpoint with reasons.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LUI.03"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "viewpoint_reversed",
+                  "description": "Identifies the opposite position",
+                  "example": "Speaker FOR; learner says AGAINST."
+                },
+                {
+                  "type": "tone_misread",
+                  "description": "Misreads tone such as irony",
+                  "example": "Sarcasm read as praise."
+                }
+              ],
+              "recovery_strategy": "Mark the opinion words ('ek dink', 'na my mening') and the reason words ('want', 'omdat') separately.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LUI.04",
+              "bank_skill_id": "AF.G12.LUI.04",
+              "title": "Kritiese luister: vooroordeel, aannames en manipulasie",
+              "description": "Listen critically to a persuasive Afrikaans text and detect bias, assumptions, generalisation and emotive/manipulative language.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LUI.04"
+              ],
+              "templates": [
+                "audio",
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "bias_unnoticed",
+                  "description": "Treats a one-sided text as neutral",
+                  "example": "Accepts 'almal weet...' as proof."
+                },
+                {
+                  "type": "emotive_missed",
+                  "description": "Does not flag loaded wording",
+                  "example": "Misses 'skokkende', 'gevaarlike'."
+                }
+              ],
+              "recovery_strategy": "Ask who benefits and who is left out; loaded words and 'almal/altyd/nooit' are bias signals.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G12.LEE",
+          "title": "Lees en kyk (Reading & viewing comprehension)",
+          "description": "A written or visual Afrikaans text is shown on screen; the learner answers tappable comprehension questions. Matric Vraestel 1 (Taal in konteks) skill set: strategies, fact/opinion/intention, the writer's viewpoint, inference & evaluation, visual literacy and critical language awareness.",
+          "atomic_skills": [
+            {
+              "id": "AF.G12.LEE.01",
+              "bank_skill_id": "AF.G12.LEE.01",
+              "title": "Leesstrategieë en lees vir inligting volgens doel",
+              "description": "Use skim/scan/close reading to locate explicit information in a Grade 12 Afrikaans passage and read according to purpose.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "info_not_located",
+                  "description": "Cannot find the stated answer",
+                  "example": "Answer is in the passage; learner guesses."
+                },
+                {
+                  "type": "wrong_section",
+                  "description": "Answers from the wrong part",
+                  "example": "Pulls a detail from the wrong paragraph."
+                }
+              ],
+              "recovery_strategy": "Scan for the key word from the question, then read the whole sentence around it.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LEE.02",
+              "bank_skill_id": "AF.G12.LEE.02",
+              "title": "Feit, mening en bedoeling",
+              "description": "Distinguish fact from opinion and infer the writer's intention behind a statement in an Afrikaans text.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.02"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "opinion_as_fact",
+                  "description": "Labels an opinion as fact",
+                  "example": "'Dit is die beste plan' read as fact."
+                },
+                {
+                  "type": "intention_missed",
+                  "description": "Misses why the writer says it",
+                  "example": "Reads a persuasive line as neutral."
+                }
+              ],
+              "recovery_strategy": "A fact can be proved; an opinion shows a view; the intention is WHY the writer chose to say it.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LEE.03",
+              "bank_skill_id": "AF.G12.LEE.03",
+              "title": "Skrywer se houding, standpunt en bedoeling",
+              "description": "Identify and justify the writer's attitude, viewpoint and purpose in an article, letter or media text.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.03"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "attitude_misread",
+                  "description": "Misreads the attitude",
+                  "example": "Critical article read as supportive."
+                },
+                {
+                  "type": "no_evidence",
+                  "description": "Cannot point to evidence",
+                  "example": "Chooses an attitude with no textual support."
+                }
+              ],
+              "recovery_strategy": "Find the feeling-words (positive/negative) and let them point to the writer's stance and aim.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LEE.04",
+              "bank_skill_id": "AF.G12.LEE.04",
+              "title": "Afleidings, gevolgtrekkings en evaluering",
+              "description": "Infer implied meaning, draw conclusions, and evaluate the strength/validity of a claim in an Afrikaans text.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.04"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "literal_only",
+                  "description": "Stays literal, misses the implied meaning",
+                  "example": "Misses an implied consequence."
+                },
+                {
+                  "type": "overreach",
+                  "description": "Draws an unsupported conclusion",
+                  "example": "Adds information the text does not imply."
+                }
+              ],
+              "recovery_strategy": "Combine a clue from the text with what you know: clue + knowledge = inference; then weigh the evidence.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LEE.05",
+              "bank_skill_id": "AF.G12.LEE.05",
+              "title": "Visuele tekste: advertensies, spotprente, grafieke en diagramme",
+              "description": "Read visual Afrikaans texts — adverts, cartoons, graphs and diagrams — for message, persuasion, data and humour.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.05"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "visual_literal",
+                  "description": "Reads a cartoon/advert literally",
+                  "example": "Misses the irony in a spotprent."
+                },
+                {
+                  "type": "data_misread",
+                  "description": "Misreads a graph/diagram value or trend",
+                  "example": "Reads a falling line as rising."
+                }
+              ],
+              "recovery_strategy": "Ask what the visual WANTS you to think/do, and read axes/labels carefully before judging a trend.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LEE.06",
+              "bank_skill_id": "AF.G12.LEE.06",
+              "title": "Kritiese taalbewustheid: denotasie, konnotasie en manipulasie",
+              "description": "Detect bias, stereotyping, assumptions, manipulation, and denotation vs connotation in Afrikaans media texts.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.06"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "bias_unnoticed",
+                  "description": "Treats a slanted text as neutral",
+                  "example": "Accepts a one-sided report as balanced."
+                },
+                {
+                  "type": "connotation_missed",
+                  "description": "Misses a loaded word's connotation",
+                  "example": "Reads 'goedkoop' only as 'low price'."
+                }
+              ],
+              "recovery_strategy": "Separate what a word literally says (denotasie) from the feeling it carries (konnotasie); ask who gains.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G12.LET",
+          "title": "Letterkunde (Literature)",
+          "description": "Transferable literary skills on short original / public-domain Afrikaans passages and poems (no set-works). Matric Vraestel 2 depth: theme, character & narrator, plot/conflict/time & space, the full range of figures of speech and style figures, and close poem analysis.",
+          "atomic_skills": [
+            {
+              "id": "AF.G12.LET.01",
+              "bank_skill_id": "AF.G12.LET.01",
+              "title": "Tema, motief en boodskap",
+              "description": "Identify the central theme/motif and message of a short Afrikaans story or poem and trace how it develops.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.01"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "plot_as_theme",
+                  "description": "Gives the plot instead of the theme",
+                  "example": "'A man loses his job' instead of 'dignity / resilience'."
+                },
+                {
+                  "type": "theme_too_narrow",
+                  "description": "Picks a surface detail as the theme",
+                  "example": "Names a single event, not the bigger idea."
+                }
+              ],
+              "recovery_strategy": "The theme is the big idea (courage, loss, justice); the plot is only what happens.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LET.02",
+              "bank_skill_id": "AF.G12.LET.02",
+              "title": "Karakter, karakterisering en verteller/perspektief",
+              "description": "Analyse characters and how they are revealed, and identify the narrator / point of view of a text.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.02"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "trait_unsupported",
+                  "description": "Names a trait with no evidence",
+                  "example": "Calls a character 'brave' without support."
+                },
+                {
+                  "type": "narrator_confused",
+                  "description": "Confuses narrator with character/author",
+                  "example": "Treats a first-person narrator as the author."
+                }
+              ],
+              "recovery_strategy": "Judge a character by what they say/do and how others react; ask WHO is telling the story and from what angle.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LET.03",
+              "bank_skill_id": "AF.G12.LET.03",
+              "title": "Intrige, konflik, tyd en ruimte",
+              "description": "Identify plot structure, type of conflict, and the role of time and space (setting) in an Afrikaans story or drama.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.03"
+              ],
+              "templates": [
+                "choice",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "climax_misplaced",
+                  "description": "Misidentifies the climax",
+                  "example": "Picks a minor event as the turning point."
+                },
+                {
+                  "type": "conflict_mistyped",
+                  "description": "Names the wrong conflict type",
+                  "example": "Calls an inner struggle 'mens teen mens'."
+                }
+              ],
+              "recovery_strategy": "Track setup → conflict builds → climax → resolution; and ask how the time/place shapes events.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LET.04",
+              "bank_skill_id": "AF.G12.LET.04",
+              "title": "Beeldspraak: vergelyking, metafoor, personifikasie, metonimia, simboliek",
+              "description": "Identify and interpret the full range of figures of speech and link them to meaning.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.04"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "simile_metaphor_confused",
+                  "description": "Confuses simile and metaphor",
+                  "example": "Calls 'soos die wind' a metaphor."
+                },
+                {
+                  "type": "symbol_missed",
+                  "description": "Reads a symbol literally",
+                  "example": "'Die duif' read only as a bird, not peace."
+                }
+              ],
+              "recovery_strategy": "Vergelyking uses 'soos/asof'; metafoor says one IS another; simboliek = one thing stands for a bigger idea.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LET.05",
+              "bank_skill_id": "AF.G12.LET.05",
+              "title": "Stylfigure en retoriese middele",
+              "description": "Recognise irony, satire, hyperbole, contrast, repetition, euphemism, climax and paradox, and explain their effect.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.05"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "irony_missed",
+                  "description": "Takes ironic/sarcastic words at face value",
+                  "example": "Reads satire as sincerity."
+                },
+                {
+                  "type": "device_mislabelled",
+                  "description": "Names the wrong device",
+                  "example": "Calls contrast 'repetition'."
+                }
+              ],
+              "recovery_strategy": "Ask what effect the writer wanted (emphasis, mockery, surprise) and match the device that creates it.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.LET.06",
+              "bank_skill_id": "AF.G12.LET.06",
+              "title": "Gedigontleding: bou, rym, ritme, beeld en effek",
+              "description": "Analyse a poem's outer form (stanzas, rhyme, rhythm) and inner build (mood, turn, imagery) and link form to meaning.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.06"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "rhyme_misread",
+                  "description": "Mislabels the rhyme scheme",
+                  "example": "Calls aabb an abab pattern."
+                },
+                {
+                  "type": "form_content_split",
+                  "description": "Cannot link form to meaning",
+                  "example": "Notes a stanza break but not its effect."
+                }
+              ],
+              "recovery_strategy": "Mark line-end sounds for the rhyme scheme; then ask how a break, rhythm or image supports the mood.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G12.SKR",
+          "title": "Skryf en aanbied (Writing knowledge)",
+          "description": "Writing as tappable knowledge (essay/oral PRODUCTION deferred). Matric Vraestel 3 planning/editing half: essay structure (narrative/descriptive/reflective), the transactional set incl. CV + covering letter and report, register, editing and summary by paraphrase.",
+          "atomic_skills": [
+            {
+              "id": "AF.G12.SKR.01",
+              "bank_skill_id": "AF.G12.SKR.01",
+              "title": "Briewe: formeel (brief aan die pers, klagte) en begeleidingsbrief",
+              "description": "Identify the correct structure and conventions of formal letters (to the press, complaint) and a covering letter.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "format_mixed",
+                  "description": "Mixes formal and informal conventions",
+                  "example": "'Liewe Redakteur' to open a letter to the press."
+                },
+                {
+                  "type": "element_missing",
+                  "description": "Omits a required element",
+                  "example": "Formal letter without both addresses."
+                }
+              ],
+              "recovery_strategy": "A formal letter needs two addresses + a formal salutation/closing; a covering letter sells you for a specific post.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.SKR.02",
+              "bank_skill_id": "AF.G12.SKR.02",
+              "title": "Transaksionele tekssoorte: CV, begeleidingsbrief, verslag, onderhoud",
+              "description": "Match purpose and key features to the right transactional text: CV, covering letter, report, interview, agenda/minutes, e-mail.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.02"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "texttype_confused",
+                  "description": "Wrong text-type for the purpose",
+                  "example": "Picks 'dagboek' to apply for a job."
+                },
+                {
+                  "type": "feature_misplaced",
+                  "description": "Assigns a feature to the wrong text",
+                  "example": "Puts a byline on a CV."
+                }
+              ],
+              "recovery_strategy": "Match the PURPOSE (apply, inform, record, persuade) to the text-type, then check its signature features.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.SKR.03",
+              "bank_skill_id": "AF.G12.SKR.03",
+              "title": "Opstelbou: verhalend, beskrywend en bespiegelend",
+              "description": "Identify the structure of narrative, descriptive and reflective (bespiegelend) essays and order paragraphs coherently.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.03"
+              ],
+              "templates": [
+                "choice",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "structure_wrong",
+                  "description": "Mismatches structure to essay type",
+                  "example": "A reflective essay built as a step list."
+                },
+                {
+                  "type": "order_illogical",
+                  "description": "Orders paragraphs illogically",
+                  "example": "Conclusion before the body."
+                }
+              ],
+              "recovery_strategy": "Narrative tells a story over time; descriptive paints a picture; reflective explores an idea — lead each paragraph with its main point.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.SKR.04",
+              "bank_skill_id": "AF.G12.SKR.04",
+              "title": "Register, styl en toon vir doel en gehoor",
+              "description": "Choose the appropriate register, style and tone for the purpose and audience of a Grade 12 text.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.04"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "register_mismatch",
+                  "description": "Wrong register for the audience",
+                  "example": "Slang in a letter to an employer."
+                },
+                {
+                  "type": "tone_inappropriate",
+                  "description": "Tone does not fit the purpose",
+                  "example": "Jokey tone in a complaint."
+                }
+              ],
+              "recovery_strategy": "Ask who reads it and why: an employer/newspaper needs formal language; a friend allows informal, warmer wording.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.SKR.05",
+              "bank_skill_id": "AF.G12.SKR.05",
+              "title": "Redigeer: vind en verbeter die taalfout",
+              "description": "Proofread a Grade 12 Afrikaans sentence and identify or correct the language, spelling or punctuation error.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.05"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "error_unseen",
+                  "description": "Does not spot the error",
+                  "example": "Passes a wrong tense / agreement."
+                },
+                {
+                  "type": "wrong_fix",
+                  "description": "Applies an incorrect correction",
+                  "example": "‘Corrects’ a right word."
+                }
+              ],
+              "recovery_strategy": "Check one thing at a time: agreement, tense, spelling, then punctuation. Read the sentence in your head.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.SKR.06",
+              "bank_skill_id": "AF.G12.SKR.06",
+              "title": "Opsomming: parafraseer en kies kernpunte",
+              "description": "Select main points and paraphrase them in your own words for a summary, within a point limit, dropping examples and repetition.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.06"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "detail_included",
+                  "description": "Keeps a minor detail/example",
+                  "example": "Lists an example instead of the main idea."
+                },
+                {
+                  "type": "not_paraphrased",
+                  "description": "Copies wording instead of paraphrasing",
+                  "example": "Lifts the sentence verbatim."
+                }
+              ],
+              "recovery_strategy": "Keep only points that change the meaning; then say each in your own words — drop examples and repetition.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G12.TAA",
+          "title": "Taalstrukture en -konvensies (Language structures & conventions)",
+          "description": "The grammar core at Matric level, taught explicitly and tappable: nouns, pronouns, adjectives & comparison, verbs & tenses, conjunctions, sentence analysis & negation, direct/indirect speech, active/passive across tenses, punctuation, semantics, idioms, and word-formation incl. denotation/connotation. Assessed in Vraestel 1.",
+          "atomic_skills": [
+            {
+              "id": "AF.G12.TAA.01",
+              "bank_skill_id": "AF.G12.TAA.01",
+              "title": "Selfstandige naamwoorde: meervoud, verkleining, geslag, versamel/abstrak",
+              "description": "Form noun plurals, diminutives and gender forms, and recognise collective and abstract nouns.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.01"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "plural_rule_wrong",
+                  "description": "Wrong plural rule",
+                  "example": "'kalf' → 'kalfs' instead of 'kalwers'."
+                },
+                {
+                  "type": "noun_type_confused",
+                  "description": "Confuses collective/abstract nouns",
+                  "example": "Calls 'liefde' a collective noun."
+                }
+              ],
+              "recovery_strategy": "Plurals follow patterns (deelteken/kappie where needed); a versamelnaam names a group, an abstrak names an idea.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.TAA.02",
+              "bank_skill_id": "AF.G12.TAA.02",
+              "title": "Voornaamwoorde (alle soorte)",
+              "description": "Use personal, possessive, demonstrative, relative, indefinite and reflexive pronouns correctly.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.02"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "possessive_wrong",
+                  "description": "Wrong possessive form",
+                  "example": "'die boek is my' instead of 'myne'."
+                },
+                {
+                  "type": "relative_wrong",
+                  "description": "Wrong relative pronoun",
+                  "example": "'die man wat se' instead of 'die man wie se'."
+                }
+              ],
+              "recovery_strategy": "Match the pronoun to its job: doer (persoonlik), owner (besitlik), pointer (aanwysend), joiner (betreklik).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.TAA.03",
+              "bank_skill_id": "AF.G12.TAA.03",
+              "title": "Byvoeglike naamwoorde, verbuiging en trappe van vergelyking",
+              "description": "Use attributive/predicative adjectives, inflection, and degrees of comparison incl. irregulars.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.03"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "inflection_wrong",
+                  "description": "Wrong adjective inflection",
+                  "example": "'die slegte weer' vs 'die sleg weer'."
+                },
+                {
+                  "type": "comparison_irregular",
+                  "description": "Wrong comparative/superlative",
+                  "example": "'goed → gooder' instead of 'beter'."
+                }
+              ],
+              "recovery_strategy": "Vergrotende trap usually adds -er, oortreffende -ste; learn irregulars (goed-beter-beste).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.TAA.04",
+              "bank_skill_id": "AF.G12.TAA.04",
+              "title": "Werkwoorde en tye: teenwoordige, verlede en toekomende tyd",
+              "description": "Form present, past (het ge-) and future (sal) tense, incl. separable verbs and deelwoorde.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "past_form_wrong",
+                  "description": "Wrong past-tense formation",
+                  "example": "'het kom' instead of 'het gekom'."
+                },
+                {
+                  "type": "tense_mismatch",
+                  "description": "Tense does not match the time marker",
+                  "example": "'Gister speel ek' instead of 'het gespeel'."
+                }
+              ],
+              "recovery_strategy": "Verlede = het + ge-werkwoord; toekomende = sal + werkwoord; let the time word cue the tense.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.TAA.05",
+              "bank_skill_id": "AF.G12.TAA.05",
+              "title": "Voegwoorde: groep 1, 2 en 3 en woordorde",
+              "description": "Join clauses with groups 1 (en, maar, want), 2 (dus, daarom) and 3 (omdat, terwyl, dat) and apply the word order each needs.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.05"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "word_order_wrong",
+                  "description": "Wrong word order after the conjunction",
+                  "example": "Verb not sent to the end after 'omdat'."
+                },
+                {
+                  "type": "conjunction_group_confused",
+                  "description": "Conjunction from the wrong group",
+                  "example": "Treats 'daarom' like 'en'."
+                }
+              ],
+              "recovery_strategy": "Groep 1 normal order; groep 2 swaps subject/verb (dus kom hy); groep 3 pushes the verb to the end.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.TAA.06",
+              "bank_skill_id": "AF.G12.TAA.06",
+              "title": "Sinsoorte, sinsdele (sinsontleding) en ontkenning",
+              "description": "Identify sentence types, analyse sentence parts (onderwerp, gesegde, voorwerp, bepalings), and apply the double negative.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.06"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "double_negative_wrong",
+                  "description": "Drops the closing 'nie'",
+                  "example": "'Ek het nie geld' instead of '...nie geld nie'."
+                },
+                {
+                  "type": "sentence_part_confused",
+                  "description": "Mislabels a sentence part",
+                  "example": "Calls the object the subject."
+                }
+              ],
+              "recovery_strategy": "Afrikaans usually needs a closing 'nie'; in sinsontleding find who does it (onderwerp), the verb (gesegde) and what receives it (voorwerp).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.TAA.07",
+              "bank_skill_id": "AF.G12.TAA.07",
+              "title": "Direkte en indirekte rede (stel, vra, beveel)",
+              "description": "Convert statements, questions and commands between direct and indirect speech: punctuation, pronouns, adverbs of time/place.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.07"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "pronoun_not_shifted",
+                  "description": "Pronouns not adjusted",
+                  "example": "'Ek' kept instead of 'hy/sy'."
+                },
+                {
+                  "type": "time_marker_kept",
+                  "description": "Time/place word not shifted",
+                  "example": "'vandag' not changed to 'daardie dag'."
+                }
+              ],
+              "recovery_strategy": "Drop the quotation marks, shift the pronouns, and move time/place words (nou→toe, hier→daar); questions/commands change form too.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.TAA.08",
+              "bank_skill_id": "AF.G12.TAA.08",
+              "title": "Bedrywende en lydende vorm (alle tye)",
+              "description": "Convert between active and passive voice across present, past and future, using word/is/was/sal ... word.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.08"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "aux_wrong",
+                  "description": "Wrong passive auxiliary for the tense",
+                  "example": "Present passive built with 'is' instead of 'word'."
+                },
+                {
+                  "type": "agent_misplaced",
+                  "description": "Loses or misplaces the 'deur' agent",
+                  "example": "Passive without 'deur die ...'."
+                }
+              ],
+              "recovery_strategy": "Passive: object becomes subject + word/is/was + ...ge-werkwoord + (deur die agent). Match the helper to the tense.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.TAA.09",
+              "bank_skill_id": "AF.G12.TAA.09",
+              "title": "Leestekens en punktuasie",
+              "description": "Apply punctuation correctly: komma, punt, vraagteken, dubbelpunt, kommapunt, aanhalingstekens, koppelteken, afkappingsteken.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.09"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "quotation_wrong",
+                  "description": "Quotation punctuation incorrect",
+                  "example": "Misplaces comma/quotes in direct speech."
+                },
+                {
+                  "type": "apostrophe_wrong",
+                  "description": "Wrong apostrophe / 'se' use",
+                  "example": "'Thabo's boek' instead of 'Thabo se boek'."
+                }
+              ],
+              "recovery_strategy": "Each mark has a job: ? ends a question, : introduces, ; links two close sentences, “ ” frame the exact words.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.TAA.10",
+              "bank_skill_id": "AF.G12.TAA.10",
+              "title": "Betekenisleer: sinonieme, antonieme, homofone, homonieme, paronieme",
+              "description": "Work with synonyms, antonyms, homophones, homonyms, paronyms and polysemy in context.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.10"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "homophone_confused",
+                  "description": "Confuses homophones",
+                  "example": "'ly' (suffer) vs 'lei' (lead)."
+                },
+                {
+                  "type": "antonym_synonym_swapped",
+                  "description": "Gives a synonym when an antonym is asked",
+                  "example": "Asked the opposite, gives a similar word."
+                }
+              ],
+              "recovery_strategy": "Sinoniem = same meaning, antoniem = opposite; homofone sound alike but differ in spelling — use the sentence to choose.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.TAA.11",
+              "bank_skill_id": "AF.G12.TAA.11",
+              "title": "Idiome, spreekwoorde en uitdrukkings",
+              "description": "Interpret a wide range of Afrikaans idioms, expressions and proverbs by their figurative meaning.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.11"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "literal_interpretation",
+                  "description": "Reads the idiom literally",
+                  "example": "'die aap uit die mou laat' as a real monkey."
+                },
+                {
+                  "type": "idiom_mismatched",
+                  "description": "Picks an idiom that doesn't fit",
+                  "example": "Uses a 'luck' idiom for a 'secret revealed' context."
+                }
+              ],
+              "recovery_strategy": "Picture what the words say, then ask what people really mean; learn idioms as whole units.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G12.TAA.12",
+              "bank_skill_id": "AF.G12.TAA.12",
+              "title": "Woordvorming, spelling en denotasie/konnotasie",
+              "description": "Build/spell words (afleiding, samestelling, samestellende afleiding, akronieme) and distinguish a word's denotation from its connotation.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.12"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "compound_split",
+                  "description": "Writes a compound as two words",
+                  "example": "'tafel doek' instead of 'tafeldoek'."
+                },
+                {
+                  "type": "connotation_missed",
+                  "description": "Misses the connotation of a word",
+                  "example": "Reads 'slang' (person) only literally."
+                }
+              ],
+              "recovery_strategy": "Afrikaans writes compounds as ONE word; denotasie is the literal meaning, konnotasie the feeling it carries.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "grade": 11,
+      "title": "Graad 11 — Afrikaans Eerste Addisionele Taal",
+      "description": "CAPS FET Phase Grade 11 FAL — revision-plus-extension of Grade 10, chained onto it (every Grade 11 skill builds on its Grade 10 counterpart). Learners (16-17) deepen the four exam papers (Vraestel 1 Taal in konteks, 2 Letterkunde, 3 Skryf, 4 Mondeling) with longer texts, sharper inference and evaluation, narrator/perspective, time & space, satire, argumentative structure, a wider transactional set, and grammar extended across all tenses. Both the questions AND the answer options are in Afrikaans (immersive FET delivery). Tap/choice/true-false/cloze/sequence delivery; deterministic grading; no free-text essay or spoken oral (Praat) in scope — Writing is delivered as tappable structure/planning/editing knowledge. Strands: Luister, Lees en kyk, Letterkunde, Skryf en aanbied, Taalstrukture en -konvensies.",
+      "tiers": [
+        {
+          "id": "AF.G11.LUI",
+          "title": "Luister (Listening comprehension)",
+          "description": "Receptive listening only (Praat / speaking-aloud is deferred — needs voice capture). af-ZA audio plays a longer Afrikaans text (interview, speech, news item AND a drama excerpt); the learner taps/chooses. Grade 11 deepens Grade 10: longer texts, summary plus a fitting heading, tone/tempo/phrasing, and sharper critical listening for bias, assumption and manipulation.",
+          "atomic_skills": [
+            {
+              "id": "AF.G11.LUI.01",
+              "bank_skill_id": "AF.G11.LUI.01",
+              "title": "Luister vir spesifieke inligting (listen for specific information)",
+              "description": "Listen to a longer spoken Afrikaans text (interview, speech, news, drama excerpt) and pick out specific facts: names, times, numbers, places, relationships.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LUI.01"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "key_detail_missed",
+                  "description": "A key time / number / name is missed in a longer text",
+                  "example": "Audio says 'om 14:30'; learner picks '16:30'."
+                },
+                {
+                  "type": "distractor_confused",
+                  "description": "Picks a plausible detail that was not stated",
+                  "example": "Audio names Kaapstad; learner picks Pretoria."
+                }
+              ],
+              "recovery_strategy": "Tell learners the question before the audio replays so they listen with a purpose; note the key word as they hear it, even in a longer text.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LUI.02",
+              "bank_skill_id": "AF.G11.LUI.02",
+              "title": "Luister, som op en voorsien 'n opskrif (summary & heading)",
+              "description": "Listen to a longer Afrikaans text, identify the main idea, choose the best one-line summary AND supply a fitting heading, separating it from supporting detail.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LUI.02",
+                "AF.G11.LUI.01"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "detail_as_main",
+                  "description": "Picks a supporting detail as the main idea or heading",
+                  "example": "Talk on recycling; learner picks 'glass can be melted' as the heading."
+                },
+                {
+                  "type": "heading_too_broad",
+                  "description": "Picks a too-broad heading missing the focus",
+                  "example": "Text about water-saving at home; learner heads it 'The environment'."
+                }
+              ],
+              "recovery_strategy": "After listening, say the text in ONE sentence — that is your summary. A good heading is short and captures that one sentence.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LUI.03",
+              "bank_skill_id": "AF.G11.LUI.03",
+              "title": "Luister vir houding, toon, tempo en frasering (attitude, tone, tempo & phrasing)",
+              "description": "Listen to an Afrikaans opinion, interview or drama excerpt and identify the speaker's viewpoint, attitude and how tone, tempo and phrasing carry meaning.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LUI.03",
+                "AF.G11.LUI.02"
+              ],
+              "templates": [
+                "audio",
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "viewpoint_reversed",
+                  "description": "Identifies the opposite of the speaker's actual position",
+                  "example": "Speaker is FOR free transport; learner says AGAINST."
+                },
+                {
+                  "type": "tone_misread",
+                  "description": "Misreads tone, tempo or phrasing (e.g. sarcasm read as praise)",
+                  "example": "Sarcastic 'wonderlik' read as genuine approval."
+                }
+              ],
+              "recovery_strategy": "Listen for opinion words ('ek dink', 'na my mening') and the reason words ('want', 'omdat'); then ask how the tone, speed and pauses colour the message.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LUI.04",
+              "bank_skill_id": "AF.G11.LUI.04",
+              "title": "Kritiese luister: vooroordeel, aanname en manipulasie (critical listening)",
+              "description": "Listen critically to a persuasive or one-sided Afrikaans text and detect bias, prejudice, unstated assumptions, generalisation and emotive/manipulative language.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LUI.04",
+                "AF.G11.LUI.03"
+              ],
+              "templates": [
+                "audio",
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "bias_unnoticed",
+                  "description": "Treats a one-sided text as neutral fact",
+                  "example": "Accepts 'almal weet...' as proof."
+                },
+                {
+                  "type": "assumption_missed",
+                  "description": "Does not flag an unstated assumption or loaded wording",
+                  "example": "Misses that 'natuurlik sal dit misluk' assumes failure without evidence."
+                }
+              ],
+              "recovery_strategy": "Ask: who benefits from this message, who is left out, and what is taken for granted? Loaded words and 'almal/altyd/nooit' are bias signals.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G11.LEE",
+          "title": "Lees en kyk (Reading & viewing comprehension)",
+          "description": "A written or visual Afrikaans text is shown on screen (passage, advert, cartoon, graph, diagram); the learner answers tappable comprehension questions. Grade 11 deepens Grade 10: deeper inference and evaluation, the writer's attitude AND intention, diagrams/sirkeldiagramme, and richer critical language awareness — the Vraestel 1 (Taal in konteks) skill set.",
+          "atomic_skills": [
+            {
+              "id": "AF.G11.LEE.01",
+              "bank_skill_id": "AF.G11.LEE.01",
+              "title": "Leesstrategieë: vluglees, soeklees, aandagtige lees (skim, scan, close reading)",
+              "description": "Use the right reading strategy to locate explicit information in a longer Afrikaans passage and answer literal questions efficiently.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "info_not_located",
+                  "description": "Cannot find the stated answer in the text",
+                  "example": "Answer is in line 2; learner guesses."
+                },
+                {
+                  "type": "wrong_section",
+                  "description": "Answers from the wrong part of the text",
+                  "example": "Pulls a detail from the wrong paragraph."
+                }
+              ],
+              "recovery_strategy": "Scan for the key word from the question, then read the whole sentence around it before choosing.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LEE.02",
+              "bank_skill_id": "AF.G11.LEE.02",
+              "title": "Feit, mening en parafrase (fact, opinion & paraphrase)",
+              "description": "Distinguish fact from opinion in an Afrikaans text and recognise the best paraphrase (same idea in different words) of a key statement.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.02",
+                "AF.G11.LEE.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "opinion_as_fact",
+                  "description": "Labels an opinion as a fact (or vice versa)",
+                  "example": "'Dit is die beste fliek' read as fact."
+                },
+                {
+                  "type": "paraphrase_changes_meaning",
+                  "description": "Picks a paraphrase that changes the meaning",
+                  "example": "Chooses a reworded option that adds or drops a key idea."
+                }
+              ],
+              "recovery_strategy": "A fact can be checked; an opinion shows what someone thinks. A good paraphrase keeps the SAME meaning in new words — nothing added, nothing lost.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LEE.03",
+              "bank_skill_id": "AF.G11.LEE.03",
+              "title": "Skrywer se houding, standpunt en bedoeling (attitude, viewpoint & intention)",
+              "description": "Identify and justify the writer's attitude and viewpoint AND infer the writer's intention (to inform, persuade, warn, entertain) in an article, letter or media text.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.03",
+                "AF.G11.LEE.02"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "attitude_misread",
+                  "description": "Misreads the writer's attitude",
+                  "example": "Critical article read as supportive."
+                },
+                {
+                  "type": "intention_missed",
+                  "description": "Confuses what is said with WHY the writer wrote it",
+                  "example": "Reads a persuasive piece as neutral information."
+                }
+              ],
+              "recovery_strategy": "Find the feeling-words for the attitude, then ask WHY the writer wrote this — to inform, persuade, warn or entertain? That is the intention.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LEE.04",
+              "bank_skill_id": "AF.G11.LEE.04",
+              "title": "Afleiding, evaluering en gevolgtrekking (inference, evaluation & conclusion)",
+              "description": "Read between the lines of an Afrikaans text to infer meaning, draw conclusions AND evaluate how well the writer supports a claim.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.04",
+                "AF.G11.LEE.03"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "literal_only",
+                  "description": "Stays literal and misses the implied meaning",
+                  "example": "Misses that 'sy het haar tas gegryp' implies she left in a hurry."
+                },
+                {
+                  "type": "evaluation_unsupported",
+                  "description": "Evaluates without weighing the evidence",
+                  "example": "Calls a claim 'proven' though the text gives no support."
+                }
+              ],
+              "recovery_strategy": "Combine a clue with what you know (clue + knowledge = inference); then weigh whether the writer actually backs the claim up — that is evaluation.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LEE.05",
+              "bank_skill_id": "AF.G11.LEE.05",
+              "title": "Visuele tekste: advertensies, spotprente, grafieke, diagramme (visual texts)",
+              "description": "Read visual Afrikaans texts — adverts, cartoons (spotprente), graphs, sirkeldiagramme and diagrams — for message, persuasion, humour and data.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.05",
+                "AF.G11.LEE.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "visual_literal",
+                  "description": "Reads a cartoon/advert literally, missing the message",
+                  "example": "Misses the irony in a spotprent."
+                },
+                {
+                  "type": "data_misread",
+                  "description": "Misreads a graph, sirkeldiagram or diagram",
+                  "example": "Reads the largest slice as the smallest."
+                }
+              ],
+              "recovery_strategy": "In a visual text ask: what does it WANT me to think or do, which trick (humour, exaggeration, slogan) does it use, and what do the numbers/labels actually show?",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LEE.06",
+              "bank_skill_id": "AF.G11.LEE.06",
+              "title": "Kritiese taalbewustheid (critical language awareness)",
+              "description": "Detect bias, stereotyping, assumptions, manipulation, and denotation vs connotation in Afrikaans media texts; weigh whose interests the text serves.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LEE.06",
+                "AF.G11.LEE.03",
+                "AF.G11.LEE.05"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "bias_unnoticed",
+                  "description": "Treats a slanted text as neutral",
+                  "example": "Accepts a one-sided report as balanced."
+                },
+                {
+                  "type": "connotation_missed",
+                  "description": "Misses the connotation of a loaded word",
+                  "example": "Reads 'goedkoop' only as 'low price', not 'inferior'."
+                }
+              ],
+              "recovery_strategy": "Separate what a word literally says (denotasie) from the feeling it carries (konnotasie); ask who gains, who is left out, and what is assumed.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G11.LET",
+          "title": "Letterkunde (Literature)",
+          "description": "Transferable literary skills taught on short original / public-domain Afrikaans passages and poems (no prescribed set-works). Grade 11 deepens Grade 10: narrator/perspective (verteller), plot with time & space (tyd en ruimte), beeldspraak extended to metonimia and simboliek, stylfigure extended to satire, and a poem's language/style effect — the Vraestel 2 (Letterkunde) skill set.",
+          "atomic_skills": [
+            {
+              "id": "AF.G11.LET.01",
+              "bank_skill_id": "AF.G11.LET.01",
+              "title": "Tema, motief en boodskap (theme, motif & message)",
+              "description": "Identify the central theme, recurring motif and the message of a short Afrikaans story or poem, and distinguish it from the plot.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.01"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "plot_as_theme",
+                  "description": "Gives the plot instead of the underlying theme",
+                  "example": "'A boy loses his dog' instead of 'loss / growing up'."
+                },
+                {
+                  "type": "theme_too_narrow",
+                  "description": "Picks a surface detail as the theme",
+                  "example": "Names a single event, not the bigger idea."
+                }
+              ],
+              "recovery_strategy": "The theme is the big idea the text is really about (e.g. courage, loss); a motif is an image that recurs; the plot is only what happens.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LET.02",
+              "bank_skill_id": "AF.G11.LET.02",
+              "title": "Karakter, karakterisering en verteller (character & narrator/perspective)",
+              "description": "Analyse characters and how the writer reveals them (direct vs indirect), AND identify the narrator/point of view (first-person, third-person, all-knowing).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.02",
+                "AF.G11.LET.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "trait_unsupported",
+                  "description": "Names a trait the text does not support",
+                  "example": "Calls a character 'brave' with no evidence."
+                },
+                {
+                  "type": "narrator_confused",
+                  "description": "Confuses the narrator/point of view with a character",
+                  "example": "Calls a first-person narrator an 'all-knowing' narrator."
+                }
+              ],
+              "recovery_strategy": "Judge a character by what they say and do; then ask WHO tells the story — a character ('ek'), an outside voice, or an all-knowing narrator — and how that shapes what we see.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LET.03",
+              "bank_skill_id": "AF.G11.LET.03",
+              "title": "Intrige, tyd en ruimte (plot, time & space)",
+              "description": "Identify plot structure (exposition, conflict, climax, resolution), order events, AND read how time (tyd) and place/setting (ruimte) shape the story.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.03",
+                "AF.G11.LET.01"
+              ],
+              "templates": [
+                "choice",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "climax_misplaced",
+                  "description": "Misidentifies the climax / turning point",
+                  "example": "Picks a minor event as the climax."
+                },
+                {
+                  "type": "setting_effect_missed",
+                  "description": "Notes time/place but not its effect on mood or meaning",
+                  "example": "Misses that a dark, stormy setting builds tension."
+                }
+              ],
+              "recovery_strategy": "Track the arc (setup → build → climax → resolution); then ask how WHEN and WHERE it happens (tyd en ruimte) shapes the mood and the events.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LET.04",
+              "bank_skill_id": "AF.G11.LET.04",
+              "title": "Beeldspraak: vergelyking, metafoor, personifikasie, metonimia, simboliek (figures of speech)",
+              "description": "Identify and interpret simile, metaphor and personification AND extend to metonimia (a part/linked thing standing for the whole) and simboliek (an image standing for an idea).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.04",
+                "AF.G11.LET.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "simile_metaphor_confused",
+                  "description": "Confuses simile and metaphor",
+                  "example": "Calls 'so vinnig soos die wind' a metaphor."
+                },
+                {
+                  "type": "symbol_literal",
+                  "description": "Reads a symbol or metonym literally",
+                  "example": "Reads 'die kroon' only as a hat, not as the king/royalty."
+                }
+              ],
+              "recovery_strategy": "Vergelyking uses 'soos/asof'; metafoor says one thing IS another; personifikasie gives human action to a thing; metonimia lets one thing stand for a linked thing; simboliek lets an image stand for an idea.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LET.05",
+              "bank_skill_id": "AF.G11.LET.05",
+              "title": "Stylfigure en retoriese middele, insluitend satire (style figures incl. satire)",
+              "description": "Recognise irony, contrast, repetition, hyperbole, climax, euphemism AND satire (mockery that criticises), and explain their effect.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.05",
+                "AF.G11.LET.04"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "irony_missed",
+                  "description": "Misses irony or satire / takes the words at face value",
+                  "example": "Reads a satirical jab as sincere praise."
+                },
+                {
+                  "type": "device_mislabelled",
+                  "description": "Names the wrong device",
+                  "example": "Calls repetition 'contrast'."
+                }
+              ],
+              "recovery_strategy": "Ask what effect the writer wanted (emphasis, surprise, humour, criticism) and match it to the device; satire uses humour/exaggeration to criticise something.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.LET.06",
+              "bank_skill_id": "AF.G11.LET.06",
+              "title": "Gedigbou en die effek van taal en styl (poem structure & language/style effect)",
+              "description": "Analyse a poem's outer form (stanzas, lines, rhyme) and inner build (mood, turn) AND explain how its language and style choices create their effect.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.LET.06",
+                "AF.G11.LET.04"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "rhyme_misread",
+                  "description": "Mislabels the rhyme scheme",
+                  "example": "Calls aabb an abab pattern."
+                },
+                {
+                  "type": "form_effect_split",
+                  "description": "Cannot link a language/style choice to its effect",
+                  "example": "Notes alliteration but not what it does for the mood."
+                }
+              ],
+              "recovery_strategy": "Mark stanzas, lines and line-end sounds for the form; then ask how a sound, image, break or word-choice creates a specific effect or mood.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G11.SKR",
+          "title": "Skryf en aanbied (Writing knowledge)",
+          "description": "Writing taught as tappable knowledge (essay/transactional PRODUCTION is deferred). Grade 11 deepens Grade 10: argumentative/discursive (betogende) paragraph structure, a wider transactional set (CV + dekbrief, verslag, agenda/notule, written onderhoud/dialoog, rigtingaanwysings), and summary by paraphrase — the planning and editing half of Vraestel 3 (Skryf).",
+          "atomic_skills": [
+            {
+              "id": "AF.G11.SKR.01",
+              "bank_skill_id": "AF.G11.SKR.01",
+              "title": "Briewe en CV: formeel, dekbrief en curriculum vitae (letters, covering letter & CV)",
+              "description": "Identify the structure and conventions of friendly vs formal letters AND of a covering letter (dekbrief) and CV for a job application.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "format_mixed",
+                  "description": "Mixes friendly and formal conventions",
+                  "example": "Uses 'Liewe Jan' to open a job application."
+                },
+                {
+                  "type": "element_missing",
+                  "description": "Omits a required element of a CV / dekbrief",
+                  "example": "CV without contact details or work experience."
+                }
+              ],
+              "recovery_strategy": "A formal letter / dekbrief needs two addresses + a formal salutation/closing; a CV lists contact details, education and work experience under clear headings.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.SKR.02",
+              "bank_skill_id": "AF.G11.SKR.02",
+              "title": "Transaksionele tekssoorte: verslag, agenda/notule, onderhoud, rigtingaanwysings (transactional text-types)",
+              "description": "Match purpose and key features to the right transactional text: verslag (report), agenda + notule, written onderhoud/dialoog, rigtingaanwysings, e-pos, koerantberig, advertensie.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.02",
+                "AF.G11.SKR.01"
+              ],
+              "templates": [
+                "choice"
+              ],
+              "error_signatures": [
+                {
+                  "type": "texttype_confused",
+                  "description": "Chooses the wrong text-type for the purpose",
+                  "example": "Picks 'dagboek' to record what a meeting decided."
+                },
+                {
+                  "type": "feature_misplaced",
+                  "description": "Assigns a feature to the wrong text",
+                  "example": "Puts an RSVP on a report."
+                }
+              ],
+              "recovery_strategy": "Match the PURPOSE (inform, record, give directions, persuade) to the text-type, then check its signature features (headings, numbered steps, who/what/where).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.SKR.03",
+              "bank_skill_id": "AF.G11.SKR.03",
+              "title": "Paragraafbou: betogende en beredeneerde struktuur (paragraph & argumentative structure)",
+              "description": "Build a coherent Afrikaans paragraph (topic sentence + support) AND structure an argumentative/discursive (betogende) paragraph: claim, reasons, evidence, conclusion.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.03",
+                "AF.G11.SKR.01"
+              ],
+              "templates": [
+                "choice",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "no_topic_sentence",
+                  "description": "Cannot identify / place the topic sentence or claim",
+                  "example": "Buries the main argument mid-paragraph."
+                },
+                {
+                  "type": "order_illogical",
+                  "description": "Orders an argument illogically",
+                  "example": "States the conclusion before any reasons."
+                }
+              ],
+              "recovery_strategy": "Lead with the kernsin / claim, then reasons and evidence in order, then a conclusion that follows from them — one main idea per paragraph.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.SKR.04",
+              "bank_skill_id": "AF.G11.SKR.04",
+              "title": "Register, styl en toon (register, style & tone)",
+              "description": "Choose the appropriate register, style and tone (formal/informal, persuasive/objective) for the audience and purpose of a text.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.04",
+                "AF.G11.SKR.01"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "register_mismatch",
+                  "description": "Picks the wrong register for the audience",
+                  "example": "Slang in a report to the principal."
+                },
+                {
+                  "type": "tone_inappropriate",
+                  "description": "Tone does not fit the purpose",
+                  "example": "Jokey tone in a formal complaint."
+                }
+              ],
+              "recovery_strategy": "Ask who will read it and why: a boss/newspaper/report needs formal, objective language; a friend allows informal, warmer wording.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.SKR.05",
+              "bank_skill_id": "AF.G11.SKR.05",
+              "title": "Redigeer: vind en verbeter die taalfout (editing: find & fix the error)",
+              "description": "Proofread a longer Afrikaans sentence and identify or correct the language, spelling, agreement or punctuation error.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.05"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "error_unseen",
+                  "description": "Does not spot the error",
+                  "example": "Passes a wrong tense / spelling / agreement."
+                },
+                {
+                  "type": "wrong_fix",
+                  "description": "Applies an incorrect correction",
+                  "example": "‘Corrects’ a right word."
+                }
+              ],
+              "recovery_strategy": "Check one thing at a time: agreement, tense, word order, spelling, then punctuation. Read the sentence aloud in your head.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.SKR.06",
+              "bank_skill_id": "AF.G11.SKR.06",
+              "title": "Opsomming deur parafrase (summary by paraphrase)",
+              "description": "Select the main points for a summary of an Afrikaans text and restate them in your OWN words (paraphrase), dropping examples and repetition within a point limit.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.SKR.06",
+                "AF.G11.SKR.03"
+              ],
+              "templates": [
+                "choice",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "detail_included",
+                  "description": "Keeps a minor detail / example as a key point",
+                  "example": "Lists an example instead of the main idea."
+                },
+                {
+                  "type": "copied_not_paraphrased",
+                  "description": "Copies wording instead of paraphrasing",
+                  "example": "Repeats the text word-for-word rather than restating it."
+                }
+              ],
+              "recovery_strategy": "Keep only points that change the meaning, drop examples and repetition, and restate each point in your OWN words rather than copying the text.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "AF.G11.TAA",
+          "title": "Taalstrukture en -konvensies (Language structures & conventions)",
+          "description": "The grammar core, taught explicitly and tappable, revised-plus-extended for Grade 11: nouns (incl. versamelname, abstrakte, dubbele meervoude), pronouns (incl. betreklik, onbepaald, wederkerend/wederkerig), adjectives & comparison, verbs across all tenses + deelwoorde + infinitief, conjunctions & word order, sentence analysis (sinsdele) + types + negation, direct/indirect speech incl. questions & commands, active/passive across all tenses, punctuation, semantics (+ polisemie), idioms & proverbs, and word-formation/spelling (+ samestellende afleiding, akronieme). Assessed inside Vraestel 1 (Taal in konteks).",
+          "atomic_skills": [
+            {
+              "id": "AF.G11.TAA.01",
+              "bank_skill_id": "AF.G11.TAA.01",
+              "title": "Selfstandige naamwoorde: meervoud, verkleining, geslag, versamelname (nouns extended)",
+              "description": "Form and recognise noun plurals (incl. double plurals), diminutives and gender forms, and identify collective nouns (versamelname) and abstract nouns (abstrakte naamwoorde).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.01"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "plural_rule_wrong",
+                  "description": "Applies the wrong plural rule",
+                  "example": "'blad' → 'blads' instead of 'blaaie'."
+                },
+                {
+                  "type": "noun_type_confused",
+                  "description": "Confuses a collective or abstract noun with a common noun",
+                  "example": "Calls 'liefde' a concrete noun."
+                }
+              ],
+              "recovery_strategy": "Plurals follow patterns (often -e/-s, sometimes -ers or a double plural); a versamelnaam names a group as one (swerm, trop); an abstrakte naamwoord names something you cannot touch (liefde, vryheid).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.TAA.02",
+              "bank_skill_id": "AF.G11.TAA.02",
+              "title": "Voornaamwoorde: betreklik, onbepaald, wederkerend (pronouns extended)",
+              "description": "Use personal, possessive, demonstrative, relative (betreklik), indefinite (onbepaald) and reflexive/reciprocal (wederkerend/wederkerig) pronouns.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.02"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "relative_wrong",
+                  "description": "Wrong relative pronoun",
+                  "example": "'die man wat se' instead of 'die man wie se'."
+                },
+                {
+                  "type": "reflexive_wrong",
+                  "description": "Confuses reflexive (homself) with reciprocal (mekaar)",
+                  "example": "'hulle help homself' instead of 'mekaar'."
+                }
+              ],
+              "recovery_strategy": "Match the pronoun to its job: who does (persoonlik), whose (besitlik), pointing (aanwysend), joining (betreklik), unspecified (onbepaald: iemand/niemand), or back to the subject (wederkerend: homself / wederkerig: mekaar).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.TAA.03",
+              "bank_skill_id": "AF.G11.TAA.03",
+              "title": "Byvoeglike naamwoorde en trappe van vergelyking (adjectives & comparison)",
+              "description": "Use attributive vs predicative adjectives, inflection (verbuiging), and degrees of comparison (stellend/vergrotend/oortreffend) including irregulars.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.03"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "inflection_wrong",
+                  "description": "Wrong adjective inflection",
+                  "example": "'die oude man' instead of 'die ou man'."
+                },
+                {
+                  "type": "comparison_irregular",
+                  "description": "Wrong comparative/superlative, esp. irregulars",
+                  "example": "'goed → gooder' instead of 'beter / beste'."
+                }
+              ],
+              "recovery_strategy": "Vergrotende trap usually adds -er, oortreffende -ste; learn the irregulars (goed-beter-beste, baie-meer-meeste, min-minder-minste).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.TAA.04",
+              "bank_skill_id": "AF.G11.TAA.04",
+              "title": "Werkwoorde, tye, deelwoorde en infinitief (verbs, tenses, participles & infinitive)",
+              "description": "Form present, past (het ge-) and future (sal) tense incl. separable verbs, AND use participles (deelwoorde) and the infinitive (om te + werkwoord).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "past_form_wrong",
+                  "description": "Wrong past-tense or participle formation",
+                  "example": "'het gekom' written 'het kom' / 'gekomt'."
+                },
+                {
+                  "type": "infinitive_wrong",
+                  "description": "Wrong infinitive construction",
+                  "example": "'Ek hou van swem' written 'Ek hou van te swem' incorrectly."
+                }
+              ],
+              "recovery_strategy": "Verlede tyd = het + ge-werkwoord; toekomende = sal + werkwoord; a deelwoord can describe ('die lagende kind'); the infinitief is 'om te + werkwoord'.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.TAA.05",
+              "bank_skill_id": "AF.G11.TAA.05",
+              "title": "Voegwoorde: groep 1, 2 en 3 en woordorde (conjunctions & word order)",
+              "description": "Join clauses with group 1 (en, maar, want), group 2 (dus, daarom — word order changes) and group 3 (omdat, terwyl, dat — verb to the end), with correct word order.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.05",
+                "AF.G11.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "word_order_wrong",
+                  "description": "Wrong word order after the conjunction",
+                  "example": "After 'omdat' the verb is not sent to the end."
+                },
+                {
+                  "type": "conjunction_group_confused",
+                  "description": "Uses a conjunction from the wrong group",
+                  "example": "Treats 'daarom' like 'en'."
+                }
+              ],
+              "recovery_strategy": "Groep 1 keeps normal order; groep 2 swaps subject/verb (dus kom hy); groep 3 pushes the verb to the end (...omdat hy kom).",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.TAA.06",
+              "bank_skill_id": "AF.G11.TAA.06",
+              "title": "Sinsontleding: sinsdele, sinsoorte en ontkenning (sentence analysis, types & negation)",
+              "description": "Identify sentence parts (sinsdele: onderwerp, gesegde, voorwerp), classify sentence types (stel-, vraag-, bevel-, uitroepsin) and apply the double negative (nie ... nie; geen ... nie).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.06",
+                "AF.G11.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "sinsdeel_confused",
+                  "description": "Mislabels a sentence part (subject/predicate/object)",
+                  "example": "Calls the object the subject."
+                },
+                {
+                  "type": "double_negative_wrong",
+                  "description": "Drops the second 'nie'",
+                  "example": "'Ek het nie geld' instead of 'Ek het nie geld nie'."
+                }
+              ],
+              "recovery_strategy": "Find WHO/WHAT does the action (onderwerp), the verb part (gesegde) and WHAT receives it (voorwerp); and remember Afrikaans usually closes a negative sentence with 'nie'.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.TAA.07",
+              "bank_skill_id": "AF.G11.TAA.07",
+              "title": "Direkte en indirekte rede, ook vrae en bevele (direct & indirect speech incl. questions & commands)",
+              "description": "Convert between direct and indirect speech for statements, questions AND commands: change punctuation, pronouns, word order and adverbs of time/place.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.07",
+                "AF.G11.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "pronoun_not_shifted",
+                  "description": "Pronouns not adjusted",
+                  "example": "'Ek' kept instead of 'hy/sy' in reported speech."
+                },
+                {
+                  "type": "question_command_wrong",
+                  "description": "Wrong structure for a reported question or command",
+                  "example": "Keeps question word order, or drops 'moet' in a reported command."
+                }
+              ],
+              "recovery_strategy": "Going to indirect speech: drop the quotation marks, shift the pronouns and time/place words; a question keeps its question word ('hoekom/waar') with the verb at the end; a command uses 'moet'.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.TAA.08",
+              "bank_skill_id": "AF.G11.TAA.08",
+              "title": "Bedrywende en lydende vorm oor alle tye (active & passive across all tenses)",
+              "description": "Convert between active (bedrywend) and passive (lydend) voice across present, past and future, using word/is/was/sal ... word and the 'deur' agent.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.08",
+                "AF.G11.TAA.04"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "agent_misplaced",
+                  "description": "Loses or misplaces the 'deur' agent",
+                  "example": "Passive without 'deur die ...'."
+                },
+                {
+                  "type": "aux_wrong",
+                  "description": "Wrong passive auxiliary for the tense",
+                  "example": "Present passive built with 'is' instead of 'word'."
+                }
+              ],
+              "recovery_strategy": "Passive: object becomes the subject + word (teenwoordig) / is (verlede) / sal ... word (toekomend) + ...ge-werkwoord + (deur die agent). Match the helper to the tense.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.TAA.09",
+              "bank_skill_id": "AF.G11.TAA.09",
+              "title": "Leestekens en punktuasie (punctuation)",
+              "description": "Apply punctuation correctly: komma, punt, vraagteken, dubbelpunt, kommapunt, aanhalingstekens, koppelteken, afkappingsteken, deelteken and gedagtestreep.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.09"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "quotation_wrong",
+                  "description": "Quotation punctuation incorrect",
+                  "example": "Misplaces the comma/quotes in direct speech."
+                },
+                {
+                  "type": "apostrophe_wrong",
+                  "description": "Wrong apostrophe / deelteken use",
+                  "example": "'die kind se boek' vs incorrect 's' use."
+                }
+              ],
+              "recovery_strategy": "Each mark has a job: ? ends a question, : introduces, ; links two close sentences, “ ” frame the exact words spoken, – sets off a thought.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.TAA.10",
+              "bank_skill_id": "AF.G11.TAA.10",
+              "title": "Betekenisleer: sinonieme, antonieme, homofone, polisemie (semantics extended)",
+              "description": "Work with synonyms, antonyms, homophones (ly/lei), homonyms, paronyms AND polysemy (one word with several related meanings).",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.10"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "homophone_confused",
+                  "description": "Confuses homophones in spelling/meaning",
+                  "example": "'ly' (suffer) vs 'lei' (lead)."
+                },
+                {
+                  "type": "polysemy_missed",
+                  "description": "Misses that one word has several related senses",
+                  "example": "Reads 'kop' only as 'head', not also 'mountain top / mug'."
+                }
+              ],
+              "recovery_strategy": "Sinoniem = same meaning, antoniem = opposite; homofone sound the same but differ in spelling; polisemie is ONE word with several related senses (kop = head, hilltop, mug) — use the sentence.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.TAA.11",
+              "bank_skill_id": "AF.G11.TAA.11",
+              "title": "Idiome en spreekwoorde (idioms & proverbs)",
+              "description": "Interpret a wider set of Afrikaans idioms, idiomatic expressions and proverbs by their figurative meaning, not literally.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.11",
+                "AF.G11.TAA.10"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "literal_interpretation",
+                  "description": "Reads the idiom literally",
+                  "example": "'die aap uit die mou laat' read about a real monkey."
+                },
+                {
+                  "type": "idiom_mismatched",
+                  "description": "Picks an idiom that does not fit the situation",
+                  "example": "Uses a 'luck' idiom for a 'secret revealed' context."
+                }
+              ],
+              "recovery_strategy": "Picture what the words say, then ask what people really mean by it; learn idioms as whole units, not word-by-word.",
+              "progression": {
+                "model": "practice-through",
+                "complete_when": "all_items_correct_once",
+                "reteach_on_error": true,
+                "requeue_missed": true,
+                "allow_scaffolding": true,
+                "blocks_progress": false
+              }
+            },
+            {
+              "id": "AF.G11.TAA.12",
+              "bank_skill_id": "AF.G11.TAA.12",
+              "title": "Woordvorming en spelling: afleiding, samestelling, samestellende afleiding, akronieme (word-formation & spelling)",
+              "description": "Build and spell words through prefixes/suffixes (afleiding), compounds (samestelling), compound-derivations (samestellende afleiding) and handle abbreviations, acronyms (akronieme) and spelling patterns.",
+              "caps_term": "T1-T4",
+              "prerequisites": [
+                "AF.G10.TAA.12"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "compound_split",
+                  "description": "Writes a compound as two words",
+                  "example": "'tafel doek' instead of 'tafeldoek'."
+                },
+                {
+                  "type": "derivation_wrong",
+                  "description": "Wrong word-formation type or affix",
+                  "example": "Confuses a samestelling with a samestellende afleiding (driewieler)."
+                }
+              ],
+              "recovery_strategy": "Afrikaans writes most compounds as ONE word; an afleiding adds an affix (on-, -loos); a samestellende afleiding combines and derives at once (driewieler); an akroniem is read as a word (SARS).",
               "progression": {
                 "model": "practice-through",
                 "complete_when": "all_items_correct_once",

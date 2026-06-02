@@ -13,8 +13,35 @@
 // `status` per skill plus an optional `onClick`. Accent colours are looked up
 // from a static map (Tailwind can't build class names dynamically).
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import EduBackground from "@/components/EduBackground";
+
+// When a tree renders inside the Subjects hub, it opts into a more compact
+// presentation: the header reads a plain "Skill Tree" (the subject name is
+// already shown by the card next to it), the panel is transparent (no nested
+// card / textured background), and an open level shows only the learner's
+// current sub-section (tier) until they choose to expand it. Every other
+// surface (standalone subject pages, the Progress page) leaves this `false`,
+// so nothing there changes.
+export interface HubTreeInfo {
+  inHub: boolean;
+  /** Subject thumbnail shown in the hub tree header (mirrors Ruby's chat avatar). */
+  thumbnail?: string;
+  /** Fallback emoji when a subject has no thumbnail image. */
+  emoji?: string;
+  /** Subject name shown as the hub header title (e.g. "Geography"). */
+  label?: string;
+}
+export const HubTreeContext = createContext<HubTreeInfo>({ inHub: false });
+
+// Statuses that mark a tier as "where the learner is working" — used to pick
+// the single tier shown when an open level is collapsed in the hub.
+const ACTIONABLE_STATUSES = new Set<SkillTreeStatus>([
+  "current",
+  "active",
+  "available",
+  "in_progress",
+]);
 
 export type SkillTreeAccent =
   | "blue"
@@ -23,7 +50,13 @@ export type SkillTreeAccent =
   | "teal"
   | "emerald"
   | "amber"
-  | "indigo";
+  | "indigo"
+  | "sky"
+  | "cyan"
+  | "violet"
+  | "orange"
+  | "lime"
+  | "pink";
 
 export type SkillTreeStatus =
   | "locked"
@@ -198,6 +231,84 @@ const ACCENTS: Record<
     activeRing: "ring-2 ring-indigo-500 ring-offset-1 animate-pulse shadow-sm shadow-indigo-300",
     hoverRing: "cursor-pointer hover:ring-2 hover:ring-indigo-300 hover:shadow-sm transition-all",
   },
+  sky: {
+    headerBg: "bg-sky-50 border-sky-200",
+    headerTitle: "text-sky-700",
+    headerSub: "text-sky-400",
+    bar: "bg-sky-500",
+    currentBadge: "bg-sky-500 text-white",
+    currentCard: "border-sky-300 shadow-md shadow-sky-500/10",
+    currentHeaderBg: "bg-sky-50",
+    currentPill: "bg-sky-100 text-sky-700",
+    activeTile: "bg-sky-100 text-sky-800 border-sky-400",
+    activeRing: "ring-2 ring-sky-500 ring-offset-1 animate-pulse shadow-sm shadow-sky-300",
+    hoverRing: "cursor-pointer hover:ring-2 hover:ring-sky-300 hover:shadow-sm transition-all",
+  },
+  cyan: {
+    headerBg: "bg-cyan-50 border-cyan-200",
+    headerTitle: "text-cyan-700",
+    headerSub: "text-cyan-400",
+    bar: "bg-cyan-500",
+    currentBadge: "bg-cyan-500 text-white",
+    currentCard: "border-cyan-300 shadow-md shadow-cyan-500/10",
+    currentHeaderBg: "bg-cyan-50",
+    currentPill: "bg-cyan-100 text-cyan-700",
+    activeTile: "bg-cyan-100 text-cyan-800 border-cyan-400",
+    activeRing: "ring-2 ring-cyan-500 ring-offset-1 animate-pulse shadow-sm shadow-cyan-300",
+    hoverRing: "cursor-pointer hover:ring-2 hover:ring-cyan-300 hover:shadow-sm transition-all",
+  },
+  violet: {
+    headerBg: "bg-violet-50 border-violet-200",
+    headerTitle: "text-violet-700",
+    headerSub: "text-violet-400",
+    bar: "bg-violet-500",
+    currentBadge: "bg-violet-500 text-white",
+    currentCard: "border-violet-300 shadow-md shadow-violet-500/10",
+    currentHeaderBg: "bg-violet-50",
+    currentPill: "bg-violet-100 text-violet-700",
+    activeTile: "bg-violet-100 text-violet-800 border-violet-400",
+    activeRing: "ring-2 ring-violet-500 ring-offset-1 animate-pulse shadow-sm shadow-violet-300",
+    hoverRing: "cursor-pointer hover:ring-2 hover:ring-violet-300 hover:shadow-sm transition-all",
+  },
+  orange: {
+    headerBg: "bg-orange-50 border-orange-200",
+    headerTitle: "text-orange-700",
+    headerSub: "text-orange-400",
+    bar: "bg-orange-500",
+    currentBadge: "bg-orange-500 text-white",
+    currentCard: "border-orange-300 shadow-md shadow-orange-500/10",
+    currentHeaderBg: "bg-orange-50",
+    currentPill: "bg-orange-100 text-orange-700",
+    activeTile: "bg-orange-100 text-orange-800 border-orange-400",
+    activeRing: "ring-2 ring-orange-500 ring-offset-1 animate-pulse shadow-sm shadow-orange-300",
+    hoverRing: "cursor-pointer hover:ring-2 hover:ring-orange-300 hover:shadow-sm transition-all",
+  },
+  lime: {
+    headerBg: "bg-lime-50 border-lime-200",
+    headerTitle: "text-lime-700",
+    headerSub: "text-lime-500",
+    bar: "bg-lime-500",
+    currentBadge: "bg-lime-500 text-white",
+    currentCard: "border-lime-300 shadow-md shadow-lime-500/10",
+    currentHeaderBg: "bg-lime-50",
+    currentPill: "bg-lime-100 text-lime-700",
+    activeTile: "bg-lime-100 text-lime-800 border-lime-400",
+    activeRing: "ring-2 ring-lime-500 ring-offset-1 animate-pulse shadow-sm shadow-lime-300",
+    hoverRing: "cursor-pointer hover:ring-2 hover:ring-lime-300 hover:shadow-sm transition-all",
+  },
+  pink: {
+    headerBg: "bg-pink-50 border-pink-200",
+    headerTitle: "text-pink-700",
+    headerSub: "text-pink-400",
+    bar: "bg-pink-500",
+    currentBadge: "bg-pink-500 text-white",
+    currentCard: "border-pink-300 shadow-md shadow-pink-500/10",
+    currentHeaderBg: "bg-pink-50",
+    currentPill: "bg-pink-100 text-pink-700",
+    activeTile: "bg-pink-100 text-pink-800 border-pink-400",
+    activeRing: "ring-2 ring-pink-500 ring-offset-1 animate-pulse shadow-sm shadow-pink-300",
+    hoverRing: "cursor-pointer hover:ring-2 hover:ring-pink-300 hover:shadow-sm transition-all",
+  },
 };
 
 // Fixed (accent-independent) tile styling per status. `active`/`current` are
@@ -287,6 +398,21 @@ function LevelCard({
 }) {
   const progress = level.progressPct;
   const isCurrent = !!level.isCurrent;
+  const inHub = useContext(HubTreeContext).inHub;
+
+  // In the hub, an open level shows only the next tier the learner is working
+  // on. The learner can reveal the rest of the level with the toggle below.
+  const [tiersExpanded, setTiersExpanded] = useState(false);
+  const canCollapseTiers = inHub && level.tiers.length > 1;
+  const focusTierIndex = (() => {
+    const next = level.tiers.findIndex((t) => t.skills.some((s) => ACTIONABLE_STATUSES.has(s.status)));
+    if (next >= 0) return next;
+    const firstUnlocked = level.tiers.findIndex((t) => t.skills.some((s) => s.status !== "locked"));
+    return firstUnlocked >= 0 ? firstUnlocked : 0;
+  })();
+  const showAllTiers = !canCollapseTiers || tiersExpanded;
+  const visibleTiers = showAllTiers ? level.tiers : [level.tiers[focusTierIndex]];
+  const hiddenTierCount = level.tiers.length - visibleTiers.length;
 
   return (
     <div ref={innerRef}>
@@ -377,7 +503,7 @@ function LevelCard({
 
         {isOpen && (
           <div className="px-5 pb-4">
-            {level.tiers.map((tier) => (
+            {visibleTiers.map((tier) => (
               <div key={tier.id} className="mt-3">
                 <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">{tier.title}</p>
                 <div className="flex flex-wrap gap-2">
@@ -387,6 +513,15 @@ function LevelCard({
                 </div>
               </div>
             ))}
+            {canCollapseTiers && (
+              <button
+                type="button"
+                onClick={() => setTiersExpanded((v) => !v)}
+                className="mt-3 text-xs font-semibold text-gray-500 hover:text-gray-700 transition-colors"
+              >
+                {tiersExpanded ? "Show less ▴" : `Show all ${hiddenTierCount + 1} sections ▾`}
+              </button>
+            )}
           </div>
         )}
       </div>
@@ -406,6 +541,8 @@ export default function SkillTreeShell({
   emptyState,
 }: SkillTreeShellProps) {
   const accent = ACCENTS[accentName];
+  const hub = useContext(HubTreeContext);
+  const inHub = hub.inHub;
 
   // Per-level expand/collapse, seeded from each level's defaultOpen flag.
   const [overrides, setOverrides] = useState<Record<string, boolean>>({});
@@ -418,7 +555,9 @@ export default function SkillTreeShell({
   const currentRef = useRef<HTMLDivElement | null>(null);
   const currentKey = levels.find((l) => l.isCurrent)?.id;
   useEffect(() => {
-    if (compact) return;
+    // The hub embeds trees mid-page; scrolling the current level into view
+    // would yank the whole Subjects page, so treat hub like compact here.
+    if (compact || inHub) return;
     const id = window.requestAnimationFrame(() => {
       currentRef.current?.scrollIntoView({ block: "start", behavior: "auto" });
     });
@@ -426,17 +565,40 @@ export default function SkillTreeShell({
   }, [compact, currentKey]);
 
   return (
-    <div className={`relative isolate bg-gray-50 ${compact ? "" : "flex flex-col h-full"}`}>
-      <div className="absolute inset-0 -z-10">
-        <EduBackground />
+    <div className={`relative isolate ${inHub ? "" : "bg-gray-50"} ${compact || inHub ? "" : "flex flex-col h-full"}`}>
+      {!inHub && (
+        <div className="absolute inset-0 -z-10">
+          <EduBackground />
+        </div>
+      )}
+
+      <div
+        className={`border-b px-6 py-4 ${accent.headerBg} ${
+          inHub ? "flex items-center gap-3 rounded-t-2xl" : "hidden md:block"
+        }`}
+      >
+        {inHub && (hub.thumbnail || hub.emoji) && (
+          hub.thumbnail ? (
+            <img
+              src={hub.thumbnail}
+              alt={hub.label ?? ""}
+              className="w-10 h-10 rounded-xl object-cover flex-shrink-0 shadow-sm"
+            />
+          ) : (
+            <span className="w-10 h-10 rounded-xl bg-white/60 flex items-center justify-center text-2xl flex-shrink-0">
+              {hub.emoji}
+            </span>
+          )
+        )}
+        <div className="min-w-0">
+          <h2 className={`font-semibold text-lg ${accent.headerTitle}`}>
+            {inHub ? hub.label ?? "Skill Tree" : title}
+          </h2>
+          {statline && <p className={`text-sm ${accent.headerSub}`}>{statline}</p>}
+        </div>
       </div>
 
-      <div className={`hidden md:block border-b px-6 py-4 ${accent.headerBg}`}>
-        <h2 className={`font-semibold text-lg ${accent.headerTitle}`}>{title}</h2>
-        {statline && <p className={`text-sm ${accent.headerSub}`}>{statline}</p>}
-      </div>
-
-      <div className={compact ? "p-6" : "flex-1 overflow-y-auto p-6"}>
+      <div className={inHub ? "px-4 pt-4 pb-1" : compact ? "p-6" : "flex-1 overflow-y-auto p-6"}>
         {onBack && (
           <div className="max-w-2xl mx-auto mb-4">
             <button

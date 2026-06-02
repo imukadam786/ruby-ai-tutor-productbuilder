@@ -1,4 +1,5 @@
 import mathsLiteracySkillTreeData from "@/data/maths-literacy-skill-tree.json";
+import { isContentMastered } from "@/lib/content-mastery";
 import type {
   MathsLiteracyAtomicSkill,
   MathsLiteracyLevel,
@@ -26,6 +27,7 @@ function emptyProfile(): MathsLiteracyStudentProfile {
     total_correct: 0,
     created_at: now,
     last_active: now,
+    used_questions: {},
   };
 }
 
@@ -124,13 +126,17 @@ export function getNextMathsLiteracySkillId(currentSkillId: string): string | nu
 }
 
 // ─── Mastery update ──────────────────────────────────────────────────────────
+//
+// Content-subject mastery rule (lib/content-mastery.ts): a skill is mastered
+// once the student has answered enough DISTINCT questions from the pool
+// (80% of pool, capped at 20) AND has ≥75% accuracy, both counted
+// cumulatively across every sitting. correct_count / attempt_count accumulate
+// in skill_mastery; distinct coverage is deduped from used_questions.
 export function updateMathsLiteracySkillMastery(
   profile: MathsLiteracyStudentProfile,
-  attempt: MathsLiteracySkillAttempt
+  attempt: MathsLiteracySkillAttempt,
+  poolSize: number
 ): { profile: MathsLiteracyStudentProfile; mastered: boolean } {
-  const skill = getMathsLiteracySkillById(attempt.skill_id);
-  const required = skill?.mastery_criteria.correct_required ?? 3;
-
   const prev: MathsLiteracySkillMastery = profile.skill_mastery[attempt.skill_id] ?? {
     skill_id: attempt.skill_id,
     status: "in_progress",
@@ -142,8 +148,18 @@ export function updateMathsLiteracySkillMastery(
 
   const correct_count = prev.correct_count + (attempt.is_correct ? 1 : 0);
   const attempt_count = prev.attempt_count + 1;
+
+  // Record this question id against the cumulative distinct set for coverage.
+  const prevUsed = profile.used_questions?.[attempt.skill_id] ?? [];
+  const used = prevUsed.includes(attempt.question_id)
+    ? prevUsed
+    : [...prevUsed, attempt.question_id];
+  const distinctAnswered = new Set(used).size;
+
   const wasMastered = prev.status === "mastered";
-  const becomesMastered = !wasMastered && correct_count >= required;
+  const becomesMastered =
+    !wasMastered &&
+    isContentMastered(distinctAnswered, poolSize, correct_count, attempt_count);
 
   const next: MathsLiteracySkillMastery = {
     ...prev,
@@ -158,6 +174,7 @@ export function updateMathsLiteracySkillMastery(
   const updated: MathsLiteracyStudentProfile = {
     ...profile,
     skill_mastery: { ...profile.skill_mastery, [attempt.skill_id]: next },
+    used_questions: { ...(profile.used_questions ?? {}), [attempt.skill_id]: used },
     total_attempts: profile.total_attempts + 1,
     total_correct: profile.total_correct + (attempt.is_correct ? 1 : 0),
     last_active: attempt.timestamp,

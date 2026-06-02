@@ -1,0 +1,271 @@
+{
+  "BUS.G11.T1.COMPANY.A1": {
+    "title": "A company vs other forms of ownership",
+    "description": "The benefits and challenges of establishing a company versus a sole trader, partnership, close corporation or co-operative (including taxation), and the formation of companies — the Memorandum of Incorporation, the company name, incorporation and the prospectus.",
+    "grade": 11,
+    "strand": "T1 — Business environments, socio-economic issues, sectors, ownership & acquiring a business",
+    "skill_ids": ["BUS.G11.T1.COMPANY.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T1",
+    "caps_topic": "Forms of ownership",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+    "recovery_strategy": "A company is a separate legal person with limited liability and continuity, but more paperwork and tax. A sole trader or partnership is simpler but has unlimited liability. Weigh capital, liability, tax and continuity.",
+    "questions": [
+      {
+        "ref": "G11.COMPANY.A1.01",
+        "question": "A company is regarded in law as a separate _________ person.",
+        "input_type": "cloze",
+        "options": ["legal", "natural", "physical", "temporary"],
+        "expected": "legal",
+        "memo": "A company has its own separate legal personality — it can own property, sign contracts and be sued in its own name, apart from its owners.",
+        "error_signals": ["ERR_BUS_COMPANY_FEATURE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.COMPANY.A1.02",
+        "question": "True or false: A company offers its shareholders limited liability.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Shareholders of a company have limited liability — they can lose only what they invested, not their personal assets.",
+        "error_signals": ["ERR_BUS_COMPANY_LIABILITY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.COMPANY.A1.03",
+        "question": "A sole trader has _________ liability for the debts of the business.",
+        "input_type": "choice",
+        "options": ["unlimited", "limited", "no", "shared with the state"],
+        "expected": "unlimited",
+        "memo": "A sole trader has unlimited liability — personal assets like a house or car can be taken to pay business debts.",
+        "error_signals": ["ERR_BUS_COMPANY_LIABILITY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.COMPANY.A1.04",
+        "question": "The founding document of a company is the Memorandum of _________.",
+        "input_type": "cloze",
+        "options": ["Incorporation", "Understanding", "Agreement", "Association"],
+        "expected": "Incorporation",
+        "memo": "The Memorandum of Incorporation (MOI) is the founding document that sets out how a company is run, under the Companies Act 71 of 2008.",
+        "error_signals": ["ERR_BUS_COMPANY_FORMATION"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.COMPANY.A1.05",
+        "question": "True or false: A company can continue to exist even if one of its owners dies.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A company has continuity of existence — it carries on regardless of changes in its shareholders, unlike a sole trader.",
+        "error_signals": ["ERR_BUS_COMPANY_FEATURE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.COMPANY.A1.06",
+        "question": "Which form of ownership can raise capital by selling shares to the general public?",
+        "input_type": "choice",
+        "options": ["A public company", "A sole trader", "A partnership", "A private company"],
+        "expected": "A public company",
+        "memo": "Only a public company (Ltd) may offer its shares to the public; a private company (Pty Ltd) may not.",
+        "error_signals": ["ERR_BUS_COMPANY_FEATURE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.COMPANY.A1.07",
+        "question": "Sort each feature into whether it is a benefit or a challenge of forming a company.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "benefit", "label": "Benefit of a company"},
+          {"id": "challenge", "label": "Challenge of a company"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Limited liability for shareholders", "correct_bucket": "benefit"},
+          {"id": "i2", "text": "More legal paperwork to set up and run", "correct_bucket": "challenge"},
+          {"id": "i3", "text": "Continuity if an owner leaves or dies", "correct_bucket": "benefit"},
+          {"id": "i4", "text": "Higher setup and compliance costs", "correct_bucket": "challenge"},
+          {"id": "i5", "text": "Easier to raise large amounts of capital", "correct_bucket": "benefit"},
+          {"id": "i6", "text": "More regulation and financial disclosure", "correct_bucket": "challenge"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Benefits: limited liability, continuity, easier capital. Challenges: more paperwork, higher costs, more regulation and disclosure.",
+        "error_signals": ["ERR_BUS_COMPANY_BENEFIT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.COMPANY.A1.08",
+        "question": "What is the main benefit of a company compared with a sole trader?",
+        "input_type": "choice",
+        "options": ["Limited liability protects the owners' personal assets", "It needs no registration at all", "It pays no tax of any kind", "It can never be sued"],
+        "expected": "Limited liability protects the owners' personal assets",
+        "memo": "Because a company is a separate legal person with limited liability, owners risk only their investment, not their personal possessions.",
+        "error_signals": ["ERR_BUS_COMPANY_BENEFIT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.COMPANY.A1.09",
+        "question": "A document that invites the public to buy shares in a company is called a _________.",
+        "input_type": "cloze",
+        "options": ["prospectus", "memorandum", "payslip", "invoice"],
+        "expected": "prospectus",
+        "memo": "A prospectus is the document a public company issues to invite the public to buy its shares.",
+        "error_signals": ["ERR_BUS_COMPANY_FORMATION"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.COMPANY.A1.10",
+        "question": "True or false: A private company (Pty) Ltd may not sell its shares to the general public.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A private company cannot offer shares to the public — that is reserved for public companies.",
+        "error_signals": ["ERR_BUS_COMPANY_FEATURE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.COMPANY.A1.11",
+        "question": "How does the taxation of a company differ from that of a sole trader?",
+        "input_type": "choice",
+        "options": ["A company is taxed at a company tax rate; a sole trader's profit is taxed as the owner's personal income", "A company pays no tax, but a sole trader does", "A sole trader pays company tax; a company pays personal tax", "Neither a company nor a sole trader pays any tax"],
+        "expected": "A company is taxed at a company tax rate; a sole trader's profit is taxed as the owner's personal income",
+        "memo": "A company pays tax in its own name at the company rate; a sole trader is not separate from the owner, so the profit is taxed as the owner's personal income.",
+        "error_signals": ["ERR_BUS_COMPANY_TAX"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.COMPANY.A1.12",
+        "question": "Read both entrepreneurs' choices, then decide which each statement matches.",
+        "input_type": "source-comparison",
+        "source_a": {
+          "text": "I started as a sole trader because it was quick and cheap to set up and I wanted full control. I accept that I am personally liable for the debts.",
+          "provenance": "Entrepreneur A"
+        },
+        "source_b": {
+          "text": "I registered a company so that my personal assets are protected and the business can continue and raise capital, even though it costs more to run.",
+          "provenance": "Entrepreneur B"
+        },
+        "statements": [
+          {"id": "s1", "text": "Has chosen limited liability", "correct_answer": "b_only"},
+          {"id": "s2", "text": "Accepts unlimited personal liability", "correct_answer": "a_only"},
+          {"id": "s3", "text": "Is running a business that aims to make a profit", "correct_answer": "both"},
+          {"id": "s4", "text": "Pays no tax at all", "correct_answer": "neither"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "s1=b_only, s2=a_only, s3=both, s4=neither",
+        "memo": "Entrepreneur B chose a company (limited liability); A chose a sole trader (unlimited liability). Both seek profit, and neither escapes tax.",
+        "error_signals": ["ERR_BUS_COMPANY_LIABILITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.COMPANY.A1.13",
+        "question": "Why might an entrepreneur still choose a sole trader rather than a company?",
+        "input_type": "choice",
+        "options": ["It is simpler and cheaper to set up and gives full control", "It always pays less tax than any company", "It automatically gives limited liability", "It can list on the stock exchange"],
+        "expected": "It is simpler and cheaper to set up and gives full control",
+        "memo": "A sole trader is quick and cheap to start and the owner keeps full control — the trade-off is unlimited liability.",
+        "error_signals": ["ERR_BUS_COMPANY_BENEFIT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.COMPANY.A1.14",
+        "question": "Sort each form of ownership by the liability of its owners.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "limited", "label": "Limited liability"},
+          {"id": "unlimited", "label": "Unlimited liability"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Private company", "correct_bucket": "limited"},
+          {"id": "i2", "text": "Sole trader", "correct_bucket": "unlimited"},
+          {"id": "i3", "text": "Partnership", "correct_bucket": "unlimited"},
+          {"id": "i4", "text": "Public company", "correct_bucket": "limited"},
+          {"id": "i5", "text": "Close corporation", "correct_bucket": "limited"},
+          {"id": "i6", "text": "Co-operative", "correct_bucket": "limited"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Companies, close corporations and co-operatives give limited liability. Sole traders and partnerships have unlimited liability.",
+        "error_signals": ["ERR_BUS_COMPANY_LIABILITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.COMPANY.A1.15",
+        "question": "Which of these is a step in forming a company?",
+        "input_type": "choice",
+        "options": ["Reserving the company name and lodging the Memorandum of Incorporation", "Buying stock from a supplier", "Hiring a marketing agency", "Opening a savings account for a child"],
+        "expected": "Reserving the company name and lodging the Memorandum of Incorporation",
+        "memo": "Forming a company involves reserving the name and registering the Memorandum of Incorporation so the company can be incorporated.",
+        "error_signals": ["ERR_BUS_COMPANY_FORMATION"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.COMPANY.A1.16",
+        "question": "A company legally comes into existence when it is _________ — registered and issued with its registration.",
+        "input_type": "cloze",
+        "options": ["incorporated", "advertised", "audited", "liquidated"],
+        "expected": "incorporated",
+        "memo": "Incorporation is the act of registering a company so that it becomes a separate legal person.",
+        "error_signals": ["ERR_BUS_COMPANY_FORMATION"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.COMPANY.A1.17",
+        "question": "Read both views on raising capital, then decide which each statement matches.",
+        "input_type": "source-comparison",
+        "source_a": {
+          "text": "Our partnership relies on the partners' own savings and a bank loan. We cannot sell shares, so our capital is limited to what we and the bank can put in.",
+          "provenance": "Partnership"
+        },
+        "source_b": {
+          "text": "As a public company we can issue shares to thousands of investors, which lets us raise large amounts of capital for expansion.",
+          "provenance": "Public company"
+        },
+        "statements": [
+          {"id": "s1", "text": "Can raise capital by issuing shares to the public", "correct_answer": "b_only"},
+          {"id": "s2", "text": "Is limited to owners' funds and loans for capital", "correct_answer": "a_only"},
+          {"id": "s3", "text": "Needs capital to operate and grow", "correct_answer": "both"},
+          {"id": "s4", "text": "Can raise capital without anyone investing anything", "correct_answer": "neither"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "s1=b_only, s2=a_only, s3=both, s4=neither",
+        "memo": "The public company can raise large capital through shares; the partnership is limited to partners' funds and loans. Both need capital, and neither raises it from nothing.",
+        "error_signals": ["ERR_BUS_COMPANY_FEATURE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.COMPANY.A1.18",
+        "question": "When is forming a company clearly the better choice over a sole trader?",
+        "input_type": "choice",
+        "options": ["When the owners want limited liability, continuity and to raise large capital", "When the owner wants the very cheapest, simplest possible start", "When the owner wants to avoid all registration", "When the business will never grow or take on risk"],
+        "expected": "When the owners want limited liability, continuity and to raise large capital",
+        "memo": "A company suits owners who value protection of personal assets, an ongoing business and access to larger capital, and who accept the extra cost and paperwork.",
+        "error_signals": ["ERR_BUS_COMPANY_BENEFIT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.COMPANY.A1.19",
+        "question": "Why can the extra paperwork and tax of a company be a worthwhile trade-off?",
+        "input_type": "choice",
+        "options": ["Because limited liability and continuity reduce the owners' risk and support growth", "Because paperwork itself creates profit", "Because companies are exempt from all regulation", "Because it removes the need for any capital"],
+        "expected": "Because limited liability and continuity reduce the owners' risk and support growth",
+        "memo": "The cost of compliance buys real advantages — protection of personal assets, an ongoing business and easier access to capital — which can be worth it for a growing venture.",
+        "error_signals": ["ERR_BUS_COMPANY_BENEFIT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.COMPANY.A1.20",
+        "question": "A growing partnership wants limited liability and the ability to bring in outside investors. What should it consider doing?",
+        "input_type": "choice",
+        "options": ["Converting into a company", "Becoming a sole trader", "Dissolving and ceasing to trade", "Refusing all new capital"],
+        "expected": "Converting into a company",
+        "memo": "To gain limited liability and raise capital from outside investors, the partnership would convert to a company, accepting the added regulation in return.",
+        "error_signals": ["ERR_BUS_COMPANY_BENEFIT"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

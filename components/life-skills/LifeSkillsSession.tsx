@@ -12,6 +12,7 @@ import LifeSkillsSkillTreeView from "./LifeSkillsSkillTreeView";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import {
   getLifeSkillsMasteryMap,
+  getLifeSkillsTopicTotals,
   getLifeSkillsUsedRefs,
   getOrCreateLifeSkillsProfile,
   hydrateLifeSkillsProfileFromSupabase,
@@ -21,6 +22,12 @@ import {
   saveLifeSkillsProfile,
   setLifeSkillsMastery,
 } from "@/lib/life-skills-student-model";
+import {
+  ACCURACY_TARGET,
+  contentAbilityLevel,
+  isContentMastered,
+  requiredCoverageCount,
+} from "@/lib/content-mastery";
 import {
   trackQuestionAnswered,
   trackSessionStarted,
@@ -39,18 +46,21 @@ import type {
 const tree = lifeSkillsTreeData as unknown as LifeSkillsSkillTree;
 const bank = lifeSkillsBankData as unknown as LifeSkillsBank;
 
-// Mastery rule: the learner answers ALL questions in the topic. The session
-// only ends when every authored item has been attempted. Mastery (vs just
-// "complete") is judged after the fact by overall accuracy ≥ pass_threshold.
-function targetItemCount(skillId: string): number {
-  const topic = bank.topics[skillId];
-  if (topic) return topic.questions.length;
-  // Fallback if the topic somehow isn't in the bank.
-  return skillId.startsWith("LS.L3.") ? 20 : 15;
+// Content-mastery rule (shared with the other content subjects — see
+// lib/content-mastery.ts): a topic is mastered when the learner has answered
+// at least requiredCount(skillId) DISTINCT questions from its pool (80% capped
+// at 20) AND is correct on ≥ 75% of all their answers, counted cumulatively
+// across every sitting. Grade (Life Skills spans 1–6) does not change the rule.
+
+// Total distinct questions authored for a topic — the coverage denominator.
+function poolSize(skillId: string): number {
+  return bank.topics[skillId]?.questions.length ?? 0;
 }
 
-function passThreshold(skillId: string): number {
-  return bank.topics[skillId]?.pass_threshold ?? 0.6;
+// Distinct questions the learner must answer to master this topic
+// (80% of the pool, capped at 20 — see lib/content-mastery.ts).
+function requiredCount(skillId: string): number {
+  return requiredCoverageCount(poolSize(skillId));
 }
 
 function findSkill(skillId: string) {
@@ -89,6 +99,7 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
   const [attemptCount, setAttemptCount] = useState(0);
   const [consecutiveWrong, setConsecutiveWrong] = useState(0);
   const [mastery, setMastery] = useState<Record<string, TopicMastery>>({});
+  const [didMasterTopic, setDidMasterTopic] = useState(false);
 
   const { speak, stop, playing } = useTTS();
   const sessionStartRef = useRef<number>(Date.now());
@@ -145,8 +156,8 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
           correct_count: correct,
           attempt_count: attempts,
           accuracy,
-          target_item_count: targetItemCount(topicId),
-          pass_threshold: passThreshold(topicId),
+          target_item_count: requiredCount(topicId),
+          pass_threshold: ACCURACY_TARGET,
           mastered: didMaster,
           duration_ms: Date.now() - sessionStartRef.current,
         };
@@ -178,11 +189,21 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
     setAnswer("");
     setSequenceOrder([]);
     const used = getLifeSkillsUsedRefs(topicId);
+    // Difficulty matching (Phase A): derive a 1–5 ability level from the
+    // learner's cumulative accuracy on this topic. topic_totals is updated on
+    // every answer BEFORE this fetch, so it already includes the run so far —
+    // no session counters to add (that would double-count).
+    const prior = getLifeSkillsTopicTotals(topicId);
+    const abilityLevel = contentAbilityLevel(prior.correct, prior.attempts);
     try {
       const res = await apiFetch("/api/life-skills/generate-question", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ skill_id: topicId, used_refs: used }),
+        body: JSON.stringify({
+          skill_id: topicId,
+          used_refs: used,
+          ability_level: abilityLevel,
+        }),
       });
       if (!res.ok) {
         setError("Could not load a question. Please try again.");
@@ -217,6 +238,7 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
       setCorrectCount(0);
       setAttemptCount(0);
       setConsecutiveWrong(0);
+      setDidMasterTopic(false);
       sessionStartRef.current = Date.now();
       trackSessionStarted({
         subject: "life-skills",
@@ -227,6 +249,19 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
     },
     [loadNextQuestion],
   );
+
+  // Deep-link from the Subjects hub: a tapped topic is stashed in sessionStorage,
+  // so open it directly on mount — skipping the in-session topic picker.
+  const deepLinkConsumed = useRef(false);
+  useEffect(() => {
+    if (deepLinkConsumed.current || phase !== "tree") return;
+    if (typeof window === "undefined") return;
+    const target = sessionStorage.getItem("ruby_life-skills_target_skill");
+    if (!target) return;
+    deepLinkConsumed.current = true;
+    sessionStorage.removeItem("ruby_life-skills_target_skill");
+    if (findSkill(target)) handlePickTopic(target);
+  }, [phase, handlePickTopic]);
 
   // ─── Submit handler ────────────────────────────────────────────────────────
   const handleSubmit = useCallback(
@@ -287,16 +322,36 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
           setLifeSkillsMastery(skillId, "in_progress");
         }
 
-        // Topic ends when every authored question has been attempted.
-        // Mastery decided after the fact by accuracy ≥ pass_threshold (default 0.6).
-        const allAnswered = nextAttempts >= targetItemCount(skillId);
-        if (allAnswered) {
-          const accuracy = nextAttempts > 0 ? nextCorrect / nextAttempts : 0;
-          const didMaster = accuracy >= passThreshold(skillId);
+        // ── Cumulative content-mastery check ───────────────────────────────
+        // recordLifeSkillsAnswer (above) has already written this answer into
+        // the localStorage-backed profile, so the per-topic totals and the
+        // used-question pool now INCLUDE the answer we just took. Coverage and
+        // accuracy are therefore measured cumulatively across every sitting.
+        const cumulative = getLifeSkillsTopicTotals(skillId);
+        const cumulativeCorrect = cumulative.correct;
+        const cumulativeAttempts = cumulative.attempts;
+        const distinctAnswered = new Set(getLifeSkillsUsedRefs(skillId)).size;
+        const size = poolSize(skillId);
+        const required = requiredCount(skillId);
+
+        const didMaster = isContentMastered(
+          distinctAnswered,
+          size,
+          cumulativeCorrect,
+          cumulativeAttempts,
+        );
+
+        // End the run when the topic is mastered, when this sitting has covered
+        // a full batch, or when the pool is exhausted — otherwise keep going.
+        const runOver =
+          didMaster || nextAttempts >= required || distinctAnswered >= size;
+
+        if (runOver) {
           const nextStatus: TopicMastery = didMaster ? "mastered" : "in_progress";
           const next = { ...mastery, [skillId]: nextStatus };
           setMastery(next);
           setLifeSkillsMastery(skillId, nextStatus);
+          setDidMasterTopic(didMaster);
           if (didMaster) {
             trackSkillMastered({
               subject: "life-skills",
@@ -310,7 +365,7 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
             subject: "life-skills",
             questions_answered: nextAttempts,
             correct: nextCorrect,
-            accuracy,
+            accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
@@ -335,24 +390,27 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
   // ─── Render: end-of-topic ─────────────────────────────────────────────────
   if (phase === "mastered" && skillId) {
     const skill = findSkill(skillId)?.skill;
-    const accuracy = attemptCount > 0 ? correctCount / attemptCount : 0;
-    const didMaster = accuracy >= passThreshold(skillId);
+    const size = poolSize(skillId);
+    const required = requiredCount(skillId);
+    const totals = getLifeSkillsTopicTotals(skillId);
+    const cumAccuracy = totals.attempts > 0 ? totals.correct / totals.attempts : 0;
+    const distinct = Math.min(new Set(getLifeSkillsUsedRefs(skillId)).size, size);
     return (
       <div className="relative flex items-center justify-center h-full bg-[#F4F4F5] p-6">
         <EduBackground />
         <div className="relative bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-4">
-          <div className="text-6xl">{didMaster ? "🎉" : "💪"}</div>
+          <div className="text-6xl">{didMasterTopic ? "🎉" : "💪"}</div>
           <h2 className="text-2xl font-bold text-[#1a2744]">
-            {didMaster ? "You did it!" : "All done!"}
+            {didMasterTopic ? "You did it!" : "Keep going"}
           </h2>
           <p className="text-gray-600 text-base">
-            {didMaster ? (
-              <>You mastered <span className="font-semibold">{skill?.title ?? "this topic"}</span>.</>
+            {didMasterTopic ? (
+              <>You mastered <span className="font-semibold">{skill?.title ?? "this topic"}</span> — {Math.round(cumAccuracy * 100)}% correct overall.</>
             ) : (
-              <>You finished <span className="font-semibold">{skill?.title ?? "this topic"}</span>. Try it again to master it.</>
+              <>You&apos;ve answered <span className="font-semibold">{distinct} of {required}</span> questions on {skill?.title ?? "this topic"}. Master it by reaching {required} at {Math.round(ACCURACY_TARGET * 100)}% correct.</>
             )}
           </p>
-          <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct.</p>
+          <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct this round.</p>
           <button
             onClick={() => {
               setSkillId(null);
@@ -403,25 +461,33 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
           </button>
         </div>
 
-        {/* Mastery progress strip — makes the goal clear: every question counts,
-            finish them all (≥ pass mark) to master the topic. */}
+        {/* Mastery progress strip — makes the goal clear: answer enough distinct
+            questions (requiredCount) at ≥ 75% correct to master the topic. */}
         {skillId && (
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
+          <div className="bg-pink-50 border border-pink-200 rounded-2xl px-4 py-3">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs font-bold uppercase tracking-wide text-amber-800">
+              <span className="text-xs font-bold uppercase tracking-wide text-pink-800">
                 Master this topic
               </span>
-              <span className="text-sm font-semibold text-amber-700">
-                Q {Math.min(attemptCount + 1, targetItemCount(skillId))} of {targetItemCount(skillId)} · ⭐ {correctCount}
+              <span className="text-sm font-semibold text-pink-700">
+                Q {Math.min(attemptCount + 1, requiredCount(skillId))} of {requiredCount(skillId)} · ⭐ {correctCount}
               </span>
             </div>
-            <div className="h-2 bg-amber-100 rounded-full overflow-hidden">
+            <div className="h-2 bg-pink-100 rounded-full overflow-hidden">
               <div
-                className="h-full bg-amber-500 rounded-full transition-all"
-                style={{ width: `${Math.round((Math.min(attemptCount, targetItemCount(skillId)) / targetItemCount(skillId)) * 100)}%` }}
+                className="h-full bg-pink-500 rounded-full transition-all"
+                style={{
+                  width: `${Math.round(
+                    (Math.min(attemptCount, requiredCount(skillId)) /
+                      Math.max(requiredCount(skillId), 1)) *
+                      100,
+                  )}%`,
+                }}
               />
             </div>
-            <p className="text-[11px] text-amber-700 mt-1.5">Answer all {targetItemCount(skillId)} to master it</p>
+            <p className="text-[11px] text-pink-700 mt-1.5">
+              Master: {requiredCount(skillId)} questions at {Math.round(ACCURACY_TARGET * 100)}%
+            </p>
           </div>
         )}
 
@@ -439,10 +505,36 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
               />
             </div>
 
+            {/* Stem illustration — one picture that sets the scene above a
+                choice/true-false question (not an answer tile). Tries webp first,
+                then falls back through the other formats, then hides. */}
+            {question.stem_image && (
+              <div className="flex justify-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/life-skills/${question.stem_image}.webp`}
+                  alt={question.context || question.question}
+                  className="max-h-56 w-auto rounded-2xl border border-slate-200 bg-white"
+                  onError={(e) => {
+                    const el = e.currentTarget as HTMLImageElement;
+                    const exts = ["webp", "png", "svg", "jpg"];
+                    const cur = el.src.split(".").pop() ?? "";
+                    const idx = exts.indexOf(cur);
+                    if (idx >= 0 && idx < exts.length - 1) {
+                      el.src = `/life-skills/${question.stem_image}.${exts[idx + 1]}`;
+                    } else {
+                      el.style.display = "none";
+                    }
+                  }}
+                />
+              </div>
+            )}
+
             {/* Context (e.g. image description). Hidden once real picture tiles
-                render — the images replace the text description. */}
-            {question.context && !(question.input_type === "image-match" && question.image_refs?.length) && (
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 text-sm text-amber-900">
+                render, or when a stem illustration is shown — the image replaces
+                the text description. */}
+            {question.context && !question.stem_image && !(question.input_type === "image-match" && question.image_refs?.length) && (
+              <div className="bg-pink-50 border border-pink-200 rounded-2xl px-4 py-3 text-sm text-pink-900">
                 <p className="font-semibold mb-1">Picture:</p>
                 <ul className="list-disc list-inside space-y-0.5">
                   {question.context.split(/[.;]\s*/).filter(Boolean).map((line, i) => (
@@ -498,7 +590,7 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
                   <p className="text-sm text-gray-700 mt-2 leading-relaxed">{result.memo}</p>
                 )}
                 {recoveryHint && !result.is_correct && (
-                  <p className="text-sm text-amber-700 mt-3 bg-amber-100 rounded-xl px-3 py-2">
+                  <p className="text-sm text-pink-700 mt-3 bg-pink-100 rounded-xl px-3 py-2">
                     💡 {recoveryHint}
                   </p>
                 )}
@@ -561,7 +653,7 @@ function PlayIcon({ text, speak, dark }: { text: string; speak: (t: string) => v
       className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors ${
         dark
           ? "bg-white/20 hover:bg-white/30 text-white"
-          : "bg-white border border-amber-300 hover:bg-amber-100 text-[#BE1832]"
+          : "bg-white border border-pink-300 hover:bg-pink-100 text-[#BE1832]"
       }`}
     >
       🔊
@@ -574,7 +666,7 @@ function PlayIcon({ text, speak, dark }: { text: string; speak: (t: string) => v
 // manifest). We try each extension in turn; once all fail we fall back to the
 // option text, so image-match items without assets still work. Mirrors the
 // Afrikaans ImageOption.
-const LS_IMAGE_EXTS = ["png", "svg", "jpg"];
+const LS_IMAGE_EXTS = ["webp", "png", "svg", "jpg"];
 
 function LifeSkillsImageOption({
   imageKey,
@@ -593,7 +685,7 @@ function LifeSkillsImageOption({
     <button
       disabled={disabled}
       onClick={onPick}
-      className="bg-amber-50 hover:bg-amber-100 border-2 border-amber-200 hover:border-amber-300 rounded-2xl p-3 flex flex-col items-center gap-2 active:scale-95 transition-all"
+      className="bg-pink-50 hover:bg-pink-100 border-2 border-pink-200 hover:border-pink-300 rounded-2xl p-3 flex flex-col items-center gap-2 active:scale-95 transition-all"
     >
       {showImage ? (
         // eslint-disable-next-line @next/next/no-img-element
@@ -655,7 +747,7 @@ function AnswerInput({
             key={opt}
             disabled={submitting}
             onClick={() => onSubmit(opt)}
-            className="bg-amber-50 hover:bg-amber-100 border-2 border-amber-200 hover:border-amber-300 rounded-2xl px-5 py-5 flex items-center gap-3 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all"
+            className="bg-pink-50 hover:bg-pink-100 border-2 border-pink-200 hover:border-pink-300 rounded-2xl px-5 py-5 flex items-center gap-3 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all"
           >
             <span className="flex-1">{opt}</span>
             <PlayIcon text={opt} speak={speak} />
@@ -715,7 +807,7 @@ function AnswerInput({
           if (e.key === "Enter" && value.trim()) onSubmit(value.trim());
         }}
         placeholder="Type your answer"
-        className="w-full px-5 py-4 text-lg font-semibold border-2 border-amber-200 focus:border-amber-400 focus:outline-none rounded-2xl bg-amber-50 text-[#1a2744]"
+        className="w-full px-5 py-4 text-lg font-semibold border-2 border-pink-200 focus:border-pink-400 focus:outline-none rounded-2xl bg-pink-50 text-[#1a2744]"
       />
       <button
         disabled={submitting || !value.trim()}
@@ -774,7 +866,7 @@ function SequenceInput({ order, onChange, onSubmit, submitting, speak }: Sequenc
                 className={`w-full flex items-center gap-3 rounded-2xl px-4 py-4 text-left transition-all active:scale-[0.99] ${
                   isSelected
                     ? "bg-[#BE1832] border-2 border-[#BE1832] text-white shadow-md"
-                    : "bg-amber-50 border-2 border-amber-200 text-[#1a2744] hover:bg-amber-100"
+                    : "bg-pink-50 border-2 border-pink-200 text-[#1a2744] hover:bg-pink-100"
                 }`}
                 aria-pressed={isSelected}
               >

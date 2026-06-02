@@ -20,17 +20,19 @@ interface SocialSciencesSkillTreeViewProps {
   onPickTopic: (skillId: string) => void;
   masteryStatus?: Record<string, "mastered" | "in_progress" | "available">;
   onBack?: () => void;
+  compact?: boolean;
 }
 
 export default function SocialSciencesSkillTreeView({
   onPickTopic,
   masteryStatus,
   onBack,
+  compact,
 }: SocialSciencesSkillTreeViewProps) {
   const mastery = masteryStatus ?? {};
   return (
     <GradeLockedSkillTree
-      accent="amber"
+      accent="violet"
       title="Social Sciences Skill Tree"
       subhead="Pick a topic to start. Ruby will read each question to you."
       tree={tree}
@@ -44,6 +46,7 @@ export default function SocialSciencesSkillTreeView({
       }}
       onPickSkill={onPickTopic}
       onBack={onBack}
+      compact={compact}
       comingSoon="No Social Sciences content available for this grade yet."
       noticeBelow={
         <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3 text-sm text-amber-700">

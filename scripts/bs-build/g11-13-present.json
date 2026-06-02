@@ -1,0 +1,257 @@
+{
+  "BUS.G11.T2.PRESENT.A1": {
+    "title": "Presentation & responding to feedback",
+    "description": "Accurate, succinct verbal and non-verbal presentation of business information (tables, graphs, diagrams, posters, handouts), written information such as reports and flyers, and responding to questions and feedback in a non-aggressive, professional manner.",
+    "grade": 11,
+    "strand": "T2 — Creative thinking, stress & change, action plans, setting up, ethics & presentation",
+    "skill_ids": ["BUS.G11.T2.PRESENT.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T2",
+    "caps_topic": "Presentation of information",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+    "recovery_strategy": "Verbal = spoken/words; non-verbal = visuals (tables, graphs, diagrams). When questioned: answer all questions, make notes, do not argue, and apologise for any errors. Put the most important information first and keep visuals clear.",
+    "questions": [
+      {
+        "ref": "G11.PRESENT.A1.01",
+        "question": "Which of these is a NON-VERBAL way of presenting business information?",
+        "input_type": "choice",
+        "options": ["A bar graph", "A spoken speech", "A phone conversation", "A verbal report read aloud"],
+        "expected": "A bar graph",
+        "memo": "Non-verbal presentation uses visuals such as graphs, tables and diagrams; the other options are spoken (verbal).",
+        "error_signals": ["ERR_BUS_PRESENT_TYPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PRESENT.A1.02",
+        "question": "Tables, graphs and diagrams are examples of _________ presentation.",
+        "input_type": "cloze",
+        "options": ["non-verbal", "verbal", "spoken", "audio"],
+        "expected": "non-verbal",
+        "memo": "Visual formats such as tables, graphs and diagrams are non-verbal presentation.",
+        "error_signals": ["ERR_BUS_PRESENT_TYPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PRESENT.A1.03",
+        "question": "True or false: A spoken talk to an audience is a verbal presentation.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A talk uses spoken words, so it is a verbal presentation.",
+        "error_signals": ["ERR_BUS_PRESENT_TYPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PRESENT.A1.04",
+        "question": "Which of these is a visual aid used to support a presentation?",
+        "input_type": "choice",
+        "options": ["A slide or poster", "A handshake", "A lunch break", "A parking space"],
+        "expected": "A slide or poster",
+        "memo": "Slides, posters, charts and handouts are visual aids that support and reinforce a presentation.",
+        "error_signals": ["ERR_BUS_PRESENT_AID"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PRESENT.A1.05",
+        "question": "True or false: A presenter should put the most important information first.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Leading with the most important information makes sure the audience gets the key message even if time runs short.",
+        "error_signals": ["ERR_BUS_PRESENT_STRUCTURE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PRESENT.A1.06",
+        "question": "When answering a question about your presentation, you should NOT _________.",
+        "input_type": "cloze",
+        "options": ["argue", "listen", "answer", "explain"],
+        "expected": "argue",
+        "memo": "You should answer questions calmly and professionally — not argue with the person asking.",
+        "error_signals": ["ERR_BUS_PRESENT_FEEDBACK"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PRESENT.A1.07",
+        "question": "Sort each format into verbal or non-verbal presentation.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "verbal", "label": "Verbal"},
+          {"id": "nonverbal", "label": "Non-verbal"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Giving a spoken talk", "correct_bucket": "verbal"},
+          {"id": "i2", "text": "A pie chart", "correct_bucket": "nonverbal"},
+          {"id": "i3", "text": "Reading a report aloud", "correct_bucket": "verbal"},
+          {"id": "i4", "text": "A diagram of the process", "correct_bucket": "nonverbal"},
+          {"id": "i5", "text": "Answering questions out loud", "correct_bucket": "verbal"},
+          {"id": "i6", "text": "A table of figures", "correct_bucket": "nonverbal"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Spoken formats (talk, reading aloud, answering) are verbal; visual formats (charts, diagrams, tables) are non-verbal.",
+        "error_signals": ["ERR_BUS_PRESENT_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRESENT.A1.08",
+        "question": "An audience member challenges a figure in your presentation. What is the most professional response?",
+        "input_type": "choice",
+        "options": ["Answer calmly, make a note of it, and check the figure if unsure", "Argue loudly that you are right", "Ignore the question completely", "Walk out of the room"],
+        "expected": "Answer calmly, make a note of it, and check the figure if unsure",
+        "memo": "Responding professionally means staying calm, noting the point, and checking facts rather than arguing.",
+        "error_signals": ["ERR_BUS_PRESENT_FEEDBACK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRESENT.A1.09",
+        "question": "Put the steps of preparing a presentation in a sensible order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "audience", "text": "Identify the audience and the key message"},
+          {"id": "content", "text": "Gather and organise the content"},
+          {"id": "aids", "text": "Design clear visual aids to support it"},
+          {"id": "rehearse", "text": "Rehearse and check the timing"}
+        ],
+        "expected_order": ["audience", "content", "aids", "rehearse"],
+        "options": ["audience, content, aids, rehearse", "rehearse, aids, content, audience", "content, audience, rehearse, aids"],
+        "expected": "audience, content, aids, rehearse",
+        "memo": "Know your audience and message, organise the content, design the visuals, then rehearse — that order builds a strong presentation.",
+        "error_signals": ["ERR_BUS_PRESENT_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRESENT.A1.10",
+        "question": "A written summary handed to the audience to support a talk is called a _________.",
+        "input_type": "cloze",
+        "options": ["handout", "invoice", "payslip", "contract"],
+        "expected": "handout",
+        "memo": "A handout is a printed summary given to the audience to reinforce the spoken message.",
+        "error_signals": ["ERR_BUS_PRESENT_AID"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRESENT.A1.11",
+        "question": "Why should visual aids be kept clear and simple?",
+        "input_type": "choice",
+        "options": ["So the audience can understand the message quickly", "So the slides take longer to read", "So the audience gets confused", "So less information is ever shared"],
+        "expected": "So the audience can understand the message quickly",
+        "memo": "Clear, simple visuals help the audience grasp the message fast, rather than struggling with clutter.",
+        "error_signals": ["ERR_BUS_PRESENT_AID"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRESENT.A1.12",
+        "question": "True or false: If you realise you made an error in your presentation, you should apologise and correct it.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Professionals acknowledge mistakes, apologise and put them right, which keeps the audience's trust.",
+        "error_signals": ["ERR_BUS_PRESENT_FEEDBACK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRESENT.A1.13",
+        "question": "Sort each response to audience feedback into professional or unprofessional.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "professional", "label": "Professional"},
+          {"id": "unprofessional", "label": "Unprofessional"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Answering all questions politely", "correct_bucket": "professional"},
+          {"id": "i2", "text": "Arguing aggressively with a questioner", "correct_bucket": "unprofessional"},
+          {"id": "i3", "text": "Making notes of useful feedback", "correct_bucket": "professional"},
+          {"id": "i4", "text": "Mocking someone for asking a question", "correct_bucket": "unprofessional"},
+          {"id": "i5", "text": "Apologising for and fixing an error", "correct_bucket": "professional"},
+          {"id": "i6", "text": "Refusing to respond at all", "correct_bucket": "unprofessional"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Professional: answer politely, note feedback, fix errors. Unprofessional: arguing, mocking, or refusing to respond.",
+        "error_signals": ["ERR_BUS_PRESENT_FEEDBACK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRESENT.A1.14",
+        "question": "What is the purpose of support materials such as slides and handouts?",
+        "input_type": "choice",
+        "options": ["To reinforce and clarify the spoken message", "To replace the presenter entirely", "To distract the audience", "To make the talk longer for no reason"],
+        "expected": "To reinforce and clarify the spoken message",
+        "memo": "Support materials back up the spoken presentation, helping the audience follow and remember the message.",
+        "error_signals": ["ERR_BUS_PRESENT_AID"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRESENT.A1.15",
+        "question": "A good business report should include _________.",
+        "input_type": "choice",
+        "options": ["clear headings and supporting tables or graphs", "as much jargon as possible", "no structure at all", "only the writer's personal opinions"],
+        "expected": "clear headings and supporting tables or graphs",
+        "memo": "A clear report uses headings and visual support (tables, graphs) so readers can follow the information easily.",
+        "error_signals": ["ERR_BUS_PRESENT_STRUCTURE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRESENT.A1.16",
+        "question": "Put the steps of writing a business report in a sensible order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "purpose", "text": "Decide the purpose and reader of the report"},
+          {"id": "gather", "text": "Gather and check the information"},
+          {"id": "draft", "text": "Draft the report with clear headings"},
+          {"id": "review", "text": "Review, correct and finalise it"}
+        ],
+        "expected_order": ["purpose", "gather", "draft", "review"],
+        "options": ["purpose, gather, draft, review", "review, draft, gather, purpose", "gather, purpose, review, draft"],
+        "expected": "purpose, gather, draft, review",
+        "memo": "Decide the purpose and reader, gather information, draft with clear headings, then review and finalise.",
+        "error_signals": ["ERR_BUS_PRESENT_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PRESENT.A1.17",
+        "question": "A questioner is hostile and tries to provoke you during a presentation. What is the best response?",
+        "input_type": "choice",
+        "options": ["Stay calm, answer the point factually, and keep your composure", "Shout back to show you are in charge", "Insult the questioner", "Refuse to continue the presentation"],
+        "expected": "Stay calm, answer the point factually, and keep your composure",
+        "memo": "Staying calm and answering factually keeps you professional and credible, even when a questioner is difficult.",
+        "error_signals": ["ERR_BUS_PRESENT_FEEDBACK"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.PRESENT.A1.18",
+        "question": "A presenter argues with every audience member who gives feedback. Why does this harm the presentation?",
+        "input_type": "choice",
+        "options": ["It looks unprofessional and discourages useful feedback", "It makes the presenter more credible", "It improves the quality of the slides", "It shortens the question time helpfully"],
+        "expected": "It looks unprofessional and discourages useful feedback",
+        "memo": "Arguing with feedback appears defensive and unprofessional, and it stops people offering the useful comments that could improve the work.",
+        "error_signals": ["ERR_BUS_PRESENT_FEEDBACK"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.PRESENT.A1.19",
+        "question": "Why can a well-chosen graph communicate some information better than words alone?",
+        "input_type": "choice",
+        "options": ["It shows patterns and comparisons at a glance", "It always contains more words", "It hides the data from the audience", "It removes the need for any explanation ever"],
+        "expected": "It shows patterns and comparisons at a glance",
+        "memo": "A graph makes trends and comparisons visible instantly, which words alone often cannot do as quickly.",
+        "error_signals": ["ERR_BUS_PRESENT_AID"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.PRESENT.A1.20",
+        "question": "After a presentation, several people point out the same weakness. What should the presenter do?",
+        "input_type": "choice",
+        "options": ["Take the feedback on board and amend the presentation for next time", "Ignore it because the presentation is finished", "Argue that everyone is wrong", "Delete the presentation and give up"],
+        "expected": "Take the feedback on board and amend the presentation for next time",
+        "memo": "Consistent feedback signals a real weakness; a professional uses it to amend and improve future presentations.",
+        "error_signals": ["ERR_BUS_PRESENT_FEEDBACK"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

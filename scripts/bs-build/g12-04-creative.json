@@ -1,0 +1,253 @@
+{
+  "BUS.G12.T1.CREATIVE.A1": {
+    "title": "Creative thinking in complex contexts",
+    "description": "Applying creative thinking and advanced problem-solving skills to respond to challenges in dynamic and complex business contexts and case studies, building on the problem-solving cycle and techniques from earlier grades.",
+    "grade": 12,
+    "strand": "T1 — Legislation, Human Resources, ethics, creative thinking & business strategies",
+    "skill_ids": ["BUS.G12.T1.CREATIVE.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T1",
+    "caps_topic": "Creative thinking and problem-solving",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+    "recovery_strategy": "Complex problems need creative thinking: generate several options, weigh them against the real business situation, and choose the best. Advanced problem-solving combines techniques rather than relying on one fixed answer.",
+    "questions": [
+      {
+        "ref": "G12.CREATIVE.A1.01",
+        "question": "A complex business problem usually has:",
+        "input_type": "choice",
+        "options": ["Several possible solutions to weigh up", "Exactly one obvious answer", "No solution worth considering", "Only the answer in a textbook"],
+        "expected": "Several possible solutions to weigh up",
+        "memo": "Complex problems rarely have a single right answer; they call for generating and weighing several possible solutions.",
+        "error_signals": ["ERR_BUS_CRE12_COMPLEX"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.CREATIVE.A1.02",
+        "question": "Creative thinking helps a business respond to _________ and changing situations.",
+        "input_type": "cloze",
+        "options": ["complex", "simple", "frozen", "fixed"],
+        "expected": "complex",
+        "memo": "Creative thinking is especially valuable when situations are complex and constantly changing.",
+        "error_signals": ["ERR_BUS_CRE12_COMPLEX"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.CREATIVE.A1.03",
+        "question": "True or false: Advanced problem-solving may combine several creative-thinking techniques.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Tough problems often need more than one technique, combined, to generate and test good solutions.",
+        "error_signals": ["ERR_BUS_CRE12_TECHNIQUE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.CREATIVE.A1.04",
+        "question": "Which of these is a creative-thinking technique?",
+        "input_type": "choice",
+        "options": ["Brainstorming", "Stocktaking", "Invoicing", "Payroll"],
+        "expected": "Brainstorming",
+        "memo": "Brainstorming generates many ideas freely, making it a creative-thinking technique.",
+        "error_signals": ["ERR_BUS_CRE12_TECHNIQUE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.CREATIVE.A1.05",
+        "question": "A real business situation presented for analysis and solving is called a case _________.",
+        "input_type": "cloze",
+        "options": ["study", "closed", "file", "lock"],
+        "expected": "study",
+        "memo": "A case study presents a real or realistic business situation to analyse and solve, testing applied thinking.",
+        "error_signals": ["ERR_BUS_CRE12_CASE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.CREATIVE.A1.06",
+        "question": "True or false: In complex business contexts there is rarely a single 'correct' answer.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Complex contexts usually allow several reasonable responses, so judgement is needed rather than one fixed answer.",
+        "error_signals": ["ERR_BUS_CRE12_COMPLEX"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.CREATIVE.A1.07",
+        "question": "Sort each approach into helpful or unhelpful for solving a complex problem.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "helpful", "label": "Helpful approach"},
+          {"id": "unhelpful", "label": "Unhelpful approach"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Generating several options before choosing", "correct_bucket": "helpful"},
+          {"id": "i2", "text": "Insisting there is only one possible answer", "correct_bucket": "unhelpful"},
+          {"id": "i3", "text": "Testing ideas against the real situation", "correct_bucket": "helpful"},
+          {"id": "i4", "text": "Refusing to consider any new idea", "correct_bucket": "unhelpful"},
+          {"id": "i5", "text": "Combining different techniques", "correct_bucket": "helpful"},
+          {"id": "i6", "text": "Copying last year's plan without thought", "correct_bucket": "unhelpful"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Helpful: generate options, test against reality, combine techniques. Unhelpful: assuming one answer, refusing new ideas, copying blindly.",
+        "error_signals": ["ERR_BUS_CRE12_COMPLEX"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CREATIVE.A1.08",
+        "question": "What is a sensible first step when facing a complex business problem?",
+        "input_type": "choice",
+        "options": ["Understand and define the problem fully before solving it", "Pick the first idea and act immediately", "Ignore the problem", "Blame someone for it"],
+        "expected": "Understand and define the problem fully before solving it",
+        "memo": "Defining the problem properly first prevents solving the wrong problem and guides the search for good solutions.",
+        "error_signals": ["ERR_BUS_CRE12_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CREATIVE.A1.09",
+        "question": "Thesis: 'Creative thinking is essential in a dynamic, fast-changing business environment.' Choose the THREE strongest supporting reasons.",
+        "input_type": "argument-builder",
+        "thesis": "Creative thinking is essential in a dynamic, fast-changing business environment.",
+        "pool": [
+          {"id": "a1", "text": "New problems have no ready-made answers, so fresh ideas are needed", "strength": "strong"},
+          {"id": "a2", "text": "It helps a business adapt faster than competitors", "strength": "strong"},
+          {"id": "a3", "text": "It opens up new opportunities as conditions change", "strength": "strong"},
+          {"id": "a4", "text": "Creative thinking guarantees a business never fails", "strength": "counter"},
+          {"id": "a5", "text": "Brainstorming meetings often have nice biscuits", "strength": "red_herring"},
+          {"id": "a6", "text": "A changing environment never affects a business", "strength": "weak"}
+        ],
+        "pick_n": 3,
+        "correct_selection": ["a1", "a2", "a3"],
+        "expected": ["a1", "a2", "a3"],
+        "memo": "The strong reasons are that new problems need fresh ideas, faster adaptation, and new opportunities. The others overclaim, are irrelevant, or are false.",
+        "error_signals": ["ERR_BUS_CRE12_COMPLEX"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CREATIVE.A1.10",
+        "question": "_________ thinking generates fresh options that go beyond the obvious answer.",
+        "input_type": "cloze",
+        "options": ["Creative", "Routine", "Backward", "Random"],
+        "expected": "Creative",
+        "memo": "Creative thinking deliberately moves beyond the obvious to produce new, useful options.",
+        "error_signals": ["ERR_BUS_CRE12_TECHNIQUE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CREATIVE.A1.11",
+        "question": "Why might combining several techniques help solve a complex problem?",
+        "input_type": "choice",
+        "options": ["Different techniques surface different ideas and angles", "Using more techniques always wastes time", "One technique can never produce ideas", "Techniques cancel each other out"],
+        "expected": "Different techniques surface different ideas and angles",
+        "memo": "Each technique looks at the problem differently, so combining them produces a richer set of possible solutions.",
+        "error_signals": ["ERR_BUS_CRE12_TECHNIQUE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CREATIVE.A1.12",
+        "question": "True or false: Even for complex problems, ideas should still be evaluated against the real business situation.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "However creative an idea, it must be checked against the business's resources, costs and conditions before being used.",
+        "error_signals": ["ERR_BUS_CRE12_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CREATIVE.A1.13",
+        "question": "Sort each problem into whether routine thinking can solve it or it needs creative thinking.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "routine", "label": "Routine thinking is enough"},
+          {"id": "creative", "label": "Needs creative thinking"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Re-ordering stock that has run low", "correct_bucket": "routine"},
+          {"id": "i2", "text": "Finding a new market after the main one collapses", "correct_bucket": "creative"},
+          {"id": "i3", "text": "Processing the monthly payroll", "correct_bucket": "routine"},
+          {"id": "i4", "text": "Reinventing a product customers no longer want", "correct_bucket": "creative"},
+          {"id": "i5", "text": "Filing routine tax returns", "correct_bucket": "routine"},
+          {"id": "i6", "text": "Responding to a sudden disruptive new technology", "correct_bucket": "creative"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Familiar, repeatable tasks suit routine thinking; new, unfamiliar challenges need creative thinking.",
+        "error_signals": ["ERR_BUS_CRE12_COMPLEX"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CREATIVE.A1.14",
+        "question": "What does it mean that a business environment is 'dynamic'?",
+        "input_type": "choice",
+        "options": ["Its conditions change quickly and often", "It never changes at all", "It is always profitable", "It has no competitors"],
+        "expected": "Its conditions change quickly and often",
+        "memo": "A dynamic environment is one that changes rapidly, so businesses must keep adapting.",
+        "error_signals": ["ERR_BUS_CRE12_COMPLEX"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CREATIVE.A1.15",
+        "question": "How does creative thinking help a business cope with rapid change?",
+        "input_type": "choice",
+        "options": ["It finds new ways to adapt, compete and seize opportunities", "It freezes the business in place", "It removes the need to make decisions", "It guarantees nothing ever changes"],
+        "expected": "It finds new ways to adapt, compete and seize opportunities",
+        "memo": "Creative thinking generates the new responses a business needs to adapt and find opportunity when conditions shift.",
+        "error_signals": ["ERR_BUS_CRE12_COMPLEX"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CREATIVE.A1.16",
+        "question": "Solving a problem presented in a case _________ tests a learner's ability to apply creative thinking.",
+        "input_type": "cloze",
+        "options": ["study", "drawer", "cabinet", "holder"],
+        "expected": "study",
+        "memo": "A case study gives a realistic situation in which to apply problem-solving and creative thinking.",
+        "error_signals": ["ERR_BUS_CRE12_CASE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.CREATIVE.A1.17",
+        "question": "A delivery business is hit at once by fuel hikes, a driver shortage and a new rival. What is the best creative-thinking response?",
+        "input_type": "choice",
+        "options": ["Generate and test several combined options (e.g. route software, training, new services) against the real situation", "Pick the first idea that comes to mind and ignore the rest", "Insist nothing can be done", "Copy a competitor's plan without checking if it fits"],
+        "expected": "Generate and test several combined options (e.g. route software, training, new services) against the real situation",
+        "memo": "A complex, multi-part problem calls for generating several ideas, combining them, and testing them against the business's reality.",
+        "error_signals": ["ERR_BUS_CRE12_PROCESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.CREATIVE.A1.18",
+        "question": "Why is applying a single fixed answer often wrong for a complex business problem?",
+        "input_type": "choice",
+        "options": ["Complex problems have many factors, so one rigid answer usually misses important parts", "Fixed answers are always the most creative", "Complex problems never have any solution", "A single answer guarantees success"],
+        "expected": "Complex problems have many factors, so one rigid answer usually misses important parts",
+        "memo": "Because complex problems involve many interacting factors, a single rigid answer typically overlooks key aspects.",
+        "error_signals": ["ERR_BUS_CRE12_COMPLEX"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.CREATIVE.A1.19",
+        "question": "Why are advanced problem-solving skills emphasised at Grade 12 level?",
+        "input_type": "choice",
+        "options": ["Real business challenges are complex and changing, so deeper, combined thinking is needed", "Because simple recall is all business ever requires", "Because problems disappear on their own", "Because creativity is banned in business"],
+        "expected": "Real business challenges are complex and changing, so deeper, combined thinking is needed",
+        "memo": "Grade 12 builds advanced problem-solving because real business problems are complex and dynamic, needing deeper, combined creative thinking.",
+        "error_signals": ["ERR_BUS_CRE12_COMPLEX"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.CREATIVE.A1.20",
+        "question": "Which process best reflects creative problem-solving in a complex situation?",
+        "input_type": "choice",
+        "options": ["Define the problem, generate many options, test them against reality, then choose and act", "Act first and only think if it fails", "Choose the cheapest option without thought", "Refuse to consider more than one idea"],
+        "expected": "Define the problem, generate many options, test them against reality, then choose and act",
+        "memo": "Strong creative problem-solving defines the problem, generates options, evaluates them against the real situation, and then implements the best.",
+        "error_signals": ["ERR_BUS_CRE12_PROCESS"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

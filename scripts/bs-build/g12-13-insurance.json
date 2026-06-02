@@ -1,0 +1,243 @@
+{
+  "BUS.G12.T3.INSURANCE.A1": {
+    "title": "Investment: insurance & assurance",
+    "description": "Distinguishing assurance from insurance, compulsory and non-compulsory insurance, life insurance and retirement annuities, insurance of goods, the principle of average with over- and under-insurance calculations, and the compulsory funds — the Unemployment Insurance Fund (UIF) and Road Accident Fund (RAF).",
+    "grade": 12,
+    "strand": "T3 — Investment (securities & insurance), ownership & presentation",
+    "skill_ids": ["BUS.G12.T3.INSURANCE.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T3",
+    "caps_topic": "Investment: insurance",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets"],
+    "recovery_strategy": "Assurance covers an event that WILL happen (death) — e.g. life cover. Insurance covers an event that MIGHT happen (fire, theft). UIF and RAF are compulsory. Under the principle of average, under-insuring means you are paid out proportionally less.",
+    "questions": [
+      {
+        "ref": "G12.INSURANCE.A1.01",
+        "question": "Assurance covers an event that:",
+        "input_type": "choice",
+        "options": ["Will definitely happen, such as death", "Might or might not happen, such as a fire", "Never happens", "Only happens to businesses"],
+        "expected": "Will definitely happen, such as death",
+        "memo": "Assurance covers a certain event (such as death); the question is only when it happens, not if.",
+        "error_signals": ["ERR_BUS_INS_ASSURANCE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.INSURANCE.A1.02",
+        "question": "Insurance covers an event that:",
+        "input_type": "choice",
+        "options": ["Might happen, such as fire or theft", "Is certain to happen, such as death", "Has already happened", "Can never happen"],
+        "expected": "Might happen, such as fire or theft",
+        "memo": "Insurance covers an uncertain event that may or may not happen, such as fire, theft or an accident.",
+        "error_signals": ["ERR_BUS_INS_INSURANCE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.INSURANCE.A1.03",
+        "question": "The _________ is the compulsory fund that helps workers who lose their jobs.",
+        "input_type": "cloze",
+        "options": ["UIF", "JSE", "SABS", "MOI"],
+        "expected": "UIF",
+        "memo": "The Unemployment Insurance Fund (UIF) is a compulsory fund that provides short-term relief to workers who become unemployed.",
+        "error_signals": ["ERR_BUS_INS_COMPULSORY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.INSURANCE.A1.04",
+        "question": "True or false: The Road Accident Fund (RAF) compensates victims of road accidents.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "The RAF is a compulsory fund that compensates people injured or affected by road accidents.",
+        "error_signals": ["ERR_BUS_INS_COMPULSORY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.INSURANCE.A1.05",
+        "question": "Life _________ pays out a sum when the insured person dies.",
+        "input_type": "cloze",
+        "options": ["assurance", "stock", "levy", "dividend"],
+        "expected": "assurance",
+        "memo": "Life assurance pays out on death — a certain event — which is why it is 'assurance' rather than 'insurance'.",
+        "error_signals": ["ERR_BUS_INS_ASSURANCE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.INSURANCE.A1.06",
+        "question": "True or false: Over-insurance means insuring an item for more than it is worth.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Over-insurance is insuring for more than an item's actual value — but a payout is still limited to the real loss, so you cannot profit.",
+        "error_signals": ["ERR_BUS_INS_AVERAGE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.INSURANCE.A1.07",
+        "question": "Sort each example into assurance or insurance.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "assurance", "label": "Assurance (certain event)"},
+          {"id": "insurance", "label": "Insurance (uncertain event)"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Life cover that pays out on death", "correct_bucket": "assurance"},
+          {"id": "i2", "text": "Cover against the shop burning down", "correct_bucket": "insurance"},
+          {"id": "i3", "text": "A retirement annuity that matures at a set age", "correct_bucket": "assurance"},
+          {"id": "i4", "text": "Cover against a delivery van being stolen", "correct_bucket": "insurance"},
+          {"id": "i5", "text": "A funeral policy paying out on death", "correct_bucket": "assurance"},
+          {"id": "i6", "text": "Cover against flood damage to stock", "correct_bucket": "insurance"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Cover for certain events (death, reaching a set age) is assurance; cover for uncertain events (fire, theft, flood) is insurance.",
+        "error_signals": ["ERR_BUS_INS_ASSURANCE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.INSURANCE.A1.08",
+        "question": "Which of these is COMPULSORY insurance in South Africa?",
+        "input_type": "choice",
+        "options": ["UIF contributions for employees", "Insuring your television", "Insuring a holiday home", "Pet insurance"],
+        "expected": "UIF contributions for employees",
+        "memo": "UIF (and the RAF levy on fuel) is compulsory; insuring possessions like a TV or pet is voluntary (non-compulsory).",
+        "error_signals": ["ERR_BUS_INS_COMPULSORY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.INSURANCE.A1.09",
+        "question": "An asset worth R100 000 is insured for only R50 000. Under the principle of average, what is paid for a R20 000 loss?",
+        "input_type": "choice",
+        "options": ["R10 000", "R20 000", "R50 000", "R5 000"],
+        "expected": "R10 000",
+        "memo": "Payout = (insured ÷ value) × loss = (R50 000 ÷ R100 000) × R20 000 = ½ × R20 000 = R10 000.",
+        "error_signals": ["ERR_BUS_INS_CALC"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.INSURANCE.A1.10",
+        "question": "A retirement _________ is a long-term plan that helps a person save for retirement.",
+        "input_type": "cloze",
+        "options": ["annuity", "overdraft", "invoice", "trademark"],
+        "expected": "annuity",
+        "memo": "A retirement annuity is a long-term savings plan designed to provide income after retirement.",
+        "error_signals": ["ERR_BUS_INS_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.INSURANCE.A1.11",
+        "question": "What does under-insurance mean for a claim?",
+        "input_type": "choice",
+        "options": ["The item is insured for less than its value, so the payout is reduced proportionally", "The insurer pays double the loss", "The item is insured for more than its value", "No claim can ever be made"],
+        "expected": "The item is insured for less than its value, so the payout is reduced proportionally",
+        "memo": "Under-insurance means cover below the item's value, so under the principle of average the payout is scaled down.",
+        "error_signals": ["ERR_BUS_INS_AVERAGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.INSURANCE.A1.12",
+        "question": "True or false: Both the UIF and the RAF are compulsory.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "The UIF (employee contributions) and the RAF (funded by a fuel levy) are both compulsory.",
+        "error_signals": ["ERR_BUS_INS_COMPULSORY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.INSURANCE.A1.13",
+        "question": "Sort each item into compulsory or non-compulsory insurance.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "compulsory", "label": "Compulsory"},
+          {"id": "noncompulsory", "label": "Non-compulsory"}
+        ],
+        "items": [
+          {"id": "i1", "text": "UIF contributions", "correct_bucket": "compulsory"},
+          {"id": "i2", "text": "Household contents insurance", "correct_bucket": "noncompulsory"},
+          {"id": "i3", "text": "The RAF fuel levy", "correct_bucket": "compulsory"},
+          {"id": "i4", "text": "Cellphone insurance", "correct_bucket": "noncompulsory"},
+          {"id": "i5", "text": "A voluntary life policy", "correct_bucket": "noncompulsory"},
+          {"id": "i6", "text": "Compulsory unemployment contributions", "correct_bucket": "compulsory"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "UIF and the RAF levy are compulsory; insuring household goods, a cellphone or taking a voluntary life policy is non-compulsory.",
+        "error_signals": ["ERR_BUS_INS_COMPULSORY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.INSURANCE.A1.14",
+        "question": "If a business over-insures stock worth R30 000 for R45 000 and the stock is destroyed, how much can it claim?",
+        "input_type": "choice",
+        "options": ["R30 000 — the actual value, since you cannot profit from insurance", "R45 000 — the insured amount", "R75 000 — both added together", "R15 000 — the difference"],
+        "expected": "R30 000 — the actual value, since you cannot profit from insurance",
+        "memo": "Insurance compensates the actual loss, not more — over-insuring does not let you claim above the item's real value.",
+        "error_signals": ["ERR_BUS_INS_AVERAGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.INSURANCE.A1.15",
+        "question": "Why does a business insure its goods and premises?",
+        "input_type": "choice",
+        "options": ["To protect against losses from events like fire, theft or flood", "To increase the chance of a fire", "To avoid paying any tax", "To raise the price of its products"],
+        "expected": "To protect against losses from events like fire, theft or flood",
+        "memo": "Insuring goods and premises protects the business financially if an uncertain event like fire or theft occurs.",
+        "error_signals": ["ERR_BUS_INS_INSURANCE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.INSURANCE.A1.16",
+        "question": "The principle of _________ reduces a payout when an item is under-insured.",
+        "input_type": "cloze",
+        "options": ["average", "addition", "abundance", "advantage"],
+        "expected": "average",
+        "memo": "The principle of average scales the payout down in proportion to how much the item was under-insured.",
+        "error_signals": ["ERR_BUS_INS_AVERAGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.INSURANCE.A1.17",
+        "question": "Equipment worth R200 000 is insured for R150 000. Under the principle of average, what is paid for a R40 000 loss?",
+        "input_type": "choice",
+        "options": ["R30 000", "R40 000", "R20 000", "R150 000"],
+        "expected": "R30 000",
+        "memo": "Payout = (R150 000 ÷ R200 000) × R40 000 = ¾ × R40 000 = R30 000.",
+        "error_signals": ["ERR_BUS_INS_CALC"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.INSURANCE.A1.18",
+        "question": "A young breadwinner wants to make sure their family is provided for if they die. Which product fits best?",
+        "input_type": "choice",
+        "options": ["Life assurance, which pays out on death", "Theft insurance on a laptop", "A short-term fire policy", "Pet insurance"],
+        "expected": "Life assurance, which pays out on death",
+        "memo": "Because death is certain, life assurance is the product designed to provide for dependants when the breadwinner dies.",
+        "error_signals": ["ERR_BUS_INS_ASSURANCE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.INSURANCE.A1.19",
+        "question": "Why is under-insuring assets a risky decision for a business?",
+        "input_type": "choice",
+        "options": ["The principle of average means a claim will be paid out only in proportion, leaving a shortfall", "Under-insurance always pays out the full value", "Under-insurance removes all risk", "Insurers ignore the insured amount"],
+        "expected": "The principle of average means a claim will be paid out only in proportion, leaving a shortfall",
+        "memo": "If an under-insured asset is damaged, the payout is scaled down, so the business must cover the rest of the loss itself.",
+        "error_signals": ["ERR_BUS_INS_AVERAGE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.INSURANCE.A1.20",
+        "question": "What is the key difference that decides whether a product is 'assurance' or 'insurance'?",
+        "input_type": "choice",
+        "options": ["Whether the event covered is certain to happen (assurance) or only possible (insurance)", "The price of the monthly premium", "Whether the company is large or small", "The colour of the policy document"],
+        "expected": "Whether the event covered is certain to happen (assurance) or only possible (insurance)",
+        "memo": "Assurance covers a certain event (like death); insurance covers an uncertain one (like fire or theft) — that certainty is the deciding difference.",
+        "error_signals": ["ERR_BUS_INS_ASSURANCE"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

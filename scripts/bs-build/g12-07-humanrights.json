@@ -1,0 +1,273 @@
+{
+  "BUS.G12.T2.HUMANRIGHTS.A1": {
+    "title": "Human rights, inclusivity & environment",
+    "description": "Evaluating the extent to which a business venture addresses human rights (as defined in the Constitution), inclusivity (diversity of poverty, inequality, race, gender, language, age, disability) and environmental issues (protecting the environment and human health), and assessing a venture against these criteria.",
+    "grade": 12,
+    "strand": "T2 — CSR, human rights, teams, sector & environment, leadership & quality",
+    "skill_ids": ["BUS.G12.T2.HUMANRIGHTS.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T2",
+    "caps_topic": "Human rights, inclusivity and environmental issues",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+    "recovery_strategy": "Human rights = equality, dignity, fair treatment of people. Inclusivity = welcoming diversity (gender, race, disability, age, language). Environmental issues = protecting nature and human health. Judge a venture against all three.",
+    "questions": [
+      {
+        "ref": "G12.HUMANRIGHTS.A1.01",
+        "question": "Which of these are human rights protected by the Constitution?",
+        "input_type": "choice",
+        "options": ["Equality, dignity and fair treatment", "Guaranteed profit for every business", "Free advertising for all firms", "Unlimited credit for consumers"],
+        "expected": "Equality, dignity and fair treatment",
+        "memo": "The Constitution protects rights such as equality, human dignity and fair treatment, which businesses must respect.",
+        "error_signals": ["ERR_BUS_HR_RIGHTS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.02",
+        "question": "_________ means welcoming and accommodating diversity such as race, gender, age and disability.",
+        "input_type": "cloze",
+        "options": ["Inclusivity", "Exclusivity", "Piracy", "Liquidation"],
+        "expected": "Inclusivity",
+        "memo": "Inclusivity means valuing and accommodating people of all backgrounds and abilities in the workplace.",
+        "error_signals": ["ERR_BUS_HR_INCLUSIVITY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.03",
+        "question": "True or false: Protecting the environment and human health is an issue businesses are expected to address.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Businesses are expected to protect the environment and human health, for example by limiting pollution and waste.",
+        "error_signals": ["ERR_BUS_HR_ENV"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.04",
+        "question": "Which of these is an inclusivity issue a business should consider?",
+        "input_type": "choice",
+        "options": ["Access for people with disabilities", "The colour of the company car", "The brand of office stationery", "The wording of a price tag"],
+        "expected": "Access for people with disabilities",
+        "memo": "Ensuring access for people with disabilities is part of building an inclusive, diverse workplace.",
+        "error_signals": ["ERR_BUS_HR_INCLUSIVITY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.05",
+        "question": "Treating every person fairly and with _________ upholds their human dignity.",
+        "input_type": "cloze",
+        "options": ["respect", "suspicion", "neglect", "contempt"],
+        "expected": "respect",
+        "memo": "Respecting people — treating them fairly and valuing them — upholds the human right to dignity.",
+        "error_signals": ["ERR_BUS_HR_RIGHTS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.06",
+        "question": "True or false: A business venture can be assessed against human-rights, inclusivity and environmental criteria.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A venture can and should be judged on how well it respects human rights, includes diverse people and protects the environment.",
+        "error_signals": ["ERR_BUS_HR_ASSESS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.07",
+        "question": "Sort each issue into human rights, inclusivity or environment.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "rights", "label": "Human rights"},
+          {"id": "inclusivity", "label": "Inclusivity"},
+          {"id": "environment", "label": "Environment"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Treating all employees with equal dignity", "correct_bucket": "rights"},
+          {"id": "i2", "text": "Making the workplace accessible to disabled staff", "correct_bucket": "inclusivity"},
+          {"id": "i3", "text": "Reducing the factory's pollution", "correct_bucket": "environment"},
+          {"id": "i4", "text": "Protecting workers from unfair discrimination", "correct_bucket": "rights"},
+          {"id": "i5", "text": "Hiring across all races, genders and ages", "correct_bucket": "inclusivity"},
+          {"id": "i6", "text": "Recycling waste to protect health", "correct_bucket": "environment"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Dignity and non-discrimination are human rights; accessibility and diverse hiring are inclusivity; reducing pollution and recycling are environmental.",
+        "error_signals": ["ERR_BUS_HR_ASSESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.08",
+        "question": "How does a business respect human rights in the workplace?",
+        "input_type": "choice",
+        "options": ["By treating staff fairly, avoiding discrimination and providing safe conditions", "By paying staff as little as possible", "By ignoring safety to cut costs", "By favouring only one group of people"],
+        "expected": "By treating staff fairly, avoiding discrimination and providing safe conditions",
+        "memo": "Respecting human rights means fair treatment, no unfair discrimination and safe working conditions for everyone.",
+        "error_signals": ["ERR_BUS_HR_RIGHTS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.09",
+        "question": "Build a 3-part explanation of why a business should address human rights and inclusivity.",
+        "input_type": "paragraph-template",
+        "prompt": "Build a 3-part explanation of why a business should address human rights and inclusivity.",
+        "template": [
+          {
+            "slot": "point",
+            "label": "Pick the main claim",
+            "options": [
+              {"id": "p1", "text": "A business should address human rights and inclusivity because every person deserves fair, dignified treatment", "correct": true},
+              {"id": "p2", "text": "A business should address them only when it is sued", "correct": false},
+              {"id": "p3", "text": "A business should ignore human rights to save money", "correct": false}
+            ]
+          },
+          {
+            "slot": "evidence",
+            "label": "Pick the supporting evidence",
+            "options": [
+              {"id": "e1", "text": "An inclusive, fair workplace draws on a wider pool of talent and ideas", "correct": true},
+              {"id": "e2", "text": "Discrimination has no effect on staff or customers", "correct": false},
+              {"id": "e3", "text": "Excluding people improves a business's reputation", "correct": false}
+            ]
+          },
+          {
+            "slot": "explanation",
+            "label": "Pick the best explanation",
+            "options": [
+              {"id": "x1", "text": "Respecting rights and including everyone builds trust, talent and a stronger reputation, while meeting legal and moral duties", "correct": true},
+              {"id": "x2", "text": "Respecting rights has no benefit and only costs money", "correct": false},
+              {"id": "x3", "text": "Inclusivity drives all customers away", "correct": false}
+            ]
+          }
+        ],
+        "expected": ["p1", "e1", "x1"],
+        "memo": "Claim: everyone deserves fair, dignified treatment. Evidence: inclusivity widens talent and ideas. Explanation: it builds trust, talent and reputation while meeting legal and moral duties.",
+        "error_signals": ["ERR_BUS_HR_INCLUSIVITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.10",
+        "question": "_________ is the variety of people — by race, gender, age, language and ability — in a workplace.",
+        "input_type": "cloze",
+        "options": ["Diversity", "Liquidity", "Inventory", "Inflation"],
+        "expected": "Diversity",
+        "memo": "Diversity is the range of different people in a workplace; inclusivity is about welcoming and accommodating that diversity.",
+        "error_signals": ["ERR_BUS_HR_INCLUSIVITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.11",
+        "question": "Which is an environmental measure a business can take?",
+        "input_type": "choice",
+        "options": ["Reducing pollution and managing waste to protect health", "Dumping waste into a river to save money", "Ignoring emissions completely", "Wasting as much water as possible"],
+        "expected": "Reducing pollution and managing waste to protect health",
+        "memo": "Reducing pollution and properly managing waste protects both the environment and human health.",
+        "error_signals": ["ERR_BUS_HR_ENV"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.12",
+        "question": "True or false: Inclusivity can benefit a business by widening its talent pool and its markets.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "An inclusive business attracts talent from everywhere and connects with a broader range of customers.",
+        "error_signals": ["ERR_BUS_HR_INCLUSIVITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.13",
+        "question": "Sort each business action into whether it supports or violates human rights and inclusivity.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "supports", "label": "Supports rights & inclusivity"},
+          {"id": "violates", "label": "Violates rights & inclusivity"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Equal pay for equal work", "correct_bucket": "supports"},
+          {"id": "i2", "text": "Refusing to hire people of a certain race", "correct_bucket": "violates"},
+          {"id": "i3", "text": "Providing accessible facilities", "correct_bucket": "supports"},
+          {"id": "i4", "text": "Harassing staff who speak a different language", "correct_bucket": "violates"},
+          {"id": "i5", "text": "Promoting on merit regardless of gender", "correct_bucket": "supports"},
+          {"id": "i6", "text": "Paying women less for the same job", "correct_bucket": "violates"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Equal pay, accessibility and merit-based promotion support rights and inclusivity; discrimination, harassment and unequal pay violate them.",
+        "error_signals": ["ERR_BUS_HR_RIGHTS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.14",
+        "question": "How can a business make its workplace more inclusive?",
+        "input_type": "choice",
+        "options": ["Accommodate diversity and give everyone equal opportunity", "Hire only one type of person", "Make the building hard to access", "Discourage different languages and cultures"],
+        "expected": "Accommodate diversity and give everyone equal opportunity",
+        "memo": "Inclusive workplaces accommodate diverse needs and offer equal opportunity to all.",
+        "error_signals": ["ERR_BUS_HR_INCLUSIVITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.15",
+        "question": "Equality and dignity in business mean that:",
+        "input_type": "choice",
+        "options": ["All people are treated fairly and with respect", "Only managers deserve respect", "Some groups may be treated unfairly", "Dignity applies only to customers"],
+        "expected": "All people are treated fairly and with respect",
+        "memo": "Equality and dignity require that everyone — staff, customers and the community — is treated fairly and respectfully.",
+        "error_signals": ["ERR_BUS_HR_RIGHTS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.16",
+        "question": "Installing a wheelchair ramp improves _________ for staff and customers with disabilities.",
+        "input_type": "cloze",
+        "options": ["access", "pollution", "debt", "stock"],
+        "expected": "access",
+        "memo": "A ramp improves physical access, helping make the business inclusive for people with disabilities.",
+        "error_signals": ["ERR_BUS_HR_INCLUSIVITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.17",
+        "question": "A new venture hires diversely and treats staff fairly, but dumps untreated waste into a local stream. How should it be assessed?",
+        "input_type": "choice",
+        "options": ["Strong on rights and inclusivity, but failing on the environmental criterion", "Perfect on all three criteria", "Failing only on inclusivity", "It cannot be assessed at all"],
+        "expected": "Strong on rights and inclusivity, but failing on the environmental criterion",
+        "memo": "Assessing against all three criteria shows it does well on rights and inclusivity but fails on the environment, which it must fix.",
+        "error_signals": ["ERR_BUS_HR_ASSESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.18",
+        "question": "Why is it not enough for a venture to create jobs if it also seriously harms the environment?",
+        "input_type": "choice",
+        "options": ["A full assessment weighs all criteria, and serious environmental harm damages health and the community the business depends on", "Jobs cancel out any amount of pollution", "The environment is never relevant to business", "Only profit should ever be measured"],
+        "expected": "A full assessment weighs all criteria, and serious environmental harm damages health and the community the business depends on",
+        "memo": "Creating jobs is positive, but a venture must also protect the environment and health; serious harm undermines the community and fails a key criterion.",
+        "error_signals": ["ERR_BUS_HR_ASSESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.19",
+        "question": "Why is inclusivity often described as good for business, not just the right thing to do?",
+        "input_type": "choice",
+        "options": ["Diverse teams bring more ideas and reach more customers, strengthening the business", "Inclusivity always reduces a business's customers", "Diversity makes a business weaker", "Inclusivity only matters to charities"],
+        "expected": "Diverse teams bring more ideas and reach more customers, strengthening the business",
+        "memo": "Beyond being right, inclusivity brings varied perspectives and connects the business to a wider market, which strengthens it.",
+        "error_signals": ["ERR_BUS_HR_INCLUSIVITY"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.HUMANRIGHTS.A1.20",
+        "question": "Which plan best addresses human rights, inclusivity and the environment together?",
+        "input_type": "choice",
+        "options": ["Fair, non-discriminatory employment; accessible facilities; and cleaner, less wasteful operations", "Hire one group only and ignore pollution", "Maximise waste but treat staff well", "Focus on profit and ignore all three"],
+        "expected": "Fair, non-discriminatory employment; accessible facilities; and cleaner, less wasteful operations",
+        "memo": "A strong plan covers all three: fair employment (rights), accessible and diverse workplaces (inclusivity), and cleaner operations (environment).",
+        "error_signals": ["ERR_BUS_HR_ASSESS"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

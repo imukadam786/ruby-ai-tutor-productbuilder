@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useMemo, useState } from "react";
+import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { ActiveView } from "@/types";
 import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
@@ -25,7 +25,33 @@ import type { MathsLiteracyStudentProfile } from "@/types/maths-literacy";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
+import { HubTreeContext } from "@/components/shared/SkillTreeShell";
 import { useT } from "@/lib/i18n";
+import {
+  loadBusinessStudiesProfile,
+  hydrateBusinessStudiesProfileFromSupabase,
+} from "@/lib/business-studies-student-model";
+import {
+  loadLifeSciencesProfile,
+  hydrateLifeSciencesProfileFromSupabase,
+} from "@/lib/life-sciences-student-model";
+import {
+  loadHistoryProfile,
+  hydrateHistoryProfileFromSupabase,
+} from "@/lib/history-student-model";
+import {
+  loadTourismProfile,
+  hydrateTourismProfileFromSupabase,
+} from "@/lib/tourism-student-model";
+import {
+  loadGeographyProfile,
+  hydrateGeographyProfileFromSupabase,
+} from "@/lib/geography-student-model";
+import type { BusinessStudiesStudentProfile } from "@/types/business-studies";
+import type { LifeSciencesStudentProfile } from "@/types/life-sciences";
+import type { HistoryStudentProfile } from "@/types/history";
+import type { TourismStudentProfile } from "@/types/tourism";
+import type { GeographyStudentProfile } from "@/types/geography";
 
 const SkillTreeView           = dynamic(() => import("@/components/ruby/SkillTreeView"),                       { ssr: false });
 const ReadingSkillTreeView    = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),             { ssr: false });
@@ -35,6 +61,11 @@ const SocialSciencesSkillTreeView = dynamic(() => import("@/components/social-sc
 const NstSkillTreeView        = dynamic(() => import("@/components/nst/NstSkillTreeView"),                     { ssr: false });
 const MatricPhysSciSkillTreeView = dynamic(() => import("@/components/matric-phys-sci/MatricPhysSciSkillTreeView"), { ssr: false });
 const MathsLiteracySkillTreeView = dynamic(() => import("@/components/maths-literacy/MathsLiteracySkillTreeView"), { ssr: false });
+const LifeSciencesSkillTreeView    = dynamic(() => import("@/components/life-sciences/LifeSciencesSkillTreeView"),       { ssr: false });
+const HistorySkillTreeView         = dynamic(() => import("@/components/history/HistorySkillTreeView"),                 { ssr: false });
+const BusinessStudiesSkillTreeView = dynamic(() => import("@/components/business-studies/BusinessStudiesSkillTreeView"), { ssr: false });
+const TourismSkillTreeView         = dynamic(() => import("@/components/tourism/TourismSkillTreeView"),                 { ssr: false });
+const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),             { ssr: false });
 
 type SubjectId =
   | "discover"
@@ -56,6 +87,54 @@ interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
 }
 
+// The learner's authorised grade is only fetchable over the network, so the
+// first hub paint would otherwise show all 13 subjects, then reflow down to the
+// entitled subset once Supabase answers. Caching the last-known grade lets us
+// seed the correct subset synchronously on subsequent visits — no reflow.
+const GRADE_CACHE_KEY = "ruby_authorised_grade";
+function readCachedGrade(): number | null {
+  if (typeof window === "undefined") return null;
+  const n = parseInt(window.localStorage.getItem(GRADE_CACHE_KEY) ?? "", 10);
+  return !isNaN(n) && n >= 1 && n <= 12 ? n : null;
+}
+
+// Defers mounting a subject's (heavy) skill tree until it nears the viewport, so
+// opening the Subjects tab paints instantly instead of mounting every tree (and
+// its curriculum data) at once. The first couple render eagerly (above the fold).
+function LazyMount({
+  children,
+  eager = false,
+  minHeight = 300,
+}: {
+  children: ReactNode;
+  eager?: boolean;
+  minHeight?: number;
+}) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [shown, setShown] = useState(eager);
+  useEffect(() => {
+    if (shown) return;
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "600px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [shown]);
+  return (
+    <div ref={ref} style={shown ? undefined : { minHeight }}>
+      {shown ? children : null}
+    </div>
+  );
+}
+
 interface SubjectMeta {
   id: SubjectId;
   thumbnail?: string;
@@ -69,59 +148,65 @@ interface SubjectMeta {
   navigateTo: ActiveView;
 }
 
-function SubjectRow({ subject, onClick }: { subject: SubjectMeta; onClick?: () => void }) {
-  const Wrapper: "button" | "div" = onClick ? "button" : "div";
-  return (
-    <Wrapper
-      onClick={onClick}
-      className={`w-full self-start flex flex-col items-start gap-3 px-1 pt-1 text-left ${
-        onClick
-          ? "cursor-pointer rounded-2xl hover:opacity-95 active:scale-[0.99] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
-          : ""
-      }`}
-    >
-      <div
-        className={`w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] flex-shrink-0 rounded-2xl bg-gradient-to-br ${subject.accentFrom} ${subject.accentTo} flex items-center justify-center overflow-hidden`}
-      >
-        {subject.thumbnail ? (
-          <img src={subject.thumbnail} alt={subject.label} className="w-full h-full object-cover" />
-        ) : (
-          <span className="text-5xl leading-none">{subject.placeholderEmoji}</span>
-        )}
-      </div>
-      <div className="min-w-0 w-full">
-        <span className="block font-semibold text-gray-900 text-base leading-tight">{subject.label}</span>
-        <span className="block text-xs text-gray-500 leading-snug line-clamp-2 mt-0.5">{subject.caption}</span>
-        {subject.badge && (
-          <span className={`inline-block mt-1.5 text-[11px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${subject.badgeColor ?? "bg-gray-100 text-gray-600"}`}>
-            {subject.badge}
-          </span>
-        )}
-      </div>
-    </Wrapper>
-  );
-}
-
 export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const { t } = useT();
-  const [mathsProfile, setMathsProfile] = useState<StudentProfile | null>(null);
-  const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
-  const [mathsLiteracyProfile, setMathsLiteracyProfile] = useState<MathsLiteracyStudentProfile | null>(null);
-  const [grade, setGrade] = useState<number | null>(null);
+  // Every profile and the grade are seeded synchronously from the local cache so
+  // the trees paint with the learner's real progress (and the right subject
+  // subset) on the very first frame. Supabase then refreshes them in the
+  // background below — without blocking the initial render.
+  const [mathsProfile, setMathsProfile] = useState<StudentProfile | null>(() => getStudentProfile());
+  const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(() => getReadingProfile());
+  const [mathsLiteracyProfile, setMathsLiteracyProfile] = useState<MathsLiteracyStudentProfile | null>(() => getMathsLiteracyProfile());
+  const [businessStudiesProfile, setBusinessStudiesProfile] = useState<BusinessStudiesStudentProfile | null>(() => loadBusinessStudiesProfile());
+  const [lifeSciencesProfile, setLifeSciencesProfile] = useState<LifeSciencesStudentProfile | null>(() => loadLifeSciencesProfile());
+  const [historyProfile, setHistoryProfile] = useState<HistoryStudentProfile | null>(() => loadHistoryProfile());
+  const [tourismProfile, setTourismProfile] = useState<TourismStudentProfile | null>(() => loadTourismProfile());
+  const [geographyProfile, setGeographyProfile] = useState<GeographyStudentProfile | null>(() => loadGeographyProfile());
+  const [grade, setGrade] = useState<number | null>(() => readCachedGrade());
   const [loading, setLoading] = useState(true);
 
+  // Background refresh: pull the authoritative profiles + grade from Supabase
+  // and update state (and the grade cache) once they arrive. The page is already
+  // interactive from the local seed, so this never blocks first paint.
   useEffect(() => {
     Promise.all([
       hydrateStudentProfileFromSupabase(),
       hydrateReadingProfileFromSupabase(),
       fetchAuthorisedGrade(),
     ]).then(([mp, rp, auth]) => {
-      setMathsProfile(mp ?? getStudentProfile());
-      setReadingProfile((rp as ReadingStudentProfile | null) ?? getReadingProfile());
+      if (mp) setMathsProfile(mp);
+      if (rp) setReadingProfile(rp as ReadingStudentProfile);
       setMathsLiteracyProfile(getMathsLiteracyProfile());
-      setGrade(auth?.grade ?? null);
+      if (auth?.grade != null) {
+        setGrade(auth.grade);
+        try { window.localStorage.setItem(GRADE_CACHE_KEY, String(auth.grade)); } catch { /* quota / private mode */ }
+      }
       setLoading(false);
     });
+  }, []);
+
+  // Background refresh for the FET content-subject profiles (already seeded from
+  // the local copy above). Only overwrite when Supabase returns a newer mirror.
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const [bs, ls, hi, to, ge] = await Promise.all([
+        hydrateBusinessStudiesProfileFromSupabase(),
+        hydrateLifeSciencesProfileFromSupabase(),
+        hydrateHistoryProfileFromSupabase(),
+        hydrateTourismProfileFromSupabase(),
+        hydrateGeographyProfileFromSupabase(),
+      ]);
+      if (cancelled) return;
+      if (bs) setBusinessStudiesProfile(bs);
+      if (ls) setLifeSciencesProfile(ls);
+      if (hi) setHistoryProfile(hi);
+      if (to) setTourismProfile(to);
+      if (ge) setGeographyProfile(ge);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // Fail open: when the learner's grade can't be read (e.g. a legacy account
@@ -425,12 +510,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (typeof window !== "undefined") sessionStorage.removeItem("ruby_maths_literacy_replay_skill");
     onNavigate("maths-literacy");
   };
+  // Content subjects (FET + Life Skills / Social Sciences / NST): tapping a
+  // topic stashes its id, then that subject's session reads the key on mount
+  // and opens straight into the topic's questions — skipping its topic picker.
+  const startContentSkill = (view: ActiveView, key: string) => (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem(key, skillId);
+    onNavigate(view);
+  };
 
   function renderSubjectPanel(subject: SubjectMeta) {
     switch (subject.id) {
       case "discover":
         return (
-          <div className="p-5 flex flex-col items-center text-center gap-3">
+          <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-5 flex flex-col items-center text-center gap-3">
             <div className="text-3xl">🧭</div>
             <p className="text-sm text-gray-600 leading-relaxed">
               Discovery places you on the right starting rung of the Maths and Reading skill trees.
@@ -462,7 +554,12 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           />
         );
       case "life-skills":
-        return <LifeSkillsSkillTreeView onPickTopic={() => onNavigate("life-skills")} compact />;
+        return (
+          <LifeSkillsSkillTreeView
+            onPickTopic={startContentSkill("life-skills", "ruby_life-skills_target_skill")}
+            compact
+          />
+        );
       case "afrikaans":
         return (
           <AfrikaansSkillTreeView
@@ -471,9 +568,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           />
         );
       case "social-sciences":
-        return <SocialSciencesSkillTreeView onPickTopic={() => onNavigate("social-sciences")} />;
+        return (
+          <SocialSciencesSkillTreeView
+            onPickTopic={startContentSkill("social-sciences", "ruby_social-sciences_target_skill")}
+            compact
+          />
+        );
       case "nst":
-        return <NstSkillTreeView onPickTopic={() => onNavigate("natural-sciences-tech")} />;
+        return (
+          <NstSkillTreeView
+            onPickTopic={startContentSkill("natural-sciences-tech", "ruby_nst_target_skill")}
+            compact
+          />
+        );
       case "matric-phys-sci":
         return <MatricPhysSciSkillTreeView onPickSkill={() => onNavigate("matric-phys-sci")} compact />;
       case "maths-literacy":
@@ -485,25 +592,47 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             compact
           />
         );
-      // FET click-through subjects: the card itself opens the topic picker, so
-      // the panel is a simple prompt rather than an inline tree.
+      // FET content subjects: render the real tree inline. Tapping a topic
+      // opens straight into that topic's questions (every topic is unlocked).
       case "life-sciences":
+        return (
+          <LifeSciencesSkillTreeView
+            onPickSkill={startContentSkill("life-sciences", "ruby_life-sciences_target_skill")}
+            profile={lifeSciencesProfile}
+            compact
+          />
+        );
       case "history":
+        return (
+          <HistorySkillTreeView
+            onPickSkill={startContentSkill("history", "ruby_history_target_skill")}
+            profile={historyProfile}
+            compact
+          />
+        );
       case "business-studies":
+        return (
+          <BusinessStudiesSkillTreeView
+            onPickSkill={startContentSkill("business-studies", "ruby_business-studies_target_skill")}
+            profile={businessStudiesProfile}
+            compact
+          />
+        );
       case "tourism":
+        return (
+          <TourismSkillTreeView
+            onPickSkill={startContentSkill("tourism", "ruby_tourism_target_skill")}
+            profile={tourismProfile}
+            compact
+          />
+        );
       case "geography":
         return (
-          <div className="p-5 flex flex-col items-center justify-center text-center gap-3 h-full min-h-[160px]">
-            <p className="text-sm text-gray-600 leading-relaxed max-w-xs">
-              Open {subject.label} and pick any topic — every topic is unlocked, in any order.
-            </p>
-            <button
-              onClick={() => onNavigate(subject.navigateTo)}
-              className="px-4 py-2 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors shadow-sm"
-            >
-              Open {subject.label} →
-            </button>
-          </div>
+          <GeographySkillTreeView
+            onPickSkill={startContentSkill("geography", "ruby_geography_target_skill")}
+            profile={geographyProfile}
+            compact
+          />
         );
       default:
         return null;
@@ -522,23 +651,22 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             <p className="text-gray-500 text-sm mt-0.5">{t("subjects.subtitle")}</p>
           </div>
 
-          {/* One grid: each subject = one row of [card | tree]. CSS Grid
-              auto-stretches the card to match its row's tree height. */}
-          <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-4 gap-y-3">
-            {subjects.map((s) => (
-              <Fragment key={s.id}>
-                <SubjectRow
-                  subject={s}
-                  onClick={
-                    ["life-sciences", "history", "business-studies", "tourism", "geography"].includes(s.id)
-                      ? () => onNavigate(s.navigateTo)
-                      : undefined
-                  }
-                />
-                <section className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
-                  {renderSubjectPanel(s)}
+          {/* Each subject's skill tree is centred in a single column that lines
+              up with the chat window. The subject thumbnail + name now live in
+              the tree's own header (passed via HubTreeContext, like Ruby's chat
+              avatar), so there's no separate left-hand card. Every embedded tree
+              renders in its hub presentation: rounded header, current section
+              only by default. */}
+          <div className="max-w-3xl mx-auto space-y-6">
+            {subjects.map((s, i) => (
+              <HubTreeContext.Provider
+                key={s.id}
+                value={{ inHub: true, thumbnail: s.thumbnail, emoji: s.placeholderEmoji, label: s.label }}
+              >
+                <section className="min-w-0">
+                  <LazyMount eager={i < 2}>{renderSubjectPanel(s)}</LazyMount>
                 </section>
-              </Fragment>
+              </HubTreeContext.Provider>
             ))}
           </div>
 

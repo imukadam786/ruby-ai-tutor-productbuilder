@@ -1,0 +1,259 @@
+{
+  "BUS.G11.T1.SOCIOECON.A1": {
+    "title": "Socio-economic issues & industrial relations",
+    "description": "The impact of contemporary socio-economic issues (inflation, economic crime, ethical misconduct, illiteracy, skills shortages, piracy, strikes) on business, possible business solutions, the intellectual property rights, and industrial relations: strikes, go-slows, lockouts, the Labour Relations Act and trade unions.",
+    "grade": 11,
+    "strand": "T1 — Business environments, socio-economic issues, sectors, ownership & acquiring a business",
+    "skill_ids": ["BUS.G11.T1.SOCIOECON.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T1",
+    "caps_topic": "Contemporary socioeconomic issues",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "highlight-source"],
+    "recovery_strategy": "Socio-economic issues hit business through cost, productivity or lost sales. Copyright protects creative work, a patent protects an invention, a trademark protects a brand. A trade union represents workers; a go-slow is working slowly, a lockout is the employer shutting workers out.",
+    "questions": [
+      {
+        "ref": "G11.SOCIOECON.A1.01",
+        "question": "Illegally copying or reproducing someone else's product is called _________.",
+        "input_type": "cloze",
+        "options": ["piracy", "marketing", "budgeting", "recruiting"],
+        "expected": "piracy",
+        "memo": "Piracy is the illegal copying or reproduction of someone's product, which steals sales from the original business.",
+        "error_signals": ["ERR_BUS_PIRACY_TYPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.02",
+        "question": "Which intellectual property right protects a new invention?",
+        "input_type": "choice",
+        "options": ["A patent", "A trademark", "Copyright", "A lease"],
+        "expected": "A patent",
+        "memo": "A patent protects a new invention, giving the inventor the sole right to use it for a period.",
+        "error_signals": ["ERR_BUS_PIRACY_TYPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.03",
+        "question": "Which intellectual property right protects a brand name or logo?",
+        "input_type": "choice",
+        "options": ["A trademark", "A patent", "Copyright", "A franchise"],
+        "expected": "A trademark",
+        "memo": "A trademark protects a brand name, logo or symbol that identifies a business's products.",
+        "error_signals": ["ERR_BUS_PIRACY_TYPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.04",
+        "question": "True or false: A trade union represents workers in negotiations with employers.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A trade union is an organisation that represents workers, negotiating wages and conditions on their behalf.",
+        "error_signals": ["ERR_BUS_UNION_ROLE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.05",
+        "question": "_________ protects original creative work such as books, music and films.",
+        "input_type": "cloze",
+        "options": ["Copyright", "A patent", "A trademark", "A licence"],
+        "expected": "Copyright",
+        "memo": "Copyright protects original creative works — writing, music, art and film — from being copied without permission.",
+        "error_signals": ["ERR_BUS_PIRACY_TYPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.06",
+        "question": "True or false: High inflation raises a business's costs.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Inflation pushes up the prices a business pays for stock, wages and services, raising its costs.",
+        "error_signals": ["ERR_BUS_SOCIOECON_IMPACT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.07",
+        "question": "Sort each item under the intellectual property right that protects it.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "copyright", "label": "Copyright"},
+          {"id": "patent", "label": "Patent"},
+          {"id": "trademark", "label": "Trademark"}
+        ],
+        "items": [
+          {"id": "i1", "text": "A published novel", "correct_bucket": "copyright"},
+          {"id": "i2", "text": "A newly invented machine", "correct_bucket": "patent"},
+          {"id": "i3", "text": "A company's logo", "correct_bucket": "trademark"},
+          {"id": "i4", "text": "A recorded song", "correct_bucket": "copyright"},
+          {"id": "i5", "text": "A unique new medicine formula", "correct_bucket": "patent"},
+          {"id": "i6", "text": "A well-known brand name", "correct_bucket": "trademark"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Copyright = creative works (novels, songs); patent = inventions (machines, formulas); trademark = brand identity (logos, names).",
+        "error_signals": ["ERR_BUS_PIRACY_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.08",
+        "question": "How does a high crime rate most directly affect a business?",
+        "input_type": "choice",
+        "options": ["It raises security costs and causes losses from theft", "It increases the business's profits", "It has no effect on business", "It lowers the business's electricity bill"],
+        "expected": "It raises security costs and causes losses from theft",
+        "memo": "Crime forces a business to spend more on security and causes losses through theft and damage, cutting into profit.",
+        "error_signals": ["ERR_BUS_SOCIOECON_IMPACT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.09",
+        "question": "Read the case and select the socio-economic issues that are hurting this business.",
+        "input_type": "highlight-source",
+        "source_text": "A small manufacturer is battling. Cheap counterfeit copies of its product are flooding the market. Many job applicants cannot read instructions because of low literacy. Its delivery vans were recently broken into. Its newest machine, however, is running perfectly.",
+        "task": "Tap the parts that describe socio-economic issues affecting the business.",
+        "targets": [
+          {"phrase": "Cheap counterfeit copies of its product are flooding the market", "reason": "Counterfeiting/piracy steals the business's sales."},
+          {"phrase": "Many job applicants cannot read instructions because of low literacy", "reason": "Illiteracy is a socio-economic issue that limits the available workforce."},
+          {"phrase": "Its delivery vans were recently broken into", "reason": "Crime causes losses and raises security costs."}
+        ],
+        "min_correct": 2,
+        "max_wrong": 1,
+        "expected": "Cheap counterfeit copies of its product are flooding the market; Many job applicants cannot read instructions because of low literacy; Its delivery vans were recently broken into",
+        "memo": "Counterfeiting, illiteracy and crime are socio-economic issues hurting the business. The machine running perfectly is not a problem.",
+        "error_signals": ["ERR_BUS_SOCIOECON_IMPACT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.10",
+        "question": "When workers collectively stop working to demand better pay or conditions, it is called a _________.",
+        "input_type": "cloze",
+        "options": ["strike", "merger", "patent", "budget"],
+        "expected": "strike",
+        "memo": "A strike is when workers stop working together to press for better pay or conditions.",
+        "error_signals": ["ERR_BUS_INDUSTRIAL_RELATIONS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.11",
+        "question": "What is the difference between a go-slow and a lockout?",
+        "input_type": "choice",
+        "options": ["A go-slow is workers working slowly on purpose; a lockout is the employer shutting workers out", "A go-slow is the employer closing the gates; a lockout is workers resigning", "They are exactly the same", "A go-slow is a type of patent; a lockout is a type of trademark"],
+        "expected": "A go-slow is workers working slowly on purpose; a lockout is the employer shutting workers out",
+        "memo": "In a go-slow workers deliberately work slowly; in a lockout the employer prevents workers from coming in to work.",
+        "error_signals": ["ERR_BUS_INDUSTRIAL_RELATIONS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.12",
+        "question": "True or false: The Labour Relations Act governs the relationship between employers, employees and trade unions.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "The Labour Relations Act (LRA) sets the rules for fair dealings between employers, employees and unions, including strikes and bargaining.",
+        "error_signals": ["ERR_BUS_INDUSTRIAL_RELATIONS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.13",
+        "question": "Which of these is a role of a trade union?",
+        "input_type": "choice",
+        "options": ["Negotiating wages and protecting the interests of its members", "Setting the company's product prices", "Auditing the company's finances", "Designing the company logo"],
+        "expected": "Negotiating wages and protecting the interests of its members",
+        "memo": "Trade unions represent workers — negotiating pay and conditions and protecting members' rights.",
+        "error_signals": ["ERR_BUS_UNION_ROLE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.14",
+        "question": "Sort each item into whether it is a problem for the business or a business response to a problem.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "problem", "label": "Problem for the business"},
+          {"id": "response", "label": "Business response/solution"}
+        ],
+        "items": [
+          {"id": "i1", "text": "A high local crime rate", "correct_bucket": "problem"},
+          {"id": "i2", "text": "Running training programmes to fix a skills shortage", "correct_bucket": "response"},
+          {"id": "i3", "text": "Widespread piracy of its product", "correct_bucket": "problem"},
+          {"id": "i4", "text": "Funding a community project to reduce local poverty", "correct_bucket": "response"},
+          {"id": "i5", "text": "Frequent strikes by workers", "correct_bucket": "problem"},
+          {"id": "i6", "text": "Registering trademarks to fight counterfeits", "correct_bucket": "response"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Crime, piracy and strikes are problems. Training, community projects and registering trademarks are responses the business chooses to deal with socio-economic issues.",
+        "error_signals": ["ERR_BUS_SOCIOECON_SOLUTION"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.15",
+        "question": "How do a skills shortage and illiteracy affect a business?",
+        "input_type": "choice",
+        "options": ["They make it hard to find capable workers and lower productivity", "They raise the business's share price", "They reduce the need for training", "They have no effect on the business"],
+        "expected": "They make it hard to find capable workers and lower productivity",
+        "memo": "When workers lack skills or cannot read well, the business struggles to fill roles and productivity falls.",
+        "error_signals": ["ERR_BUS_SOCIOECON_IMPACT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.16",
+        "question": "Read the case and select the examples of ETHICAL MISCONDUCT inside the business.",
+        "input_type": "highlight-source",
+        "source_text": "An investigation at a company uncovers several issues. A manager has been taking bribes from suppliers. A senior employee has been sexually harassing junior staff. The company's profits have also fallen because of a national recession, and one of its delivery trucks is old and unreliable.",
+        "task": "Tap the parts that describe ethical misconduct within the business.",
+        "targets": [
+          {"phrase": "A manager has been taking bribes from suppliers", "reason": "Bribery and corruption are ethical misconduct."},
+          {"phrase": "A senior employee has been sexually harassing junior staff", "reason": "Sexual harassment is ethical misconduct."}
+        ],
+        "min_correct": 2,
+        "max_wrong": 1,
+        "expected": "A manager has been taking bribes from suppliers; A senior employee has been sexually harassing junior staff",
+        "memo": "Bribery and sexual harassment are ethical misconduct. The recession is a macro issue and the old truck is an operational (micro) problem, not misconduct.",
+        "error_signals": ["ERR_BUS_SOCIOECON_IMPACT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.17",
+        "question": "Why is it worthwhile for a business to register patents and trademarks for its products?",
+        "input_type": "choice",
+        "options": ["They give legal protection against piracy and counterfeiting, protecting its sales", "They make the product cheaper to produce", "They remove the need to pay any tax", "They guarantee the business will never face competition"],
+        "expected": "They give legal protection against piracy and counterfeiting, protecting its sales",
+        "memo": "Registered patents and trademarks let a business take legal action against copies, protecting the sales and reputation those copies would steal.",
+        "error_signals": ["ERR_BUS_PIRACY_TYPE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.18",
+        "question": "A business in an area of high unemployment wants to respond constructively. Which action is the best business solution?",
+        "input_type": "choice",
+        "options": ["Creating jobs and offering skills training to local people", "Closing down to avoid the problem", "Ignoring the community completely", "Raising its prices sharply"],
+        "expected": "Creating jobs and offering skills training to local people",
+        "memo": "A constructive response to unemployment and skills shortages is to create jobs and train people, helping both the community and the business's labour supply.",
+        "error_signals": ["ERR_BUS_SOCIOECON_SOLUTION"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.19",
+        "question": "Apart from negotiating wages, which is a function of a trade union?",
+        "input_type": "choice",
+        "options": ["Representing members in disputes and improving working conditions", "Setting the country's interest rates", "Approving the company's marketing budget", "Issuing the business's shares"],
+        "expected": "Representing members in disputes and improving working conditions",
+        "memo": "Beyond wage talks, unions represent members in disputes and push for better, safer working conditions.",
+        "error_signals": ["ERR_BUS_UNION_ROLE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.SOCIOECON.A1.20",
+        "question": "A long strike has halted production for weeks. Which statement best evaluates the situation for the business?",
+        "input_type": "choice",
+        "options": ["Lost production and income hurt the business, so resolving the dispute fairly is in its interest", "A strike always benefits the business financially", "Strikes have no effect on production", "The business should simply ignore the strike forever"],
+        "expected": "Lost production and income hurt the business, so resolving the dispute fairly is in its interest",
+        "memo": "Strikes stop production and lose income, so it is in the business's interest to deal with workers fairly through the proper industrial-relations channels.",
+        "error_signals": ["ERR_BUS_INDUSTRIAL_RELATIONS"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

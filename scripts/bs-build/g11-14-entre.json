@@ -1,0 +1,253 @@
+{
+  "BUS.G11.T3.ENTRE.A1": {
+    "title": "Entrepreneurial qualities & success factors",
+    "description": "Assessing the degree to which a business embraces entrepreneurial qualities (risk-taking, perseverance, good management) and critically reflecting on a venture to identify its key success factors (sustainability, profitability, customer base) and areas for improvement.",
+    "grade": 11,
+    "strand": "T3 — Entrepreneurial success, citizenship, marketing & production functions",
+    "skill_ids": ["BUS.G11.T3.ENTRE.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T3",
+    "caps_topic": "Entrepreneurship",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+    "recovery_strategy": "Entrepreneurial qualities are personal characteristics (risk-taking, perseverance, good management, vision). Key success factors are what makes a business work: a loyal customer base, profitability and sustainability. Judge a venture against these, then name areas to improve.",
+    "questions": [
+      {
+        "ref": "G11.ENTRE.A1.01",
+        "question": "Which of these is an entrepreneurial quality?",
+        "input_type": "choice",
+        "options": ["Risk-taking", "Giving up at the first problem", "Avoiding all responsibility", "Refusing to plan"],
+        "expected": "Risk-taking",
+        "memo": "Risk-taking is a key entrepreneurial quality — the willingness to take calculated chances to pursue an opportunity.",
+        "error_signals": ["ERR_BUS_ENTRE_QUALITY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ENTRE.A1.02",
+        "question": "A key success factor for a business is a loyal _________ base.",
+        "input_type": "cloze",
+        "options": ["customer", "complaint", "competitor", "supplier"],
+        "expected": "customer",
+        "memo": "A loyal customer base brings repeat sales and is one of the main factors behind a successful business.",
+        "error_signals": ["ERR_BUS_ENTRE_SUCCESS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ENTRE.A1.03",
+        "question": "True or false: Profitability is one of the key success factors of a business.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A business must make a profit to survive and grow, so profitability is a key success factor.",
+        "error_signals": ["ERR_BUS_ENTRE_SUCCESS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ENTRE.A1.04",
+        "question": "Which of these is NOT an entrepreneurial quality?",
+        "input_type": "choice",
+        "options": ["Giving up easily when things get hard", "Perseverance", "Confidence", "A clear vision"],
+        "expected": "Giving up easily when things get hard",
+        "memo": "Giving up easily is the opposite of perseverance. The others — perseverance, confidence and vision — are entrepreneurial qualities.",
+        "error_signals": ["ERR_BUS_ENTRE_QUALITY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ENTRE.A1.05",
+        "question": "_________ means the business is able to keep operating successfully into the future.",
+        "input_type": "cloze",
+        "options": ["Sustainability", "Bankruptcy", "Liquidation", "Piracy"],
+        "expected": "Sustainability",
+        "memo": "Sustainability is the ability of a business to keep going and remain viable over the long term.",
+        "error_signals": ["ERR_BUS_ENTRE_SUCCESS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ENTRE.A1.06",
+        "question": "True or false: Perseverance means continuing to work towards a goal despite setbacks.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Perseverance is pushing on towards a goal even when problems and setbacks arise — a core entrepreneurial quality.",
+        "error_signals": ["ERR_BUS_ENTRE_QUALITY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ENTRE.A1.07",
+        "question": "Sort each item into whether it is an entrepreneurial quality or not.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "quality", "label": "Entrepreneurial quality"},
+          {"id": "not", "label": "Not an entrepreneurial quality"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Perseverance", "correct_bucket": "quality"},
+          {"id": "i2", "text": "Fear of all risk", "correct_bucket": "not"},
+          {"id": "i3", "text": "A clear vision", "correct_bucket": "quality"},
+          {"id": "i4", "text": "Good management and leadership", "correct_bucket": "quality"},
+          {"id": "i5", "text": "Refusing to adapt to change", "correct_bucket": "not"},
+          {"id": "i6", "text": "Confidence in one's ability", "correct_bucket": "quality"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Perseverance, vision, good management and confidence are entrepreneurial qualities; fearing all risk and refusing to adapt are not.",
+        "error_signals": ["ERR_BUS_ENTRE_QUALITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ENTRE.A1.08",
+        "question": "How do you assess whether a business embraces entrepreneurial qualities?",
+        "input_type": "choice",
+        "options": ["Check whether it shows risk-taking, perseverance, good management and vision", "Count how many staff it has only", "Look only at the colour of its logo", "Check whether the owner is tall"],
+        "expected": "Check whether it shows risk-taking, perseverance, good management and vision",
+        "memo": "You judge a business against the entrepreneurial qualities — does it take sensible risks, persevere, manage well and have a clear vision?",
+        "error_signals": ["ERR_BUS_ENTRE_QUALITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ENTRE.A1.09",
+        "question": "Which of these is a key success factor of a business?",
+        "input_type": "choice",
+        "options": ["A growing, loyal customer base", "A messy filing cabinet", "Frequent staff conflict", "A confusing product range"],
+        "expected": "A growing, loyal customer base",
+        "memo": "A loyal, growing customer base is a key success factor; the other options are problems, not strengths.",
+        "error_signals": ["ERR_BUS_ENTRE_SUCCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ENTRE.A1.10",
+        "question": "Thesis: 'A business should regularly identify its areas for improvement.' Choose the THREE strongest supporting reasons.",
+        "input_type": "argument-builder",
+        "thesis": "A business should regularly identify its areas for improvement.",
+        "pool": [
+          {"id": "a1", "text": "It helps the business fix weaknesses before they become serious", "strength": "strong"},
+          {"id": "a2", "text": "It keeps the business competitive as the market changes", "strength": "strong"},
+          {"id": "a3", "text": "It guides where to focus effort and resources", "strength": "strong"},
+          {"id": "a4", "text": "Identifying weaknesses always bankrupts a business", "strength": "counter"},
+          {"id": "a5", "text": "The owner enjoys filling in forms", "strength": "red_herring"},
+          {"id": "a6", "text": "A business is already perfect and never needs to improve", "strength": "weak"}
+        ],
+        "pick_n": 3,
+        "correct_selection": ["a1", "a2", "a3"],
+        "expected": ["a1", "a2", "a3"],
+        "memo": "The strong reasons are fixing weaknesses early, staying competitive, and focusing effort. The others are false or irrelevant.",
+        "error_signals": ["ERR_BUS_ENTRE_IMPROVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ENTRE.A1.11",
+        "question": "An area for _________ is a weakness the business should work on.",
+        "input_type": "cloze",
+        "options": ["improvement", "celebration", "decoration", "relaxation"],
+        "expected": "improvement",
+        "memo": "An area for improvement is a weak point that, if addressed, would make the business stronger.",
+        "error_signals": ["ERR_BUS_ENTRE_IMPROVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ENTRE.A1.12",
+        "question": "True or false: A business with no customers at all can still be considered successful.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "False",
+        "memo": "Without customers there are no sales and no income, so a business cannot be successful without a customer base.",
+        "error_signals": ["ERR_BUS_ENTRE_SUCCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ENTRE.A1.13",
+        "question": "Sort each item into whether it is a success factor or an area for improvement for a struggling shop.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "success", "label": "Success factor"},
+          {"id": "improve", "label": "Area for improvement"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Many loyal repeat customers", "correct_bucket": "success"},
+          {"id": "i2", "text": "Poor stock control causing shortages", "correct_bucket": "improve"},
+          {"id": "i3", "text": "Steady, healthy profits", "correct_bucket": "success"},
+          {"id": "i4", "text": "Slow, unfriendly service", "correct_bucket": "improve"},
+          {"id": "i5", "text": "A strong, trusted brand name", "correct_bucket": "success"},
+          {"id": "i6", "text": "Weak marketing that few people see", "correct_bucket": "improve"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Loyal customers, healthy profit and a trusted brand are success factors; poor stock control, slow service and weak marketing are areas to improve.",
+        "error_signals": ["ERR_BUS_ENTRE_IMPROVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ENTRE.A1.14",
+        "question": "Why is it useful for a business to identify its areas for improvement?",
+        "input_type": "choice",
+        "options": ["So it can fix weaknesses, grow and stay competitive", "So it can ignore all its problems", "So it can stop serving customers", "So it can avoid making any changes"],
+        "expected": "So it can fix weaknesses, grow and stay competitive",
+        "memo": "Identifying weak points lets a business improve, grow and keep up with competitors.",
+        "error_signals": ["ERR_BUS_ENTRE_IMPROVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ENTRE.A1.15",
+        "question": "A business changes its products quickly when customer tastes shift. Which entrepreneurial quality does this show?",
+        "input_type": "choice",
+        "options": ["Flexibility (the ability to adapt)", "Stubbornness", "Laziness", "Carelessness"],
+        "expected": "Flexibility (the ability to adapt)",
+        "memo": "Adapting quickly to change shows flexibility, an important entrepreneurial quality.",
+        "error_signals": ["ERR_BUS_ENTRE_QUALITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ENTRE.A1.16",
+        "question": "Good _________ and leadership is one of the entrepreneurial qualities.",
+        "input_type": "cloze",
+        "options": ["management", "weather", "parking", "lighting"],
+        "expected": "management",
+        "memo": "Good management and leadership — planning, organising and guiding others — is a recognised entrepreneurial quality.",
+        "error_signals": ["ERR_BUS_ENTRE_QUALITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ENTRE.A1.17",
+        "question": "A café makes a profit but its only chef is overworked and about to quit. Which area for improvement is most urgent for its sustainability?",
+        "input_type": "choice",
+        "options": ["Reducing reliance on one person by training or hiring more staff", "Buying a more expensive sign", "Changing the colour of the menus", "Ignoring the problem because it is profitable now", "Closing immediately"],
+        "expected": "Reducing reliance on one person by training or hiring more staff",
+        "memo": "Depending on a single overworked chef threatens future operations, so spreading that capacity is the key improvement for sustainability.",
+        "error_signals": ["ERR_BUS_ENTRE_IMPROVE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.ENTRE.A1.18",
+        "question": "Which situation most threatens a business's long-term sustainability?",
+        "input_type": "choice",
+        "options": ["Losing customers steadily with no plan to win new ones", "Earning a small but steady profit", "Having a loyal customer base", "Managing stock carefully"],
+        "expected": "Losing customers steadily with no plan to win new ones",
+        "memo": "A shrinking customer base with no plan to replace it undermines future income and threatens the business's survival.",
+        "error_signals": ["ERR_BUS_ENTRE_SUCCESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.ENTRE.A1.19",
+        "question": "Why is a loyal customer base so valuable as a success factor?",
+        "input_type": "choice",
+        "options": ["Repeat customers provide steady income and often recommend the business", "Loyal customers never need to be served", "It means the business can ignore quality", "It removes the need to make a profit"],
+        "expected": "Repeat customers provide steady income and often recommend the business",
+        "memo": "Loyal customers buy again and refer others, giving the business reliable income and free word-of-mouth marketing.",
+        "error_signals": ["ERR_BUS_ENTRE_SUCCESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.ENTRE.A1.20",
+        "question": "An entrepreneur reflects on her venture. Which approach best combines assessing qualities with finding improvements?",
+        "input_type": "choice",
+        "options": ["Judge the business against entrepreneurial qualities and success factors, then list specific things to improve", "Assume everything is fine and change nothing", "Only count the cash and ignore everything else", "Blame customers for any problems"],
+        "expected": "Judge the business against entrepreneurial qualities and success factors, then list specific things to improve",
+        "memo": "A useful reflection measures the venture against the qualities and success factors, then turns the gaps into concrete areas for improvement.",
+        "error_signals": ["ERR_BUS_ENTRE_IMPROVE"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

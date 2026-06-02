@@ -1,0 +1,254 @@
+{
+  "BUS.G11.T1.ACQUIRE.A1": {
+    "title": "Avenues of acquiring a business",
+    "description": "Ways of acquiring a business — franchising, outsourcing and leasing — with their advantages, disadvantages and contractual implications such as royalties and legalities.",
+    "grade": 11,
+    "strand": "T1 — Business environments, socio-economic issues, sectors, ownership & acquiring a business",
+    "skill_ids": ["BUS.G11.T1.ACQUIRE.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T1",
+    "caps_topic": "Contracts",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "argument-builder"],
+    "recovery_strategy": "Franchising = buy the right to trade under a proven brand and pay royalties. Outsourcing = pay another firm to do a task for you. Leasing = rent an asset instead of buying it.",
+    "questions": [
+      {
+        "ref": "G11.ACQUIRE.A1.01",
+        "question": "Buying the right to trade under an established brand, using its name and system, is called _________.",
+        "input_type": "cloze",
+        "options": ["franchising", "outsourcing", "leasing", "auditing"],
+        "expected": "franchising",
+        "memo": "Franchising means buying the right to run a business under a proven brand's name and system, usually in return for fees and royalties.",
+        "error_signals": ["ERR_BUS_ACQUIRE_TYPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.02",
+        "question": "Paying another company to handle a task or function for you, such as cleaning or payroll, is called _________.",
+        "input_type": "cloze",
+        "options": ["outsourcing", "franchising", "leasing", "lobbying"],
+        "expected": "outsourcing",
+        "memo": "Outsourcing is paying an outside firm to perform a task instead of doing it in-house.",
+        "error_signals": ["ERR_BUS_ACQUIRE_TYPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.03",
+        "question": "Renting an asset such as equipment or premises instead of buying it is called _________.",
+        "input_type": "cloze",
+        "options": ["leasing", "franchising", "outsourcing", "merging"],
+        "expected": "leasing",
+        "memo": "Leasing is paying to use an asset for a period without owning it — for example renting machines or a shop.",
+        "error_signals": ["ERR_BUS_ACQUIRE_TYPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.04",
+        "question": "True or false: A franchisee usually pays the franchisor royalties.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A franchisee typically pays ongoing royalties (and often an initial fee) to the franchisor for the right to use the brand and system.",
+        "error_signals": ["ERR_BUS_ACQUIRE_TERMS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.05",
+        "question": "In franchising, the person who buys the right to run the branded business is called the _________.",
+        "input_type": "choice",
+        "options": ["franchisee", "franchisor", "lessor", "auditor"],
+        "expected": "franchisee",
+        "memo": "The franchisor owns the brand and sells the rights; the franchisee buys those rights and runs the outlet.",
+        "error_signals": ["ERR_BUS_ACQUIRE_TERMS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.06",
+        "question": "True or false: When you lease an asset, you become its legal owner immediately.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "False",
+        "memo": "Leasing gives you the use of an asset but not ownership — the lessor still owns it.",
+        "error_signals": ["ERR_BUS_ACQUIRE_TYPE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.07",
+        "question": "Sort each example under the avenue of acquiring a business it illustrates.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "franchising", "label": "Franchising"},
+          {"id": "outsourcing", "label": "Outsourcing"},
+          {"id": "leasing", "label": "Leasing"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Opening a branch of a national fast-food brand and paying royalties", "correct_bucket": "franchising"},
+          {"id": "i2", "text": "Hiring an outside firm to run the company's payroll", "correct_bucket": "outsourcing"},
+          {"id": "i3", "text": "Renting delivery vehicles instead of buying them", "correct_bucket": "leasing"},
+          {"id": "i4", "text": "Running a branded coffee shop under licence from the brand owner", "correct_bucket": "franchising"},
+          {"id": "i5", "text": "Paying a security company to guard the premises", "correct_bucket": "outsourcing"},
+          {"id": "i6", "text": "Renting the shop premises from a landlord", "correct_bucket": "leasing"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Trading under a brand for royalties is franchising; paying an outside firm to do a task is outsourcing; renting assets is leasing.",
+        "error_signals": ["ERR_BUS_ACQUIRE_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.08",
+        "question": "What is an advantage of buying a franchise rather than starting a business from scratch?",
+        "input_type": "choice",
+        "options": ["You trade under a proven brand with an established system and support", "You never have to pay any fees", "You can ignore the franchisor's rules", "You automatically owe no tax"],
+        "expected": "You trade under a proven brand with an established system and support",
+        "memo": "A franchise comes with a known brand, a tested business model and franchisor support, which lowers the risk of starting alone.",
+        "error_signals": ["ERR_BUS_ACQUIRE_ADV"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.09",
+        "question": "What is a disadvantage of franchising for the franchisee?",
+        "input_type": "choice",
+        "options": ["You must pay royalties and follow the franchisor's rules, limiting your freedom", "You get no brand recognition at all", "You can never make a profit", "You are forced to invent your own product"],
+        "expected": "You must pay royalties and follow the franchisor's rules, limiting your freedom",
+        "memo": "Franchisees pay ongoing royalties and must stick to the franchisor's system, so they have less independence than an owner starting fresh.",
+        "error_signals": ["ERR_BUS_ACQUIRE_DISADV"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.10",
+        "question": "An advantage of outsourcing a task such as IT support is that the business can _________.",
+        "input_type": "cloze",
+        "options": ["focus on what it does best while experts handle the task", "stop paying any staff ever again", "avoid all contracts", "ignore the quality of the work"],
+        "expected": "focus on what it does best while experts handle the task",
+        "memo": "Outsourcing lets a business concentrate on its core work and hand specialist tasks to firms that do them well, often at lower cost.",
+        "error_signals": ["ERR_BUS_ACQUIRE_ADV"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.11",
+        "question": "True or false: Leasing equipment instead of buying it helps a new business preserve its cash.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Leasing spreads the cost over time rather than requiring a large upfront purchase, which helps a new business keep cash for other needs.",
+        "error_signals": ["ERR_BUS_ACQUIRE_ADV"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.12",
+        "question": "Thesis: 'A first-time owner should buy a franchise rather than start a brand-new business.' Choose the THREE strongest supporting reasons.",
+        "input_type": "argument-builder",
+        "thesis": "A first-time owner should buy a franchise rather than start a brand-new business.",
+        "pool": [
+          {"id": "a1", "text": "The brand is already known, so customers come more easily", "strength": "strong"},
+          {"id": "a2", "text": "The franchisor provides a proven system and training", "strength": "strong"},
+          {"id": "a3", "text": "There is a lower risk of failure than starting from nothing", "strength": "strong"},
+          {"id": "a4", "text": "A franchisee never has to pay any royalties", "strength": "counter"},
+          {"id": "a5", "text": "The franchise sign is a nice colour", "strength": "red_herring"},
+          {"id": "a6", "text": "A franchise lets you ignore the franchisor's rules", "strength": "weak"}
+        ],
+        "pick_n": 3,
+        "correct_selection": ["a1", "a2", "a3"],
+        "expected": ["a1", "a2", "a3"],
+        "memo": "The strong reasons are brand recognition, a proven system with training, and lower risk. The others are false (royalties are paid, rules must be followed) or irrelevant.",
+        "error_signals": ["ERR_BUS_ACQUIRE_ADV"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.13",
+        "question": "A business pays a specialist firm to manage its cleaning so its own staff can focus on production. This is an example of:",
+        "input_type": "choice",
+        "options": ["outsourcing", "franchising", "leasing", "a merger"],
+        "expected": "outsourcing",
+        "memo": "Handing a non-core task (cleaning) to an outside firm is outsourcing.",
+        "error_signals": ["ERR_BUS_ACQUIRE_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.14",
+        "question": "Sort each item into whether it is an advantage or a disadvantage of franchising for the franchisee.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "advantage", "label": "Advantage"},
+          {"id": "disadvantage", "label": "Disadvantage"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Instant brand recognition", "correct_bucket": "advantage"},
+          {"id": "i2", "text": "Ongoing royalty payments to the franchisor", "correct_bucket": "disadvantage"},
+          {"id": "i3", "text": "Training and support from the franchisor", "correct_bucket": "advantage"},
+          {"id": "i4", "text": "Strict rules that limit the owner's freedom", "correct_bucket": "disadvantage"},
+          {"id": "i5", "text": "A proven, tested business model", "correct_bucket": "advantage"},
+          {"id": "i6", "text": "High initial franchise fee", "correct_bucket": "disadvantage"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Advantages: brand recognition, support, a proven model. Disadvantages: royalties, strict rules and a high initial fee.",
+        "error_signals": ["ERR_BUS_ACQUIRE_ADV"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.15",
+        "question": "What is a contractual implication a franchisee must accept?",
+        "input_type": "choice",
+        "options": ["A legal agreement to pay royalties and follow the franchisor's standards", "Complete freedom to change the brand's products", "No obligations of any kind", "Ownership of the franchisor's entire brand"],
+        "expected": "A legal agreement to pay royalties and follow the franchisor's standards",
+        "memo": "The franchise contract legally binds the franchisee to pay royalties and uphold the franchisor's standards and rules.",
+        "error_signals": ["ERR_BUS_ACQUIRE_TERMS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.16",
+        "question": "A start-up rents its machinery rather than buying it outright. Which avenue of acquiring resources is this, and why might it suit a start-up?",
+        "input_type": "choice",
+        "options": ["Leasing — it avoids a large upfront cost and preserves cash", "Franchising — it gives the start-up a famous brand", "Outsourcing — it hands production to another firm", "A merger — it combines two businesses"],
+        "expected": "Leasing — it avoids a large upfront cost and preserves cash",
+        "memo": "Renting machinery is leasing, which spreads cost and keeps cash free — useful for a start-up with limited capital.",
+        "error_signals": ["ERR_BUS_ACQUIRE_TYPE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.17",
+        "question": "A franchisee wants to sell a completely new product the franchisor does not allow. What does the franchise agreement most likely mean for this plan?",
+        "input_type": "choice",
+        "options": ["The franchisee is bound by the contract to follow the franchisor's product range", "The franchisee can ignore the contract freely", "The contract has no effect on products", "The franchisee automatically owns the brand"],
+        "expected": "The franchisee is bound by the contract to follow the franchisor's product range",
+        "memo": "Franchise contracts require franchisees to stick to the approved system and product range, so the franchisee cannot simply add an unapproved product.",
+        "error_signals": ["ERR_BUS_ACQUIRE_TERMS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.18",
+        "question": "A business is deciding between outsourcing its deliveries and buying its own fleet. Which best evaluates outsourcing here?",
+        "input_type": "choice",
+        "options": ["It avoids the cost and management of a fleet but means relying on another firm's reliability", "It is always cheaper and carries no risks at all", "It forces the business to buy vehicles anyway", "It has no effect on cost or control"],
+        "expected": "It avoids the cost and management of a fleet but means relying on another firm's reliability",
+        "memo": "Outsourcing deliveries saves the cost and effort of owning a fleet, but the business becomes dependent on the outside firm's reliability and quality.",
+        "error_signals": ["ERR_BUS_ACQUIRE_DISADV"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.19",
+        "question": "Why might an established franchisor benefit from selling franchises rather than opening all the outlets itself?",
+        "input_type": "choice",
+        "options": ["It expands faster using franchisees' capital and effort while earning fees and royalties", "It gives away its brand for free", "It loses all income from the outlets", "It must run every outlet personally"],
+        "expected": "It expands faster using franchisees' capital and effort while earning fees and royalties",
+        "memo": "Franchising lets the franchisor grow quickly using franchisees' money and management, while collecting fees and royalties — a benefit to both sides.",
+        "error_signals": ["ERR_BUS_ACQUIRE_ADV"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.ACQUIRE.A1.20",
+        "question": "Which situation best calls for outsourcing rather than franchising or leasing?",
+        "input_type": "choice",
+        "options": ["A firm wants a specialist to handle its accounting so it can focus on its core work", "A person wants to run a branded outlet of a national chain", "A business wants to use machines without buying them", "A business wants to combine fully with a competitor"],
+        "expected": "A firm wants a specialist to handle its accounting so it can focus on its core work",
+        "memo": "Handing a specialist task like accounting to an outside expert is outsourcing. The other situations describe franchising, leasing and a merger.",
+        "error_signals": ["ERR_BUS_ACQUIRE_TYPE"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

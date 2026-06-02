@@ -1,0 +1,252 @@
+{
+  "BUS.G11.T4.HR.A1": {
+    "title": "Introduction to Human Resources",
+    "description": "An introduction to the human resources function: recruitment, selection and interviewing; the legalities of employment contracts; induction and placement; salary determination (piecemeal and time-related, including personal tax); and employee benefits. Relevant Acts: LRA, BCEA, EEA, COIDA.",
+    "grade": 11,
+    "strand": "T4 — Team dynamics, conflict & Human Resources",
+    "skill_ids": ["BUS.G11.T4.HR.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T4",
+    "caps_topic": "Business functions",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+    "recovery_strategy": "Recruitment = attracting applicants; selection = choosing the best; induction = settling the new employee in. BCEA sets basic conditions, EEA promotes equity, LRA governs labour relations, COIDA covers workplace injuries.",
+    "questions": [
+      {
+        "ref": "G11.HR.A1.01",
+        "question": "_________ means attracting suitable applicants to apply for a job.",
+        "input_type": "cloze",
+        "options": ["Recruitment", "Retirement", "Resignation", "Retrenchment"],
+        "expected": "Recruitment",
+        "memo": "Recruitment is the process of attracting suitable people to apply for a vacant post, for example by advertising it.",
+        "error_signals": ["ERR_BUS_HR_RECRUIT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.HR.A1.02",
+        "question": "What does selection involve?",
+        "input_type": "choice",
+        "options": ["Choosing the best candidate from the applicants", "Advertising the vacant post", "Paying the staff their salaries", "Training existing employees"],
+        "expected": "Choosing the best candidate from the applicants",
+        "memo": "Selection is choosing the most suitable applicant, using tools like screening and interviews.",
+        "error_signals": ["ERR_BUS_HR_SELECT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.HR.A1.03",
+        "question": "True or false: An employment contract sets out the terms agreed between employer and employee.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "An employment contract is a legal agreement stating the duties, pay and conditions agreed between employer and employee.",
+        "error_signals": ["ERR_BUS_HR_CONTRACT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.HR.A1.04",
+        "question": "_________ helps a new employee settle into the job and the workplace.",
+        "input_type": "cloze",
+        "options": ["Induction", "Resignation", "Auditing", "Exporting"],
+        "expected": "Induction",
+        "memo": "Induction introduces a new employee to the workplace, the team and their role so they can settle in.",
+        "error_signals": ["ERR_BUS_HR_INDUCT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.HR.A1.05",
+        "question": "Which Act sets the basic conditions of employment, such as working hours and leave?",
+        "input_type": "choice",
+        "options": ["The Basic Conditions of Employment Act (BCEA)", "The National Credit Act", "The Consumer Protection Act", "The Companies Act"],
+        "expected": "The Basic Conditions of Employment Act (BCEA)",
+        "memo": "The BCEA sets minimum employment conditions such as working hours, leave and notice periods.",
+        "error_signals": ["ERR_BUS_HR_ACT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.HR.A1.06",
+        "question": "True or false: A pension is an example of an employee benefit.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Benefits such as a pension, medical aid and leave are rewards beyond the basic salary.",
+        "error_signals": ["ERR_BUS_HR_BENEFIT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.HR.A1.07",
+        "question": "Put the steps of hiring a new employee in the correct order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "advertise", "text": "Advertise the post to attract applicants"},
+          {"id": "shortlist", "text": "Shortlist the suitable applications"},
+          {"id": "interview", "text": "Interview the shortlisted candidates"},
+          {"id": "induct", "text": "Appoint and induct the chosen person"}
+        ],
+        "expected_order": ["advertise", "shortlist", "interview", "induct"],
+        "options": ["advertise, shortlist, interview, induct", "induct, interview, shortlist, advertise", "interview, advertise, induct, shortlist"],
+        "expected": "advertise, shortlist, interview, induct",
+        "memo": "Recruitment then selection: advertise, shortlist, interview, then appoint and induct the chosen candidate.",
+        "error_signals": ["ERR_BUS_HR_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.HR.A1.08",
+        "question": "Sort each task into recruitment, selection or induction.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "recruit", "label": "Recruitment"},
+          {"id": "select", "label": "Selection"},
+          {"id": "induct", "label": "Induction"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Placing a job advert", "correct_bucket": "recruit"},
+          {"id": "i2", "text": "Interviewing shortlisted candidates", "correct_bucket": "select"},
+          {"id": "i3", "text": "Showing a new hire around the workplace", "correct_bucket": "induct"},
+          {"id": "i4", "text": "Posting the vacancy on a job site", "correct_bucket": "recruit"},
+          {"id": "i5", "text": "Checking references and choosing the best applicant", "correct_bucket": "select"},
+          {"id": "i6", "text": "Explaining the new employee's duties on day one", "correct_bucket": "induct"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Recruitment attracts applicants (adverts); selection chooses the best (interviews, references); induction settles them in (orientation).",
+        "error_signals": ["ERR_BUS_HR_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.HR.A1.09",
+        "question": "What is the difference between time-related and piecemeal salary determination?",
+        "input_type": "choice",
+        "options": ["Time-related pays for time worked; piecemeal pays per unit produced", "Time-related pays per unit; piecemeal pays per hour", "They are exactly the same", "Time-related applies only to managers"],
+        "expected": "Time-related pays for time worked; piecemeal pays per unit produced",
+        "memo": "Time-related pay is based on hours or a monthly period; piecemeal pay is based on the number of items produced.",
+        "error_signals": ["ERR_BUS_HR_SALARY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.HR.A1.10",
+        "question": "_________ pay is calculated according to the number of units a worker produces.",
+        "input_type": "cloze",
+        "options": ["Piecemeal", "Time-related", "Pension", "Overtime"],
+        "expected": "Piecemeal",
+        "memo": "Piecemeal (piece-rate) pay rewards output — the more units produced, the higher the pay.",
+        "error_signals": ["ERR_BUS_HR_SALARY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.HR.A1.11",
+        "question": "Which Act promotes equity and protects employees from unfair discrimination at work?",
+        "input_type": "choice",
+        "options": ["The Employment Equity Act (EEA)", "The Consumer Protection Act", "The Hire Purchase Act", "The Companies Act"],
+        "expected": "The Employment Equity Act (EEA)",
+        "memo": "The Employment Equity Act promotes fair treatment and equal opportunity, prohibiting unfair discrimination in the workplace.",
+        "error_signals": ["ERR_BUS_HR_ACT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.HR.A1.12",
+        "question": "True or false: COIDA covers compensation for employees injured or made ill at work.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "The Compensation for Occupational Injuries and Diseases Act (COIDA) compensates workers injured or made ill on the job.",
+        "error_signals": ["ERR_BUS_HR_ACT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.HR.A1.13",
+        "question": "Sort each Act under what it mainly deals with.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "conditions", "label": "Basic conditions of work"},
+          {"id": "equity", "label": "Equity & fair treatment"},
+          {"id": "injury", "label": "Injury compensation"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Basic Conditions of Employment Act", "correct_bucket": "conditions"},
+          {"id": "i2", "text": "Employment Equity Act", "correct_bucket": "equity"},
+          {"id": "i3", "text": "COIDA", "correct_bucket": "injury"},
+          {"id": "i4", "text": "Rules on working hours and leave", "correct_bucket": "conditions"},
+          {"id": "i5", "text": "Preventing unfair discrimination", "correct_bucket": "equity"},
+          {"id": "i6", "text": "Paying out for a workplace injury", "correct_bucket": "injury"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "BCEA = basic conditions (hours, leave); EEA = equity and fair treatment; COIDA = compensation for workplace injury.",
+        "error_signals": ["ERR_BUS_HR_ACT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.HR.A1.14",
+        "question": "Which of these are examples of employee benefits?",
+        "input_type": "choice",
+        "options": ["Pension and medical aid", "Stock and raw materials", "Advertising and packaging", "Patents and trademarks"],
+        "expected": "Pension and medical aid",
+        "memo": "Benefits are rewards beyond the basic salary, such as pension contributions and medical aid.",
+        "error_signals": ["ERR_BUS_HR_BENEFIT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.HR.A1.15",
+        "question": "What does induction of a new employee involve?",
+        "input_type": "choice",
+        "options": ["Introducing them to the workplace, the team and their role", "Advertising for more applicants", "Calculating the company's tax", "Designing the company logo"],
+        "expected": "Introducing them to the workplace, the team and their role",
+        "memo": "Induction helps a new hire settle in by introducing the workplace, colleagues and their responsibilities.",
+        "error_signals": ["ERR_BUS_HR_INDUCT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.HR.A1.16",
+        "question": "A legal agreement that sets out an employee's duties, pay and conditions is an _________ contract.",
+        "input_type": "cloze",
+        "options": ["employment", "insurance", "lease", "sales"],
+        "expected": "employment",
+        "memo": "An employment contract is the legal agreement governing the relationship between employer and employee.",
+        "error_signals": ["ERR_BUS_HR_CONTRACT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.HR.A1.17",
+        "question": "An employee is unfairly dismissed and believes labour rights were ignored. Which Act mainly governs this dispute?",
+        "input_type": "choice",
+        "options": ["The Labour Relations Act (LRA)", "The Consumer Protection Act", "The National Credit Act", "The Hire Purchase Act"],
+        "expected": "The Labour Relations Act (LRA)",
+        "memo": "The Labour Relations Act governs fair labour practices, including unfair dismissals and disputes between employers and employees.",
+        "error_signals": ["ERR_BUS_HR_ACT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.HR.A1.18",
+        "question": "Why should a business follow proper recruitment and selection procedures?",
+        "input_type": "choice",
+        "options": ["To choose the best candidate fairly and comply with the law", "To make hiring as slow as possible", "To avoid ever filling the post", "To ignore applicants' qualifications"],
+        "expected": "To choose the best candidate fairly and comply with the law",
+        "memo": "Proper procedures help find the most suitable person fairly and keep the business within labour law, avoiding disputes.",
+        "error_signals": ["ERR_BUS_HR_PROCESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.HR.A1.19",
+        "question": "A factory pays workers for each garment they sew, while the office pays staff a fixed monthly salary. How are these pay methods best described?",
+        "input_type": "choice",
+        "options": ["The factory uses piecemeal pay; the office uses time-related pay", "Both use time-related pay", "The factory uses time-related pay; the office uses piecemeal pay", "Neither is a real pay method"],
+        "expected": "The factory uses piecemeal pay; the office uses time-related pay",
+        "memo": "Paying per garment is piecemeal (per unit); a fixed monthly salary is time-related (per period).",
+        "error_signals": ["ERR_BUS_HR_SALARY"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.HR.A1.20",
+        "question": "Why must an employer understand the relevant labour Acts when employing staff?",
+        "input_type": "choice",
+        "options": ["To meet legal duties on conditions, equity, safety and injury compensation, avoiding penalties", "Because the Acts have no effect on business", "To make employment contracts unnecessary", "To avoid ever paying any salary"],
+        "expected": "To meet legal duties on conditions, equity, safety and injury compensation, avoiding penalties",
+        "memo": "The BCEA, EEA, LRA and COIDA place legal duties on employers; understanding them keeps the business compliant and protects both staff and the business.",
+        "error_signals": ["ERR_BUS_HR_ACT"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

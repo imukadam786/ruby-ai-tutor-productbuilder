@@ -1,0 +1,273 @@
+{
+  "BUS.G12.T2.SECTORENV.A1": {
+    "title": "Business sector and its environment",
+    "description": "Selecting a business from each economic sector and describing the three business environments related to those sectors and the extent to which a business can control each environment.",
+    "grade": 12,
+    "strand": "T2 — CSR, human rights, teams, sector & environment, leadership & quality",
+    "skill_ids": ["BUS.G12.T2.SECTORENV.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T2",
+    "caps_topic": "Business sectors",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+    "recovery_strategy": "Whatever the sector (primary, secondary, tertiary), the rule holds: full control of the micro environment, influence over the market, no control over the macro environment.",
+    "questions": [
+      {
+        "ref": "G12.SECTORENV.A1.01",
+        "question": "A gold mine belongs to which sector?",
+        "input_type": "choice",
+        "options": ["Primary", "Secondary", "Tertiary", "Quaternary"],
+        "expected": "Primary",
+        "memo": "A mine extracts raw materials, so it is a primary-sector business.",
+        "error_signals": ["ERR_BUS_SECTENV_SECTOR"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.SECTORENV.A1.02",
+        "question": "How much control does a business have over its micro environment?",
+        "input_type": "choice",
+        "options": ["Full control", "No control", "Only influence", "It depends on the weather"],
+        "expected": "Full control",
+        "memo": "The micro environment is inside the business — its mission, structure, resources and culture — so the business controls it fully, in any sector.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.SECTORENV.A1.03",
+        "question": "True or false: A business has no control over its macro environment, whatever its sector.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "The macro environment is beyond any business's control, regardless of whether it is primary, secondary or tertiary.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.SECTORENV.A1.04",
+        "question": "A bank belongs to the _________ sector.",
+        "input_type": "cloze",
+        "options": ["tertiary", "primary", "secondary", "informal"],
+        "expected": "tertiary",
+        "memo": "A bank provides a service, so it is a tertiary-sector business.",
+        "error_signals": ["ERR_BUS_SECTENV_SECTOR"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.SECTORENV.A1.05",
+        "question": "A car-assembly factory belongs to the _________ sector.",
+        "input_type": "choice",
+        "options": ["secondary", "primary", "tertiary", "public"],
+        "expected": "secondary",
+        "memo": "A factory processes materials into products, making it a secondary-sector business.",
+        "error_signals": ["ERR_BUS_SECTENV_SECTOR"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.SECTORENV.A1.06",
+        "question": "True or false: In every sector, a business can influence but not control its market environment.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Across all sectors, the market environment can only be influenced (e.g. by advertising or negotiating), not controlled.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.SECTORENV.A1.07",
+        "question": "Sort each business into the correct sector.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "primary", "label": "Primary"},
+          {"id": "secondary", "label": "Secondary"},
+          {"id": "tertiary", "label": "Tertiary"}
+        ],
+        "items": [
+          {"id": "i1", "text": "A maize farm", "correct_bucket": "primary"},
+          {"id": "i2", "text": "A clothing factory", "correct_bucket": "secondary"},
+          {"id": "i3", "text": "A travel agency", "correct_bucket": "tertiary"},
+          {"id": "i4", "text": "A fishing company", "correct_bucket": "primary"},
+          {"id": "i5", "text": "A steel mill", "correct_bucket": "secondary"},
+          {"id": "i6", "text": "An insurance broker", "correct_bucket": "tertiary"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Farms and fishing extract (primary); factories and mills process (secondary); travel agencies and brokers serve (tertiary).",
+        "error_signals": ["ERR_BUS_SECTENV_SECTOR"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECTORENV.A1.08",
+        "question": "Which statement correctly describes a business's control across the three environments?",
+        "input_type": "choice",
+        "options": ["Full control of the micro, influence over the market, no control of the macro", "Full control of all three environments", "No control of any environment", "Control of the macro but not the micro"],
+        "expected": "Full control of the micro, influence over the market, no control of the macro",
+        "memo": "Control decreases outward: full (micro), influence (market), none (macro) — the same in every sector.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECTORENV.A1.09",
+        "question": "Read both businesses, then decide which each statement matches.",
+        "input_type": "source-comparison",
+        "source_a": {
+          "text": "We are a wheat farm in the primary sector. We control how we run the farm, but we cannot control rainfall or world grain prices.",
+          "provenance": "Primary-sector farm"
+        },
+        "source_b": {
+          "text": "We are a logistics company in the tertiary sector. We control our own operations, but we cannot control the fuel price or new transport laws.",
+          "provenance": "Tertiary-sector firm"
+        },
+        "statements": [
+          {"id": "s1", "text": "Operates in the primary sector", "correct_answer": "a_only"},
+          {"id": "s2", "text": "Operates in the tertiary sector", "correct_answer": "b_only"},
+          {"id": "s3", "text": "Cannot control its macro environment", "correct_answer": "both"},
+          {"id": "s4", "text": "Can control the national economy", "correct_answer": "neither"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "s1=a_only, s2=b_only, s3=both, s4=neither",
+        "memo": "The farm is primary, the logistics firm tertiary; both control their micro environment but not the macro, and neither controls the economy.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECTORENV.A1.10",
+        "question": "A business can _________ its market environment but not control it.",
+        "input_type": "cloze",
+        "options": ["influence", "control", "own", "ignore"],
+        "expected": "influence",
+        "memo": "The market environment can be influenced through actions like advertising and negotiation, but not controlled.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECTORENV.A1.11",
+        "question": "Why does the same control rule apply to businesses in all three sectors?",
+        "input_type": "choice",
+        "options": ["The three environments work the same way no matter what a business produces or sells", "Only primary businesses have environments", "Sectors change the laws of the macro environment", "Tertiary businesses control the economy"],
+        "expected": "The three environments work the same way no matter what a business produces or sells",
+        "memo": "Whatever a business makes or sells, its micro is controllable, its market influenceable and its macro uncontrollable.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECTORENV.A1.12",
+        "question": "True or false: A primary-sector mine can control global commodity prices.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "False",
+        "memo": "Global commodity prices are a macro force; even a large mine cannot control them — it can only adapt.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECTORENV.A1.13",
+        "question": "Sort each factor by how much control a tertiary retailer has over it.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "micro", "label": "Full control (micro)"},
+          {"id": "market", "label": "Influence only (market)"},
+          {"id": "macro", "label": "No control (macro)"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Its own store layout and staff", "correct_bucket": "micro"},
+          {"id": "i2", "text": "Which suppliers it buys from", "correct_bucket": "market"},
+          {"id": "i3", "text": "The national interest rate", "correct_bucket": "macro"},
+          {"id": "i4", "text": "Its pricing and product range", "correct_bucket": "micro"},
+          {"id": "i5", "text": "A competitor opening nearby", "correct_bucket": "market"},
+          {"id": "i6", "text": "A new consumer-protection law", "correct_bucket": "macro"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Store layout and pricing are micro; suppliers and competitors are market; interest rates and laws are macro.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECTORENV.A1.14",
+        "question": "Which is a macro-environment factor that could affect a tertiary tourism business?",
+        "input_type": "choice",
+        "options": ["A change in the exchange rate affecting foreign visitors", "Its own choice of staff uniforms", "The layout of its reception desk", "Its internal booking system"],
+        "expected": "A change in the exchange rate affecting foreign visitors",
+        "memo": "The exchange rate is a macro force the tourism business cannot control but must adapt to; the others are internal (micro).",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECTORENV.A1.15",
+        "question": "How does a business in any sector respond to its macro environment?",
+        "input_type": "choice",
+        "options": ["By adapting, since it cannot control macro forces", "By controlling the macro forces directly", "By ignoring them entirely", "By passing laws to change them"],
+        "expected": "By adapting, since it cannot control macro forces",
+        "memo": "Because macro forces are beyond control, a business in any sector responds by adapting its own plans.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECTORENV.A1.16",
+        "question": "The _________ environment is the one inside the business that it controls fully.",
+        "input_type": "cloze",
+        "options": ["micro", "market", "macro", "global"],
+        "expected": "micro",
+        "memo": "The micro environment — vision, structure, resources, culture — is internal and fully controlled by the business.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.SECTORENV.A1.17",
+        "question": "Read both businesses, then decide which each statement matches.",
+        "input_type": "source-comparison",
+        "source_a": {
+          "text": "Our steel mill (secondary sector) can decide how we run our plant, and we negotiate hard with suppliers, but new import tariffs are out of our hands.",
+          "provenance": "Secondary-sector mill"
+        },
+        "source_b": {
+          "text": "Our accounting firm (tertiary sector) controls how we serve clients and which software we use, but we cannot control new tax legislation.",
+          "provenance": "Tertiary-sector firm"
+        },
+        "statements": [
+          {"id": "s1", "text": "Negotiates with suppliers (a market-environment action)", "correct_answer": "a_only"},
+          {"id": "s2", "text": "Provides a professional service to clients", "correct_answer": "b_only"},
+          {"id": "s3", "text": "Controls its own internal operations", "correct_answer": "both"},
+          {"id": "s4", "text": "Can control national legislation", "correct_answer": "neither"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "s1=a_only, s2=b_only, s3=both, s4=neither",
+        "memo": "The mill influences suppliers (market); the firm serves clients; both control their micro operations; neither controls legislation (macro).",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.SECTORENV.A1.18",
+        "question": "A learner claims, 'A big enough company in any sector can eventually control its macro environment.' How is this best evaluated?",
+        "input_type": "choice",
+        "options": ["Incorrect — no business, however large, controls the macro environment; it can only influence and adapt", "Correct — size grants full macro control", "Correct, but only in the primary sector", "Impossible to judge"],
+        "expected": "Incorrect — no business, however large, controls the macro environment; it can only influence and adapt",
+        "memo": "Size may give influence (e.g. lobbying), but the macro environment remains beyond control for every business and sector.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.SECTORENV.A1.19",
+        "question": "Why is it useful to compare a primary, a secondary and a tertiary business when studying the environments?",
+        "input_type": "choice",
+        "options": ["It shows the control rule holds across sectors, even though the specific factors differ", "It proves each sector controls a different environment fully", "It shows only one sector has a macro environment", "It removes the need to study the environments"],
+        "expected": "It shows the control rule holds across sectors, even though the specific factors differ",
+        "memo": "Comparing sectors demonstrates that the micro/market/macro control pattern is universal, while the particular factors vary by business.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.SECTORENV.A1.20",
+        "question": "A tertiary delivery firm faces rising fuel prices, tough competitors and outdated vehicles. How should it map these to the environments?",
+        "input_type": "choice",
+        "options": ["Fuel prices = macro (adapt), competitors = market (influence), vehicles = micro (control)", "All three are macro and uncontrollable", "All three are micro and fully controlled", "Fuel prices = micro, vehicles = macro"],
+        "expected": "Fuel prices = macro (adapt), competitors = market (influence), vehicles = micro (control)",
+        "memo": "Fuel prices are macro (adapt), competitors are market (influence), and its own vehicles are micro (control) — the standard pattern.",
+        "error_signals": ["ERR_BUS_SECTENV_CONTROL"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "BUS.G11.T2.PROFETHICS.A1": {
+    "title": "Professionalism & ethics",
+    "description": "The theories and principles of professionalism and ethics and how they relate to business: the definitions and differences between them, good vs bad decisions, the concept of ethics and different perspectives, and the skills of professional, responsible, ethical and effective business practice.",
+    "grade": 11,
+    "strand": "T2 — Creative thinking, stress & change, action plans, setting up, ethics & presentation",
+    "skill_ids": ["BUS.G11.T2.PROFETHICS.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T2",
+    "caps_topic": "Self-management, professionalism and ethics",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+    "recovery_strategy": "Ethics = doing what is morally right (honest, fair). Professionalism = the standard of conduct in your work (reliable, respectful, competent). You can be professional and still face an ethical choice; the two support each other.",
+    "questions": [
+      {
+        "ref": "G11.PROFETHICS.A1.01",
+        "question": "What is ethics mainly about?",
+        "input_type": "choice",
+        "options": ["Doing what is morally right and fair", "Making the most profit by any means", "Wearing the smartest clothes", "Working the longest hours"],
+        "expected": "Doing what is morally right and fair",
+        "memo": "Ethics is about choosing what is morally right and fair, even when another choice might be easier or more profitable.",
+        "error_signals": ["ERR_BUS_ETHICS_CONCEPT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.02",
+        "question": "What is professionalism mainly about?",
+        "input_type": "choice",
+        "options": ["The standard of conduct and competence in your work", "Always agreeing with the boss", "Never taking a break", "Earning the highest salary"],
+        "expected": "The standard of conduct and competence in your work",
+        "memo": "Professionalism is the standard of behaviour and skill in your work — being reliable, respectful and competent.",
+        "error_signals": ["ERR_BUS_PROF_CONCEPT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.03",
+        "question": "Honesty and fairness in business are part of business _________.",
+        "input_type": "cloze",
+        "options": ["ethics", "premises", "stock", "logos"],
+        "expected": "ethics",
+        "memo": "Honesty and fairness are core to business ethics — acting in morally right ways.",
+        "error_signals": ["ERR_BUS_ETHICS_CONCEPT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.04",
+        "question": "True or false: Professionalism and ethics mean exactly the same thing.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "False",
+        "memo": "They are related but different: ethics is about right and wrong; professionalism is about the standard of conduct in your work.",
+        "error_signals": ["ERR_BUS_PROF_ETHICS_DIFF"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.05",
+        "question": "True or false: Paying workers a fair wage is an example of ethical business practice.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Paying fair wages treats employees justly, which is ethical business behaviour.",
+        "error_signals": ["ERR_BUS_ETHICS_CONCEPT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.06",
+        "question": "Arriving on time, prepared and reliable mainly shows _________.",
+        "input_type": "cloze",
+        "options": ["professionalism", "piracy", "inflation", "leasing"],
+        "expected": "professionalism",
+        "memo": "Being punctual, prepared and dependable is professional conduct.",
+        "error_signals": ["ERR_BUS_PROF_CONCEPT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.07",
+        "question": "Sort each example into whether it mainly shows professionalism or ethics.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "prof", "label": "Professionalism"},
+          {"id": "ethics", "label": "Ethics"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Arriving on time and dressing appropriately", "correct_bucket": "prof"},
+          {"id": "i2", "text": "Refusing to take a bribe", "correct_bucket": "ethics"},
+          {"id": "i3", "text": "Replying to emails promptly and politely", "correct_bucket": "prof"},
+          {"id": "i4", "text": "Telling a customer the truth about a faulty product", "correct_bucket": "ethics"},
+          {"id": "i5", "text": "Preparing thoroughly for a meeting", "correct_bucket": "prof"},
+          {"id": "i6", "text": "Paying suppliers fairly and on time", "correct_bucket": "ethics"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Conduct and competence (punctuality, preparation, politeness) is professionalism; doing what is morally right (honesty, fairness, refusing bribes) is ethics.",
+        "error_signals": ["ERR_BUS_PROF_ETHICS_DIFF"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.08",
+        "question": "Which of these is an example of UNETHICAL business practice?",
+        "input_type": "choice",
+        "options": ["Paying a bribe to win a contract", "Advertising a product truthfully", "Paying tax that is due", "Treating staff fairly"],
+        "expected": "Paying a bribe to win a contract",
+        "memo": "Bribery is dishonest and unfair — clearly unethical. The other options are ethical practices.",
+        "error_signals": ["ERR_BUS_ETHICS_JUDGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.09",
+        "question": "Which of these is an example of UNPROFESSIONAL behaviour?",
+        "input_type": "choice",
+        "options": ["Arriving late and unprepared for a client meeting", "Greeting clients politely", "Meeting agreed deadlines", "Keeping the workspace tidy"],
+        "expected": "Arriving late and unprepared for a client meeting",
+        "memo": "Turning up late and unprepared falls below the expected standard of conduct, so it is unprofessional.",
+        "error_signals": ["ERR_BUS_PROF_JUDGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.10",
+        "question": "Build a 3-part explanation of why ethical behaviour matters for a business.",
+        "input_type": "paragraph-template",
+        "prompt": "Build a 3-part explanation of why ethical behaviour matters for a business.",
+        "template": [
+          {
+            "slot": "point",
+            "label": "Pick the main claim",
+            "options": [
+              {"id": "p1", "text": "Ethical behaviour matters because it builds trust with customers and staff", "correct": true},
+              {"id": "p2", "text": "Ethical behaviour matters because it lets a business break the law safely", "correct": false},
+              {"id": "p3", "text": "Ethical behaviour matters only when no one is watching", "correct": false}
+            ]
+          },
+          {
+            "slot": "evidence",
+            "label": "Pick the supporting evidence",
+            "options": [
+              {"id": "e1", "text": "Customers return to and recommend businesses they believe are honest and fair", "correct": true},
+              {"id": "e2", "text": "Customers prefer businesses that cheat them", "correct": false},
+              {"id": "e3", "text": "Staff work harder for employers who treat them unfairly", "correct": false}
+            ]
+          },
+          {
+            "slot": "explanation",
+            "label": "Pick the best explanation",
+            "options": [
+              {"id": "x1", "text": "A trusted reputation attracts loyal customers and good staff, supporting long-term success", "correct": true},
+              {"id": "x2", "text": "A bad reputation has no effect on a business", "correct": false},
+              {"id": "x3", "text": "Ethics only matters to charities, not businesses", "correct": false}
+            ]
+          }
+        ],
+        "expected": ["p1", "e1", "x1"],
+        "memo": "Claim: ethics builds trust. Evidence: people support honest, fair businesses. Explanation: a trusted reputation brings loyal customers and good staff, helping long-term success.",
+        "error_signals": ["ERR_BUS_ETHICS_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.11",
+        "question": "An _________ decision weighs what is right and fair, not only what is most profitable.",
+        "input_type": "cloze",
+        "options": ["ethical", "instant", "random", "secret"],
+        "expected": "ethical",
+        "memo": "An ethical decision considers fairness and the effect on others, not just the profit it brings.",
+        "error_signals": ["ERR_BUS_ETHICS_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.12",
+        "question": "True or false: Acting ethically can build customer trust and a good reputation.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "When a business is consistently honest and fair, customers trust it and its reputation grows, which supports success.",
+        "error_signals": ["ERR_BUS_ETHICS_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.13",
+        "question": "Sort each practice into ethical or unethical.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "ethical", "label": "Ethical practice"},
+          {"id": "unethical", "label": "Unethical practice"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Advertising a product honestly", "correct_bucket": "ethical"},
+          {"id": "i2", "text": "Selling expired goods as fresh", "correct_bucket": "unethical"},
+          {"id": "i3", "text": "Paying all taxes that are due", "correct_bucket": "ethical"},
+          {"id": "i4", "text": "Taking kickbacks from a supplier", "correct_bucket": "unethical"},
+          {"id": "i5", "text": "Giving staff safe working conditions", "correct_bucket": "ethical"},
+          {"id": "i6", "text": "Misleading customers about a price", "correct_bucket": "unethical"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Honest advertising, paying tax and safe conditions are ethical; selling expired goods, taking kickbacks and misleading on price are unethical.",
+        "error_signals": ["ERR_BUS_ETHICS_JUDGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.14",
+        "question": "What makes a 'good' business decision different from a 'bad' one?",
+        "input_type": "choice",
+        "options": ["A good decision considers the consequences and fairness, not just short-term gain", "A good decision always ignores other people", "A good decision is simply the fastest one", "A good decision is whatever makes the most money today"],
+        "expected": "A good decision considers the consequences and fairness, not just short-term gain",
+        "memo": "Good decisions weigh the effects on others and fairness, while bad decisions chase short-term gain regardless of the harm caused.",
+        "error_signals": ["ERR_BUS_ETHICS_JUDGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.15",
+        "question": "Which is a skill of ethical, responsible business practice?",
+        "input_type": "choice",
+        "options": ["Being honest and transparent in dealings", "Hiding information from customers", "Cutting corners on safety", "Treating staff unfairly"],
+        "expected": "Being honest and transparent in dealings",
+        "memo": "Honesty and transparency are key skills of ethical, responsible business practice.",
+        "error_signals": ["ERR_BUS_ETHICS_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.16",
+        "question": "Different _________ on ethics means people may judge what is right or wrong differently.",
+        "input_type": "cloze",
+        "options": ["perspectives", "salaries", "machines", "logos"],
+        "expected": "perspectives",
+        "memo": "People hold different perspectives on ethics, so the same action may be judged differently depending on values and context.",
+        "error_signals": ["ERR_BUS_ETHICS_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.17",
+        "question": "A manager can win a contract by lying about the product's quality. What does ethical business practice require?",
+        "input_type": "choice",
+        "options": ["Telling the truth, even if it means losing the contract", "Lying, because winning is all that matters", "Hiding the truth and hoping no one finds out", "Blaming a junior employee for any complaints"],
+        "expected": "Telling the truth, even if it means losing the contract",
+        "memo": "Ethical practice means being honest even when it costs the business, because trust and integrity matter more than one contract.",
+        "error_signals": ["ERR_BUS_ETHICS_JUDGE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.18",
+        "question": "Why does professionalism support ethical behaviour at work?",
+        "input_type": "choice",
+        "options": ["Professional standards like honesty, respect and accountability make ethical conduct part of daily work", "Professionalism replaces the need for any ethics", "Professionalism only concerns dress code", "Professionalism encourages cutting corners"],
+        "expected": "Professional standards like honesty, respect and accountability make ethical conduct part of daily work",
+        "memo": "A professional standard built on honesty, respect and accountability naturally encourages and supports ethical behaviour.",
+        "error_signals": ["ERR_BUS_PROF_ETHICS_DIFF"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.19",
+        "question": "Why might two people disagree about whether a business decision is ethical?",
+        "input_type": "choice",
+        "options": ["They hold different values and perspectives on what is right", "Ethics is a fixed mathematical formula", "One of them must be lying", "Ethics never involves judgement"],
+        "expected": "They hold different values and perspectives on what is right",
+        "memo": "Because people bring different values and perspectives, they can reach different conclusions about the same ethical question.",
+        "error_signals": ["ERR_BUS_ETHICS_CONCEPT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.PROFETHICS.A1.20",
+        "question": "An employee notices the company is overcharging vulnerable customers. What is the most ethical and professional response?",
+        "input_type": "choice",
+        "options": ["Raise the concern through the proper channels so it can be corrected", "Say nothing because it boosts profit", "Quietly overcharge a few more customers", "Tell customers to complain on social media anonymously first"],
+        "expected": "Raise the concern through the proper channels so it can be corrected",
+        "memo": "The ethical and professional path is to raise the issue responsibly through the right channels so the unfair practice is stopped.",
+        "error_signals": ["ERR_BUS_ETHICS_JUDGE"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

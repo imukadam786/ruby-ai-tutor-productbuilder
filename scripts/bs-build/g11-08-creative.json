@@ -1,0 +1,257 @@
+{
+  "BUS.G11.T2.CREATIVE.A1": {
+    "title": "Creative thinking & problem-solving (advanced)",
+    "description": "Applying creative thinking to business problems: routine vs creative thinking, mental blocks, techniques (brainstorming, mind-mapping, Delphi, force-field analysis), working with others, and conventional vs non-conventional (including indigenous) solutions checked against reality.",
+    "grade": 11,
+    "strand": "T2 — Creative thinking, stress & change, action plans, setting up, ethics & presentation",
+    "skill_ids": ["BUS.G11.T2.CREATIVE.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T2",
+    "caps_topic": "Creative thinking and problem-solving",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+    "recovery_strategy": "Routine thinking follows known steps; creative thinking breaks the pattern to find new ideas. Mental blocks (fear of failure, assuming one right answer) stop creativity. Techniques such as brainstorming, mind-mapping, Delphi and force-field analysis help generate and weigh options.",
+    "questions": [
+      {
+        "ref": "G11.CREATIVE.A1.01",
+        "question": "What best describes creative thinking, compared with routine thinking?",
+        "input_type": "choice",
+        "options": ["Generating new ideas by breaking away from the usual pattern", "Repeating the same fixed steps every time", "Doing exactly what a manual says", "Avoiding any new ideas"],
+        "expected": "Generating new ideas by breaking away from the usual pattern",
+        "memo": "Creative thinking produces fresh ideas by departing from habit; routine thinking simply follows familiar, fixed steps.",
+        "error_signals": ["ERR_BUS_CREATIVE_ROUTINE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CREATIVE.A1.02",
+        "question": "Something that stops a person from thinking creatively is called a _________ block.",
+        "input_type": "cloze",
+        "options": ["mental", "road", "building", "stumbling"],
+        "expected": "mental",
+        "memo": "A mental block — such as fear of failure or assuming there is only one right answer — prevents creative thinking.",
+        "error_signals": ["ERR_BUS_CREATIVE_BLOCK"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CREATIVE.A1.03",
+        "question": "True or false: In brainstorming, ideas are generated freely at first without being judged.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Brainstorming encourages many ideas without early judgement, so people feel free to contribute; evaluation comes later.",
+        "error_signals": ["ERR_BUS_CREATIVE_TECHNIQUE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CREATIVE.A1.04",
+        "question": "Which of these is a creative-thinking technique?",
+        "input_type": "choice",
+        "options": ["Mind-mapping", "Stocktaking", "Payroll", "Auditing"],
+        "expected": "Mind-mapping",
+        "memo": "Mind-mapping is a creative-thinking technique that visually links ideas around a central topic.",
+        "error_signals": ["ERR_BUS_CREATIVE_TECHNIQUE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CREATIVE.A1.05",
+        "question": "The _________ technique gathers expert opinions in rounds, without the experts meeting face to face.",
+        "input_type": "cloze",
+        "options": ["Delphi", "brainstorming", "mind-map", "SWOT"],
+        "expected": "Delphi",
+        "memo": "The Delphi technique collects and refines expert views over several rounds without the experts meeting, reducing the influence of dominant personalities.",
+        "error_signals": ["ERR_BUS_CREATIVE_TECHNIQUE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CREATIVE.A1.06",
+        "question": "True or false: Creative thinking can help a business improve the way it works.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Creative thinking generates new solutions and improvements, helping a business solve problems and work better.",
+        "error_signals": ["ERR_BUS_CREATIVE_ROUTINE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.CREATIVE.A1.07",
+        "question": "Sort each example into routine thinking or creative thinking.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "routine", "label": "Routine thinking"},
+          {"id": "creative", "label": "Creative thinking"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Following the same daily checklist without change", "correct_bucket": "routine"},
+          {"id": "i2", "text": "Combining two unrelated ideas to invent a new product", "correct_bucket": "creative"},
+          {"id": "i3", "text": "Processing invoices the usual way", "correct_bucket": "routine"},
+          {"id": "i4", "text": "Brainstorming fresh ways to reach customers", "correct_bucket": "creative"},
+          {"id": "i5", "text": "Re-ordering stock exactly as always", "correct_bucket": "routine"},
+          {"id": "i6", "text": "Finding an unconventional use for a waste material", "correct_bucket": "creative"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Following fixed steps is routine; generating new ideas, combinations and unconventional uses is creative thinking.",
+        "error_signals": ["ERR_BUS_CREATIVE_ROUTINE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CREATIVE.A1.08",
+        "question": "Which of these is a mental block to creativity?",
+        "input_type": "choice",
+        "options": ["Assuming there is only one right answer to a problem", "Asking 'what if we tried something different?'", "Listening to many points of view", "Combining ideas in new ways"],
+        "expected": "Assuming there is only one right answer to a problem",
+        "memo": "Assuming a single right answer shuts down new ideas — a classic mental block. The other options open up creative thinking.",
+        "error_signals": ["ERR_BUS_CREATIVE_BLOCK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CREATIVE.A1.09",
+        "question": "Put the steps of generating and using a creative solution in the correct order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "define", "text": "Define the problem clearly"},
+          {"id": "generate", "text": "Generate many ideas freely"},
+          {"id": "evaluate", "text": "Evaluate the ideas against the real situation"},
+          {"id": "implement", "text": "Choose and implement the best idea"}
+        ],
+        "expected_order": ["define", "generate", "evaluate", "implement"],
+        "options": ["define, generate, evaluate, implement", "implement, evaluate, generate, define", "generate, define, implement, evaluate"],
+        "expected": "define, generate, evaluate, implement",
+        "memo": "First understand the problem, then generate ideas freely, then judge them against reality, and finally implement the best one.",
+        "error_signals": ["ERR_BUS_CREATIVE_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CREATIVE.A1.10",
+        "question": "_________-field analysis weighs the forces pushing for a change against the forces resisting it.",
+        "input_type": "cloze",
+        "options": ["Force", "Mind", "Stock", "Cash"],
+        "expected": "Force",
+        "memo": "Force-field analysis lists the driving forces for a change and the restraining forces against it, to decide whether and how to proceed.",
+        "error_signals": ["ERR_BUS_CREATIVE_TECHNIQUE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CREATIVE.A1.11",
+        "question": "What is a benefit of working with others to generate ideas?",
+        "input_type": "choice",
+        "options": ["A wider range of ideas and perspectives is produced", "Only one person's view is ever heard", "It guarantees no disagreement", "It removes the need to evaluate ideas"],
+        "expected": "A wider range of ideas and perspectives is produced",
+        "memo": "Different people bring different experiences, so working together produces more varied ideas than thinking alone.",
+        "error_signals": ["ERR_BUS_CREATIVE_TECHNIQUE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CREATIVE.A1.12",
+        "question": "What is the difference between a conventional and a non-conventional solution?",
+        "input_type": "choice",
+        "options": ["A conventional solution is the usual, expected one; a non-conventional solution is new or unusual", "A conventional solution is always wrong", "A non-conventional solution is the one in the textbook", "There is no difference between them"],
+        "expected": "A conventional solution is the usual, expected one; a non-conventional solution is new or unusual",
+        "memo": "Conventional solutions follow the normal approach; non-conventional (including indigenous) solutions take a fresh, less obvious route.",
+        "error_signals": ["ERR_BUS_CREATIVE_SOLUTION"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CREATIVE.A1.13",
+        "question": "Sort each item into whether it is a creative-thinking technique or not.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "technique", "label": "Creative-thinking technique"},
+          {"id": "not", "label": "Not a creative-thinking technique"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Brainstorming", "correct_bucket": "technique"},
+          {"id": "i2", "text": "Ignoring the problem and hoping it goes away", "correct_bucket": "not"},
+          {"id": "i3", "text": "Mind-mapping", "correct_bucket": "technique"},
+          {"id": "i4", "text": "Copying a competitor's product exactly", "correct_bucket": "not"},
+          {"id": "i5", "text": "The Delphi technique", "correct_bucket": "technique"},
+          {"id": "i6", "text": "Force-field analysis", "correct_bucket": "technique"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Brainstorming, mind-mapping, Delphi and force-field analysis are techniques. Ignoring a problem or copying others is not creative thinking.",
+        "error_signals": ["ERR_BUS_CREATIVE_TECHNIQUE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CREATIVE.A1.14",
+        "question": "How can indigenous knowledge help a business solve a problem?",
+        "input_type": "choice",
+        "options": ["It offers local, traditional knowledge that can suggest practical solutions", "It must never be used in business", "It only works for very large companies", "It always costs more than other methods"],
+        "expected": "It offers local, traditional knowledge that can suggest practical solutions",
+        "memo": "Indigenous knowledge draws on local, traditional experience and can provide creative, context-appropriate solutions.",
+        "error_signals": ["ERR_BUS_CREATIVE_SOLUTION"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CREATIVE.A1.15",
+        "question": "True or false: Even a clever creative idea should be checked against the reality of the business before it is used.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Creative ideas must be tested against the business's real resources, costs and conditions to make sure they can actually work.",
+        "error_signals": ["ERR_BUS_CREATIVE_ASSESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CREATIVE.A1.16",
+        "question": "A manager says, 'We have always done it this way, so there is no other option.' Which mental block is this?",
+        "input_type": "choice",
+        "options": ["Sticking to habit and assuming only one right answer", "Being too open to new ideas", "Considering too many perspectives", "Testing ideas against reality"],
+        "expected": "Sticking to habit and assuming only one right answer",
+        "memo": "Relying on 'how it has always been done' is a mental block that blocks new ideas.",
+        "error_signals": ["ERR_BUS_CREATIVE_BLOCK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.CREATIVE.A1.17",
+        "question": "Faced with a brand-new problem no procedure covers, why is creative thinking more useful than routine thinking?",
+        "input_type": "choice",
+        "options": ["A new problem has no ready-made answer, so fresh ideas are needed", "Routine thinking always solves new problems instantly", "Creative thinking avoids solving the problem", "New problems never need any thinking"],
+        "expected": "A new problem has no ready-made answer, so fresh ideas are needed",
+        "memo": "Routine thinking only repeats known steps. A genuinely new problem needs creative thinking to generate solutions that do not yet exist.",
+        "error_signals": ["ERR_BUS_CREATIVE_ROUTINE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.CREATIVE.A1.18",
+        "question": "Put the steps of running a force-field analysis in a sensible order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "change", "text": "State the change being considered"},
+          {"id": "driving", "text": "List the forces driving the change"},
+          {"id": "restraining", "text": "List the forces resisting the change"},
+          {"id": "decide", "text": "Weigh the forces and decide how to proceed"}
+        ],
+        "expected_order": ["change", "driving", "restraining", "decide"],
+        "options": ["change, driving, restraining, decide", "decide, restraining, driving, change", "driving, change, decide, restraining"],
+        "expected": "change, driving, restraining, decide",
+        "memo": "Name the change, list the forces for it, list the forces against it, then weigh them up to decide.",
+        "error_signals": ["ERR_BUS_CREATIVE_PROCESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.CREATIVE.A1.19",
+        "question": "Why is it important to assess a creative solution against the reality of the business environment?",
+        "input_type": "choice",
+        "options": ["So that the idea actually fits the business's resources, costs and conditions", "So that the idea can be as expensive as possible", "So that no idea is ever used", "So that only the oldest idea wins"],
+        "expected": "So that the idea actually fits the business's resources, costs and conditions",
+        "memo": "An idea is only useful if the business can realistically afford and implement it, so creative solutions are checked against the real situation.",
+        "error_signals": ["ERR_BUS_CREATIVE_ASSESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.CREATIVE.A1.20",
+        "question": "A bakery has surplus bread it cannot sell by closing time. Which response shows the most creative thinking?",
+        "input_type": "choice",
+        "options": ["Partnering with a shelter to turn surplus bread into a low-cost evening meal range", "Throwing all the surplus away as usual", "Refusing to consider any new idea", "Closing the bakery permanently"],
+        "expected": "Partnering with a shelter to turn surplus bread into a low-cost evening meal range",
+        "memo": "Turning a waste problem into a new offering through a partnership is a creative, non-conventional solution that also adds value.",
+        "error_signals": ["ERR_BUS_CREATIVE_SOLUTION"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

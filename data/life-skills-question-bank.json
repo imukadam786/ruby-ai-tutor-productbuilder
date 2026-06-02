@@ -118,6 +118,12 @@
             "Elbow",
             "Toe"
           ],
+          "image_refs": [
+            "body_eye",
+            "body_knee",
+            "body_elbow",
+            "body_toe"
+          ],
           "expected": "Eye",
           "memo": "Eyes are on your face, with your nose, ears and mouth. Knees, elbows and toes are on other parts of your body.",
           "error_signals": [
@@ -220,6 +226,12 @@
             "Eating without washing",
             "Playing in dirt then eating",
             "Drinking from a friend's cup"
+          ],
+          "image_refs": [
+            "scene_washing_hands_with_soap",
+            "scene_eating_without_washing",
+            "scene_playing_in_dirt_then_eating",
+            "scene_drinking_from_a_friend_s_cup"
           ],
           "expected": "Washing hands with soap",
           "memo": "Washing your hands with soap is good hygiene. The other choices can let germs into your body.",
@@ -373,6 +385,12 @@
             "Classroom desks",
             "Library shelves",
             "Principal's office"
+          ],
+          "image_refs": [
+            "obj_open_grassy_area_with_swings",
+            "obj_classroom_desks",
+            "place_library_shelves",
+            "place_principal_s_office"
           ],
           "expected": "Open grassy area with swings",
           "memo": "The playground is where we play and run during break. The other places have different uses.",
@@ -533,6 +551,12 @@
             "Kitchen",
             "Market"
           ],
+          "image_refs": [
+            "obj_desks_facing_a_board",
+            "place_swimming_pool",
+            "place_kitchen",
+            "place_market"
+          ],
           "expected": "Desks facing a board",
           "memo": "A classroom has desks and a board where the teacher writes. The other places are for swimming, cooking and shopping.",
           "error_signals": [
@@ -681,6 +705,12 @@
             "School building",
             "Car"
           ],
+          "image_refs": [
+            "scene_drawing_with_grandparents_at_top_and_chi",
+            "obj_tree",
+            "place_school",
+            "obj_car"
+          ],
           "expected": "Drawing with grandparents at top and children below",
           "memo": "A family tree is a drawing that shows how people in a family are related, with the oldest people at the top.",
           "error_signals": [
@@ -748,6 +778,12 @@
             "A chair",
             "A tea towel",
             "A fruit bowl"
+          ],
+          "image_refs": [
+            "place_hot_stove",
+            "obj_chair",
+            "obj_tea_towel",
+            "obj_fruit_bowl"
           ],
           "expected": "Hot stove",
           "memo": "A hot stove can burn you very badly. Only grown-ups should use the stove.",
@@ -1846,6 +1882,12 @@
             "A child laughing at someone",
             "A child hiding"
           ],
+          "image_refs": [
+            "scene_child_helping_someone_who_fell",
+            "scene_child_walking_past",
+            "scene_child_laughing_at_someone",
+            "scene_child_hiding"
+          ],
           "expected": "A child helping someone who fell",
           "memo": "Stopping to help when someone is hurt takes courage. Walking past or laughing is not brave.",
           "error_signals": [
@@ -1987,6 +2029,12 @@
             "Ignoring a sad child",
             "Shouting at someone"
           ],
+          "image_refs": [
+            "scene_sharing_food_with_another_child",
+            "scene_taking_a_toy_from_a_friend",
+            "scene_ignoring_a_sad_child",
+            "scene_shouting_at_someone"
+          ],
           "expected": "Sharing food with another child",
           "memo": "Sharing is a kind, hero-like action. The other choices are not kind.",
           "error_signals": [
@@ -2114,6 +2162,12 @@
             "The footballer with a ball",
             "The chef with a pan"
           ],
+          "image_refs": [
+            "scene_person_in_scrubs_with_a_stethoscope",
+            "scene_person_reading_a_book",
+            "scene_footballer_with_a_ball",
+            "scene_chef_with_a_pan"
+          ],
           "expected": "The person in scrubs with a stethoscope",
           "memo": "Nurses often wear scrubs (special uniforms) and use stethoscopes to listen to your heartbeat. They help people who are sick or hurt.",
           "error_signals": [
@@ -2187,6 +2241,12 @@
             "The chef",
             "The dancer",
             "The doctor"
+          ],
+          "image_refs": [
+            "scene_scholar_patrol_with_a_flag",
+            "scene_chef",
+            "scene_dancer",
+            "scene_doctor"
           ],
           "expected": "The scholar patrol with a flag",
           "memo": "Scholar Patrols stop the traffic so children can cross safely. They are usually older learners trained to do this important job.",
@@ -2289,6 +2349,12 @@
             "The chef",
             "The vet",
             "The dancer"
+          ],
+          "image_refs": [
+            "scene_postal_worker_with_a_bag_of_letters",
+            "scene_chef",
+            "scene_vet",
+            "scene_dancer"
           ],
           "expected": "The postal worker with a bag of letters",
           "memo": "Postal workers deliver letters and parcels from one place to another. They help families stay in touch.",
@@ -2398,6 +2464,12 @@
             "A kitchen",
             "A library",
             "A phone shop"
+          ],
+          "image_refs": [
+            "place_open_green_space_with_swings_and_trees",
+            "place_kitchen",
+            "place_library",
+            "place_phone_shop"
           ],
           "expected": "Open green space with swings and trees",
           "memo": "A park is an open space where you can play, run, and enjoy nature. Many parks have swings and trees.",
@@ -2839,6 +2911,12 @@
             "A drawing",
             "A painting"
           ],
+          "image_refs": [
+            "obj_black_and_white_photo",
+            "obj_colour_video_on_a_phone",
+            "obj_drawing",
+            "obj_painting"
+          ],
           "expected": "A black-and-white photo",
           "memo": "Old photographs were often black-and-white because colour photos were not common long ago. They look different from today's pictures.",
           "error_signals": [
@@ -2905,6 +2983,12 @@
             "A tablet computer",
             "A video game console",
             "A smart watch"
+          ],
+          "image_refs": [
+            "obj_treadle_sewing_machine",
+            "obj_tablet_computer",
+            "obj_gameconsole",
+            "obj_smartwatch"
           ],
           "expected": "A treadle sewing machine",
           "memo": "Treadle sewing machines (worked with your feet) were common long ago for making clothes at home. The others are modern.",
@@ -3000,6 +3084,12 @@
             "One child taking another's toy",
             "One child pushing another",
             "One child laughing at another"
+          ],
+          "image_refs": [
+            "scene_two_children_sharing_a_sandwich",
+            "scene_one_child_taking_another_s_toy",
+            "scene_one_child_pushing_another",
+            "scene_one_child_laughing_at_another"
           ],
           "expected": "Two children sharing a sandwich",
           "memo": "Sharing is a sign of friendship. Taking, pushing, or laughing at someone is not friendly behaviour.",
@@ -3167,6 +3257,12 @@
             "A child reading a book",
             "A child eating lunch alone but relaxed"
           ],
+          "image_refs": [
+            "scene_child_surrounded_by_laughing_children_po",
+            "scene_child_playing_happily",
+            "scene_child_reading_a_book",
+            "scene_child_eating_lunch_alone_but_relaxed"
+          ],
           "expected": "A child surrounded by laughing children pointing at them",
           "memo": "Bullying often looks like people ganging up and laughing at one person. If you see this, tell a teacher.",
           "error_signals": [
@@ -3299,6 +3395,12 @@
             "An empty house",
             "A closed shop",
             "A wet road"
+          ],
+          "image_refs": [
+            "scene_people_in_colourful_clothes_dancing_toge",
+            "place_empty_house",
+            "place_closed_shop",
+            "place_wet_road"
           ],
           "expected": "People in colourful clothes dancing together",
           "memo": "Festivals are celebrations with music, dance, special clothes and food. Different communities have their own festivals.",
@@ -3674,6 +3776,12 @@
             "A busy shopping centre",
             "An office tower"
           ],
+          "image_refs": [
+            "place_small_farm_house_with_fields_around",
+            "place_tall_city_block_of_flats",
+            "place_busy_shopping_centre",
+            "place_office_tower"
+          ],
           "expected": "A small farm house with fields around",
           "memo": "Homes in the countryside often have land around them. City homes are closer together to fit more people in a smaller space.",
           "error_signals": [
@@ -3758,6 +3866,12 @@
             "A wooden spoon",
             "A bowl",
             "A tea towel"
+          ],
+          "image_refs": [
+            "place_hot_stove",
+            "obj_spoon",
+            "obj_bowl",
+            "obj_tea_towel"
           ],
           "expected": "A hot stove",
           "memo": "A hot stove can burn you very badly. Only grown-ups should use the stove — even when it looks off, it can still be hot.",
@@ -4264,6 +4378,12 @@
             "A sunny beach",
             "A green garden full of flowers",
             "A hot summer braai"
+          ],
+          "image_refs": [
+            "obj_bare_trees_with_frost",
+            "place_beach",
+            "obj_green_garden_full_of_flowers",
+            "obj_hot_summer_braai"
           ],
           "expected": "Bare trees with frost",
           "memo": "Winter often shows bare trees and frost or snow. The other pictures are signs of warmer seasons.",
@@ -4995,6 +5115,31 @@
             "We don't know what else to eat",
             "Nobody likes it but we must"
           ]
+        },
+        {
+          "ref": "T05.16",
+          "question": "Which picture shows bobotie, a traditional South African food?",
+          "ruby_prompt": "Different families enjoy different foods. Which picture shows bobotie?",
+          "context": "Pictures: bobotie, biltong, umngqusho, pizza.",
+          "input_type": "image-match",
+          "options": [
+            "Bobotie",
+            "Biltong",
+            "Umngqusho",
+            "Pizza"
+          ],
+          "image_refs": [
+            "scene_bobotie",
+            "food_biltong",
+            "food_umngqusho",
+            "food_pizza"
+          ],
+          "expected": "Bobotie",
+          "memo": "Bobotie is minced meat with a soft egg topping. Biltong and umngqusho are also South African foods; pizza comes from Italy.",
+          "error_signals": [
+            "ERR_LS_FACT"
+          ],
+          "difficulty": 2
         }
       ]
     },
@@ -5086,6 +5231,12 @@
             "A wooden chair",
             "A candle",
             "A paper book"
+          ],
+          "image_refs": [
+            "obj_fridge",
+            "obj_chair",
+            "obj_candle",
+            "obj_book"
           ],
           "expected": "A fridge",
           "memo": "Fridges need electricity to keep food cold. Chairs, candles and books work without electricity.",
@@ -5799,6 +5950,12 @@
             "Two children fighting",
             "A child sitting alone refusing to help"
           ],
+          "image_refs": [
+            "scene_children_listening_to_each_other_and_sha",
+            "obj_one_child_grabbing_all_the_materials",
+            "scene_two_children_fighting",
+            "scene_child_sitting_alone_refusing_to_help"
+          ],
           "expected": "Children listening to each other and sharing",
           "memo": "Good group work means listening, sharing, and taking turns. Everyone gets a chance to speak and be helpful.",
           "error_signals": [
@@ -5965,6 +6122,12 @@
             "A child dropping a packet on the floor",
             "A child kicking over a bin"
           ],
+          "image_refs": [
+            "scene_child_picking_up_litter",
+            "scene_child_throwing_rubbish_from_a_car",
+            "scene_child_dropping_a_packet_on_the_floor",
+            "scene_child_kicking_over_a_bin"
+          ],
           "expected": "A child picking up litter",
           "memo": "Picking up litter helps the place we live in. The other actions make the environment dirtier.",
           "error_signals": [
@@ -6094,6 +6257,12 @@
             "An open bin with flies",
             "Dirty dishes left for days",
             "A cracked toilet with smelly water"
+          ],
+          "image_refs": [
+            "place_clean_kitchen_with_food_covered",
+            "obj_open_bin_with_flies",
+            "obj_dirty_dishes_left_for_days",
+            "obj_cracked_toilet_with_smelly_water"
           ],
           "expected": "A clean kitchen with food covered",
           "memo": "A healthy home has clean spaces and covered food. The other pictures show germ-friendly environments that can make families sick.",
@@ -6258,6 +6427,12 @@
             "A US Dollar",
             "A Euro",
             "An Indian Rupee"
+          ],
+          "image_refs": [
+            "obj_rand_banknote",
+            "obj_us_dollar",
+            "obj_euro",
+            "obj_indian_rupee"
           ],
           "expected": "A Rand banknote",
           "memo": "Our currency is the Rand. R10, R20, R50, R100 and R200 are common banknotes. R1, R2 and R5 are coins.",
@@ -6452,6 +6627,26 @@
             "ERR_LS_FACT"
           ],
           "difficulty": 1
+        },
+        {
+          "ref": "T10.16",
+          "question": "The Y-shape on the South African flag shows two paths joining into one. What does this stand for?",
+          "ruby_prompt": "Look at our flag. The Y-shape joins together into one path. What does that show?",
+          "context": "Picture: the South African flag with its central Y-shape.",
+          "input_type": "choice",
+          "options": [
+            "Many different people coming together as one nation",
+            "Six different countries",
+            "Six roads to the sea",
+            "Just a letter of the alphabet"
+          ],
+          "stem_image": "obj_sa_flag_y",
+          "expected": "Many different people coming together as one nation",
+          "memo": "The Y-shape shows different people and histories coming together as one united nation.",
+          "error_signals": [
+            "ERR_LS_FACT"
+          ],
+          "difficulty": 2
         }
       ]
     },
@@ -6579,6 +6774,12 @@
             "A banker in an office",
             "A pilot in a plane",
             "An actor on stage"
+          ],
+          "image_refs": [
+            "place_farmer_in_a_field",
+            "place_banker_in_an_office",
+            "obj_pilot_in_a_plane",
+            "obj_actor_on_stage"
           ],
           "expected": "A farmer in a field",
           "memo": "Farmers grow food on land — vegetables, fruits, grains. Without farmers, we would not have most of the food we eat.",
@@ -7218,6 +7419,12 @@
             "A tracksuit",
             "A swimsuit",
             "A business suit"
+          ],
+          "image_refs": [
+            "obj_zulu_woman_in_beaded_traditional_dress",
+            "obj_tracksuit",
+            "obj_swimsuit",
+            "obj_business_suit"
           ],
           "expected": "A Zulu woman in beaded traditional dress",
           "memo": "Traditional Zulu beadwork is a rich part of South African culture. Each colour and pattern carries meaning.",
@@ -7985,6 +8192,12 @@
             "A wooden chair",
             "A glass bottle"
           ],
+          "image_refs": [
+            "obj_dinosaur_footprint_in_rock",
+            "obj_paper_drawing",
+            "obj_chair",
+            "obj_glass_bottle"
+          ],
           "expected": "A dinosaur footprint in rock",
           "memo": "Fossils are remains or marks of ancient living things preserved in rock — bones, shells, footprints. They teach us about the past.",
           "error_signals": [
@@ -8366,6 +8579,12 @@
             "A pair of shoes",
             "A stick",
             "An apple"
+          ],
+          "image_refs": [
+            "obj_smartphone",
+            "obj_shoes",
+            "obj_stick",
+            "food_apple"
           ],
           "expected": "A smartphone with messages",
           "memo": "Smartphones can send texts, make calls, send video, and email. They are powerful communication tools.",
@@ -9081,6 +9300,12 @@
             "A dot in the north-east",
             "A dot outside Africa"
           ],
+          "image_refs": [
+            "obj_dot_in_the_south_west_corner_of_south_af",
+            "obj_dot_in_the_middle_of_the_country",
+            "obj_dot_in_the_north_east",
+            "obj_dot_outside_africa"
+          ],
           "expected": "A dot in the south-west corner of South Africa",
           "memo": "Cape Town is in the south-west, where two oceans meet. Learning to read a map helps you find places.",
           "error_signals": [
@@ -9753,6 +9978,12 @@
             "Fresh air over a field",
             "A tree in spring"
           ],
+          "image_refs": [
+            "obj_smoke_from_a_factory_chimney",
+            "obj_clean_blue_sky",
+            "obj_fresh_air_over_a_field",
+            "obj_tree"
+          ],
           "expected": "Smoke from a factory chimney",
           "memo": "Factory smoke fills the air with poisons. Clean air is what we want to breathe, but pollution makes air harder on our lungs.",
           "error_signals": [
@@ -9874,6 +10105,12 @@
             "A clean stream",
             "A swimming pool",
             "A glass of clean water"
+          ],
+          "image_refs": [
+            "obj_river_with_oil_and_plastic_floating_on_t",
+            "obj_clean_stream",
+            "place_swimming_pool",
+            "obj_glass_of_clean_water"
           ],
           "expected": "A river with oil and plastic floating on top",
           "memo": "Water pollution can be oil, plastic, sewage, or chemicals in rivers, dams or the sea. It harms fish and the people who drink the water.",
@@ -10222,6 +10459,12 @@
             "A clear sunset",
             "A foggy morning",
             "Fireworks at night"
+          ],
+          "image_refs": [
+            "obj_thick_smoke_rising_over_hills",
+            "sky_sunset",
+            "sky_fog",
+            "sky_fireworks"
           ],
           "expected": "Thick smoke rising over hills",
           "memo": "Wildfires send up large clouds of smoke. If you see this in nature areas, alert a grown-up to call emergency services immediately.",
@@ -10673,6 +10916,12 @@
             "A person stealing",
             "Someone laughing at a younger child",
             "Someone breaking things"
+          ],
+          "image_refs": [
+            "scene_parent_helping_a_child_read",
+            "scene_person_stealing",
+            "scene_someone_laughing_at_a_younger_child",
+            "scene_someone_breaking_things"
           ],
           "expected": "A parent helping a child read",
           "memo": "Reading with a child shows patience and care — qualities of a role model. The other images show actions to avoid.",
@@ -11425,6 +11674,12 @@
             "A tracksuit",
             "A swimming costume",
             "A business suit"
+          ],
+          "image_refs": [
+            "body_zulu_woman_in_a_beaded_isidwaba_and_trad",
+            "obj_tracksuit",
+            "obj_swimsuit",
+            "obj_business_suit"
           ],
           "expected": "A Zulu woman in a beaded isidwaba and traditional headpiece",
           "memo": "Traditional Zulu clothing is rich with beadwork and meaning. Different colours and patterns mean different things — age, family, status.",
@@ -20863,6 +21118,40 @@
             "ERR_LS_SAFETY"
           ],
           "difficulty": 3
+        },
+        {
+          "ref": "T10.21",
+          "question": "You should always wear a seatbelt when you travel in a car.",
+          "ruby_prompt": "Look at the picture. True or false: you should always wear a seatbelt in a car?",
+          "context": "Picture: a car seatbelt with its buckle.",
+          "input_type": "true-false",
+          "stem_image": "obj_seatbelt",
+          "expected": "True",
+          "memo": "True. A seatbelt holds you safely in your seat and protects you if the car stops suddenly or crashes.",
+          "error_signals": [
+            "ERR_LS_SAFETY"
+          ],
+          "difficulty": 1
+        },
+        {
+          "ref": "T10.22",
+          "question": "What is the safest place to cross a busy road?",
+          "ruby_prompt": "Look at the picture. Where is the safest place to cross a busy road?",
+          "context": "Picture: a painted zebra crossing across a road.",
+          "input_type": "choice",
+          "options": [
+            "At a zebra crossing",
+            "Between parked cars",
+            "In the middle of the road",
+            "Anywhere, as long as you run"
+          ],
+          "stem_image": "scene_zebra_crossing",
+          "expected": "At a zebra crossing",
+          "memo": "A zebra crossing is marked for people to cross, and drivers must stop for you. Crossing between cars or running across is dangerous.",
+          "error_signals": [
+            "ERR_LS_SAFETY"
+          ],
+          "difficulty": 2
         }
       ]
     },
@@ -21583,6 +21872,20 @@
             "ERR_LS_FACT"
           ],
           "difficulty": 3
+        },
+        {
+          "ref": "T12.21",
+          "question": "Energy drinks are a healthy choice for children to drink every day.",
+          "ruby_prompt": "Look at the picture. True or false: energy drinks are a healthy daily drink for children?",
+          "context": "Picture: a can of energy drink.",
+          "input_type": "true-false",
+          "stem_image": "obj_energy_drink",
+          "expected": "False",
+          "memo": "False. Energy drinks have a lot of sugar and caffeine, which are not healthy for children. Water is the best everyday drink.",
+          "error_signals": [
+            "ERR_LS_FACT"
+          ],
+          "difficulty": 2
         }
       ]
     },
@@ -21956,6 +22259,26 @@
             "ERR_LS_FACT"
           ],
           "difficulty": 4
+        },
+        {
+          "ref": "T13.21",
+          "question": "Why should we never throw litter into a stormwater drain?",
+          "ruby_prompt": "Look at the picture of the drain. Why should we never throw litter into it?",
+          "context": "Picture: a street stormwater drain.",
+          "input_type": "choice",
+          "options": [
+            "It blocks the drain and causes flooding and water pollution",
+            "It helps the water flow faster",
+            "It feeds the fish in the river",
+            "It makes the street look better"
+          ],
+          "stem_image": "obj_drain",
+          "expected": "It blocks the drain and causes flooding and water pollution",
+          "memo": "Litter blocks stormwater drains, which causes flooding when it rains and pollutes the rivers the drains flow into.",
+          "error_signals": [
+            "ERR_LS_SAFETY"
+          ],
+          "difficulty": 2
         }
       ]
     },
@@ -26638,6 +26961,51 @@
             "ERR_LS_EMPATHY"
           ],
           "difficulty": 4
+        },
+        {
+          "ref": "T11.21",
+          "question": "Which picture shows the Zulu reed dance (umkhosi womhlanga)?",
+          "ruby_prompt": "South Africa has its own special dances. Which picture shows the Zulu reed dance?",
+          "context": "Pictures: a Zulu reed dance, flamenco dancing, American line dancing, an Aboriginal outback dance.",
+          "input_type": "image-match",
+          "options": [
+            "Zulu reed dance",
+            "Flamenco dancing",
+            "American line dancing",
+            "Aboriginal outback dance"
+          ],
+          "image_refs": [
+            "scene_zulu_reed_dance",
+            "scene_flamenco",
+            "scene_line_dance",
+            "scene_outback_dance"
+          ],
+          "expected": "Zulu reed dance",
+          "memo": "The Zulu reed dance (umkhosi womhlanga) is a South African tradition where young women carry tall reeds. The others are dances from Spain, America and Australia.",
+          "error_signals": [
+            "ERR_LS_FACT"
+          ],
+          "difficulty": 2
+        },
+        {
+          "ref": "T11.22",
+          "question": "This picture shows the 1956 Women's March to the Union Buildings. What were the women marching against?",
+          "ruby_prompt": "Look at the picture. In 1956 thousands of women marched to the Union Buildings. What were they marching against?",
+          "context": "Picture: a row of South African women marching together with raised fists.",
+          "input_type": "choice",
+          "options": [
+            "Unfair pass laws",
+            "Paying for school",
+            "A new national flag",
+            "A change to a sports rule"
+          ],
+          "stem_image": "scene_womens_march_1956",
+          "expected": "Unfair pass laws",
+          "memo": "On 9 August 1956 about 20 000 women marched against the unfair pass laws. We remember them every year on Women's Day.",
+          "error_signals": [
+            "ERR_LS_FACT"
+          ],
+          "difficulty": 3
         }
       ]
     },
@@ -27812,7 +28180,8 @@
           "error_signals": [
             "ERR_LS_FACT"
           ],
-          "difficulty": 4
+          "difficulty": 4,
+          "stem_image": "body_mumps"
         },
         {
           "ref": "T15.05",

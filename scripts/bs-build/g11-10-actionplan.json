@@ -1,0 +1,257 @@
+{
+  "BUS.G11.T2.ACTIONPLAN.A1": {
+    "title": "From business plan to action plan",
+    "description": "Transforming a business plan into an action plan using planning tools — Gantt charts and a Work Breakdown Structure (WBS) with timelines and responsibilities — so that the plan becomes a sequence of dated, assigned tasks.",
+    "grade": 11,
+    "strand": "T2 — Creative thinking, stress & change, action plans, setting up, ethics & presentation",
+    "skill_ids": ["BUS.G11.T2.ACTIONPLAN.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T2",
+    "caps_topic": "Business plan",
+    "templates": ["choice", "true-false", "cloze", "sequence", "sort-buckets"],
+    "recovery_strategy": "A business plan says WHAT and WHY; an action plan says WHO does WHICH task by WHEN. A Gantt chart shows tasks against a timeline; a WBS breaks the work into smaller tasks.",
+    "questions": [
+      {
+        "ref": "G11.ACTIONPLAN.A1.01",
+        "question": "What does an action plan mainly show?",
+        "input_type": "choice",
+        "options": ["Who does which task, and by when", "Only the company's profit for last year", "The history of the industry", "The owner's personal hobbies"],
+        "expected": "Who does which task, and by when",
+        "memo": "An action plan turns goals into concrete tasks, each with a person responsible and a deadline.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_PURPOSE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.02",
+        "question": "A _________ chart shows tasks plotted against a timeline.",
+        "input_type": "cloze",
+        "options": ["Gantt", "pie", "organisational", "flow"],
+        "expected": "Gantt",
+        "memo": "A Gantt chart lists tasks down the side and time along the top, showing when each task starts, ends and overlaps.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_TOOL"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.03",
+        "question": "True or false: A Work Breakdown Structure (WBS) splits a big project into smaller tasks.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A WBS breaks a large project into smaller, manageable tasks so the work can be planned and assigned.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_TOOL"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.04",
+        "question": "What is the difference between a business plan and an action plan?",
+        "input_type": "choice",
+        "options": ["A business plan says what and why; an action plan says who does what by when", "A business plan is illegal; an action plan is legal", "They are exactly the same document", "An action plan is only about marketing"],
+        "expected": "A business plan says what and why; an action plan says who does what by when",
+        "memo": "The business plan sets out the idea and the reasons; the action plan turns it into dated, assigned tasks.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_PURPOSE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.05",
+        "question": "In the planning tool 'WBS', the letters stand for Work _________ Structure.",
+        "input_type": "cloze",
+        "options": ["Breakdown", "Balance", "Business", "Budget"],
+        "expected": "Breakdown",
+        "memo": "WBS stands for Work Breakdown Structure — a tool that breaks a project down into smaller tasks.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_TOOL"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.06",
+        "question": "True or false: An action plan assigns responsibilities to specific people.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "An action plan names who is responsible for each task, so everyone knows what they must do.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_PURPOSE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.07",
+        "question": "Sort each item into whether it belongs in the business plan or the action plan.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "plan", "label": "Business plan"},
+          {"id": "action", "label": "Action plan"}
+        ],
+        "items": [
+          {"id": "i1", "text": "The executive summary", "correct_bucket": "plan"},
+          {"id": "i2", "text": "A Gantt chart of tasks and dates", "correct_bucket": "action"},
+          {"id": "i3", "text": "The vision and mission", "correct_bucket": "plan"},
+          {"id": "i4", "text": "A list of who is responsible for each task", "correct_bucket": "action"},
+          {"id": "i5", "text": "The SWOT analysis", "correct_bucket": "plan"},
+          {"id": "i6", "text": "A timeline with task deadlines", "correct_bucket": "action"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Big-picture items (summary, vision, SWOT) belong in the business plan; dated, assigned tasks (Gantt, responsibilities, timeline) belong in the action plan.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_PURPOSE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.08",
+        "question": "What does a Gantt chart help a manager to see at a glance?",
+        "input_type": "choice",
+        "options": ["Which tasks happen when, and which overlap", "How much profit was made last year", "The personal opinions of customers", "The history of the company logo"],
+        "expected": "Which tasks happen when, and which overlap",
+        "memo": "A Gantt chart shows the timing of tasks, including which run in parallel, helping a manager track progress.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_TOOL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.09",
+        "question": "Put the steps of turning a business plan into an action plan in order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "plan", "text": "Finalise the business plan (the goals)"},
+          {"id": "wbs", "text": "Break the goals into smaller tasks (WBS)"},
+          {"id": "schedule", "text": "Schedule the tasks on a timeline (Gantt chart)"},
+          {"id": "assign", "text": "Assign each task to a responsible person"}
+        ],
+        "expected_order": ["plan", "wbs", "schedule", "assign"],
+        "options": ["plan, wbs, schedule, assign", "assign, schedule, wbs, plan", "wbs, plan, assign, schedule"],
+        "expected": "plan, wbs, schedule, assign",
+        "memo": "Start from the plan's goals, break them into tasks, schedule those tasks, and assign each one to someone.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.10",
+        "question": "Each task on an action plan should have a deadline and a person _________ for it.",
+        "input_type": "cloze",
+        "options": ["responsible", "absent", "unknown", "optional"],
+        "expected": "responsible",
+        "memo": "Naming a responsible person for each task creates accountability, so tasks actually get done.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_PURPOSE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.11",
+        "question": "Why does an action plan include timelines?",
+        "input_type": "choice",
+        "options": ["To keep the project on schedule and track progress", "To make the plan longer", "To hide the deadlines from staff", "To avoid finishing the project"],
+        "expected": "To keep the project on schedule and track progress",
+        "memo": "Timelines set deadlines so the team can stay on track and see whether the project is progressing as planned.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_PURPOSE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.12",
+        "question": "True or false: A Gantt chart can show two or more tasks running at the same time.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Because a Gantt chart plots tasks against time, overlapping bars show tasks that run in parallel.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_TOOL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.13",
+        "question": "Sort each item into whether it is a planning tool or not.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "tool", "label": "Planning tool"},
+          {"id": "not", "label": "Not a planning tool"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Gantt chart", "correct_bucket": "tool"},
+          {"id": "i2", "text": "Work Breakdown Structure", "correct_bucket": "tool"},
+          {"id": "i3", "text": "A project timeline", "correct_bucket": "tool"},
+          {"id": "i4", "text": "A coffee mug", "correct_bucket": "not"},
+          {"id": "i5", "text": "A staff parking sign", "correct_bucket": "not"},
+          {"id": "i6", "text": "A task-responsibility list", "correct_bucket": "tool"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Gantt charts, a WBS, timelines and responsibility lists help plan and manage tasks; a mug or a parking sign do not.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_TOOL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.14",
+        "question": "What is the main benefit of a Work Breakdown Structure?",
+        "input_type": "choice",
+        "options": ["It makes a big project manageable by splitting it into smaller tasks", "It hides the size of the project", "It removes the need for any deadlines", "It guarantees the project costs nothing"],
+        "expected": "It makes a big project manageable by splitting it into smaller tasks",
+        "memo": "Breaking a project into smaller tasks makes it easier to plan, schedule, assign and track.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_TOOL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.15",
+        "question": "Why is an action plan so useful once a business plan is written?",
+        "input_type": "choice",
+        "options": ["It turns intentions into concrete, dated steps people can act on", "It replaces the need to do any work", "It keeps the goals secret from the team", "It only repeats the executive summary"],
+        "expected": "It turns intentions into concrete, dated steps people can act on",
+        "memo": "An action plan converts the broad intentions of the business plan into specific tasks, deadlines and responsibilities.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_PURPOSE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.16",
+        "question": "A _________ shows the start and end dates of each task in a project.",
+        "input_type": "cloze",
+        "options": ["timeline", "logo", "receipt", "payslip"],
+        "expected": "timeline",
+        "memo": "A timeline lays out when each task starts and finishes, helping the team see the schedule.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_TOOL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.17",
+        "question": "Put the actions in order when launching a new product from a business plan.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "goal", "text": "Set the goal: launch the new product"},
+          {"id": "tasks", "text": "List all the tasks needed (design, produce, market)"},
+          {"id": "dates", "text": "Give each task a deadline on a Gantt chart"},
+          {"id": "owners", "text": "Assign each task to a team member"}
+        ],
+        "expected_order": ["goal", "tasks", "dates", "owners"],
+        "options": ["goal, tasks, dates, owners", "owners, dates, tasks, goal", "tasks, goal, owners, dates"],
+        "expected": "goal, tasks, dates, owners",
+        "memo": "Define the goal, break it into tasks, schedule them with deadlines, then assign each to someone — that is the plan-to-action sequence.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_PROCESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.18",
+        "question": "An action plan lists tasks but gives no deadlines and names no one responsible. Why is this likely to fail?",
+        "input_type": "choice",
+        "options": ["With no deadlines or owners, no one is accountable and tasks slip", "Because action plans should never list tasks", "Because deadlines always slow a project down", "Because tasks finish themselves automatically"],
+        "expected": "With no deadlines or owners, no one is accountable and tasks slip",
+        "memo": "An action plan only works if each task has a deadline and a responsible person; without these, accountability disappears and work stalls.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_PURPOSE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.19",
+        "question": "Why might a project manager use both a WBS and a Gantt chart together?",
+        "input_type": "choice",
+        "options": ["The WBS lists all the tasks; the Gantt chart schedules them over time", "They are identical, so using both is a mistake", "The WBS hides tasks the Gantt chart shows", "Neither tool helps with planning"],
+        "expected": "The WBS lists all the tasks; the Gantt chart schedules them over time",
+        "memo": "A WBS first identifies every task; a Gantt chart then places those tasks on a timeline — the two tools complement each other.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_TOOL"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.ACTIONPLAN.A1.20",
+        "question": "Two team members both think the other is doing a key task, so it never gets done. Which action-plan feature would have prevented this?",
+        "input_type": "choice",
+        "options": ["Clearly assigning each task to one responsible person", "Removing all deadlines from the plan", "Hiding the task list from the team", "Leaving tasks unassigned on purpose"],
+        "expected": "Clearly assigning each task to one responsible person",
+        "memo": "Assigning each task to a named owner prevents confusion about who is responsible, so nothing falls through the cracks.",
+        "error_signals": ["ERR_BUS_ACTIONPLAN_PURPOSE"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

@@ -33,7 +33,7 @@ export default function TourismSkillTreeView({
 }: TourismSkillTreeViewProps) {
   return (
     <GradeLockedSkillTree
-      accent="amber"
+      accent="cyan"
       title="Tourism Skill Tree"
       subhead="Pass mark 60% · No timer · 20 questions per topic"
       tree={tree}

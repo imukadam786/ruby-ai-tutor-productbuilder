@@ -22,7 +22,8 @@ const DRY = process.argv.includes("--dry");
 const raw = fs.readFileSync(BANK_PATH, "utf8");
 const usesCRLF = raw.includes("\r\n");
 const bank = JSON.parse(raw);
-const hasFile = (key) => fs.existsSync(path.join(IMG_DIR, `${key}.svg`));
+const IMG_EXTS = ["webp", "svg", "png", "jpg"];
+const hasFile = (key) => IMG_EXTS.some((ext) => fs.existsSync(path.join(IMG_DIR, `${key}.${ext}`)));
 
 let pictured = 0;
 let skipped = 0;

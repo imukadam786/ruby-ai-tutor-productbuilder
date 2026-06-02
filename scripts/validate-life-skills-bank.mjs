@@ -99,6 +99,9 @@ function validateItem(item, idx, errors, warns) {
     else if (arr(item.options) && item.image_refs.length !== item.options.length)
       errors.push(`${where}: "image_refs" (${item.image_refs.length}) must match "options" length (${item.options.length})`);
   }
+  // stem_image (optional): single illustration above the stem; must be a key string.
+  if (item.stem_image !== undefined && !str(item.stem_image))
+    errors.push(`${where}: "stem_image" must be a non-empty string key when present`);
   if (item.input_type === "true-false") {
     if (typeof item.expected !== "string" || !["true", "false", "True", "False"].includes(item.expected))
       errors.push(`${where}: "true-false" expected must be "true" or "false"`);

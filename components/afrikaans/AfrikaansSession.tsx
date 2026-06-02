@@ -26,6 +26,7 @@ import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import {
   createAfrikaansProfile,
   getAfrikaansSkillStatus,
+  getAfrikaansUsedRefs,
   hydrateAfrikaansProfileFromSupabase,
   linkAfrikaansProfileToAuth,
   loadAfrikaansProfile,
@@ -40,6 +41,12 @@ import {
   trackSessionEnded,
   trackSkillMastered,
 } from "@/lib/analytics";
+import {
+  ACCURACY_TARGET,
+  contentAbilityLevel,
+  isContentMastered,
+  requiredCoverageCount,
+} from "@/lib/content-mastery";
 import type {
   AfrikaansGeneratedQuestion,
   AfrikaansGenerateQuestionResponse,
@@ -51,14 +58,17 @@ import type {
 
 const tree = afrikaansTreeData as unknown as AfrikaansSkillTree;
 
-// A skill session walks every authored item; mastery (vs just "complete") is
-// judged after the fact by accuracy ≥ pass_threshold.
-function targetItemCount(skillId: string): number {
+// Total distinct questions authored for a skill — the coverage denominator.
+// Afrikaans has no question-bank import, so the pool size comes from the
+// per-skill stats table.
+function poolSize(skillId: string): number {
   return AFRIKAANS_SKILL_STATS[skillId]?.itemCount ?? 8;
 }
 
-function passThreshold(skillId: string): number {
-  return AFRIKAANS_SKILL_STATS[skillId]?.passThreshold ?? 0.6;
+// Distinct questions the student must answer to master this skill
+// (80% of the pool, capped at 20 — see lib/content-mastery.ts).
+function requiredCount(skillId: string): number {
+  return requiredCoverageCount(poolSize(skillId));
 }
 
 function findSkill(skillId: string) {
@@ -89,6 +99,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
   const [correctCount, setCorrectCount] = useState(0);
   const [attemptCount, setAttemptCount] = useState(0);
   const [consecutiveWrong, setConsecutiveWrong] = useState(0);
+  const [didMasterTopic, setDidMasterTopic] = useState(false);
   const [profile, setProfile] = useState<AfrikaansStudentProfile | null>(null);
 
   const { speak, speakAfrikaans, stop, playing } = useAfrikaansTTS();
@@ -145,8 +156,8 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
           correct_count: correct,
           attempt_count: attempts,
           accuracy,
-          target_item_count: targetItemCount(sid),
-          pass_threshold: passThreshold(sid),
+          target_item_count: requiredCount(sid),
+          pass_threshold: ACCURACY_TARGET,
           mastered: didMaster,
           duration_ms: Date.now() - sessionStartRef.current,
         };
@@ -172,7 +183,8 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
   );
 
   // ─── Load next question for the current skill ──────────────────────────────
-  const loadNextQuestion = useCallback(async (sid: string) => {
+  const loadNextQuestion = useCallback(
+    async (sid: string, sessionCorrect = 0, sessionAttempts = 0) => {
     setPhase("loading");
     setError(null);
     setAnswer("");
@@ -180,11 +192,18 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
     // Read used refs from the source of truth (localStorage) to avoid stale state.
     const current = loadAfrikaansProfile();
     const used = current?.used_questions?.[sid] ?? [];
+    // Difficulty matching: derive ability from running accuracy (prior
+    // recorded totals + this sitting's answers so far).
+    const prior = current?.skill_mastery[sid];
+    const abilityLevel = contentAbilityLevel(
+      (prior?.correct_count ?? 0) + sessionCorrect,
+      (prior?.attempt_count ?? 0) + sessionAttempts,
+    );
     try {
       const res = await apiFetch("/api/afrikaans/generate-question", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ skill_id: sid, used_refs: used }),
+        body: JSON.stringify({ skill_id: sid, used_refs: used, ability_level: abilityLevel }),
       });
       if (!res.ok) {
         setError("Could not load a question. Please try again.");
@@ -208,7 +227,9 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
       setError("Could not load a question. Please try again.");
       setPhase("feedback");
     }
-  }, []);
+    },
+    [],
+  );
 
   // ─── Skill picked from the tree ────────────────────────────────────────────
   const handlePickSkill = useCallback(
@@ -218,6 +239,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
       setCorrectCount(0);
       setAttemptCount(0);
       setConsecutiveWrong(0);
+      setDidMasterTopic(false);
       sessionStartRef.current = Date.now();
       // Mark in_progress immediately so the tree reflects it on return.
       const base = loadAfrikaansProfile() ?? profile;
@@ -304,11 +326,30 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
           decision: data.is_correct ? "practice" : "reteach",
         });
 
-        // Skill ends once every authored item has been attempted.
-        const allAnswered = nextAttempts >= targetItemCount(skillId);
-        if (allAnswered) {
-          const accuracy = nextAttempts > 0 ? nextCorrect / nextAttempts : 0;
-          const didMaster = accuracy >= passThreshold(skillId);
+        // ── Cumulative mastery check ────────────────────────────────────────
+        // Coverage + accuracy are measured across all sittings, not just this
+        // run. Prior totals live in skill_mastery; this run's deltas are the
+        // session counters. Distinct coverage is deduped from used_questions.
+        const prior = profile?.skill_mastery[skillId];
+        const cumulativeCorrect = (prior?.correct_count ?? 0) + nextCorrect;
+        const cumulativeAttempts = (prior?.attempt_count ?? 0) + nextAttempts;
+        const distinctAnswered = new Set(getAfrikaansUsedRefs(afterUsed, skillId)).size;
+        const size = poolSize(skillId);
+        const required = requiredCount(skillId);
+
+        const didMaster = isContentMastered(
+          distinctAnswered,
+          size,
+          cumulativeCorrect,
+          cumulativeAttempts,
+        );
+
+        // End the run when the skill is mastered, when this sitting has covered
+        // a full batch, or when the pool is exhausted — otherwise keep going.
+        const runOver =
+          didMaster || nextAttempts >= required || distinctAnswered >= size;
+
+        if (runOver) {
           // Roll up the result into the profile — mastery unlocks dependants.
           setProfile(
             recordAfrikaansSkillResult(afterUsed, skillId, {
@@ -317,6 +358,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
               mastered: didMaster,
             }),
           );
+          setDidMasterTopic(didMaster);
           if (didMaster) {
             trackSkillMastered({
               subject: "afrikaans-fal",
@@ -330,7 +372,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
             subject: "afrikaans-fal",
             questions_answered: nextAttempts,
             correct: nextCorrect,
-            accuracy,
+            accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
@@ -363,24 +405,29 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
   // ─── Render: end-of-skill ─────────────────────────────────────────────────
   if (phase === "mastered" && skillId) {
     const skill = findSkill(skillId)?.skill;
-    const accuracy = attemptCount > 0 ? correctCount / attemptCount : 0;
-    const didMaster = accuracy >= passThreshold(skillId);
+    const m = profile?.skill_mastery[skillId];
+    const cumAccuracy = m && m.attempt_count > 0 ? m.correct_count / m.attempt_count : 0;
+    const size = poolSize(skillId);
+    const required = requiredCount(skillId);
+    const distinct = profile
+      ? Math.min(new Set(getAfrikaansUsedRefs(profile, skillId)).size, size)
+      : 0;
     return (
       <div className="relative flex items-center justify-center h-full bg-[#F4F4F5] p-6">
         <EduBackground />
         <div className="relative bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-4">
-          <div className="text-6xl">{didMaster ? "🎉" : "💪"}</div>
+          <div className="text-6xl">{didMasterTopic ? "🎉" : "💪"}</div>
           <h2 className="text-2xl font-bold text-[#1a2744]">
-            {didMaster ? "Mooi gedaan!" : "All done!"}
+            {didMasterTopic ? "Mooi gedaan!" : "Keep going"}
           </h2>
           <p className="text-gray-600 text-base">
-            {didMaster ? (
-              <>You mastered <span className="font-semibold">{skill?.title ?? "this skill"}</span>.</>
+            {didMasterTopic ? (
+              <>You mastered <span className="font-semibold">{skill?.title ?? "this skill"}</span> — {Math.round(cumAccuracy * 100)}% correct overall.</>
             ) : (
-              <>You finished <span className="font-semibold">{skill?.title ?? "this skill"}</span>. Try it again to master it.</>
+              <>You&apos;ve answered <span className="font-semibold">{distinct} of {required}</span> questions on {skill?.title ?? "this skill"}. Master it by reaching {required} at {Math.round(ACCURACY_TARGET * 100)}% correct.</>
             )}
           </p>
-          <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct.</p>
+          <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct this round.</p>
           <button
             onClick={backToTree}
             className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-base"
@@ -419,12 +466,35 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
           >
             ← Skills
           </button>
-          {skillId && (
-            <span className="text-sm font-semibold text-amber-700 bg-amber-100 px-3 py-1 rounded-full">
-              Q {Math.min(attemptCount + 1, targetItemCount(skillId))} / {targetItemCount(skillId)} · ⭐ {correctCount}
-            </span>
-          )}
         </div>
+
+        {skillId && (
+          <div className="bg-orange-50 border border-orange-200 rounded-2xl px-4 py-3">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-xs font-bold uppercase tracking-wide text-orange-800">
+                Master this skill
+              </span>
+              <span className="text-sm font-semibold text-orange-700">
+                Q {Math.min(attemptCount + 1, requiredCount(skillId))} / {requiredCount(skillId)} · ⭐ {correctCount}
+              </span>
+            </div>
+            <div className="h-2 bg-orange-100 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-orange-500 rounded-full transition-all"
+                style={{
+                  width: `${Math.round(
+                    (Math.min(attemptCount, requiredCount(skillId)) /
+                      Math.max(requiredCount(skillId), 1)) *
+                      100,
+                  )}%`,
+                }}
+              />
+            </div>
+            <p className="text-[11px] text-orange-700 mt-1.5">
+              Master: {requiredCount(skillId)} questions at {Math.round(ACCURACY_TARGET * 100)}%
+            </p>
+          </div>
+        )}
 
         {/* Question card */}
         {question && (
@@ -446,16 +516,25 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
             {question.audio && (
               <button
                 onClick={() => speakAfrikaans(question.audio!, question.question_ref)}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl bg-amber-100 hover:bg-amber-200 border-2 border-amber-300 text-amber-900 font-bold text-base active:scale-[0.99]"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl bg-orange-100 hover:bg-orange-200 border-2 border-orange-300 text-orange-900 font-bold text-base active:scale-[0.99]"
               >
                 <span className="text-xl">🔊</span> Luister in Afrikaans
               </button>
             )}
 
-            {/* Context / English-meaning hint */}
+            {/* Context — a short English hint (Gr1–6) OR a full Afrikaans
+                passage/poem (FET). Poem line breaks are authored as " / ", so
+                we split on that and render each line on its own row; prose with
+                no " / " renders as a single readable paragraph that wraps. The
+                surrounding card already scrolls (overflow-y-auto above), so long
+                passages just grow the card. */}
             {question.context && (
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 text-sm text-amber-900">
-                {question.context}
+              <div className="bg-orange-50 border border-orange-200 rounded-2xl px-4 py-3 text-base text-orange-900 leading-relaxed whitespace-pre-wrap">
+                {question.context.split(" / ").map((line, i) => (
+                  <span key={i} className="block">
+                    {line}
+                  </span>
+                ))}
               </div>
             )}
 
@@ -490,7 +569,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
                   <p className="text-sm text-gray-700 mt-2 leading-relaxed">{result.memo}</p>
                 )}
                 {recoveryHint && !result.is_correct && (
-                  <p className="text-sm text-amber-700 mt-3 bg-amber-100 rounded-xl px-3 py-2">
+                  <p className="text-sm text-orange-700 mt-3 bg-orange-100 rounded-xl px-3 py-2">
                     💡 {recoveryHint}
                   </p>
                 )}
@@ -499,7 +578,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
 
             {phase === "feedback" && (
               <button
-                onClick={() => skillId && loadNextQuestion(skillId)}
+                onClick={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
                 disabled={submitting}
                 className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
               >
@@ -550,7 +629,7 @@ function PlayIcon({ text, speak }: { text: string; speak: (t: string) => void })
           speak(text);
         }
       }}
-      className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors bg-white border border-amber-300 hover:bg-amber-100 text-[#BE1832]"
+      className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors bg-white border border-orange-300 hover:bg-orange-100 text-[#BE1832]"
     >
       🔊
     </span>
@@ -597,7 +676,7 @@ function AnswerInput({
             key={opt}
             disabled={submitting}
             onClick={() => onSubmit(opt)}
-            className="bg-amber-50 hover:bg-amber-100 border-2 border-amber-200 hover:border-amber-300 rounded-2xl px-5 py-5 flex items-center gap-3 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all"
+            className="bg-orange-50 hover:bg-orange-100 border-2 border-orange-200 hover:border-orange-300 rounded-2xl px-5 py-5 flex items-center gap-3 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all"
           >
             <span className="flex-1">{opt}</span>
             <PlayIcon text={opt} speak={speakAfrikaans} />
@@ -632,7 +711,7 @@ function AnswerInput({
           if (e.key === "Enter" && value.trim()) onSubmit(value.trim());
         }}
         placeholder="Type your answer"
-        className="w-full px-5 py-4 text-lg font-semibold border-2 border-amber-200 focus:border-amber-400 focus:outline-none rounded-2xl bg-amber-50 text-[#1a2744]"
+        className="w-full px-5 py-4 text-lg font-semibold border-2 border-orange-200 focus:border-orange-400 focus:outline-none rounded-2xl bg-orange-50 text-[#1a2744]"
       />
       <button
         disabled={submitting || !value.trim()}
@@ -656,7 +735,7 @@ interface ImageOptionProps {
 
 // Images live at public/afrikaans/<key>.<ext> (png/svg/jpg per the manifest).
 // We try each extension in turn; once all fail we fall back to the English text.
-const IMAGE_EXTS = ["png", "svg", "jpg"];
+const IMAGE_EXTS = ["webp", "png", "svg", "jpg"];
 
 function ImageOption({ imageKey, label, disabled, onPick }: ImageOptionProps) {
   const [extIdx, setExtIdx] = useState(0);
@@ -665,7 +744,7 @@ function ImageOption({ imageKey, label, disabled, onPick }: ImageOptionProps) {
     <button
       disabled={disabled}
       onClick={onPick}
-      className="bg-amber-50 hover:bg-amber-100 border-2 border-amber-200 hover:border-amber-300 rounded-2xl p-3 flex flex-col items-center gap-2 active:scale-95 transition-all"
+      className="bg-orange-50 hover:bg-orange-100 border-2 border-orange-200 hover:border-orange-300 rounded-2xl p-3 flex flex-col items-center gap-2 active:scale-95 transition-all"
     >
       {showImage ? (
         // eslint-disable-next-line @next/next/no-img-element
@@ -733,7 +812,7 @@ function SequenceInput({ order, onChange, onSubmit, submitting, speak }: Sequenc
                 className={`w-full flex items-center gap-3 rounded-2xl px-4 py-4 text-left transition-all active:scale-[0.99] ${
                   isSelected
                     ? "bg-[#BE1832] border-2 border-[#BE1832] text-white shadow-md"
-                    : "bg-amber-50 border-2 border-amber-200 text-[#1a2744] hover:bg-amber-100"
+                    : "bg-orange-50 border-2 border-orange-200 text-[#1a2744] hover:bg-orange-100"
                 }`}
                 aria-pressed={isSelected}
               >

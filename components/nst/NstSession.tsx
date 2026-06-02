@@ -11,7 +11,9 @@ import EduBackground from "@/components/EduBackground";
 import NstSkillTreeView from "./NstSkillTreeView";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import {
+  addNstSkillCounts,
   getNstMasteryMap,
+  getNstSkillCounts,
   getNstUsedRefs,
   getOrCreateNstProfile,
   hydrateNstProfileFromSupabase,
@@ -27,6 +29,12 @@ import {
   trackSessionEnded,
   trackSkillMastered,
 } from "@/lib/analytics";
+import {
+  ACCURACY_TARGET,
+  contentAbilityLevel,
+  isContentMastered,
+  requiredCoverageCount,
+} from "@/lib/content-mastery";
 import type {
   NstBank,
   NstGeneratedQuestion,
@@ -39,17 +47,20 @@ import type {
 const tree = nstTreeData as unknown as NstSkillTree;
 const bank = nstBankData as unknown as NstBank;
 
-// Mastery rule: the learner answers ALL questions in the topic. The session
-// only ends when every authored item has been attempted. Mastery (vs just
-// "complete") is judged after the fact by overall accuracy ≥ pass_threshold.
-function targetItemCount(skillId: string): number {
-  const topic = bank.topics[skillId];
-  if (topic) return topic.questions.length;
-  return 20;
+// Content-mastery rule (shared with the other FET/IP content subjects — see
+// lib/content-mastery.ts). A topic is mastered when the learner has covered
+// enough distinct questions (80% of the pool, capped at 20) AND answered at
+// least 75% correctly, both measured cumulatively across every sitting.
+
+// Total distinct questions authored for a topic — the coverage denominator.
+function poolSize(skillId: string): number {
+  return bank.topics[skillId]?.questions.length ?? 0;
 }
 
-function passThreshold(skillId: string): number {
-  return bank.topics[skillId]?.pass_threshold ?? 0.6;
+// Distinct questions the student must answer to master this topic
+// (80% of the pool, capped at 20 — see lib/content-mastery.ts).
+function requiredCount(skillId: string): number {
+  return requiredCoverageCount(poolSize(skillId));
 }
 
 function findSkill(skillId: string) {
@@ -79,6 +90,7 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
   const [attemptCount, setAttemptCount] = useState(0);
   const [consecutiveWrong, setConsecutiveWrong] = useState(0);
   const [mastery, setMastery] = useState<Record<string, TopicMastery>>({});
+  const [didMasterTopic, setDidMasterTopic] = useState(false);
 
   const { speak, stop, playing } = useTTS();
   const sessionStartRef = useRef<number>(Date.now());
@@ -127,8 +139,8 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
           correct_count: correct,
           attempt_count: attempts,
           accuracy,
-          target_item_count: targetItemCount(topicId),
-          pass_threshold: passThreshold(topicId),
+          target_item_count: requiredCount(topicId),
+          pass_threshold: ACCURACY_TARGET,
           mastered: didMaster,
           duration_ms: Date.now() - sessionStartRef.current,
         };
@@ -153,17 +165,30 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
     [],
   );
 
-  const loadNextQuestion = useCallback(async (topicId: string) => {
+  const loadNextQuestion = useCallback(
+    async (topicId: string, sessionCorrect = 0, sessionAttempts = 0) => {
     setPhase("loading");
     setError(null);
     setAnswer("");
     setSequenceOrder([]);
     const used = getNstUsedRefs(topicId);
+    // Difficulty matching: derive ability from running accuracy (prior recorded
+    // per-topic totals + this sitting's answers so far). NST's prior counts
+    // live in skill_counts, not skill_mastery — see lib/nst-student-model.ts.
+    const prior = getNstSkillCounts(topicId);
+    const abilityLevel = contentAbilityLevel(
+      prior.correct_count + sessionCorrect,
+      prior.attempt_count + sessionAttempts,
+    );
     try {
       const res = await apiFetch("/api/nst/generate-question", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ skill_id: topicId, used_refs: used }),
+        body: JSON.stringify({
+          skill_id: topicId,
+          used_refs: used,
+          ability_level: abilityLevel,
+        }),
       });
       if (!res.ok) {
         setError("Could not load a question. Please try again.");
@@ -187,7 +212,9 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
       setError("Could not load a question. Please try again.");
       setPhase("feedback");
     }
-  }, []);
+    },
+    [],
+  );
 
   const handlePickTopic = useCallback(
     (topicId: string) => {
@@ -196,6 +223,7 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
       setCorrectCount(0);
       setAttemptCount(0);
       setConsecutiveWrong(0);
+      setDidMasterTopic(false);
       sessionStartRef.current = Date.now();
       trackSessionStarted({
         subject: "natural-sciences-tech",
@@ -206,6 +234,19 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
     },
     [loadNextQuestion],
   );
+
+  // Deep-link from the Subjects hub: a tapped topic is stashed in sessionStorage,
+  // so open it directly on mount — skipping the in-session topic picker.
+  const deepLinkConsumed = useRef(false);
+  useEffect(() => {
+    if (deepLinkConsumed.current || phase !== "tree") return;
+    if (typeof window === "undefined") return;
+    const target = sessionStorage.getItem("ruby_nst_target_skill");
+    if (!target) return;
+    deepLinkConsumed.current = true;
+    sessionStorage.removeItem("ruby_nst_target_skill");
+    if (findSkill(target)) handlePickTopic(target);
+  }, [phase, handlePickTopic]);
 
   const handleSubmit = useCallback(
     async (rawAnswer: string) => {
@@ -238,6 +279,9 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
         const data = (await res.json()) as NstSubmitAnswerResponse;
         setResult(data);
 
+        // Mark this question used (recordNstAnswer appends to used_questions and
+        // persists), so the coverage count below includes the answer we just
+        // took — NST's analogue of History's markHistoryQuestionUsed.
         recordNstAnswer(skillId, question.question_ref, data.is_correct);
 
         const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
@@ -263,14 +307,39 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
           setNstMastery(skillId, "in_progress");
         }
 
-        const allAnswered = nextAttempts >= targetItemCount(skillId);
-        if (allAnswered) {
-          const accuracy = nextAttempts > 0 ? nextCorrect / nextAttempts : 0;
-          const didMaster = accuracy >= passThreshold(skillId);
+        // ── Cumulative mastery check ────────────────────────────────────────
+        // Coverage + accuracy are measured across all sittings, not just this
+        // run. Prior per-topic totals live in skill_counts; this run's deltas
+        // are the session counters. Distinct coverage is deduped from the
+        // freshly-saved used_questions for this topic.
+        const prior = getNstSkillCounts(skillId);
+        const cumulativeCorrect = prior.correct_count + nextCorrect;
+        const cumulativeAttempts = prior.attempt_count + nextAttempts;
+        const distinctAnswered = new Set(getNstUsedRefs(skillId)).size;
+        const size = poolSize(skillId);
+        const required = requiredCount(skillId);
+
+        const didMaster = isContentMastered(
+          distinctAnswered,
+          size,
+          cumulativeCorrect,
+          cumulativeAttempts,
+        );
+
+        // End the run when the topic is mastered, when this sitting has covered
+        // a full batch, or when the pool is exhausted — otherwise keep going.
+        const runOver =
+          didMaster || nextAttempts >= required || distinctAnswered >= size;
+
+        if (runOver) {
+          // Accumulate this run's per-topic counts (not overwrite), then set
+          // the topic status via the inline persistence mechanism.
+          addNstSkillCounts(skillId, nextCorrect, nextAttempts);
           const nextStatus: TopicMastery = didMaster ? "mastered" : "in_progress";
           const next = { ...mastery, [skillId]: nextStatus };
           setMastery(next);
           setNstMastery(skillId, nextStatus);
+          setDidMasterTopic(didMaster);
           if (didMaster) {
             trackSkillMastered({
               subject: "natural-sciences-tech",
@@ -284,7 +353,7 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
             subject: "natural-sciences-tech",
             questions_answered: nextAttempts,
             correct: nextCorrect,
-            accuracy,
+            accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
@@ -309,24 +378,27 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
   // ─── Render: end-of-topic ─────────────────────────────────────────────────
   if (phase === "mastered" && skillId) {
     const skill = findSkill(skillId)?.skill;
-    const accuracy = attemptCount > 0 ? correctCount / attemptCount : 0;
-    const didMaster = accuracy >= passThreshold(skillId);
+    const counts = getNstSkillCounts(skillId);
+    const cumAccuracy = counts.attempt_count > 0 ? counts.correct_count / counts.attempt_count : 0;
+    const size = poolSize(skillId);
+    const required = requiredCount(skillId);
+    const distinct = Math.min(new Set(getNstUsedRefs(skillId)).size, size);
     return (
       <div className="relative flex items-center justify-center h-full bg-[#F4F4F5] p-6">
         <EduBackground />
         <div className="relative bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full text-center space-y-4">
-          <div className="text-6xl">{didMaster ? "🎉" : "💪"}</div>
+          <div className="text-6xl">{didMasterTopic ? "🎉" : "💪"}</div>
           <h2 className="text-2xl font-bold text-[#1a2744]">
-            {didMaster ? "You did it!" : "All done!"}
+            {didMasterTopic ? "Topic mastered" : "Keep going"}
           </h2>
           <p className="text-gray-600 text-base">
-            {didMaster ? (
-              <>You mastered <span className="font-semibold">{skill?.title ?? "this topic"}</span>.</>
+            {didMasterTopic ? (
+              <>You mastered <span className="font-semibold">{skill?.title ?? "this topic"}</span> — {Math.round(cumAccuracy * 100)}% correct overall.</>
             ) : (
-              <>You finished <span className="font-semibold">{skill?.title ?? "this topic"}</span>. Try it again to master it.</>
+              <>You&apos;ve answered <span className="font-semibold">{distinct} of {required}</span> questions on {skill?.title ?? "this topic"}. Master it by reaching {required} at {Math.round(ACCURACY_TARGET * 100)}% correct.</>
             )}
           </p>
-          <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct.</p>
+          <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct this round.</p>
           <button
             onClick={() => {
               setSkillId(null);
@@ -376,22 +448,30 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
         </div>
 
         {skillId && (
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
+          <div className="bg-lime-50 border border-lime-200 rounded-2xl px-4 py-3">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs font-bold uppercase tracking-wide text-amber-800">
+              <span className="text-xs font-bold uppercase tracking-wide text-lime-800">
                 Master this topic
               </span>
-              <span className="text-sm font-semibold text-amber-700">
-                Q {Math.min(attemptCount + 1, targetItemCount(skillId))} of {targetItemCount(skillId)} · ⭐ {correctCount}
+              <span className="text-sm font-semibold text-lime-700">
+                Q {Math.min(attemptCount + 1, requiredCount(skillId))} of {requiredCount(skillId)} · ⭐ {correctCount}
               </span>
             </div>
-            <div className="h-2 bg-amber-100 rounded-full overflow-hidden">
+            <div className="h-2 bg-lime-100 rounded-full overflow-hidden">
               <div
-                className="h-full bg-amber-500 rounded-full transition-all"
-                style={{ width: `${Math.round((Math.min(attemptCount, targetItemCount(skillId)) / targetItemCount(skillId)) * 100)}%` }}
+                className="h-full bg-lime-500 rounded-full transition-all"
+                style={{
+                  width: `${Math.round(
+                    (Math.min(attemptCount, requiredCount(skillId)) /
+                      Math.max(requiredCount(skillId), 1)) *
+                      100,
+                  )}%`,
+                }}
               />
             </div>
-            <p className="text-[11px] text-amber-700 mt-1.5">Answer all {targetItemCount(skillId)} to master it</p>
+            <p className="text-[11px] text-lime-700 mt-1.5">
+              Master: {requiredCount(skillId)} questions at {Math.round(ACCURACY_TARGET * 100)}%
+            </p>
           </div>
         )}
 
@@ -448,7 +528,7 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
                   <p className="text-sm text-gray-700 mt-2 leading-relaxed">{result.memo}</p>
                 )}
                 {recoveryHint && !result.is_correct && (
-                  <p className="text-sm text-amber-700 mt-3 bg-amber-100 rounded-xl px-3 py-2">
+                  <p className="text-sm text-lime-700 mt-3 bg-lime-100 rounded-xl px-3 py-2">
                     💡 {recoveryHint}
                   </p>
                 )}
@@ -457,7 +537,7 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
 
             {phase === "feedback" && (
               <button
-                onClick={() => skillId && loadNextQuestion(skillId)}
+                onClick={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
                 disabled={submitting}
                 className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
               >
@@ -509,7 +589,7 @@ function PlayIcon({ text, speak, dark }: { text: string; speak: (t: string) => v
       className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors ${
         dark
           ? "bg-white/20 hover:bg-white/30 text-white"
-          : "bg-white border border-amber-300 hover:bg-amber-100 text-[#BE1832]"
+          : "bg-white border border-lime-300 hover:bg-lime-100 text-[#BE1832]"
       }`}
     >
       🔊
@@ -537,7 +617,7 @@ function AnswerInput({
             key={opt}
             disabled={submitting}
             onClick={() => onSubmit(opt)}
-            className="bg-amber-50 hover:bg-amber-100 border-2 border-amber-200 hover:border-amber-300 rounded-2xl px-5 py-5 flex items-center gap-3 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all"
+            className="bg-lime-50 hover:bg-lime-100 border-2 border-lime-200 hover:border-lime-300 rounded-2xl px-5 py-5 flex items-center gap-3 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all"
           >
             <span className="flex-1">{opt}</span>
             <PlayIcon text={opt} speak={speak} />
@@ -595,7 +675,7 @@ function AnswerInput({
           if (e.key === "Enter" && value.trim()) onSubmit(value.trim());
         }}
         placeholder="Type your answer"
-        className="w-full px-5 py-4 text-lg font-semibold border-2 border-amber-200 focus:border-amber-400 focus:outline-none rounded-2xl bg-amber-50 text-[#1a2744]"
+        className="w-full px-5 py-4 text-lg font-semibold border-2 border-lime-200 focus:border-lime-400 focus:outline-none rounded-2xl bg-lime-50 text-[#1a2744]"
       />
       <button
         disabled={submitting || !value.trim()}
@@ -652,7 +732,7 @@ function SequenceInput({ order, onChange, onSubmit, submitting, speak }: Sequenc
                 className={`w-full flex items-center gap-3 rounded-2xl px-4 py-4 text-left transition-all active:scale-[0.99] ${
                   isSelected
                     ? "bg-[#BE1832] border-2 border-[#BE1832] text-white shadow-md"
-                    : "bg-amber-50 border-2 border-amber-200 text-[#1a2744] hover:bg-amber-100"
+                    : "bg-lime-50 border-2 border-lime-200 text-[#1a2744] hover:bg-lime-100"
                 }`}
                 aria-pressed={isSelected}
               >

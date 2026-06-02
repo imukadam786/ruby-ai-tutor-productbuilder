@@ -1,0 +1,252 @@
+{
+  "BUS.G12.T1.HR.A1": {
+    "title": "The Human Resources function",
+    "description": "Relevant legislation and the aspects of the human resources function: recruitment and selection; employee contracts; induction and placement; salary administration (including personal tax); employee benefits; and skills development (the Skills Development Act, SETAs, learnerships, the NQF and SAQA).",
+    "grade": 12,
+    "strand": "T1 — Legislation, Human Resources, ethics, creative thinking & business strategies",
+    "skill_ids": ["BUS.G12.T1.HR.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T1",
+    "caps_topic": "Business functions",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+    "recovery_strategy": "Recruitment attracts applicants, selection chooses, induction settles them in, and skills development grows them. Salary administration includes deducting personal tax (PAYE). SETAs and learnerships develop skills under the Skills Development Act.",
+    "questions": [
+      {
+        "ref": "G12.HR.A1.01",
+        "question": "_________ is the process of attracting suitable applicants, while selection chooses the best of them.",
+        "input_type": "cloze",
+        "options": ["Recruitment", "Retirement", "Retrenchment", "Resignation"],
+        "expected": "Recruitment",
+        "memo": "Recruitment attracts applicants (e.g. by advertising); selection then chooses the most suitable one.",
+        "error_signals": ["ERR_BUS_HR12_RECRUIT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.HR.A1.02",
+        "question": "What do induction and placement involve?",
+        "input_type": "choice",
+        "options": ["Settling a new employee in and assigning them to the right role", "Advertising a vacancy", "Calculating company tax", "Designing the product"],
+        "expected": "Settling a new employee in and assigning them to the right role",
+        "memo": "Induction settles the new employee into the workplace, and placement assigns them to the job that best fits them.",
+        "error_signals": ["ERR_BUS_HR12_INDUCT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.HR.A1.03",
+        "question": "True or false: Skills development includes learnerships and is supported by SETAs.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Skills development uses tools like learnerships, coordinated by SETAs under the Skills Development Act.",
+        "error_signals": ["ERR_BUS_HR12_SKILLS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.HR.A1.04",
+        "question": "Salary _________ covers paying staff and deducting tax correctly.",
+        "input_type": "cloze",
+        "options": ["administration", "production", "marketing", "distribution"],
+        "expected": "administration",
+        "memo": "Salary administration manages how staff are paid, including deductions such as personal income tax.",
+        "error_signals": ["ERR_BUS_HR12_SALARY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.HR.A1.05",
+        "question": "Which of these is a deduction from an employee's salary that goes to the government?",
+        "input_type": "choice",
+        "options": ["Personal income tax (PAYE)", "The company's advertising budget", "The cost of raw materials", "The shareholders' dividend"],
+        "expected": "Personal income tax (PAYE)",
+        "memo": "Pay-As-You-Earn (PAYE) is personal income tax deducted from an employee's salary and paid to the government.",
+        "error_signals": ["ERR_BUS_HR12_SALARY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.HR.A1.06",
+        "question": "True or false: Pension and medical aid are examples of employee benefits.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Benefits such as pension and medical aid are rewards beyond the basic salary that help attract and keep staff.",
+        "error_signals": ["ERR_BUS_HR12_BENEFIT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.HR.A1.07",
+        "question": "Put the stages of the HR employment cycle in a sensible order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "recruit", "text": "Recruit — attract applicants"},
+          {"id": "select", "text": "Select — choose the best candidate"},
+          {"id": "contract", "text": "Sign the employment contract"},
+          {"id": "induct", "text": "Induct and place the new employee"}
+        ],
+        "expected_order": ["recruit", "select", "contract", "induct"],
+        "options": ["recruit, select, contract, induct", "induct, contract, select, recruit", "select, recruit, induct, contract"],
+        "expected": "recruit, select, contract, induct",
+        "memo": "Attract applicants, choose the best, sign the contract, then induct and place the new employee.",
+        "error_signals": ["ERR_BUS_HR12_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HR.A1.08",
+        "question": "Sort each task into the HR activity it belongs to.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "recruit", "label": "Recruitment & selection"},
+          {"id": "salary", "label": "Salary administration"},
+          {"id": "skills", "label": "Skills development"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Interviewing shortlisted applicants", "correct_bucket": "recruit"},
+          {"id": "i2", "text": "Deducting PAYE from wages", "correct_bucket": "salary"},
+          {"id": "i3", "text": "Arranging a learnership for staff", "correct_bucket": "skills"},
+          {"id": "i4", "text": "Advertising a vacant post", "correct_bucket": "recruit"},
+          {"id": "i5", "text": "Calculating monthly net pay", "correct_bucket": "salary"},
+          {"id": "i6", "text": "Sending workers on a SETA training course", "correct_bucket": "skills"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Interviewing and advertising = recruitment/selection; PAYE and net pay = salary administration; learnerships and SETA courses = skills development.",
+        "error_signals": ["ERR_BUS_HR12_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HR.A1.09",
+        "question": "What do the NQF and SAQA relate to?",
+        "input_type": "choice",
+        "options": ["A national framework that records and recognises qualifications", "The pricing of products", "The marketing of exports", "The repair of machinery"],
+        "expected": "A national framework that records and recognises qualifications",
+        "memo": "The National Qualifications Framework (NQF) and the South African Qualifications Authority (SAQA) organise and recognise qualifications.",
+        "error_signals": ["ERR_BUS_HR12_SKILLS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HR.A1.10",
+        "question": "A structured programme that combines workplace experience with formal study is called a _________.",
+        "input_type": "cloze",
+        "options": ["learnership", "dividend", "overdraft", "trademark"],
+        "expected": "learnership",
+        "memo": "A learnership combines on-the-job experience with study, leading to a recognised qualification.",
+        "error_signals": ["ERR_BUS_HR12_SKILLS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HR.A1.11",
+        "question": "Why is good induction of new employees important?",
+        "input_type": "choice",
+        "options": ["It helps them become productive sooner and reduces staff turnover", "It increases the company's tax bill", "It replaces the need for any training", "It slows the new employee down on purpose"],
+        "expected": "It helps them become productive sooner and reduces staff turnover",
+        "memo": "A good induction settles new staff quickly, so they reach productivity sooner and are more likely to stay.",
+        "error_signals": ["ERR_BUS_HR12_INDUCT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HR.A1.12",
+        "question": "True or false: An employment contract should comply with the Basic Conditions of Employment Act.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Employment contracts must meet the minimum standards set by the BCEA, such as hours and leave.",
+        "error_signals": ["ERR_BUS_HR12_CONTRACT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HR.A1.13",
+        "question": "Sort each item into recruitment, selection or induction.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "recruit", "label": "Recruitment"},
+          {"id": "select", "label": "Selection"},
+          {"id": "induct", "label": "Induction"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Writing a job advertisement", "correct_bucket": "recruit"},
+          {"id": "i2", "text": "Comparing candidates and choosing one", "correct_bucket": "select"},
+          {"id": "i3", "text": "Giving the new hire a tour and a mentor", "correct_bucket": "induct"},
+          {"id": "i4", "text": "Posting the vacancy online", "correct_bucket": "recruit"},
+          {"id": "i5", "text": "Conducting interviews and tests", "correct_bucket": "select"},
+          {"id": "i6", "text": "Explaining policies on the first day", "correct_bucket": "induct"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Adverts attract (recruit); interviews and tests choose (select); tours and policy briefings settle people in (induct).",
+        "error_signals": ["ERR_BUS_HR12_PROCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HR.A1.14",
+        "question": "A worker is paid R50 for every chair they assemble, with no fixed monthly amount. How is this pay best described?",
+        "input_type": "choice",
+        "options": ["Piecemeal (per-unit) pay", "Time-related pay", "A pension benefit", "A dividend"],
+        "expected": "Piecemeal (per-unit) pay",
+        "memo": "Paying a set amount per item produced is piecemeal (piece-rate) pay, based on output rather than time.",
+        "error_signals": ["ERR_BUS_HR12_SALARY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HR.A1.15",
+        "question": "What is the role of a SETA?",
+        "input_type": "choice",
+        "options": ["To fund and coordinate skills training within an industry sector", "To set the price of consumer goods", "To register companies", "To compensate injured workers"],
+        "expected": "To fund and coordinate skills training within an industry sector",
+        "memo": "Sector Education and Training Authorities (SETAs) use the skills levy to fund and organise training in their sector.",
+        "error_signals": ["ERR_BUS_HR12_SKILLS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HR.A1.16",
+        "question": "Personal income tax deducted directly from an employee's salary is commonly called _________.",
+        "input_type": "cloze",
+        "options": ["PAYE", "VAT", "BEE", "SABS"],
+        "expected": "PAYE",
+        "memo": "PAYE (Pay-As-You-Earn) is the personal income tax deducted from salaries and paid over to the tax authority.",
+        "error_signals": ["ERR_BUS_HR12_SALARY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.HR.A1.17",
+        "question": "A business struggles to find skilled workers. Which HR action best addresses this in the long term?",
+        "input_type": "choice",
+        "options": ["Using learnerships and SETA training to develop its own skilled staff", "Refusing to train anyone", "Lowering its product prices", "Cancelling all employment contracts"],
+        "expected": "Using learnerships and SETA training to develop its own skilled staff",
+        "memo": "Skills development through learnerships and SETA-funded training builds the skilled workforce the business needs over time.",
+        "error_signals": ["ERR_BUS_HR12_SKILLS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.HR.A1.18",
+        "question": "Why must an employer handle employee contracts and salaries within the relevant labour laws?",
+        "input_type": "choice",
+        "options": ["To stay compliant, treat staff fairly and avoid disputes or penalties", "Because the laws have no effect on business", "To make contracts unnecessary", "To avoid paying any wages"],
+        "expected": "To stay compliant, treat staff fairly and avoid disputes or penalties",
+        "memo": "Following labour law on contracts and pay keeps the business compliant, protects employees and prevents costly disputes.",
+        "error_signals": ["ERR_BUS_HR12_CONTRACT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.HR.A1.19",
+        "question": "How can a strong benefits package (pension, medical aid, leave) help a business?",
+        "input_type": "choice",
+        "options": ["It helps attract and retain good employees", "It guarantees the business never pays tax", "It removes the need to pay any salary", "It lowers the quality of staff"],
+        "expected": "It helps attract and retain good employees",
+        "memo": "Good benefits make a business more attractive to work for, helping it recruit and keep skilled staff.",
+        "error_signals": ["ERR_BUS_HR12_BENEFIT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.HR.A1.20",
+        "question": "How do the HR activities and the relevant Acts fit together?",
+        "input_type": "choice",
+        "options": ["HR carries out recruitment, contracts, pay and development within the limits set by labour legislation", "HR and the Acts are completely unrelated", "The Acts apply only to marketing", "HR can ignore the law when convenient"],
+        "expected": "HR carries out recruitment, contracts, pay and development within the limits set by labour legislation",
+        "memo": "The HR function operates inside the framework of the BCEA, EEA, LRA, COIDA and SDA, which shape how staff are hired, paid, protected and developed.",
+        "error_signals": ["ERR_BUS_HR12_PROCESS"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

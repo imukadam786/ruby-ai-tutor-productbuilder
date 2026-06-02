@@ -10,7 +10,10 @@ import { getMessages, saveMessages, incrementMessageCount } from "@/lib/storage"
 import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
 import UsageMeter from "@/components/UsageMeter";
+import { getTutor } from "@/lib/tutors";
 
+// Default quick actions for the general (Ruby) chat. A specific tutor's chat
+// swaps these out for that tutor's own subject-tailored prompts (see lib/tutors).
 const QUICK_ACTIONS: { label: string; prompt: string }[] = [
   { label: "Help me with homework", prompt: "Help me with my homework." },
   { label: "Help me solve for x", prompt: "Help me solve for x. I'll share the equation in my next message — please walk me through it step by step." },
@@ -20,6 +23,8 @@ const QUICK_ACTIONS: { label: string; prompt: string }[] = [
 
 interface ChatInterfaceProps {
   onMessageSent: () => void;
+  /** When set, personalises the chat to a tutor: header label, avatar, prompts. */
+  tutorName?: string | null;
 }
 
 const WELCOME_MSG =
@@ -90,7 +95,9 @@ import { supabase } from "@/lib/supabase";
 const speakNaturally = speakViaAPI;
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
+export default function ChatInterface({ onMessageSent, tutorName }: ChatInterfaceProps) {
+  const tutor = getTutor(tutorName);
+  const quickActions = tutor?.quickActions ?? QUICK_ACTIONS;
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -399,8 +406,18 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
       {/* Header */}
       <div className="hidden md:flex border-b border-gray-100 px-4 py-2 sm:px-8 sm:py-3 items-center justify-between bg-white">
         <div className="flex items-center gap-2.5">
-          <RubyAvatar size="w-8 h-8 sm:w-10 sm:h-10" />
-          <h2 className="text-gray-900 font-semibold text-base sm:text-lg">Chat with Ruby</h2>
+          {tutor ? (
+            <img
+              src={tutor.img}
+              alt={tutor.name}
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl object-cover object-top flex-shrink-0 bg-gray-50"
+            />
+          ) : (
+            <RubyAvatar size="w-8 h-8 sm:w-10 sm:h-10" />
+          )}
+          <h2 className="text-gray-900 font-semibold text-base sm:text-lg">
+            {tutor ? `Chat with ${tutor.name}` : "Chat with Ruby"}
+          </h2>
         </div>
         <div className="flex items-center gap-3">
           <UsageMeter variant="compact" theme="light" />
@@ -434,7 +451,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             ) : (
               /* Ruby response — clean text, no card */
               <div className="max-w-[90%] sm:max-w-[75%]">
-                <div className="prose prose-base max-w-none leading-relaxed prose-headings:text-gray-800 prose-headings:font-bold prose-headings:mt-5 prose-headings:mb-2 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:!mb-5 prose-p:!mt-0 prose-strong:text-gray-700 prose-strong:font-normal prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-100 prose-pre:rounded-xl prose-li:text-gray-700 prose-li:mb-1 prose-ul:mb-4 prose-ol:mb-4">
+                <div className="prose prose-base max-w-none leading-relaxed prose-headings:text-gray-800 prose-headings:font-bold prose-headings:mt-5 prose-headings:mb-2 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:!mb-5 prose-p:!mt-0 prose-strong:text-[#BE1832] prose-strong:font-semibold prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-100 prose-pre:rounded-xl prose-li:text-gray-700 prose-li:mb-1 prose-ul:mb-4 prose-ol:mb-4">
                   <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
                     {msg.content || "▌"}
                   </ReactMarkdown>
@@ -516,11 +533,11 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         {/* Quick-action prompts — visible until the first message is sent */}
         {showQuickActions && (
           <div className="flex flex-wrap justify-center gap-2 mb-3">
-            {QUICK_ACTIONS.map((action) => (
+            {quickActions.map((action) => (
               <button
                 key={action.label}
                 onClick={() => sendMessage(action.prompt)}
-                className="px-4 py-2 rounded-full bg-white border border-gray-200 text-sm font-medium text-gray-700 hover:border-[#BE1832] hover:text-[#BE1832] hover:shadow-sm transition-all"
+                className="px-4 py-2 rounded-full bg-[#BE1832] text-sm font-medium text-white hover:bg-[#a01528] hover:shadow-sm transition-all"
               >
                 {action.label}
               </button>
@@ -549,13 +566,13 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         )}
 
         {/* GPT-style input container */}
-        <div className="relative flex items-end gap-2 bg-white border border-gray-200 rounded-2xl px-3 py-2 focus-within:border-[#B7182E] focus-within:ring-2 focus-within:ring-[#B7182E]/15 transition-all shadow-sm">
+        <div className="relative flex items-end gap-2 bg-white border border-black rounded-2xl px-3 py-2 focus-within:border-black focus-within:ring-2 focus-within:ring-black/15 transition-all shadow-sm">
 
           {/* Upload button (inside container, left) */}
           <div className="relative flex-shrink-0 self-end pb-0.5" ref={uploadMenuRef}>
             <button
               onClick={() => setShowUploadMenu((v) => !v)}
-              className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 hover:text-blue-500 hover:bg-white transition-colors"
+              className="w-8 h-8 flex items-center justify-center rounded-lg text-[#BE1832] hover:text-[#a01528] hover:bg-white transition-colors"
               title="Attach file or photo"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -605,7 +622,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             onKeyDown={handleKeyDown}
             placeholder="Ask anything..."
             rows={1}
-            className="flex-1 bg-transparent py-1.5 text-gray-800 placeholder-gray-400 text-base resize-none outline-none max-h-36 overflow-y-auto leading-relaxed"
+            className="flex-1 bg-transparent py-1.5 text-gray-800 placeholder-black text-base resize-none outline-none max-h-36 overflow-y-auto leading-relaxed"
             style={{ height: "auto" }}
             onInput={(e) => {
               const t = e.target as HTMLTextAreaElement;
@@ -621,7 +638,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             <button
               onClick={isListening ? stopVoice : startVoice}
               className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
-                isListening ? "bg-red-100 text-red-500" : "text-gray-400 hover:text-gray-600 hover:bg-white"
+                isListening ? "bg-red-100 text-red-500" : "text-black hover:text-gray-700 hover:bg-white"
               }`}
               title={isListening ? "Stop listening" : "Voice input"}
             >
@@ -640,7 +657,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             <button
               onClick={() => sendMessage(input)}
               disabled={(!input.trim() && !attachedFile) || isLoading}
-              className="w-8 h-8 bg-[#B7182E] hover:bg-[#9e1427] disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0"
+              className="w-8 h-8 bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />

@@ -1,0 +1,273 @@
+{
+  "BUS.G11.T1.INFLUENCE.A1": {
+    "title": "Influences and control over the three environments",
+    "description": "The degree of control a business has over the micro (full control), market (influence only) and macro (no control) environments, and getting involved in the macro environment when it benefits the business.",
+    "grade": 11,
+    "strand": "T1 — Business environments, socio-economic issues, sectors, ownership & acquiring a business",
+    "skill_ids": ["BUS.G11.T1.INFLUENCE.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G11 T1",
+    "caps_topic": "Micro, market and macro environments",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+    "recovery_strategy": "Control shrinks as you move out: micro = full control, market = influence only, macro = no control (adapt). A business can still get involved in the macro environment (e.g. lobbying) when it benefits the business.",
+    "questions": [
+      {
+        "ref": "G11.INFLUENCE.A1.01",
+        "question": "Over which environment does a business have the MOST control?",
+        "input_type": "choice",
+        "options": ["The micro (internal) environment", "The market environment", "The macro environment", "The international environment"],
+        "expected": "The micro (internal) environment",
+        "memo": "A business controls its micro environment fully — its mission, structure, resources and culture. It can only influence the market and must adapt to the macro environment.",
+        "error_signals": ["ERR_BUS_CONTROL_DEGREE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.02",
+        "question": "Over which environment does a business have NO control?",
+        "input_type": "choice",
+        "options": ["The macro environment", "The micro environment", "The internal environment", "The organisational structure"],
+        "expected": "The macro environment",
+        "memo": "The macro environment — the economy, laws, technology, society — is beyond the business's control. It can only adapt to it.",
+        "error_signals": ["ERR_BUS_CONTROL_DEGREE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.03",
+        "question": "True or false: A business can fully control its market environment.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "False",
+        "memo": "A business cannot control the market environment — customers, suppliers and competitors make their own decisions. It can only influence them (e.g. by advertising or negotiating).",
+        "error_signals": ["ERR_BUS_CONTROL_DEGREE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.04",
+        "question": "A business can _________ the market environment, but it cannot control it.",
+        "input_type": "cloze",
+        "options": ["influence", "control", "ignore", "own"],
+        "expected": "influence",
+        "memo": "The market environment is close enough to influence — through advertising, negotiating and good service — but not to control.",
+        "error_signals": ["ERR_BUS_CONTROL_DEGREE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.05",
+        "question": "When is it worthwhile for a business to get involved in its macro environment (for example by lobbying)?",
+        "input_type": "choice",
+        "options": ["When it benefits the business", "Never, because the macro environment cannot be changed at all", "Only when the business is making a loss", "Only when ordered to by the government"],
+        "expected": "When it benefits the business",
+        "memo": "A business cannot control the macro environment, but it can get involved (e.g. lobby for fair laws) when doing so benefits the business.",
+        "error_signals": ["ERR_BUS_MACRO_INVOLVE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.06",
+        "question": "True or false: Management primarily controls the micro environment — the mission, structure, resources and culture of the business.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "The micro environment is inside the business, so management controls it: the mission and objectives, the management structure, the resources and the culture.",
+        "error_signals": ["ERR_BUS_CONTROL_DEGREE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.07",
+        "question": "Customers, suppliers and competitors that create opportunities and threats for a business are part of its _________ environment.",
+        "input_type": "cloze",
+        "options": ["market", "micro", "macro", "internal"],
+        "expected": "market",
+        "memo": "The market environment is made up of the close outside parties — customers, suppliers, competitors, regulators — that create opportunities and threats the business cannot control.",
+        "error_signals": ["ERR_BUS_ENV_CLASSIFY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.08",
+        "question": "Sort each factor by how much control the business has over it.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "micro", "label": "Full control (micro)"},
+          {"id": "market", "label": "Influence only (market)"},
+          {"id": "macro", "label": "No control (macro)"}
+        ],
+        "items": [
+          {"id": "i1", "text": "The wording of the company's mission statement", "correct_bucket": "micro"},
+          {"id": "i2", "text": "A competitor's advertised prices", "correct_bucket": "market"},
+          {"id": "i3", "text": "A new tax law passed by parliament", "correct_bucket": "macro"},
+          {"id": "i4", "text": "How staff are trained and managed", "correct_bucket": "micro"},
+          {"id": "i5", "text": "Which supplier the business buys stock from", "correct_bucket": "market"},
+          {"id": "i6", "text": "The rand's exchange rate against the dollar", "correct_bucket": "macro"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Micro = inside and controllable (mission, staff). Market = close outside, influence only (competitors, suppliers). Macro = broad outside, no control (laws, exchange rates).",
+        "error_signals": ["ERR_BUS_ENV_CLASSIFY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.09",
+        "question": "A business lobbies the government to change a proposed law. Which environment is it trying to influence?",
+        "input_type": "choice",
+        "options": ["The macro environment", "The micro environment", "The market environment", "The internal environment"],
+        "expected": "The macro environment",
+        "memo": "Laws are part of the macro environment. Lobbying is a way of getting involved in the macro environment even though the business cannot control it.",
+        "error_signals": ["ERR_BUS_MACRO_INVOLVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.10",
+        "question": "Why can a business NOT control its market environment?",
+        "input_type": "choice",
+        "options": ["Because customers, suppliers and competitors make their own independent decisions", "Because the market environment is inside the business", "Because the government runs the market environment", "Because the market environment does not affect the business"],
+        "expected": "Because customers, suppliers and competitors make their own independent decisions",
+        "memo": "The parties in the market environment act independently, so the business can only influence them — not control them.",
+        "error_signals": ["ERR_BUS_CONTROL_DEGREE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.11",
+        "question": "Building useful contacts in order to find new customers and partners is called _________.",
+        "input_type": "cloze",
+        "options": ["networking", "lobbying", "producing", "auditing"],
+        "expected": "networking",
+        "memo": "Networking means building relationships and contacts that benefit the business, such as meeting potential customers or partners.",
+        "error_signals": ["ERR_BUS_MACRO_INVOLVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.12",
+        "question": "True or false: A business has more control over its market environment than over its macro environment.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Control decreases outward: full control of the micro, some influence over the market, and no control over the macro environment.",
+        "error_signals": ["ERR_BUS_CONTROL_DEGREE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.13",
+        "question": "Which is an example of a business getting involved in its macro environment for its own benefit?",
+        "input_type": "choice",
+        "options": ["Joining an industry body to lobby for better regulations", "Training its own staff to work faster", "Rearranging its internal departments", "Choosing a new logo"],
+        "expected": "Joining an industry body to lobby for better regulations",
+        "memo": "Lobbying through an industry body is a way to get involved in the macro environment. The other options are internal (micro) changes.",
+        "error_signals": ["ERR_BUS_MACRO_INVOLVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.14",
+        "question": "Sort each business action by the environment it works on.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "micro", "label": "Acting on the micro environment"},
+          {"id": "market", "label": "Influencing the market environment"},
+          {"id": "macro", "label": "Adapting to the macro environment"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Changing the company's culture and values", "correct_bucket": "micro"},
+          {"id": "i2", "text": "Negotiating a better price with a supplier", "correct_bucket": "market"},
+          {"id": "i3", "text": "Raising prices because inflation pushed up costs", "correct_bucket": "macro"},
+          {"id": "i4", "text": "Redesigning the organisational structure", "correct_bucket": "micro"},
+          {"id": "i5", "text": "Advertising to win customers away from a rival", "correct_bucket": "market"},
+          {"id": "i6", "text": "Complying with a new environmental law", "correct_bucket": "macro"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Internal changes act on the micro environment; negotiating and advertising influence the market; responding to inflation and laws is adapting to the macro environment.",
+        "error_signals": ["ERR_BUS_MACRO_ADAPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.15",
+        "question": "A weakening rand has made imported fabric more expensive. What is the business's best response?",
+        "input_type": "choice",
+        "options": ["Adapt its plans, because it cannot control the exchange rate", "Pass a law to fix the exchange rate", "Order the rand to strengthen", "Ignore it, because the macro environment never affects business"],
+        "expected": "Adapt its plans, because it cannot control the exchange rate",
+        "memo": "The exchange rate is a macro factor the business cannot control. The realistic response is to adapt — e.g. find local fabric or adjust prices.",
+        "error_signals": ["ERR_BUS_MACRO_ADAPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.16",
+        "question": "Read both views, then decide which business each statement matches.",
+        "input_type": "source-comparison",
+        "source_a": {
+          "text": "We only manage what happens inside our own walls. The economy, new laws and our competitors are someone else's concern.",
+          "provenance": "Owner of Business A"
+        },
+        "source_b": {
+          "text": "We lobby for fair regulations, network to find new customers, and form alliances to cope with the outside world we cannot control.",
+          "provenance": "Owner of Business B"
+        },
+        "statements": [
+          {"id": "s1", "text": "Tries to influence the macro environment", "correct_answer": "b_only"},
+          {"id": "s2", "text": "Focuses only on the micro environment", "correct_answer": "a_only"},
+          {"id": "s3", "text": "Operates within a market environment", "correct_answer": "both"},
+          {"id": "s4", "text": "Claims to fully control the national economy", "correct_answer": "neither"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "s1=b_only, s2=a_only, s3=both, s4=neither",
+        "memo": "Business B gets involved in the macro environment (lobbying, alliances); Business A focuses only on the micro environment. Both have a market environment, and neither controls the economy.",
+        "error_signals": ["ERR_BUS_MACRO_INVOLVE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.17",
+        "question": "A business forms a strategic alliance with a large competitor and persuades big investors to back it. This best illustrates a business that is:",
+        "input_type": "choice",
+        "options": ["using power relationships to cope with an environment it cannot control", "controlling the macro environment completely", "ignoring its market environment", "abandoning its micro environment"],
+        "expected": "using power relationships to cope with an environment it cannot control",
+        "memo": "Strategic alliances and persuading large investors are power relationships — ways to cope with environments the business cannot control, not ways to control them outright.",
+        "error_signals": ["ERR_BUS_MACRO_INVOLVE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.18",
+        "question": "Evaluate this statement: 'Because a business cannot control the macro environment, there is nothing it can do about it.'",
+        "input_type": "choice",
+        "options": ["Incorrect — it can still adapt and get involved, e.g. by lobbying and networking", "Correct — the macro environment must simply be ignored", "Correct — only the government can respond to the macro environment", "Incorrect — a business can fully control the macro environment if it is large enough"],
+        "expected": "Incorrect — it can still adapt and get involved, e.g. by lobbying and networking",
+        "memo": "No control does not mean no response. A business adapts to macro change and gets involved (lobbying, networking, alliances) to limit the impact.",
+        "error_signals": ["ERR_BUS_MACRO_ADAPT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.19",
+        "question": "Read both managers' approaches, then decide which each statement matches.",
+        "input_type": "source-comparison",
+        "source_a": {
+          "text": "Interest rates and new laws are not our problem. We will keep our plans exactly the same no matter what happens out there.",
+          "provenance": "Manager A"
+        },
+        "source_b": {
+          "text": "We watch interest rates, new laws and technology closely, and we change our internal plans whenever the outside world shifts.",
+          "provenance": "Manager B"
+        },
+        "statements": [
+          {"id": "s1", "text": "Is likely to be caught off-guard by macro change", "correct_answer": "a_only"},
+          {"id": "s2", "text": "Adapts internal plans in response to macro change", "correct_answer": "b_only"},
+          {"id": "s3", "text": "Runs a business that has a micro environment to manage", "correct_answer": "both"},
+          {"id": "s4", "text": "Is able to set the country's interest rates", "correct_answer": "neither"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "s1=a_only, s2=b_only, s3=both, s4=neither",
+        "memo": "Manager B adapts to the macro environment and is better prepared; Manager A ignores it and risks being caught off-guard. Both manage a micro environment; neither sets interest rates.",
+        "error_signals": ["ERR_BUS_MACRO_ADAPT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G11.INFLUENCE.A1.20",
+        "question": "Influencing decision-makers or regulators to act in the business's favour is called _________.",
+        "input_type": "cloze",
+        "options": ["lobbying", "networking", "budgeting", "recruiting"],
+        "expected": "lobbying",
+        "memo": "Lobbying is influencing those who make the rules — government or regulators — to act in ways that benefit the business.",
+        "error_signals": ["ERR_BUS_MACRO_INVOLVE"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

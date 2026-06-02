@@ -1,0 +1,257 @@
+{
+  "BUS.G12.T2.TEAM.A1": {
+    "title": "Team performance & conflict management",
+    "description": "Collaborating to achieve objectives: criteria for successful team performance, self- and team-assessment against those criteria, performing a specific role in a team, problem-solving when working with others, correct procedures to deal with grievances, and ways of dealing with difficult people.",
+    "grade": 12,
+    "strand": "T2 — CSR, human rights, teams, sector & environment, leadership & quality",
+    "skill_ids": ["BUS.G12.T2.TEAM.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T2",
+    "caps_topic": "Relationship and team performance",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "sequence"],
+    "recovery_strategy": "Successful teams share clear goals, trust, communication and commitment. Handle grievances through the correct steps (raise it, discuss, escalate if unresolved). Deal with difficult people calmly and professionally.",
+    "questions": [
+      {
+        "ref": "G12.TEAM.A1.01",
+        "question": "Which of these is a criterion for successful team performance?",
+        "input_type": "choice",
+        "options": ["Clear, shared goals", "Constant secret rivalries", "No communication at all", "Distrust between members"],
+        "expected": "Clear, shared goals",
+        "memo": "Successful teams share clear goals, along with trust, open communication and commitment.",
+        "error_signals": ["ERR_BUS_TEAM12_CRITERIA"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.TEAM.A1.02",
+        "question": "A formal complaint raised by an employee about a workplace problem is called a _________.",
+        "input_type": "cloze",
+        "options": ["grievance", "dividend", "trademark", "levy"],
+        "expected": "grievance",
+        "memo": "A grievance is an employee's formal complaint, which should be handled through the correct procedure.",
+        "error_signals": ["ERR_BUS_TEAM12_GRIEVANCE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.TEAM.A1.03",
+        "question": "True or false: Collaboration means working together towards shared objectives.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Collaboration is people working together, combining effort and skills to achieve common objectives.",
+        "error_signals": ["ERR_BUS_TEAM12_COLLAB"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.TEAM.A1.04",
+        "question": "What is the best way to deal with a difficult colleague?",
+        "input_type": "choice",
+        "options": ["Stay calm, professional and address the issue respectfully", "Shout at them in front of others", "Spread rumours about them", "Refuse to ever speak to them"],
+        "expected": "Stay calm, professional and address the issue respectfully",
+        "memo": "Difficult people are best handled by staying calm and professional and addressing the real issue respectfully.",
+        "error_signals": ["ERR_BUS_TEAM12_DIFFICULT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.TEAM.A1.05",
+        "question": "_________-assessment means judging your own performance against the team's criteria.",
+        "input_type": "cloze",
+        "options": ["Self", "Team", "Peer", "Group"],
+        "expected": "Self",
+        "memo": "Self-assessment is honestly judging your own contribution and performance against agreed criteria.",
+        "error_signals": ["ERR_BUS_TEAM12_ASSESS"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.TEAM.A1.06",
+        "question": "True or false: Good teams share trust and open communication.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Trust and open communication are essential criteria for a team to perform well together.",
+        "error_signals": ["ERR_BUS_TEAM12_CRITERIA"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.TEAM.A1.07",
+        "question": "Put the steps of a fair grievance procedure in order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "raise", "text": "The employee raises the grievance formally"},
+          {"id": "discuss", "text": "The grievance is discussed with the supervisor"},
+          {"id": "escalate", "text": "If unresolved, it is escalated to higher management"},
+          {"id": "resolve", "text": "A decision is made and recorded"}
+        ],
+        "expected_order": ["raise", "discuss", "escalate", "resolve"],
+        "options": ["raise, discuss, escalate, resolve", "resolve, escalate, discuss, raise", "discuss, raise, resolve, escalate"],
+        "expected": "raise, discuss, escalate, resolve",
+        "memo": "A grievance is raised, discussed with the supervisor, escalated if unresolved, then decided and recorded.",
+        "error_signals": ["ERR_BUS_TEAM12_GRIEVANCE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.TEAM.A1.08",
+        "question": "Sort each item into a criterion for good teamwork or a barrier to it.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "criterion", "label": "Criterion for good teamwork"},
+          {"id": "barrier", "label": "Barrier to good teamwork"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Mutual trust and respect", "correct_bucket": "criterion"},
+          {"id": "i2", "text": "Poor communication", "correct_bucket": "barrier"},
+          {"id": "i3", "text": "Shared, agreed goals", "correct_bucket": "criterion"},
+          {"id": "i4", "text": "Prejudice between members", "correct_bucket": "barrier"},
+          {"id": "i5", "text": "Commitment to the task", "correct_bucket": "criterion"},
+          {"id": "i6", "text": "Constant unresolved conflict", "correct_bucket": "barrier"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Trust, shared goals and commitment are criteria for good teamwork; poor communication, prejudice and unresolved conflict are barriers.",
+        "error_signals": ["ERR_BUS_TEAM12_CRITERIA"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.TEAM.A1.09",
+        "question": "How does a member perform their specific role well in a team?",
+        "input_type": "choice",
+        "options": ["Understand the role and deliver their part reliably and on time", "Do whatever they feel like ignoring the team", "Leave their tasks for others to finish", "Compete secretly against teammates"],
+        "expected": "Understand the role and deliver their part reliably and on time",
+        "memo": "Performing a role well means knowing what is expected and reliably delivering it so the team can succeed.",
+        "error_signals": ["ERR_BUS_TEAM12_ROLE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.TEAM.A1.10",
+        "question": "Team _________ assessment judges the team's work against the agreed criteria.",
+        "input_type": "cloze",
+        "options": ["performance", "salary", "stock", "pricing"],
+        "expected": "performance",
+        "memo": "Team performance assessment measures how well the team meets criteria such as goals, communication and trust.",
+        "error_signals": ["ERR_BUS_TEAM12_ASSESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.TEAM.A1.11",
+        "question": "What is a constructive way to handle conflict within a team?",
+        "input_type": "choice",
+        "options": ["Address the issue calmly through the correct procedure and seek a fair solution", "Let it fester until the team breaks up", "Pick sides and ignore the facts", "Punish whoever complains"],
+        "expected": "Address the issue calmly through the correct procedure and seek a fair solution",
+        "memo": "Conflict is best handled by addressing it calmly and fairly through proper procedures, aiming for a workable solution.",
+        "error_signals": ["ERR_BUS_TEAM12_CONFLICT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.TEAM.A1.12",
+        "question": "True or false: Ignoring an employee's grievance is the best way to handle it.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "False",
+        "memo": "Ignoring a grievance lets the problem grow and breaks trust; it should be addressed through the correct procedure.",
+        "error_signals": ["ERR_BUS_TEAM12_GRIEVANCE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.TEAM.A1.13",
+        "question": "Sort each approach into helpful or unhelpful when dealing with a difficult team member.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "helpful", "label": "Helpful approach"},
+          {"id": "unhelpful", "label": "Unhelpful approach"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Listening to understand their concerns", "correct_bucket": "helpful"},
+          {"id": "i2", "text": "Publicly humiliating them", "correct_bucket": "unhelpful"},
+          {"id": "i3", "text": "Focusing on the behaviour, not the person", "correct_bucket": "helpful"},
+          {"id": "i4", "text": "Excluding them from all communication", "correct_bucket": "unhelpful"},
+          {"id": "i5", "text": "Agreeing clear expectations together", "correct_bucket": "helpful"},
+          {"id": "i6", "text": "Retaliating to get even", "correct_bucket": "unhelpful"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Listening, focusing on behaviour and agreeing expectations help; humiliating, excluding and retaliating make things worse.",
+        "error_signals": ["ERR_BUS_TEAM12_DIFFICULT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.TEAM.A1.14",
+        "question": "Why is it useful to assess a team's performance against criteria?",
+        "input_type": "choice",
+        "options": ["It identifies the team's strengths and where it must improve", "It guarantees the team never changes", "It hides problems from the manager", "It removes the need for any goals"],
+        "expected": "It identifies the team's strengths and where it must improve",
+        "memo": "Assessment against criteria highlights what the team does well and where it needs to improve.",
+        "error_signals": ["ERR_BUS_TEAM12_ASSESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.TEAM.A1.15",
+        "question": "What is a good approach to solving a problem that arises from working in a team?",
+        "input_type": "choice",
+        "options": ["Involve the members, discuss openly and agree a shared solution", "Have one person decide secretly and tell no one", "Ignore the problem and hope it disappears", "Blame the quietest member"],
+        "expected": "Involve the members, discuss openly and agree a shared solution",
+        "memo": "Team problems are best solved by involving members, discussing openly and agreeing a solution everyone supports.",
+        "error_signals": ["ERR_BUS_TEAM12_PROBLEM"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.TEAM.A1.16",
+        "question": "Clear _________ help every team member know what the team is trying to achieve.",
+        "input_type": "cloze",
+        "options": ["goals", "logos", "salaries", "premises"],
+        "expected": "goals",
+        "memo": "Clear, shared goals give the team direction and a common purpose to work towards.",
+        "error_signals": ["ERR_BUS_TEAM12_CRITERIA"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.TEAM.A1.17",
+        "question": "Put the steps of solving a problem that arises in a team in a sensible order.",
+        "input_type": "sequence",
+        "items": [
+          {"id": "identify", "text": "Identify the problem affecting the team"},
+          {"id": "discuss", "text": "Discuss it openly with the members"},
+          {"id": "agree", "text": "Agree on a shared solution"},
+          {"id": "review", "text": "Act, then review whether it worked"}
+        ],
+        "expected_order": ["identify", "discuss", "agree", "review"],
+        "options": ["identify, discuss, agree, review", "review, agree, discuss, identify", "discuss, identify, review, agree"],
+        "expected": "identify, discuss, agree, review",
+        "memo": "Identify the problem, discuss it with the team, agree a shared solution, then act and review the outcome.",
+        "error_signals": ["ERR_BUS_TEAM12_PROBLEM"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.TEAM.A1.18",
+        "question": "A skilled team member constantly criticises others and misses deadlines, hurting team morale. What is the best response?",
+        "input_type": "choice",
+        "options": ["Speak to them privately, set clear expectations and follow up", "Ignore it because they are skilled", "Criticise them loudly in the next meeting", "Quietly remove all their work without telling them"],
+        "expected": "Speak to them privately, set clear expectations and follow up",
+        "memo": "A private, respectful conversation that sets clear expectations and is followed up addresses the behaviour without damaging the team further.",
+        "error_signals": ["ERR_BUS_TEAM12_DIFFICULT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.TEAM.A1.19",
+        "question": "Why does effective collaboration help a team achieve its objectives?",
+        "input_type": "choice",
+        "options": ["Members combine their strengths and cover each other's gaps towards a shared goal", "Working alone is always faster than any team", "Collaboration removes the need for any goals", "Sharing work guarantees no one is accountable"],
+        "expected": "Members combine their strengths and cover each other's gaps towards a shared goal",
+        "memo": "Collaboration lets members pool their different strengths and support one another, which helps the team meet objectives it could not reach alone.",
+        "error_signals": ["ERR_BUS_TEAM12_COLLAB"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.TEAM.A1.20",
+        "question": "Two team members have a serious disagreement that is blocking the project. Which response best combines conflict management and problem-solving?",
+        "input_type": "choice",
+        "options": ["Bring them together, identify the real cause, agree a fair way forward and follow up", "Tell them to sort it out alone with no support", "Side immediately with the more senior person", "Reassign the whole project to avoid the issue"],
+        "expected": "Bring them together, identify the real cause, agree a fair way forward and follow up",
+        "memo": "Combining conflict management and problem-solving means surfacing the real cause, agreeing a fair solution together, and checking it holds.",
+        "error_signals": ["ERR_BUS_TEAM12_CONFLICT"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

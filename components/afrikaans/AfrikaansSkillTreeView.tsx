@@ -7,7 +7,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import afrikaansSkillTreeData from "@/data/afrikaans-skill-tree.json";
-import { HIGHEST_AVAILABLE_LEVEL, seedForGrade } from "@/lib/afrikaans-grade-map";
+import { seedForGrade } from "@/lib/afrikaans-grade-map";
 import {
   getAfrikaansSkillStatus,
   getAfrikaansLevelProgress,
@@ -103,7 +103,7 @@ export default function AfrikaansSkillTreeView({
 
   return (
     <SkillTreeShell
-      accent="amber"
+      accent="orange"
       title="Afrikaans Skill Tree"
       statline={`Graad ${seed.level} · ${masteredStrands}/${totalStrands} Strands · ${masteredSkills}/${totalSkills} Skills · ${progress}%`}
       levels={levels}
@@ -111,7 +111,7 @@ export default function AfrikaansSkillTreeView({
       notice={
         seed.beyondContent ? (
           <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3 text-sm text-amber-700">
-            More grades coming soon. Here&apos;s Grade {HIGHEST_AVAILABLE_LEVEL} for now.
+            More grades coming soon. Here&apos;s Grade {seed.level} for now.
           </div>
         ) : undefined
       }

@@ -1,0 +1,271 @@
+{
+  "BUS.G12.T3.OWNERSHIP.A1": {
+    "title": "Forms of ownership & business success",
+    "description": "Determining the extent to which a particular form of ownership contributes to the success or failure of a business, recapping the characteristics, advantages, disadvantages and comparison of forms of ownership with a focus on capacity, taxation, management, capital, division of profits and legislation.",
+    "grade": 12,
+    "strand": "T3 — Investment (securities & insurance), ownership & presentation",
+    "skill_ids": ["BUS.G12.T3.OWNERSHIP.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T3",
+    "caps_topic": "Forms of ownership",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "source-comparison"],
+    "recovery_strategy": "Judge a form of ownership by how it affects success: limited liability and continuity help a company raise capital and survive; unlimited liability and limited capital can hold a sole trader back. Match capital, tax, management and risk to the venture.",
+    "questions": [
+      {
+        "ref": "G12.OWNERSHIP.A1.01",
+        "question": "A sole trader has _________ liability.",
+        "input_type": "choice",
+        "options": ["unlimited", "limited", "no", "shared with the state"],
+        "expected": "unlimited",
+        "memo": "A sole trader is personally liable for all the business's debts — unlimited liability.",
+        "error_signals": ["ERR_BUS_OWN12_LIABILITY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.02",
+        "question": "A company offers its shareholders _________ liability.",
+        "input_type": "choice",
+        "options": ["limited", "unlimited", "personal", "no"],
+        "expected": "limited",
+        "memo": "Shareholders of a company have limited liability — they can lose only what they invested.",
+        "error_signals": ["ERR_BUS_OWN12_LIABILITY"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.03",
+        "question": "True or false: A company has continuity, while a sole trader's business may end when the owner dies.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A company carries on regardless of changes in ownership; a sole trader's business is tied to the owner.",
+        "error_signals": ["ERR_BUS_OWN12_FEATURE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.04",
+        "question": "A _________ company may not sell its shares to the public.",
+        "input_type": "cloze",
+        "options": ["private", "public", "listed", "state-owned"],
+        "expected": "private",
+        "memo": "A private company (Pty) Ltd cannot offer shares to the public, unlike a public company.",
+        "error_signals": ["ERR_BUS_OWN12_FEATURE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.05",
+        "question": "True or false: A partnership shares its profits among the partners.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "In a partnership, profits are divided among the partners according to their agreement.",
+        "error_signals": ["ERR_BUS_OWN12_FEATURE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.06",
+        "question": "Which form of ownership can usually raise the most capital?",
+        "input_type": "choice",
+        "options": ["A public company", "A sole trader", "A partnership", "A single street vendor"],
+        "expected": "A public company",
+        "memo": "A public company can sell shares to the public, giving it access to the largest pool of capital.",
+        "error_signals": ["ERR_BUS_OWN12_CAPITAL"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.07",
+        "question": "Sort each feature under the form of ownership it best describes.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "sole", "label": "Sole trader"},
+          {"id": "company", "label": "Company"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Unlimited liability", "correct_bucket": "sole"},
+          {"id": "i2", "text": "Limited liability", "correct_bucket": "company"},
+          {"id": "i3", "text": "Owner keeps full control", "correct_bucket": "sole"},
+          {"id": "i4", "text": "Separate legal personality", "correct_bucket": "company"},
+          {"id": "i5", "text": "Simple and cheap to start", "correct_bucket": "sole"},
+          {"id": "i6", "text": "Continuity beyond its owners", "correct_bucket": "company"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Sole trader: unlimited liability, full control, simple start. Company: limited liability, separate legal person, continuity.",
+        "error_signals": ["ERR_BUS_OWN12_FEATURE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.08",
+        "question": "How can limited liability help a business succeed?",
+        "input_type": "choice",
+        "options": ["It protects owners' personal assets and encourages people to invest", "It forces owners to risk their homes", "It removes the need for any capital", "It guarantees the business cannot fail"],
+        "expected": "It protects owners' personal assets and encourages people to invest",
+        "memo": "Limited liability lowers the risk to owners and investors, making it easier to attract the capital a business needs to grow.",
+        "error_signals": ["ERR_BUS_OWN12_SUCCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.09",
+        "question": "Read both owners, then decide which each statement matches.",
+        "input_type": "source-comparison",
+        "source_a": {
+          "text": "As a sole trader I keep full control and all the profit, but I am personally liable for every debt and I struggle to raise much capital.",
+          "provenance": "Sole trader"
+        },
+        "source_b": {
+          "text": "As a company we have limited liability and can raise large capital by issuing shares, but we face more regulation and share control.",
+          "provenance": "Company"
+        },
+        "statements": [
+          {"id": "s1", "text": "Bears unlimited personal liability", "correct_answer": "a_only"},
+          {"id": "s2", "text": "Can raise large capital by issuing shares", "correct_answer": "b_only"},
+          {"id": "s3", "text": "Is a recognised form of business ownership", "correct_answer": "both"},
+          {"id": "s4", "text": "Pays no tax of any kind", "correct_answer": "neither"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "s1=a_only, s2=b_only, s3=both, s4=neither",
+        "memo": "The sole trader has unlimited liability; the company can raise share capital. Both are forms of ownership; neither escapes tax.",
+        "error_signals": ["ERR_BUS_OWN12_LIABILITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.10",
+        "question": "A form of ownership with _________ liability puts the owner's personal assets at risk.",
+        "input_type": "cloze",
+        "options": ["unlimited", "limited", "shared", "zero"],
+        "expected": "unlimited",
+        "memo": "Unlimited liability means the owner's personal possessions can be used to pay the business's debts.",
+        "error_signals": ["ERR_BUS_OWN12_LIABILITY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.11",
+        "question": "How does taxation differ between a company and a sole trader?",
+        "input_type": "choice",
+        "options": ["A company is taxed at the company rate; a sole trader's profit is taxed as personal income", "Companies pay no tax; sole traders pay double", "Sole traders pay company tax", "Neither pays any tax"],
+        "expected": "A company is taxed at the company rate; a sole trader's profit is taxed as personal income",
+        "memo": "A company pays tax in its own name; a sole trader's profit is part of the owner's personal income for tax.",
+        "error_signals": ["ERR_BUS_OWN12_TAX"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.12",
+        "question": "True or false: The form of ownership a business chooses can affect its chances of success.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "The form of ownership shapes capital, liability, tax, management and continuity — all of which affect success.",
+        "error_signals": ["ERR_BUS_OWN12_SUCCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.13",
+        "question": "Sort each factor by which form of ownership it tends to favour for a fast-growing venture.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "company", "label": "Favours a company"},
+          {"id": "sole", "label": "Favours a sole trader"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Needs to raise large amounts of capital", "correct_bucket": "company"},
+          {"id": "i2", "text": "Wants the simplest, cheapest possible start", "correct_bucket": "sole"},
+          {"id": "i3", "text": "Wants limited liability for investors", "correct_bucket": "company"},
+          {"id": "i4", "text": "Wants one person to keep full control", "correct_bucket": "sole"},
+          {"id": "i5", "text": "Needs continuity beyond the founders", "correct_bucket": "company"},
+          {"id": "i6", "text": "Has a very small, low-risk operation", "correct_bucket": "sole"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Large capital, limited liability and continuity favour a company; simplicity, full control and a small low-risk scale favour a sole trader.",
+        "error_signals": ["ERR_BUS_OWN12_SUCCESS"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.14",
+        "question": "Why might a venture that needs large capital choose to be a company?",
+        "input_type": "choice",
+        "options": ["A company can raise capital by issuing shares and offers limited liability to investors", "A company cannot raise any capital", "A company always pays less tax than any other form", "A company has no legal requirements"],
+        "expected": "A company can raise capital by issuing shares and offers limited liability to investors",
+        "memo": "Companies can sell shares and limit investor risk, making it easier to attract the large capital a big venture needs.",
+        "error_signals": ["ERR_BUS_OWN12_CAPITAL"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.15",
+        "question": "In a partnership, how are profits usually handled?",
+        "input_type": "choice",
+        "options": ["Divided among the partners according to their agreement", "Kept entirely by one partner", "Paid only to the government", "Never distributed at all"],
+        "expected": "Divided among the partners according to their agreement",
+        "memo": "Partners share the profits as set out in their partnership agreement, often according to their contributions.",
+        "error_signals": ["ERR_BUS_OWN12_FEATURE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.16",
+        "question": "_________ means a business continues to exist despite changes in its ownership.",
+        "input_type": "cloze",
+        "options": ["Continuity", "Liability", "Liquidity", "Bankruptcy"],
+        "expected": "Continuity",
+        "memo": "Continuity is the ability of a business — especially a company — to keep operating even as owners change.",
+        "error_signals": ["ERR_BUS_OWN12_FEATURE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.17",
+        "question": "Read two ventures, then decide which each statement matches.",
+        "input_type": "source-comparison",
+        "source_a": {
+          "text": "Our small craft business stayed a sole trader. When the owner fell ill, the business stopped and creditors came after her personal savings.",
+          "provenance": "Venture A"
+        },
+        "source_b": {
+          "text": "We registered as a company. When a director left, the business carried on, and investors only risked the money they had put in.",
+          "provenance": "Venture B"
+        },
+        "statements": [
+          {"id": "s1", "text": "Suffered because of unlimited liability and no continuity", "correct_answer": "a_only"},
+          {"id": "s2", "text": "Benefited from limited liability and continuity", "correct_answer": "b_only"},
+          {"id": "s3", "text": "Shows how the form of ownership affected the outcome", "correct_answer": "both"},
+          {"id": "s4", "text": "Operated with no owners at all", "correct_answer": "neither"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "s1=a_only, s2=b_only, s3=both, s4=neither",
+        "memo": "Venture A was hurt by unlimited liability and lack of continuity; Venture B gained from limited liability and continuity. Both show ownership shaping the outcome; neither lacks owners.",
+        "error_signals": ["ERR_BUS_OWN12_SUCCESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.18",
+        "question": "A high-risk venture needing major investment is set up as a sole trader. Why might the form of ownership threaten its success?",
+        "input_type": "choice",
+        "options": ["Unlimited liability and limited capital expose the owner and constrain growth", "Sole traders always raise the most capital", "Unlimited liability protects the owner's assets", "The form of ownership cannot affect a high-risk venture"],
+        "expected": "Unlimited liability and limited capital expose the owner and constrain growth",
+        "memo": "For a high-risk, capital-hungry venture, a sole trader's unlimited liability and limited capital are poorly matched and can hold it back or ruin the owner.",
+        "error_signals": ["ERR_BUS_OWN12_SUCCESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.19",
+        "question": "To what extent does the form of ownership determine a business's success?",
+        "input_type": "choice",
+        "options": ["It strongly shapes capital, liability, tax and continuity, but success also depends on management and the market", "It is the only thing that determines success", "It has no effect on success at all", "It matters only for tax"],
+        "expected": "It strongly shapes capital, liability, tax and continuity, but success also depends on management and the market",
+        "memo": "The form of ownership powerfully influences key factors, but success ultimately also depends on good management and market conditions.",
+        "error_signals": ["ERR_BUS_OWN12_SUCCESS"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.OWNERSHIP.A1.20",
+        "question": "Three friends want to start a growing tech venture, attract investors and protect their personal assets. Which form best supports success?",
+        "input_type": "choice",
+        "options": ["A company, for limited liability, shared capital and continuity", "A sole trader, so one friend controls everything", "No formal structure at all", "A form with unlimited liability for all three"],
+        "expected": "A company, for limited liability, shared capital and continuity",
+        "memo": "A company suits a growing venture seeking investors and asset protection, offering limited liability, easier capital and continuity.",
+        "error_signals": ["ERR_BUS_OWN12_SUCCESS"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

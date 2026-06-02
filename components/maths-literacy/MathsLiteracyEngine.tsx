@@ -10,6 +10,7 @@ import {
   saveMathsLiteracyProfile,
   updateMathsLiteracySkillMastery,
 } from "@/lib/maths-literacy-student-model";
+import { ACCURACY_TARGET, requiredCoverageCount } from "@/lib/content-mastery";
 import type {
   MathsLiteracyDiagnosticResult,
   MathsLiteracyGenerateResponse,
@@ -45,6 +46,11 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
   useEffect(() => {
     const p = getMathsLiteracyProfile();
     setProfile(p);
+    // Seed session used-refs from the cumulative distinct set so we keep
+    // serving unseen questions across sittings (coverage is cumulative).
+    if (p.used_questions) {
+      usedRefsRef.current = { ...p.used_questions };
+    }
     let replay: string | null = null;
     if (typeof window !== "undefined") {
       replay = window.sessionStorage.getItem(REPLAY_KEY);
@@ -131,9 +137,15 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
       setFeedback(data.result);
       setPhase("feedback");
 
-      // Update local profile with the attempt.
+      // Update local profile with the attempt. Coverage denominator is the
+      // skill's authored bank size, returned with the question.
       if (profile) {
-        const { profile: updated, mastered } = updateMathsLiteracySkillMastery(profile, data.attempt);
+        const poolSize = question.pool_size;
+        const { profile: updated, mastered } = updateMathsLiteracySkillMastery(
+          profile,
+          data.attempt,
+          poolSize,
+        );
         const withCurrent = { ...updated, current_skill_id: currentSkillId };
         setProfile(withCurrent);
         saveMathsLiteracyProfile(withCurrent);
@@ -176,6 +188,15 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
   const skill = useMemo(() => getMathsLiteracySkillById(currentSkillId), [currentSkillId]);
   const mastery = profile?.skill_mastery[currentSkillId];
 
+  // Coverage progress for the badge: distinct questions answered so far vs. the
+  // required count (80% of the pool, capped at 20). Pool size comes from the
+  // active question; required count derives from it (lib/content-mastery.ts).
+  const poolSize = question?.pool_size ?? 0;
+  const requiredCount = requiredCoverageCount(poolSize);
+  const distinctAnswered = new Set(
+    profile?.used_questions?.[currentSkillId] ?? [],
+  ).size;
+
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5]">
       <header className="bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3">
@@ -202,7 +223,21 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
                 : "bg-amber-100 text-amber-700"
             }`}
           >
-            {mastery.status === "mastered" ? "Mastered" : `${mastery.correct_count}/3`}
+            {mastery.status === "mastered"
+              ? "Mastered"
+              : requiredCount > 0
+              ? `${Math.min(distinctAnswered, requiredCount)}/${requiredCount}`
+              : `${mastery.correct_count}`}
+          </span>
+        )}
+        {mastery && mastery.status !== "mastered" && requiredCount > 0 && (
+          <span
+            className="hidden sm:inline text-[10px] text-gray-500"
+            title={`Master this skill: answer ${requiredCount} different questions at ${Math.round(
+              ACCURACY_TARGET * 100,
+            )}% correct`}
+          >
+            {requiredCount} at {Math.round(ACCURACY_TARGET * 100)}%
           </span>
         )}
         {replayMode && (

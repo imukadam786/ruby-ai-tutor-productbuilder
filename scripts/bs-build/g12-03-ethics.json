@@ -1,0 +1,272 @@
+{
+  "BUS.G12.T1.ETHICS.A1": {
+    "title": "Ethics & professionalism",
+    "description": "How professional, responsible, ethical and effective business practice should be conducted in changing and challenging environments: the meaning of ethical behaviour, ethical vs unethical and professional vs unprofessional practice, the link between them, and strategies to address issues such as taxation, sexual harassment, unfair advertising and abuse of work time.",
+    "grade": 12,
+    "strand": "T1 — Legislation, Human Resources, ethics, creative thinking & business strategies",
+    "skill_ids": ["BUS.G12.T1.ETHICS.A1"],
+    "gate": "NONE",
+    "pass_threshold": 0.6,
+    "questions_for_mastery": 20,
+    "target_item_count": 20,
+    "caps_term": "G12 T1",
+    "caps_topic": "Self-management, professionalism and ethics",
+    "templates": ["choice", "true-false", "cloze", "sort-buckets", "paragraph-template"],
+    "recovery_strategy": "Ethical practice is honest and fair (pay fair wages, pay tax, advertise truthfully). Unethical practice harms others for gain (corruption, unfair ads, abusing work time). Professional behaviour supports ethical behaviour, especially under pressure.",
+    "questions": [
+      {
+        "ref": "G12.ETHICS.A1.01",
+        "question": "What does ethical behaviour in business mean?",
+        "input_type": "choice",
+        "options": ["Doing what is morally right, even when it is difficult", "Doing whatever makes the most money", "Following the crowd no matter what", "Avoiding all decisions"],
+        "expected": "Doing what is morally right, even when it is difficult",
+        "memo": "Ethical behaviour is acting in a morally right and fair way, even when an unethical choice might be easier or more profitable.",
+        "error_signals": ["ERR_BUS_ETH12_CONCEPT"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.ETHICS.A1.02",
+        "question": "Which of these is an example of UNETHICAL business practice?",
+        "input_type": "choice",
+        "options": ["Misleading customers with false advertising", "Advertising a product honestly", "Paying staff fairly", "Declaring all income for tax"],
+        "expected": "Misleading customers with false advertising",
+        "memo": "False, misleading advertising deceives customers, which is unethical. The other options are ethical practices.",
+        "error_signals": ["ERR_BUS_ETH12_JUDGE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.ETHICS.A1.03",
+        "question": "Spending most of the work day on personal social media is an example of abusing work _________.",
+        "input_type": "cloze",
+        "options": ["time", "space", "tax", "stock"],
+        "expected": "time",
+        "memo": "Using paid work hours for personal activities is abusing work time — an unprofessional and unethical practice.",
+        "error_signals": ["ERR_BUS_ETH12_JUDGE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.ETHICS.A1.04",
+        "question": "True or false: Paying the tax that is due is an ethical and responsible business practice.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "Paying tax honestly is a legal and ethical duty that supports society and reflects responsible business practice.",
+        "error_signals": ["ERR_BUS_ETH12_JUDGE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.ETHICS.A1.05",
+        "question": "Sexual harassment in the workplace is:",
+        "input_type": "choice",
+        "options": ["Unethical and unlawful", "An acceptable management style", "A form of professional conduct", "A marketing technique"],
+        "expected": "Unethical and unlawful",
+        "memo": "Sexual harassment harms people and breaks the law, making it both unethical and unlawful.",
+        "error_signals": ["ERR_BUS_ETH12_JUDGE"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.ETHICS.A1.06",
+        "question": "_________ behaviour and professionalism are closely linked at work.",
+        "input_type": "cloze",
+        "options": ["Ethical", "Random", "Careless", "Hidden"],
+        "expected": "Ethical",
+        "memo": "Ethical behaviour and professionalism reinforce each other — professional standards make ethical conduct part of daily work.",
+        "error_signals": ["ERR_BUS_ETH12_LINK"],
+        "difficulty": 1
+      },
+      {
+        "ref": "G12.ETHICS.A1.07",
+        "question": "Sort each practice into ethical or unethical.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "ethical", "label": "Ethical practice"},
+          {"id": "unethical", "label": "Unethical practice"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Advertising a product truthfully", "correct_bucket": "ethical"},
+          {"id": "i2", "text": "Overcharging rural customers who have no alternative", "correct_bucket": "unethical"},
+          {"id": "i3", "text": "Paying fair wages on time", "correct_bucket": "ethical"},
+          {"id": "i4", "text": "Using company funds for personal expenses", "correct_bucket": "unethical"},
+          {"id": "i5", "text": "Declaring all income for tax", "correct_bucket": "ethical"},
+          {"id": "i6", "text": "Hiding a known safety defect from customers", "correct_bucket": "unethical"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Honest advertising, fair wages and paying tax are ethical; overcharging, misusing funds and hiding defects are unethical.",
+        "error_signals": ["ERR_BUS_ETH12_JUDGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.ETHICS.A1.08",
+        "question": "What is the relationship between ethical and professional behaviour?",
+        "input_type": "choice",
+        "options": ["They reinforce each other — professional standards support ethical conduct", "They are opposites that cannot exist together", "Professionalism replaces the need for ethics", "Ethics only matters outside work"],
+        "expected": "They reinforce each other — professional standards support ethical conduct",
+        "memo": "A professional standard of honesty, respect and accountability naturally supports ethical behaviour, and ethics underpins professionalism.",
+        "error_signals": ["ERR_BUS_ETH12_LINK"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.ETHICS.A1.09",
+        "question": "Build a 3-part explanation of why ethical practice matters even in a tough, changing business environment.",
+        "input_type": "paragraph-template",
+        "prompt": "Build a 3-part explanation of why ethical practice matters even in a tough, changing business environment.",
+        "template": [
+          {
+            "slot": "point",
+            "label": "Pick the main claim",
+            "options": [
+              {"id": "p1", "text": "Ethical practice matters under pressure because shortcuts damage trust and reputation", "correct": true},
+              {"id": "p2", "text": "Ethics should be dropped whenever times get hard", "correct": false},
+              {"id": "p3", "text": "Ethics only matters when the business is doing well", "correct": false}
+            ]
+          },
+          {
+            "slot": "evidence",
+            "label": "Pick the supporting evidence",
+            "options": [
+              {"id": "e1", "text": "Customers, staff and partners avoid businesses caught acting dishonestly", "correct": true},
+              {"id": "e2", "text": "Dishonesty has no effect on a business's reputation", "correct": false},
+              {"id": "e3", "text": "People prefer to deal with businesses that cheat them", "correct": false}
+            ]
+          },
+          {
+            "slot": "explanation",
+            "label": "Pick the best explanation",
+            "options": [
+              {"id": "x1", "text": "Keeping standards under pressure protects long-term trust and survival, which short-term gains cannot replace", "correct": true},
+              {"id": "x2", "text": "A ruined reputation can be rebuilt instantly at no cost", "correct": false},
+              {"id": "x3", "text": "Long-term trust has no value to a business", "correct": false}
+            ]
+          }
+        ],
+        "expected": ["p1", "e1", "x1"],
+        "memo": "Claim: shortcuts under pressure damage trust. Evidence: people avoid dishonest businesses. Explanation: protecting long-term trust matters more than short-term gain.",
+        "error_signals": ["ERR_BUS_ETH12_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.ETHICS.A1.10",
+        "question": "A document that guides how staff should behave ethically and professionally is a code of _________.",
+        "input_type": "cloze",
+        "options": ["conduct", "pricing", "packaging", "exports"],
+        "expected": "conduct",
+        "memo": "A code of conduct sets out the ethical and professional standards expected of everyone in the business.",
+        "error_signals": ["ERR_BUS_ETH12_STRATEGY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.ETHICS.A1.11",
+        "question": "Which strategy best addresses the problem of unfair advertising in a business?",
+        "input_type": "choice",
+        "options": ["Adopt and enforce honest advertising standards", "Advertise even more aggressively with false claims", "Hide all advertising from regulators", "Blame the customers who complain"],
+        "expected": "Adopt and enforce honest advertising standards",
+        "memo": "Setting and enforcing honest advertising standards prevents misleading claims and protects customers and the brand.",
+        "error_signals": ["ERR_BUS_ETH12_STRATEGY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.ETHICS.A1.12",
+        "question": "True or false: Maintaining good ethics under pressure builds long-term trust in a business.",
+        "input_type": "true-false",
+        "options": ["True", "False"],
+        "expected": "True",
+        "memo": "A business that stays ethical even when it is hard earns lasting trust from customers, staff and partners.",
+        "error_signals": ["ERR_BUS_ETH12_CONCEPT"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.ETHICS.A1.13",
+        "question": "Sort each action into professional or unprofessional conduct under pressure.",
+        "input_type": "sort-buckets",
+        "buckets": [
+          {"id": "professional", "label": "Professional"},
+          {"id": "unprofessional", "label": "Unprofessional"}
+        ],
+        "items": [
+          {"id": "i1", "text": "Keeping promises to customers despite a busy period", "correct_bucket": "professional"},
+          {"id": "i2", "text": "Cutting safety checks to meet a deadline", "correct_bucket": "unprofessional"},
+          {"id": "i3", "text": "Communicating delays honestly", "correct_bucket": "professional"},
+          {"id": "i4", "text": "Blaming junior staff for management's mistakes", "correct_bucket": "unprofessional"},
+          {"id": "i5", "text": "Staying calm and respectful with an angry client", "correct_bucket": "professional"},
+          {"id": "i6", "text": "Taking credit for a colleague's work", "correct_bucket": "unprofessional"}
+        ],
+        "pass_threshold": 0.75,
+        "expected": "All six items in correct buckets (or ≥75%)",
+        "memo": "Keeping promises, honest communication and respect are professional; cutting safety, shifting blame and stealing credit are unprofessional.",
+        "error_signals": ["ERR_BUS_ETH12_JUDGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.ETHICS.A1.14",
+        "question": "How can a business address the problem of staff abusing work time?",
+        "input_type": "choice",
+        "options": ["Set clear policies and monitor fairly, with consequences for abuse", "Ignore it completely", "Reward those who waste the most time", "Remove all work for everyone"],
+        "expected": "Set clear policies and monitor fairly, with consequences for abuse",
+        "memo": "Clear, fair policies and reasonable monitoring discourage the abuse of work time while respecting staff.",
+        "error_signals": ["ERR_BUS_ETH12_STRATEGY"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.ETHICS.A1.15",
+        "question": "A competitor wins business by bribing buyers. What is the ethical response?",
+        "input_type": "choice",
+        "options": ["Keep to your own honest standards and compete fairly", "Start bribing buyers too", "Spread false rumours about the competitor", "Give up and close down"],
+        "expected": "Keep to your own honest standards and compete fairly",
+        "memo": "Ethical practice means holding to your standards and competing fairly, even when a rival behaves unethically.",
+        "error_signals": ["ERR_BUS_ETH12_JUDGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.ETHICS.A1.16",
+        "question": "Charging far higher prices in a remote rural area only because customers have no alternative is generally regarded as _________.",
+        "input_type": "cloze",
+        "options": ["unethical", "professional", "responsible", "fair"],
+        "expected": "unethical",
+        "memo": "Exploiting people's lack of choice to overcharge them is unfair to those customers, which is unethical.",
+        "error_signals": ["ERR_BUS_ETH12_JUDGE"],
+        "difficulty": 2
+      },
+      {
+        "ref": "G12.ETHICS.A1.17",
+        "question": "During a downturn, a manager is tempted to delay paying suppliers indefinitely and hide it from them. How is this best evaluated?",
+        "input_type": "choice",
+        "options": ["Unethical — it deceives suppliers and damages trust; honest negotiation is better", "Ethical, because survival justifies any action", "Professional, because it saves cash", "Irrelevant, because suppliers do not matter"],
+        "expected": "Unethical — it deceives suppliers and damages trust; honest negotiation is better",
+        "memo": "Hiding non-payment deceives suppliers and breaks trust; the ethical path is to communicate honestly and negotiate terms.",
+        "error_signals": ["ERR_BUS_ETH12_JUDGE"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.ETHICS.A1.18",
+        "question": "Why is cutting ethical corners to survive a tough period usually a poor long-term strategy?",
+        "input_type": "choice",
+        "options": ["It risks lasting damage to trust and reputation that outweighs the short-term gain", "It always guarantees survival with no downside", "Ethics has no effect on customers", "Reputation can never be harmed"],
+        "expected": "It risks lasting damage to trust and reputation that outweighs the short-term gain",
+        "memo": "Unethical shortcuts can destroy the trust and reputation a business depends on, causing harm that outlasts any short-term benefit.",
+        "error_signals": ["ERR_BUS_ETH12_CONCEPT"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.ETHICS.A1.19",
+        "question": "Why does professionalism matter most in changing and challenging business environments?",
+        "input_type": "choice",
+        "options": ["Pressure makes shortcuts tempting, so professional standards keep conduct ethical and reliable", "Professionalism only applies when business is easy", "Challenges remove all need for standards", "Professionalism makes problems worse"],
+        "expected": "Pressure makes shortcuts tempting, so professional standards keep conduct ethical and reliable",
+        "memo": "It is under pressure that standards are tested; professionalism keeps behaviour ethical and dependable when it matters most.",
+        "error_signals": ["ERR_BUS_ETH12_LINK"],
+        "difficulty": 3
+      },
+      {
+        "ref": "G12.ETHICS.A1.20",
+        "question": "Which combination best embeds ethical, professional practice across a business?",
+        "input_type": "choice",
+        "options": ["A clear code of conduct, leadership that models it, and fair consequences for breaches", "A poster in the lobby and nothing else", "Punishing only junior staff", "Hoping staff behave well with no guidance"],
+        "expected": "A clear code of conduct, leadership that models it, and fair consequences for breaches",
+        "memo": "Ethics is embedded when there is a clear code, leaders who live it, and consistent, fair consequences — not slogans alone.",
+        "error_signals": ["ERR_BUS_ETH12_STRATEGY"],
+        "difficulty": 3
+      }
+    ]
+  }
+}

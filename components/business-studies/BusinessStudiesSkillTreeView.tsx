@@ -33,7 +33,7 @@ export default function BusinessStudiesSkillTreeView({
 }: BusinessStudiesSkillTreeViewProps) {
   return (
     <GradeLockedSkillTree
-      accent="amber"
+      accent="indigo"
       title="Business Studies Skill Tree"
       subhead="Pass mark 60% · No timer · 20 questions per topic"
       tree={tree}
