@@ -29,7 +29,7 @@ export const UI_STRINGS: Record<string, string> = {
   "sidebar.logout_desc": "Sign out",
   "sidebar.powered_by": "Powered by Hula",
   // Home
-  "home.greeting": "Hi {name} 👋",
+  "home.greeting": "Welcome back {name} 👋",
   "home.ready": "Ready to keep learning?",
   "home.skills_mastered": "Skills Mastered",
   "home.in_progress": "In Progress",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ActiveView } from "@/types";
 import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
 import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
@@ -17,6 +17,26 @@ interface HomeScreenProps {
 }
 
 const MATRIC_PLANS = ["master", "matric-pack"];
+
+// Tutor characters, shown 3 per page in a swipable carousel.
+const TUTORS = [
+  { name: "Lex", img: "/characters/Lex.png" },
+  { name: "Nova", img: "/characters/Nova.png" },
+  { name: "Luna", img: "/characters/Luna.png" },
+  { name: "Terra", img: "/characters/Terra.png" },
+  { name: "Stella", img: "/characters/Stella.png" },
+  { name: "Sol", img: "/characters/Sol.png" },
+];
+const TUTORS_PER_PAGE = 3;
+const TUTOR_PAGES = Math.ceil(TUTORS.length / TUTORS_PER_PAGE);
+
+// Placeholder FAQs — copy to be subbed in later.
+const FAQS = [
+  { q: "How does Ruby teach maths?", a: "Ruby uses an adaptive skill tree to find your level and target the exact gaps you need to work on." },
+  { q: "Can I change the app language?", a: "Yes — tap the Language tile above to switch the app into your preferred language." },
+  { q: "How do I find my level?", a: "Start a Discovery for Maths or Reading and Ruby will place you at the right starting point." },
+  { q: "Is my progress saved?", a: "Yes, your progress is saved to your account so you can pick up where you left off on any device." },
+];
 
 function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   return (
@@ -74,6 +94,10 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
   const [mathsDone, setMathsDone] = useState(false);
   const [readingDone, setReadingDone] = useState(false);
   const [viewReport, setViewReport] = useState<"maths" | "reading" | null>(null);
+  const [faqOpen, setFaqOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [tutorPage, setTutorPage] = useState(0);
+  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     const load = async () => {
@@ -108,7 +132,18 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
           <div className="flex items-center justify-center sm:justify-start gap-4 mb-8">
             <RubyAvatar size="w-14 h-14" />
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">{t("home.greeting", { name: firstName })}</h1>
+              <h1 className="text-3xl font-bold text-gray-900">
+                {(() => {
+                  const [before, after] = t("home.greeting").split("{name}");
+                  return (
+                    <>
+                      {before}
+                      <span style={{ color: "#BE1832" }}>{firstName}</span>
+                      {after}
+                    </>
+                  );
+                })()}
+              </h1>
               <p className="text-gray-500 text-base mt-0.5">Ready to keep learning?</p>
             </div>
           </div>
@@ -129,43 +164,69 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
 
               <button
                 onClick={handleUpgradeClick}
-                className="bg-gradient-to-br from-[#BE1832] to-[#E8305A] rounded-2xl p-4 flex items-center gap-3 border border-transparent hover:shadow-md active:scale-[0.98] transition-all text-left"
+                className="bg-white rounded-2xl p-4 flex items-center gap-3 border border-gray-100 hover:shadow-md active:scale-[0.98] transition-all text-left"
               >
-                <span className="w-10 h-10 rounded-xl bg-white/20 text-white flex items-center justify-center text-xl flex-shrink-0">⭐</span>
+                <span className="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl flex-shrink-0">⭐</span>
                 <div className="min-w-0">
-                  <p className="font-semibold text-white text-base leading-tight">
+                  <p className="font-semibold text-gray-800 text-base leading-tight">
                     {isFreebie ? "Upgrade" : "Manage plan"}
                   </p>
-                  <p className="text-white/80 text-xs mt-0.5">
+                  <p className="text-gray-500 text-xs mt-0.5">
                     {isFreebie ? "Unlock unlimited learning" : `Current: ${userPlan}`}
                   </p>
                 </div>
               </button>
 
               <button
-                onClick={() => onNavigate("settings")}
+                onClick={() => setFaqOpen((v) => !v)}
+                aria-expanded={faqOpen}
                 className="bg-white rounded-2xl p-4 flex items-center gap-3 border border-gray-100 hover:shadow-md active:scale-[0.98] transition-all text-left"
               >
                 <span className="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl flex-shrink-0">❓</span>
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <p className="font-semibold text-gray-800 text-base leading-tight">FAQ</p>
                   <p className="text-gray-500 text-xs mt-0.5">Frequently asked questions</p>
                 </div>
+                <span className={`text-gray-400 transition-transform flex-shrink-0 ${faqOpen ? "rotate-180" : ""}`}>⌄</span>
               </button>
             </div>
+
+            {/* FAQ accordion — placeholder copy, subbed in later */}
+            {faqOpen && (
+              <div className="mt-3 bg-white rounded-2xl border border-gray-100 divide-y divide-gray-100 overflow-hidden">
+                {FAQS.map((item, i) => {
+                  const open = openFaq === i;
+                  return (
+                    <div key={item.q}>
+                      <button
+                        onClick={() => setOpenFaq(open ? null : i)}
+                        aria-expanded={open}
+                        className="w-full flex items-center gap-3 px-4 py-3.5 text-left hover:bg-gray-50 transition-colors"
+                      >
+                        <span className="font-medium text-gray-800 text-sm flex-1">{item.q}</span>
+                        <span className={`text-gray-400 transition-transform flex-shrink-0 ${open ? "rotate-180" : ""}`}>⌄</span>
+                      </button>
+                      {open && (
+                        <p className="px-4 pb-4 -mt-1 text-sm text-gray-500 leading-relaxed">{item.a}</p>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </section>
 
           {/* ── Discovery CTAs ────────────────────────────────────────────── */}
           <section className="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
             <button
               onClick={handleMatricPrepClick}
-              className="w-full h-full bg-gradient-to-br from-green-600 to-green-700 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              className="w-full h-full bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
             >
               <div className="flex-1 flex items-start gap-3">
                 <span className="text-2xl">🎓</span>
                 <div className="min-w-0">
                   <p className="font-semibold text-white leading-tight">Matric Prep</p>
-                  <p className="text-sm text-green-100 mt-0.5 leading-snug">
+                  <p className="text-sm text-emerald-50 mt-0.5 leading-snug">
                     {hasMatricAccess
                       ? "Past papers, prep papers and study guides"
                       : "Unlock past papers, prep papers and study guides"}
@@ -180,13 +241,13 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
             {mathsDone ? (
               <button
                 onClick={() => setViewReport("maths")}
-                className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+                className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
               >
                 <div className="flex-1 flex items-start gap-3">
                   <span className="text-2xl">🧮</span>
                   <div className="min-w-0">
                     <p className="font-semibold text-white leading-tight">Maths Discovery</p>
-                    <p className="text-sm text-blue-100 mt-0.5 leading-snug">View your placement results</p>
+                    <p className="text-sm text-blue-50 mt-0.5 leading-snug">View your placement results</p>
                   </div>
                 </div>
                 <span className="text-white font-semibold text-sm self-end mt-auto">View →</span>
@@ -194,13 +255,13 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
             ) : (
               <button
                 onClick={() => onNavigate("discover-maths")}
-                className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+                className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
               >
                 <div className="flex-1 flex items-start gap-3">
                   <span className="text-2xl">🧮</span>
                   <div className="min-w-0">
                     <p className="font-semibold text-white leading-tight">Start Maths Discovery</p>
-                    <p className="text-sm text-blue-100 mt-0.5 leading-snug">Find your Maths level</p>
+                    <p className="text-sm text-blue-50 mt-0.5 leading-snug">Find your Maths level</p>
                   </div>
                 </div>
                 <span className="text-white font-semibold text-sm self-end mt-auto">Start →</span>
@@ -210,13 +271,13 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
             {readingDone ? (
               <button
                 onClick={() => setViewReport("reading")}
-                className="w-full h-full bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+                className="w-full h-full bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
               >
                 <div className="flex-1 flex items-start gap-3">
                   <span className="text-2xl">📖</span>
                   <div className="min-w-0">
                     <p className="font-semibold text-white leading-tight">Reading Discovery</p>
-                    <p className="text-sm text-purple-100 mt-0.5 leading-snug">View your placement results</p>
+                    <p className="text-sm text-purple-50 mt-0.5 leading-snug">View your placement results</p>
                   </div>
                 </div>
                 <span className="text-white font-semibold text-sm self-end mt-auto">View →</span>
@@ -224,13 +285,13 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
             ) : (
               <button
                 onClick={() => onNavigate("discover-reading")}
-                className="w-full h-full bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+                className="w-full h-full bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
               >
                 <div className="flex-1 flex items-start gap-3">
                   <span className="text-2xl">📖</span>
                   <div className="min-w-0">
                     <p className="font-semibold text-white leading-tight">Start Reading Discovery</p>
-                    <p className="text-sm text-purple-100 mt-0.5 leading-snug">Find your Reading level</p>
+                    <p className="text-sm text-purple-50 mt-0.5 leading-snug">Find your Reading level</p>
                   </div>
                 </div>
                 <span className="text-white font-semibold text-sm self-end mt-auto">Start →</span>
@@ -238,27 +299,59 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
             )}
           </section>
 
-          {/* ── Learning Modes ────────────────────────────────────────────── */}
+          {/* ── Meet your Tutors ──────────────────────────────────────────── */}
           <section>
-            <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">{t("home.learning_modes")}</h2>
-            <div className="grid grid-cols-2 gap-3">
-              {[
-                { id: "chat"    as ActiveView, title: t("home.homework_title"), subtitle: t("home.homework_mode_desc"), emoji: "📚" },
-                { id: "ruby"    as ActiveView, title: t("home.maths_title"),    subtitle: t("home.maths_mode_desc"),    emoji: "🎯" },
-                { id: "reading" as ActiveView, title: t("home.reading_title"),  subtitle: t("home.reading_mode_desc"),  emoji: "✏️" },
-                { id: "watch"   as ActiveView, title: t("home.watch_title"),    subtitle: t("home.watch_mode_desc"),    emoji: "▶️" },
-              ].map((mode) => (
-                <button
-                  key={mode.id + mode.title}
-                  onClick={() => onNavigate(mode.id)}
-                  className="bg-white rounded-2xl p-5 flex flex-col gap-3 border border-gray-100 hover:shadow-md active:scale-[0.98] transition-all text-left"
-                >
-                  <span className="text-2xl">{mode.emoji}</span>
-                  <div>
-                    <p className="font-semibold text-gray-800 text-base">{mode.title}</p>
-                    <p className="text-gray-400 text-sm mt-0.5 leading-relaxed">{mode.subtitle}</p>
+            <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Meet your Tutors</h2>
+
+            <div
+              className="overflow-hidden"
+              onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+              onTouchEnd={(e) => {
+                if (touchStartX.current === null) return;
+                const dx = e.changedTouches[0].clientX - touchStartX.current;
+                if (dx < -40) setTutorPage((p) => Math.min(p + 1, TUTOR_PAGES - 1));
+                else if (dx > 40) setTutorPage((p) => Math.max(p - 1, 0));
+                touchStartX.current = null;
+              }}
+            >
+              <div
+                className="flex transition-transform duration-300 ease-out"
+                style={{ transform: `translateX(-${tutorPage * 100}%)` }}
+              >
+                {Array.from({ length: TUTOR_PAGES }).map((_, page) => (
+                  <div key={page} className="w-full flex-shrink-0 grid grid-cols-3 gap-3 sm:gap-4">
+                    {TUTORS.slice(page * TUTORS_PER_PAGE, page * TUTORS_PER_PAGE + TUTORS_PER_PAGE).map((tutor) => (
+                      <div
+                        key={tutor.name}
+                        className="bg-white rounded-2xl border border-gray-100 p-3 sm:p-4 flex flex-col items-center gap-3"
+                      >
+                        <div className="w-full aspect-square rounded-xl bg-gray-50 overflow-hidden flex items-center justify-center">
+                          <img
+                            src={tutor.img}
+                            alt={tutor.name}
+                            className="w-full h-full object-contain"
+                            draggable={false}
+                          />
+                        </div>
+                        <p className="font-semibold text-gray-800 text-sm sm:text-base">{tutor.name}</p>
+                      </div>
+                    ))}
                   </div>
-                </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Swipe indicator dots */}
+            <div className="flex items-center justify-center gap-2 mt-4">
+              {Array.from({ length: TUTOR_PAGES }).map((_, page) => (
+                <button
+                  key={page}
+                  onClick={() => setTutorPage(page)}
+                  aria-label={`Go to tutor page ${page + 1}`}
+                  className={`h-2 rounded-full transition-all ${
+                    tutorPage === page ? "w-6 bg-[#BE1832]" : "w-2 bg-gray-300 hover:bg-gray-400"
+                  }`}
+                />
               ))}
             </div>
           </section>
