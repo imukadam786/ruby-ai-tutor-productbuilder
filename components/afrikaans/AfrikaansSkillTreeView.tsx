@@ -103,7 +103,7 @@ export default function AfrikaansSkillTreeView({
 
   return (
     <SkillTreeShell
-      accent="amber"
+      accent="orange"
       title="Afrikaans Skill Tree"
       statline={`Graad ${seed.level} · ${masteredStrands}/${totalStrands} Strands · ${masteredSkills}/${totalSkills} Skills · ${progress}%`}
       levels={levels}

@@ -454,18 +454,18 @@ export default function BusinessStudiesSession({ onBack }: { onBack?: () => void
           </div>
 
           {skillId && (
-            <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
+            <div className="bg-indigo-50 border border-indigo-200 rounded-2xl px-4 py-3">
               <div className="flex items-center justify-between mb-1.5">
-                <span className="text-xs font-bold uppercase tracking-wide text-amber-800">
+                <span className="text-xs font-bold uppercase tracking-wide text-indigo-800">
                   Master this topic
                 </span>
-                <span className="text-sm font-semibold text-amber-700">
+                <span className="text-sm font-semibold text-indigo-700">
                   Q {Math.min(attemptCount + 1, requiredCount(skillId))} of {requiredCount(skillId)} · ⭐ {correctCount}
                 </span>
               </div>
-              <div className="h-2 bg-amber-100 rounded-full overflow-hidden">
+              <div className="h-2 bg-indigo-100 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-amber-500 rounded-full transition-all"
+                  className="h-full bg-indigo-500 rounded-full transition-all"
                   style={{
                     width: `${Math.round(
                       (Math.min(attemptCount, requiredCount(skillId)) /
@@ -475,7 +475,7 @@ export default function BusinessStudiesSession({ onBack }: { onBack?: () => void
                   }}
                 />
               </div>
-              <p className="text-[11px] text-amber-700 mt-1.5">
+              <p className="text-[11px] text-indigo-700 mt-1.5">
                 Master: {requiredCount(skillId)} questions at {Math.round(ACCURACY_TARGET * 100)}%
               </p>
             </div>
@@ -497,7 +497,7 @@ export default function BusinessStudiesSession({ onBack }: { onBack?: () => void
                 )}
 
               {question.context && (
-                <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 text-sm text-amber-900">
+                <div className="bg-indigo-50 border border-indigo-200 rounded-2xl px-4 py-3 text-sm text-indigo-900">
                   {question.context}
                 </div>
               )}
@@ -553,7 +553,7 @@ export default function BusinessStudiesSession({ onBack }: { onBack?: () => void
                     <p className="text-sm text-gray-700 mt-2 leading-relaxed">{result.memo}</p>
                   )}
                   {recoveryHint && !result.is_correct && (
-                    <p className="text-sm text-amber-700 mt-3 bg-amber-100 rounded-xl px-3 py-2">
+                    <p className="text-sm text-indigo-700 mt-3 bg-indigo-100 rounded-xl px-3 py-2">
                       💡 {recoveryHint}
                     </p>
                   )}
@@ -588,7 +588,7 @@ function DiagramImage({ imageKey, alt }: { imageKey: string; alt: string }) {
   const [extIdx, setExtIdx] = useState(0);
   if (extIdx >= HIS_IMAGE_EXTS.length) {
     return (
-      <div className="rounded-2xl border-2 border-dashed border-amber-300 bg-amber-50 p-4 text-center text-sm italic text-amber-700">
+      <div className="rounded-2xl border-2 border-dashed border-indigo-300 bg-indigo-50 p-4 text-center text-sm italic text-indigo-700">
         Diagram described in the question above.
       </div>
     );
@@ -600,7 +600,7 @@ function DiagramImage({ imageKey, alt }: { imageKey: string; alt: string }) {
         src={`/business-studies/${imageKey}.${HIS_IMAGE_EXTS[extIdx]}`}
         alt={alt}
         onError={() => setExtIdx((i) => i + 1)}
-        className="max-h-80 rounded-2xl border border-amber-200 bg-white"
+        className="max-h-80 rounded-2xl border border-indigo-200 bg-white"
       />
     </div>
   );
@@ -721,7 +721,7 @@ function AnswerDispatcher({ question, submitting, onSubmit }: AnswerDispatcherPr
             key={opt}
             disabled={submitting}
             onClick={() => onSubmit(opt)}
-            className="bg-amber-50 hover:bg-amber-100 border-2 border-amber-200 hover:border-amber-300 rounded-2xl px-5 py-5 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all whitespace-pre-line"
+            className="bg-indigo-50 hover:bg-indigo-100 border-2 border-indigo-200 hover:border-indigo-300 rounded-2xl px-5 py-5 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all whitespace-pre-line"
           >
             {opt}
           </button>

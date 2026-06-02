@@ -32,7 +32,7 @@ export default function SocialSciencesSkillTreeView({
   const mastery = masteryStatus ?? {};
   return (
     <GradeLockedSkillTree
-      accent="amber"
+      accent="violet"
       title="Social Sciences Skill Tree"
       subhead="Pick a topic to start. Ruby will read each question to you."
       tree={tree}

@@ -105,7 +105,7 @@ export default function LifeSkillsSkillTreeView({
 
   return (
     <SkillTreeShell
-      accent="amber"
+      accent="pink"
       title="Life Skills Skill Tree"
       statline={statline}
       levels={levels}

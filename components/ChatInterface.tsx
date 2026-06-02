@@ -434,7 +434,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             ) : (
               /* Ruby response — clean text, no card */
               <div className="max-w-[90%] sm:max-w-[75%]">
-                <div className="prose prose-base max-w-none leading-relaxed prose-headings:text-gray-800 prose-headings:font-bold prose-headings:mt-5 prose-headings:mb-2 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:!mb-5 prose-p:!mt-0 prose-strong:text-gray-700 prose-strong:font-normal prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-100 prose-pre:rounded-xl prose-li:text-gray-700 prose-li:mb-1 prose-ul:mb-4 prose-ol:mb-4">
+                <div className="prose prose-base max-w-none leading-relaxed prose-headings:text-gray-800 prose-headings:font-bold prose-headings:mt-5 prose-headings:mb-2 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:!mb-5 prose-p:!mt-0 prose-strong:text-[#BE1832] prose-strong:font-semibold prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-100 prose-pre:rounded-xl prose-li:text-gray-700 prose-li:mb-1 prose-ul:mb-4 prose-ol:mb-4">
                   <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
                     {msg.content || "▌"}
                   </ReactMarkdown>
@@ -520,7 +520,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
               <button
                 key={action.label}
                 onClick={() => sendMessage(action.prompt)}
-                className="px-4 py-2 rounded-full bg-white border border-gray-200 text-sm font-medium text-gray-700 hover:border-[#BE1832] hover:text-[#BE1832] hover:shadow-sm transition-all"
+                className="px-4 py-2 rounded-full bg-white border border-[#BE1832] text-sm font-medium text-[#BE1832] hover:bg-[#BE1832]/5 hover:shadow-sm transition-all"
               >
                 {action.label}
               </button>
@@ -549,13 +549,13 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         )}
 
         {/* GPT-style input container */}
-        <div className="relative flex items-end gap-2 bg-white border border-gray-200 rounded-2xl px-3 py-2 focus-within:border-[#B7182E] focus-within:ring-2 focus-within:ring-[#B7182E]/15 transition-all shadow-sm">
+        <div className="relative flex items-end gap-2 bg-white border border-[#BE1832] rounded-2xl px-3 py-2 focus-within:border-[#BE1832] focus-within:ring-2 focus-within:ring-[#BE1832]/15 transition-all shadow-sm">
 
           {/* Upload button (inside container, left) */}
           <div className="relative flex-shrink-0 self-end pb-0.5" ref={uploadMenuRef}>
             <button
               onClick={() => setShowUploadMenu((v) => !v)}
-              className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 hover:text-blue-500 hover:bg-white transition-colors"
+              className="w-8 h-8 flex items-center justify-center rounded-lg text-[#BE1832] hover:text-[#a01528] hover:bg-white transition-colors"
               title="Attach file or photo"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -605,7 +605,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             onKeyDown={handleKeyDown}
             placeholder="Ask anything..."
             rows={1}
-            className="flex-1 bg-transparent py-1.5 text-gray-800 placeholder-gray-400 text-base resize-none outline-none max-h-36 overflow-y-auto leading-relaxed"
+            className="flex-1 bg-transparent py-1.5 text-gray-800 placeholder-black text-base resize-none outline-none max-h-36 overflow-y-auto leading-relaxed"
             style={{ height: "auto" }}
             onInput={(e) => {
               const t = e.target as HTMLTextAreaElement;
@@ -621,7 +621,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             <button
               onClick={isListening ? stopVoice : startVoice}
               className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
-                isListening ? "bg-red-100 text-red-500" : "text-gray-400 hover:text-gray-600 hover:bg-white"
+                isListening ? "bg-red-100 text-red-500" : "text-[#BE1832] hover:text-[#a01528] hover:bg-white"
               }`}
               title={isListening ? "Stop listening" : "Voice input"}
             >
@@ -640,7 +640,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             <button
               onClick={() => sendMessage(input)}
               disabled={(!input.trim() && !attachedFile) || isLoading}
-              className="w-8 h-8 bg-[#B7182E] hover:bg-[#9e1427] disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0"
+              className="w-8 h-8 bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />

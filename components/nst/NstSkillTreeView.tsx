@@ -31,7 +31,7 @@ export default function NstSkillTreeView({
   const mastery = masteryStatus ?? {};
   return (
     <GradeLockedSkillTree
-      accent="amber"
+      accent="lime"
       title="Natural Sciences & Tech Skill Tree"
       subhead="Pick a topic to start. Ruby will read each question to you."
       tree={tree}

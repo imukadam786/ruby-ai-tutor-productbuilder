@@ -33,7 +33,7 @@ export default function GeographySkillTreeView({
 }: GeographySkillTreeViewProps) {
   return (
     <GradeLockedSkillTree
-      accent="amber"
+      accent="sky"
       title="Geography Skill Tree"
       subhead="Pass mark 60% · No timer · 20 questions per topic"
       tree={tree}

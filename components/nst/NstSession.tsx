@@ -448,18 +448,18 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
         </div>
 
         {skillId && (
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
+          <div className="bg-lime-50 border border-lime-200 rounded-2xl px-4 py-3">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs font-bold uppercase tracking-wide text-amber-800">
+              <span className="text-xs font-bold uppercase tracking-wide text-lime-800">
                 Master this topic
               </span>
-              <span className="text-sm font-semibold text-amber-700">
+              <span className="text-sm font-semibold text-lime-700">
                 Q {Math.min(attemptCount + 1, requiredCount(skillId))} of {requiredCount(skillId)} · ⭐ {correctCount}
               </span>
             </div>
-            <div className="h-2 bg-amber-100 rounded-full overflow-hidden">
+            <div className="h-2 bg-lime-100 rounded-full overflow-hidden">
               <div
-                className="h-full bg-amber-500 rounded-full transition-all"
+                className="h-full bg-lime-500 rounded-full transition-all"
                 style={{
                   width: `${Math.round(
                     (Math.min(attemptCount, requiredCount(skillId)) /
@@ -469,7 +469,7 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
                 }}
               />
             </div>
-            <p className="text-[11px] text-amber-700 mt-1.5">
+            <p className="text-[11px] text-lime-700 mt-1.5">
               Master: {requiredCount(skillId)} questions at {Math.round(ACCURACY_TARGET * 100)}%
             </p>
           </div>
@@ -528,7 +528,7 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
                   <p className="text-sm text-gray-700 mt-2 leading-relaxed">{result.memo}</p>
                 )}
                 {recoveryHint && !result.is_correct && (
-                  <p className="text-sm text-amber-700 mt-3 bg-amber-100 rounded-xl px-3 py-2">
+                  <p className="text-sm text-lime-700 mt-3 bg-lime-100 rounded-xl px-3 py-2">
                     💡 {recoveryHint}
                   </p>
                 )}
@@ -589,7 +589,7 @@ function PlayIcon({ text, speak, dark }: { text: string; speak: (t: string) => v
       className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors ${
         dark
           ? "bg-white/20 hover:bg-white/30 text-white"
-          : "bg-white border border-amber-300 hover:bg-amber-100 text-[#BE1832]"
+          : "bg-white border border-lime-300 hover:bg-lime-100 text-[#BE1832]"
       }`}
     >
       🔊
@@ -617,7 +617,7 @@ function AnswerInput({
             key={opt}
             disabled={submitting}
             onClick={() => onSubmit(opt)}
-            className="bg-amber-50 hover:bg-amber-100 border-2 border-amber-200 hover:border-amber-300 rounded-2xl px-5 py-5 flex items-center gap-3 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all"
+            className="bg-lime-50 hover:bg-lime-100 border-2 border-lime-200 hover:border-lime-300 rounded-2xl px-5 py-5 flex items-center gap-3 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all"
           >
             <span className="flex-1">{opt}</span>
             <PlayIcon text={opt} speak={speak} />
@@ -675,7 +675,7 @@ function AnswerInput({
           if (e.key === "Enter" && value.trim()) onSubmit(value.trim());
         }}
         placeholder="Type your answer"
-        className="w-full px-5 py-4 text-lg font-semibold border-2 border-amber-200 focus:border-amber-400 focus:outline-none rounded-2xl bg-amber-50 text-[#1a2744]"
+        className="w-full px-5 py-4 text-lg font-semibold border-2 border-lime-200 focus:border-lime-400 focus:outline-none rounded-2xl bg-lime-50 text-[#1a2744]"
       />
       <button
         disabled={submitting || !value.trim()}
@@ -732,7 +732,7 @@ function SequenceInput({ order, onChange, onSubmit, submitting, speak }: Sequenc
                 className={`w-full flex items-center gap-3 rounded-2xl px-4 py-4 text-left transition-all active:scale-[0.99] ${
                   isSelected
                     ? "bg-[#BE1832] border-2 border-[#BE1832] text-white shadow-md"
-                    : "bg-amber-50 border-2 border-amber-200 text-[#1a2744] hover:bg-amber-100"
+                    : "bg-lime-50 border-2 border-lime-200 text-[#1a2744] hover:bg-lime-100"
                 }`}
                 aria-pressed={isSelected}
               >
