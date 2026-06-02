@@ -25,7 +25,33 @@ import type { MathsLiteracyStudentProfile } from "@/types/maths-literacy";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
+import { HubTreeContext } from "@/components/shared/SkillTreeShell";
 import { useT } from "@/lib/i18n";
+import {
+  loadBusinessStudiesProfile,
+  hydrateBusinessStudiesProfileFromSupabase,
+} from "@/lib/business-studies-student-model";
+import {
+  loadLifeSciencesProfile,
+  hydrateLifeSciencesProfileFromSupabase,
+} from "@/lib/life-sciences-student-model";
+import {
+  loadHistoryProfile,
+  hydrateHistoryProfileFromSupabase,
+} from "@/lib/history-student-model";
+import {
+  loadTourismProfile,
+  hydrateTourismProfileFromSupabase,
+} from "@/lib/tourism-student-model";
+import {
+  loadGeographyProfile,
+  hydrateGeographyProfileFromSupabase,
+} from "@/lib/geography-student-model";
+import type { BusinessStudiesStudentProfile } from "@/types/business-studies";
+import type { LifeSciencesStudentProfile } from "@/types/life-sciences";
+import type { HistoryStudentProfile } from "@/types/history";
+import type { TourismStudentProfile } from "@/types/tourism";
+import type { GeographyStudentProfile } from "@/types/geography";
 
 const SkillTreeView           = dynamic(() => import("@/components/ruby/SkillTreeView"),                       { ssr: false });
 const ReadingSkillTreeView    = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),             { ssr: false });
@@ -35,6 +61,11 @@ const SocialSciencesSkillTreeView = dynamic(() => import("@/components/social-sc
 const NstSkillTreeView        = dynamic(() => import("@/components/nst/NstSkillTreeView"),                     { ssr: false });
 const MatricPhysSciSkillTreeView = dynamic(() => import("@/components/matric-phys-sci/MatricPhysSciSkillTreeView"), { ssr: false });
 const MathsLiteracySkillTreeView = dynamic(() => import("@/components/maths-literacy/MathsLiteracySkillTreeView"), { ssr: false });
+const LifeSciencesSkillTreeView    = dynamic(() => import("@/components/life-sciences/LifeSciencesSkillTreeView"),       { ssr: false });
+const HistorySkillTreeView         = dynamic(() => import("@/components/history/HistorySkillTreeView"),                 { ssr: false });
+const BusinessStudiesSkillTreeView = dynamic(() => import("@/components/business-studies/BusinessStudiesSkillTreeView"), { ssr: false });
+const TourismSkillTreeView         = dynamic(() => import("@/components/tourism/TourismSkillTreeView"),                 { ssr: false });
+const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),             { ssr: false });
 
 type SubjectId =
   | "discover"
@@ -89,15 +120,6 @@ function SubjectRow({ subject, onClick }: { subject: SubjectMeta; onClick?: () =
           <span className="text-5xl leading-none">{subject.placeholderEmoji}</span>
         )}
       </div>
-      <div className="min-w-0 w-full">
-        <span className="block font-semibold text-gray-900 text-base leading-tight">{subject.label}</span>
-        <span className="block text-xs text-gray-500 leading-snug line-clamp-2 mt-0.5">{subject.caption}</span>
-        {subject.badge && (
-          <span className={`inline-block mt-1.5 text-[11px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${subject.badgeColor ?? "bg-gray-100 text-gray-600"}`}>
-            {subject.badge}
-          </span>
-        )}
-      </div>
     </Wrapper>
   );
 }
@@ -107,6 +129,13 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [mathsProfile, setMathsProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [mathsLiteracyProfile, setMathsLiteracyProfile] = useState<MathsLiteracyStudentProfile | null>(null);
+  // FET content-subject profiles — loaded so the inline trees in the hub show
+  // real progress (% and which topics are mastered) rather than a blank tree.
+  const [businessStudiesProfile, setBusinessStudiesProfile] = useState<BusinessStudiesStudentProfile | null>(null);
+  const [lifeSciencesProfile, setLifeSciencesProfile] = useState<LifeSciencesStudentProfile | null>(null);
+  const [historyProfile, setHistoryProfile] = useState<HistoryStudentProfile | null>(null);
+  const [tourismProfile, setTourismProfile] = useState<TourismStudentProfile | null>(null);
+  const [geographyProfile, setGeographyProfile] = useState<GeographyStudentProfile | null>(null);
   const [grade, setGrade] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -122,6 +151,31 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       setGrade(auth?.grade ?? null);
       setLoading(false);
     });
+  }, []);
+
+  // Load the FET content-subject profiles (Supabase mirror first, then the
+  // local copy) so the inline hub trees render the learner's real progress. A
+  // null result is fine — the trees then show every topic unlocked at 0%.
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const [bs, ls, hi, to, ge] = await Promise.all([
+        hydrateBusinessStudiesProfileFromSupabase(),
+        hydrateLifeSciencesProfileFromSupabase(),
+        hydrateHistoryProfileFromSupabase(),
+        hydrateTourismProfileFromSupabase(),
+        hydrateGeographyProfileFromSupabase(),
+      ]);
+      if (cancelled) return;
+      setBusinessStudiesProfile(bs ?? loadBusinessStudiesProfile());
+      setLifeSciencesProfile(ls ?? loadLifeSciencesProfile());
+      setHistoryProfile(hi ?? loadHistoryProfile());
+      setTourismProfile(to ?? loadTourismProfile());
+      setGeographyProfile(ge ?? loadGeographyProfile());
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // Fail open: when the learner's grade can't be read (e.g. a legacy account
@@ -425,12 +479,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (typeof window !== "undefined") sessionStorage.removeItem("ruby_maths_literacy_replay_skill");
     onNavigate("maths-literacy");
   };
+  // Content subjects (FET + Life Skills / Social Sciences / NST): tapping a
+  // topic stashes its id, then that subject's session reads the key on mount
+  // and opens straight into the topic's questions — skipping its topic picker.
+  const startContentSkill = (view: ActiveView, key: string) => (skillId: string) => {
+    if (typeof window !== "undefined") sessionStorage.setItem(key, skillId);
+    onNavigate(view);
+  };
 
   function renderSubjectPanel(subject: SubjectMeta) {
     switch (subject.id) {
       case "discover":
         return (
-          <div className="p-5 flex flex-col items-center text-center gap-3">
+          <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-5 flex flex-col items-center text-center gap-3">
             <div className="text-3xl">🧭</div>
             <p className="text-sm text-gray-600 leading-relaxed">
               Discovery places you on the right starting rung of the Maths and Reading skill trees.
@@ -462,7 +523,12 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           />
         );
       case "life-skills":
-        return <LifeSkillsSkillTreeView onPickTopic={() => onNavigate("life-skills")} compact />;
+        return (
+          <LifeSkillsSkillTreeView
+            onPickTopic={startContentSkill("life-skills", "ruby_life-skills_target_skill")}
+            compact
+          />
+        );
       case "afrikaans":
         return (
           <AfrikaansSkillTreeView
@@ -471,9 +537,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           />
         );
       case "social-sciences":
-        return <SocialSciencesSkillTreeView onPickTopic={() => onNavigate("social-sciences")} />;
+        return (
+          <SocialSciencesSkillTreeView
+            onPickTopic={startContentSkill("social-sciences", "ruby_social-sciences_target_skill")}
+            compact
+          />
+        );
       case "nst":
-        return <NstSkillTreeView onPickTopic={() => onNavigate("natural-sciences-tech")} />;
+        return (
+          <NstSkillTreeView
+            onPickTopic={startContentSkill("natural-sciences-tech", "ruby_nst_target_skill")}
+            compact
+          />
+        );
       case "matric-phys-sci":
         return <MatricPhysSciSkillTreeView onPickSkill={() => onNavigate("matric-phys-sci")} compact />;
       case "maths-literacy":
@@ -485,25 +561,47 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             compact
           />
         );
-      // FET click-through subjects: the card itself opens the topic picker, so
-      // the panel is a simple prompt rather than an inline tree.
+      // FET content subjects: render the real tree inline. Tapping a topic
+      // opens straight into that topic's questions (every topic is unlocked).
       case "life-sciences":
+        return (
+          <LifeSciencesSkillTreeView
+            onPickSkill={startContentSkill("life-sciences", "ruby_life-sciences_target_skill")}
+            profile={lifeSciencesProfile}
+            compact
+          />
+        );
       case "history":
+        return (
+          <HistorySkillTreeView
+            onPickSkill={startContentSkill("history", "ruby_history_target_skill")}
+            profile={historyProfile}
+            compact
+          />
+        );
       case "business-studies":
+        return (
+          <BusinessStudiesSkillTreeView
+            onPickSkill={startContentSkill("business-studies", "ruby_business-studies_target_skill")}
+            profile={businessStudiesProfile}
+            compact
+          />
+        );
       case "tourism":
+        return (
+          <TourismSkillTreeView
+            onPickSkill={startContentSkill("tourism", "ruby_tourism_target_skill")}
+            profile={tourismProfile}
+            compact
+          />
+        );
       case "geography":
         return (
-          <div className="p-5 flex flex-col items-center justify-center text-center gap-3 h-full min-h-[160px]">
-            <p className="text-sm text-gray-600 leading-relaxed max-w-xs">
-              Open {subject.label} and pick any topic — every topic is unlocked, in any order.
-            </p>
-            <button
-              onClick={() => onNavigate(subject.navigateTo)}
-              className="px-4 py-2 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors shadow-sm"
-            >
-              Open {subject.label} →
-            </button>
-          </div>
+          <GeographySkillTreeView
+            onPickSkill={startContentSkill("geography", "ruby_geography_target_skill")}
+            profile={geographyProfile}
+            compact
+          />
         );
       default:
         return null;
@@ -523,24 +621,27 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           </div>
 
           {/* One grid: each subject = one row of [card | tree]. CSS Grid
-              auto-stretches the card to match its row's tree height. */}
-          <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-4 gap-y-3">
-            {subjects.map((s) => (
-              <Fragment key={s.id}>
-                <SubjectRow
-                  subject={s}
-                  onClick={
-                    ["life-sciences", "history", "business-studies", "tourism", "geography"].includes(s.id)
-                      ? () => onNavigate(s.navigateTo)
-                      : undefined
-                  }
-                />
-                <section className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
-                  {renderSubjectPanel(s)}
-                </section>
-              </Fragment>
-            ))}
-          </div>
+              auto-stretches the card to match its row's tree height. The
+              HubTreeContext tells every embedded tree it's on the hub, so it
+              renders without a nested card, with a plain "Skill Tree" header,
+              and showing only the learner's current sub-section by default. */}
+          <HubTreeContext.Provider value={true}>
+            <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-4 gap-y-3">
+              {subjects.map((s) => (
+                <Fragment key={s.id}>
+                  <SubjectRow
+                    subject={s}
+                    onClick={
+                      ["life-sciences", "history", "business-studies", "tourism", "geography"].includes(s.id)
+                        ? () => onNavigate(s.navigateTo)
+                        : undefined
+                    }
+                  />
+                  <section className="min-w-0">{renderSubjectPanel(s)}</section>
+                </Fragment>
+              ))}
+            </div>
+          </HubTreeContext.Provider>
 
         </div>
       </div>

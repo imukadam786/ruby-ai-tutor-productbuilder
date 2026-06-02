@@ -235,6 +235,19 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
     [loadNextQuestion],
   );
 
+  // Deep-link from the Subjects hub: a tapped topic is stashed in sessionStorage,
+  // so open it directly on mount — skipping the in-session topic picker.
+  const deepLinkConsumed = useRef(false);
+  useEffect(() => {
+    if (deepLinkConsumed.current || phase !== "tree") return;
+    if (typeof window === "undefined") return;
+    const target = sessionStorage.getItem("ruby_nst_target_skill");
+    if (!target) return;
+    deepLinkConsumed.current = true;
+    sessionStorage.removeItem("ruby_nst_target_skill");
+    if (findSkill(target)) handlePickTopic(target);
+  }, [phase, handlePickTopic]);
+
   const handleSubmit = useCallback(
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer) return;

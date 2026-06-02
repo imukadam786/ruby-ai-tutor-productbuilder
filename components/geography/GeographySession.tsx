@@ -237,6 +237,19 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
     [loadNextQuestion, profile],
   );
 
+  // Deep-link from the Subjects hub: a tapped topic is stashed in sessionStorage,
+  // so open it directly once the profile is ready — skipping the topic picker.
+  const deepLinkConsumed = useRef(false);
+  useEffect(() => {
+    if (deepLinkConsumed.current || !profile || phase !== "tree") return;
+    if (typeof window === "undefined") return;
+    const target = sessionStorage.getItem("ruby_geography_target_skill");
+    if (!target) return;
+    deepLinkConsumed.current = true;
+    sessionStorage.removeItem("ruby_geography_target_skill");
+    if (findSkill(target)) handlePickTopic(target);
+  }, [profile, phase, handlePickTopic]);
+
   const handleSubmit = useCallback(
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer.trim()) return;
