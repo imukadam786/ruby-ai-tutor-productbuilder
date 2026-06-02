@@ -9,24 +9,19 @@ import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import SavedReportView from "@/components/SavedReportView";
+import { TUTORS } from "@/lib/tutors";
 
 interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
   userPlan: string | null;
   onOpenLangPicker?: () => void;
+  /** Opens the chat personalised to the named tutor (header, avatar, prompts). */
+  onOpenChatWithTutor?: (tutorName: string) => void;
 }
 
 const MATRIC_PLANS = ["master", "matric-pack"];
 
 // Tutor characters, shown 3 per page in a swipable carousel.
-const TUTORS = [
-  { name: "Lex", img: "/characters/Lex.png" },
-  { name: "Nova", img: "/characters/Nova.png" },
-  { name: "Luna", img: "/characters/Luna.png" },
-  { name: "Terra", img: "/characters/Terra.png" },
-  { name: "Stella", img: "/characters/Stella.png" },
-  { name: "Sol", img: "/characters/Sol.png" },
-];
 const TUTORS_PER_PAGE = 3;
 const TUTOR_PAGES = Math.ceil(TUTORS.length / TUTORS_PER_PAGE);
 
@@ -61,7 +56,7 @@ function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   );
 }
 
-export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: HomeScreenProps) {
+export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onOpenChatWithTutor }: HomeScreenProps) {
   const hasMatricAccess = userPlan !== null && MATRIC_PLANS.includes(userPlan);
   const isFreebie = userPlan === "freebie" || userPlan === null;
 
@@ -321,10 +316,12 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
                 {Array.from({ length: TUTOR_PAGES }).map((_, page) => (
                   <div key={page} className="w-full flex-shrink-0 grid grid-cols-3 gap-3 sm:gap-4">
                     {TUTORS.slice(page * TUTORS_PER_PAGE, page * TUTORS_PER_PAGE + TUTORS_PER_PAGE).map((tutor) => (
-                      <div
+                      <button
                         key={tutor.name}
-                        className="bg-white rounded-2xl border border-gray-100 p-3 sm:p-4 flex flex-col items-center gap-3"
+                        onClick={() => onOpenChatWithTutor?.(tutor.name)}
+                        className="bg-white rounded-2xl border border-gray-100 p-3 sm:p-4 flex flex-col items-center gap-2 text-center hover:shadow-md hover:border-[#BE1832]/40 active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
                       >
+                        <p className="font-semibold text-gray-800 text-sm sm:text-base">{tutor.name}</p>
                         <div className="w-full aspect-square rounded-xl bg-gray-50 overflow-hidden flex items-center justify-center">
                           <img
                             src={tutor.img}
@@ -333,8 +330,17 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker }: H
                             draggable={false}
                           />
                         </div>
-                        <p className="font-semibold text-gray-800 text-sm sm:text-base">{tutor.name}</p>
-                      </div>
+                        <div className="flex flex-wrap justify-center gap-1">
+                          {tutor.subjects.map((s) => (
+                            <span
+                              key={s}
+                              className="px-2 py-0.5 rounded-full bg-[#BE1832]/10 text-[#BE1832] text-[10px] sm:text-[11px] font-medium leading-tight"
+                            >
+                              {s}
+                            </span>
+                          ))}
+                        </div>
+                      </button>
                     ))}
                   </div>
                 ))}

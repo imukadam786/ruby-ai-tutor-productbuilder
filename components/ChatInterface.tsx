@@ -10,7 +10,10 @@ import { getMessages, saveMessages, incrementMessageCount } from "@/lib/storage"
 import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
 import UsageMeter from "@/components/UsageMeter";
+import { getTutor } from "@/lib/tutors";
 
+// Default quick actions for the general (Ruby) chat. A specific tutor's chat
+// swaps these out for that tutor's own subject-tailored prompts (see lib/tutors).
 const QUICK_ACTIONS: { label: string; prompt: string }[] = [
   { label: "Help me with homework", prompt: "Help me with my homework." },
   { label: "Help me solve for x", prompt: "Help me solve for x. I'll share the equation in my next message — please walk me through it step by step." },
@@ -20,6 +23,8 @@ const QUICK_ACTIONS: { label: string; prompt: string }[] = [
 
 interface ChatInterfaceProps {
   onMessageSent: () => void;
+  /** When set, personalises the chat to a tutor: header label, avatar, prompts. */
+  tutorName?: string | null;
 }
 
 const WELCOME_MSG =
@@ -90,7 +95,9 @@ import { supabase } from "@/lib/supabase";
 const speakNaturally = speakViaAPI;
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
+export default function ChatInterface({ onMessageSent, tutorName }: ChatInterfaceProps) {
+  const tutor = getTutor(tutorName);
+  const quickActions = tutor?.quickActions ?? QUICK_ACTIONS;
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -399,8 +406,18 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
       {/* Header */}
       <div className="hidden md:flex border-b border-gray-100 px-4 py-2 sm:px-8 sm:py-3 items-center justify-between bg-white">
         <div className="flex items-center gap-2.5">
-          <RubyAvatar size="w-8 h-8 sm:w-10 sm:h-10" />
-          <h2 className="text-gray-900 font-semibold text-base sm:text-lg">Chat with Ruby</h2>
+          {tutor ? (
+            <img
+              src={tutor.img}
+              alt={tutor.name}
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl object-cover object-top flex-shrink-0 bg-gray-50"
+            />
+          ) : (
+            <RubyAvatar size="w-8 h-8 sm:w-10 sm:h-10" />
+          )}
+          <h2 className="text-gray-900 font-semibold text-base sm:text-lg">
+            {tutor ? `Chat with ${tutor.name}` : "Chat with Ruby"}
+          </h2>
         </div>
         <div className="flex items-center gap-3">
           <UsageMeter variant="compact" theme="light" />
@@ -516,11 +533,11 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         {/* Quick-action prompts — visible until the first message is sent */}
         {showQuickActions && (
           <div className="flex flex-wrap justify-center gap-2 mb-3">
-            {QUICK_ACTIONS.map((action) => (
+            {quickActions.map((action) => (
               <button
                 key={action.label}
                 onClick={() => sendMessage(action.prompt)}
-                className="px-4 py-2 rounded-full bg-white border border-[#BE1832] text-sm font-medium text-[#BE1832] hover:bg-[#BE1832]/5 hover:shadow-sm transition-all"
+                className="px-4 py-2 rounded-full bg-[#BE1832] text-sm font-medium text-white hover:bg-[#a01528] hover:shadow-sm transition-all"
               >
                 {action.label}
               </button>
@@ -549,7 +566,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
         )}
 
         {/* GPT-style input container */}
-        <div className="relative flex items-end gap-2 bg-white border border-[#BE1832] rounded-2xl px-3 py-2 focus-within:border-[#BE1832] focus-within:ring-2 focus-within:ring-[#BE1832]/15 transition-all shadow-sm">
+        <div className="relative flex items-end gap-2 bg-white border border-black rounded-2xl px-3 py-2 focus-within:border-black focus-within:ring-2 focus-within:ring-black/15 transition-all shadow-sm">
 
           {/* Upload button (inside container, left) */}
           <div className="relative flex-shrink-0 self-end pb-0.5" ref={uploadMenuRef}>
@@ -621,7 +638,7 @@ export default function ChatInterface({ onMessageSent }: ChatInterfaceProps) {
             <button
               onClick={isListening ? stopVoice : startVoice}
               className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
-                isListening ? "bg-red-100 text-red-500" : "text-[#BE1832] hover:text-[#a01528] hover:bg-white"
+                isListening ? "bg-red-100 text-red-500" : "text-black hover:text-gray-700 hover:bg-white"
               }`}
               title={isListening ? "Stop listening" : "Voice input"}
             >
