@@ -106,7 +106,7 @@ export default function CharacterPicker({ onPick }: CharacterPickerProps) {
                         className="bg-white rounded-2xl border border-gray-100 p-4 flex flex-col items-center gap-3 text-center hover:shadow-md hover:border-[#BE1832]/40 active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
                       >
                         <p className="font-semibold text-gray-800 text-base sm:text-lg">{tutor.name}</p>
-                        <div className="w-full aspect-square rounded-xl bg-gray-50 overflow-hidden flex items-center justify-center">
+                        <div className="w-full aspect-square rounded-xl bg-white overflow-hidden flex items-center justify-center">
                           <img
                             src={tutor.img}
                             alt={tutor.name}

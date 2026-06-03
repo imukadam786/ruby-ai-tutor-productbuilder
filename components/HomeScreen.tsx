@@ -319,10 +319,10 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
                       <button
                         key={tutor.name}
                         onClick={() => onOpenChatWithTutor?.(tutor.name)}
-                        className="bg-white rounded-2xl border border-gray-100 p-3 sm:p-4 flex flex-col items-center gap-2 text-center hover:shadow-md hover:border-[#BE1832]/40 active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
+                        className="bg-white rounded-2xl border-2 border-[#BE1832] p-3 sm:p-4 flex flex-col items-center gap-2 text-center hover:shadow-md hover:bg-[#BE1832]/5 active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
                       >
-                        <p className="font-semibold text-gray-800 text-sm sm:text-base">{tutor.name}</p>
-                        <div className="w-full aspect-square rounded-xl bg-gray-50 overflow-hidden flex items-center justify-center">
+                        <p className="font-semibold text-[#BE1832] text-sm sm:text-base">{tutor.name}</p>
+                        <div className="w-full aspect-square rounded-xl bg-white overflow-hidden flex items-center justify-center">
                           <img
                             src={tutor.img}
                             alt={tutor.name}

@@ -564,44 +564,84 @@ export default function SkillTreeShell({
     return () => window.cancelAnimationFrame(id);
   }, [compact, currentKey]);
 
-  return (
-    <div className={`relative isolate ${inHub ? "" : "bg-gray-50"} ${compact || inHub ? "" : "flex flex-col h-full"}`}>
-      {!inHub && (
-        <div className="absolute inset-0 -z-10">
-          <EduBackground />
-        </div>
-      )}
+  // The levels + footer, shared by the hub and standalone layouts.
+  const body = emptyState ? (
+    emptyState
+  ) : (
+    <div className="space-y-4">
+      {notice}
+      {levels.map((level) => (
+        <LevelCard
+          key={level.id}
+          level={level}
+          accent={accent}
+          isOpen={isOpen(level)}
+          onToggle={() => toggle(level)}
+          innerRef={level.isCurrent ? (el) => (currentRef.current = el) : undefined}
+        />
+      ))}
 
-      <div
-        className={`border-b px-6 py-4 ${accent.headerBg} ${
-          inHub ? "flex items-center gap-3 rounded-t-2xl" : "hidden md:block"
-        }`}
-      >
-        {/* Hidden on desktop: the Subjects hub shows a big subject image to the
-            left of the tree there, so this small thumbnail would be a duplicate.
-            On mobile (no left image) it remains the subject's visual anchor. */}
-        {inHub && (hub.thumbnail || hub.emoji) && (
-          hub.thumbnail ? (
-            <img
-              src={hub.thumbnail}
-              alt={hub.label ?? ""}
-              className="md:hidden w-10 h-10 rounded-xl object-cover flex-shrink-0 shadow-sm"
-            />
-          ) : (
-            <span className="md:hidden w-10 h-10 rounded-xl bg-white/60 flex items-center justify-center text-2xl flex-shrink-0">
-              {hub.emoji}
-            </span>
-          )
-        )}
+      {footerToggle && (
+        <button
+          type="button"
+          onClick={footerToggle.onClick}
+          className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+        >
+          {footerToggle.label}
+        </button>
+      )}
+    </div>
+  );
+
+  // ── Hub presentation ──────────────────────────────────────────────────────
+  // Inside the Subjects hub there's no header bar and no subject title: the
+  // learner sees only an enlarged subject thumbnail (with the stat-line beneath
+  // it) and the skill-tree card beside it. On desktop the two sit side by side
+  // and the thumbnail stretches to the tree's height; on mobile they stack.
+  if (inHub) {
+    const thumb = hub.thumbnail ? (
+      <img src={hub.thumbnail} alt={hub.label ?? ""} className="w-full h-full object-cover rounded-xl" />
+    ) : (
+      <div className="w-full h-full rounded-xl bg-gray-50 flex items-center justify-center text-5xl">
+        {hub.emoji ?? "📘"}
+      </div>
+    );
+
+    return (
+      <div className="relative isolate">
+        <div className="flex flex-col md:flex-row md:items-stretch gap-4">
+          {/* Left: enlarged thumbnail + stat-line, sized to the tree's height */}
+          <div className="flex flex-col items-center md:items-stretch md:w-48 lg:w-56 md:flex-shrink-0">
+            <div className="w-40 aspect-square md:w-full md:aspect-auto md:flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-2">
+              {thumb}
+            </div>
+            {statline && (
+              <p className="text-center text-xs text-gray-500 mt-2">{statline}</p>
+            )}
+          </div>
+
+          {/* Right: the skill-tree card */}
+          <div className="flex-1 min-w-0">{body}</div>
+        </div>
+      </div>
+    );
+  }
+
+  // ── Standalone / full-page presentation ───────────────────────────────────
+  return (
+    <div className={`relative isolate bg-gray-50 ${compact ? "" : "flex flex-col h-full"}`}>
+      <div className="absolute inset-0 -z-10">
+        <EduBackground />
+      </div>
+
+      <div className={`border-b px-6 py-4 ${accent.headerBg} hidden md:block`}>
         <div className="min-w-0">
-          <h2 className={`font-semibold text-lg ${accent.headerTitle}`}>
-            {inHub ? hub.label ?? "Skill Tree" : title}
-          </h2>
+          <h2 className={`font-semibold text-lg ${accent.headerTitle}`}>{title}</h2>
           {statline && <p className={`text-sm ${accent.headerSub}`}>{statline}</p>}
         </div>
       </div>
 
-      <div className={inHub ? "px-4 pt-4 pb-1" : compact ? "p-6" : "flex-1 overflow-y-auto p-6"}>
+      <div className={compact ? "p-6" : "flex-1 overflow-y-auto p-6"}>
         {onBack && (
           <div className="max-w-2xl mx-auto mb-4">
             <button
@@ -613,33 +653,7 @@ export default function SkillTreeShell({
           </div>
         )}
 
-        {emptyState ? (
-          emptyState
-        ) : (
-          <div className="max-w-2xl mx-auto space-y-4">
-            {notice}
-            {levels.map((level) => (
-              <LevelCard
-                key={level.id}
-                level={level}
-                accent={accent}
-                isOpen={isOpen(level)}
-                onToggle={() => toggle(level)}
-                innerRef={level.isCurrent ? (el) => (currentRef.current = el) : undefined}
-              />
-            ))}
-
-            {footerToggle && (
-              <button
-                type="button"
-                onClick={footerToggle.onClick}
-                className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
-              >
-                {footerToggle.label}
-              </button>
-            )}
-          </div>
-        )}
+        <div className="max-w-2xl mx-auto">{body}</div>
       </div>
     </div>
   );
