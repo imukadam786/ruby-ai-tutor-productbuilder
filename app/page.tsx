@@ -48,6 +48,8 @@ const TourismSession               = dynamic(() => import("@/components/tourism/
 const TourismSkillTreeView         = dynamic(() => import("@/components/tourism/TourismSkillTreeView"),                    { ssr: false });
 const GeographySession             = dynamic(() => import("@/components/geography/GeographySession"),                      { ssr: false });
 const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),                { ssr: false });
+const NaturalSciencesSpSession     = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSession"),     { ssr: false });
+const NaturalSciencesSpSkillTreeView = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSkillTreeView"), { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -119,7 +121,7 @@ const SESSION_VIEWS: ActiveView[] = [
   "ruby", "discover-maths", "reading", "discover-reading",
   "life-skills", "social-sciences", "natural-sciences-tech", "matric-phys-sci",
   "afrikaans-fal", "maths-literacy", "life-sciences", "history",
-  "business-studies", "tourism", "geography",
+  "business-studies", "tourism", "geography", "natural-sciences-sp",
 ];
 
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
@@ -187,6 +189,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "tourism-skill-tree": "Tourism · Topics",
     "geography": "Geography",
     "geography-skill-tree": "Geography · Topics",
+    "natural-sciences-sp": "Natural Sciences",
+    "natural-sciences-sp-skill-tree": "Natural Sciences · Topics",
   };
 
   const refreshStats = useCallback(() => {
@@ -507,6 +511,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           onBusinessStudiesPickSkill={() => handleViewChange("business-studies")}
           onTourismPickSkill={() => handleViewChange("tourism")}
           onGeographyPickSkill={() => handleViewChange("geography")}
+          onNaturalSciencesSpPickSkill={() => handleViewChange("natural-sciences-sp")}
         />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
@@ -544,6 +549,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {/* Geography — FET Phase (Gr 10–12), free like History */}
         {activeView === "geography" && <ErrorBoundary><GeographySession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "geography-skill-tree" && <GeographySkillTreeView onPickSkill={() => handleViewChange("geography")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Natural Sciences — Senior Phase (Gr 7–9), free like Geography */}
+        {activeView === "natural-sciences-sp" && <ErrorBoundary><NaturalSciencesSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "natural-sciences-sp-skill-tree" && <NaturalSciencesSpSkillTreeView onPickSkill={() => handleViewChange("natural-sciences-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} onNavigate={handleViewChange} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}

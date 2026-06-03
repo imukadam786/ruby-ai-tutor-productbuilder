@@ -47,11 +47,16 @@ import {
   loadGeographyProfile,
   hydrateGeographyProfileFromSupabase,
 } from "@/lib/geography-student-model";
+import {
+  loadNaturalSciencesSpProfile,
+  hydrateNaturalSciencesSpProfileFromSupabase,
+} from "@/lib/natural-sciences-sp-student-model";
 import type { BusinessStudiesStudentProfile } from "@/types/business-studies";
 import type { LifeSciencesStudentProfile } from "@/types/life-sciences";
 import type { HistoryStudentProfile } from "@/types/history";
 import type { TourismStudentProfile } from "@/types/tourism";
 import type { GeographyStudentProfile } from "@/types/geography";
+import type { NaturalSciencesSpStudentProfile } from "@/types/natural-sciences-sp";
 
 const SkillTreeView           = dynamic(() => import("@/components/ruby/SkillTreeView"),                       { ssr: false });
 const ReadingSkillTreeView    = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),             { ssr: false });
@@ -66,6 +71,7 @@ const HistorySkillTreeView         = dynamic(() => import("@/components/history/
 const BusinessStudiesSkillTreeView = dynamic(() => import("@/components/business-studies/BusinessStudiesSkillTreeView"), { ssr: false });
 const TourismSkillTreeView         = dynamic(() => import("@/components/tourism/TourismSkillTreeView"),                 { ssr: false });
 const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),             { ssr: false });
+const NaturalSciencesSpSkillTreeView = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSkillTreeView"), { ssr: false });
 
 type SubjectId =
   | "discover"
@@ -81,7 +87,8 @@ type SubjectId =
   | "history"
   | "business-studies"
   | "tourism"
-  | "geography";
+  | "geography"
+  | "natural-sciences-sp";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -162,6 +169,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [historyProfile, setHistoryProfile] = useState<HistoryStudentProfile | null>(() => loadHistoryProfile());
   const [tourismProfile, setTourismProfile] = useState<TourismStudentProfile | null>(() => loadTourismProfile());
   const [geographyProfile, setGeographyProfile] = useState<GeographyStudentProfile | null>(() => loadGeographyProfile());
+  const [naturalSciencesSpProfile, setNaturalSciencesSpProfile] = useState<NaturalSciencesSpStudentProfile | null>(() => loadNaturalSciencesSpProfile());
   const [grade, setGrade] = useState<number | null>(() => readCachedGrade());
   const [loading, setLoading] = useState(true);
 
@@ -190,12 +198,13 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [bs, ls, hi, to, ge] = await Promise.all([
+      const [bs, ls, hi, to, ge, ns] = await Promise.all([
         hydrateBusinessStudiesProfileFromSupabase(),
         hydrateLifeSciencesProfileFromSupabase(),
         hydrateHistoryProfileFromSupabase(),
         hydrateTourismProfileFromSupabase(),
         hydrateGeographyProfileFromSupabase(),
+        hydrateNaturalSciencesSpProfileFromSupabase(),
       ]);
       if (cancelled) return;
       if (bs) setBusinessStudiesProfile(bs);
@@ -203,6 +212,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       if (hi) setHistoryProfile(hi);
       if (to) setTourismProfile(to);
       if (ge) setGeographyProfile(ge);
+      if (ns) setNaturalSciencesSpProfile(ns);
     })();
     return () => {
       cancelled = true;
@@ -236,6 +246,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const showTourism = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // Geography is a FET subject (Gr 10–12 only). Free for all plans.
   const showGeography = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
+  // Natural Sciences is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
+  const showNaturalSciencesSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
 
   const mathsLiteracyMastered = mathsLiteracyProfile
     ? Object.values(mathsLiteracyProfile.skill_mastery ?? {}).filter(
@@ -460,6 +472,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "geography",
       });
     }
+    if (showNaturalSciencesSp) {
+      all.push({
+        id: "natural-sciences-sp",
+        thumbnail: "/thumbnails/natural-sciences-sp.webp",
+        label: "Natural Sciences",
+        caption: "Life, matter, energy, planet Earth & beyond · Grades 7–9",
+        badge: "Senior Phase",
+        badgeColor: "bg-rose-100 text-rose-700",
+        accentFrom: "from-rose-500",
+        accentTo: "to-pink-600",
+        navigateTo: "natural-sciences-sp",
+      });
+    }
     // "Discover" is the placement entry point, not a curriculum subject, so it
     // stays pinned at the top. Every real subject is then ordered alphabetically
     // by label — the same order for every grade.
@@ -479,6 +504,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     showBusinessStudies,
     showTourism,
     showGeography,
+    showNaturalSciencesSp,
   ]);
 
   // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
@@ -634,6 +660,14 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             compact
           />
         );
+      case "natural-sciences-sp":
+        return (
+          <NaturalSciencesSpSkillTreeView
+            onPickSkill={startContentSkill("natural-sciences-sp", "ruby_natural_sciences_sp_target_skill")}
+            profile={naturalSciencesSpProfile}
+            compact
+          />
+        );
       default:
         return null;
     }
@@ -651,38 +685,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             <p className="text-gray-500 text-sm mt-0.5">{t("subjects.subtitle")}</p>
           </div>
 
-          {/* Each subject's skill tree is centred in a single column that lines
-              up with the chat window. The subject thumbnail + name now live in
-              the tree's own header (passed via HubTreeContext, like Ruby's chat
-              avatar), so there's no separate left-hand card. Every embedded tree
-              renders in its hub presentation: rounded header, current section
-              only by default. */}
+          {/* Each subject renders as a self-contained two-column unit (enlarged
+              thumbnail + stat-line on the left, skill-tree card on the right) —
+              that whole layout lives in SkillTreeShell's hub mode, so every
+              subject's tree looks identical. The thumbnail, emoji fallback and
+              subject name are handed down via HubTreeContext. */}
           <div className="max-w-4xl mx-auto space-y-6">
             {subjects.map((s, i) => (
               <HubTreeContext.Provider
                 key={s.id}
                 value={{ inHub: true, thumbnail: s.thumbnail, emoji: s.placeholderEmoji, label: s.label }}
               >
-                <section className="flex items-start gap-4 sm:gap-5 min-w-0">
-                  {/* Big subject image on the left (desktop). On mobile the tree's
-                      own header shows the small thumbnail instead, so phones aren't
-                      pushed down by a full-width image. */}
-                  <div className="hidden md:block w-40 lg:w-52 flex-shrink-0">
-                    {s.thumbnail ? (
-                      <img
-                        src={s.thumbnail}
-                        alt={s.label}
-                        className="w-full aspect-square rounded-2xl object-cover shadow-sm border border-gray-100"
-                      />
-                    ) : (
-                      <div className="w-full aspect-square rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-5xl">
-                        {s.placeholderEmoji ?? "📘"}
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <LazyMount eager={i < 2}>{renderSubjectPanel(s)}</LazyMount>
-                  </div>
+                <section className="min-w-0">
+                  <LazyMount eager={i < 2}>{renderSubjectPanel(s)}</LazyMount>
                 </section>
               </HubTreeContext.Provider>
             ))}
