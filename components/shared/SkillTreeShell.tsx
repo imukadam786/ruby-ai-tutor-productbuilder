@@ -577,15 +577,18 @@ export default function SkillTreeShell({
           inHub ? "flex items-center gap-3 rounded-t-2xl" : "hidden md:block"
         }`}
       >
+        {/* Hidden on desktop: the Subjects hub shows a big subject image to the
+            left of the tree there, so this small thumbnail would be a duplicate.
+            On mobile (no left image) it remains the subject's visual anchor. */}
         {inHub && (hub.thumbnail || hub.emoji) && (
           hub.thumbnail ? (
             <img
               src={hub.thumbnail}
               alt={hub.label ?? ""}
-              className="w-10 h-10 rounded-xl object-cover flex-shrink-0 shadow-sm"
+              className="md:hidden w-10 h-10 rounded-xl object-cover flex-shrink-0 shadow-sm"
             />
           ) : (
-            <span className="w-10 h-10 rounded-xl bg-white/60 flex items-center justify-center text-2xl flex-shrink-0">
+            <span className="md:hidden w-10 h-10 rounded-xl bg-white/60 flex items-center justify-center text-2xl flex-shrink-0">
               {hub.emoji}
             </span>
           )

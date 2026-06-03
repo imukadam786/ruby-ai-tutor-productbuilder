@@ -32,7 +32,7 @@ export interface GradeLockedSkillTreeProps {
   accent: SkillTreeAccent;
   /** Header title, e.g. "History Skill Tree". */
   title: string;
-  /** Level-card sub-line, e.g. "Pass mark 60% · No timer · 20 questions per topic". */
+  /** Level-card sub-line, e.g. "Mastery 75% · 20 questions per topic". */
   subhead?: string;
   tree: { levels: GradeLevel[] };
   defaultGrade: number;
@@ -150,7 +150,7 @@ export default function GradeLockedSkillTree({
     <SkillTreeShell
       accent={accent}
       title={title}
-      statline={`Grade ${seed.level} · ${mastered}/${total} topics · ${progress}%`}
+      statline={`${mastered}/${total} topics · ${progress}%`}
       levels={levels}
       compact={compact}
       onBack={onBack}

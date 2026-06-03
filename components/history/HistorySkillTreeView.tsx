@@ -36,7 +36,7 @@ export default function HistorySkillTreeView({
     <GradeLockedSkillTree
       accent="amber"
       title="History Skill Tree"
-      subhead="Pass mark 60% · No timer · 20 questions per topic"
+      subhead="Mastery 75% · 20 questions per topic"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}
       seedForGrade={seedForGrade}

@@ -25,6 +25,8 @@ interface ChatInterfaceProps {
   onMessageSent: () => void;
   /** When set, personalises the chat to a tutor: header label, avatar, prompts. */
   tutorName?: string | null;
+  /** Return to the tutor picker (shown only when a tutor is active). */
+  onChangeTutor?: () => void;
 }
 
 const WELCOME_MSG =
@@ -95,7 +97,7 @@ import { supabase } from "@/lib/supabase";
 const speakNaturally = speakViaAPI;
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function ChatInterface({ onMessageSent, tutorName }: ChatInterfaceProps) {
+export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor }: ChatInterfaceProps) {
   const tutor = getTutor(tutorName);
   const quickActions = tutor?.quickActions ?? QUICK_ACTIONS;
   const [messages, setMessages] = useState<Message[]>([]);
@@ -403,9 +405,26 @@ export default function ChatInterface({ onMessageSent, tutorName }: ChatInterfac
       <EduBackground />
       {/* Centered chat panel — patterned background shows on the sides */}
       <div className="relative flex-1 flex flex-col min-h-0 w-full lg:max-w-4xl lg:mx-auto lg:my-4 lg:rounded-2xl lg:shadow-md bg-white overflow-hidden">
+      {/* Mobile: slim change-tutor strip (the desktop header is hidden on phones,
+          and the picker is primarily a mobile flow, so learners need a way back). */}
+      {tutor && onChangeTutor && (
+        <div className="md:hidden flex items-center gap-2 border-b border-gray-100 px-4 py-2 bg-white">
+          <button
+            onClick={onChangeTutor}
+            className="flex items-center gap-1 text-sm font-semibold text-[#BE1832]"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            Change tutor
+          </button>
+          <span className="text-xs text-[#BE1832]/80 truncate">{tutor.subjects.join(" · ")}</span>
+        </div>
+      )}
+
       {/* Header */}
       <div className="hidden md:flex border-b border-gray-100 px-4 py-2 sm:px-8 sm:py-3 items-center justify-between bg-white">
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5 min-w-0">
           {tutor ? (
             <img
               src={tutor.img}
@@ -415,11 +434,29 @@ export default function ChatInterface({ onMessageSent, tutorName }: ChatInterfac
           ) : (
             <RubyAvatar size="w-8 h-8 sm:w-10 sm:h-10" />
           )}
-          <h2 className="text-gray-900 font-semibold text-base sm:text-lg">
-            {tutor ? `Chat with ${tutor.name}` : "Chat with Ruby"}
-          </h2>
+          <div className="min-w-0">
+            <h2 className="text-gray-900 font-semibold text-base sm:text-lg flex items-baseline gap-2 flex-wrap">
+              {tutor ? `Chat with ${tutor.name}` : "Chat with Ruby"}
+              {tutor && (
+                <span className="text-xs sm:text-sm font-medium text-[#BE1832]">
+                  {tutor.subjects.join(" · ")}
+                </span>
+              )}
+            </h2>
+            {tutor && onChangeTutor && (
+              <button
+                onClick={onChangeTutor}
+                className="flex items-center gap-1 text-xs text-gray-500 hover:text-[#BE1832] transition-colors mt-0.5"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+                Change tutor
+              </button>
+            )}
+          </div>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-shrink-0">
           <UsageMeter variant="compact" theme="light" />
           <button
           onClick={clearChat}

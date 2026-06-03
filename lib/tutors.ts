@@ -21,7 +21,7 @@ export interface Tutor {
 export const TUTORS: Tutor[] = [
   {
     name: "Lex",
-    img: "/characters/Lex.png",
+    img: "/characters/Lex.webp",
     subjects: ["English", "Afrikaans", "Languages"],
     quickActions: [
       { label: "Help with English homework", prompt: "Help me with my English homework." },
@@ -32,7 +32,7 @@ export const TUTORS: Tutor[] = [
   },
   {
     name: "Nova",
-    img: "/characters/Nova.png",
+    img: "/characters/Nova.webp",
     subjects: ["Maths", "Maths Literacy"],
     quickActions: [
       { label: "Help with Maths homework", prompt: "Help me with my Maths homework." },
@@ -43,7 +43,7 @@ export const TUTORS: Tutor[] = [
   },
   {
     name: "Luna",
-    img: "/characters/Luna.png",
+    img: "/characters/Luna.webp",
     subjects: ["Business Studies", "Accounting", "Economics"],
     quickActions: [
       { label: "Help with Business Studies", prompt: "Help me with Business Studies — ask me what topic I'm working on, then explain it." },
@@ -54,7 +54,7 @@ export const TUTORS: Tutor[] = [
   },
   {
     name: "Terra",
-    img: "/characters/Terra.png",
+    img: "/characters/Terra.webp",
     subjects: ["Geography", "History"],
     quickActions: [
       { label: "Help me with Geography", prompt: "Help me with Geography — ask me what topic I'm working on, then explain it." },
@@ -65,7 +65,7 @@ export const TUTORS: Tutor[] = [
   },
   {
     name: "Stella",
-    img: "/characters/Stella.png",
+    img: "/characters/Stella.webp",
     subjects: ["Tourism", "Life Skills", "Social Studies", "NST"],
     quickActions: [
       { label: "Help me with Tourism", prompt: "Help me with Tourism — ask me what topic I'm working on, then explain it." },
@@ -76,7 +76,7 @@ export const TUTORS: Tutor[] = [
   },
   {
     name: "Sol",
-    img: "/characters/Sol.png",
+    img: "/characters/Sol.webp",
     subjects: ["Natural Science", "Physical Sciences"],
     quickActions: [
       { label: "Help with Physical Sciences", prompt: "Help me with Physical Sciences — ask me what topic I'm working on, then explain it." },

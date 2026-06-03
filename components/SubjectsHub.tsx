@@ -287,7 +287,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     const all: SubjectMeta[] = [
       {
         id: "discover",
-        thumbnail: "/thumbnails/discover.png",
+        thumbnail: "/thumbnails/discover.webp",
         label: "Discover",
         caption: "Take the placement and find your starting point",
         badge: discoverBadge,
@@ -298,7 +298,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       },
       {
         id: "maths",
-        thumbnail: "/thumbnails/mathematics.jpeg",
+        thumbnail: "/thumbnails/mathematics.webp",
         label: "Maths",
         caption: "Personalised lessons that adapt to your level",
         badge: mathsBadge,
@@ -309,7 +309,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       },
       {
         id: "english",
-        thumbnail: "/thumbnails/english.jpeg",
+        thumbnail: "/thumbnails/english.webp",
         label: "English",
         caption: "Reading, comprehension and writing — adapts to your grade",
         badge: readingBadge,
@@ -322,7 +322,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showLifeSkills) {
       all.push({
         id: "life-skills",
-        thumbnail: "/thumbnails/life-skills.png",
+        thumbnail: "/thumbnails/life-skills.webp",
         label: "Life Skills",
         caption: `Beginning Knowledge & Health for Grades 1–${LIFE_SKILLS_MAX_GRADE}`,
         badge: "Foundation Phase",
@@ -335,7 +335,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showAfrikaans) {
       all.push({
         id: "afrikaans",
-        thumbnail: "/thumbnails/afrikaans-fal.jpeg",
+        thumbnail: "/thumbnails/afrikaans-fal.webp",
         label: "Afrikaans",
         caption: `First Additional Language — listen, choose and learn (Grades 1–${AFRIKAANS_MAX_GRADE})`,
         accentFrom: "from-emerald-500",
@@ -346,7 +346,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showSocialSciences) {
       all.push({
         id: "social-sciences",
-        thumbnail: "/thumbnails/social-sciences.png",
+        thumbnail: "/thumbnails/social-sciences.webp",
         label: "Social Sciences",
         caption: `History & Geography for Grades ${SOCIAL_SCIENCES_MIN_GRADE}–${SOCIAL_SCIENCES_MAX_GRADE}`,
         badge: "Intermediate Phase",
@@ -372,7 +372,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showMatricPhysSci) {
       all.push({
         id: "matric-phys-sci",
-        thumbnail: "/thumbnails/physical-science.jpeg",
+        thumbnail: "/thumbnails/physical-science.webp",
         label: "Physical Sciences",
         caption: "Grade 12 NSC · 42 skills across P1 Physics and P2 Chemistry",
         badge: "Matric",
@@ -385,7 +385,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showMathsLiteracy) {
       all.push({
         id: "maths-literacy",
-        thumbnail: "/thumbnails/maths-literacy.jpeg",
+        thumbnail: "/thumbnails/maths-literacy.webp",
         label: "Maths Literacy",
         caption: `Applied maths for Grades ${MATHS_LITERACY_MIN_GRADE}–${MATHS_LITERACY_MAX_GRADE} · 85 skills across 10 levels`,
         badge: mathsLiteracyBadge,
@@ -398,7 +398,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showLifeSciences) {
       all.push({
         id: "life-sciences",
-        thumbnail: "/thumbnails/life-sciences.jpeg",
+        thumbnail: "/thumbnails/life-sciences.webp",
         label: "Life Sciences",
         caption: "Cells, life processes, ecology and diversity · Grades 10–12 · 70 topics",
         badge: "FET",
@@ -411,7 +411,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showHistory) {
       all.push({
         id: "history",
-        thumbnail: "/thumbnails/history.jpeg",
+        thumbnail: "/thumbnails/history.webp",
         label: "History",
         caption: "Precolonial African empires, source-work and argument-building · Grades 10–12",
         badge: "FET",
@@ -424,7 +424,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showBusinessStudies) {
       all.push({
         id: "business-studies",
-        thumbnail: "/thumbnails/business-studies.jpeg",
+        thumbnail: "/thumbnails/business-studies.webp",
         label: "Business Studies",
         caption: "Business environments, ventures, roles and operations · Grades 10–12",
         badge: "FET",
@@ -437,7 +437,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showTourism) {
       all.push({
         id: "tourism",
-        thumbnail: "/thumbnails/tourism.jpeg",
+        thumbnail: "/thumbnails/tourism.webp",
         label: "Tourism",
         caption: "Tourist sectors, map work, attractions, sustainability & customer care · Grades 10–12",
         badge: "FET",
@@ -450,7 +450,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showGeography) {
       all.push({
         id: "geography",
-        thumbnail: "/thumbnails/geography.jpeg",
+        thumbnail: "/thumbnails/geography.webp",
         label: "Geography",
         caption: "Atmosphere, geomorphology, settlement, mapwork · Grades 10–12",
         badge: "FET",
@@ -657,14 +657,32 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
               avatar), so there's no separate left-hand card. Every embedded tree
               renders in its hub presentation: rounded header, current section
               only by default. */}
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="max-w-4xl mx-auto space-y-6">
             {subjects.map((s, i) => (
               <HubTreeContext.Provider
                 key={s.id}
                 value={{ inHub: true, thumbnail: s.thumbnail, emoji: s.placeholderEmoji, label: s.label }}
               >
-                <section className="min-w-0">
-                  <LazyMount eager={i < 2}>{renderSubjectPanel(s)}</LazyMount>
+                <section className="flex items-start gap-4 sm:gap-5 min-w-0">
+                  {/* Big subject image on the left (desktop). On mobile the tree's
+                      own header shows the small thumbnail instead, so phones aren't
+                      pushed down by a full-width image. */}
+                  <div className="hidden md:block w-40 lg:w-52 flex-shrink-0">
+                    {s.thumbnail ? (
+                      <img
+                        src={s.thumbnail}
+                        alt={s.label}
+                        className="w-full aspect-square rounded-2xl object-cover shadow-sm border border-gray-100"
+                      />
+                    ) : (
+                      <div className="w-full aspect-square rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-5xl">
+                        {s.placeholderEmoji ?? "📘"}
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <LazyMount eager={i < 2}>{renderSubjectPanel(s)}</LazyMount>
+                  </div>
                 </section>
               </HubTreeContext.Provider>
             ))}

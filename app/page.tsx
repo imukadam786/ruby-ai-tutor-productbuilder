@@ -19,6 +19,7 @@ const ProgressTutorial   = dynamic(() => import("@/components/tutorial/ProgressT
 
 // ── Loaded on demand (dynamic imports) ──────────────────────────────────────
 const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
+const CharacterPicker      = dynamic(() => import("@/components/CharacterPicker"),                      { ssr: false });
 const ProgressTracker      = dynamic(() => import("@/components/ProgressTracker"),                     { ssr: false });
 const DiagnosticSession    = dynamic(() => import("@/components/ruby/DiagnosticSession"),               { ssr: false });
 const SkillTreeView        = dynamic(() => import("@/components/ruby/SkillTreeView"),                   { ssr: false });
@@ -484,7 +485,11 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         )}
         <div className="flex-1 min-h-0 overflow-hidden">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} onOpenLangPicker={() => setShowLangPicker(true)} onOpenChatWithTutor={(name) => { handleViewChange("chat"); setSelectedTutor(name); }} />}
-        {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} tutorName={selectedTutor} />}
+        {activeView === "chat" && (
+          selectedTutor
+            ? <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} tutorName={selectedTutor} onChangeTutor={() => setSelectedTutor(null)} />
+            : <CharacterPicker onPick={(name) => setSelectedTutor(name)} />
+        )}
         {activeView === "progress" && <ProgressTracker
           onMathsReplaySkill={startMathsReplay}
           onReadingReplaySkill={startReadingReplay}

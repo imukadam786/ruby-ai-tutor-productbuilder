@@ -330,16 +330,9 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
                             draggable={false}
                           />
                         </div>
-                        <div className="flex flex-wrap justify-center gap-1">
-                          {tutor.subjects.map((s) => (
-                            <span
-                              key={s}
-                              className="px-2 py-0.5 rounded-full bg-[#BE1832]/10 text-[#BE1832] text-[10px] sm:text-[11px] font-medium leading-tight"
-                            >
-                              {s}
-                            </span>
-                          ))}
-                        </div>
+                        <p className="text-[#BE1832] text-[10px] sm:text-[11px] font-medium leading-tight">
+                          {tutor.subjects.join(" · ")}
+                        </p>
                       </button>
                     ))}
                   </div>
