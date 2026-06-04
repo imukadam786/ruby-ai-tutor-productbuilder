@@ -319,20 +319,20 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
                       <button
                         key={tutor.name}
                         onClick={() => onOpenChatWithTutor?.(tutor.name)}
-                        className="bg-white rounded-2xl border-2 border-[#BE1832] p-3 sm:p-4 flex flex-col items-center gap-2 text-center hover:shadow-md hover:bg-[#BE1832]/5 active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
+                        className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
                       >
-                        <p className="font-semibold text-[#BE1832] text-sm sm:text-base">{tutor.name}</p>
-                        <div className="w-full aspect-square rounded-xl bg-white overflow-hidden flex items-center justify-center">
-                          <img
-                            src={tutor.img}
-                            alt={tutor.name}
-                            className="w-full h-full object-contain"
-                            draggable={false}
-                          />
+                        <img
+                          src={tutor.img}
+                          alt={tutor.name}
+                          className="w-full block"
+                          draggable={false}
+                        />
+                        <div className="px-2 py-2 text-center">
+                          <p className="font-semibold text-[#BE1832] text-sm sm:text-base">{tutor.name}</p>
+                          <p className="text-[#BE1832] text-[10px] sm:text-[11px] font-medium leading-tight mt-0.5">
+                            {tutor.subjects.join(" · ")}
+                          </p>
                         </div>
-                        <p className="text-[#BE1832] text-[10px] sm:text-[11px] font-medium leading-tight">
-                          {tutor.subjects.join(" · ")}
-                        </p>
                       </button>
                     ))}
                   </div>

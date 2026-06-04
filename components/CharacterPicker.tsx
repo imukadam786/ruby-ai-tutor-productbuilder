@@ -103,20 +103,20 @@ export default function CharacterPicker({ onPick }: CharacterPickerProps) {
                       <button
                         key={tutor.name}
                         onClick={() => onPick(tutor.name)}
-                        className="bg-white rounded-2xl border border-gray-100 p-4 flex flex-col items-center gap-3 text-center hover:shadow-md hover:border-[#BE1832]/40 active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
+                        className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
                       >
-                        <p className="font-semibold text-gray-800 text-base sm:text-lg">{tutor.name}</p>
-                        <div className="w-full aspect-square rounded-xl bg-white overflow-hidden flex items-center justify-center">
-                          <img
-                            src={tutor.img}
-                            alt={tutor.name}
-                            className="w-full h-full object-contain"
-                            draggable={false}
-                          />
+                        <img
+                          src={tutor.img}
+                          alt={tutor.name}
+                          className="w-full block"
+                          draggable={false}
+                        />
+                        <div className="px-3 py-2.5 text-center">
+                          <p className="font-semibold text-[#BE1832] text-base sm:text-lg">{tutor.name}</p>
+                          <p className="text-[#BE1832] text-xs sm:text-sm font-medium leading-tight mt-0.5">
+                            {tutor.subjects.join(" · ")}
+                          </p>
                         </div>
-                        <p className="text-xs sm:text-sm font-medium text-[#BE1832] leading-tight">
-                          {tutor.subjects.join(" · ")}
-                        </p>
                       </button>
                     ))}
                   </div>
