@@ -527,6 +527,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           onNaturalSciencesSpPickSkill={() => handleViewChange("natural-sciences-sp")}
           onSocialSciencesSpPickSkill={() => handleViewChange("social-sciences-sp")}
           onEmsSpPickSkill={() => handleViewChange("ems-sp")}
+          onAccountingPickSkill={() => handleViewChange("accounting")}
         />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
