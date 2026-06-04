@@ -1,5 +1,5 @@
-import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { apiFetch } from "@/lib/fetch";

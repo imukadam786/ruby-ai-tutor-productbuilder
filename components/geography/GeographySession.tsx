@@ -1,5 +1,5 @@
-import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 
 // GeographySession — clone of HistorySession with a dispatcher widened for the
 // Geography bank. Key points:

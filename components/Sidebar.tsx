@@ -16,7 +16,7 @@ interface SidebarProps {
   onSettings?: () => void;
   onLogout?: () => void;
   onOpenLangPicker?: () => void;
-  userPlan?: string | null;
+  grade?: number | null;
 }
 
 export default function Sidebar({
@@ -29,10 +29,12 @@ export default function Sidebar({
   onSettings,
   onLogout,
   onOpenLangPicker,
-  userPlan,
+  grade,
 }: SidebarProps) {
-  const matricLocked = userPlan !== "master" && userPlan !== "matric-pack";
   const { t } = useT();
+  // Matric is a Grade 12-only experience. Fail closed: anyone who isn't a
+  // confirmed Grade 12 learner (including unknown/legacy grade) never sees it.
+  const showMatric = grade === 12;
 
   const handleNav = (view: ActiveView) => {
     onViewChange(view);
@@ -67,7 +69,8 @@ export default function Sidebar({
     { id: "progress", emoji: "📊", label: t("sidebar.progress") },
     { id: "chat",     emoji: "💬", label: t("sidebar.homework") },
     { id: "subjects", emoji: "📚", label: "Subjects" },
-    { id: "matrics",  emoji: "🎓", label: "Matrics" },
+    // Matrics is Grade 12-only — omitted entirely for every other learner.
+    ...(showMatric ? [{ id: "matrics" as ActiveView, emoji: "🎓", label: "Matrics" }] : []),
   ];
 
   return (
@@ -162,7 +165,6 @@ export default function Sidebar({
               id === "subjects" ? subjectsActive :
               id === "matrics"  ? matricsActive :
               activeView === id;
-            const isLockedMatric = id === "matrics" && matricLocked;
             return (
               <button
                 key={id}

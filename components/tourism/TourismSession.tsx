@@ -1,5 +1,5 @@
-import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 
 // TourismSession — clone of LifeSciencesSession with a wider answer
 // dispatcher. Key differences from LSC:

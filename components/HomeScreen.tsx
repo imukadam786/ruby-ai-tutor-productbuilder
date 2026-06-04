@@ -86,6 +86,8 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
   const { t } = useT();
 
   const [firstName, setFirstName] = useState("there");
+  // Matric Prep is Grade 12-only. Fail closed: unknown grade keeps it hidden.
+  const [isGrade12, setIsGrade12] = useState(false);
   const [mathsDone, setMathsDone] = useState(false);
   const [readingDone, setReadingDone] = useState(false);
   const [viewReport, setViewReport] = useState<"maths" | "reading" | null>(null);
@@ -102,6 +104,7 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
         hydrateReadingProfileFromSupabase(),
       ]);
       if (auth?.name) setFirstName(auth.name.split(" ")[0]);
+      setIsGrade12(auth?.grade === 12);
       setMathsDone(profile?.placementCompleted ?? false);
       setReadingDone((readingProfile as ReadingStudentProfile | null)?.placementCompleted ?? false);
     };
@@ -213,25 +216,28 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
 
           {/* ── Discovery CTAs ────────────────────────────────────────────── */}
           <section className="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <button
-              onClick={handleMatricPrepClick}
-              className="w-full h-full bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
-            >
-              <div className="flex-1 flex items-start gap-3">
-                <span className="text-2xl">🎓</span>
-                <div className="min-w-0">
-                  <p className="font-semibold text-white leading-tight">Matric Prep</p>
-                  <p className="text-sm text-emerald-50 mt-0.5 leading-snug">
-                    {hasMatricAccess
-                      ? "Past papers, prep papers and study guides"
-                      : "Unlock past papers, prep papers and study guides"}
-                  </p>
+            {/* Matric Prep is Grade 12-only — hidden for every other learner. */}
+            {isGrade12 && (
+              <button
+                onClick={handleMatricPrepClick}
+                className="w-full h-full bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              >
+                <div className="flex-1 flex items-start gap-3">
+                  <span className="text-2xl">🎓</span>
+                  <div className="min-w-0">
+                    <p className="font-semibold text-white leading-tight">Matric Prep</p>
+                    <p className="text-sm text-emerald-50 mt-0.5 leading-snug">
+                      {hasMatricAccess
+                        ? "Past papers, prep papers and study guides"
+                        : "Unlock past papers, prep papers and study guides"}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <span className="text-white font-semibold text-sm self-end mt-auto">
-                {hasMatricAccess ? "View →" : "Upgrade →"}
-              </span>
-            </button>
+                <span className="text-white font-semibold text-sm self-end mt-auto">
+                  {hasMatricAccess ? "View →" : "Upgrade →"}
+                </span>
+              </button>
+            )}
 
             {mathsDone ? (
               <button

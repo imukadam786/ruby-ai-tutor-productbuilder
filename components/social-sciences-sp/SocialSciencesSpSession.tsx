@@ -1,5 +1,5 @@
-import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 
 // SocialSciencesSpSession — clone of GeographySession for the Natural Sciences
 // Senior-Phase bank. Key points:

@@ -1,5 +1,5 @@
-import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 
 // Cloned from components/life-skills/LifeSkillsSession.tsx — the learner taps /
 // chooses / listens, and answers are graded deterministically by the
