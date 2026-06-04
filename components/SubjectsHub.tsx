@@ -59,6 +59,15 @@ import {
   loadEmsSpProfile,
   hydrateEmsSpProfileFromSupabase,
 } from "@/lib/ems-sp-student-model";
+import {
+  loadAccountingProfile,
+  hydrateAccountingProfileFromSupabase,
+} from "@/lib/accounting-student-model";
+import {
+  loadAfrikaansProfile,
+  hydrateAfrikaansProfileFromSupabase,
+} from "@/lib/afrikaans-student-model";
+import type { AfrikaansStudentProfile } from "@/types/afrikaans";
 import type { BusinessStudiesStudentProfile } from "@/types/business-studies";
 import type { LifeSciencesStudentProfile } from "@/types/life-sciences";
 import type { HistoryStudentProfile } from "@/types/history";
@@ -67,6 +76,7 @@ import type { GeographyStudentProfile } from "@/types/geography";
 import type { NaturalSciencesSpStudentProfile } from "@/types/natural-sciences-sp";
 import type { SocialSciencesSpStudentProfile } from "@/types/social-sciences-sp";
 import type { EmsSpStudentProfile } from "@/types/ems-sp";
+import type { AccountingStudentProfile } from "@/types/accounting";
 
 const SkillTreeView           = dynamic(() => import("@/components/ruby/SkillTreeView"),                       { ssr: false });
 const ReadingSkillTreeView    = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),             { ssr: false });
@@ -84,6 +94,7 @@ const GeographySkillTreeView       = dynamic(() => import("@/components/geograph
 const NaturalSciencesSpSkillTreeView = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSkillTreeView"), { ssr: false });
 const SocialSciencesSpSkillTreeView = dynamic(() => import("@/components/social-sciences-sp/SocialSciencesSpSkillTreeView"), { ssr: false });
 const EmsSpSkillTreeView = dynamic(() => import("@/components/ems-sp/EmsSpSkillTreeView"), { ssr: false });
+const AccountingSkillTreeView = dynamic(() => import("@/components/accounting/AccountingSkillTreeView"), { ssr: false });
 
 type SubjectId =
   | "discover"
@@ -102,7 +113,8 @@ type SubjectId =
   | "geography"
   | "natural-sciences-sp"
   | "social-sciences-sp"
-  | "ems-sp";
+  | "ems-sp"
+  | "accounting";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -186,6 +198,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [naturalSciencesSpProfile, setNaturalSciencesSpProfile] = useState<NaturalSciencesSpStudentProfile | null>(() => loadNaturalSciencesSpProfile());
   const [socialSciencesSpProfile, setSocialSciencesSpProfile] = useState<SocialSciencesSpStudentProfile | null>(() => loadSocialSciencesSpProfile());
   const [emsSpProfile, setEmsSpProfile] = useState<EmsSpStudentProfile | null>(() => loadEmsSpProfile());
+  const [accountingProfile, setAccountingProfile] = useState<AccountingStudentProfile | null>(() => loadAccountingProfile());
+  const [afrikaansProfile, setAfrikaansProfile] = useState<AfrikaansStudentProfile | null>(() => loadAfrikaansProfile());
   const [grade, setGrade] = useState<number | null>(() => readCachedGrade());
   const [loading, setLoading] = useState(true);
 
@@ -214,7 +228,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [bs, ls, hi, to, ge, ns, ss, em] = await Promise.all([
+      const [bs, ls, hi, to, ge, ns, ss, em, ac, af] = await Promise.all([
         hydrateBusinessStudiesProfileFromSupabase(),
         hydrateLifeSciencesProfileFromSupabase(),
         hydrateHistoryProfileFromSupabase(),
@@ -223,6 +237,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         hydrateNaturalSciencesSpProfileFromSupabase(),
         hydrateSocialSciencesSpProfileFromSupabase(),
         hydrateEmsSpProfileFromSupabase(),
+        hydrateAccountingProfileFromSupabase(),
+        hydrateAfrikaansProfileFromSupabase(),
       ]);
       if (cancelled) return;
       if (bs) setBusinessStudiesProfile(bs);
@@ -233,6 +249,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       if (ns) setNaturalSciencesSpProfile(ns);
       if (ss) setSocialSciencesSpProfile(ss);
       if (em) setEmsSpProfile(em);
+      if (ac) setAccountingProfile(ac);
+      if (af) setAfrikaansProfile(af);
     })();
     return () => {
       cancelled = true;
@@ -262,6 +280,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const showHistory = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // Business Studies is a FET subject (Gr 10–12 only). Free for all plans.
   const showBusinessStudies = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
+  // Accounting is a FET subject (Gr 10–12 only). Free for all plans.
+  const showAccounting = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // Tourism is a FET subject (Gr 10–12 only). Free for all plans.
   const showTourism = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // Geography is a FET subject (Gr 10–12 only). Free for all plans.
@@ -335,7 +355,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       {
         id: "maths",
         thumbnail: "/thumbnails/mathematics.webp",
-        label: "Maths",
+        label: "Mathematics",
         caption: "Personalised lessons that adapt to your level",
         badge: mathsBadge,
         badgeColor: mathsBadgeColor,
@@ -347,7 +367,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         id: "english",
         thumbnail: "/thumbnails/english.webp",
         label: "English",
-        caption: "Reading, comprehension and writing — adapts to your grade",
+        caption: "Reading, comprehension and writing — adapts to your level",
         badge: readingBadge,
         badgeColor: readingBadgeColor,
         accentFrom: "from-purple-600",
@@ -373,7 +393,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         id: "afrikaans",
         thumbnail: "/thumbnails/afrikaans-fal.webp",
         label: "Afrikaans",
-        caption: `First Additional Language — listen, choose and learn (Grades 1–${AFRIKAANS_MAX_GRADE})`,
+        caption: `First Additional Language · listen, choose and learn (Grades 1–${AFRIKAANS_MAX_GRADE})`,
         accentFrom: "from-emerald-500",
         accentTo: "to-teal-600",
         navigateTo: "afrikaans-fal",
@@ -395,9 +415,9 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showNst) {
       all.push({
         id: "nst",
-        placeholderEmoji: "🔬",
-        label: "Natural Sciences & Tech",
-        caption: `Science and Technology for Grades ${NST_MIN_GRADE}–${NST_MAX_GRADE}`,
+        thumbnail: "/thumbnails/natural-sciences-tech.webp",
+        label: "Natural Sciences & Technology",
+        caption: `Science & Technology for Grades ${NST_MIN_GRADE}–${NST_MAX_GRADE}`,
         badge: "Intermediate Phase",
         badgeColor: "bg-sky-100 text-sky-700",
         accentFrom: "from-green-500",
@@ -422,7 +442,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       all.push({
         id: "maths-literacy",
         thumbnail: "/thumbnails/maths-literacy.webp",
-        label: "Maths Literacy",
+        label: "Mathematical Literacy",
         caption: `Applied maths for Grades ${MATHS_LITERACY_MIN_GRADE}–${MATHS_LITERACY_MAX_GRADE} · 85 skills across 10 levels`,
         badge: mathsLiteracyBadge,
         badgeColor: mathsLiteracyMastered > 0 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600",
@@ -455,6 +475,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         accentFrom: "from-amber-500",
         accentTo: "to-orange-600",
         navigateTo: "history",
+      });
+    }
+    if (showAccounting) {
+      all.push({
+        id: "accounting",
+        thumbnail: "/thumbnails/accounting.webp",
+        label: "Accounting",
+        caption: "Bookkeeping, financial statements, companies, cost accounting & budgeting · Grades 10–12",
+        badge: "FET",
+        badgeColor: "bg-emerald-100 text-emerald-700",
+        accentFrom: "from-emerald-500",
+        accentTo: "to-green-600",
+        navigateTo: "accounting",
       });
     }
     if (showBusinessStudies) {
@@ -552,6 +585,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     showLifeSciences,
     showHistory,
     showBusinessStudies,
+    showAccounting,
     showTourism,
     showGeography,
     showNaturalSciencesSp,
@@ -642,7 +676,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         return (
           <AfrikaansSkillTreeView
             onPickSkill={startAfrikaansSkill}
-            profile={null}
+            profile={afrikaansProfile}
+            compact
           />
         );
       case "social-sciences":
@@ -693,6 +728,14 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           <BusinessStudiesSkillTreeView
             onPickSkill={startContentSkill("business-studies", "ruby_business-studies_target_skill")}
             profile={businessStudiesProfile}
+            compact
+          />
+        );
+      case "accounting":
+        return (
+          <AccountingSkillTreeView
+            onPickSkill={startContentSkill("accounting", "ruby_accounting_target_skill")}
+            profile={accountingProfile}
             compact
           />
         );
@@ -762,7 +805,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             {subjects.map((s, i) => (
               <HubTreeContext.Provider
                 key={s.id}
-                value={{ inHub: true, thumbnail: s.thumbnail, emoji: s.placeholderEmoji, label: s.label }}
+                value={{ inHub: true, thumbnail: s.thumbnail, emoji: s.placeholderEmoji, label: s.label, accentFrom: s.accentFrom, accentTo: s.accentTo }}
               >
                 <section className="min-w-0">
                   <LazyMount eager={i < 2}>{renderSubjectPanel(s)}</LazyMount>

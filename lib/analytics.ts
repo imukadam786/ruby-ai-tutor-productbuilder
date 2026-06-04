@@ -39,7 +39,8 @@ type Subject =
   | "geography"
   | "natural-sciences-sp"
   | "social-sciences-sp"
-  | "ems-sp";
+  | "ems-sp"
+  | "accounting";
 
 export function trackPlacementStarted(opts: {
   subject: Subject;

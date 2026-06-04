@@ -46,6 +46,8 @@ const BusinessStudiesSession       = dynamic(() => import("@/components/business
 const BusinessStudiesSkillTreeView = dynamic(() => import("@/components/business-studies/BusinessStudiesSkillTreeView"),   { ssr: false });
 const TourismSession               = dynamic(() => import("@/components/tourism/TourismSession"),                          { ssr: false });
 const TourismSkillTreeView         = dynamic(() => import("@/components/tourism/TourismSkillTreeView"),                    { ssr: false });
+const AccountingSession            = dynamic(() => import("@/components/accounting/AccountingSession"),                     { ssr: false });
+const AccountingSkillTreeView      = dynamic(() => import("@/components/accounting/AccountingSkillTreeView"),               { ssr: false });
 const GeographySession             = dynamic(() => import("@/components/geography/GeographySession"),                      { ssr: false });
 const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),                { ssr: false });
 const NaturalSciencesSpSession     = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSession"),     { ssr: false });
@@ -126,7 +128,7 @@ const SESSION_VIEWS: ActiveView[] = [
   "life-skills", "social-sciences", "natural-sciences-tech", "matric-phys-sci",
   "afrikaans-fal", "maths-literacy", "life-sciences", "history",
   "business-studies", "tourism", "geography", "natural-sciences-sp",
-  "social-sciences-sp", "ems-sp",
+  "social-sciences-sp", "ems-sp", "accounting",
 ];
 
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
@@ -190,6 +192,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "history-skill-tree": "History · Topics",
     "business-studies": "Business Studies",
     "business-studies-skill-tree": "Business Studies · Topics",
+    "accounting": "Accounting",
+    "accounting-skill-tree": "Accounting · Topics",
     "tourism": "Tourism",
     "tourism-skill-tree": "Tourism · Topics",
     "geography": "Geography",
@@ -554,6 +558,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {/* Business Studies — FET Phase (Gr 10–12), free like History */}
         {activeView === "business-studies" && <ErrorBoundary><BusinessStudiesSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "business-studies-skill-tree" && <BusinessStudiesSkillTreeView onPickSkill={() => handleViewChange("business-studies")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Accounting — FET Phase (Gr 10–12), free like History */}
+        {activeView === "accounting" && <ErrorBoundary><AccountingSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "accounting-skill-tree" && <AccountingSkillTreeView onPickSkill={() => handleViewChange("accounting")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {/* Tourism — FET Phase (Gr 10–12), free like History */}
         {activeView === "tourism" && <ErrorBoundary><TourismSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "tourism-skill-tree" && <TourismSkillTreeView onPickSkill={() => handleViewChange("tourism")} profile={null} onBack={() => handleViewChange("subjects")} />}
