@@ -72,7 +72,7 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
       }
       if (levelSkillCount > 0 && levelMasteredCount === levelSkillCount) masteredLevels++;
     }
-    return `${masteredLevels}/${treeData.levels.length} Levels · ${masteredTiers}/${totalTiers} Tiers · ${masteredSkills}/${totalSkills} Atomic skills`;
+    return `${masteredLevels}/${treeData.levels.length} Levels · ${masteredTiers}/${totalTiers} Tiers · ${masteredSkills}/${totalSkills} Atomic skills · ${totalSkills > 0 ? Math.round((masteredSkills / totalSkills) * 100) : 0}%`;
   }, [profile]);
 
   const autoCompletedIds = useMemo(

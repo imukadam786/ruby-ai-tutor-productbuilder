@@ -62,7 +62,7 @@ export default function MathsLiteracySkillTreeView({
       }
       if (lvlSkills > 0 && lvlMastered === lvlSkills) masteredLevels++;
     }
-    return `${masteredLevels}/${allLevels.length} Levels · ${masteredTiers}/${totalTiers} Tiers · ${masteredSkills}/${totalSkills} Atomic skills`;
+    return `${masteredLevels}/${allLevels.length} Levels · ${masteredTiers}/${totalTiers} Tiers · ${masteredSkills}/${totalSkills} Atomic skills · ${totalSkills > 0 ? Math.round((masteredSkills / totalSkills) * 100) : 0}%`;
   }, [allLevels, profile]);
 
   const levels: TreeLevel[] = useMemo(() => {

@@ -31,6 +31,10 @@ export interface HubTreeInfo {
   emoji?: string;
   /** Subject name shown as the hub header title (e.g. "Geography"). */
   label?: string;
+  /** Subject accent gradient (Tailwind `from-*`/`to-*`) — paints the coloured
+   *  frame around the hub thumbnail so each subject reads by its own colour. */
+  accentFrom?: string;
+  accentTo?: string;
 }
 export const HubTreeContext = createContext<HubTreeInfo>({ inHub: false });
 
@@ -610,9 +614,18 @@ export default function SkillTreeShell({
     return (
       <div className="relative isolate">
         <div className="flex flex-col md:flex-row md:items-stretch gap-4">
-          {/* Left: enlarged thumbnail + stat-line, sized to the tree's height */}
+          {/* Left: enlarged thumbnail + stat-line, sized to the tree's height.
+              The padded box is filled with the subject's accent gradient so the
+              thumbnail sits inside a coloured frame — each subject reads by its
+              own colour even though the trees are otherwise identical. */}
           <div className="flex flex-col items-center md:items-stretch md:w-48 lg:w-56 md:flex-shrink-0">
-            <div className="w-40 aspect-square md:w-full md:aspect-auto md:flex-1 bg-white rounded-2xl shadow-sm border border-gray-100 p-2">
+            <div
+              className={`w-40 aspect-square md:w-full md:aspect-auto md:flex-1 rounded-2xl shadow-sm border p-2 ${
+                hub.accentFrom && hub.accentTo
+                  ? `bg-gradient-to-br ${hub.accentFrom} ${hub.accentTo} border-transparent`
+                  : "bg-white border-gray-100"
+              }`}
+            >
               {thumb}
             </div>
             {statline && (

@@ -59,7 +59,7 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
       }
       if (levelSkillCount > 0 && levelMasteredCount === levelSkillCount) masteredLevels++;
     }
-    return `${masteredLevels}/${skillTreeData.levels.length} Levels · ${masteredTiers}/${totalTiers} Tiers · ${masteredSkills}/${totalSkills} Atomic skills`;
+    return `${masteredLevels}/${skillTreeData.levels.length} Levels · ${masteredTiers}/${totalTiers} Tiers · ${masteredSkills}/${totalSkills} Atomic skills · ${totalSkills > 0 ? Math.round((masteredSkills / totalSkills) * 100) : 0}%`;
   }, [profile]);
 
   const autoCompletedIds = useMemo(

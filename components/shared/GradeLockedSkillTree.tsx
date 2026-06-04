@@ -91,16 +91,17 @@ export default function GradeLockedSkillTree({
     return null;
   }, [level, statusFor]);
 
-  const { tiers, mastered, total, progress } = useMemo(() => {
-    if (!level) return { tiers: [] as TreeLevel["tiers"], mastered: 0, total: 0, progress: 0 };
-    let mastered = 0, total = 0;
-    const tiers = level.tiers.map((tier) => ({
-      id: tier.id,
-      title: tier.title,
-      skills: tier.atomic_skills.map((skill) => {
+  const { tiers, mastered, total, masteredTiers, totalTiers, progress } = useMemo(() => {
+    if (!level)
+      return { tiers: [] as TreeLevel["tiers"], mastered: 0, total: 0, masteredTiers: 0, totalTiers: 0, progress: 0 };
+    let mastered = 0, total = 0, masteredTiers = 0;
+    const tiers = level.tiers.map((tier) => {
+      let tierTotal = 0, tierMastered = 0;
+      const skills = tier.atomic_skills.map((skill) => {
         total += 1;
+        tierTotal += 1;
         const base = statusFor(skill.id);
-        if (base === "mastered") mastered += 1;
+        if (base === "mastered") { mastered += 1; tierMastered += 1; }
         const status: SkillTreeStatus =
           skill.id === currentSkillId && base === "available" ? "current" : base;
         return {
@@ -109,10 +110,12 @@ export default function GradeLockedSkillTree({
           status,
           onClick: base === "locked" ? undefined : () => onPickSkill(skill.id),
         };
-      }),
-    }));
+      });
+      if (tierTotal > 0 && tierMastered === tierTotal) masteredTiers += 1;
+      return { id: tier.id, title: tier.title, skills };
+    });
     const ids = level.tiers.flatMap((t) => t.atomic_skills.map((s) => s.id));
-    return { tiers, mastered, total, progress: progressFor(ids) };
+    return { tiers, mastered, total, masteredTiers, totalTiers: level.tiers.length, progress: progressFor(ids) };
   }, [level, statusFor, progressFor, currentSkillId, onPickSkill]);
 
   if (loading) {
@@ -150,7 +153,7 @@ export default function GradeLockedSkillTree({
     <SkillTreeShell
       accent={accent}
       title={title}
-      statline={`${mastered}/${total} topics · ${progress}%`}
+      statline={`${total > 0 && mastered === total ? 1 : 0}/1 Levels · ${masteredTiers}/${totalTiers} Tiers · ${mastered}/${total} Atomic skills · ${progress}%`}
       levels={levels}
       compact={compact}
       onBack={onBack}

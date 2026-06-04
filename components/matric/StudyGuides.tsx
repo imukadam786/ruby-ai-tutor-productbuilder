@@ -26,16 +26,16 @@ interface Subject {
 }
 
 const CONTAIN_THUMBNAILS = new Set([
-  "/thumbnails/afrikaans-fal.jpeg",
-  "/thumbnails/business-studies.jpeg",
-  "/thumbnails/economics.jpeg",
-  "/thumbnails/tourism.jpeg",
+  "/thumbnails/afrikaans-fal.webp",
+  "/thumbnails/business-studies.webp",
+  "/thumbnails/economics.webp",
+  "/thumbnails/tourism.webp",
 ]);
 
 const SUBJECTS: Subject[] = [
   {
     label: "Accounting",
-    thumbnail: "/thumbnails/accounting.jpeg",
+    thumbnail: "/thumbnails/accounting.webp",
     guides: [
       {
         label: "Paper 1 — Accounting Concepts",
@@ -63,7 +63,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Afrikaans FAL",
-    thumbnail: "/thumbnails/afrikaans-fal.jpeg",
+    thumbnail: "/thumbnails/afrikaans-fal.webp",
     guides: [
       {
         label: "Paper 1 — Comprehension & Language",
@@ -84,7 +84,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Afrikaans HL",
-    thumbnail: "/thumbnails/afrikaans.jpeg",
+    thumbnail: "/thumbnails/afrikaans.webp",
     guides: [
       {
         label: "Paper 1 — Begrip & Taal",
@@ -105,7 +105,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Agricultural Science",
-    thumbnail: "/thumbnails/agricultural-science.png",
+    thumbnail: "/thumbnails/agricultural-science.webp",
     guides: [
       {
         label: "Paper 1 — Agricultural Science",
@@ -133,7 +133,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Business Studies",
-    thumbnail: "/thumbnails/business-studies.jpeg",
+    thumbnail: "/thumbnails/business-studies.webp",
     guides: [
       {
         label: "Paper 1 — Business Environments",
@@ -161,7 +161,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Economics",
-    thumbnail: "/thumbnails/economics.jpeg",
+    thumbnail: "/thumbnails/economics.webp",
     guides: [
       {
         label: "Paper 1 — Macroeconomics & Microeconomics",
@@ -189,7 +189,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "English FAL",
-    thumbnail: "/thumbnails/english-fal.png",
+    thumbnail: "/thumbnails/english-fal.webp",
     guides: [
       {
         label: "Paper 1 — Comprehension & Language",
@@ -210,7 +210,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "English HL",
-    thumbnail: "/thumbnails/english.jpeg",
+    thumbnail: "/thumbnails/english.webp",
     guides: [
       {
         label: "Paper 1 — Comprehension & Language",
@@ -231,7 +231,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Geography",
-    thumbnail: "/thumbnails/geography.jpeg",
+    thumbnail: "/thumbnails/geography.webp",
     guides: [
       {
         label: "Paper 1 — Physical Geography",
@@ -259,7 +259,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "History",
-    thumbnail: "/thumbnails/history.jpeg",
+    thumbnail: "/thumbnails/history.webp",
     guides: [
       {
         label: "Paper 1 — South African History",
@@ -281,7 +281,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Life Sciences",
-    thumbnail: "/thumbnails/life-sciences.jpeg",
+    thumbnail: "/thumbnails/life-sciences.webp",
     guides: [
       {
         label: "Paper 1 — Life at the Molecular Level",
@@ -309,7 +309,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Mathematics",
-    thumbnail: "/thumbnails/mathematics.jpeg",
+    thumbnail: "/thumbnails/mathematics.webp",
     guides: [
       {
         label: "Paper 1 — Algebra, Calculus & Functions",
@@ -337,7 +337,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Maths Literacy",
-    thumbnail: "/thumbnails/maths-literacy.jpeg",
+    thumbnail: "/thumbnails/maths-literacy.webp",
     guides: [
       {
         label: "Paper 1 — Basic Skills & Applications",
@@ -365,7 +365,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Physical Sciences",
-    thumbnail: "/thumbnails/physical-science.jpeg",
+    thumbnail: "/thumbnails/physical-science.webp",
     guides: [
       {
         label: "Paper 1 — Physics",
@@ -393,7 +393,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Tourism",
-    thumbnail: "/thumbnails/tourism.jpeg",
+    thumbnail: "/thumbnails/tourism.webp",
     guides: [
       {
         label: "Paper 1 — Tourism Study Guide",
