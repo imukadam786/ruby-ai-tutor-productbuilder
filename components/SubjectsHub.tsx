@@ -7,6 +7,14 @@ import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/stud
 import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
 import { getMathsLiteracyProfile } from "@/lib/maths-literacy-student-model";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import {
+  HUB_ID_TO_FET_KEY,
+  isFetGrade,
+  readCachedSubjects,
+  writeCachedSubjects,
+  SUBJECTS_UPDATED_EVENT,
+  type FetSubjectKey,
+} from "@/lib/fet-subjects";
 import { HIGHEST_AVAILABLE_LEVEL as LIFE_SKILLS_MAX_GRADE } from "@/lib/life-skills-grade-map";
 import { HIGHEST_AVAILABLE_LEVEL as AFRIKAANS_MAX_GRADE } from "@/lib/afrikaans-grade-map";
 import {
@@ -133,6 +141,7 @@ function readCachedGrade(): number | null {
   return !isNaN(n) && n >= 1 && n <= 12 ? n : null;
 }
 
+
 // Defers mounting a subject's (heavy) skill tree until it nears the viewport, so
 // opening the Subjects tab paints instantly instead of mounting every tree (and
 // its curriculum data) at once. The first couple render eagerly (above the fold).
@@ -203,6 +212,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [accountingProfile, setAccountingProfile] = useState<AccountingStudentProfile | null>(() => loadAccountingProfile());
   const [afrikaansProfile, setAfrikaansProfile] = useState<AfrikaansStudentProfile | null>(() => loadAfrikaansProfile());
   const [grade, setGrade] = useState<number | null>(() => readCachedGrade());
+  // null = no saved selection → show all (fail open). Only ever filters Gr 10–12.
+  const [selectedSubjects, setSelectedSubjects] = useState<FetSubjectKey[] | null>(() => readCachedSubjects());
   const [loading, setLoading] = useState(true);
 
   // Background refresh: pull the authoritative profiles + grade from Supabase
@@ -221,8 +232,22 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         setGrade(auth.grade);
         try { window.localStorage.setItem(GRADE_CACHE_KEY, String(auth.grade)); } catch { /* quota / private mode */ }
       }
+      if (auth) {
+        setSelectedSubjects(auth.subjects);
+        writeCachedSubjects(auth.subjects);
+      }
       setLoading(false);
     });
+  }, []);
+
+  // Reflect edits made via the "My subjects" editor without a full reload.
+  useEffect(() => {
+    const onUpdated = (e: Event) => {
+      const detail = (e as CustomEvent<FetSubjectKey[] | null>).detail;
+      setSelectedSubjects(detail && detail.length ? detail : null);
+    };
+    window.addEventListener(SUBJECTS_UPDATED_EVENT, onUpdated);
+    return () => window.removeEventListener(SUBJECTS_UPDATED_EVENT, onUpdated);
   }, []);
 
   // Background refresh for the FET content-subject profiles (already seeded from
@@ -599,15 +624,26 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "ems-sp",
       });
     }
+    // FET learners (Gr 10–12) who saved a subject selection during onboarding
+    // see only the subjects they picked. Cards with no FET picker key (Discover)
+    // always remain. Grades 1–9 and any account with no saved selection fail
+    // open — every grade-entitled subject shows, exactly as before.
+    const fetFiltered = isFetGrade(grade) && selectedSubjects
+      ? all.filter((s) => {
+          const key = HUB_ID_TO_FET_KEY[s.id];
+          return !key || selectedSubjects.includes(key);
+        })
+      : all;
     // "Discover" is the placement entry point, not a curriculum subject, so it
     // stays pinned at the top. Every real subject is then ordered alphabetically
     // by label — the same order for every grade.
-    const pinned = all.filter((s) => s.id === "discover");
-    const rest = all
+    const pinned = fetFiltered.filter((s) => s.id === "discover");
+    const rest = fetFiltered
       .filter((s) => s.id !== "discover")
       .sort((a, b) => a.label.localeCompare(b.label));
     return [...pinned, ...rest];
   }, [
+    grade, selectedSubjects,
     discoverBadge, discoverBadgeColor,
     mathsBadge, mathsBadgeColor,
     readingBadge, readingBadgeColor,

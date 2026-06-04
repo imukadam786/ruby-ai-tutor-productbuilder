@@ -3,12 +3,21 @@
 import { useState, useEffect } from "react";
 import { getTranslations } from "@/lib/onboarding-translations";
 import { supabase } from "@/lib/supabase";
+import {
+  ALL_FET_KEYS,
+  ALWAYS_ON_FET_KEYS,
+  isFetGrade,
+  type FetSubjectKey,
+} from "@/lib/fet-subjects";
+import SubjectChecklist from "@/components/onboarding/SubjectChecklist";
 
 export type OnboardingData = {
   language: string;
   grade: string;
   averageScore: string;
   curriculum: string;
+  // FET (Grade 10–12) subject picks. Empty for Grades 1–9 (compulsory subjects).
+  subjects: FetSubjectKey[];
   name: string;
   email: string;
   plan: string;
@@ -89,8 +98,8 @@ const PLANS = [
   },
 ];
 
-// Steps: 1=create_account, 2=language, 3=grade, 4=curriculum
-const TOTAL_STEPS = 4;
+// Steps: 1=create_account, 2=language, 3=grade, 4=subjects (Gr 10–12 only), 5=curriculum
+// Grades 1–9 skip step 4 (their subjects are compulsory), going grade → curriculum.
 
 function BackButton({ onClick }: { onClick: () => void }) {
   return (
@@ -129,6 +138,12 @@ interface OnboardingFlowProps {
 export default function OnboardingFlow({ onComplete, initialStep = 1, initialData }: OnboardingFlowProps) {
   const [step, setStep] = useState(initialStep);
   const [data, setData] = useState<Partial<OnboardingData>>(initialData || { language: "English" });
+  // FET subject selection — starts with everything ticked so a learner who taps
+  // Continue without changing anything keeps all their subjects. English is
+  // locked on (always selected, can't be unticked).
+  const [subjects, setSubjects] = useState<FetSubjectKey[]>(
+    (initialData?.subjects as FetSubjectKey[] | undefined) ?? ALL_FET_KEYS,
+  );
   const [name, setName] = useState(initialData?.name || "");
   const [email, setEmail] = useState(initialData?.email || "");
   const [parentEmail, setParentEmail] = useState("");
@@ -152,13 +167,32 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   const lang = data.language || "English";
   const t = getTranslations(lang);
 
-  const progress = Math.min((step / TOTAL_STEPS) * 100, 100);
+  // Whether this learner gets the FET subject step (Grades 10–12). Grades 1–9
+  // skip it: their grade "Continue" jumps straight to curriculum.
+  const isFet = isFetGrade(parseInt(data.grade ?? "", 10));
+
+  // Progress bar: 5 steps for FET learners, 4 for everyone else. For Grades 1–9
+  // the curriculum screen (step 5) counts as step 4 so the bar fills evenly.
+  const totalSteps = isFet ? 5 : 4;
+  const effectiveStep = isFet ? step : step === 5 ? 4 : step;
+  const progress = Math.min((effectiveStep / totalSteps) * 100, 100);
 
   const select = (key: keyof OnboardingData, value: string) =>
     setData((d) => ({ ...d, [key]: value }));
 
+  const toggleSubject = (key: FetSubjectKey) => {
+    if (ALWAYS_ON_FET_KEYS.includes(key)) return; // locked on
+    setSubjects((cur) =>
+      cur.includes(key) ? cur.filter((k) => k !== key) : [...cur, key],
+    );
+  };
+
   const next = () => setStep((s) => s + 1);
   const back = () => { setStep((s) => s - 1); setAuthError(""); };
+  // Grade → subjects (Gr 10–12) or skip to curriculum (Gr 1–9).
+  const afterGrade = () => setStep(isFet ? 4 : 5);
+  // Curriculum back → subjects (Gr 10–12) or grade (Gr 1–9).
+  const beforeCurriculumBack = () => { setStep(isFet ? 4 : 3); setAuthError(""); };
 
   // ── Email sign-up ──────────────────────────────────────────────────────────
   const handleSignUp = async () => {
@@ -212,7 +246,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       // Fetch the user's saved profile from the users table
       const userId = authData.user?.id;
       const { data: userData } = userId
-        ? await supabase.from("users").select("full_name, grade, language, curriculum").eq("id", userId).single()
+        ? await supabase.from("users").select("full_name, grade, language, curriculum, subjects").eq("id", userId).single()
         : { data: null };
       const fullName =
         (userData?.full_name as string | undefined) ||
@@ -224,6 +258,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         grade: (userData?.grade as string | undefined) || "",
         averageScore: "",
         curriculum: (userData?.curriculum as string | undefined) || "",
+        subjects: (userData?.subjects as FetSubjectKey[] | null) || [],
         name: fullName,
         email,
         plan: "existing",
@@ -261,17 +296,21 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
 
   // ── Complete onboarding (no plan step) ────────────────────────────────────
   const handleComplete = async () => {
+    // Subjects only apply to FET learners (Gr 10–12). Grades 1–9 save none —
+    // their subjects are compulsory and the hub shows every grade-entitled one.
+    const finalSubjects = isFet ? subjects : [];
     const final: OnboardingData = {
       language: data.language || "English",
       grade: data.grade || "",
       averageScore: data.averageScore || "",
       curriculum: data.curriculum || "",
+      subjects: finalSubjects,
       name,
       email,
       plan: data.plan || "standard",
       userId: signedUpUserId,
     };
-    // Update Supabase with grade, curriculum and language now that user has selected them
+    // Update Supabase with grade, curriculum, language and subjects now that user has selected them
     if (signedUpUserId) {
       await supabase.from("users").upsert({
         id: signedUpUserId,
@@ -280,6 +319,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         grade: final.grade || null,
         curriculum: final.curriculum || null,
         language: final.language,
+        // null (not []) when there's no selection, so the hub fails open to "show all".
+        subjects: finalSubjects.length ? finalSubjects : null,
       });
     }
     onComplete(final);
@@ -549,15 +590,30 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 </div>
               </div>
               <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!data.grade} />
+                <ContinueBtn label={t.continueBtn} onClick={afterGrade} disabled={!data.grade} />
               </div>
             </div>
           )}
 
-          {/* ── Step 4: Curriculum ── */}
-          {step === 4 && (
+          {/* ── Step 4: Subjects (Grades 10–12 only) ── */}
+          {step === 4 && isFet && (
             <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
               <BackButton onClick={back} />
+              <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">Which subjects do you take?</h1>
+              <p className="text-gray-400 text-base mb-6 flex-shrink-0">Pick the subjects you&apos;re studying — you can change these later.</p>
+              <div className="flex-1 overflow-y-auto min-h-0 pb-1">
+                <SubjectChecklist selected={subjects} onToggle={toggleSubject} />
+              </div>
+              <div className="pt-4 flex-shrink-0">
+                <ContinueBtn label={t.continueBtn} onClick={next} disabled={subjects.length === 0} />
+              </div>
+            </div>
+          )}
+
+          {/* ── Step 5: Curriculum ── */}
+          {step === 5 && (
+            <div className="flex-1 flex flex-col overflow-hidden p-6 min-h-0">
+              <BackButton onClick={beforeCurriculumBack} />
               <h1 className="text-3xl font-bold text-[#1a2744] mb-2 leading-snug flex-shrink-0">Which curriculum do you follow?</h1>
               <p className="text-gray-400 text-base mb-6 flex-shrink-0">Select your school's curriculum</p>
               <div className="flex-1 overflow-y-auto min-h-0 pb-1">
