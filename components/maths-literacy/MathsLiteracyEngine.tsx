@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { apiFetch } from "@/lib/fetch";
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import { seedForGrade } from "@/lib/maths-literacy-grade-map";
 import {
   getMathsLiteracyProfile,
@@ -41,6 +42,16 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
 
   // Track served items per skill so we don't repeat within a session.
   const usedRefsRef = useRef<Record<string, string[]>>({});
+
+  // Rubies effort floor: pay out once on exit if the learner answered anything.
+  const answeredRef = useRef(false);
+  const lessonIdRef = useRef<string>("");
+  if (!lessonIdRef.current) lessonIdRef.current = crypto.randomUUID();
+  useEffect(() => {
+    return () => {
+      if (answeredRef.current) rewardEffortFloor("maths-literacy", lessonIdRef.current);
+    };
+  }, []);
 
   // ── Hydrate profile + decide starting skill ───────────────────────────────
   useEffect(() => {
@@ -136,6 +147,7 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
       const data = (await res.json()) as MathsLiteracySubmitResponse;
       setFeedback(data.result);
       setPhase("feedback");
+      answeredRef.current = true;
 
       // Update local profile with the attempt. Coverage denominator is the
       // skill's authored bank size, returned with the question.
@@ -152,6 +164,8 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
         if (mastered) {
           // Hint to next call: feedback now shows a "mastered" badge.
           data.result.mastery_update.new_status = "mastered";
+          // Rubies: first-time mastery bonus.
+          rewardSkillMastered("maths-literacy", currentSkillId, profile.id);
         }
       }
     } catch (e) {

@@ -1,3 +1,4 @@
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
 
 // AccountingSession — clone of LifeSciencesSession with a wider answer
@@ -354,6 +355,9 @@ export default function AccountingSession({ onBack }: { onBack?: () => void } = 
             correct: nextCorrect,
             accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
+          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+          rewardEffortFloor("accounting", skillId);
+          if (didMaster) rewardSkillMastered("accounting", skillId, profile?.id);
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {

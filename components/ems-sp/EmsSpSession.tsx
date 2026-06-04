@@ -1,3 +1,4 @@
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
 
 // EmsSpSession — clone of GeographySession for the Natural Sciences
@@ -363,6 +364,9 @@ export default function EmsSpSession({ onBack }: { onBack?: () => void } = {}) {
             correct: nextCorrect,
             accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
+          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+          rewardEffortFloor("ems-sp", skillId);
+          if (didMaster) rewardSkillMastered("ems-sp", skillId, profile?.id);
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {

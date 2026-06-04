@@ -1,3 +1,4 @@
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -350,6 +351,9 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
             correct: nextCorrect,
             accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
+          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+          rewardEffortFloor("social-sciences", skillId);
+          if (didMaster) rewardSkillMastered("social-sciences", skillId);
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {

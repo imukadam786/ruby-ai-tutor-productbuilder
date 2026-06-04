@@ -1,3 +1,4 @@
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -341,6 +342,9 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
             correct: nextCorrect,
             accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
+          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+          rewardEffortFloor("life-sciences", skillId);
+          if (didMaster) rewardSkillMastered("life-sciences", skillId, profile?.id);
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {

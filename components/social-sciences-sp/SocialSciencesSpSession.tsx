@@ -1,3 +1,4 @@
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
 
 // SocialSciencesSpSession — clone of GeographySession for the Natural Sciences
@@ -363,6 +364,9 @@ export default function SocialSciencesSpSession({ onBack }: { onBack?: () => voi
             correct: nextCorrect,
             accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
+          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+          rewardEffortFloor("social-sciences-sp", skillId);
+          if (didMaster) rewardSkillMastered("social-sciences-sp", skillId, profile?.id);
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {

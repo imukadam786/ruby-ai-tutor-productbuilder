@@ -103,7 +103,8 @@ export default function RubyBalance({ theme = "dark", className = "" }: RubyBala
       title={`${balance} rubies earned`}
       className={`relative inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold leading-none border ${palette} ${className}`}
     >
-      <span aria-hidden>💎</span>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/rubytransparent.png" alt="rubies" className="w-4 h-4 object-contain" />
       <span>{balance.toLocaleString()}</span>
       {pop !== null && (
         <span

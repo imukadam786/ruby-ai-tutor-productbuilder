@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { apiFetch } from "@/lib/fetch";
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import { useT } from "@/lib/i18n";
 
 import { speakViaAPI, prefetchTTS } from "@/lib/tts";
@@ -521,6 +522,8 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
         result.next_action = "advance_skill";
         setCurrentResult(result);
         document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "reading" } }));
+        // Rubies: first-time mastery bonus.
+        rewardSkillMastered("reading", currentQuestion.skill_id, profile.id);
         setPhase("mastered");
       } else {
         setCurrentResult(result);
@@ -754,6 +757,9 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
   const sessionCorrectRef = useRef(0);
   sessionAttemptsRef.current = sessionAttempts;
   sessionCorrectRef.current = sessionCorrect;
+  // Stable id for this reading session — the "lesson" the effort floor pays for.
+  const lessonIdRef = useRef<string>("");
+  if (!lessonIdRef.current) lessonIdRef.current = crypto.randomUUID();
 
   // Reset session-record flag whenever the student moves to a new skill
   const prevSkillRef = useRef<string | null>(null);
@@ -779,6 +785,8 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
           correct,
           accuracy: Math.round((correct / attempts) * 100),
         });
+        // Rubies: finished a reading lesson (even with wrong answers).
+        rewardEffortFloor("reading", lessonIdRef.current);
       }
 
       if (!p || hasRecordedSession.current) return;

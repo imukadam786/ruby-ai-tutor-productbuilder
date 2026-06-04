@@ -132,4 +132,4 @@ async function handler(req: NextRequest) {
   }
 }
 
-export const POST = withRubies("nst", handler);
+export const POST = withRubies("natural-sciences-tech", handler);

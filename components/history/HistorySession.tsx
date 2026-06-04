@@ -1,3 +1,4 @@
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
 
 // HistorySession — clone of LifeSciencesSession with a wider answer
@@ -352,6 +353,9 @@ export default function HistorySession({ onBack }: { onBack?: () => void } = {})
             correct: nextCorrect,
             accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
+          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+          rewardEffortFloor("history", skillId);
+          if (didMaster) rewardSkillMastered("history", skillId, profile?.id);
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {

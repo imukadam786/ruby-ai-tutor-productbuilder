@@ -1,3 +1,4 @@
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
 
 // GeographySession — clone of HistorySession with a dispatcher widened for the
@@ -355,6 +356,9 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
             correct: nextCorrect,
             accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
+          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+          rewardEffortFloor("geography", skillId);
+          if (didMaster) rewardSkillMastered("geography", skillId, profile?.id);
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {

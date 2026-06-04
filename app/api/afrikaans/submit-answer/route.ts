@@ -131,4 +131,4 @@ async function handler(req: NextRequest) {
   }
 }
 
-export const POST = withRubies("afrikaans", handler);
+export const POST = withRubies("afrikaans-fal", handler);

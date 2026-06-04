@@ -1,3 +1,4 @@
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -355,6 +356,9 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
             correct: nextCorrect,
             accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
+          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+          rewardEffortFloor("natural-sciences-tech", skillId);
+          if (didMaster) rewardSkillMastered("natural-sciences-tech", skillId);
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {

@@ -1,3 +1,4 @@
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 "use client";
 
 // Cloned from components/life-skills/LifeSkillsSession.tsx — the learner taps /
@@ -374,6 +375,9 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
             correct: nextCorrect,
             accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
+          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+          rewardEffortFloor("afrikaans-fal", skillId);
+          if (didMaster) rewardSkillMastered("afrikaans-fal", skillId, profile?.id);
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {
