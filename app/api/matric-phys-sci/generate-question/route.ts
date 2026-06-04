@@ -6,6 +6,7 @@ import {
   itemToGenerated,
   selectItem,
 } from "@/lib/matric-phys-sci-selector";
+import { asPhysSciGrade } from "@/lib/phys-sci-grade";
 import type { MatricPhysSciGenerateQuestionResponse } from "@/types/matric-phys-sci";
 
 export async function POST(req: NextRequest) {
@@ -26,20 +27,23 @@ export async function POST(req: NextRequest) {
       skill_id,
       used_refs = [],
       attempt_number = 1,
+      grade: gradeRaw = 12,
     }: {
       skill_id: string;
       used_refs?: string[];
       attempt_number?: number;
+      grade?: number;
     } = await req.json();
+    const grade = asPhysSciGrade(gradeRaw);
 
-    if (!hasSkill(skill_id)) {
+    if (!hasSkill(skill_id, grade)) {
       return NextResponse.json(
-        { error: `No Matric Physical Sciences skill found: ${skill_id}` },
+        { error: `No Physical Sciences skill found: ${skill_id}` },
         { status: 404 },
       );
     }
 
-    const item = selectItem(skill_id, used_refs, attempt_number > 1);
+    const item = selectItem(skill_id, used_refs, attempt_number > 1, grade);
     if (!item) {
       const empty: MatricPhysSciGenerateQuestionResponse = { question: null };
       return NextResponse.json(empty);

@@ -1,0 +1,411 @@
+{
+  "skill": "L12.T1.A1",
+  "skill_title": "Relate position in the periodic table to electron arrangement and periodic trends",
+  "grades": [
+    10
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L12.T1.A1.q01",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How are elements arranged in the modern periodic table?",
+      "answerMode": "choice",
+      "expectedAnswer": "In order of increasing atomic number.",
+      "marks": 2,
+      "explanation": "Elements are ordered by increasing atomic number (number of protons).",
+      "errorSignals": [
+        "ERR_PT_ORDER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "In order of increasing atomic number.",
+        "In order of decreasing atomic mass.",
+        "Alphabetically by name."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q02",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does the group number of a main-group element tell you?",
+      "answerMode": "choice",
+      "expectedAnswer": "The number of valence (outer) electrons.",
+      "marks": 2,
+      "explanation": "For main groups, the group number equals the number of valence electrons.",
+      "errorSignals": [
+        "ERR_GROUP_VALENCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The number of energy levels (shells).",
+        "The number of valence (outer) electrons.",
+        "The number of neutrons."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q03",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does the period number of an element tell you?",
+      "answerMode": "choice",
+      "expectedAnswer": "The number of occupied energy levels (shells).",
+      "marks": 2,
+      "explanation": "The period number equals the number of occupied energy levels.",
+      "errorSignals": [
+        "ERR_PERIOD_SHELLS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The number of valence electrons.",
+        "The number of protons.",
+        "The number of occupied energy levels (shells)."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q04",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Elements in the same group have similar chemical properties because they have...",
+      "answerMode": "choice",
+      "expectedAnswer": "the same number of valence electrons.",
+      "marks": 2,
+      "explanation": "Chemistry is governed by valence electrons; same group = same valence count = similar reactions.",
+      "errorSignals": [
+        "ERR_GROUP_VALENCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the same number of valence electrons.",
+        "the same number of neutrons.",
+        "the same atomic mass."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q05",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which group contains the noble gases (very unreactive elements)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Group 18",
+      "marks": 2,
+      "explanation": "Group 18 are the noble gases, with full outer shells, so they are unreactive.",
+      "errorSignals": [
+        "ERR_GROUP_IDENTITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Group 1",
+        "Group 18",
+        "Group 17"
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q06",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Across a period (left to right), how does atomic radius change?",
+      "answerMode": "choice",
+      "expectedAnswer": "It decreases.",
+      "marks": 2,
+      "explanation": "Across a period the increasing nuclear charge pulls electrons in, so atomic radius decreases.",
+      "errorSignals": [
+        "ERR_RADIUS_PERIOD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It increases.",
+        "It stays the same.",
+        "It decreases."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q07",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Down a group (top to bottom), how does atomic radius change?",
+      "answerMode": "choice",
+      "expectedAnswer": "It increases.",
+      "marks": 2,
+      "explanation": "Down a group extra electron shells are added, so the atomic radius increases.",
+      "errorSignals": [
+        "ERR_RADIUS_GROUP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It increases.",
+        "It decreases.",
+        "It stays the same."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q08",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is ionisation energy?",
+      "answerMode": "choice",
+      "expectedAnswer": "The energy needed to remove an electron from an atom.",
+      "marks": 2,
+      "explanation": "Ionisation energy is the energy required to remove an electron from a gaseous atom.",
+      "errorSignals": [
+        "ERR_IONISATION_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The energy released when an atom forms a bond.",
+        "The energy needed to remove an electron from an atom.",
+        "The energy stored in the nucleus."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q09",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which group is known as the alkali metals (very reactive metals)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Group 1",
+      "marks": 2,
+      "explanation": "Group 1 are the alkali metals (Li, Na, K…), highly reactive with one valence electron.",
+      "errorSignals": [
+        "ERR_GROUP_IDENTITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Group 18",
+        "Group 2",
+        "Group 1"
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q10",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Where are the non-metals generally found on the periodic table?",
+      "answerMode": "choice",
+      "expectedAnswer": "On the right-hand side (and top).",
+      "marks": 2,
+      "explanation": "Non-metals are on the upper right; metals are on the left and middle.",
+      "errorSignals": [
+        "ERR_METAL_LOCATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "On the right-hand side (and top).",
+        "On the left-hand side.",
+        "Only in the middle block."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q11",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Across a period, how does first ionisation energy generally change?",
+      "answerMode": "choice",
+      "expectedAnswer": "It increases.",
+      "marks": 2,
+      "explanation": "Across a period the stronger nuclear pull on a smaller atom makes electrons harder to remove, so ionisation energy increases.",
+      "errorSignals": [
+        "ERR_IONISATION_PERIOD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It decreases.",
+        "It increases.",
+        "It stays constant."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q12",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Down a group, how does first ionisation energy generally change?",
+      "answerMode": "choice",
+      "expectedAnswer": "It decreases.",
+      "marks": 2,
+      "explanation": "Down a group the outer electron is further from the nucleus and shielded, so it is easier to remove (lower ionisation energy).",
+      "errorSignals": [
+        "ERR_IONISATION_GROUP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It increases.",
+        "It stays constant.",
+        "It decreases."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q13",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which element has the larger atomic radius: sodium (Na, period 3) or chlorine (Cl, period 3)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Sodium",
+      "marks": 2,
+      "explanation": "Na is on the left of period 3; radius decreases across a period, so Na is larger than Cl.",
+      "errorSignals": [
+        "ERR_RADIUS_PERIOD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sodium",
+        "Chlorine",
+        "They are equal"
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q14",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which element has the higher first ionisation energy: lithium (Li) or neon (Ne)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Neon",
+      "marks": 2,
+      "explanation": "Ne is to the right of Li in period 2; ionisation energy increases across a period, so Ne is higher.",
+      "errorSignals": [
+        "ERR_IONISATION_PERIOD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Lithium",
+        "Neon",
+        "They are equal"
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q15",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Across a period, how does electronegativity generally change?",
+      "answerMode": "choice",
+      "expectedAnswer": "It increases towards the right (excluding noble gases).",
+      "marks": 2,
+      "explanation": "Electronegativity rises across a period as the nuclear pull on bonding electrons increases.",
+      "errorSignals": [
+        "ERR_ELECTRONEGATIVITY_PERIOD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It decreases towards the right.",
+        "It does not change.",
+        "It increases towards the right (excluding noble gases)."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q16",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which element is the most electronegative?",
+      "answerMode": "choice",
+      "expectedAnswer": "Fluorine",
+      "marks": 2,
+      "explanation": "Fluorine, at the top right (excluding noble gases), is the most electronegative element.",
+      "errorSignals": [
+        "ERR_ELECTRONEGATIVITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Fluorine",
+        "Sodium",
+        "Caesium"
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q17",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why are group 1 elements more reactive than group 2 elements (in the same period region)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Group 1 atoms lose their single valence electron more easily.",
+      "marks": 2,
+      "explanation": "Group 1 has one easily lost valence electron, making them more reactive metals than group 2.",
+      "errorSignals": [
+        "ERR_GROUP_REACTIVITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Group 2 atoms have no valence electrons.",
+        "Group 1 atoms lose their single valence electron more easily.",
+        "Group 1 atoms have more shells."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q18",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An element has the configuration 1s² 2s² 2p⁶ 3s² 3p⁵. In which group and period is it?",
+      "answerMode": "choice",
+      "expectedAnswer": "Group 17, period 3",
+      "marks": 2,
+      "explanation": "Outer level is 3 (period 3); 3s²3p⁵ = 7 valence electrons = group 17 (chlorine).",
+      "errorSignals": [
+        "ERR_CONFIG_TO_POSITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Group 7, period 5",
+        "Group 15, period 3",
+        "Group 17, period 3"
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q19",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Down group 1, the reactivity of the metals...",
+      "answerMode": "choice",
+      "expectedAnswer": "increases (they lose the outer electron more easily).",
+      "marks": 2,
+      "explanation": "Down group 1 the valence electron is further out and easier to lose, so reactivity increases.",
+      "errorSignals": [
+        "ERR_GROUP_REACTIVITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "increases (they lose the outer electron more easily).",
+        "decreases.",
+        "stays the same."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q20",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An element is in group 2, period 4. How many valence electrons and occupied shells does it have?",
+      "answerMode": "choice",
+      "expectedAnswer": "2 valence electrons, 4 shells.",
+      "marks": 2,
+      "explanation": "Group number = valence electrons (2); period number = occupied shells (4).",
+      "errorSignals": [
+        "ERR_GROUP_PERIOD_MEANING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "4 valence electrons, 2 shells.",
+        "2 valence electrons, 4 shells.",
+        "2 valence electrons, 2 shells."
+      ]
+    }
+  ]
+}

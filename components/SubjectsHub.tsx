@@ -105,6 +105,8 @@ type SubjectId =
   | "social-sciences"
   | "nst"
   | "matric-phys-sci"
+  | "grade-10-phys-sci"
+  | "grade-11-phys-sci"
   | "maths-literacy"
   | "life-sciences"
   | "history"
@@ -271,6 +273,9 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const showNst =
     !gradeKnown || (learnerGrade >= NST_MIN_GRADE && learnerGrade <= NST_MAX_GRADE);
   const showMatricPhysSci = !gradeKnown || learnerGrade === 12;
+  // Physical Sciences is also a FET subject for Grades 10 and 11 (tap-native).
+  const showGrade10PhysSci = !gradeKnown || learnerGrade === 10;
+  const showGrade11PhysSci = !gradeKnown || learnerGrade === 11;
   const showMathsLiteracy =
     !gradeKnown ||
     (learnerGrade >= MATHS_LITERACY_MIN_GRADE && learnerGrade <= MATHS_LITERACY_MAX_GRADE);
@@ -438,6 +443,32 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "matric-phys-sci",
       });
     }
+    if (showGrade10PhysSci) {
+      all.push({
+        id: "grade-10-phys-sci",
+        thumbnail: "/thumbnails/physical-science.webp",
+        label: "Physical Sciences",
+        caption: "Grade 10 · 27 skills across P1 Physics and P2 Chemistry",
+        badge: "Grade 10",
+        badgeColor: "bg-rose-100 text-rose-700",
+        accentFrom: "from-rose-500",
+        accentTo: "to-amber-500",
+        navigateTo: "grade-10-phys-sci",
+      });
+    }
+    if (showGrade11PhysSci) {
+      all.push({
+        id: "grade-11-phys-sci",
+        thumbnail: "/thumbnails/physical-science.webp",
+        label: "Physical Sciences",
+        caption: "Grade 11 · 24 skills across P1 Physics and P2 Chemistry",
+        badge: "Grade 11",
+        badgeColor: "bg-rose-100 text-rose-700",
+        accentFrom: "from-rose-500",
+        accentTo: "to-amber-500",
+        navigateTo: "grade-11-phys-sci",
+      });
+    }
     if (showMathsLiteracy) {
       all.push({
         id: "maths-literacy",
@@ -581,6 +612,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     mathsBadge, mathsBadgeColor,
     readingBadge, readingBadgeColor,
     showLifeSkills, showAfrikaans, showSocialSciences, showNst, showMatricPhysSci,
+    showGrade10PhysSci, showGrade11PhysSci,
     showMathsLiteracy, mathsLiteracyBadge, mathsLiteracyMastered,
     showLifeSciences,
     showHistory,
@@ -696,6 +728,10 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         );
       case "matric-phys-sci":
         return <MatricPhysSciSkillTreeView onPickSkill={() => onNavigate("matric-phys-sci")} compact />;
+      case "grade-10-phys-sci":
+        return <MatricPhysSciSkillTreeView grade={10} onPickSkill={() => onNavigate("grade-10-phys-sci")} compact />;
+      case "grade-11-phys-sci":
+        return <MatricPhysSciSkillTreeView grade={11} onPickSkill={() => onNavigate("grade-11-phys-sci")} compact />;
       case "maths-literacy":
         return (
           <MathsLiteracySkillTreeView

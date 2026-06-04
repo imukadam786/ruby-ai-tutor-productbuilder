@@ -1,0 +1,390 @@
+{
+  "skill": "L8.T1.A1",
+  "skill_title": "Define current, potential difference and EMF and measure them correctly",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L8.T1.A1.q01",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is electric current?",
+      "answerMode": "choice",
+      "expectedAnswer": "The rate of flow of charge.",
+      "marks": 2,
+      "explanation": "Current is the rate at which charge flows: I = Q/t.",
+      "errorSignals": [
+        "ERR_CURRENT_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The rate of flow of charge.",
+        "The energy per unit charge.",
+        "The resistance of a wire."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q02",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How is an ammeter connected in a circuit?",
+      "answerMode": "choice",
+      "expectedAnswer": "In series with the component.",
+      "marks": 2,
+      "explanation": "An ammeter measures current and must be connected in series so the current flows through it.",
+      "errorSignals": [
+        "ERR_AMMETER_CONNECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "In parallel with the component.",
+        "In series with the component.",
+        "Across the battery only."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q03",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How is a voltmeter connected in a circuit?",
+      "answerMode": "choice",
+      "expectedAnswer": "In parallel with (across) the component.",
+      "marks": 2,
+      "explanation": "A voltmeter measures potential difference and is connected in parallel across the component.",
+      "errorSignals": [
+        "ERR_VOLTMETER_CONNECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "In series with the component.",
+        "In place of the battery.",
+        "In parallel with (across) the component."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q04",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is potential difference (voltage) across a component?",
+      "answerMode": "choice",
+      "expectedAnswer": "The energy transferred per unit charge as it passes through the component.",
+      "marks": 2,
+      "explanation": "Potential difference is energy per coulomb transferred between two points.",
+      "errorSignals": [
+        "ERR_PD_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The energy transferred per unit charge as it passes through the component.",
+        "The rate of flow of charge.",
+        "The total charge in the circuit."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q05",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the EMF of a cell?",
+      "answerMode": "choice",
+      "expectedAnswer": "The total energy supplied per unit charge by the cell.",
+      "marks": 2,
+      "explanation": "EMF is the energy per coulomb provided by the source to the charges.",
+      "errorSignals": [
+        "ERR_EMF_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The resistance of the cell.",
+        "The total energy supplied per unit charge by the cell.",
+        "The current through the cell."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q06",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation relates charge, current and time?",
+      "answerMode": "choice",
+      "expectedAnswer": "Q = It",
+      "marks": 2,
+      "explanation": "Charge = current × time: Q = It.",
+      "errorSignals": [
+        "ERR_CHARGE_CURRENT_TIME"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Q = I/t",
+        "Q = t/I",
+        "Q = It"
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q07",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In what unit is electric current measured?",
+      "answerMode": "choice",
+      "expectedAnswer": "Ampere (A)",
+      "marks": 2,
+      "explanation": "Current is measured in amperes (A).",
+      "errorSignals": [
+        "ERR_CURRENT_UNIT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ampere (A)",
+        "Volt (V)",
+        "Ohm (Ω)"
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q08",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A current of 2 A flows for 5 s. How much charge passes a point?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.05,
+      "unit": "C",
+      "marks": 3,
+      "explanation": "Q = It = 2 × 5 = 10 C.",
+      "errorSignals": [
+        "ERR_CHARGE_CURRENT_TIME"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A1.q09",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In what unit is potential difference measured?",
+      "answerMode": "choice",
+      "expectedAnswer": "Volt (V)",
+      "marks": 2,
+      "explanation": "Potential difference is measured in volts (V).",
+      "errorSignals": [
+        "ERR_PD_UNIT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ampere (A)",
+        "Coulomb (C)",
+        "Volt (V)"
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q10",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A charge of 12 C flows past a point in 4 s. What is the current?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "A",
+      "marks": 3,
+      "explanation": "I = Q/t = 12/4 = 3 A.",
+      "errorSignals": [
+        "ERR_CHARGE_CURRENT_TIME"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A1.q11",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An ammeter is mistakenly connected in parallel across a resistor. What is the likely problem?",
+      "answerMode": "choice",
+      "expectedAnswer": "It has very low resistance, so it short-circuits the resistor and a large current may flow.",
+      "marks": 2,
+      "explanation": "Ammeters have very low resistance and must be in series; in parallel they short the component.",
+      "errorSignals": [
+        "ERR_AMMETER_CONNECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It will read the correct current.",
+        "It has very low resistance, so it short-circuits the resistor and a large current may flow.",
+        "It will read the potential difference instead."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q12",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A voltmeter is mistakenly connected in series. What is the likely problem?",
+      "answerMode": "choice",
+      "expectedAnswer": "Its very high resistance almost stops the current, so the circuit barely works.",
+      "marks": 2,
+      "explanation": "Voltmeters have very high resistance and must be in parallel; in series they block the current.",
+      "errorSignals": [
+        "ERR_VOLTMETER_CONNECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It will read the correct voltage.",
+        "It will read the current instead.",
+        "Its very high resistance almost stops the current, so the circuit barely works."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q13",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A current of 0.5 A flows through a lamp for 2 minutes. How much charge passes through it?",
+      "answerMode": "numeric",
+      "expectedAnswer": 60,
+      "tolerance": 0.05,
+      "unit": "C",
+      "marks": 3,
+      "explanation": "Convert time: 2 min = 120 s. Q = It = 0.5 × 120 = 60 C.",
+      "errorSignals": [
+        "ERR_TIME_UNIT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A1.q14",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How much charge flows when a current of 3 A is maintained for 0.5 minutes?",
+      "answerMode": "numeric",
+      "expectedAnswer": 90,
+      "tolerance": 0.05,
+      "unit": "C",
+      "marks": 3,
+      "explanation": "t = 0.5 min = 30 s; Q = It = 3 × 30 = 90 C.",
+      "errorSignals": [
+        "ERR_TIME_UNIT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A1.q15",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is EMF usually slightly larger than the terminal voltage of a real battery when current flows?",
+      "answerMode": "choice",
+      "expectedAnswer": "Some energy per coulomb is used inside the battery's own (internal) resistance.",
+      "marks": 2,
+      "explanation": "A real cell has internal resistance, so the terminal voltage is the EMF minus the 'lost volts' inside.",
+      "errorSignals": [
+        "ERR_EMF_TERMINAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "EMF is always smaller than terminal voltage.",
+        "Terminal voltage includes the EMF twice.",
+        "Some energy per coulomb is used inside the battery's own (internal) resistance."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q16",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A battery delivers 30 J of energy to every 2 C of charge passing through it. What is its EMF?",
+      "answerMode": "numeric",
+      "expectedAnswer": 15,
+      "tolerance": 0.05,
+      "unit": "V",
+      "marks": 3,
+      "explanation": "EMF = energy per charge = 30/2 = 15 V (J per C).",
+      "errorSignals": [
+        "ERR_EMF_DEF"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A1.q17",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "If 24 J of energy is transferred by 4 C of charge passing through a resistor, what is the potential difference across it?",
+      "answerMode": "numeric",
+      "expectedAnswer": 6,
+      "tolerance": 0.05,
+      "unit": "V",
+      "marks": 3,
+      "explanation": "V = energy/charge = 24/4 = 6 V.",
+      "errorSignals": [
+        "ERR_PD_DEF"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A1.q18",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What does it mean physically that the current is the same everywhere in a simple series circuit?",
+      "answerMode": "choice",
+      "expectedAnswer": "Charge is not used up; the same rate of flow passes every component.",
+      "marks": 2,
+      "explanation": "Charge is conserved, so the same current flows through each series component (charge is not consumed).",
+      "errorSignals": [
+        "ERR_CURRENT_USED_UP"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The charge is shared out and reduces along the circuit.",
+        "Each component creates new charge.",
+        "Charge is not used up; the same rate of flow passes every component."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q19",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A current of 5 A flows for 4 s. The same charge then flows in 2 s through another wire. What is the current in the second wire?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.05,
+      "unit": "A",
+      "marks": 3,
+      "explanation": "Charge Q = It = 5 × 4 = 20 C. In the second wire I = Q/t = 20/2 = 10 A.",
+      "errorSignals": [
+        "ERR_CHARGE_CURRENT_TIME"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A1.q20",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which instrument arrangement correctly measures both the current through and the voltage across a single resistor?",
+      "answerMode": "choice",
+      "expectedAnswer": "Ammeter in series with the resistor; voltmeter in parallel across it.",
+      "marks": 2,
+      "explanation": "Current needs the ammeter in series; voltage needs the voltmeter in parallel across the resistor.",
+      "errorSignals": [
+        "ERR_METER_CONNECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ammeter in parallel; voltmeter in series.",
+        "Ammeter in series with the resistor; voltmeter in parallel across it.",
+        "Both in series with the resistor."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,401 @@
+{
+  "skill": "L15.T1.A1",
+  "skill_title": "Write and balance chemical equations",
+  "grades": [
+    10
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L15.T1.A1.q01",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does it mean to 'balance' a chemical equation?",
+      "answerMode": "choice",
+      "expectedAnswer": "Make the number of each type of atom equal on both sides.",
+      "marks": 2,
+      "explanation": "Balancing ensures equal atoms of each element on both sides (conservation of mass).",
+      "errorSignals": [
+        "ERR_BALANCE_MEANING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Make the number of each type of atom equal on both sides.",
+        "Make the number of molecules equal on both sides.",
+        "Make the masses look the same."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q02",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "To balance an equation, you may only change the...",
+      "answerMode": "choice",
+      "expectedAnswer": "coefficients (big numbers in front).",
+      "marks": 2,
+      "explanation": "Only coefficients may change; changing subscripts would change the substances.",
+      "errorSignals": [
+        "ERR_CHANGE_SUBSCRIPT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "subscripts (small numbers in formulae).",
+        "coefficients (big numbers in front).",
+        "chemical symbols."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q03",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which state symbol means 'dissolved in water'?",
+      "answerMode": "choice",
+      "expectedAnswer": "(aq)",
+      "marks": 2,
+      "explanation": "(aq) = aqueous, dissolved in water. (l) is a pure liquid; (s) is a solid.",
+      "errorSignals": [
+        "ERR_STATE_SYMBOL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "(l)",
+        "(s)",
+        "(aq)"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q04",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the correct formula for oxygen gas as it appears in equations?",
+      "answerMode": "choice",
+      "expectedAnswer": "O₂",
+      "marks": 2,
+      "explanation": "Oxygen is diatomic: O₂.",
+      "errorSignals": [
+        "ERR_DIATOMIC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "O₂",
+        "O",
+        "O₃"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q05",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Balance: H₂ + O₂ → H₂O. What is the balanced equation?",
+      "answerMode": "choice",
+      "expectedAnswer": "2H₂ + O₂ → 2H₂O",
+      "marks": 2,
+      "explanation": "2H₂ + O₂ → 2H₂O gives 4 H and 2 O on each side.",
+      "errorSignals": [
+        "ERR_BALANCING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "H₂ + O₂ → H₂O",
+        "2H₂ + O₂ → 2H₂O",
+        "H₂ + O₂ → 2H₂O"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q06",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which of these elements is diatomic (exists as molecules of two atoms)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Nitrogen (N₂)",
+      "marks": 2,
+      "explanation": "Nitrogen is diatomic (N₂); the diatomics are H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂.",
+      "errorSignals": [
+        "ERR_DIATOMIC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Carbon (C)",
+        "Sodium (Na)",
+        "Nitrogen (N₂)"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q07",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In the equation 2Na + Cl₂ → 2NaCl, how many chlorine ATOMS are on the left?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "atoms",
+      "marks": 3,
+      "explanation": "Cl₂ contains 2 chlorine atoms.",
+      "errorSignals": [
+        "ERR_ATOM_COUNT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L15.T1.A1.q08",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does the state symbol (g) represent?",
+      "answerMode": "choice",
+      "expectedAnswer": "Gas",
+      "marks": 2,
+      "explanation": "(g) means the substance is a gas.",
+      "errorSignals": [
+        "ERR_STATE_SYMBOL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A solid",
+        "Gas",
+        "Dissolved in water"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q09",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Balance: Mg + O₂ → MgO. What is the balanced equation?",
+      "answerMode": "choice",
+      "expectedAnswer": "2Mg + O₂ → 2MgO",
+      "marks": 2,
+      "explanation": "2Mg + O₂ → 2MgO gives 2 Mg and 2 O on each side.",
+      "errorSignals": [
+        "ERR_BALANCING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Mg + O₂ → MgO",
+        "Mg + O₂ → 2MgO",
+        "2Mg + O₂ → 2MgO"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q10",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why must a chemical equation be balanced?",
+      "answerMode": "choice",
+      "expectedAnswer": "Because atoms are conserved — none are created or destroyed.",
+      "marks": 2,
+      "explanation": "Balancing reflects conservation of mass/atoms in a reaction.",
+      "errorSignals": [
+        "ERR_BALANCE_MEANING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because atoms are conserved — none are created or destroyed.",
+        "To make it look neat.",
+        "Because mass increases in reactions."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q11",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Balance: N₂ + H₂ → NH₃. What is the balanced equation?",
+      "answerMode": "choice",
+      "expectedAnswer": "N₂ + 3H₂ → 2NH₃",
+      "marks": 2,
+      "explanation": "N₂ + 3H₂ → 2NH₃ gives 2 N and 6 H on each side.",
+      "errorSignals": [
+        "ERR_BALANCING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "N₂ + H₂ → NH₃",
+        "N₂ + 3H₂ → 2NH₃",
+        "N₂ + 3H₂ → NH₃"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q12",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Balance: CH₄ + O₂ → CO₂ + H₂O. What is the balanced equation?",
+      "answerMode": "choice",
+      "expectedAnswer": "CH₄ + 2O₂ → CO₂ + 2H₂O",
+      "marks": 2,
+      "explanation": "CH₄ + 2O₂ → CO₂ + 2H₂O balances 1 C, 4 H and 4 O on each side.",
+      "errorSignals": [
+        "ERR_BALANCING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CH₄ + O₂ → CO₂ + H₂O",
+        "CH₄ + 2O₂ → CO₂ + H₂O",
+        "CH₄ + 2O₂ → CO₂ + 2H₂O"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q13",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is changing H₂O to H₂O₂ NOT allowed when balancing?",
+      "answerMode": "choice",
+      "expectedAnswer": "It changes water into hydrogen peroxide — a different substance.",
+      "marks": 2,
+      "explanation": "Changing a subscript changes the chemical identity; only coefficients may change.",
+      "errorSignals": [
+        "ERR_CHANGE_SUBSCRIPT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It changes water into hydrogen peroxide — a different substance.",
+        "It is allowed; it balances the oxygen.",
+        "It only changes the coefficient."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q14",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Balance: Fe + O₂ → Fe₂O₃. What is the balanced equation?",
+      "answerMode": "choice",
+      "expectedAnswer": "4Fe + 3O₂ → 2Fe₂O₃",
+      "marks": 2,
+      "explanation": "4Fe + 3O₂ → 2Fe₂O₃ gives 4 Fe and 6 O on each side.",
+      "errorSignals": [
+        "ERR_BALANCING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "2Fe + O₂ → Fe₂O₃",
+        "4Fe + 3O₂ → 2Fe₂O₃",
+        "4Fe + O₂ → 2Fe₂O₃"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q15",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In 2KClO₃ → 2KCl + 3O₂, how many oxygen atoms are on the right-hand side?",
+      "answerMode": "numeric",
+      "expectedAnswer": 6,
+      "tolerance": 0.05,
+      "unit": "atoms",
+      "marks": 3,
+      "explanation": "3O₂ = 3 × 2 = 6 oxygen atoms (matching 2KClO₃ = 6 on the left).",
+      "errorSignals": [
+        "ERR_ATOM_COUNT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L15.T1.A1.q16",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Write the balanced equation for the reaction of hydrogen with chlorine to form hydrogen chloride.",
+      "answerMode": "choice",
+      "expectedAnswer": "H₂ + Cl₂ → 2HCl",
+      "marks": 2,
+      "explanation": "Both are diatomic; H₂ + Cl₂ → 2HCl balances 2 H and 2 Cl.",
+      "errorSignals": [
+        "ERR_DIATOMIC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "H₂ + Cl₂ → 2HCl",
+        "H₂ + Cl₂ → HCl",
+        "H + Cl → HCl"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q17",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Balance: Al + Cl₂ → AlCl₃. What is the balanced equation?",
+      "answerMode": "choice",
+      "expectedAnswer": "2Al + 3Cl₂ → 2AlCl₃",
+      "marks": 2,
+      "explanation": "2Al + 3Cl₂ → 2AlCl₃ gives 2 Al and 6 Cl on each side.",
+      "errorSignals": [
+        "ERR_BALANCING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Al + Cl₂ → AlCl₃",
+        "2Al + 3Cl₂ → 2AlCl₃",
+        "2Al + 3Cl₂ → AlCl₃"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q18",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which equation is correctly balanced?",
+      "answerMode": "choice",
+      "expectedAnswer": "2H₂O₂ → 2H₂O + O₂",
+      "marks": 2,
+      "explanation": "2H₂O₂ → 2H₂O + O₂ balances 4 H and 4 O on each side.",
+      "errorSignals": [
+        "ERR_BALANCING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "H₂O₂ → H₂O + O₂",
+        "2H₂O₂ → H₂O + O₂",
+        "2H₂O₂ → 2H₂O + O₂"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q19",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Translate to a balanced equation: solid calcium carbonate decomposes to solid calcium oxide and carbon dioxide gas.",
+      "answerMode": "choice",
+      "expectedAnswer": "CaCO₃(s) → CaO(s) + CO₂(g)",
+      "marks": 2,
+      "explanation": "CaCO₃(s) → CaO(s) + CO₂(g) is balanced with correct formulae and state symbols.",
+      "errorSignals": [
+        "ERR_WORD_TO_EQUATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CaCO₃(s) → CaO(s) + CO₂(g)",
+        "CaCO₃(s) → Ca(s) + CO₃(g)",
+        "CaCO₃ → CaO₂ + CO"
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q20",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Balance: C₃H₈ + O₂ → CO₂ + H₂O. What coefficient goes in front of O₂?",
+      "answerMode": "numeric",
+      "expectedAnswer": 5,
+      "tolerance": 0.05,
+      "marks": 3,
+      "explanation": "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O. Right side O = 3×2 + 4 = 10, so 5 O₂ is needed.",
+      "errorSignals": [
+        "ERR_BALANCING"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

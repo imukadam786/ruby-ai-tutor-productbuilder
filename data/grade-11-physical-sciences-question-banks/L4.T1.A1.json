@@ -1,0 +1,411 @@
+{
+  "skill": "L4.T1.A1",
+  "skill_title": "Describe wavefronts, Huygens' principle and diffraction",
+  "grades": [
+    11
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L4.T1.A1.q01",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is a wavefront?",
+      "answerMode": "choice",
+      "expectedAnswer": "An imaginary line joining points on a wave that are all in phase (e.g. all crests).",
+      "marks": 2,
+      "explanation": "A wavefront connects points in phase, such as a line of crests.",
+      "errorSignals": [
+        "ERR_WAVEFRONT_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "An imaginary line joining points on a wave that are all in phase (e.g. all crests).",
+        "The direction the wave travels.",
+        "The distance between two crests."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q02",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does Huygens' principle state?",
+      "answerMode": "choice",
+      "expectedAnswer": "Every point on a wavefront acts as a source of new secondary wavelets.",
+      "marks": 2,
+      "explanation": "Huygens: each point on a wavefront is a source of secondary wavelets that build the next wavefront.",
+      "errorSignals": [
+        "ERR_HUYGENS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Waves always travel in straight lines.",
+        "Every point on a wavefront acts as a source of new secondary wavelets.",
+        "Light is made only of particles."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q03",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is diffraction?",
+      "answerMode": "choice",
+      "expectedAnswer": "The spreading of waves as they pass through a gap or around an edge.",
+      "marks": 2,
+      "explanation": "Diffraction is the spreading out of waves at an opening or obstacle.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The bouncing of waves off a surface.",
+        "The change of speed at a boundary.",
+        "The spreading of waves as they pass through a gap or around an edge."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q04",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Diffraction is greatest when the slit width is...",
+      "answerMode": "choice",
+      "expectedAnswer": "about the same size as the wavelength.",
+      "marks": 2,
+      "explanation": "Maximum diffraction occurs when the gap is comparable to the wavelength.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_SLIT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "about the same size as the wavelength.",
+        "much larger than the wavelength.",
+        "exactly zero."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q05",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "For a fixed slit width, which waves diffract (spread) MORE?",
+      "answerMode": "choice",
+      "expectedAnswer": "Waves with a longer wavelength.",
+      "marks": 2,
+      "explanation": "Longer wavelengths diffract more for the same slit width.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_WAVELENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Waves with a shorter wavelength.",
+        "Waves with a longer wavelength.",
+        "Wavelength has no effect."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q06",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Does the wavelength of a wave change when it diffracts through a slit?",
+      "answerMode": "choice",
+      "expectedAnswer": "No — the wavelength stays the same.",
+      "marks": 2,
+      "explanation": "Diffraction changes the wave's direction/spreading but not its wavelength.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_WAVELENGTH_CHANGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — it increases.",
+        "Yes — it decreases.",
+        "No — the wavelength stays the same."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q07",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which types of waves can be diffracted?",
+      "answerMode": "choice",
+      "expectedAnswer": "All waves — water, sound and light.",
+      "marks": 2,
+      "explanation": "Diffraction is a property of all waves, including water, sound and light.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_TYPES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "All waves — water, sound and light.",
+        "Only light waves.",
+        "Only sound waves."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q08",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When a straight water wave passes through a narrow gap, the wavefront on the far side becomes...",
+      "answerMode": "choice",
+      "expectedAnswer": "curved (spreading outwards).",
+      "marks": 2,
+      "explanation": "Through a narrow gap the wave spreads, producing curved wavefronts (diffraction).",
+      "errorSignals": [
+        "ERR_DIFFRACTION_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "perfectly straight.",
+        "curved (spreading outwards).",
+        "stationary."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q09",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why can you hear someone around a corner even if you cannot see them?",
+      "answerMode": "choice",
+      "expectedAnswer": "Sound's long wavelength diffracts around the corner more than light does.",
+      "marks": 2,
+      "explanation": "Sound has a much longer wavelength than light, so it diffracts (spreads) around corners noticeably.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_APPLICATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sound travels faster than light.",
+        "Light cannot travel around corners at all in theory.",
+        "Sound's long wavelength diffracts around the corner more than light does."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q10",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A wide opening (much larger than the wavelength) produces...",
+      "answerMode": "choice",
+      "expectedAnswer": "very little diffraction (waves pass almost straight through).",
+      "marks": 2,
+      "explanation": "When the gap is much larger than the wavelength, diffraction is small.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_SLIT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "very little diffraction (waves pass almost straight through).",
+        "maximum diffraction.",
+        "no waves at all."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q11",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two slits, one narrow and one wide, receive the same waves. Which produces more spreading?",
+      "answerMode": "choice",
+      "expectedAnswer": "The narrow slit.",
+      "marks": 2,
+      "explanation": "Narrower slits (closer to the wavelength) cause more diffraction.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_SLIT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The wide slit.",
+        "The narrow slit.",
+        "Both spread equally."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q12",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "To increase the diffraction of light through a single slit, you could...",
+      "answerMode": "choice",
+      "expectedAnswer": "make the slit narrower or use longer-wavelength (e.g. red) light.",
+      "marks": 2,
+      "explanation": "More diffraction comes from a narrower slit and/or a longer wavelength.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_FACTORS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "make the slit wider.",
+        "use shorter-wavelength light only.",
+        "make the slit narrower or use longer-wavelength (e.g. red) light."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q13",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Red light (longer wavelength) and blue light (shorter wavelength) pass through the same narrow slit. Which diffracts more?",
+      "answerMode": "choice",
+      "expectedAnswer": "Red light.",
+      "marks": 2,
+      "explanation": "Longer wavelength (red) diffracts more through the same slit.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_WAVELENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Red light.",
+        "Blue light.",
+        "They diffract equally."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q14",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "According to Huygens' principle, how is the new position of a wavefront found?",
+      "answerMode": "choice",
+      "expectedAnswer": "By drawing the envelope (tangent) of all the secondary wavelets.",
+      "marks": 2,
+      "explanation": "The new wavefront is the surface that touches (envelopes) all the secondary wavelets.",
+      "errorSignals": [
+        "ERR_HUYGENS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "By measuring the wave's amplitude.",
+        "By drawing the envelope (tangent) of all the secondary wavelets.",
+        "By counting the number of crests."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q15",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is diffraction of light hard to observe in everyday life?",
+      "answerMode": "choice",
+      "expectedAnswer": "Light's wavelength is very small, so noticeable diffraction needs a very narrow slit.",
+      "marks": 2,
+      "explanation": "Because light's wavelength is tiny, only very narrow gaps produce visible diffraction.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_APPLICATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Light does not diffract at all.",
+        "Light has no wavelength.",
+        "Light's wavelength is very small, so noticeable diffraction needs a very narrow slit."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q16",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A sound of wavelength 1 m and a beam of light pass through a 1 m wide doorway. Which diffracts noticeably?",
+      "answerMode": "choice",
+      "expectedAnswer": "The sound (wavelength similar to the gap).",
+      "marks": 2,
+      "explanation": "The sound's wavelength matches the doorway, so it diffracts strongly; light's tiny wavelength barely diffracts.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_SLIT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The sound (wavelength similar to the gap).",
+        "The light (wavelength similar to the gap).",
+        "Both diffract equally."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q17",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Diffraction provides evidence that light behaves as a...",
+      "answerMode": "choice",
+      "expectedAnswer": "wave.",
+      "marks": 2,
+      "explanation": "Diffraction is a wave property, supporting the wave model of light.",
+      "errorSignals": [
+        "ERR_WAVE_EVIDENCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "particle only.",
+        "wave.",
+        "stream of solid balls."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q18",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "As waves pass an obstacle, the bending of the wavefronts around its edges is also a form of...",
+      "answerMode": "choice",
+      "expectedAnswer": "diffraction.",
+      "marks": 2,
+      "explanation": "Waves spreading around the edges of an obstacle is diffraction.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "refraction.",
+        "reflection.",
+        "diffraction."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q19",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "The degree of diffraction depends on the ratio of...",
+      "answerMode": "choice",
+      "expectedAnswer": "wavelength to slit width.",
+      "marks": 2,
+      "explanation": "Diffraction depends on how the wavelength compares with the slit width (λ/width).",
+      "errorSignals": [
+        "ERR_DIFFRACTION_FACTORS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "wavelength to slit width.",
+        "amplitude to frequency.",
+        "speed to wavelength."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q20",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "If the slit width equals the wavelength, the diffraction is...",
+      "answerMode": "choice",
+      "expectedAnswer": "very pronounced (maximum spreading).",
+      "marks": 2,
+      "explanation": "When slit width ≈ wavelength, diffraction is at its most pronounced.",
+      "errorSignals": [
+        "ERR_DIFFRACTION_SLIT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "negligible.",
+        "very pronounced (maximum spreading).",
+        "absent."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "skill": "L10.T1.A1",
+  "skill_title": "Apply the gas laws (Boyle, Charles, Gay-Lussac) and the general gas equation",
+  "grades": [
+    11
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L10.T1.A1.q01",
+      "skill": "L10.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does Boyle's Law state (at constant temperature)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Pressure and volume are inversely proportional (pV = constant).",
+      "marks": 2,
+      "explanation": "Boyle: at constant T, pV is constant (p up ⇒ V down).",
+      "errorSignals": [
+        "ERR_BOYLE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Pressure and volume are inversely proportional (pV = constant).",
+        "Pressure and volume are directly proportional.",
+        "Volume and temperature are inversely proportional."
+      ]
+    },
+    {
+      "id": "L10.T1.A1.q02",
+      "skill": "L10.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does Charles' Law state (at constant pressure)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Volume is directly proportional to absolute temperature (V/T = constant).",
+      "marks": 2,
+      "explanation": "Charles: at constant p, V/T is constant (in kelvin).",
+      "errorSignals": [
+        "ERR_CHARLES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Volume is inversely proportional to temperature.",
+        "Volume is directly proportional to absolute temperature (V/T = constant).",
+        "Pressure is proportional to volume."
+      ]
+    },
+    {
+      "id": "L10.T1.A1.q03",
+      "skill": "L10.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Before using any gas law, temperature must be converted to...",
+      "answerMode": "choice",
+      "expectedAnswer": "kelvin (K = °C + 273).",
+      "marks": 2,
+      "explanation": "Gas-law temperatures are always in kelvin: K = °C + 273.",
+      "errorSignals": [
+        "ERR_KELVIN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "degrees Celsius.",
+        "degrees Fahrenheit.",
+        "kelvin (K = °C + 273)."
+      ]
+    },
+    {
+      "id": "L10.T1.A1.q04",
+      "skill": "L10.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Convert 27 °C to kelvin.",
+      "answerMode": "numeric",
+      "expectedAnswer": 300,
+      "tolerance": 0.05,
+      "unit": "K",
+      "marks": 3,
+      "explanation": "K = °C + 273 = 27 + 273 = 300 K.",
+      "errorSignals": [
+        "ERR_KELVIN"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A1.q05",
+      "skill": "L10.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does Gay-Lussac's (pressure) law state (at constant volume)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Pressure is directly proportional to absolute temperature (p/T = constant).",
+      "marks": 2,
+      "explanation": "At constant volume, p/T is constant (in kelvin).",
+      "errorSignals": [
+        "ERR_GAY_LUSSAC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Pressure is inversely proportional to temperature.",
+        "Pressure is directly proportional to absolute temperature (p/T = constant).",
+        "Pressure is proportional to volume."
+      ]
+    },
+    {
+      "id": "L10.T1.A1.q06",
+      "skill": "L10.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation is the general (combined) gas equation?",
+      "answerMode": "choice",
+      "expectedAnswer": "p₁V₁/T₁ = p₂V₂/T₂",
+      "marks": 2,
+      "explanation": "The combined gas law: p₁V₁/T₁ = p₂V₂/T₂ (T in kelvin).",
+      "errorSignals": [
+        "ERR_COMBINED_GAS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "p₁T₁/V₁ = p₂T₂/V₂",
+        "V₁T₁/p₁ = V₂T₂/p₂",
+        "p₁V₁/T₁ = p₂V₂/T₂"
+      ]
+    },
+    {
+      "id": "L10.T1.A1.q07",
+      "skill": "L10.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "At constant temperature, if the volume of a gas is halved, the pressure...",
+      "answerMode": "choice",
+      "expectedAnswer": "doubles.",
+      "marks": 2,
+      "explanation": "Boyle's Law: p and V are inversely proportional, so halving V doubles p.",
+      "errorSignals": [
+        "ERR_BOYLE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "doubles.",
+        "halves.",
+        "stays the same."
+      ]
+    },
+    {
+      "id": "L10.T1.A1.q08",
+      "skill": "L10.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A gas at constant pressure is heated. Its volume will...",
+      "answerMode": "choice",
+      "expectedAnswer": "increase.",
+      "marks": 2,
+      "explanation": "Charles' Law: higher temperature gives a larger volume at constant pressure.",
+      "errorSignals": [
+        "ERR_CHARLES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "decrease.",
+        "increase.",
+        "stay the same."
+      ]
+    },
+    {
+      "id": "L10.T1.A1.q09",
+      "skill": "L10.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A gas has volume 2 dm³ at 100 kPa. At constant temperature, what is its volume at 200 kPa?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1,
+      "tolerance": 0.05,
+      "unit": "dm³",
+      "marks": 3,
+      "explanation": "Boyle: p₁V₁ = p₂V₂ ⇒ 100 × 2 = 200 × V₂ ⇒ V₂ = 1 dm³.",
+      "errorSignals": [
+        "ERR_BOYLE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A1.q10",
+      "skill": "L10.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Convert 127 °C to kelvin.",
+      "answerMode": "numeric",
+      "expectedAnswer": 400,
+      "tolerance": 0.05,
+      "unit": "K",
+      "marks": 3,
+      "explanation": "K = 127 + 273 = 400 K.",
+      "errorSignals": [
+        "ERR_KELVIN"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A1.q11",
+      "skill": "L10.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A gas occupies 300 cm³ at 300 K. At constant pressure, what volume does it occupy at 400 K?",
+      "answerMode": "numeric",
+      "expectedAnswer": 400,
+      "tolerance": 0.05,
+      "unit": "cm³",
+      "marks": 3,
+      "explanation": "Charles: V₁/T₁ = V₂/T₂ ⇒ 300/300 = V₂/400 ⇒ V₂ = 400 cm³.",
+      "errorSignals": [
+        "ERR_CHARLES"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A1.q12",
+      "skill": "L10.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A gas at 100 kPa and 200 K is heated at constant volume to 400 K. What is the new pressure?",
+      "answerMode": "numeric",
+      "expectedAnswer": 200,
+      "tolerance": 0.05,
+      "unit": "kPa",
+      "marks": 3,
+      "explanation": "Gay-Lussac: p₁/T₁ = p₂/T₂ ⇒ 100/200 = p₂/400 ⇒ p₂ = 200 kPa.",
+      "errorSignals": [
+        "ERR_GAY_LUSSAC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A1.q13",
+      "skill": "L10.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A gas has p₁ = 120 kPa, V₁ = 2 dm³, T₁ = 300 K. After change V₂ = 4 dm³ and T₂ = 400 K. What is p₂?",
+      "answerMode": "numeric",
+      "expectedAnswer": 80,
+      "tolerance": 0.05,
+      "unit": "kPa",
+      "marks": 3,
+      "explanation": "p₂ = p₁V₁T₂/(T₁V₂) = (120 × 2 × 400)/(300 × 4) = 96000/1200 = 80 kPa.",
+      "errorSignals": [
+        "ERR_COMBINED_GAS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A1.q14",
+      "skill": "L10.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why must Celsius be converted to kelvin in Charles' Law?",
+      "answerMode": "choice",
+      "expectedAnswer": "Volume is proportional to ABSOLUTE temperature; Celsius can be zero or negative, breaking the ratio.",
+      "marks": 2,
+      "explanation": "The proportionality holds only on the absolute (kelvin) scale, where temperature cannot be negative.",
+      "errorSignals": [
+        "ERR_KELVIN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Kelvin and Celsius give the same answer.",
+        "Volume is proportional to ABSOLUTE temperature; Celsius can be zero or negative, breaking the ratio.",
+        "Celsius is larger than kelvin."
+      ]
+    },
+    {
+      "id": "L10.T1.A1.q15",
+      "skill": "L10.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A balloon has volume 1.5 dm³ at 27 °C. At constant pressure, what is its volume at 87 °C?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.8,
+      "tolerance": 0.05,
+      "unit": "dm³",
+      "marks": 3,
+      "explanation": "Convert: 27 °C = 300 K, 87 °C = 360 K. V₂ = V₁T₂/T₁ = 1.5 × 360/300 = 1.8 dm³.",
+      "errorSignals": [
+        "ERR_CHARLES"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A1.q16",
+      "skill": "L10.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A gas at 200 kPa is compressed at constant temperature from 6 dm³ to 2 dm³. What is the new pressure?",
+      "answerMode": "numeric",
+      "expectedAnswer": 600,
+      "tolerance": 0.05,
+      "unit": "kPa",
+      "marks": 3,
+      "explanation": "Boyle: p₂ = p₁V₁/V₂ = 200 × 6/2 = 600 kPa.",
+      "errorSignals": [
+        "ERR_BOYLE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A1.q17",
+      "skill": "L10.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "On a graph of pressure vs volume (at constant T), Boyle's Law gives what shape?",
+      "answerMode": "choice",
+      "expectedAnswer": "A curve (hyperbola) showing inverse proportion.",
+      "marks": 2,
+      "explanation": "Inverse proportionality (pV = constant) gives a curved graph, not a straight line.",
+      "errorSignals": [
+        "ERR_BOYLE_GRAPH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A straight line through the origin.",
+        "A curve (hyperbola) showing inverse proportion.",
+        "A horizontal line."
+      ]
+    },
+    {
+      "id": "L10.T1.A1.q18",
+      "skill": "L10.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A sealed rigid container of gas is heated. Which gas law applies (volume fixed)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Gay-Lussac's (pressure) law: p/T constant.",
+      "marks": 2,
+      "explanation": "With fixed volume, pressure rises with temperature — Gay-Lussac's law.",
+      "errorSignals": [
+        "ERR_GAS_LAW_CHOICE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Boyle's Law.",
+        "Charles' Law.",
+        "Gay-Lussac's (pressure) law: p/T constant."
+      ]
+    },
+    {
+      "id": "L10.T1.A1.q19",
+      "skill": "L10.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A gas at 400 K and 2 dm³ is cooled to 200 K at constant pressure. What is the new volume?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1,
+      "tolerance": 0.05,
+      "unit": "dm³",
+      "marks": 3,
+      "explanation": "Charles: V₂ = V₁T₂/T₁ = 2 × 200/400 = 1 dm³.",
+      "errorSignals": [
+        "ERR_CHARLES"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A1.q20",
+      "skill": "L10.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does a sealed can of gas risk bursting when thrown into a fire?",
+      "answerMode": "choice",
+      "expectedAnswer": "The temperature rises at constant volume, so the pressure rises sharply (Gay-Lussac).",
+      "marks": 2,
+      "explanation": "At fixed volume, heating raises the pressure (p/T constant), which can rupture the can.",
+      "errorSignals": [
+        "ERR_GAY_LUSSAC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The gas volume increases inside the rigid can.",
+        "The temperature rises at constant volume, so the pressure rises sharply (Gay-Lussac).",
+        "The pressure drops as it heats."
+      ]
+    }
+  ]
+}

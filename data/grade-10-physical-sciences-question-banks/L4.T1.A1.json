@@ -1,0 +1,387 @@
+{
+  "skill": "L4.T1.A1",
+  "skill_title": "Describe longitudinal waves and apply v = fλ",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L4.T1.A1.q01",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In a longitudinal wave, how do the particles of the medium move relative to the wave's direction of travel?",
+      "answerMode": "choice",
+      "expectedAnswer": "Parallel (back and forth along) the direction of travel.",
+      "marks": 2,
+      "explanation": "In a longitudinal wave particles vibrate parallel to the direction the wave travels.",
+      "errorSignals": [
+        "ERR_LONGITUDINAL_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Parallel (back and forth along) the direction of travel.",
+        "Perpendicular to the direction of travel.",
+        "They do not move at all."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q02",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is a compression in a longitudinal wave?",
+      "answerMode": "choice",
+      "expectedAnswer": "A region where the particles are bunched closely together (high pressure).",
+      "marks": 2,
+      "explanation": "A compression is a high-pressure region of closely packed particles.",
+      "errorSignals": [
+        "ERR_COMPRESSION_RAREFACTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A region where particles are spread far apart.",
+        "A region where the particles are bunched closely together (high pressure).",
+        "The highest point of the wave."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q03",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is a rarefaction in a longitudinal wave?",
+      "answerMode": "choice",
+      "expectedAnswer": "A region where the particles are spread far apart (low pressure).",
+      "marks": 2,
+      "explanation": "A rarefaction is a low-pressure region where particles are spread out.",
+      "errorSignals": [
+        "ERR_COMPRESSION_RAREFACTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A region where particles are bunched together.",
+        "The lowest point of the wave.",
+        "A region where the particles are spread far apart (low pressure)."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q04",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Sound is an example of which type of wave?",
+      "answerMode": "choice",
+      "expectedAnswer": "A longitudinal wave.",
+      "marks": 2,
+      "explanation": "Sound travels as a longitudinal wave (compressions and rarefactions).",
+      "errorSignals": [
+        "ERR_SOUND_WAVE_TYPE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A longitudinal wave.",
+        "A transverse wave.",
+        "An electromagnetic wave."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q05",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How is one wavelength of a longitudinal wave measured?",
+      "answerMode": "choice",
+      "expectedAnswer": "From one compression to the next compression.",
+      "marks": 2,
+      "explanation": "One wavelength = compression-to-compression (or rarefaction-to-rarefaction).",
+      "errorSignals": [
+        "ERR_LONGITUDINAL_WAVELENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "From a compression to the next rarefaction.",
+        "From one compression to the next compression.",
+        "From the start of the wave to its source."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q06",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Does the equation v = fλ apply to longitudinal waves?",
+      "answerMode": "choice",
+      "expectedAnswer": "Yes — it applies to all waves, including longitudinal ones.",
+      "marks": 2,
+      "explanation": "v = fλ holds for every kind of wave, transverse or longitudinal.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "No — only to transverse waves.",
+        "No — only to light waves.",
+        "Yes — it applies to all waves, including longitudinal ones."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q07",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A sound wave has a frequency of 200 Hz and a wavelength of 1.7 m. What is its speed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 340,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "v = fλ = 200 × 1.7 = 340 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A1.q08",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A longitudinal wave has frequency 50 Hz and wavelength 6 m. What is its speed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 300,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "v = fλ = 50 × 6 = 300 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A1.q09",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which of these is the main difference between a transverse and a longitudinal wave?",
+      "answerMode": "choice",
+      "expectedAnswer": "The direction the particles vibrate relative to the wave's travel.",
+      "marks": 2,
+      "explanation": "The key difference is particle motion: perpendicular (transverse) vs parallel (longitudinal).",
+      "errorSignals": [
+        "ERR_TRANSVERSE_LONGITUDINAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Only longitudinal waves carry energy.",
+        "Transverse waves have no wavelength.",
+        "The direction the particles vibrate relative to the wave's travel."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q10",
+      "skill": "L4.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A spring is pushed and pulled along its length, sending pulses along it. What type of wave is this?",
+      "answerMode": "choice",
+      "expectedAnswer": "A longitudinal wave.",
+      "marks": 2,
+      "explanation": "Pushing/pulling along the spring's length makes compressions and rarefactions — a longitudinal wave.",
+      "errorSignals": [
+        "ERR_LONGITUDINAL_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A longitudinal wave.",
+        "A transverse wave.",
+        "An electromagnetic wave."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q11",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A sound wave travels at 340 m·s⁻¹ with a frequency of 170 Hz. What is its wavelength?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "λ = v/f = 340/170 = 2 m.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A1.q12",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A longitudinal wave travels at 330 m·s⁻¹ with a wavelength of 0.5 m. What is its frequency?",
+      "answerMode": "numeric",
+      "expectedAnswer": 660,
+      "tolerance": 0.05,
+      "unit": "Hz",
+      "marks": 3,
+      "explanation": "f = v/λ = 330/0.5 = 660 Hz.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A1.q13",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A sound has a period of 0.002 s and travels at 340 m·s⁻¹. What is its wavelength?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.68,
+      "tolerance": 0.01,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "f = 1/T = 500 Hz; λ = v/f = 340/500 = 0.68 m.",
+      "errorSignals": [
+        "ERR_PERIOD_IN_SPEED"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A1.q14",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why can sound NOT travel through a vacuum?",
+      "answerMode": "choice",
+      "expectedAnswer": "There are no particles to compress and rarefy.",
+      "marks": 2,
+      "explanation": "Sound is a mechanical (longitudinal) wave that needs a medium of particles; a vacuum has none.",
+      "errorSignals": [
+        "ERR_SOUND_VACUUM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A vacuum is too cold.",
+        "There are no particles to compress and rarefy.",
+        "Sound only travels through metal."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q15",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In a longitudinal wave the distance between three successive compressions is 8 m. What is the wavelength?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "Three successive compressions span two wavelengths, so λ = 8/2 = 4 m.",
+      "errorSignals": [
+        "ERR_LONGITUDINAL_WAVELENGTH"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A1.q16",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A loudspeaker vibrates at 256 Hz, producing sound that travels at 340 m·s⁻¹. What is the wavelength?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.33,
+      "tolerance": 0.02,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "λ = v/f = 340/256 = 1.33 m.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A1.q17",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which statement about energy in a longitudinal wave is correct?",
+      "answerMode": "choice",
+      "expectedAnswer": "The wave transfers energy through the medium without transporting the particles along.",
+      "marks": 2,
+      "explanation": "Particles only vibrate about fixed positions; the energy moves through the medium, not the particles themselves.",
+      "errorSignals": [
+        "ERR_WAVE_ENERGY_TRANSFER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The particles travel along with the wave from source to receiver.",
+        "The wave transfers energy through the medium without transporting the particles along.",
+        "No energy is transferred."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q18",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "If the frequency of a sound increases while the speed of sound stays the same, what happens to its wavelength?",
+      "answerMode": "choice",
+      "expectedAnswer": "It decreases.",
+      "marks": 2,
+      "explanation": "At constant v, v = fλ means higher f gives shorter λ.",
+      "errorSignals": [
+        "ERR_FREQUENCY_WAVELENGTH_INVERSE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It increases.",
+        "It stays the same.",
+        "It decreases."
+      ]
+    },
+    {
+      "id": "L4.T1.A1.q19",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A bat emits a sound of wavelength 0.008 m that travels at 340 m·s⁻¹. What is its frequency?",
+      "answerMode": "numeric",
+      "expectedAnswer": 42500,
+      "tolerance": 0.02,
+      "unit": "Hz",
+      "marks": 3,
+      "explanation": "f = v/λ = 340/0.008 = 42 500 Hz (ultrasound).",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A1.q20",
+      "skill": "L4.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Both a transverse water wave and a longitudinal sound wave have frequency 100 Hz. What does this tell you?",
+      "answerMode": "choice",
+      "expectedAnswer": "Each produces 100 complete waves per second, regardless of type.",
+      "marks": 2,
+      "explanation": "Frequency means waves per second for any wave type; both make 100 per second.",
+      "errorSignals": [
+        "ERR_FREQUENCY_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The water wave is faster because it is transverse.",
+        "Each produces 100 complete waves per second, regardless of type.",
+        "Frequency only applies to transverse waves."
+      ]
+    }
+  ]
+}

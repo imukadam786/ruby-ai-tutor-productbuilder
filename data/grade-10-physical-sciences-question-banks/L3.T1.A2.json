@@ -1,0 +1,378 @@
+{
+  "skill": "L3.T1.A2",
+  "skill_title": "Relate wavelength, frequency, period and wave speed for transverse waves",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L3.T1.A2.q01",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the wavelength of a transverse wave?",
+      "answerMode": "choice",
+      "expectedAnswer": "The distance of one complete wave, e.g. crest to crest.",
+      "marks": 2,
+      "explanation": "One wavelength is one full wave — measured crest-to-crest or trough-to-trough.",
+      "errorSignals": [
+        "ERR_WAVELENGTH_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The distance of one complete wave, e.g. crest to crest.",
+        "The distance from a crest to the next trough.",
+        "The height of a crest above the rest position."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q02",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the frequency of a wave?",
+      "answerMode": "choice",
+      "expectedAnswer": "The number of complete waves passing a point per second.",
+      "marks": 2,
+      "explanation": "Frequency is waves per second, measured in hertz (Hz).",
+      "errorSignals": [
+        "ERR_FREQUENCY_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The time for one complete wave.",
+        "The number of complete waves passing a point per second.",
+        "The distance of one wave."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q03",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the period of a wave?",
+      "answerMode": "choice",
+      "expectedAnswer": "The time taken for one complete wave to pass a point.",
+      "marks": 2,
+      "explanation": "Period T is the time for one full wave, measured in seconds.",
+      "errorSignals": [
+        "ERR_PERIOD_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The number of waves per second.",
+        "The length of one wave.",
+        "The time taken for one complete wave to pass a point."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q04",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation links period and frequency?",
+      "answerMode": "choice",
+      "expectedAnswer": "T = 1/f",
+      "marks": 2,
+      "explanation": "Period and frequency are reciprocals: T = 1/f.",
+      "errorSignals": [
+        "ERR_PERIOD_FREQUENCY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "T = 1/f",
+        "T = f",
+        "T = f²"
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q05",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation gives the speed of a wave?",
+      "answerMode": "choice",
+      "expectedAnswer": "v = fλ",
+      "marks": 2,
+      "explanation": "Wave speed = frequency × wavelength: v = fλ.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "v = f/λ",
+        "v = fλ",
+        "v = λ/f"
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q06",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A wave has a frequency of 5 Hz. What is its period?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.2,
+      "tolerance": 0.005,
+      "unit": "s",
+      "marks": 3,
+      "explanation": "T = 1/f = 1/5 = 0.2 s.",
+      "errorSignals": [
+        "ERR_PERIOD_FREQUENCY"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q07",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A wave has a period of 0.25 s. What is its frequency?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "Hz",
+      "marks": 3,
+      "explanation": "f = 1/T = 1/0.25 = 4 Hz.",
+      "errorSignals": [
+        "ERR_PERIOD_FREQUENCY"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q08",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A wave has frequency 2 Hz and wavelength 3 m. What is its speed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 6,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "v = fλ = 2 × 3 = 6 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q09",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Does increasing the amplitude of a wave change its wave speed (on the same medium)?",
+      "answerMode": "choice",
+      "expectedAnswer": "No — amplitude does not affect wave speed.",
+      "marks": 2,
+      "explanation": "Wave speed depends on the medium, not the amplitude.",
+      "errorSignals": [
+        "ERR_AMPLITUDE_SPEED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — bigger amplitude means faster waves.",
+        "Yes — bigger amplitude means slower waves.",
+        "No — amplitude does not affect wave speed."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q10",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "On a transverse wave, what is the amplitude?",
+      "answerMode": "choice",
+      "expectedAnswer": "The maximum displacement from the rest position (crest height).",
+      "marks": 2,
+      "explanation": "Amplitude is the greatest displacement from rest, e.g. the height of a crest.",
+      "errorSignals": [
+        "ERR_AMPLITUDE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The maximum displacement from the rest position (crest height).",
+        "The distance between two crests.",
+        "The number of crests per second."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q11",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A wave travels at 12 m·s⁻¹ with a wavelength of 4 m. What is its frequency?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "Hz",
+      "marks": 3,
+      "explanation": "v = fλ ⇒ f = v/λ = 12/4 = 3 Hz.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q12",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A wave has a speed of 20 m·s⁻¹ and a frequency of 5 Hz. What is its wavelength?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "v = fλ ⇒ λ = v/f = 20/5 = 4 m.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q13",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A wave has a period of 0.5 s and a wavelength of 6 m. What is its speed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 12,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "f = 1/T = 2 Hz; v = fλ = 2 × 6 = 12 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_PERIOD_IN_SPEED"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q14",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A water wave makes 10 complete waves pass a point in 5 s. What is its frequency?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "Hz",
+      "marks": 3,
+      "explanation": "f = number of waves/time = 10/5 = 2 Hz.",
+      "errorSignals": [
+        "ERR_FREQUENCY_DEF"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q15",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A wave of frequency 4 Hz travels at 8 m·s⁻¹. How far does one wave (one wavelength) stretch?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "λ = v/f = 8/4 = 2 m.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q16",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "If the frequency of a wave doubles while the wave speed stays the same, what happens to its wavelength?",
+      "answerMode": "choice",
+      "expectedAnswer": "It halves.",
+      "marks": 2,
+      "explanation": "From v = fλ at constant v, f and λ are inversely related: double f ⇒ half λ.",
+      "errorSignals": [
+        "ERR_FREQUENCY_WAVELENGTH_INVERSE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It halves.",
+        "It doubles.",
+        "It stays the same."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q17",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "The distance from one crest to the next crest of a wave is 0.5 m, and 6 waves pass each second. What is the wave speed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "λ = 0.5 m, f = 6 Hz, so v = fλ = 6 × 0.5 = 3 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q18",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A wave has period 0.1 s. How many complete waves pass a point in 2 s?",
+      "answerMode": "numeric",
+      "expectedAnswer": 20,
+      "tolerance": 0.05,
+      "unit": "waves",
+      "marks": 3,
+      "explanation": "f = 1/T = 10 Hz; in 2 s the number of waves = f × t = 10 × 2 = 20.",
+      "errorSignals": [
+        "ERR_PERIOD_FREQUENCY"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q19",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two waves travel on the same rope. Wave X has a longer wavelength than wave Y but the same speed. Which has the higher frequency?",
+      "answerMode": "choice",
+      "expectedAnswer": "Wave Y (shorter wavelength).",
+      "marks": 2,
+      "explanation": "At the same speed, v = fλ means shorter λ ⇒ higher f, so wave Y has the higher frequency.",
+      "errorSignals": [
+        "ERR_FREQUENCY_WAVELENGTH_INVERSE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Wave Y (shorter wavelength).",
+        "Wave X (longer wavelength).",
+        "They have equal frequency."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q20",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A transverse wave on a string has a crest-to-trough vertical distance of 8 cm. What is its amplitude?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "cm",
+      "marks": 3,
+      "explanation": "Crest-to-trough = twice the amplitude, so amplitude = 8/2 = 4 cm.",
+      "errorSignals": [
+        "ERR_AMPLITUDE_CREST_TROUGH"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

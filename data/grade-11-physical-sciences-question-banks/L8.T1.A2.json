@@ -1,0 +1,411 @@
+{
+  "skill": "L8.T1.A2",
+  "skill_title": "Predict molecular shape (VSEPR) and bond polarity",
+  "grades": [
+    11
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L8.T1.A2.q01",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does VSEPR theory predict?",
+      "answerMode": "choice",
+      "expectedAnswer": "The shape of a molecule, from the repulsion of electron pairs around the central atom.",
+      "marks": 2,
+      "explanation": "VSEPR (Valence Shell Electron Pair Repulsion) predicts molecular shape from electron-pair repulsion.",
+      "errorSignals": [
+        "ERR_VSEPR_PURPOSE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The shape of a molecule, from the repulsion of electron pairs around the central atom.",
+        "The mass of a molecule.",
+        "The colour of a compound."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q02",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "According to VSEPR, electron pairs around a central atom arrange themselves to be...",
+      "answerMode": "choice",
+      "expectedAnswer": "as far apart as possible.",
+      "marks": 2,
+      "explanation": "Electron pairs repel and spread out to minimise repulsion (maximum separation).",
+      "errorSignals": [
+        "ERR_VSEPR_PRINCIPLE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "as close together as possible.",
+        "as far apart as possible.",
+        "all on one side."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q03",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A molecule with two bonding pairs and no lone pairs on the central atom is...",
+      "answerMode": "choice",
+      "expectedAnswer": "linear.",
+      "marks": 2,
+      "explanation": "Two pairs spread to opposite sides, giving a linear shape (e.g. CO₂, BeCl₂).",
+      "errorSignals": [
+        "ERR_VSEPR_SHAPE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "bent.",
+        "tetrahedral.",
+        "linear."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q04",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A molecule with four bonding pairs and no lone pairs (like CH₄) is...",
+      "answerMode": "choice",
+      "expectedAnswer": "tetrahedral.",
+      "marks": 2,
+      "explanation": "Four bonding pairs spread out into a tetrahedral shape (e.g. methane).",
+      "errorSignals": [
+        "ERR_VSEPR_SHAPE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "tetrahedral.",
+        "square.",
+        "linear."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q05",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is electronegativity?",
+      "answerMode": "choice",
+      "expectedAnswer": "An atom's ability to attract the shared electrons in a bond.",
+      "marks": 2,
+      "explanation": "Electronegativity measures how strongly an atom pulls bonding electrons.",
+      "errorSignals": [
+        "ERR_ELECTRONEGATIVITY_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The energy needed to remove an electron.",
+        "An atom's ability to attract the shared electrons in a bond.",
+        "The number of electrons in an atom."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q06",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A bond between two identical atoms (e.g. Cl₂) is...",
+      "answerMode": "choice",
+      "expectedAnswer": "non-polar (electrons shared equally).",
+      "marks": 2,
+      "explanation": "Identical atoms have equal electronegativity, so the bond is non-polar.",
+      "errorSignals": [
+        "ERR_BOND_POLARITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "polar.",
+        "ionic.",
+        "non-polar (electrons shared equally)."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q07",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A large difference in electronegativity between two bonded atoms gives a bond that is...",
+      "answerMode": "choice",
+      "expectedAnswer": "ionic (or strongly polar).",
+      "marks": 2,
+      "explanation": "A big electronegativity difference means electrons are largely transferred — an ionic/strongly polar bond.",
+      "errorSignals": [
+        "ERR_BOND_POLARITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "ionic (or strongly polar).",
+        "non-polar.",
+        "metallic."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q08",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A water molecule (H₂O) has 2 bonding pairs and 2 lone pairs on oxygen. Its shape is...",
+      "answerMode": "choice",
+      "expectedAnswer": "bent (angular).",
+      "marks": 2,
+      "explanation": "Two lone pairs push the bonds together, giving water a bent shape.",
+      "errorSignals": [
+        "ERR_VSEPR_LONE_PAIRS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "linear.",
+        "bent (angular).",
+        "tetrahedral."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q09",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Ammonia (NH₃) has 3 bonding pairs and 1 lone pair on nitrogen. Its shape is...",
+      "answerMode": "choice",
+      "expectedAnswer": "trigonal pyramidal.",
+      "marks": 2,
+      "explanation": "The lone pair makes ammonia trigonal pyramidal (not flat trigonal planar).",
+      "errorSignals": [
+        "ERR_VSEPR_LONE_PAIRS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "tetrahedral.",
+        "trigonal planar.",
+        "trigonal pyramidal."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q10",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why must lone pairs be counted when predicting shape?",
+      "answerMode": "choice",
+      "expectedAnswer": "Lone pairs also repel and change the angles and shape.",
+      "marks": 2,
+      "explanation": "Lone pairs occupy space and repel bonding pairs, altering the molecular shape.",
+      "errorSignals": [
+        "ERR_VSEPR_LONE_PAIRS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Lone pairs also repel and change the angles and shape.",
+        "Lone pairs have no effect.",
+        "Lone pairs add extra atoms."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q11",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A molecule with three bonding pairs and no lone pairs (like BF₃) has the shape...",
+      "answerMode": "choice",
+      "expectedAnswer": "trigonal planar.",
+      "marks": 2,
+      "explanation": "Three bonding pairs and no lone pairs give a flat trigonal planar shape.",
+      "errorSignals": [
+        "ERR_VSEPR_SHAPE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "trigonal pyramidal.",
+        "trigonal planar.",
+        "bent."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q12",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Carbon dioxide (CO₂) has polar C=O bonds but is a NON-polar molecule. Why?",
+      "answerMode": "choice",
+      "expectedAnswer": "Its linear, symmetrical shape makes the bond polarities cancel.",
+      "marks": 2,
+      "explanation": "The two equal, opposite bond dipoles cancel in the linear molecule, so CO₂ is non-polar overall.",
+      "errorSignals": [
+        "ERR_MOLECULE_POLARITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The bonds are actually non-polar.",
+        "Oxygen is not electronegative.",
+        "Its linear, symmetrical shape makes the bond polarities cancel."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q13",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is water (H₂O) a polar molecule even though it has the same type of bonds as CO₂?",
+      "answerMode": "choice",
+      "expectedAnswer": "Its bent shape means the bond dipoles do not cancel.",
+      "marks": 2,
+      "explanation": "Water's bent shape leaves a net dipole (the bond polarities do not cancel), making it polar.",
+      "errorSignals": [
+        "ERR_MOLECULE_POLARITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Its bent shape means the bond dipoles do not cancel.",
+        "Water has no polar bonds.",
+        "Water is linear."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q14",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which molecule is non-polar overall?",
+      "answerMode": "choice",
+      "expectedAnswer": "Methane (CH₄) — symmetrical tetrahedral shape.",
+      "marks": 2,
+      "explanation": "CH₄'s symmetrical tetrahedral shape cancels the bond dipoles, so it is non-polar.",
+      "errorSignals": [
+        "ERR_MOLECULE_POLARITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Water (H₂O).",
+        "Methane (CH₄) — symmetrical tetrahedral shape.",
+        "Ammonia (NH₃)."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q15",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In a polar covalent bond, the more electronegative atom carries a...",
+      "answerMode": "choice",
+      "expectedAnswer": "slightly negative charge (δ−).",
+      "marks": 2,
+      "explanation": "The more electronegative atom pulls the shared electrons closer, gaining a partial negative charge (δ−).",
+      "errorSignals": [
+        "ERR_PARTIAL_CHARGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "slightly positive charge (δ+).",
+        "full negative charge.",
+        "slightly negative charge (δ−)."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q16",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which factor decides whether a molecule with polar bonds is polar overall?",
+      "answerMode": "choice",
+      "expectedAnswer": "Its shape (symmetry) — symmetrical molecules can be non-polar.",
+      "marks": 2,
+      "explanation": "Molecular shape determines whether bond dipoles cancel (non-polar) or add (polar).",
+      "errorSignals": [
+        "ERR_MOLECULE_POLARITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Its shape (symmetry) — symmetrical molecules can be non-polar.",
+        "Only the number of atoms.",
+        "Only its mass."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q17",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A central atom is surrounded by 4 electron pairs, of which 1 is a lone pair. The molecular shape is...",
+      "answerMode": "choice",
+      "expectedAnswer": "trigonal pyramidal.",
+      "marks": 2,
+      "explanation": "4 pairs with 1 lone pair gives trigonal pyramidal (like NH₃).",
+      "errorSignals": [
+        "ERR_VSEPR_LONE_PAIRS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "tetrahedral.",
+        "trigonal pyramidal.",
+        "bent."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q18",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which bond is the most polar?",
+      "answerMode": "choice",
+      "expectedAnswer": "H–F (large electronegativity difference).",
+      "marks": 2,
+      "explanation": "H–F has the largest electronegativity difference of these, so it is the most polar.",
+      "errorSignals": [
+        "ERR_BOND_POLARITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "H–H.",
+        "Cl–Cl.",
+        "H–F (large electronegativity difference)."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q19",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does a lone pair push bonding pairs closer together than another bonding pair would?",
+      "answerMode": "choice",
+      "expectedAnswer": "A lone pair repels more strongly than a bonding pair.",
+      "marks": 2,
+      "explanation": "Lone pairs exert greater repulsion, compressing the bond angles (e.g. H₂O's angle < 109.5°).",
+      "errorSignals": [
+        "ERR_LONE_PAIR_REPULSION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A lone pair repels more strongly than a bonding pair.",
+        "A lone pair has no charge.",
+        "A lone pair attracts the bonds."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q20",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A molecule is symmetrical and all its outer atoms are identical. Even with polar bonds, it is likely...",
+      "answerMode": "choice",
+      "expectedAnswer": "non-polar (the dipoles cancel).",
+      "marks": 2,
+      "explanation": "Symmetry with identical outer atoms causes bond dipoles to cancel, giving a non-polar molecule.",
+      "errorSignals": [
+        "ERR_MOLECULE_POLARITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "always polar.",
+        "non-polar (the dipoles cancel).",
+        "ionic."
+      ]
+    }
+  ]
+}

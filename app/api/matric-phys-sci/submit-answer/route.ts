@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireApiSecret } from "@/lib/api-auth";
 import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
 import { getSkill } from "@/lib/matric-phys-sci-selector";
+import { asPhysSciGrade } from "@/lib/phys-sci-grade";
 import type {
   MatricPhysSciSubmitAnswerRequest,
   MatricPhysSciSubmitAnswerResponse,
@@ -122,8 +123,9 @@ async function handler(req: NextRequest) {
 
   try {
     const submission: MatricPhysSciSubmitAnswerRequest = await req.json();
+    const grade = asPhysSciGrade(submission.grade);
 
-    const skill = getSkill(submission.skill_id);
+    const skill = getSkill(submission.skill_id, grade);
     if (!skill) {
       return NextResponse.json({ error: "Skill not found" }, { status: 404 });
     }

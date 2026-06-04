@@ -1,0 +1,381 @@
+{
+  "skill": "L2.T1.A2",
+  "skill_title": "Apply conservation of mechanical energy",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L2.T1.A2.q01",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the mechanical energy of an object?",
+      "answerMode": "choice",
+      "expectedAnswer": "The sum of its kinetic and gravitational potential energy.",
+      "marks": 2,
+      "explanation": "Mechanical energy Em = Ek + Ep.",
+      "errorSignals": [
+        "ERR_MECH_ENERGY_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The sum of its kinetic and gravitational potential energy.",
+        "Only its kinetic energy.",
+        "Only its gravitational potential energy."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q02",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When is the mechanical energy of an object conserved?",
+      "answerMode": "choice",
+      "expectedAnswer": "When only conservative forces (like gravity) act — no friction or air resistance.",
+      "marks": 2,
+      "explanation": "Mechanical energy is conserved when no non-conservative forces (friction, air resistance, applied push) do work.",
+      "errorSignals": [
+        "ERR_CONSERVATION_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Always, in every situation.",
+        "When only conservative forces (like gravity) act — no friction or air resistance.",
+        "Only when the object is at rest."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q03",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "As a ball falls freely (no air resistance), what happens to its energy?",
+      "answerMode": "choice",
+      "expectedAnswer": "Potential energy converts to kinetic energy; the total stays the same.",
+      "marks": 2,
+      "explanation": "Ep decreases as it falls, Ek increases by the same amount, so Em is constant.",
+      "errorSignals": [
+        "ERR_ENERGY_TRANSFER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Both potential and kinetic energy increase.",
+        "The total mechanical energy decreases.",
+        "Potential energy converts to kinetic energy; the total stays the same."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q04",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "At the highest point of a ball thrown straight up (ignoring air resistance), which is true?",
+      "answerMode": "choice",
+      "expectedAnswer": "Kinetic energy is zero and potential energy is maximum.",
+      "marks": 2,
+      "explanation": "At the top the ball is momentarily at rest (Ek = 0) and at its highest point (Ep maximum).",
+      "errorSignals": [
+        "ERR_TOP_OF_FLIGHT_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Kinetic energy is zero and potential energy is maximum.",
+        "Kinetic energy is maximum and potential energy is zero.",
+        "Both are zero."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q05",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Just before a freely falling ball hits the ground (taking the ground as h = 0), which is true?",
+      "answerMode": "choice",
+      "expectedAnswer": "Kinetic energy is maximum and potential energy is zero.",
+      "marks": 2,
+      "explanation": "At the ground h = 0 so Ep = 0; all the energy is now kinetic (maximum speed).",
+      "errorSignals": [
+        "ERR_GROUND_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Potential energy is maximum and kinetic energy is zero.",
+        "Kinetic energy is maximum and potential energy is zero.",
+        "Both are maximum."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q06",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Does the final speed of a freely falling object (no air resistance) depend on its mass?",
+      "answerMode": "choice",
+      "expectedAnswer": "No — mass cancels, so all objects reach the same speed from the same height.",
+      "marks": 2,
+      "explanation": "Using mgh = ½mv², mass cancels: v = √(2gh), independent of mass.",
+      "errorSignals": [
+        "ERR_FREEFALL_MASS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — heavier objects land faster.",
+        "Yes — lighter objects land faster.",
+        "No — mass cancels, so all objects reach the same speed from the same height."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q07",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A pendulum swings without friction. Where is its kinetic energy greatest?",
+      "answerMode": "choice",
+      "expectedAnswer": "At the lowest point of the swing.",
+      "marks": 2,
+      "explanation": "At the lowest point Ep is least, so Ek (and speed) is greatest.",
+      "errorSignals": [
+        "ERR_PENDULUM_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "At the lowest point of the swing.",
+        "At the highest point of the swing.",
+        "It is the same everywhere."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q08",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A ball is dropped onto a rough surface and does NOT bounce back to its original height. Why?",
+      "answerMode": "choice",
+      "expectedAnswer": "Some mechanical energy is lost to friction and heat/sound.",
+      "marks": 2,
+      "explanation": "Non-conservative forces (impact, friction) convert some mechanical energy into heat and sound, so it is not conserved.",
+      "errorSignals": [
+        "ERR_NON_CONSERVATIVE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Mechanical energy was created on impact.",
+        "Some mechanical energy is lost to friction and heat/sound.",
+        "Gravity stopped acting."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q09",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why can you NOT use conservation of mechanical energy on a box sliding down a rough slope?",
+      "answerMode": "choice",
+      "expectedAnswer": "Friction does work, so mechanical energy is not conserved.",
+      "marks": 2,
+      "explanation": "Friction is a non-conservative force that removes mechanical energy as heat, so Em is not conserved.",
+      "errorSignals": [
+        "ERR_CONSERVATION_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The box has no potential energy.",
+        "Gravity does no work on a slope.",
+        "Friction does work, so mechanical energy is not conserved."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q10",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 2 kg ball is held at a height where its potential energy is 40 J. If mechanical energy is conserved, what is its kinetic energy just before it lands (ground as h = 0)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 40,
+      "tolerance": 0.05,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "All 40 J of Ep converts to Ek, so Ek = 40 J at the ground.",
+      "errorSignals": [
+        "ERR_ENERGY_TRANSFER"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q11",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A ball is dropped from rest from a height of 5 m (no air resistance). What is its speed just before it lands? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 9.9,
+      "tolerance": 0.1,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "mgh = ½mv² ⇒ v = √(2gh) = √(2 × 9.8 × 5) = √98 = 9.9 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_ENERGY_SOLVE_V"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q12",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 1 kg ball falls from rest from 20 m. Using energy conservation, what is its kinetic energy just before landing? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 196,
+      "tolerance": 0.5,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "Ek at the bottom = Ep at the top = mgh = 1 × 9.8 × 20 = 196 J.",
+      "errorSignals": [
+        "ERR_ENERGY_TRANSFER"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q13",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 0.2 kg ball is thrown up and rises to a maximum height of 4 m (no air resistance). What was its kinetic energy at launch? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 7.84,
+      "tolerance": 0.1,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "At the top all Ek became Ep: Ek(launch) = mgh = 0.2 × 9.8 × 4 = 7.84 J.",
+      "errorSignals": [
+        "ERR_ENERGY_TRANSFER"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q14",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A trolley starts from rest at the top of a frictionless ramp 1.8 m high. What is its speed at the bottom? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 5.94,
+      "tolerance": 0.1,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "mgh = ½mv² ⇒ v = √(2gh) = √(2 × 9.8 × 1.8) = √35.28 = 5.94 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_ENERGY_SOLVE_V"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q15",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 3 kg object has 150 J of potential energy at the top of a frictionless slope and 90 J of kinetic energy partway down. What is its potential energy at that point?",
+      "answerMode": "numeric",
+      "expectedAnswer": 60,
+      "tolerance": 0.05,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "Em is conserved at 150 J. Ep = Em − Ek = 150 − 90 = 60 J.",
+      "errorSignals": [
+        "ERR_ENERGY_CONSERVATION_SUM"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q16",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A pendulum bob has 12 J of potential energy at the top of its swing (taking the lowest point as zero). What is its kinetic energy at the lowest point (no friction)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 12,
+      "tolerance": 0.05,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "All 12 J of Ep converts to Ek at the lowest point: Ek = 12 J.",
+      "errorSignals": [
+        "ERR_PENDULUM_ENERGY"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q17",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A ball is dropped from 10 m. At the moment it has fallen 4 m, how is its mechanical energy distributed compared with the start? (no air resistance)",
+      "answerMode": "choice",
+      "expectedAnswer": "Total mechanical energy is unchanged; some Ep has become Ek.",
+      "marks": 2,
+      "explanation": "With no air resistance Em is conserved; only the split between Ep and Ek changes.",
+      "errorSignals": [
+        "ERR_ENERGY_CONSERVATION_SUM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Total mechanical energy has decreased.",
+        "Total mechanical energy is unchanged; some Ep has become Ek.",
+        "Total mechanical energy has increased."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q18",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 0.5 kg ball dropped from 8 m bounces back to only 5 m. How much mechanical energy was lost in the bounce? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 14.7,
+      "tolerance": 0.2,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "Loss = mg(h₁ − h₂) = 0.5 × 9.8 × (8 − 5) = 0.5 × 9.8 × 3 = 14.7 J.",
+      "errorSignals": [
+        "ERR_NON_CONSERVATIVE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q19",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An object slides down a frictionless curved track from rest at 2.5 m. What is its speed at the bottom? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 7,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "Shape of the path does not matter without friction: v = √(2gh) = √(2 × 9.8 × 2.5) = √49 = 7 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_ENERGY_SOLVE_V"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q20",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 4 kg ball moving at 3 m·s⁻¹ at a height of 2 m has what total mechanical energy? (g = 9.8 m·s⁻², ground as h = 0)",
+      "answerMode": "numeric",
+      "expectedAnswer": 96.4,
+      "tolerance": 0.5,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "Em = Ek + Ep = ½(4)(3²) + (4)(9.8)(2) = 18 + 78.4 = 96.4 J.",
+      "errorSignals": [
+        "ERR_MECH_ENERGY_DEF"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

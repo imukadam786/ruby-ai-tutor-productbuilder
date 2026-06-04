@@ -1,0 +1,375 @@
+{
+  "skill": "L2.T1.A1",
+  "skill_title": "State Newton's laws, draw free-body diagrams and apply Fnet = ma to a single body",
+  "grades": [
+    11
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L2.T1.A1.q01",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does Newton's First Law state?",
+      "answerMode": "choice",
+      "expectedAnswer": "A body stays at rest or moves at constant velocity unless acted on by a non-zero net force.",
+      "marks": 2,
+      "explanation": "Newton's First Law (inertia): no net force means no change in motion.",
+      "errorSignals": [
+        "ERR_NEWTON_1"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A body stays at rest or moves at constant velocity unless acted on by a non-zero net force.",
+        "Force equals mass times acceleration.",
+        "Every action has an equal and opposite reaction."
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q02",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does Newton's Second Law state?",
+      "answerMode": "choice",
+      "expectedAnswer": "The net force equals mass times acceleration (Fnet = ma).",
+      "marks": 2,
+      "explanation": "Newton's Second Law: Fnet = ma, acceleration in the direction of the net force.",
+      "errorSignals": [
+        "ERR_NEWTON_2"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A body at rest stays at rest.",
+        "The net force equals mass times acceleration (Fnet = ma).",
+        "Forces always occur in pairs."
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q03",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does Newton's Third Law state?",
+      "answerMode": "choice",
+      "expectedAnswer": "For every action force there is an equal and opposite reaction force on a different body.",
+      "marks": 2,
+      "explanation": "Newton's Third Law: action–reaction pairs are equal, opposite, and act on different objects.",
+      "errorSignals": [
+        "ERR_NEWTON_3"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A body keeps moving at constant velocity.",
+        "Net force equals mass times acceleration.",
+        "For every action force there is an equal and opposite reaction force on a different body."
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q04",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A free-body diagram shows...",
+      "answerMode": "choice",
+      "expectedAnswer": "all the forces acting ON one chosen object.",
+      "marks": 2,
+      "explanation": "A free-body diagram shows only the forces acting on the single chosen body.",
+      "errorSignals": [
+        "ERR_FBD_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "all the forces acting ON one chosen object.",
+        "the forces the object exerts on other things.",
+        "the velocity and position of the object."
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q05",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 5 kg object experiences a net force of 10 N. What is its acceleration?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "Fnet = ma ⇒ a = Fnet/m = 10/5 = 2 m·s⁻².",
+      "errorSignals": [
+        "ERR_NEWTON_2_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q06",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the weight of a 4 kg object? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 39.2,
+      "tolerance": 0.1,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Weight = mg = 4 × 9.8 = 39.2 N.",
+      "errorSignals": [
+        "ERR_WEIGHT_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q07",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "An object moves at constant velocity. What is the net force on it?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0,
+      "tolerance": 0.01,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Constant velocity means zero acceleration, so by Fnet = ma the net force is zero.",
+      "errorSignals": [
+        "ERR_NEWTON_1"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q08",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which is an example of a Newton's Third Law pair?",
+      "answerMode": "choice",
+      "expectedAnswer": "A swimmer pushes water back; the water pushes the swimmer forward.",
+      "marks": 2,
+      "explanation": "Action–reaction pairs act on different bodies: swimmer on water, water on swimmer.",
+      "errorSignals": [
+        "ERR_NEWTON_3_PAIR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The weight of a book and the normal force on it.",
+        "A swimmer pushes water back; the water pushes the swimmer forward.",
+        "Friction and the applied force on a box."
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q09",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 2 kg trolley accelerates at 3 m·s⁻². What net force acts on it?",
+      "answerMode": "numeric",
+      "expectedAnswer": 6,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Fnet = ma = 2 × 3 = 6 N.",
+      "errorSignals": [
+        "ERR_NEWTON_2_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q10",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why is the weight and the normal force on a book on a table NOT a Newton's Third Law pair?",
+      "answerMode": "choice",
+      "expectedAnswer": "They act on the same body (the book), not on two different bodies.",
+      "marks": 2,
+      "explanation": "Third Law pairs act on different objects; weight and normal force both act on the book.",
+      "errorSignals": [
+        "ERR_NEWTON_3_PAIR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They act on the same body (the book), not on two different bodies.",
+        "They are not equal in size.",
+        "They act in the same direction."
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q11",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 1200 kg car accelerates at 2.5 m·s⁻². What net force is needed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3000,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Fnet = ma = 1200 × 2.5 = 3000 N.",
+      "errorSignals": [
+        "ERR_NEWTON_2_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q12",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 10 kg box is pushed with 50 N forward while 20 N of friction opposes it. What is its acceleration?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "Fnet = 50 − 20 = 30 N; a = Fnet/m = 30/10 = 3 m·s⁻².",
+      "errorSignals": [
+        "ERR_NET_FORCE_FRICTION"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q13",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 3 kg object on a frictionless floor is pulled with a horizontal force of 12 N. What is its acceleration?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "No friction, so Fnet = 12 N; a = 12/3 = 4 m·s⁻².",
+      "errorSignals": [
+        "ERR_NEWTON_2_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q14",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 6 kg object is lifted by a rope with a tension of 70 N. What is its acceleration? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.87,
+      "tolerance": 0.05,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "Fnet = T − mg = 70 − (6 × 9.8) = 70 − 58.8 = 11.2 N up; a = 11.2/6 = 1.87 m·s⁻².",
+      "errorSignals": [
+        "ERR_VERTICAL_NET_FORCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q15",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does a passenger lurch forward when a bus suddenly brakes?",
+      "answerMode": "choice",
+      "expectedAnswer": "Inertia — the passenger tends to keep moving (Newton's First Law).",
+      "marks": 2,
+      "explanation": "By inertia (First Law), the body keeps moving forward when the bus decelerates.",
+      "errorSignals": [
+        "ERR_INERTIA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A force pushes them forward.",
+        "Gravity increases during braking.",
+        "Inertia — the passenger tends to keep moving (Newton's First Law)."
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q16",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A net force of 24 N gives an object an acceleration of 6 m·s⁻². What is the object's mass?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "kg",
+      "marks": 3,
+      "explanation": "Fnet = ma ⇒ m = Fnet/a = 24/6 = 4 kg.",
+      "errorSignals": [
+        "ERR_NEWTON_2_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q17",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "On the free-body diagram of a box resting on the floor, which forces act?",
+      "answerMode": "choice",
+      "expectedAnswer": "Weight (down) and normal force (up).",
+      "marks": 2,
+      "explanation": "Forces ON the box: its weight down and the normal force up; the box's push on the floor is not on the box.",
+      "errorSignals": [
+        "ERR_FBD_FORCES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Weight only.",
+        "Weight (down) and normal force (up).",
+        "Normal force and the force of the box on the floor."
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q18",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 0.5 kg ball in free fall (ignoring air resistance) has what net force on it? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 4.9,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "The only force is weight: Fnet = mg = 0.5 × 9.8 = 4.9 N downward.",
+      "errorSignals": [
+        "ERR_WEIGHT_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q19",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 4 kg object is pushed with 30 N but does not move. What is the friction force on it?",
+      "answerMode": "numeric",
+      "expectedAnswer": 30,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Not moving ⇒ zero acceleration ⇒ net force zero, so static friction balances the push: 30 N.",
+      "errorSignals": [
+        "ERR_STATIC_EQUILIBRIUM"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q20",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two forces act on a 5 kg object: 40 N right and 15 N left. What is its acceleration?",
+      "answerMode": "numeric",
+      "expectedAnswer": 5,
+      "tolerance": 0.05,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "Fnet = 40 − 15 = 25 N right; a = 25/5 = 5 m·s⁻².",
+      "errorSignals": [
+        "ERR_NET_FORCE_DIRECTION"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

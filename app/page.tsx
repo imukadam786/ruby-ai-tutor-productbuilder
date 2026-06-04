@@ -77,6 +77,7 @@ import { LanguageProvider, useT } from "@/lib/i18n";
 import { getProgress, incrementSession } from "@/lib/storage";
 import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
 import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
+import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import { StudentProfile } from "@/types/ruby";
 import { ReadingStudentProfile } from "@/types/reading";
 
@@ -127,6 +128,7 @@ const FEATURE_TUTORIAL_KEYS: Partial<Record<ActiveView, string>> = {
 const SESSION_VIEWS: ActiveView[] = [
   "ruby", "discover-maths", "reading", "discover-reading",
   "life-skills", "social-sciences", "natural-sciences-tech", "matric-phys-sci",
+  "grade-10-phys-sci", "grade-11-phys-sci",
   "afrikaans-fal", "maths-literacy", "life-sciences", "history",
   "business-studies", "tourism", "geography", "natural-sciences-sp",
   "social-sciences-sp", "ems-sp", "accounting",
@@ -148,6 +150,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
   const [survey, setSurvey] = useState<{ type: "maths" | "reading" | "chat" } | null>(null);
   const [activeTutorial, setActiveTutorial] = useState<ActiveView | null>(null);
   const [userPlan, setUserPlan] = useState<string | null>(null);
+  // Learner's grade drives matric gating. null = not yet known; we fail closed
+  // (no matric) until a confirmed Grade 12 is read from the profile.
+  const [grade, setGrade] = useState<number | null>(null);
   // The tutor whose chat is currently open (null = general Ruby chat).
   const [selectedTutor, setSelectedTutor] = useState<string | null>(null);
 
@@ -185,6 +190,10 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "natural-sciences-tech-skill-tree": "Natural Sciences & Tech · Topics",
     "matric-phys-sci": "Matric Physical Sciences",
     "matric-phys-sci-skill-tree": "Matric Physical Sciences · Skills",
+    "grade-10-phys-sci": "Grade 10 Physical Sciences",
+    "grade-10-phys-sci-skill-tree": "Grade 10 Physical Sciences · Skills",
+    "grade-11-phys-sci": "Grade 11 Physical Sciences",
+    "grade-11-phys-sci-skill-tree": "Grade 11 Physical Sciences · Skills",
     "maths-literacy": "Maths Literacy",
     "maths-literacy-skill-tree": "Maths Literacy · Skills",
     "life-sciences": "Life Sciences",
@@ -310,6 +319,11 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
 
   useEffect(() => { void fetchUserPlan(); }, [fetchUserPlan]);
 
+  // Load the learner's grade once so matric surfaces can be gated to Grade 12.
+  useEffect(() => {
+    void fetchAuthorisedGrade().then((auth) => setGrade(auth?.grade ?? null));
+  }, []);
+
   // Hydrate the reading profile on mount too (refreshStats only does maths), so
   // a reading-skill-tree initial view — e.g. landing here straight after
   // onboarding Discovery — has the learner's placement to show.
@@ -325,6 +339,13 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
   const MATRIC_PLANS = ["master", "matric-pack"];
 
   const handleViewChange = (view: ActiveView) => {
+    // Matric is a Grade 12-only experience. Backstop the UI gating: even a stale
+    // link can't open matric for a non-Grade-12 learner. Fail closed — unknown
+    // grade is treated as not-Grade-12.
+    if (MATRIC_VIEWS.includes(view) && grade !== 12) {
+      return;
+    }
+
     // Gate matric features — accessible on Master and Matric Pack plans
     if (MATRIC_VIEWS.includes(view) && userPlan !== null && !MATRIC_PLANS.includes(userPlan)) {
       document.dispatchEvent(
@@ -481,7 +502,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         onToggleCollapse={() => setSidebarCollapsed((v) => !v)}
         onSettings={() => handleViewChange("settings")}
         onOpenLangPicker={() => setShowLangPicker(true)}
-        userPlan={userPlan}
+        grade={grade}
         onLogout={async () => {
           // Do NOT wipe localStorage on logout — data belongs to this user and
           // must still be visible when they log back in on the same device.
@@ -546,6 +567,10 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "natural-sciences-tech-skill-tree" && <NstSkillTreeView onPickTopic={() => handleViewChange("natural-sciences-tech")} onBack={() => handleViewChange("subjects")} />}
         {activeView === "matric-phys-sci" && <ErrorBoundary><MatricPhysSciSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "matric-phys-sci-skill-tree" && <MatricPhysSciSkillTreeView onPickSkill={() => handleViewChange("matric-phys-sci")} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "grade-10-phys-sci" && <ErrorBoundary><MatricPhysSciSession grade={10} onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "grade-10-phys-sci-skill-tree" && <MatricPhysSciSkillTreeView grade={10} onPickSkill={() => handleViewChange("grade-10-phys-sci")} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "grade-11-phys-sci" && <ErrorBoundary><MatricPhysSciSession grade={11} onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "grade-11-phys-sci-skill-tree" && <MatricPhysSciSkillTreeView grade={11} onPickSkill={() => handleViewChange("grade-11-phys-sci")} onBack={() => handleViewChange("subjects")} />}
         {/* Afrikaans FAL — free, like reading (not in the Scholar/MATRIC gated lists) */}
         {activeView === "afrikaans-fal" && <ErrorBoundary><AfrikaansSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "afrikaans-fal-skill-tree" && <AfrikaansSkillTreeView onPickSkill={() => handleViewChange("afrikaans-fal")} profile={null} onBack={() => handleViewChange("subjects")} />}

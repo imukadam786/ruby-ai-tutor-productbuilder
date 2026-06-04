@@ -1,0 +1,411 @@
+{
+  "skill": "L15.T1.A1",
+  "skill_title": "Describe mining, mineral extraction and its impact in the lithosphere",
+  "grades": [
+    11
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L15.T1.A1.q01",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the lithosphere?",
+      "answerMode": "choice",
+      "expectedAnswer": "The solid, rocky outer layer of the Earth.",
+      "marks": 2,
+      "explanation": "The lithosphere is Earth's solid rocky outer shell, rich in minerals.",
+      "errorSignals": [
+        "ERR_LITHOSPHERE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The solid, rocky outer layer of the Earth.",
+        "All the water on Earth.",
+        "The layer of air around the Earth."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q02",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is an ore?",
+      "answerMode": "choice",
+      "expectedAnswer": "A rock or mineral from which a metal can be profitably extracted.",
+      "marks": 2,
+      "explanation": "An ore is a naturally occurring material containing enough of a metal compound to be worth extracting.",
+      "errorSignals": [
+        "ERR_ORE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A pure metal found in the ground.",
+        "A rock or mineral from which a metal can be profitably extracted.",
+        "A type of fuel."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q03",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Most metals are found in the Earth as...",
+      "answerMode": "choice",
+      "expectedAnswer": "compounds in ores, not as pure elements.",
+      "marks": 2,
+      "explanation": "Reactive metals occur as compounds (ores) and must be chemically extracted.",
+      "errorSignals": [
+        "ERR_METAL_FORM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "pure, uncombined metals.",
+        "gases.",
+        "compounds in ores, not as pure elements."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q04",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why is energy needed to extract a metal from its ore?",
+      "answerMode": "choice",
+      "expectedAnswer": "Chemical reactions (e.g. reduction or electrolysis) are required to free the metal.",
+      "marks": 2,
+      "explanation": "Breaking the metal-compound bonds (by reduction or electrolysis) requires energy.",
+      "errorSignals": [
+        "ERR_EXTRACTION_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Chemical reactions (e.g. reduction or electrolysis) are required to free the metal.",
+        "Metals are simply picked up as pure elements.",
+        "No energy is needed."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q05",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which is a major mineral resource that South Africa is well known for mining?",
+      "answerMode": "choice",
+      "expectedAnswer": "Gold (and platinum).",
+      "marks": 2,
+      "explanation": "South Africa is a major producer of gold, platinum and other minerals.",
+      "errorSignals": [
+        "ERR_SA_MINERALS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Crude oil.",
+        "Gold (and platinum).",
+        "Natural diamonds only, nothing else."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q06",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which is an environmental impact of mining?",
+      "answerMode": "choice",
+      "expectedAnswer": "Pollution of water, air and land.",
+      "marks": 2,
+      "explanation": "Mining can pollute water (acid mine drainage), air (dust) and damage land.",
+      "errorSignals": [
+        "ERR_MINING_IMPACT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Improved water quality.",
+        "No impact at all.",
+        "Pollution of water, air and land."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q07",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why should mineral resources be used responsibly?",
+      "answerMode": "choice",
+      "expectedAnswer": "They are limited (non-renewable) and mining has social and environmental costs.",
+      "marks": 2,
+      "explanation": "Minerals are finite and mining carries costs, so responsible, sustainable use is important.",
+      "errorSignals": [
+        "ERR_SUSTAINABILITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They are limited (non-renewable) and mining has social and environmental costs.",
+        "They are unlimited.",
+        "Mining has no downsides."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q08",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A reactive metal like aluminium is usually extracted by...",
+      "answerMode": "choice",
+      "expectedAnswer": "electrolysis.",
+      "marks": 2,
+      "explanation": "Very reactive metals (e.g. aluminium) are extracted by electrolysis.",
+      "errorSignals": [
+        "ERR_EXTRACTION_METHOD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "simply melting the ore.",
+        "electrolysis.",
+        "dissolving it in water."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q09",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is 'acid mine drainage'?",
+      "answerMode": "choice",
+      "expectedAnswer": "Acidic, metal-rich water that flows from mines and pollutes the environment.",
+      "marks": 2,
+      "explanation": "Acid mine drainage is polluted acidic water from mining that harms rivers and groundwater.",
+      "errorSignals": [
+        "ERR_ACID_MINE_DRAINAGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Clean water pumped into mines.",
+        "A method of extracting gold.",
+        "Acidic, metal-rich water that flows from mines and pollutes the environment."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q10",
+      "skill": "L15.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Mining benefits society mainly by...",
+      "answerMode": "choice",
+      "expectedAnswer": "providing materials, jobs and economic income.",
+      "marks": 2,
+      "explanation": "Mining provides raw materials, employment and economic benefits, alongside its costs.",
+      "errorSignals": [
+        "ERR_MINING_BENEFIT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "providing materials, jobs and economic income.",
+        "cleaning the environment.",
+        "creating new elements."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q11",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Iron is extracted from its ore (e.g. Fe₂O₃) by...",
+      "answerMode": "choice",
+      "expectedAnswer": "reduction (removing oxygen, e.g. with carbon in a blast furnace).",
+      "marks": 2,
+      "explanation": "Iron is extracted by reduction of iron oxide (removing oxygen) using carbon/carbon monoxide.",
+      "errorSignals": [
+        "ERR_EXTRACTION_METHOD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "adding oxygen to the ore.",
+        "reduction (removing oxygen, e.g. with carbon in a blast furnace).",
+        "dissolving it in acid."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q12",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does extracting a metal by electrolysis use a lot of energy?",
+      "answerMode": "choice",
+      "expectedAnswer": "Electrical energy is needed to break the strong bonds in the molten ore.",
+      "marks": 2,
+      "explanation": "Electrolysis drives a non-spontaneous reaction, requiring large amounts of electrical energy.",
+      "errorSignals": [
+        "ERR_EXTRACTION_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Electrolysis releases energy.",
+        "Electrolysis needs no energy input.",
+        "Electrical energy is needed to break the strong bonds in the molten ore."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q13",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is recycling metals beneficial for the lithosphere?",
+      "answerMode": "choice",
+      "expectedAnswer": "It reduces the need for mining and conserves limited ore resources.",
+      "marks": 2,
+      "explanation": "Recycling reuses metals, lowering demand for mining and conserving finite ore reserves.",
+      "errorSignals": [
+        "ERR_RECYCLING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It reduces the need for mining and conserves limited ore resources.",
+        "It increases mining.",
+        "It creates new ore in the ground."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q14",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A mine pollutes a nearby river with acidic water and dissolved metals. This is an example of...",
+      "answerMode": "choice",
+      "expectedAnswer": "a negative environmental impact of mining.",
+      "marks": 2,
+      "explanation": "Polluting water with acid and metals is a negative environmental impact (acid mine drainage).",
+      "errorSignals": [
+        "ERR_MINING_IMPACT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "a benefit of mining.",
+        "a negative environmental impact of mining.",
+        "a way to purify the river."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q15",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why must a balance be found between mining and conservation?",
+      "answerMode": "choice",
+      "expectedAnswer": "Mining brings economic benefit but harms the environment, which must be protected for the future.",
+      "marks": 2,
+      "explanation": "Sustainable use balances the economic value of mining against protecting the environment.",
+      "errorSignals": [
+        "ERR_SUSTAINABILITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Mining has only benefits.",
+        "Conservation has no value.",
+        "Mining brings economic benefit but harms the environment, which must be protected for the future."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q16",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why can gold sometimes be found as the native (pure) metal, unlike iron?",
+      "answerMode": "choice",
+      "expectedAnswer": "Gold is very unreactive, so it does not readily form compounds.",
+      "marks": 2,
+      "explanation": "Gold's low reactivity means it often occurs as the uncombined metal, unlike reactive iron.",
+      "errorSignals": [
+        "ERR_METAL_REACTIVITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Gold is very unreactive, so it does not readily form compounds.",
+        "Gold is the most reactive metal.",
+        "Gold cannot form ores."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q17",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Dust released during mining and crushing of rock mainly affects which system?",
+      "answerMode": "choice",
+      "expectedAnswer": "The atmosphere (air quality).",
+      "marks": 2,
+      "explanation": "Mining dust pollutes the air, affecting the atmosphere and human health.",
+      "errorSignals": [
+        "ERR_MINING_IMPACT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The hydrosphere only.",
+        "The atmosphere (air quality).",
+        "No system at all."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q18",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "The method used to extract a metal depends mainly on...",
+      "answerMode": "choice",
+      "expectedAnswer": "the metal's reactivity.",
+      "marks": 2,
+      "explanation": "Reactive metals need electrolysis; less reactive ones can be reduced with carbon — reactivity decides the method.",
+      "errorSignals": [
+        "ERR_EXTRACTION_METHOD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the colour of the ore.",
+        "the depth of the mine only.",
+        "the metal's reactivity."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q19",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why are mineral resources described as non-renewable?",
+      "answerMode": "choice",
+      "expectedAnswer": "They form over millions of years and cannot be replaced on a human timescale.",
+      "marks": 2,
+      "explanation": "Ores take geological ages to form, so once mined they are effectively non-renewable.",
+      "errorSignals": [
+        "ERR_NON_RENEWABLE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They form over millions of years and cannot be replaced on a human timescale.",
+        "They regrow every year.",
+        "They can be manufactured quickly."
+      ]
+    },
+    {
+      "id": "L15.T1.A1.q20",
+      "skill": "L15.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Rehabilitating land after mining is important because it...",
+      "answerMode": "choice",
+      "expectedAnswer": "restores the environment damaged by mining.",
+      "marks": 2,
+      "explanation": "Rehabilitation repairs mined land, reducing long-term environmental harm.",
+      "errorSignals": [
+        "ERR_REHABILITATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "increases pollution.",
+        "restores the environment damaged by mining.",
+        "removes all the soil permanently."
+      ]
+    }
+  ]
+}

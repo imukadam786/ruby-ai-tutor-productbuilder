@@ -1,0 +1,658 @@
+{
+  "version": "1.0",
+  "subject": "grade-10-physical-sciences",
+  "description": "Grade 10 Physical Sciences skill tree (CAPS FET). 18 levels (one per CAPS topic) split across Physics (P1) and Chemistry (P2), covering the six CAPS knowledge areas: Mechanics, Waves/Sound/Light, Electricity & Magnetism, Matter & Materials, Chemical Change, Chemical Systems. 27 atomic skills. Tap-native bank (choice / numeric / sequence — no free-text). Items live in data/grade-10-physical-sciences-question-banks/<skill-id>.json.",
+  "grades_covered": [10],
+  "levels": [
+    {
+      "id": 1,
+      "title": "Motion in One Dimension",
+      "paper": "P1",
+      "description": "Reference frames, position, distance vs displacement, speed vs velocity, acceleration; equations of motion for uniform acceleration; motion graphs.",
+      "tiers": [
+        {
+          "id": "L1.T1",
+          "title": "Motion in one dimension",
+          "atomic_skills": [
+            {
+              "id": "L1.T1.A1",
+              "title": "Distinguish distance/displacement and speed/velocity; describe motion",
+              "description": "Define and distinguish reference frame, position, distance (scalar, path length) vs displacement (vector, straight-line change in position), speed (scalar) vs velocity (vector), and acceleration. Identify which quantity is a vector and which is a scalar, and read off magnitude and direction.",
+              "prerequisites": [],
+              "templates": ["definition", "scenario", "identification"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats distance and displacement as the same quantity", "example": "Says a runner who completes one lap of a 400 m track has a displacement of 400 m"},
+                {"type": "conceptual_gap", "description": "Calls velocity a scalar / drops the direction", "example": "Gives velocity as 5 m/s with no direction stated"},
+                {"type": "recall_slip", "description": "Confuses speed and velocity definitions", "example": "Defines speed as rate of change of displacement"},
+                {"type": "execution_slip", "description": "Reports a negative displacement as a distance", "example": "Records a displacement of -3 m as a distance of -3 m"}
+              ],
+              "recovery_strategy": "Distance and speed are SCALARS (size only). Displacement and velocity are VECTORS (size AND direction). Distance = total path travelled; displacement = straight line from start to end with direction. Speed = distance/time; velocity = displacement/time. Always state a direction for a vector.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L1.T1.A2",
+              "title": "Apply the equations of motion for uniform acceleration",
+              "description": "Use v = u + at, Δx = uΔt + ½aΔt², v² = u² + 2aΔx, Δx = ½(u+v)Δt to solve one-dimensional motion problems with constant acceleration (including free fall, g = 9.8 m·s⁻²).",
+              "prerequisites": ["L1.T1.A1"],
+              "templates": ["calculation", "symbolic", "scenario"],
+              "error_signatures": [
+                {"type": "strategy_gap", "description": "Picks an equation that needs a quantity not given", "example": "Uses v = u + at when t is unknown and not asked for"},
+                {"type": "sign_error", "description": "Uses inconsistent signs for direction", "example": "Takes upward as positive but substitutes a = +9.8 m/s² for a falling object"},
+                {"type": "execution_slip", "description": "Forgets initial velocity is zero only when stated", "example": "Sets u = 0 for an object that was already moving"},
+                {"type": "execution_slip", "description": "Mixes up Δx and v in v² = u² + 2aΔx", "example": "Solves for displacement but reports it as velocity"}
+              ],
+              "recovery_strategy": "Choose a positive direction and keep all signs consistent. List u, v, a, Δx, Δt — you know three, pick the equation linking your three knowns to the unknown. Free fall: a = g downward. Released from rest ⇒ u = 0; 'dropped' ⇒ u = 0.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L1.T1.A3",
+              "title": "Interpret and sketch position-time, velocity-time and acceleration-time graphs",
+              "description": "Read displacement, velocity and acceleration off motion graphs; relate gradient and area between graph types (gradient of x-t = velocity; gradient of v-t = acceleration; area under v-t = displacement); match a described motion to the correct graph.",
+              "prerequisites": ["L1.T1.A1"],
+              "templates": ["graph", "scenario", "identification"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Reads the value on a v-t graph as displacement instead of using the area", "example": "Says displacement equals the velocity reading at that instant"},
+                {"type": "conceptual_gap", "description": "Confuses the gradient of x-t with the gradient of v-t", "example": "Calls the slope of a position-time graph the acceleration"},
+                {"type": "sign_error", "description": "Ignores that velocity below the time axis means motion in the negative direction", "example": "Reports a -2 m/s reading as motion in the positive direction"},
+                {"type": "conceptual_gap", "description": "Says a horizontal line on a v-t graph means the object is stationary", "example": "Reads constant non-zero velocity as 'at rest'"}
+              ],
+              "recovery_strategy": "x-t graph: gradient = velocity. v-t graph: gradient = acceleration, AREA underneath = displacement. A flat x-t line = at rest; a flat non-zero v-t line = constant velocity. A line crossing below the axis = motion reversed direction.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Energy",
+      "paper": "P1",
+      "description": "Gravitational potential energy, kinetic energy, mechanical energy and the conservation of mechanical energy.",
+      "tiers": [
+        {
+          "id": "L2.T1",
+          "title": "Energy",
+          "atomic_skills": [
+            {
+              "id": "L2.T1.A1",
+              "title": "Calculate gravitational potential energy and kinetic energy",
+              "description": "Define and calculate gravitational potential energy (Ep = mgh) and kinetic energy (Ek = ½mv²); identify how each changes as height or speed changes.",
+              "prerequisites": [],
+              "templates": ["definition", "calculation", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Uses ½mv instead of ½mv² for kinetic energy", "example": "Writes Ek = ½mv"},
+                {"type": "conceptual_gap", "description": "Doubles speed and predicts kinetic energy doubles", "example": "Says Ek doubles when v doubles instead of quadrupling"},
+                {"type": "execution_slip", "description": "Uses the wrong height reference for potential energy", "example": "Measures h from the top instead of the chosen zero level"}
+              ],
+              "recovery_strategy": "Ep = mgh (h above a chosen zero level). Ek = ½mv² — speed is SQUARED, so doubling v makes Ek four times bigger. Always state where h = 0 is and measure heights from there.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L2.T1.A2",
+              "title": "Apply conservation of mechanical energy",
+              "description": "Define mechanical energy (Em = Ep + Ek); apply the principle of conservation of mechanical energy (in the absence of friction/air resistance) to find speed or height at points in free fall, on inclines, or for falling/rising objects.",
+              "prerequisites": ["L2.T1.A1"],
+              "templates": ["calculation", "scenario", "symbolic"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Applies conservation of mechanical energy when friction is present", "example": "Uses Em(top) = Em(bottom) on a rough slope"},
+                {"type": "execution_slip", "description": "Forgets that total mechanical energy stays constant, not Ep or Ek alone", "example": "Sets Ep at the top equal to Ek at the bottom but adds the wrong terms"},
+                {"type": "conceptual_gap", "description": "Thinks a heavier object reaches the ground with a higher speed in free fall", "example": "Predicts a 2 kg ball lands faster than a 1 kg ball dropped from the same height"}
+              ],
+              "recovery_strategy": "Mechanical energy Em = Ep + Ek. With no friction, Em is conserved: (Ep + Ek) at the start = (Ep + Ek) at the end. As an object falls, Ep converts to Ek but the TOTAL stays the same. Mass cancels in free fall, so final speed is independent of mass.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Transverse Pulses and Waves",
+      "paper": "P1",
+      "description": "Transverse pulses on a string/spring, superposition; transverse waves — amplitude, wavelength, frequency, period, wave speed.",
+      "tiers": [
+        {
+          "id": "L3.T1",
+          "title": "Transverse pulses and waves",
+          "atomic_skills": [
+            {
+              "id": "L3.T1.A1",
+              "title": "Describe transverse pulses and superposition",
+              "description": "Define a pulse and a transverse pulse; identify amplitude and pulse length; apply the principle of superposition to find the resultant when two pulses meet (constructive and destructive interference).",
+              "prerequisites": [],
+              "templates": ["definition", "diagram", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Adds pulse lengths instead of amplitudes during superposition", "example": "Says two overlapping pulses combine their widths"},
+                {"type": "conceptual_gap", "description": "Says pulses are destroyed permanently after destructive interference", "example": "Claims two pulses cancel and never reappear"},
+                {"type": "recall_slip", "description": "Confuses amplitude with wavelength for a pulse", "example": "Calls the horizontal length of a pulse its amplitude"}
+              ],
+              "recovery_strategy": "A pulse is a single disturbance; transverse means the medium moves perpendicular to the pulse's travel. Superposition: when pulses overlap, ADD their displacements (amplitudes). Same side ⇒ constructive (bigger); opposite sides ⇒ destructive (cancel). After overlapping they pass through and continue unchanged.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L3.T1.A2",
+              "title": "Relate wavelength, frequency, period and wave speed for transverse waves",
+              "description": "Define amplitude, wavelength, frequency, period and crest/trough for a transverse wave; apply T = 1/f and v = fλ to calculate any one quantity from the others.",
+              "prerequisites": ["L3.T1.A1"],
+              "templates": ["definition", "calculation", "symbolic", "diagram"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Confuses period and frequency (uses f where T belongs)", "example": "Substitutes frequency into v = fλ as if it were the period"},
+                {"type": "conceptual_gap", "description": "Measures wavelength crest-to-trough instead of crest-to-crest", "example": "Calls the distance from a crest to the next trough one wavelength"},
+                {"type": "execution_slip", "description": "Forgets T = 1/f when only the period is given", "example": "Puts the period straight into v = fλ"},
+                {"type": "conceptual_gap", "description": "Thinks amplitude affects wave speed or wavelength", "example": "Says a bigger amplitude makes the wave travel faster"}
+              ],
+              "recovery_strategy": "Wavelength λ = distance for ONE full wave (crest-to-crest or trough-to-trough). Period T = time for one wave; frequency f = waves per second; T = 1/f. Wave speed v = fλ. Amplitude (height) is independent of speed and wavelength.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Longitudinal Waves and Sound",
+      "paper": "P1",
+      "description": "Longitudinal waves (compressions and rarefactions); sound as a longitudinal wave — pitch, loudness, quality, speed of sound, echoes and ultrasound.",
+      "tiers": [
+        {
+          "id": "L4.T1",
+          "title": "Longitudinal waves and sound",
+          "atomic_skills": [
+            {
+              "id": "L4.T1.A1",
+              "title": "Describe longitudinal waves and apply v = fλ",
+              "description": "Define a longitudinal wave; identify compressions and rarefactions, wavelength, frequency and amplitude; contrast transverse and longitudinal waves; apply v = fλ to longitudinal (including sound) waves.",
+              "prerequisites": [],
+              "templates": ["definition", "calculation", "diagram", "identification"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says particles in a longitudinal wave move perpendicular to wave travel", "example": "Describes sound particles vibrating at right angles to the direction the sound travels"},
+                {"type": "recall_slip", "description": "Confuses compression and rarefaction", "example": "Calls the low-pressure region a compression"},
+                {"type": "conceptual_gap", "description": "Measures wavelength compression-to-rarefaction", "example": "Calls the gap from a compression to the next rarefaction one wavelength"}
+              ],
+              "recovery_strategy": "Longitudinal: particles vibrate PARALLEL to the wave's travel (back and forth). Compression = particles bunched (high pressure); rarefaction = particles spread out (low pressure). Wavelength = compression-to-compression. v = fλ still applies.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L4.T1.A2",
+              "title": "Relate properties of sound to pitch, loudness and quality",
+              "description": "Relate frequency to pitch, amplitude to loudness, and waveform to quality (tone); describe the speed of sound in different media; apply sound concepts to echoes, ultrasound and sonar.",
+              "prerequisites": ["L4.T1.A1"],
+              "templates": ["explanation", "scenario", "comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Swaps pitch and loudness with their wave properties", "example": "Says a higher amplitude raises the pitch"},
+                {"type": "recall_slip", "description": "Thinks sound travels fastest in a gas", "example": "Says sound is faster in air than in steel"},
+                {"type": "conceptual_gap", "description": "Says sound can travel through a vacuum", "example": "Claims sound from a bell is heard inside an evacuated jar"}
+              ],
+              "recovery_strategy": "Pitch ↔ frequency (high f = high pitch). Loudness ↔ amplitude (big amplitude = loud). Quality/tone ↔ waveform shape. Sound is fastest in solids, slower in liquids, slowest in gases, and CANNOT travel through a vacuum (it needs a medium). Ultrasound = frequency above 20 000 Hz.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Electromagnetic Radiation",
+      "paper": "P1",
+      "description": "The electromagnetic spectrum, the relationship between frequency, wavelength and energy, the dual (wave/particle) nature of EM radiation, uses and dangers of each band.",
+      "tiers": [
+        {
+          "id": "L5.T1",
+          "title": "Electromagnetic radiation",
+          "atomic_skills": [
+            {
+              "id": "L5.T1.A1",
+              "title": "Describe the EM spectrum and relate frequency, wavelength and energy",
+              "description": "List the bands of the EM spectrum in order; apply c = fλ and E = hf; relate higher frequency to shorter wavelength and higher photon energy; state uses and dangers of each band and describe the dual nature of EM radiation.",
+              "prerequisites": [],
+              "templates": ["definition", "calculation", "scenario", "identification"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Orders the EM spectrum incorrectly", "example": "Places ultraviolet between radio waves and microwaves"},
+                {"type": "conceptual_gap", "description": "Says longer wavelength means higher energy", "example": "Claims radio waves carry more energy than gamma rays"},
+                {"type": "execution_slip", "description": "Uses wavelength instead of frequency in E = hf", "example": "Substitutes λ for f when finding photon energy"},
+                {"type": "conceptual_gap", "description": "Thinks different EM bands travel at different speeds in a vacuum", "example": "Says X-rays travel faster than visible light in a vacuum"}
+              ],
+              "recovery_strategy": "Order (low to high frequency): radio, microwave, infrared, visible, ultraviolet, X-rays, gamma. All travel at c = 3×10⁸ m/s in a vacuum. c = fλ, so higher f ⇒ shorter λ. E = hf, so higher f ⇒ higher energy. Gamma = highest energy/most dangerous; radio = lowest.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Magnetism",
+      "paper": "P1",
+      "description": "Magnetic poles, attraction and repulsion, magnetic fields and field lines, the Earth's magnetic field and the compass.",
+      "tiers": [
+        {
+          "id": "L6.T1",
+          "title": "Magnetism",
+          "atomic_skills": [
+            {
+              "id": "L6.T1.A1",
+              "title": "Describe magnetic fields, poles and the Earth's magnetic field",
+              "description": "State the rule for attraction/repulsion of magnetic poles; draw and interpret magnetic field lines around a bar magnet (direction N→S outside the magnet, never crossing); describe the Earth's magnetic field and how a compass works.",
+              "prerequisites": [],
+              "templates": ["definition", "diagram", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says like poles attract", "example": "Predicts two north poles pull together"},
+                {"type": "recall_slip", "description": "Draws field lines from S to N outside the magnet", "example": "Shows field arrows pointing into the north pole outside the magnet"},
+                {"type": "conceptual_gap", "description": "Says magnetic field lines can cross", "example": "Draws two field lines intersecting between two magnets"},
+                {"type": "conceptual_gap", "description": "Confuses the Earth's geographic and magnetic poles", "example": "Says a compass needle's north points to the Earth's magnetic north pole"}
+              ],
+              "recovery_strategy": "Like poles repel, unlike poles attract. Field lines run from N to S OUTSIDE the magnet, are closer together where the field is stronger, and never cross. The Earth acts like a bar magnet with its magnetic SOUTH near the geographic north, which is why a compass north needle points geographically north.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Electrostatics",
+      "paper": "P1",
+      "description": "Two kinds of charge, charging objects, conservation and quantisation of charge, force between charges (qualitative), Q = ne calculations.",
+      "tiers": [
+        {
+          "id": "L7.T1",
+          "title": "Electrostatics",
+          "atomic_skills": [
+            {
+              "id": "L7.T1.A1",
+              "title": "Apply charge concepts: charging, conservation and quantisation",
+              "description": "Describe the two kinds of charge and the force between them; explain charging by friction and the transfer of electrons; apply conservation of charge (sharing of charge between identical spheres) and quantisation of charge using Q = ne.",
+              "prerequisites": [],
+              "templates": ["definition", "calculation", "scenario", "symbolic"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says protons are transferred during charging by friction", "example": "Explains a rubbed rod becoming negative by gaining protons"},
+                {"type": "execution_slip", "description": "Uses the wrong value or sign for the electron charge in Q = ne", "example": "Takes e as 1.6×10⁻¹⁹ C but reports the number of electrons as negative"},
+                {"type": "execution_slip", "description": "Averages charge incorrectly when two identical spheres touch", "example": "Adds the charges but forgets to divide by two for identical spheres"},
+                {"type": "conceptual_gap", "description": "Says like charges attract", "example": "Predicts two negatively charged spheres pull together"}
+              ],
+              "recovery_strategy": "Only ELECTRONS move. Gain electrons ⇒ negative; lose electrons ⇒ positive. Like charges repel, unlike attract. Charge is conserved: total before = total after. Two identical spheres that touch SHARE charge equally: each ends with (Q₁+Q₂)/2. Charge is quantised: Q = ne, where e = 1.6×10⁻¹⁹ C and n is a whole number.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Electric Circuits",
+      "paper": "P1",
+      "description": "EMF, potential difference and current and their measurement; resistance; current and voltage relationships in series and parallel circuits.",
+      "tiers": [
+        {
+          "id": "L8.T1",
+          "title": "Electric circuits",
+          "atomic_skills": [
+            {
+              "id": "L8.T1.A1",
+              "title": "Define current, potential difference and EMF and measure them correctly",
+              "description": "Define current, potential difference and EMF; describe how an ammeter (in series) and voltmeter (in parallel) are connected; relate the flow of charge to Q = It.",
+              "prerequisites": [],
+              "templates": ["definition", "diagram", "calculation"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Connects an ammeter in parallel and a voltmeter in series", "example": "Places the ammeter across the resistor and the voltmeter in the main line"},
+                {"type": "recall_slip", "description": "Defines potential difference as the rate of flow of charge", "example": "Says potential difference is charge per second"},
+                {"type": "execution_slip", "description": "Confuses charge, current and time in Q = It", "example": "Calculates current as Q × t"}
+              ],
+              "recovery_strategy": "Current = rate of flow of charge (Q = It), measured by an AMMETER in SERIES. Potential difference = energy transferred per unit charge between two points, measured by a VOLTMETER in PARALLEL (across the component). EMF = the total energy per coulomb supplied by the cell.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L8.T1.A2",
+              "title": "Apply current and potential difference rules in series and parallel circuits",
+              "description": "Define resistance and use R = V/I; apply the rules that current is the same throughout a series circuit and splits in parallel, while potential difference adds up in series and is the same across parallel branches.",
+              "prerequisites": ["L8.T1.A1"],
+              "templates": ["calculation", "diagram", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says current splits in series and is equal across parallel branches", "example": "Divides the current between two resistors in series"},
+                {"type": "conceptual_gap", "description": "Adds potential difference across parallel branches", "example": "Sums the voltages across two parallel resistors"},
+                {"type": "execution_slip", "description": "Mixes up V, I, R in R = V/I", "example": "Calculates resistance as I/V"},
+                {"type": "conceptual_gap", "description": "Says adding resistors in parallel increases total resistance", "example": "Predicts total resistance rises when a second parallel resistor is added"}
+              ],
+              "recovery_strategy": "SERIES: current is the SAME everywhere; potential differences ADD up to the battery voltage. PARALLEL: potential difference is the SAME across each branch; currents ADD up. Resistance R = V/I. Adding resistors in parallel gives more paths ⇒ LOWER total resistance.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Classification of Matter",
+      "paper": "P2",
+      "description": "Materials and their properties; mixtures (homogeneous/heterogeneous); pure substances, elements and compounds; metals, metalloids and non-metals; conductors, semiconductors and insulators; names and formulae of substances.",
+      "tiers": [
+        {
+          "id": "L9.T1",
+          "title": "Classification of matter",
+          "atomic_skills": [
+            {
+              "id": "L9.T1.A1",
+              "title": "Classify matter as mixtures, pure substances, elements, compounds, metals and non-metals",
+              "description": "Classify matter as a mixture (homogeneous or heterogeneous) or a pure substance (element or compound); classify substances as metals, metalloids or non-metals and as electrical conductors, semiconductors or insulators, thermal conductors/insulators, and magnetic/non-magnetic using their properties.",
+              "prerequisites": [],
+              "templates": ["definition", "identification", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Classifies a compound as a mixture", "example": "Calls water a mixture of hydrogen and oxygen"},
+                {"type": "recall_slip", "description": "Confuses homogeneous and heterogeneous mixtures", "example": "Calls sand-and-water a homogeneous mixture"},
+                {"type": "conceptual_gap", "description": "Says metalloids conduct like metals at all temperatures", "example": "Treats silicon as a normal metallic conductor"},
+                {"type": "conceptual_gap", "description": "Treats every shiny element as a metal", "example": "Classifies graphite as a metal because it conducts"}
+              ],
+              "recovery_strategy": "Matter splits into MIXTURES (physically combined, separable — homogeneous = uniform, heterogeneous = non-uniform) and PURE SUBSTANCES (fixed composition — ELEMENT = one kind of atom, COMPOUND = atoms chemically bonded). Metals conduct and are malleable; non-metals are poor conductors and brittle; metalloids (e.g. Si) are in between and conduct more as temperature rises (semiconductors).",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L9.T1.A2",
+              "title": "Write and interpret names and formulae of substances",
+              "description": "Use the cation and anion tables to write names from formulae and formulae from names; apply the meaning of name endings (-ide, -ite, -ate) and prefixes (mono-, di-, tri-) for ionic and simple covalent compounds.",
+              "prerequisites": ["L9.T1.A1"],
+              "templates": ["naming", "symbolic", "identification"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Ignores ion charges when balancing a formula", "example": "Writes the formula of calcium chloride as CaCl"},
+                {"type": "recall_slip", "description": "Confuses -ide, -ite and -ate endings", "example": "Names SO₄²⁻ as sulphite"},
+                {"type": "conceptual_gap", "description": "Uses covalent prefixes for an ionic compound", "example": "Names NaCl as sodium monochloride"},
+                {"type": "execution_slip", "description": "Forgets brackets around a polyatomic ion taken more than once", "example": "Writes Ca(NO₃)₂ as CaNO₃₂"}
+              ],
+              "recovery_strategy": "Balance total positive and negative charge to zero (cross the charges as subscripts, e.g. Ca²⁺ + Cl⁻ ⇒ CaCl₂). -ide = simple ion (chloride); -ate = more oxygen (sulphate SO₄²⁻); -ite = less oxygen (sulphite SO₃²⁻). Prefixes (di-, tri-) are for COVALENT compounds (CO₂ = carbon dioxide), not ionic ones. Use brackets for a polyatomic ion used more than once.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "States of Matter and the Kinetic Molecular Theory",
+      "paper": "P2",
+      "description": "The three states of matter, changes of state, melting and boiling points, and the kinetic molecular theory; heating and cooling curves.",
+      "tiers": [
+        {
+          "id": "L10.T1",
+          "title": "States of matter and the kinetic molecular theory",
+          "atomic_skills": [
+            {
+              "id": "L10.T1.A1",
+              "title": "Apply the kinetic molecular theory to states and changes of state",
+              "description": "Describe solids, liquids and gases in terms of the kinetic molecular theory (particle arrangement, energy and forces); name the changes of state (melting, freezing, evaporation, condensation, sublimation) and use melting and boiling points to identify the state of a substance at a given temperature; interpret heating and cooling curves.",
+              "prerequisites": [],
+              "templates": ["definition", "scenario", "graph", "identification"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says temperature rises during a change of state", "example": "Predicts the temperature keeps climbing while ice is melting"},
+                {"type": "recall_slip", "description": "Confuses sublimation with evaporation", "example": "Calls solid-to-gas change evaporation"},
+                {"type": "conceptual_gap", "description": "Says particles stop moving in a solid", "example": "States that solid particles are completely still"},
+                {"type": "execution_slip", "description": "Reads the wrong state off melting/boiling points", "example": "Says a substance is liquid at a temperature below its melting point"}
+              ],
+              "recovery_strategy": "KMT: solids have particles in fixed positions vibrating; liquids' particles are close but move; gases' particles are far apart and fast. Particles ALWAYS move (more energy = faster). During a change of state, temperature stays CONSTANT (energy breaks forces, not raising KE) — these are the flat parts of a heating/cooling curve. Below melting point = solid; between = liquid; above boiling point = gas.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "The Atom",
+      "paper": "P2",
+      "description": "Models of the atom; atomic structure (protons, neutrons, electrons); atomic number, mass number and nuclide notation; isotopes and relative atomic mass; electron configuration.",
+      "tiers": [
+        {
+          "id": "L11.T1",
+          "title": "Atomic structure and electron configuration",
+          "atomic_skills": [
+            {
+              "id": "L11.T1.A1",
+              "title": "Apply atomic structure: protons, neutrons, electrons, isotopes and nuclide notation",
+              "description": "Use atomic number (Z) and mass number (A) to find the number of protons, neutrons and electrons in an atom or ion; write and interpret nuclide notation; define isotopes; calculate relative atomic mass from isotope abundances.",
+              "prerequisites": [],
+              "templates": ["definition", "calculation", "identification", "symbolic"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Confuses atomic number and mass number", "example": "Says the number of neutrons equals the atomic number"},
+                {"type": "execution_slip", "description": "Calculates neutrons as A + Z instead of A − Z", "example": "Adds atomic number and mass number to get neutrons"},
+                {"type": "conceptual_gap", "description": "Says isotopes have different numbers of protons", "example": "Defines isotopes as atoms with different proton numbers"},
+                {"type": "execution_slip", "description": "Ignores percentage abundance in the relative atomic mass calculation", "example": "Takes a simple average of the isotope masses"}
+              ],
+              "recovery_strategy": "Z (atomic number) = protons (= electrons in a neutral atom). A (mass number) = protons + neutrons, so neutrons = A − Z. Isotopes = same element (same Z) but different numbers of neutrons (different A). Relative atomic mass = weighted average = Σ(isotope mass × % abundance)/100.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L11.T1.A2",
+              "title": "Write electron configurations (Aufbau, orbital and spectroscopic notation)",
+              "description": "Give the electron arrangement of atoms and ions up to Z = 20 using the Aufbau principle, orbital (box) notation and spectroscopic notation (1s² 2s² 2p⁶ …); apply Hund's rule and the Pauli exclusion principle.",
+              "prerequisites": ["L11.T1.A1"],
+              "templates": ["symbolic", "identification", "calculation"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Fills 3d before 4s, breaking the Aufbau order", "example": "Writes …3p⁶ 3d² for calcium instead of …3p⁶ 4s²"},
+                {"type": "conceptual_gap", "description": "Pairs electrons in one orbital before singly filling degenerate orbitals", "example": "Pairs both 2p electrons of carbon in the same orbital"},
+                {"type": "execution_slip", "description": "Miscounts the total electrons against Z", "example": "Writes a configuration that adds up to 11 electrons for an atom with Z = 12"},
+                {"type": "recall_slip", "description": "Puts more than two electrons in an orbital", "example": "Shows three electrons in a single 1s orbital"}
+              ],
+              "recovery_strategy": "Fill in Aufbau order: 1s, 2s, 2p, 3s, 3p, 4s, 3d… (4s before 3d). Each orbital holds at most 2 electrons with opposite spins (Pauli). Within a sublevel, place one electron in each orbital before pairing (Hund). The electrons must total Z for a neutral atom.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "The Periodic Table",
+      "paper": "P2",
+      "description": "Position of elements related to electron arrangement; groups and periods; periodicity of atomic radius, ionisation energy, electron affinity and electronegativity; similarities within groups 1, 2, 17 and 18.",
+      "tiers": [
+        {
+          "id": "L12.T1",
+          "title": "The periodic table and periodicity",
+          "atomic_skills": [
+            {
+              "id": "L12.T1.A1",
+              "title": "Relate position in the periodic table to electron arrangement and periodic trends",
+              "description": "Relate an element's group and period to its electron configuration; describe and predict trends across periods and down groups in atomic radius, ionisation energy, electron affinity and electronegativity; relate the chemical similarity of elements in groups 1, 2, 17 and 18 to their valence electrons.",
+              "prerequisites": ["L11.T1.A2"],
+              "templates": ["definition", "comparison", "identification", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says atomic radius increases across a period (left to right)", "example": "Predicts chlorine has a larger atomic radius than sodium"},
+                {"type": "conceptual_gap", "description": "Says ionisation energy decreases across a period", "example": "Claims it is easier to remove an electron from neon than from lithium"},
+                {"type": "recall_slip", "description": "Confuses the trend direction for electronegativity", "example": "Says electronegativity decreases towards fluorine"},
+                {"type": "conceptual_gap", "description": "Relates group number to period instead of valence electrons", "example": "Says group 2 elements have 2 occupied energy levels"}
+              ],
+              "recovery_strategy": "Group number (1, 2, 17, 18) = number of valence electrons ⇒ similar chemistry within a group. Across a period (→): atomic radius DECREASES, ionisation energy and electronegativity INCREASE (stronger nuclear pull). Down a group (↓): atomic radius INCREASES, ionisation energy and electronegativity DECREASE (more shells, weaker pull).",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Chemical Bonding",
+      "paper": "P2",
+      "description": "Covalent bonding (Lewis diagrams, single/double/triple bonds), ionic bonding (transfer of electrons, ionic lattice) and metallic bonding.",
+      "tiers": [
+        {
+          "id": "L13.T1",
+          "title": "Chemical bonding",
+          "atomic_skills": [
+            {
+              "id": "L13.T1.A1",
+              "title": "Distinguish covalent, ionic and metallic bonding and draw Lewis diagrams",
+              "description": "Define covalent (sharing of electrons), ionic (transfer of electrons forming cations and anions) and metallic (delocalised electrons among positive ions) bonding; draw Lewis/electron diagrams for simple covalent molecules and ions; predict bond type from the elements involved.",
+              "prerequisites": ["L12.T1.A1"],
+              "templates": ["definition", "diagram", "identification", "symbolic"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says ionic compounds share electrons", "example": "Describes NaCl as forming a shared pair of electrons"},
+                {"type": "conceptual_gap", "description": "Says ionic substances form molecules", "example": "Refers to a molecule of sodium chloride"},
+                {"type": "execution_slip", "description": "Draws the wrong number of bonding pairs in a Lewis diagram", "example": "Shows a single bond in O₂ instead of a double bond"},
+                {"type": "conceptual_gap", "description": "Predicts covalent bonding between a metal and a non-metal", "example": "Says magnesium and oxygen share electrons"}
+              ],
+              "recovery_strategy": "Metal + non-metal ⇒ IONIC (electrons transferred, forming a lattice of ions — no molecules). Non-metal + non-metal ⇒ COVALENT (electrons shared; count pairs to satisfy the octet, e.g. O₂ has a double bond). Metal atoms together ⇒ METALLIC (positive ions in a 'sea' of delocalised electrons). Lewis diagrams show valence electrons as dots/crosses.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Physical and Chemical Change",
+      "paper": "P2",
+      "description": "Distinguishing physical from chemical change; conservation of atoms and mass; conservation of energy; exothermic and endothermic changes.",
+      "tiers": [
+        {
+          "id": "L14.T1",
+          "title": "Physical and chemical change",
+          "atomic_skills": [
+            {
+              "id": "L14.T1.A1",
+              "title": "Distinguish physical and chemical change and apply conservation laws",
+              "description": "Classify a change as physical or chemical from the evidence; apply conservation of atoms and conservation of mass in a reaction; identify changes as exothermic or endothermic and apply conservation of energy.",
+              "prerequisites": [],
+              "templates": ["definition", "identification", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Classifies a change of state as a chemical change", "example": "Calls melting ice a chemical change"},
+                {"type": "conceptual_gap", "description": "Says mass is lost when a gas is produced", "example": "Claims mass decreases because gas 'disappears' in an open beaker"},
+                {"type": "recall_slip", "description": "Swaps exothermic and endothermic", "example": "Calls a reaction that releases heat endothermic"},
+                {"type": "conceptual_gap", "description": "Says atoms are created or destroyed in a chemical change", "example": "Believes new atoms are made when a compound forms"}
+              ],
+              "recovery_strategy": "Physical change: no new substance, easily reversed (e.g. melting, dissolving). Chemical change: new substance forms (colour/gas/precipitate/energy change), hard to reverse. Atoms are rearranged, never created or destroyed ⇒ total mass is conserved (account for any gas). Exothermic = RELEASES energy (gets warmer); endothermic = ABSORBS energy (gets colder).",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Representing Chemical Change",
+      "paper": "P2",
+      "description": "Writing and balancing chemical equations with reactants, products and state symbols.",
+      "tiers": [
+        {
+          "id": "L15.T1",
+          "title": "Representing chemical change",
+          "atomic_skills": [
+            {
+              "id": "L15.T1.A1",
+              "title": "Write and balance chemical equations",
+              "description": "Translate a word equation into a balanced chemical equation; balance equations by adjusting coefficients only; include the correct state symbols (s, l, g, aq).",
+              "prerequisites": ["L9.T1.A2"],
+              "templates": ["symbolic", "calculation", "identification"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Changes a subscript to balance instead of a coefficient", "example": "Writes H₂O₂ to balance oxygen instead of placing a coefficient"},
+                {"type": "execution_slip", "description": "Leaves the equation unbalanced", "example": "Writes H₂ + O₂ → H₂O without balancing"},
+                {"type": "recall_slip", "description": "Uses the wrong state symbol", "example": "Labels dissolved sodium chloride as (l) instead of (aq)"},
+                {"type": "conceptual_gap", "description": "Forgets diatomic elements exist as molecules", "example": "Writes O instead of O₂ for oxygen gas"}
+              ],
+              "recovery_strategy": "Balance by changing COEFFICIENTS only — never subscripts. The same number of each atom must appear on both sides. Remember diatomic elements: H₂, O₂, N₂, F₂, Cl₂, Br₂, I₂. State symbols: (s) solid, (l) liquid, (g) gas, (aq) dissolved in water.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Reactions in Aqueous Solution",
+      "paper": "P2",
+      "description": "Ions in aqueous solution and conductivity; ion-exchange reactions — precipitation, gas-forming and acid-base reactions; writing ionic equations.",
+      "tiers": [
+        {
+          "id": "L16.T1",
+          "title": "Reactions in aqueous solution",
+          "atomic_skills": [
+            {
+              "id": "L16.T1.A1",
+              "title": "Identify ions in solution and predict ion-exchange reactions",
+              "description": "Relate the conductivity of a solution to the presence of free ions (electrolytes); predict the products of precipitation, gas-forming and acid-base (neutralisation) reactions; write balanced ionic and net ionic equations.",
+              "prerequisites": ["L15.T1.A1"],
+              "templates": ["identification", "symbolic", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says a sugar solution conducts because it dissolved", "example": "Predicts a glucose solution conducts electricity"},
+                {"type": "execution_slip", "description": "Includes spectator ions in a net ionic equation", "example": "Leaves Na⁺ and NO₃⁻ in the net equation"},
+                {"type": "recall_slip", "description": "Mislabels a precipitate as soluble", "example": "Predicts AgCl stays dissolved in solution"},
+                {"type": "conceptual_gap", "description": "Forgets that an acid + carbonate releases CO₂ gas", "example": "Writes an acid-carbonate reaction with no gas product"}
+              ],
+              "recovery_strategy": "Conduction needs FREE IONS — ionic compounds dissolved or molten conduct; molecular solutions (sugar) do not. Ion-exchange: swap the partners. Precipitation = an insoluble solid forms (use solubility rules). Gas-forming = e.g. acid + carbonate ⇒ CO₂. Acid-base = H⁺ + OH⁻ ⇒ H₂O. In a net ionic equation, cancel spectator ions (those unchanged on both sides).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Quantitative Aspects of Chemical Change",
+      "paper": "P2",
+      "description": "The mole concept — relative atomic and molecular mass, molar mass, the Avogadro number; molar volume of gases, concentration of solutions and stoichiometric calculations.",
+      "tiers": [
+        {
+          "id": "L17.T1",
+          "title": "The mole and stoichiometry",
+          "atomic_skills": [
+            {
+              "id": "L17.T1.A1",
+              "title": "Apply the mole concept (n = m/M, number of particles, molar mass)",
+              "description": "Calculate molar mass from a formula; convert between mass, number of moles and number of particles using n = m/M and N = n × Nₐ; relate relative atomic/molecular mass to molar mass.",
+              "prerequisites": ["L9.T1.A2"],
+              "templates": ["calculation", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Inverts n = m/M", "example": "Calculates moles as molar mass divided by mass"},
+                {"type": "execution_slip", "description": "Computes molar mass wrong for a compound", "example": "Gives the molar mass of H₂O as 10 g/mol"},
+                {"type": "conceptual_gap", "description": "Uses the wrong Avogadro relationship", "example": "Divides by Avogadro's number to get particles from moles"},
+                {"type": "execution_slip", "description": "Ignores subscripts when summing molar mass", "example": "Adds one O instead of two for CO₂"}
+              ],
+              "recovery_strategy": "Molar mass M = sum of atomic masses (mind the subscripts: CO₂ = 12 + 2×16 = 44 g/mol). Moles n = m/M (mass ÷ molar mass). Number of particles N = n × Nₐ (Nₐ = 6.02×10²³). To go back: n = N/Nₐ.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L17.T1.A2",
+              "title": "Apply molar volume, concentration and stoichiometric ratios",
+              "description": "Use molar volume of a gas (22.4 dm³ at STP) and concentration c = n/V; use mole ratios from a balanced equation to calculate masses, volumes or amounts of reactants and products.",
+              "prerequisites": ["L17.T1.A1", "L15.T1.A1"],
+              "templates": ["calculation", "symbolic", "scenario"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Ignores the mole ratio from the balanced equation", "example": "Assumes 1:1 moles when the equation gives 1:2"},
+                {"type": "execution_slip", "description": "Confuses concentration formula c = n/V", "example": "Calculates concentration as volume divided by moles"},
+                {"type": "execution_slip", "description": "Mixes up units of volume (cm³ vs dm³)", "example": "Uses 250 cm³ directly as 250 dm³ in c = n/V"},
+                {"type": "conceptual_gap", "description": "Uses molar volume at conditions other than STP", "example": "Applies 22.4 dm³/mol to a gas not at STP"}
+              ],
+              "recovery_strategy": "Concentration c = n/V (mol/dm³ — convert cm³ to dm³ by ÷1000). At STP, 1 mole of any gas = 22.4 dm³. For reactions: write the balanced equation, convert the known to moles, multiply by the MOLE RATIO from the equation, then convert to the quantity asked for.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "The Hydrosphere",
+      "paper": "P2",
+      "description": "The hydrosphere as a chemical system — water as a resource, ions in water, the interaction of the hydrosphere with other global systems, and threats to water quality.",
+      "tiers": [
+        {
+          "id": "L18.T1",
+          "title": "The hydrosphere",
+          "atomic_skills": [
+            {
+              "id": "L18.T1.A1",
+              "title": "Describe the hydrosphere, ions in water and threats to water quality",
+              "description": "Describe the hydrosphere and its importance as a resource; identify common ions present in natural water and how they get there; describe how the hydrosphere interacts with the atmosphere, lithosphere and biosphere; explain threats to water quality (pollution) and the need to balance water use with conservation.",
+              "prerequisites": [],
+              "templates": ["definition", "scenario", "identification"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses the hydrosphere with the atmosphere or lithosphere", "example": "Says the hydrosphere is all the air around Earth"},
+                {"type": "conceptual_gap", "description": "Says pure water naturally contains no dissolved ions", "example": "Claims river water has no dissolved salts"},
+                {"type": "conceptual_gap", "description": "Treats fresh water as an unlimited resource", "example": "Says South Africa has no need to conserve water"}
+              ],
+              "recovery_strategy": "The hydrosphere = all the water on Earth (oceans, rivers, ice, groundwater, vapour). Natural water dissolves ions from rocks and soil (e.g. Na⁺, Cl⁻, Ca²⁺, Mg²⁺), so it is rarely pure. It exchanges matter with the atmosphere, lithosphere and biosphere. Fresh water is a LIMITED resource threatened by pollution (industry, mining, sewage), so use must be balanced with conservation.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

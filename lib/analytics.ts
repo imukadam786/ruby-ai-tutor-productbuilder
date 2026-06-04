@@ -24,7 +24,7 @@ export function identifyStudent(opts: {
 
 // ─── Placement events ─────────────────────────────────────────────────────────
 
-type Subject =
+export type Subject =
   | "maths"
   | "reading"
   | "life-skills"
@@ -32,6 +32,8 @@ type Subject =
   | "social-sciences"
   | "natural-sciences-tech"
   | "matric-physical-sciences"
+  | "grade-10-physical-sciences"
+  | "grade-11-physical-sciences"
   | "life-sciences"
   | "history"
   | "business-studies"

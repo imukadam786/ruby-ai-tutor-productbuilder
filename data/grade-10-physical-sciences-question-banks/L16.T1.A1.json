@@ -1,0 +1,411 @@
+{
+  "skill": "L16.T1.A1",
+  "skill_title": "Identify ions in solution and predict ion-exchange reactions",
+  "grades": [
+    10
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L16.T1.A1.q01",
+      "skill": "L16.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why can a solution of sodium chloride conduct electricity?",
+      "answerMode": "choice",
+      "expectedAnswer": "It contains free-moving ions (Na⁺ and Cl⁻).",
+      "marks": 2,
+      "explanation": "Dissolved ionic compounds release free ions that carry charge, allowing conduction.",
+      "errorSignals": [
+        "ERR_ELECTROLYTE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It contains free-moving ions (Na⁺ and Cl⁻).",
+        "It contains free-moving molecules.",
+        "It contains free electrons like a metal."
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q02",
+      "skill": "L16.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why does a sugar solution NOT conduct electricity?",
+      "answerMode": "choice",
+      "expectedAnswer": "Sugar dissolves as neutral molecules, not ions.",
+      "marks": 2,
+      "explanation": "Sugar is molecular; with no ions in solution there is nothing to carry charge.",
+      "errorSignals": [
+        "ERR_ELECTROLYTE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sugar is an ionic compound.",
+        "Sugar dissolves as neutral molecules, not ions.",
+        "Sugar removes all the water."
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q03",
+      "skill": "L16.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is an electrolyte?",
+      "answerMode": "choice",
+      "expectedAnswer": "A substance whose solution (or melt) conducts electricity due to ions.",
+      "marks": 2,
+      "explanation": "An electrolyte conducts because it provides free ions in solution or when molten.",
+      "errorSignals": [
+        "ERR_ELECTROLYTE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A substance that never conducts.",
+        "A type of metal wire.",
+        "A substance whose solution (or melt) conducts electricity due to ions."
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q04",
+      "skill": "L16.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What forms in a precipitation reaction?",
+      "answerMode": "choice",
+      "expectedAnswer": "An insoluble solid (precipitate).",
+      "marks": 2,
+      "explanation": "A precipitation reaction produces an insoluble solid that comes out of solution.",
+      "errorSignals": [
+        "ERR_PRECIPITATE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "An insoluble solid (precipitate).",
+        "A gas.",
+        "Only water."
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q05",
+      "skill": "L16.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What are spectator ions?",
+      "answerMode": "choice",
+      "expectedAnswer": "Ions that are unchanged and appear on both sides of the equation.",
+      "marks": 2,
+      "explanation": "Spectator ions take no part in the reaction and are cancelled in the net ionic equation.",
+      "errorSignals": [
+        "ERR_SPECTATOR_IONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ions that form the precipitate.",
+        "Ions that are unchanged and appear on both sides of the equation.",
+        "Ions that are destroyed in the reaction."
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q06",
+      "skill": "L16.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What gas is produced when an acid reacts with a metal carbonate?",
+      "answerMode": "choice",
+      "expectedAnswer": "Carbon dioxide",
+      "marks": 2,
+      "explanation": "Acid + carbonate → salt + water + carbon dioxide.",
+      "errorSignals": [
+        "ERR_GAS_PRODUCT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Hydrogen",
+        "Oxygen",
+        "Carbon dioxide"
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q07",
+      "skill": "L16.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What are the products of a neutralisation reaction between an acid and a base?",
+      "answerMode": "choice",
+      "expectedAnswer": "A salt and water.",
+      "marks": 2,
+      "explanation": "Acid + base (neutralisation) → salt + water.",
+      "errorSignals": [
+        "ERR_NEUTRALISATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A salt and water.",
+        "A salt and hydrogen gas.",
+        "A precipitate and oxygen."
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q08",
+      "skill": "L16.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When silver nitrate solution is mixed with sodium chloride solution, a white solid forms. What is it?",
+      "answerMode": "choice",
+      "expectedAnswer": "Silver chloride (an insoluble precipitate).",
+      "marks": 2,
+      "explanation": "Ag⁺ and Cl⁻ combine to form insoluble AgCl, the white precipitate.",
+      "errorSignals": [
+        "ERR_PRECIPITATE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sodium nitrate.",
+        "Silver chloride (an insoluble precipitate).",
+        "Silver nitrate."
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q09",
+      "skill": "L16.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which of these dissolves to give an electrolyte?",
+      "answerMode": "choice",
+      "expectedAnswer": "Potassium nitrate (an ionic compound).",
+      "marks": 2,
+      "explanation": "Ionic potassium nitrate releases ions; ethanol and glucose are molecular and do not.",
+      "errorSignals": [
+        "ERR_ELECTROLYTE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ethanol (a molecular compound).",
+        "Glucose (a molecular compound).",
+        "Potassium nitrate (an ionic compound)."
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q10",
+      "skill": "L16.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In an ion-exchange (double displacement) reaction, the ions...",
+      "answerMode": "choice",
+      "expectedAnswer": "swap partners between the two compounds.",
+      "marks": 2,
+      "explanation": "Ion-exchange reactions swap the cations and anions of the two reactants.",
+      "errorSignals": [
+        "ERR_ION_EXCHANGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "swap partners between the two compounds.",
+        "are all destroyed.",
+        "combine into single atoms."
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q11",
+      "skill": "L16.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Mixing solutions of barium chloride and sodium sulphate gives a white precipitate. Which compound is insoluble?",
+      "answerMode": "choice",
+      "expectedAnswer": "Barium sulphate (BaSO₄)",
+      "marks": 2,
+      "explanation": "Ba²⁺ and SO₄²⁻ form insoluble BaSO₄; NaCl stays dissolved.",
+      "errorSignals": [
+        "ERR_PRECIPITATE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sodium chloride (NaCl)",
+        "Barium sulphate (BaSO₄)",
+        "Barium chloride (BaCl₂)"
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q12",
+      "skill": "L16.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In the net ionic equation for AgNO₃ + NaCl → AgCl + NaNO₃, which are the spectator ions?",
+      "answerMode": "choice",
+      "expectedAnswer": "Na⁺ and NO₃⁻",
+      "marks": 2,
+      "explanation": "Na⁺ and NO₃⁻ are unchanged on both sides; Ag⁺ + Cl⁻ → AgCl is the net reaction.",
+      "errorSignals": [
+        "ERR_SPECTATOR_IONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ag⁺ and Cl⁻",
+        "Ag⁺ and NO₃⁻",
+        "Na⁺ and NO₃⁻"
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q13",
+      "skill": "L16.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Hydrochloric acid is added to calcium carbonate and bubbles form. What is the gas?",
+      "answerMode": "choice",
+      "expectedAnswer": "Carbon dioxide",
+      "marks": 2,
+      "explanation": "Acid + carbonate → salt + water + CO₂; the bubbles are carbon dioxide.",
+      "errorSignals": [
+        "ERR_GAS_PRODUCT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Carbon dioxide",
+        "Hydrogen",
+        "Chlorine"
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q14",
+      "skill": "L16.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the net ionic equation for the reaction of Ag⁺(aq) with Cl⁻(aq)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Ag⁺(aq) + Cl⁻(aq) → AgCl(s)",
+      "marks": 2,
+      "explanation": "The actual reaction is the combination of Ag⁺ and Cl⁻ to form the precipitate AgCl.",
+      "errorSignals": [
+        "ERR_NET_IONIC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ag⁺(aq) + NO₃⁻(aq) → AgNO₃(s)",
+        "Ag⁺(aq) + Cl⁻(aq) → AgCl(s)",
+        "Na⁺(aq) + Cl⁻(aq) → NaCl(s)"
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q15",
+      "skill": "L16.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why do strong acid solutions conduct electricity well?",
+      "answerMode": "choice",
+      "expectedAnswer": "They ionise fully, giving many free ions.",
+      "marks": 2,
+      "explanation": "A strong acid ionises completely in water, producing many ions to carry charge.",
+      "errorSignals": [
+        "ERR_ELECTROLYTE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They contain free electrons.",
+        "They contain no ions.",
+        "They ionise fully, giving many free ions."
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q16",
+      "skill": "L16.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Acid + metal hydroxide → ? Complete the products.",
+      "answerMode": "choice",
+      "expectedAnswer": "Salt + water",
+      "marks": 2,
+      "explanation": "Acid + metal hydroxide is a neutralisation giving salt + water.",
+      "errorSignals": [
+        "ERR_NEUTRALISATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Salt + water",
+        "Salt + hydrogen",
+        "Salt + carbon dioxide"
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q17",
+      "skill": "L16.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "When two solutions are mixed and no precipitate, gas, or water forms, what happens?",
+      "answerMode": "choice",
+      "expectedAnswer": "No reaction occurs; the ions remain as spectator ions.",
+      "marks": 2,
+      "explanation": "If no insoluble solid, gas, or water can form, there is no net reaction.",
+      "errorSignals": [
+        "ERR_NO_REACTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A precipitate always forms.",
+        "No reaction occurs; the ions remain as spectator ions.",
+        "A gas is always released."
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q18",
+      "skill": "L16.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Lead(II) nitrate solution is mixed with potassium iodide solution, forming a yellow solid. What is the precipitate?",
+      "answerMode": "choice",
+      "expectedAnswer": "Lead(II) iodide (PbI₂)",
+      "marks": 2,
+      "explanation": "Pb²⁺ and I⁻ form insoluble yellow PbI₂; KNO₃ stays in solution.",
+      "errorSignals": [
+        "ERR_PRECIPITATE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Potassium nitrate (KNO₃)",
+        "Lead(II) nitrate (Pb(NO₃)₂)",
+        "Lead(II) iodide (PbI₂)"
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q19",
+      "skill": "L16.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which reaction would release a gas?",
+      "answerMode": "choice",
+      "expectedAnswer": "Hydrochloric acid added to sodium carbonate.",
+      "marks": 2,
+      "explanation": "Acid + carbonate releases CO₂ gas; the others give a precipitate or just water.",
+      "errorSignals": [
+        "ERR_GAS_PRODUCT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Hydrochloric acid added to sodium carbonate.",
+        "Silver nitrate added to sodium chloride.",
+        "Sodium hydroxide added to hydrochloric acid."
+      ]
+    },
+    {
+      "id": "L16.T1.A1.q20",
+      "skill": "L16.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Distilled (pure) water is a very poor conductor of electricity. Why?",
+      "answerMode": "choice",
+      "expectedAnswer": "It contains almost no free ions.",
+      "marks": 2,
+      "explanation": "Pure water has very few ions, so it barely conducts; dissolved salts add ions and improve conduction.",
+      "errorSignals": [
+        "ERR_ELECTROLYTE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It contains too many ions.",
+        "It contains almost no free ions.",
+        "It contains free electrons."
+      ]
+    }
+  ]
+}

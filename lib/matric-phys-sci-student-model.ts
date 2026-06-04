@@ -11,16 +11,14 @@
 
 import { supabase } from "@/lib/supabase";
 import { retrySupabase } from "@/lib/supabase-retry";
-
-const STORAGE_KEY = "matric-phys-sci-profile-v1";
-const SUBJECT = "matric-physical-sciences";
+import { physSciConfig, type PhysSciGrade } from "@/lib/phys-sci-grade";
 
 export type MatricPhysSciSkillStatus = "available" | "in_progress" | "mastered";
 
 export interface MatricPhysSciProfile {
   id: string;
   name: string;
-  grade: 12;
+  grade: PhysSciGrade;
   /** skill_id → status. Absent ⇒ "available". */
   mastery: Record<string, MatricPhysSciSkillStatus>;
   /** skill_id → item ids already served. */
@@ -44,10 +42,10 @@ function newId(): string {
 
 // ─── Load / Save (localStorage + Supabase) ────────────────────────────────────
 
-export function loadMatricPhysSciProfile(): MatricPhysSciProfile | null {
+export function loadMatricPhysSciProfile(grade: PhysSciGrade = 12): MatricPhysSciProfile | null {
   if (typeof window === "undefined") return null;
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(physSciConfig(grade).storageKey);
     if (raw) return JSON.parse(raw) as MatricPhysSciProfile;
   } catch {
     /* fall through to null */
@@ -57,8 +55,9 @@ export function loadMatricPhysSciProfile(): MatricPhysSciProfile | null {
 
 export function saveMatricPhysSciProfile(profile: MatricPhysSciProfile): void {
   if (typeof window === "undefined") return;
+  const config = physSciConfig(profile.grade);
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
+    localStorage.setItem(config.storageKey, JSON.stringify(profile));
   } catch {
     /* quota or disabled — ignore */
   }
@@ -68,7 +67,7 @@ export function saveMatricPhysSciProfile(profile: MatricPhysSciProfile): void {
       const user = session?.user;
       void retrySupabase(() => supabase.from("student_profiles").upsert({
         id: profile.id,
-        subject: SUBJECT,
+        subject: config.subject,
         name: profile.name,
         grade: profile.grade,
         ...(user?.id ? { auth_user_id: user.id } : {}),
@@ -81,12 +80,12 @@ export function saveMatricPhysSciProfile(profile: MatricPhysSciProfile): void {
   })();
 }
 
-export function createMatricPhysSciProfile(name: string): MatricPhysSciProfile {
+export function createMatricPhysSciProfile(name: string, grade: PhysSciGrade = 12): MatricPhysSciProfile {
   const now = new Date().toISOString();
   const profile: MatricPhysSciProfile = {
     id: newId(),
     name,
-    grade: 12,
+    grade,
     mastery: {},
     used_questions: {},
     correct_by_skill: {},
@@ -105,9 +104,9 @@ export function createMatricPhysSciProfile(name: string): MatricPhysSciProfile {
  * Loads the stored profile or creates a fresh one, then refreshes the name and
  * persists.
  */
-export function getOrCreateMatricPhysSciProfile(name = "Learner"): MatricPhysSciProfile {
-  const existing = loadMatricPhysSciProfile();
-  if (!existing) return createMatricPhysSciProfile(name);
+export function getOrCreateMatricPhysSciProfile(name = "Learner", grade: PhysSciGrade = 12): MatricPhysSciProfile {
+  const existing = loadMatricPhysSciProfile(grade);
+  if (!existing) return createMatricPhysSciProfile(name, grade);
   const refreshed: MatricPhysSciProfile = {
     ...existing,
     name: name || existing.name,
@@ -132,7 +131,7 @@ export async function linkMatricPhysSciProfileToAuth(profileId: string): Promise
   }
 }
 
-export async function hydrateMatricPhysSciProfileFromSupabase(): Promise<MatricPhysSciProfile | null> {
+export async function hydrateMatricPhysSciProfileFromSupabase(grade: PhysSciGrade = 12): Promise<MatricPhysSciProfile | null> {
   try {
     const { data: { session } } = await supabase.auth.getSession();
     const user = session?.user;
@@ -141,7 +140,7 @@ export async function hydrateMatricPhysSciProfileFromSupabase(): Promise<MatricP
       .from("student_profiles")
       .select("profile_data")
       .eq("auth_user_id", user.id)
-      .eq("subject", SUBJECT)
+      .eq("subject", physSciConfig(grade).subject)
       .order("updated_at", { ascending: false })
       .limit(1)
       .maybeSingle();
@@ -154,12 +153,12 @@ export async function hydrateMatricPhysSciProfileFromSupabase(): Promise<MatricP
 
 // ─── Progress helpers ─────────────────────────────────────────────────────────
 
-export function getMatricPhysSciMasteryMap(): Record<string, MatricPhysSciSkillStatus> {
-  return loadMatricPhysSciProfile()?.mastery ?? {};
+export function getMatricPhysSciMasteryMap(grade: PhysSciGrade = 12): Record<string, MatricPhysSciSkillStatus> {
+  return loadMatricPhysSciProfile(grade)?.mastery ?? {};
 }
 
-export function getMatricPhysSciUsedRefs(skillId: string): string[] {
-  return loadMatricPhysSciProfile()?.used_questions?.[skillId] ?? [];
+export function getMatricPhysSciUsedRefs(skillId: string, grade: PhysSciGrade = 12): string[] {
+  return loadMatricPhysSciProfile(grade)?.used_questions?.[skillId] ?? [];
 }
 
 /**
@@ -169,8 +168,9 @@ export function recordMatricPhysSciAnswer(
   skillId: string,
   itemId: string,
   isCorrect: boolean,
+  grade: PhysSciGrade = 12,
 ): MatricPhysSciProfile | null {
-  const profile = loadMatricPhysSciProfile();
+  const profile = loadMatricPhysSciProfile(grade);
   if (!profile) return null;
   const existingRefs = profile.used_questions[skillId] ?? [];
   const updated: MatricPhysSciProfile = {
@@ -198,8 +198,9 @@ export function recordMatricPhysSciAnswer(
 export function setMatricPhysSciMastery(
   skillId: string,
   status: MatricPhysSciSkillStatus,
+  grade: PhysSciGrade = 12,
 ): void {
-  const profile = loadMatricPhysSciProfile();
+  const profile = loadMatricPhysSciProfile(grade);
   if (!profile) return;
   if (profile.mastery[skillId] === status) return;
   const updated: MatricPhysSciProfile = {

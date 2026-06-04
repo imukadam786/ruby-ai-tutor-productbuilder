@@ -1,0 +1,396 @@
+{
+  "skill": "L1.T1.A3",
+  "skill_title": "Interpret and sketch position-time, velocity-time and acceleration-time graphs",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L1.T1.A3.q01",
+      "skill": "L1.T1.A3",
+      "gate": "A",
+      "source": "fresh",
+      "question": "On a position-time (x-t) graph, what does the gradient (slope) represent?",
+      "answerMode": "choice",
+      "expectedAnswer": "Velocity",
+      "marks": 2,
+      "explanation": "The slope of a position-time graph is the rate of change of position = velocity.",
+      "errorSignals": [
+        "ERR_GRAPH_GRADIENT_XT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Velocity",
+        "Acceleration",
+        "Displacement"
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q02",
+      "skill": "L1.T1.A3",
+      "gate": "A",
+      "source": "fresh",
+      "question": "On a velocity-time (v-t) graph, what does the gradient (slope) represent?",
+      "answerMode": "choice",
+      "expectedAnswer": "Acceleration",
+      "marks": 2,
+      "explanation": "The slope of a velocity-time graph is the rate of change of velocity = acceleration.",
+      "errorSignals": [
+        "ERR_GRAPH_GRADIENT_VT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Displacement",
+        "Acceleration",
+        "Distance"
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q03",
+      "skill": "L1.T1.A3",
+      "gate": "A",
+      "source": "fresh",
+      "question": "On a velocity-time (v-t) graph, what does the area under the line represent?",
+      "answerMode": "choice",
+      "expectedAnswer": "Displacement",
+      "marks": 2,
+      "explanation": "The area under a velocity-time graph gives the displacement.",
+      "errorSignals": [
+        "ERR_GRAPH_AREA_AS_VELOCITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Acceleration",
+        "Velocity",
+        "Displacement"
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q04",
+      "skill": "L1.T1.A3",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A position-time graph is a horizontal (flat) line. What does this tell you about the object?",
+      "answerMode": "choice",
+      "expectedAnswer": "It is at rest (stationary).",
+      "marks": 2,
+      "explanation": "A flat x-t line means position is not changing, so the object is at rest.",
+      "errorSignals": [
+        "ERR_FLAT_XT_GRAPH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It is at rest (stationary).",
+        "It is moving at constant velocity.",
+        "It is accelerating."
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q05",
+      "skill": "L1.T1.A3",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A velocity-time graph is a horizontal line at v = 6 m·s⁻¹. What does this describe?",
+      "answerMode": "choice",
+      "expectedAnswer": "Constant (uniform) velocity of 6 m·s⁻¹.",
+      "marks": 2,
+      "explanation": "A flat, non-zero v-t line means velocity is constant — the object moves at a steady 6 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_FLAT_VT_AS_REST"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The object is at rest.",
+        "Constant (uniform) velocity of 6 m·s⁻¹.",
+        "Uniform acceleration."
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q06",
+      "skill": "L1.T1.A3",
+      "gate": "A",
+      "source": "fresh",
+      "question": "On a velocity-time graph, a straight line sloping upward from the origin shows what kind of motion?",
+      "answerMode": "choice",
+      "expectedAnswer": "Uniform (constant) acceleration",
+      "marks": 2,
+      "explanation": "A straight sloping v-t line means velocity increases at a steady rate — uniform acceleration.",
+      "errorSignals": [
+        "ERR_GRAPH_GRADIENT_VT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Constant velocity",
+        "The object at rest",
+        "Uniform (constant) acceleration"
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q07",
+      "skill": "L1.T1.A3",
+      "gate": "A",
+      "source": "fresh",
+      "question": "On a velocity-time graph the line is below the time axis (negative velocity). What does this mean?",
+      "answerMode": "choice",
+      "expectedAnswer": "The object is moving in the negative direction.",
+      "marks": 2,
+      "explanation": "A negative velocity reading means motion in the direction chosen as negative — not that it is slowing down.",
+      "errorSignals": [
+        "ERR_NEGATIVE_VELOCITY_MEANING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The object is moving in the negative direction.",
+        "The object is slowing down.",
+        "The object is below the ground."
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q08",
+      "skill": "L1.T1.A3",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A position-time graph that is a straight line sloping upward shows what motion?",
+      "answerMode": "choice",
+      "expectedAnswer": "Constant velocity in the positive direction.",
+      "marks": 2,
+      "explanation": "A constant slope on an x-t graph means a constant velocity.",
+      "errorSignals": [
+        "ERR_GRAPH_GRADIENT_XT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Increasing acceleration.",
+        "Constant velocity in the positive direction.",
+        "The object at rest."
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q09",
+      "skill": "L1.T1.A3",
+      "gate": "A",
+      "source": "fresh",
+      "question": "On a velocity-time graph for an object moving at constant velocity, what does the acceleration-time graph look like?",
+      "answerMode": "choice",
+      "expectedAnswer": "A horizontal line on the time axis (a = 0).",
+      "marks": 2,
+      "explanation": "Constant velocity means zero acceleration, so the a-t graph lies on the time axis.",
+      "errorSignals": [
+        "ERR_AT_GRAPH_CONSTANT_V"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A sloping straight line.",
+        "A horizontal line above the axis.",
+        "A horizontal line on the time axis (a = 0)."
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q10",
+      "skill": "L1.T1.A3",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A steeper slope on a position-time graph means the object has a...",
+      "answerMode": "choice",
+      "expectedAnswer": "greater velocity.",
+      "marks": 2,
+      "explanation": "Slope of x-t = velocity, so a steeper slope = a greater velocity.",
+      "errorSignals": [
+        "ERR_GRAPH_GRADIENT_XT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "greater velocity.",
+        "greater acceleration.",
+        "greater mass."
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q11",
+      "skill": "L1.T1.A3",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A velocity-time graph is a straight line from 0 m·s⁻¹ to 20 m·s⁻¹ over 4 s. What is the acceleration?",
+      "answerMode": "numeric",
+      "expectedAnswer": 5,
+      "tolerance": 0.05,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "Acceleration = gradient = (20 − 0)/4 = 5 m·s⁻².",
+      "errorSignals": [
+        "ERR_GRAPH_GRADIENT_VT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A3.q12",
+      "skill": "L1.T1.A3",
+      "gate": "B",
+      "source": "fresh",
+      "question": "On a v-t graph an object moves at a constant 8 m·s⁻¹ for 5 s. What displacement does the area under the graph give?",
+      "answerMode": "numeric",
+      "expectedAnswer": 40,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "Area = v × t = 8 × 5 = 40 m (a rectangle).",
+      "errorSignals": [
+        "ERR_GRAPH_AREA_AS_VELOCITY"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A3.q13",
+      "skill": "L1.T1.A3",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A v-t graph is a triangle: velocity rises uniformly from 0 to 12 m·s⁻¹ over 6 s. What is the displacement (area under the graph)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 36,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "Area of triangle = ½ × base × height = ½ × 6 × 12 = 36 m.",
+      "errorSignals": [
+        "ERR_GRAPH_AREA_TRIANGLE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A3.q14",
+      "skill": "L1.T1.A3",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A position-time graph passes through (0 s, 2 m) and (4 s, 14 m) as a straight line. What is the velocity?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "Velocity = gradient = (14 − 2)/(4 − 0) = 12/4 = 3 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_GRAPH_GRADIENT_XT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A3.q15",
+      "skill": "L1.T1.A3",
+      "gate": "B",
+      "source": "fresh",
+      "question": "On a v-t graph the line slopes DOWNWARD toward the time axis but stays above it. What is the object doing?",
+      "answerMode": "choice",
+      "expectedAnswer": "Moving forward but slowing down (decelerating).",
+      "marks": 2,
+      "explanation": "Velocity is positive (above axis) but decreasing (downward slope) ⇒ moving forward while slowing down.",
+      "errorSignals": [
+        "ERR_NEGATIVE_SLOPE_MEANING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Moving backward.",
+        "Speeding up.",
+        "Moving forward but slowing down (decelerating)."
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q16",
+      "skill": "L1.T1.A3",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An object's v-t graph is a horizontal line at 10 m·s⁻¹ for 3 s, then drops as a straight line to 0 at 5 s. Over which interval is it accelerating?",
+      "answerMode": "choice",
+      "expectedAnswer": "From 3 s to 5 s",
+      "marks": 2,
+      "explanation": "Acceleration occurs where the v-t line has a slope. The flat part (0–3 s) has zero acceleration; the sloping part (3–5 s) shows deceleration.",
+      "errorSignals": [
+        "ERR_GRAPH_GRADIENT_VT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "From 3 s to 5 s",
+        "From 0 s to 3 s",
+        "It never accelerates."
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q17",
+      "skill": "L1.T1.A3",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A ball is thrown straight up and falls back. On a v-t graph (up positive), what does the line look like?",
+      "answerMode": "choice",
+      "expectedAnswer": "A straight line of constant negative gradient, crossing zero at the top.",
+      "marks": 2,
+      "explanation": "Acceleration is constant (−g), so the v-t line is straight with a constant negative slope, passing through v = 0 at the highest point.",
+      "errorSignals": [
+        "ERR_FREEFALL_GRAPH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A horizontal line.",
+        "A straight line of constant negative gradient, crossing zero at the top.",
+        "A curved line that flattens out."
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q18",
+      "skill": "L1.T1.A3",
+      "gate": "B",
+      "source": "fresh",
+      "question": "On a position-time graph, a curve that gets steeper with time indicates the object is...",
+      "answerMode": "choice",
+      "expectedAnswer": "accelerating (velocity increasing).",
+      "marks": 2,
+      "explanation": "An x-t curve whose slope increases means velocity is increasing — the object is accelerating.",
+      "errorSignals": [
+        "ERR_CURVED_XT_GRAPH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "at rest.",
+        "moving at constant velocity.",
+        "accelerating (velocity increasing)."
+      ]
+    },
+    {
+      "id": "L1.T1.A3.q19",
+      "skill": "L1.T1.A3",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A v-t graph shows velocity constant at 5 m·s⁻¹ for 4 s, then constant at 5 m·s⁻¹ for another 4 s. What is the total displacement?",
+      "answerMode": "numeric",
+      "expectedAnswer": 40,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "Total area = 5 × 8 = 40 m (constant velocity throughout 8 s).",
+      "errorSignals": [
+        "ERR_GRAPH_AREA_AS_VELOCITY"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A3.q20",
+      "skill": "L1.T1.A3",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two cars start together. On an x-t graph, car P's line is steeper than car Q's. What can you conclude?",
+      "answerMode": "choice",
+      "expectedAnswer": "Car P has the greater velocity.",
+      "marks": 2,
+      "explanation": "Steeper x-t slope = greater velocity, so car P moves faster.",
+      "errorSignals": [
+        "ERR_GRAPH_GRADIENT_XT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Car Q has the greater velocity.",
+        "Car P has the greater velocity.",
+        "Both cars have the same velocity."
+      ]
+    }
+  ]
+}

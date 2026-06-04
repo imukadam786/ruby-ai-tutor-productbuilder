@@ -1,0 +1,402 @@
+{
+  "skill": "L5.T1.A1",
+  "skill_title": "Describe the EM spectrum and relate frequency, wavelength and energy",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L5.T1.A1.q01",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What do all electromagnetic waves have in common in a vacuum?",
+      "answerMode": "choice",
+      "expectedAnswer": "They all travel at the speed of light, c = 3×10⁸ m·s⁻¹.",
+      "marks": 2,
+      "explanation": "Every EM wave travels at c = 3×10⁸ m·s⁻¹ in a vacuum, regardless of band.",
+      "errorSignals": [
+        "ERR_EM_SPEED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They all travel at the speed of light, c = 3×10⁸ m·s⁻¹.",
+        "They all have the same frequency.",
+        "They all have the same wavelength."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q02",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation relates the speed, frequency and wavelength of an EM wave?",
+      "answerMode": "choice",
+      "expectedAnswer": "c = fλ",
+      "marks": 2,
+      "explanation": "For EM waves c = fλ, where c is the speed of light.",
+      "errorSignals": [
+        "ERR_EM_SPEED_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "c = f/λ",
+        "c = fλ",
+        "c = λ/f"
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q03",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation gives the energy of a photon of EM radiation?",
+      "answerMode": "choice",
+      "expectedAnswer": "E = hf",
+      "marks": 2,
+      "explanation": "Photon energy E = hf, where h is Planck's constant.",
+      "errorSignals": [
+        "ERR_PHOTON_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "E = h/f",
+        "E = hλ",
+        "E = hf"
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q04",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which band of the EM spectrum has the HIGHEST frequency and energy?",
+      "answerMode": "choice",
+      "expectedAnswer": "Gamma rays",
+      "marks": 2,
+      "explanation": "Gamma rays have the highest frequency, shortest wavelength and most energy.",
+      "errorSignals": [
+        "ERR_EM_ORDER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Gamma rays",
+        "Radio waves",
+        "Microwaves"
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q05",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which band of the EM spectrum has the LOWEST frequency and energy?",
+      "answerMode": "choice",
+      "expectedAnswer": "Radio waves",
+      "marks": 2,
+      "explanation": "Radio waves have the lowest frequency and least energy of the EM spectrum.",
+      "errorSignals": [
+        "ERR_EM_ORDER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Gamma rays",
+        "Radio waves",
+        "Ultraviolet"
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q06",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "As frequency increases across the EM spectrum, what happens to the wavelength?",
+      "answerMode": "choice",
+      "expectedAnswer": "It decreases.",
+      "marks": 2,
+      "explanation": "Since c = fλ at constant c, higher frequency means shorter wavelength.",
+      "errorSignals": [
+        "ERR_EM_FREQUENCY_WAVELENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It increases.",
+        "It stays the same.",
+        "It decreases."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q07",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "As frequency increases across the EM spectrum, what happens to the photon energy?",
+      "answerMode": "choice",
+      "expectedAnswer": "It increases.",
+      "marks": 2,
+      "explanation": "E = hf, so higher frequency means higher photon energy.",
+      "errorSignals": [
+        "ERR_PHOTON_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It increases.",
+        "It decreases.",
+        "It stays the same."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q08",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which type of EM radiation is used for communication, such as broadcasting and cellphones?",
+      "answerMode": "choice",
+      "expectedAnswer": "Radio waves and microwaves",
+      "marks": 2,
+      "explanation": "Radio waves and microwaves are used for broadcasting and mobile communication.",
+      "errorSignals": [
+        "ERR_EM_USES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Gamma rays",
+        "Radio waves and microwaves",
+        "X-rays"
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q09",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which EM radiation is used in medical imaging to see broken bones?",
+      "answerMode": "choice",
+      "expectedAnswer": "X-rays",
+      "marks": 2,
+      "explanation": "X-rays pass through soft tissue but are absorbed by bone, so they image fractures.",
+      "errorSignals": [
+        "ERR_EM_USES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Radio waves",
+        "Infrared",
+        "X-rays"
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q10",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Visible light, infrared and ultraviolet are all examples of...",
+      "answerMode": "choice",
+      "expectedAnswer": "electromagnetic radiation.",
+      "marks": 2,
+      "explanation": "These are all bands of the electromagnetic spectrum (transverse EM waves).",
+      "errorSignals": [
+        "ERR_EM_NATURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "electromagnetic radiation.",
+        "sound waves.",
+        "longitudinal waves."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q11",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Place these in order of INCREASING frequency: ultraviolet, radio, visible light.",
+      "answerMode": "choice",
+      "expectedAnswer": "Radio, visible light, ultraviolet",
+      "marks": 2,
+      "explanation": "Increasing frequency: radio (low) → visible → ultraviolet (higher).",
+      "errorSignals": [
+        "ERR_EM_ORDER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ultraviolet, visible light, radio",
+        "Radio, visible light, ultraviolet",
+        "Visible light, radio, ultraviolet"
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q12",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An EM wave has a frequency of 6×10¹⁴ Hz. What is its wavelength? (c = 3×10⁸ m·s⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 5e-7,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "λ = c/f = 3×10⁸ / 6×10¹⁴ = 5×10⁻⁷ m (visible light).",
+      "errorSignals": [
+        "ERR_EM_SPEED_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L5.T1.A1.q13",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A radio wave has a wavelength of 3 m. What is its frequency? (c = 3×10⁸ m·s⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 100000000,
+      "tolerance": 0.02,
+      "unit": "Hz",
+      "marks": 3,
+      "explanation": "f = c/λ = 3×10⁸ / 3 = 1×10⁸ Hz (100 MHz).",
+      "errorSignals": [
+        "ERR_EM_SPEED_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L5.T1.A1.q14",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which statement comparing gamma rays and radio waves is correct?",
+      "answerMode": "choice",
+      "expectedAnswer": "Gamma rays have higher frequency, shorter wavelength and more energy than radio waves.",
+      "marks": 2,
+      "explanation": "Gamma: high f, short λ, high E. Radio: low f, long λ, low E. Both travel at c.",
+      "errorSignals": [
+        "ERR_EM_ORDER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Radio waves have more energy than gamma rays.",
+        "Gamma rays have higher frequency, shorter wavelength and more energy than radio waves.",
+        "They have the same frequency but different speeds."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q15",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why are gamma rays more dangerous to living tissue than radio waves?",
+      "answerMode": "choice",
+      "expectedAnswer": "They have much higher photon energy and can ionise atoms.",
+      "marks": 2,
+      "explanation": "High-frequency gamma photons carry enough energy (E = hf) to ionise and damage cells.",
+      "errorSignals": [
+        "ERR_EM_DANGER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They travel much faster than radio waves.",
+        "They have a longer wavelength.",
+        "They have much higher photon energy and can ionise atoms."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q16",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Calculate the energy of a photon of frequency 5×10¹⁴ Hz. (h = 6.63×10⁻³⁴ J·s)",
+      "answerMode": "numeric",
+      "expectedAnswer": 3.315e-19,
+      "tolerance": 0.05,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "E = hf = 6.63×10⁻³⁴ × 5×10¹⁴ = 3.315×10⁻¹⁹ J.",
+      "errorSignals": [
+        "ERR_PHOTON_ENERGY"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L5.T1.A1.q17",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two EM waves travel in a vacuum: an X-ray and a microwave. Which travels faster?",
+      "answerMode": "choice",
+      "expectedAnswer": "They travel at the same speed (c).",
+      "marks": 2,
+      "explanation": "All EM waves travel at c = 3×10⁸ m·s⁻¹ in a vacuum, regardless of band.",
+      "errorSignals": [
+        "ERR_EM_SPEED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The X-ray, because it has more energy.",
+        "They travel at the same speed (c).",
+        "The microwave, because it has a longer wavelength."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q18",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Infrared radiation is mainly associated with which effect?",
+      "answerMode": "choice",
+      "expectedAnswer": "Heating — it is felt as warmth.",
+      "marks": 2,
+      "explanation": "Infrared is thermal radiation, felt as heat; it is used in heaters and remote controls.",
+      "errorSignals": [
+        "ERR_EM_USES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Producing X-ray images.",
+        "Ionising body tissue strongly.",
+        "Heating — it is felt as warmth."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q19",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An EM wave has a wavelength of 1×10⁻¹⁰ m. Using the spectrum order, which band is it most likely in? (c = 3×10⁸ m·s⁻¹)",
+      "answerMode": "choice",
+      "expectedAnswer": "X-rays / gamma rays (very short wavelength).",
+      "marks": 2,
+      "explanation": "A 10⁻¹⁰ m wavelength is extremely short, placing it in the X-ray/gamma region.",
+      "errorSignals": [
+        "ERR_EM_ORDER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "X-rays / gamma rays (very short wavelength).",
+        "Radio waves.",
+        "Microwaves."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q20",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does the dual nature of EM radiation mean it can behave as both a wave and a particle?",
+      "answerMode": "choice",
+      "expectedAnswer": "It shows wave properties (like diffraction) and particle properties (photons with energy hf).",
+      "marks": 2,
+      "explanation": "EM radiation has a dual nature: wave-like (interference, diffraction) and particle-like (photons of energy E = hf).",
+      "errorSignals": [
+        "ERR_EM_DUAL_NATURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It is sometimes a sound wave and sometimes light.",
+        "It shows wave properties (like diffraction) and particle properties (photons with energy hf).",
+        "It changes speed between the two behaviours."
+      ]
+    }
+  ]
+}

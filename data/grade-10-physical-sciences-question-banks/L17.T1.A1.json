@@ -1,0 +1,357 @@
+{
+  "skill": "L17.T1.A1",
+  "skill_title": "Apply the mole concept (n = m/M, number of particles, molar mass)",
+  "grades": [
+    10
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L17.T1.A1.q01",
+      "skill": "L17.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation relates number of moles (n), mass (m) and molar mass (M)?",
+      "answerMode": "choice",
+      "expectedAnswer": "n = m/M",
+      "marks": 2,
+      "explanation": "Number of moles = mass ÷ molar mass: n = m/M.",
+      "errorSignals": [
+        "ERR_MOLE_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "n = m/M",
+        "n = M/m",
+        "n = m × M"
+      ]
+    },
+    {
+      "id": "L17.T1.A1.q02",
+      "skill": "L17.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the value of Avogadro's number?",
+      "answerMode": "choice",
+      "expectedAnswer": "6.02×10²³ particles per mole",
+      "marks": 2,
+      "explanation": "One mole contains 6.02×10²³ particles (Avogadro's number).",
+      "errorSignals": [
+        "ERR_AVOGADRO"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "6.02×10⁻²³ particles per mole",
+        "6.02×10²³ particles per mole",
+        "9.8×10²³ particles per mole"
+      ]
+    },
+    {
+      "id": "L17.T1.A1.q03",
+      "skill": "L17.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the molar mass of water, H₂O? (H = 1, O = 16)",
+      "answerMode": "numeric",
+      "expectedAnswer": 18,
+      "tolerance": 0.05,
+      "unit": "g·mol⁻¹",
+      "marks": 3,
+      "explanation": "M = 2(1) + 16 = 18 g·mol⁻¹.",
+      "errorSignals": [
+        "ERR_MOLAR_MASS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q04",
+      "skill": "L17.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many moles are in 36 g of water (M = 18 g·mol⁻¹)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = m/M = 36/18 = 2 mol.",
+      "errorSignals": [
+        "ERR_MOLE_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q05",
+      "skill": "L17.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the mass of 3 moles of carbon atoms? (C = 12 g·mol⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 36,
+      "tolerance": 0.05,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "m = n × M = 3 × 12 = 36 g.",
+      "errorSignals": [
+        "ERR_MOLE_FORMULA_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q06",
+      "skill": "L17.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many particles are in 2 moles of a substance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.204e+24,
+      "tolerance": 0.02,
+      "unit": "particles",
+      "marks": 3,
+      "explanation": "N = n × Nₐ = 2 × 6.02×10²³ = 1.204×10²⁴ particles.",
+      "errorSignals": [
+        "ERR_AVOGADRO"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q07",
+      "skill": "L17.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the molar mass of carbon dioxide, CO₂? (C = 12, O = 16)",
+      "answerMode": "numeric",
+      "expectedAnswer": 44,
+      "tolerance": 0.05,
+      "unit": "g·mol⁻¹",
+      "marks": 3,
+      "explanation": "M = 12 + 2(16) = 12 + 32 = 44 g·mol⁻¹.",
+      "errorSignals": [
+        "ERR_MOLAR_MASS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q08",
+      "skill": "L17.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many moles are in 88 g of CO₂ (M = 44 g·mol⁻¹)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = m/M = 88/44 = 2 mol.",
+      "errorSignals": [
+        "ERR_MOLE_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q09",
+      "skill": "L17.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the mass of 0.5 mol of sodium? (Na = 23 g·mol⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 11.5,
+      "tolerance": 0.05,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "m = n × M = 0.5 × 23 = 11.5 g.",
+      "errorSignals": [
+        "ERR_MOLE_FORMULA_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q10",
+      "skill": "L17.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the molar mass of magnesium oxide, MgO? (Mg = 24, O = 16)",
+      "answerMode": "numeric",
+      "expectedAnswer": 40,
+      "tolerance": 0.05,
+      "unit": "g·mol⁻¹",
+      "marks": 3,
+      "explanation": "M = 24 + 16 = 40 g·mol⁻¹.",
+      "errorSignals": [
+        "ERR_MOLAR_MASS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q11",
+      "skill": "L17.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many molecules are in 1 mole of oxygen gas, O₂?",
+      "answerMode": "numeric",
+      "expectedAnswer": 6.02e+23,
+      "tolerance": 0.02,
+      "unit": "molecules",
+      "marks": 3,
+      "explanation": "One mole contains Avogadro's number of molecules: 6.02×10²³.",
+      "errorSignals": [
+        "ERR_AVOGADRO"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q12",
+      "skill": "L17.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the mass of 0.25 mol of calcium carbonate, CaCO₃? (Ca = 40, C = 12, O = 16)",
+      "answerMode": "numeric",
+      "expectedAnswer": 25,
+      "tolerance": 0.05,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "M = 40 + 12 + 3(16) = 100 g·mol⁻¹; m = n × M = 0.25 × 100 = 25 g.",
+      "errorSignals": [
+        "ERR_MOLAR_MASS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q13",
+      "skill": "L17.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many moles are in 1.204×10²⁴ atoms of an element?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = N/Nₐ = 1.204×10²⁴ / 6.02×10²³ = 2 mol.",
+      "errorSignals": [
+        "ERR_AVOGADRO_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q14",
+      "skill": "L17.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the molar mass of sodium hydroxide, NaOH? (Na = 23, O = 16, H = 1)",
+      "answerMode": "numeric",
+      "expectedAnswer": 40,
+      "tolerance": 0.05,
+      "unit": "g·mol⁻¹",
+      "marks": 3,
+      "explanation": "M = 23 + 16 + 1 = 40 g·mol⁻¹.",
+      "errorSignals": [
+        "ERR_MOLAR_MASS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q15",
+      "skill": "L17.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many atoms are in 0.5 mol of helium gas?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3.01e+23,
+      "tolerance": 0.02,
+      "unit": "atoms",
+      "marks": 3,
+      "explanation": "N = n × Nₐ = 0.5 × 6.02×10²³ = 3.01×10²³ atoms.",
+      "errorSignals": [
+        "ERR_AVOGADRO"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q16",
+      "skill": "L17.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A sample contains 4 moles of carbon (C = 12). What is its mass?",
+      "answerMode": "numeric",
+      "expectedAnswer": 48,
+      "tolerance": 0.05,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "m = n × M = 4 × 12 = 48 g.",
+      "errorSignals": [
+        "ERR_MOLE_FORMULA_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q17",
+      "skill": "L17.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the molar mass of sulfuric acid, H₂SO₄? (H = 1, S = 32, O = 16)",
+      "answerMode": "numeric",
+      "expectedAnswer": 98,
+      "tolerance": 0.05,
+      "unit": "g·mol⁻¹",
+      "marks": 3,
+      "explanation": "M = 2(1) + 32 + 4(16) = 2 + 32 + 64 = 98 g·mol⁻¹.",
+      "errorSignals": [
+        "ERR_MOLAR_MASS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q18",
+      "skill": "L17.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many moles of water molecules are in 9 g of water (M = 18 g·mol⁻¹)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.5,
+      "tolerance": 0.01,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = m/M = 9/18 = 0.5 mol.",
+      "errorSignals": [
+        "ERR_MOLE_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q19",
+      "skill": "L17.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the mass of 6.02×10²³ molecules of CO₂? (M = 44 g·mol⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 44,
+      "tolerance": 0.05,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "6.02×10²³ molecules = 1 mole; m = n × M = 1 × 44 = 44 g.",
+      "errorSignals": [
+        "ERR_AVOGADRO"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A1.q20",
+      "skill": "L17.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A compound has molar mass 58.5 g·mol⁻¹ (NaCl). How many moles are in 117 g?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = m/M = 117/58.5 = 2 mol.",
+      "errorSignals": [
+        "ERR_MOLE_FORMULA"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

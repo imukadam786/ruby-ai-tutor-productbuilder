@@ -1,0 +1,384 @@
+{
+  "skill": "L8.T1.A2",
+  "skill_title": "Apply current and potential difference rules in series and parallel circuits",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L8.T1.A2.q01",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is resistance?",
+      "answerMode": "choice",
+      "expectedAnswer": "The opposition of a component to the flow of current.",
+      "marks": 2,
+      "explanation": "Resistance opposes current flow and is defined by R = V/I.",
+      "errorSignals": [
+        "ERR_RESISTANCE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The opposition of a component to the flow of current.",
+        "The rate of flow of charge.",
+        "The energy supplied by the cell."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q02",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation defines resistance?",
+      "answerMode": "choice",
+      "expectedAnswer": "R = V/I",
+      "marks": 2,
+      "explanation": "Resistance R = potential difference ÷ current = V/I.",
+      "errorSignals": [
+        "ERR_RESISTANCE_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "R = I/V",
+        "R = V/I",
+        "R = VI"
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q03",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In a series circuit, the current is...",
+      "answerMode": "choice",
+      "expectedAnswer": "the same through every component.",
+      "marks": 2,
+      "explanation": "In series there is one path, so the same current flows through all components.",
+      "errorSignals": [
+        "ERR_SERIES_CURRENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "different through each component.",
+        "zero in the last component.",
+        "the same through every component."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q04",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In a series circuit, the potential differences across the components...",
+      "answerMode": "choice",
+      "expectedAnswer": "add up to the total supply voltage.",
+      "marks": 2,
+      "explanation": "In series, the component voltages add up to the battery's EMF.",
+      "errorSignals": [
+        "ERR_SERIES_VOLTAGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "add up to the total supply voltage.",
+        "are the same across each component.",
+        "are all zero."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q05",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In a parallel circuit, the potential difference across each branch is...",
+      "answerMode": "choice",
+      "expectedAnswer": "the same for every branch.",
+      "marks": 2,
+      "explanation": "Parallel branches all connect across the same two points, so they have the same voltage.",
+      "errorSignals": [
+        "ERR_PARALLEL_VOLTAGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "shared so each branch gets less.",
+        "the same for every branch.",
+        "zero."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q06",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In a parallel circuit, the currents in the branches...",
+      "answerMode": "choice",
+      "expectedAnswer": "add up to the total current from the source.",
+      "marks": 2,
+      "explanation": "The main current splits between branches and the branch currents add up to the total.",
+      "errorSignals": [
+        "ERR_PARALLEL_CURRENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "are the same in each branch always.",
+        "are all zero.",
+        "add up to the total current from the source."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q07",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A resistor has 6 V across it and 2 A through it. What is its resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "R = V/I = 6/2 = 3 Ω.",
+      "errorSignals": [
+        "ERR_RESISTANCE_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A2.q08",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two resistors, 3 Ω and 5 Ω, are connected in series. What is the total resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 8,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "Series resistances add: 3 + 5 = 8 Ω.",
+      "errorSignals": [
+        "ERR_SERIES_RESISTANCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A2.q09",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 4 V potential difference drives a current of 0.5 A through a resistor. What is the resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 8,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "R = V/I = 4/0.5 = 8 Ω.",
+      "errorSignals": [
+        "ERR_RESISTANCE_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A2.q10",
+      "skill": "L8.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Adding more resistors in parallel to a circuit has what effect on the total resistance?",
+      "answerMode": "choice",
+      "expectedAnswer": "It decreases the total resistance.",
+      "marks": 2,
+      "explanation": "More parallel paths let more current flow, so the total resistance decreases.",
+      "errorSignals": [
+        "ERR_PARALLEL_RESISTANCE_TREND"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It decreases the total resistance.",
+        "It increases the total resistance.",
+        "It has no effect."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q11",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two resistors, 6 Ω and 3 Ω, are connected in parallel. What is the total resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "1/R = 1/6 + 1/3 = 1/6 + 2/6 = 3/6, so R = 2 Ω.",
+      "errorSignals": [
+        "ERR_PARALLEL_RESISTANCE_INVERT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A2.q12",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two equal 4 Ω resistors are connected in parallel. What is the total resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "For two equal resistors in parallel, R = R/2 = 4/2 = 2 Ω.",
+      "errorSignals": [
+        "ERR_PARALLEL_RESISTANCE_INVERT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A2.q13",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In a series circuit, a 12 V battery is connected to two resistors. If 8 V is measured across the first, what is the voltage across the second?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "V",
+      "marks": 3,
+      "explanation": "Series voltages add to the supply: 12 − 8 = 4 V.",
+      "errorSignals": [
+        "ERR_SERIES_VOLTAGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A2.q14",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In a parallel circuit, the total current from the battery is 6 A. One branch carries 2.5 A. What does the other branch carry?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3.5,
+      "tolerance": 0.01,
+      "unit": "A",
+      "marks": 3,
+      "explanation": "Branch currents add to the total: 6 − 2.5 = 3.5 A.",
+      "errorSignals": [
+        "ERR_PARALLEL_CURRENT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A2.q15",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A series circuit has a 2 Ω and a 4 Ω resistor across a 12 V battery. What is the current in the circuit?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "A",
+      "marks": 3,
+      "explanation": "Total R = 2 + 4 = 6 Ω; I = V/R = 12/6 = 2 A (same throughout series).",
+      "errorSignals": [
+        "ERR_SERIES_RESISTANCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A2.q16",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does a bulb get dimmer when an extra bulb is added IN SERIES with it?",
+      "answerMode": "choice",
+      "expectedAnswer": "Total resistance rises, so the current through both bulbs drops.",
+      "marks": 2,
+      "explanation": "Adding series resistance increases total R, reducing the current and so the brightness.",
+      "errorSignals": [
+        "ERR_SERIES_RESISTANCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Total resistance rises, so the current through both bulbs drops.",
+        "The voltage across each bulb rises.",
+        "The current increases."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q17",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two resistors, 2 Ω and 2 Ω, are in parallel, and this combination is in series with a 3 Ω resistor. What is the total resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "Parallel pair: 2 in parallel with 2 = 1 Ω. Series: 1 + 3 = 4 Ω.",
+      "errorSignals": [
+        "ERR_MIXED_CIRCUIT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A2.q18",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In a parallel circuit, why does each branch have the same voltage as the battery?",
+      "answerMode": "choice",
+      "expectedAnswer": "Each branch is connected directly across the same two supply points.",
+      "marks": 2,
+      "explanation": "Parallel branches share the same two nodes, so each has the full supply voltage across it.",
+      "errorSignals": [
+        "ERR_PARALLEL_VOLTAGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The current is shared equally.",
+        "The branches have equal resistance.",
+        "Each branch is connected directly across the same two supply points."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q19",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 10 V battery drives a series circuit with total resistance 5 Ω. What current flows, and how does it compare in each resistor?",
+      "answerMode": "choice",
+      "expectedAnswer": "2 A, the same through every resistor.",
+      "marks": 2,
+      "explanation": "I = V/R = 10/5 = 2 A; in series the same current flows through all components.",
+      "errorSignals": [
+        "ERR_SERIES_CURRENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "2 A, the same through every resistor.",
+        "2 A, but split between the resistors.",
+        "0.5 A, the same in each."
+      ]
+    },
+    {
+      "id": "L8.T1.A2.q20",
+      "skill": "L8.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Three identical lamps are connected in parallel across a battery. Compared with one lamp alone, the total current drawn from the battery is...",
+      "answerMode": "choice",
+      "expectedAnswer": "greater (more branches draw more total current).",
+      "marks": 2,
+      "explanation": "Each parallel lamp draws its own current, so the total current from the battery increases.",
+      "errorSignals": [
+        "ERR_PARALLEL_CURRENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "smaller.",
+        "greater (more branches draw more total current).",
+        "exactly the same."
+      ]
+    }
+  ]
+}

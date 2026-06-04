@@ -5,8 +5,7 @@ import { apiFetch } from "@/lib/fetch";
 import EduBackground from "@/components/EduBackground";
 import MatricPhysSciSkillTreeView from "./MatricPhysSciSkillTreeView";
 import SequenceQuestion from "./SequenceQuestion";
-import treeData from "@/data/matric-physical-sciences-skill-tree.json";
-import bankData from "@/data/matric-physical-sciences-question-bank.json";
+import { physSciConfig, type PhysSciGrade } from "@/lib/phys-sci-grade";
 import { supabase } from "@/lib/supabase";
 import {
   getMatricPhysSciMasteryMap,
@@ -27,30 +26,25 @@ import {
   trackSkillMastered,
 } from "@/lib/analytics";
 import type {
-  MatricPhysSciBank,
   MatricPhysSciGeneratedQuestion,
   MatricPhysSciGenerateQuestionResponse,
-  MatricPhysSciSkillTree,
   MatricPhysSciSubmitAnswerRequest,
   MatricPhysSciSubmitAnswerResponse,
 } from "@/types/matric-phys-sci";
 
-const tree = treeData as unknown as MatricPhysSciSkillTree;
-const bank = bankData as unknown as MatricPhysSciBank;
-
 type SkillStatus = "available" | "in_progress" | "mastered";
 type Phase = "tree" | "loading" | "question" | "feedback" | "session_done";
 
-function targetItemCount(skillId: string): number {
-  return bank.skills[skillId]?.items.length ?? 20;
+function targetItemCount(skillId: string, grade: PhysSciGrade): number {
+  return physSciConfig(grade).bank.skills[skillId]?.items.length ?? 20;
 }
 
-function passThreshold(skillId: string): number {
-  return bank.skills[skillId]?.items[0]?.passThreshold ?? 0.7;
+function passThreshold(skillId: string, grade: PhysSciGrade): number {
+  return physSciConfig(grade).bank.skills[skillId]?.items[0]?.passThreshold ?? 0.7;
 }
 
-function findSkillMeta(skillId: string) {
-  for (const level of tree.levels) {
+function findSkillMeta(skillId: string, grade: PhysSciGrade) {
+  for (const level of physSciConfig(grade).tree.levels) {
     for (const tier of level.tiers) {
       const found = tier.atomic_skills.find((s) => s.id === skillId);
       if (found) return { skill: found, level, tier };
@@ -61,9 +55,13 @@ function findSkillMeta(skillId: string) {
 
 interface Props {
   onBack?: () => void;
+  /** Which Physical Sciences grade to run. Defaults to 12 (matric). */
+  grade?: PhysSciGrade;
 }
 
-export default function MatricPhysSciSession({ onBack }: Props) {
+export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
+  const config = physSciConfig(grade);
+  const subject = config.subject;
   const [phase, setPhase] = useState<Phase>("tree");
   const [skillId, setSkillId] = useState<string | null>(null);
   const [question, setQuestion] = useState<MatricPhysSciGeneratedQuestion | null>(null);
@@ -84,18 +82,18 @@ export default function MatricPhysSciSession({ onBack }: Props) {
     (async () => {
       const data = await fetchAuthorisedGrade();
       const name = data?.name ?? "Learner";
-      if (!loadMatricPhysSciProfile()) {
-        const restored = await hydrateMatricPhysSciProfileFromSupabase();
+      if (!loadMatricPhysSciProfile(grade)) {
+        const restored = await hydrateMatricPhysSciProfileFromSupabase(grade);
         if (restored) saveMatricPhysSciProfile(restored);
       }
-      const profile = getOrCreateMatricPhysSciProfile(name);
+      const profile = getOrCreateMatricPhysSciProfile(name, grade);
       void linkMatricPhysSciProfileToAuth(profile.id);
-      if (!cancelled) setMastery(getMatricPhysSciMasteryMap());
+      if (!cancelled) setMastery(getMatricPhysSciMasteryMap(grade));
     })();
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [grade]);
 
   const persistReport = useCallback(
     async (sid: string, correct: number, attempts: number, didMaster: boolean) => {
@@ -103,10 +101,10 @@ export default function MatricPhysSciSession({ onBack }: Props) {
         const { data: { session } } = await supabase.auth.getSession();
         const user = session?.user;
         if (!user) return;
-        const meta = findSkillMeta(sid);
+        const meta = findSkillMeta(sid, grade);
         const accuracy = attempts > 0 ? correct / attempts : 0;
         const inputData = {
-          subject: "matric-physical-sciences",
+          subject,
           skill_id: sid,
           skill_title: meta?.skill.title ?? sid,
           paper: meta?.level.paper ?? null,
@@ -114,8 +112,8 @@ export default function MatricPhysSciSession({ onBack }: Props) {
           correct_count: correct,
           attempt_count: attempts,
           accuracy,
-          target_item_count: targetItemCount(sid),
-          pass_threshold: passThreshold(sid),
+          target_item_count: targetItemCount(sid, grade),
+          pass_threshold: passThreshold(sid, grade),
           mastered: didMaster,
           duration_ms: Date.now() - sessionStartRef.current,
         };
@@ -127,7 +125,7 @@ export default function MatricPhysSciSession({ onBack }: Props) {
         };
         await supabase.from("student_reports").insert({
           user_id: user.id,
-          subject: "matric-physical-sciences",
+          subject,
           input_data: inputData,
           content_data: contentData,
           generated_at: new Date().toISOString(),
@@ -136,7 +134,7 @@ export default function MatricPhysSciSession({ onBack }: Props) {
         console.error("[MatricPhysSciSession] persistReport failed:", err);
       }
     },
-    [],
+    [grade, subject],
   );
 
   const loadNextQuestion = useCallback(async (sid: string) => {
@@ -144,12 +142,12 @@ export default function MatricPhysSciSession({ onBack }: Props) {
     setError(null);
     setAnswer("");
     setMultiFieldAnswers([]);
-    const used = getMatricPhysSciUsedRefs(sid);
+    const used = getMatricPhysSciUsedRefs(sid, grade);
     try {
       const res = await apiFetch("/api/matric-phys-sci/generate-question", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ skill_id: sid, used_refs: used }),
+        body: JSON.stringify({ skill_id: sid, used_refs: used, grade }),
       });
       if (!res.ok) {
         setError("Could not load a question. Please try again.");
@@ -173,23 +171,23 @@ export default function MatricPhysSciSession({ onBack }: Props) {
       setError("Could not load a question. Please try again.");
       setPhase("feedback");
     }
-  }, []);
+  }, [grade]);
 
   const handlePickSkill = useCallback(
     (sid: string) => {
-      const meta = findSkillMeta(sid);
+      const meta = findSkillMeta(sid, grade);
       setSkillId(sid);
       setCorrectCount(0);
       setAttemptCount(0);
       sessionStartRef.current = Date.now();
       trackSessionStarted({
-        subject: "matric-physical-sciences",
+        subject,
         current_skill_id: sid,
         current_level: meta?.level.id ?? 0,
       });
       void loadNextQuestion(sid);
     },
-    [loadNextQuestion],
+    [loadNextQuestion, grade, subject],
   );
 
   const handleSubmit = useCallback(
@@ -204,6 +202,7 @@ export default function MatricPhysSciSession({ onBack }: Props) {
           student_answer: serialisedAnswer,
           expected_answer: question.expected_answer,
           tolerance: question.tolerance,
+          grade,
         };
         const res = await apiFetch("/api/matric-phys-sci/submit-answer", {
           method: "POST",
@@ -220,7 +219,7 @@ export default function MatricPhysSciSession({ onBack }: Props) {
         const data = (await res.json()) as MatricPhysSciSubmitAnswerResponse;
         setResult(data);
 
-        recordMatricPhysSciAnswer(skillId, question.question_ref, data.is_correct);
+        recordMatricPhysSciAnswer(skillId, question.question_ref, data.is_correct, grade);
 
         const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
         const nextAttempts = attemptCount + 1;
@@ -228,7 +227,7 @@ export default function MatricPhysSciSession({ onBack }: Props) {
         setAttemptCount(nextAttempts);
 
         trackQuestionAnswered({
-          subject: "matric-physical-sciences",
+          subject,
           skill_id: skillId,
           template: question.answerMode,
           is_correct: data.is_correct,
@@ -240,28 +239,28 @@ export default function MatricPhysSciSession({ onBack }: Props) {
         if (mastery[skillId] !== "mastered" && mastery[skillId] !== "in_progress") {
           const next = { ...mastery, [skillId]: "in_progress" as SkillStatus };
           setMastery(next);
-          setMatricPhysSciMastery(skillId, "in_progress");
+          setMatricPhysSciMastery(skillId, "in_progress", grade);
         }
 
-        const allAnswered = nextAttempts >= targetItemCount(skillId);
+        const allAnswered = nextAttempts >= targetItemCount(skillId, grade);
         if (allAnswered) {
           const accuracy = nextAttempts > 0 ? nextCorrect / nextAttempts : 0;
-          const didMaster = accuracy >= passThreshold(skillId);
+          const didMaster = accuracy >= passThreshold(skillId, grade);
           const nextStatus: SkillStatus = didMaster ? "mastered" : "in_progress";
           const next = { ...mastery, [skillId]: nextStatus };
           setMastery(next);
-          setMatricPhysSciMastery(skillId, nextStatus);
+          setMatricPhysSciMastery(skillId, nextStatus, grade);
           if (didMaster) {
             trackSkillMastered({
-              subject: "matric-physical-sciences",
+              subject,
               skill_id: skillId,
-              level: findSkillMeta(skillId)?.level.id ?? 0,
+              level: findSkillMeta(skillId, grade)?.level.id ?? 0,
               session_attempt_count: nextAttempts,
               session_correct: nextCorrect,
             });
           }
           trackSessionEnded({
-            subject: "matric-physical-sciences",
+            subject,
             questions_answered: nextAttempts,
             correct: nextCorrect,
             accuracy,
@@ -278,7 +277,7 @@ export default function MatricPhysSciSession({ onBack }: Props) {
         setSubmitting(false);
       }
     },
-    [attemptCount, correctCount, mastery, persistReport, question, skillId],
+    [attemptCount, correctCount, mastery, persistReport, question, skillId, grade, subject],
   );
 
   // ─── Render: tree (default) ─────────────────────────────────────────────────
@@ -288,15 +287,16 @@ export default function MatricPhysSciSession({ onBack }: Props) {
         onPickSkill={handlePickSkill}
         masteryStatus={mastery}
         onBack={onBack}
+        grade={grade}
       />
     );
   }
 
   // ─── Render: end-of-session ─────────────────────────────────────────────────
   if (phase === "session_done" && skillId) {
-    const meta = findSkillMeta(skillId);
+    const meta = findSkillMeta(skillId, grade);
     const accuracy = attemptCount > 0 ? correctCount / attemptCount : 0;
-    const didMaster = accuracy >= passThreshold(skillId);
+    const didMaster = accuracy >= passThreshold(skillId, grade);
     return (
       <div className="relative flex items-center justify-center h-full bg-[#F4F4F5] p-6">
         <EduBackground />
@@ -313,7 +313,7 @@ export default function MatricPhysSciSession({ onBack }: Props) {
           </p>
           <p className="text-sm text-gray-500">
             {correctCount} of {attemptCount} correct ({Math.round(accuracy * 100)}%).
-            {" "}Pass threshold {Math.round(passThreshold(skillId) * 100)}%.
+            {" "}Pass threshold {Math.round(passThreshold(skillId, grade) * 100)}%.
           </p>
           <button
             onClick={() => {
@@ -341,7 +341,7 @@ export default function MatricPhysSciSession({ onBack }: Props) {
   }
 
   // ─── Render: question / feedback ───────────────────────────────────────────
-  const target = skillId ? targetItemCount(skillId) : 20;
+  const target = skillId ? targetItemCount(skillId, grade) : 20;
   const progressPct = skillId
     ? Math.round((Math.min(attemptCount, target) / target) * 100)
     : 0;
@@ -369,7 +369,7 @@ export default function MatricPhysSciSession({ onBack }: Props) {
             <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
               <div className="flex items-center justify-between mb-1.5">
                 <span className="text-xs font-bold uppercase tracking-wide text-amber-800">
-                  {findSkillMeta(skillId)?.skill.title ?? skillId}
+                  {findSkillMeta(skillId, grade)?.skill.title ?? skillId}
                 </span>
                 <span className="text-sm font-semibold text-amber-700">
                   Q {Math.min(attemptCount + 1, target)} of {target} · {correctCount} correct

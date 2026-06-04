@@ -1,0 +1,387 @@
+{
+  "skill": "L7.T1.A1",
+  "skill_title": "Apply charge concepts: charging, conservation and quantisation",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L7.T1.A1.q01",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many kinds of electric charge are there?",
+      "answerMode": "choice",
+      "expectedAnswer": "Two — positive and negative.",
+      "marks": 2,
+      "explanation": "There are two kinds of charge: positive and negative.",
+      "errorSignals": [
+        "ERR_CHARGE_KINDS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Two — positive and negative.",
+        "One — only negative.",
+        "Three — positive, negative and neutral."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q02",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two objects carry like charges (both negative). What is the force between them?",
+      "answerMode": "choice",
+      "expectedAnswer": "They repel each other.",
+      "marks": 2,
+      "explanation": "Like charges repel; unlike charges attract.",
+      "errorSignals": [
+        "ERR_LIKE_CHARGES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They attract each other.",
+        "They repel each other.",
+        "There is no force."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q03",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When a plastic rod is rubbed with a cloth and becomes negatively charged, what has been transferred?",
+      "answerMode": "choice",
+      "expectedAnswer": "Electrons moved onto the rod.",
+      "marks": 2,
+      "explanation": "Only electrons move; gaining electrons makes the rod negative.",
+      "errorSignals": [
+        "ERR_PROTON_TRANSFER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Protons moved onto the rod.",
+        "Neutrons moved onto the rod.",
+        "Electrons moved onto the rod."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q04",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "An object becomes positively charged by friction. What happened to its electrons?",
+      "answerMode": "choice",
+      "expectedAnswer": "It lost some electrons.",
+      "marks": 2,
+      "explanation": "Losing electrons leaves an object with a net positive charge.",
+      "errorSignals": [
+        "ERR_PROTON_TRANSFER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It lost some electrons.",
+        "It gained some electrons.",
+        "It gained protons."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q05",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the principle of conservation of charge?",
+      "answerMode": "choice",
+      "expectedAnswer": "Charge is neither created nor destroyed, only transferred.",
+      "marks": 2,
+      "explanation": "Total charge is conserved: it is transferred between objects, never made or lost.",
+      "errorSignals": [
+        "ERR_CHARGE_CONSERVATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Charge disappears when objects touch.",
+        "Charge is neither created nor destroyed, only transferred.",
+        "Charge is created during rubbing."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q06",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the charge on a single electron?",
+      "answerMode": "choice",
+      "expectedAnswer": "−1.6×10⁻¹⁹ C",
+      "marks": 2,
+      "explanation": "An electron carries a charge of −1.6×10⁻¹⁹ C (the elementary charge).",
+      "errorSignals": [
+        "ERR_ELECTRON_CHARGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "+1.6×10⁻¹⁹ C",
+        "−9.8 C",
+        "−1.6×10⁻¹⁹ C"
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q07",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation relates charge Q to the number of electrons n?",
+      "answerMode": "choice",
+      "expectedAnswer": "Q = ne",
+      "marks": 2,
+      "explanation": "Charge is quantised: Q = ne, where e is the charge on one electron.",
+      "errorSignals": [
+        "ERR_QUANTISATION_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Q = ne",
+        "Q = n/e",
+        "Q = e/n"
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q08",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does it mean that charge is 'quantised'?",
+      "answerMode": "choice",
+      "expectedAnswer": "Charge comes only in whole-number multiples of the electron's charge.",
+      "marks": 2,
+      "explanation": "Quantisation means Q = ne with n a whole number — charge cannot be a fraction of e.",
+      "errorSignals": [
+        "ERR_QUANTISATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Charge can take any value at all.",
+        "Charge comes only in whole-number multiples of the electron's charge.",
+        "Charge depends on temperature."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q09",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "An object has a charge of −3.2×10⁻¹⁹ C. How many excess electrons does it have?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "electrons",
+      "marks": 3,
+      "explanation": "n = Q/e = 3.2×10⁻¹⁹ / 1.6×10⁻¹⁹ = 2 electrons.",
+      "errorSignals": [
+        "ERR_QUANTISATION_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q10",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A neutral atom has equal numbers of...",
+      "answerMode": "choice",
+      "expectedAnswer": "protons and electrons.",
+      "marks": 2,
+      "explanation": "Neutral means equal positive and negative charge, i.e. equal protons and electrons.",
+      "errorSignals": [
+        "ERR_NEUTRAL_ATOM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "protons and electrons.",
+        "protons and neutrons.",
+        "electrons and neutrons."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q11",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two identical metal spheres carry charges of +6 nC and +2 nC. They are touched together and separated. What charge is on each afterwards?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "nC",
+      "marks": 3,
+      "explanation": "Identical spheres share charge equally: (6 + 2)/2 = 4 nC each.",
+      "errorSignals": [
+        "ERR_CHARGE_SHARING"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q12",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two identical metal spheres carry charges of +8 nC and −2 nC. After touching and separating, what is the charge on each?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "nC",
+      "marks": 3,
+      "explanation": "Total = +8 + (−2) = +6 nC; shared equally = +3 nC each.",
+      "errorSignals": [
+        "ERR_CHARGE_SHARING"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q13",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many electrons make up a charge of −1.6×10⁻¹⁸ C?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.05,
+      "unit": "electrons",
+      "marks": 3,
+      "explanation": "n = Q/e = 1.6×10⁻¹⁸ / 1.6×10⁻¹⁹ = 10 electrons.",
+      "errorSignals": [
+        "ERR_QUANTISATION_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q14",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An object gains 5×10¹² electrons. What is the magnitude of its charge?",
+      "answerMode": "numeric",
+      "expectedAnswer": 8e-7,
+      "tolerance": 0.05,
+      "unit": "C",
+      "marks": 3,
+      "explanation": "Q = ne = 5×10¹² × 1.6×10⁻¹⁹ = 8×10⁻⁷ C.",
+      "errorSignals": [
+        "ERR_QUANTISATION_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q15",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does a positively charged rod attract small neutral pieces of paper?",
+      "answerMode": "choice",
+      "expectedAnswer": "It induces a charge separation in the paper, pulling the opposite charge closer.",
+      "marks": 2,
+      "explanation": "The rod polarises the neutral paper; the nearer (opposite) charge is attracted more than the far charge is repelled.",
+      "errorSignals": [
+        "ERR_INDUCED_CHARGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The paper is also positively charged.",
+        "Neutral paper has no electrons.",
+        "It induces a charge separation in the paper, pulling the opposite charge closer."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q16",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Sphere A (+4 nC) touches identical sphere B (0 nC). What is the charge on B after separation?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "nC",
+      "marks": 3,
+      "explanation": "Total +4 nC shared equally between two identical spheres: +2 nC each.",
+      "errorSignals": [
+        "ERR_CHARGE_SHARING"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q17",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "When a rod is charged by friction, why does the cloth gain the opposite charge to the rod?",
+      "answerMode": "choice",
+      "expectedAnswer": "Electrons transferred from one to the other; one gains them, the other loses them.",
+      "marks": 2,
+      "explanation": "Conservation of charge: electrons leaving the cloth land on the rod, giving them opposite charges.",
+      "errorSignals": [
+        "ERR_CHARGE_CONSERVATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Both gain the same charge.",
+        "Electrons transferred from one to the other; one gains them, the other loses them.",
+        "Protons jump between them."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q18",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A charge of −4.8×10⁻¹⁹ C means the object has how many excess electrons?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "electrons",
+      "marks": 3,
+      "explanation": "n = 4.8×10⁻¹⁹ / 1.6×10⁻¹⁹ = 3 electrons.",
+      "errorSignals": [
+        "ERR_QUANTISATION_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q19",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Could an object have a charge of exactly −2.4×10⁻¹⁹ C?",
+      "answerMode": "choice",
+      "expectedAnswer": "No — it is not a whole-number multiple of the electron's charge.",
+      "marks": 2,
+      "explanation": "Charge is quantised in multiples of 1.6×10⁻¹⁹ C; −2.4×10⁻¹⁹ C (1.5 electrons) is not possible.",
+      "errorSignals": [
+        "ERR_QUANTISATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "No — it is not a whole-number multiple of the electron's charge.",
+        "Yes — any charge value is allowed.",
+        "Yes — because it is negative."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q20",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two identical spheres, +10 nC and −4 nC, are touched together then separated, then one is touched to a third identical neutral sphere. What is the charge on that third sphere?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.5,
+      "tolerance": 0.01,
+      "unit": "nC",
+      "marks": 3,
+      "explanation": "First pair: (10 − 4)/2 = +3 nC each. One (+3 nC) touches neutral: (3 + 0)/2 = +1.5 nC.",
+      "errorSignals": [
+        "ERR_CHARGE_SHARING"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

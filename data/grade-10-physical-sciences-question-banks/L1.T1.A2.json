@@ -1,0 +1,369 @@
+{
+  "skill": "L1.T1.A2",
+  "skill_title": "Apply the equations of motion for uniform acceleration",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L1.T1.A2.q01",
+      "skill": "L1.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation of motion should you use to find final velocity when you know initial velocity, acceleration and time?",
+      "answerMode": "choice",
+      "expectedAnswer": "v = u + at",
+      "marks": 2,
+      "explanation": "v = u + at links v, u, a and t directly, with no displacement needed.",
+      "errorSignals": [
+        "ERR_EQUATION_CHOICE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "v = u + at",
+        "v² = u² + 2aΔx",
+        "Δx = ½(u + v)Δt"
+      ]
+    },
+    {
+      "id": "L1.T1.A2.q02",
+      "skill": "L1.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A car starts from rest and accelerates at 2 m·s⁻² for 5 s. What is its final velocity?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "v = u + at = 0 + (2)(5) = 10 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_EQUATION_SUBSTITUTION"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q03",
+      "skill": "L1.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A cyclist moving at 4 m·s⁻¹ accelerates at 1.5 m·s⁻² for 6 s. What is the final velocity?",
+      "answerMode": "numeric",
+      "expectedAnswer": 13,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "v = u + at = 4 + (1.5)(6) = 4 + 9 = 13 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_EQUATION_SUBSTITUTION"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q04",
+      "skill": "L1.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "An object accelerates uniformly from 2 m·s⁻¹ to 12 m·s⁻¹ in 5 s. What is its acceleration?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "a = (v − u)/t = (12 − 2)/5 = 2 m·s⁻².",
+      "errorSignals": [
+        "ERR_ACCELERATION_DEF"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q05",
+      "skill": "L1.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In free fall near the Earth's surface (ignoring air resistance), what is the magnitude of the acceleration?",
+      "answerMode": "choice",
+      "expectedAnswer": "9.8 m·s⁻²",
+      "marks": 2,
+      "explanation": "All objects in free fall accelerate at g = 9.8 m·s⁻², independent of mass.",
+      "errorSignals": [
+        "ERR_FREEFALL_G"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "0 m·s⁻²",
+        "9.8 m·s⁻²",
+        "It depends on the object's mass."
+      ]
+    },
+    {
+      "id": "L1.T1.A2.q06",
+      "skill": "L1.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A ball is dropped from rest. What is its initial velocity u?",
+      "answerMode": "choice",
+      "expectedAnswer": "0 m·s⁻¹",
+      "marks": 2,
+      "explanation": "'Dropped from rest' means it starts with no velocity, so u = 0.",
+      "errorSignals": [
+        "ERR_INITIAL_VELOCITY_ASSUMPTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "9.8 m·s⁻¹",
+        "Equal to the height it falls",
+        "0 m·s⁻¹"
+      ]
+    },
+    {
+      "id": "L1.T1.A2.q07",
+      "skill": "L1.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "An object moves at constant velocity. What is its acceleration?",
+      "answerMode": "choice",
+      "expectedAnswer": "0 m·s⁻²",
+      "marks": 2,
+      "explanation": "Constant velocity means no change in velocity, so acceleration = 0.",
+      "errorSignals": [
+        "ERR_ACCELERATION_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "0 m·s⁻²",
+        "9.8 m·s⁻²",
+        "Equal to its velocity"
+      ]
+    },
+    {
+      "id": "L1.T1.A2.q08",
+      "skill": "L1.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A car decelerates uniformly from 20 m·s⁻¹ to rest in 4 s. What is its acceleration?",
+      "answerMode": "numeric",
+      "expectedAnswer": -5,
+      "tolerance": 0.01,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "a = (v − u)/t = (0 − 20)/4 = −5 m·s⁻² (negative = deceleration).",
+      "errorSignals": [
+        "ERR_DECELERATION_SIGN"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q09",
+      "skill": "L1.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A stone is dropped from rest and falls for 2 s. What is its velocity just before impact? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 19.6,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "v = u + gt = 0 + (9.8)(2) = 19.6 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_FREEFALL_G"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q10",
+      "skill": "L1.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A car travels at a constant 15 m·s⁻¹ for 8 s. What distance does it cover?",
+      "answerMode": "numeric",
+      "expectedAnswer": 120,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "Constant velocity: Δx = vΔt = 15 × 8 = 120 m.",
+      "errorSignals": [
+        "ERR_CONSTANT_VELOCITY_DISTANCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q11",
+      "skill": "L1.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A car starts from rest and accelerates at 3 m·s⁻² for 4 s. What distance does it travel?",
+      "answerMode": "numeric",
+      "expectedAnswer": 24,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "Δx = uΔt + ½aΔt² = 0 + ½(3)(4²) = ½(3)(16) = 24 m.",
+      "errorSignals": [
+        "ERR_EQUATION_CHOICE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q12",
+      "skill": "L1.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An object moving at 6 m·s⁻¹ accelerates at 2 m·s⁻² over a distance of 16 m. What is its final velocity?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "v² = u² + 2aΔx = 6² + 2(2)(16) = 36 + 64 = 100, so v = 10 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_EQUATION_CHOICE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q13",
+      "skill": "L1.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A ball is dropped from rest from a height of 20 m. What is its speed when it hits the ground? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 19.8,
+      "tolerance": 0.1,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "v² = u² + 2gΔx = 0 + 2(9.8)(20) = 392, so v = 19.8 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_FREEFALL_G"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q14",
+      "skill": "L1.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A car accelerates uniformly from 10 m·s⁻¹ to 30 m·s⁻¹ over 5 s. What distance does it cover?",
+      "answerMode": "numeric",
+      "expectedAnswer": 100,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "Δx = ½(u + v)Δt = ½(10 + 30)(5) = ½(40)(5) = 100 m.",
+      "errorSignals": [
+        "ERR_EQUATION_CHOICE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q15",
+      "skill": "L1.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An object is thrown straight up at 14.7 m·s⁻¹. Taking up as positive, what is its acceleration during the flight? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": -9.8,
+      "tolerance": 0.05,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "Gravity acts downward throughout, so with up positive a = −9.8 m·s⁻² (even while rising).",
+      "errorSignals": [
+        "ERR_FREEFALL_SIGN"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q16",
+      "skill": "L1.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A ball is thrown straight up at 19.6 m·s⁻¹. How long does it take to reach its highest point? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "s",
+      "marks": 3,
+      "explanation": "At the top v = 0. Using v = u − gt: 0 = 19.6 − 9.8t, so t = 2 s.",
+      "errorSignals": [
+        "ERR_TOP_OF_FLIGHT_V"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q17",
+      "skill": "L1.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A train decelerates from 25 m·s⁻¹ at 2.5 m·s⁻². How far does it travel before stopping?",
+      "answerMode": "numeric",
+      "expectedAnswer": 125,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "v² = u² + 2aΔx ⇒ 0 = 25² + 2(−2.5)Δx ⇒ Δx = 625/5 = 125 m.",
+      "errorSignals": [
+        "ERR_DECELERATION_SIGN"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A2.q18",
+      "skill": "L1.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does a heavy stone and a light stone, dropped together in a vacuum, hit the ground at the same time?",
+      "answerMode": "choice",
+      "expectedAnswer": "Free-fall acceleration g is the same for all masses.",
+      "marks": 2,
+      "explanation": "In free fall (no air resistance) every object accelerates at g regardless of mass, so they land together.",
+      "errorSignals": [
+        "ERR_FREEFALL_MASS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The heavier stone has more force so falls faster.",
+        "The lighter stone has less air resistance.",
+        "Free-fall acceleration g is the same for all masses."
+      ]
+    },
+    {
+      "id": "L1.T1.A2.q19",
+      "skill": "L1.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A ball thrown vertically up takes 3 s to return to its starting height. How long did it take to reach the top?",
+      "answerMode": "choice",
+      "expectedAnswer": "1.5 s",
+      "marks": 2,
+      "explanation": "Up and down are symmetrical, so time up = time down = half the total = 1.5 s.",
+      "errorSignals": [
+        "ERR_FLIGHT_SYMMETRY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1.5 s",
+        "3 s",
+        "6 s"
+      ]
+    },
+    {
+      "id": "L1.T1.A2.q20",
+      "skill": "L1.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A car covers 90 m in 6 s while accelerating uniformly from rest. What is its acceleration?",
+      "answerMode": "numeric",
+      "expectedAnswer": 5,
+      "tolerance": 0.05,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "Δx = ½aΔt² ⇒ 90 = ½a(36) ⇒ a = 180/36 = 5 m·s⁻².",
+      "errorSignals": [
+        "ERR_EQUATION_CHOICE"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

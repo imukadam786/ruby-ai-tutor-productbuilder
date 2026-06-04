@@ -1,0 +1,393 @@
+{
+  "skill": "L3.T1.A1",
+  "skill_title": "Describe transverse pulses and superposition",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L3.T1.A1.q01",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is a pulse?",
+      "answerMode": "choice",
+      "expectedAnswer": "A single disturbance that moves through a medium.",
+      "marks": 2,
+      "explanation": "A pulse is one single disturbance travelling through a medium; many repeated pulses make a wave.",
+      "errorSignals": [
+        "ERR_PULSE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A single disturbance that moves through a medium.",
+        "A continuous series of disturbances.",
+        "The distance between two crests."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q02",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In a transverse pulse, how do the particles of the medium move relative to the pulse's direction of travel?",
+      "answerMode": "choice",
+      "expectedAnswer": "Perpendicular (at right angles) to the direction of travel.",
+      "marks": 2,
+      "explanation": "Transverse means the medium moves at right angles to the direction the pulse travels.",
+      "errorSignals": [
+        "ERR_TRANSVERSE_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Parallel to the direction of travel.",
+        "Perpendicular (at right angles) to the direction of travel.",
+        "In the same direction as the pulse."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q03",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the amplitude of a pulse?",
+      "answerMode": "choice",
+      "expectedAnswer": "The maximum displacement of the medium from its rest position.",
+      "marks": 2,
+      "explanation": "Amplitude is the greatest distance a particle moves from its rest (equilibrium) position.",
+      "errorSignals": [
+        "ERR_AMPLITUDE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The length of the pulse along the medium.",
+        "The time for the pulse to pass a point.",
+        "The maximum displacement of the medium from its rest position."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q04",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is superposition of two pulses?",
+      "answerMode": "choice",
+      "expectedAnswer": "The resultant displacement is the sum of the individual displacements where they overlap.",
+      "marks": 2,
+      "explanation": "By the principle of superposition, overlapping displacements add together.",
+      "errorSignals": [
+        "ERR_SUPERPOSITION_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The resultant displacement is the sum of the individual displacements where they overlap.",
+        "The two pulses bounce off each other.",
+        "The two pulses stop when they meet."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q05",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two pulses on the same side of the rest position meet. What kind of interference is this?",
+      "answerMode": "choice",
+      "expectedAnswer": "Constructive interference (a larger pulse).",
+      "marks": 2,
+      "explanation": "Same-side displacements add to give a bigger resultant — constructive interference.",
+      "errorSignals": [
+        "ERR_INTERFERENCE_TYPE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Destructive interference (they cancel).",
+        "Constructive interference (a larger pulse).",
+        "No interference occurs."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q06",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two equal pulses on opposite sides of the rest position meet exactly. What happens at that instant?",
+      "answerMode": "choice",
+      "expectedAnswer": "They cancel completely (destructive interference).",
+      "marks": 2,
+      "explanation": "Equal and opposite displacements add to zero — full destructive interference at that instant.",
+      "errorSignals": [
+        "ERR_INTERFERENCE_TYPE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They form a pulse twice as big.",
+        "They stop moving permanently.",
+        "They cancel completely (destructive interference)."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q07",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "After two pulses pass through each other, what happens to them?",
+      "answerMode": "choice",
+      "expectedAnswer": "They continue on unchanged, as if they had never met.",
+      "marks": 2,
+      "explanation": "Superposition is temporary; once the pulses separate they carry on with their original shapes.",
+      "errorSignals": [
+        "ERR_PULSES_DESTROYED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They continue on unchanged, as if they had never met.",
+        "They are destroyed.",
+        "They merge into one permanent pulse."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q08",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A pulse on a rope has an amplitude of 3 cm. A second identical pulse on the same side overlaps it exactly. What is the resultant amplitude at that instant?",
+      "answerMode": "numeric",
+      "expectedAnswer": 6,
+      "tolerance": 0.05,
+      "unit": "cm",
+      "marks": 3,
+      "explanation": "Constructive superposition: 3 cm + 3 cm = 6 cm.",
+      "errorSignals": [
+        "ERR_SUPERPOSITION_ADD"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A1.q09",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 4 cm pulse and a 2 cm pulse, both on the same side, overlap exactly. What is the resultant amplitude?",
+      "answerMode": "numeric",
+      "expectedAnswer": 6,
+      "tolerance": 0.05,
+      "unit": "cm",
+      "marks": 3,
+      "explanation": "Same-side displacements add: 4 cm + 2 cm = 6 cm.",
+      "errorSignals": [
+        "ERR_SUPERPOSITION_ADD"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A1.q10",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does the term 'pulse length' refer to?",
+      "answerMode": "choice",
+      "expectedAnswer": "The distance the disturbance occupies along the medium.",
+      "marks": 2,
+      "explanation": "Pulse length is the distance along the medium that the single disturbance occupies.",
+      "errorSignals": [
+        "ERR_PULSE_LENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The distance the disturbance occupies along the medium.",
+        "The height of the pulse.",
+        "The speed of the pulse."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q11",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A +5 cm pulse meets a −5 cm pulse of the same shape, exactly overlapping. What is the resultant displacement at that instant?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0,
+      "tolerance": 0.01,
+      "unit": "cm",
+      "marks": 3,
+      "explanation": "Superposition: (+5) + (−5) = 0 cm — complete destructive interference.",
+      "errorSignals": [
+        "ERR_SUPERPOSITION_ADD"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A1.q12",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A +6 cm pulse overlaps exactly with a −2 cm pulse. What is the resultant displacement?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "cm",
+      "marks": 3,
+      "explanation": "Add the signed displacements: (+6) + (−2) = +4 cm.",
+      "errorSignals": [
+        "ERR_SUPERPOSITION_SIGN"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A1.q13",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is destructive interference described as happening 'at that instant'?",
+      "answerMode": "choice",
+      "expectedAnswer": "Because the pulses pass through each other and reappear afterwards.",
+      "marks": 2,
+      "explanation": "The cancellation is only momentary; the pulses separate again unchanged, so it is instantaneous.",
+      "errorSignals": [
+        "ERR_PULSES_DESTROYED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because the pulses pass through each other and reappear afterwards.",
+        "Because the medium is destroyed.",
+        "Because energy is permanently lost."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q14",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two pulses, +3 cm and +4 cm, approach each other on a rope. What is the maximum resultant displacement when they overlap completely?",
+      "answerMode": "numeric",
+      "expectedAnswer": 7,
+      "tolerance": 0.05,
+      "unit": "cm",
+      "marks": 3,
+      "explanation": "Maximum (full overlap, same side) = 3 + 4 = 7 cm.",
+      "errorSignals": [
+        "ERR_SUPERPOSITION_ADD"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A1.q15",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A transverse pulse moves to the right along a rope. At a given moment a particle of the rope is moving upward. This is because...",
+      "answerMode": "choice",
+      "expectedAnswer": "the particle vibrates perpendicular to the pulse's motion.",
+      "marks": 2,
+      "explanation": "In a transverse pulse particles move perpendicular (up/down) while the pulse itself travels along the rope.",
+      "errorSignals": [
+        "ERR_TRANSVERSE_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the particle travels along with the pulse to the right.",
+        "the rope is being stretched to the right.",
+        "the particle vibrates perpendicular to the pulse's motion."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q16",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two identical pulses travel toward each other. At the instant they fully overlap on opposite sides, the rope appears flat. What is the energy doing at that instant?",
+      "answerMode": "choice",
+      "expectedAnswer": "It is stored as kinetic energy in the moving particles.",
+      "marks": 2,
+      "explanation": "Even when displacement is momentarily zero, the particles are still moving, so the energy is kinetic — it is not lost.",
+      "errorSignals": [
+        "ERR_ENERGY_DESTROYED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It is stored as kinetic energy in the moving particles.",
+        "It has been destroyed.",
+        "It has left the rope as light."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q17",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which statement about the speed of a pulse on a given rope is correct?",
+      "answerMode": "choice",
+      "expectedAnswer": "It depends on the medium (the rope), not on the amplitude.",
+      "marks": 2,
+      "explanation": "Pulse speed is set by the properties of the medium; amplitude does not change the speed.",
+      "errorSignals": [
+        "ERR_PULSE_SPEED_AMPLITUDE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A bigger amplitude pulse always travels faster.",
+        "It depends on the medium (the rope), not on the amplitude.",
+        "The speed depends only on the pulse length."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q18",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A pulse takes 0.4 s to travel 2 m along a spring. What is the speed of the pulse?",
+      "answerMode": "numeric",
+      "expectedAnswer": 5,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "Speed = distance/time = 2/0.4 = 5 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_PULSE_SPEED_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A1.q19",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "When two pulses overlap to give a resultant larger than either original, this region shows...",
+      "answerMode": "choice",
+      "expectedAnswer": "constructive interference.",
+      "marks": 2,
+      "explanation": "A larger resultant from adding same-side displacements is constructive interference.",
+      "errorSignals": [
+        "ERR_INTERFERENCE_TYPE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "constructive interference.",
+        "destructive interference.",
+        "refraction."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q20",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A +8 cm pulse overlaps exactly with a −3 cm pulse. Is the interference mainly constructive or destructive here, and what is the resultant?",
+      "answerMode": "choice",
+      "expectedAnswer": "Partly destructive; resultant +5 cm.",
+      "marks": 2,
+      "explanation": "Opposite-side overlap partly cancels: (+8) + (−3) = +5 cm — partial (destructive) reduction.",
+      "errorSignals": [
+        "ERR_SUPERPOSITION_SIGN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Fully constructive; resultant +11 cm.",
+        "Partly destructive; resultant +5 cm.",
+        "Fully destructive; resultant 0 cm."
+      ]
+    }
+  ]
+}

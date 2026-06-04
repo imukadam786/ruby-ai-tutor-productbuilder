@@ -1,0 +1,411 @@
+{
+  "skill": "L6.T1.A2",
+  "skill_title": "Apply Faraday's Law of electromagnetic induction (qualitative)",
+  "grades": [
+    11
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L6.T1.A2.q01",
+      "skill": "L6.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does Faraday's Law of electromagnetic induction state (in words)?",
+      "answerMode": "choice",
+      "expectedAnswer": "A changing magnetic flux through a coil induces an EMF.",
+      "marks": 2,
+      "explanation": "Faraday: a CHANGE in magnetic flux through a coil induces an EMF.",
+      "errorSignals": [
+        "ERR_FARADAY_LAW"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A changing magnetic flux through a coil induces an EMF.",
+        "A steady magnetic field induces an EMF.",
+        "An electric current always makes a magnet."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q02",
+      "skill": "L6.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is needed to induce an EMF in a coil?",
+      "answerMode": "choice",
+      "expectedAnswer": "A change in the magnetic flux through the coil.",
+      "marks": 2,
+      "explanation": "Induction requires the flux to change; a steady, unchanging flux induces nothing.",
+      "errorSignals": [
+        "ERR_FLUX_CHANGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A constant magnetic field.",
+        "A change in the magnetic flux through the coil.",
+        "A stationary magnet inside it."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q03",
+      "skill": "L6.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Moving a magnet into a coil induces a current. What happens if the magnet is held still inside the coil?",
+      "answerMode": "choice",
+      "expectedAnswer": "No current is induced (no flux change).",
+      "marks": 2,
+      "explanation": "A stationary magnet means no change in flux, so no EMF or current is induced.",
+      "errorSignals": [
+        "ERR_STATIONARY_MAGNET"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A steady current is induced.",
+        "An increasing current is induced.",
+        "No current is induced (no flux change)."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q04",
+      "skill": "L6.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Moving the magnet faster into the coil produces an induced EMF that is...",
+      "answerMode": "choice",
+      "expectedAnswer": "larger.",
+      "marks": 2,
+      "explanation": "A faster change of flux gives a larger induced EMF.",
+      "errorSignals": [
+        "ERR_FLUX_RATE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "larger.",
+        "smaller.",
+        "unchanged."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q05",
+      "skill": "L6.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A coil with more turns will have an induced EMF that is...",
+      "answerMode": "choice",
+      "expectedAnswer": "larger (for the same flux change).",
+      "marks": 2,
+      "explanation": "More turns gives a larger induced EMF for the same rate of flux change.",
+      "errorSignals": [
+        "ERR_TURNS_EMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "smaller.",
+        "larger (for the same flux change).",
+        "zero."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q06",
+      "skill": "L6.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which of these would induce a current in a coil?",
+      "answerMode": "choice",
+      "expectedAnswer": "Moving a magnet towards or away from the coil.",
+      "marks": 2,
+      "explanation": "Relative motion between the magnet and coil changes the flux and induces a current.",
+      "errorSignals": [
+        "ERR_INDUCTION_CAUSE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Holding a magnet still next to it.",
+        "Placing a non-magnetic metal nearby.",
+        "Moving a magnet towards or away from the coil."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q07",
+      "skill": "L6.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A generator works by...",
+      "answerMode": "choice",
+      "expectedAnswer": "rotating a coil in a magnetic field to induce an EMF.",
+      "marks": 2,
+      "explanation": "A generator induces an EMF by changing the flux through a rotating coil (electromagnetic induction).",
+      "errorSignals": [
+        "ERR_GENERATOR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "rotating a coil in a magnetic field to induce an EMF.",
+        "using a battery to make a magnet.",
+        "heating a wire."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q08",
+      "skill": "L6.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Electromagnetic induction converts...",
+      "answerMode": "choice",
+      "expectedAnswer": "mechanical energy (motion) into electrical energy.",
+      "marks": 2,
+      "explanation": "Induction (as in a generator) turns mechanical motion into electrical energy.",
+      "errorSignals": [
+        "ERR_ENERGY_CONVERSION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "electrical energy into chemical energy.",
+        "mechanical energy (motion) into electrical energy.",
+        "light into sound."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q09",
+      "skill": "L6.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A stronger magnet moved through a coil at the same speed induces an EMF that is...",
+      "answerMode": "choice",
+      "expectedAnswer": "larger.",
+      "marks": 2,
+      "explanation": "A stronger field means a greater flux change for the same motion, so a larger EMF.",
+      "errorSignals": [
+        "ERR_FIELD_STRENGTH_EMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "smaller.",
+        "unchanged.",
+        "larger."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q10",
+      "skill": "L6.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Induced EMF depends on the RATE of change of flux. This means EMF is larger when the flux changes...",
+      "answerMode": "choice",
+      "expectedAnswer": "more quickly.",
+      "marks": 2,
+      "explanation": "Faster (quicker) flux change → larger induced EMF.",
+      "errorSignals": [
+        "ERR_FLUX_RATE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "more quickly.",
+        "more slowly.",
+        "not at all."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q11",
+      "skill": "L6.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is no EMF induced when a magnet rests motionless beside a coil?",
+      "answerMode": "choice",
+      "expectedAnswer": "The flux through the coil is not changing.",
+      "marks": 2,
+      "explanation": "Induction needs a CHANGING flux; a motionless magnet produces a steady flux and no EMF.",
+      "errorSignals": [
+        "ERR_STATIONARY_MAGNET"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The magnet has lost its field.",
+        "The flux through the coil is not changing.",
+        "The coil has too few turns."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q12",
+      "skill": "L6.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A bar magnet is moved in and out of a coil repeatedly. The induced current...",
+      "answerMode": "choice",
+      "expectedAnswer": "alternates direction (reverses each time the motion reverses).",
+      "marks": 2,
+      "explanation": "As the flux increases then decreases, the induced current reverses direction — an alternating current.",
+      "errorSignals": [
+        "ERR_INDUCED_CURRENT_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "stays in one direction.",
+        "is always zero.",
+        "alternates direction (reverses each time the motion reverses)."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q13",
+      "skill": "L6.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two identical magnets move into two coils at the same speed; coil X has 100 turns and coil Y has 50 turns. Which has the larger induced EMF?",
+      "answerMode": "choice",
+      "expectedAnswer": "Coil X (more turns).",
+      "marks": 2,
+      "explanation": "EMF increases with the number of turns, so coil X (100 turns) has the larger EMF.",
+      "errorSignals": [
+        "ERR_TURNS_EMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Coil X (more turns).",
+        "Coil Y (fewer turns).",
+        "They are equal."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q14",
+      "skill": "L6.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does spinning a coil faster in a generator produce a higher EMF?",
+      "answerMode": "choice",
+      "expectedAnswer": "The flux through the coil changes more rapidly.",
+      "marks": 2,
+      "explanation": "Faster rotation means the flux changes faster, increasing the induced EMF.",
+      "errorSignals": [
+        "ERR_FLUX_RATE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The coil gains more turns.",
+        "The flux through the coil changes more rapidly.",
+        "The magnet becomes stronger."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q15",
+      "skill": "L6.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which combination would give the LARGEST induced EMF?",
+      "answerMode": "choice",
+      "expectedAnswer": "A strong magnet, many turns and fast motion.",
+      "marks": 2,
+      "explanation": "Induced EMF grows with field strength, number of turns and rate of flux change.",
+      "errorSignals": [
+        "ERR_EMF_FACTORS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A weak magnet, few turns and slow motion.",
+        "A stationary strong magnet.",
+        "A strong magnet, many turns and fast motion."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q16",
+      "skill": "L6.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A transformer relies on electromagnetic induction because...",
+      "answerMode": "choice",
+      "expectedAnswer": "a changing current in one coil produces a changing flux that induces an EMF in the second coil.",
+      "marks": 2,
+      "explanation": "An alternating current in the primary makes a changing flux, inducing an EMF in the secondary — induction.",
+      "errorSignals": [
+        "ERR_TRANSFORMER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "a changing current in one coil produces a changing flux that induces an EMF in the second coil.",
+        "a steady current induces an EMF.",
+        "the coils touch and share charge."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q17",
+      "skill": "L6.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Moving a coil sideways past a magnet's pole induces a current because...",
+      "answerMode": "choice",
+      "expectedAnswer": "the flux through the coil changes as it moves.",
+      "marks": 2,
+      "explanation": "Relative motion changes the flux linking the coil, inducing an EMF and current.",
+      "errorSignals": [
+        "ERR_INDUCTION_CAUSE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the coil gains charge from the magnet.",
+        "the flux through the coil changes as it moves.",
+        "the magnet touches the coil."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q18",
+      "skill": "L6.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What happens to the induced EMF if a magnet is moved into a coil and then withdrawn at the same speed?",
+      "answerMode": "choice",
+      "expectedAnswer": "The EMF reverses direction on withdrawal.",
+      "marks": 2,
+      "explanation": "Inserting increases flux and withdrawing decreases it, so the induced EMF (and current) reverses.",
+      "errorSignals": [
+        "ERR_INDUCED_CURRENT_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The EMF stays in the same direction.",
+        "No EMF is induced on withdrawal.",
+        "The EMF reverses direction on withdrawal."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q19",
+      "skill": "L6.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Electromagnetic induction is the principle behind which device?",
+      "answerMode": "choice",
+      "expectedAnswer": "An electrical generator.",
+      "marks": 2,
+      "explanation": "Generators use electromagnetic induction to produce electricity from motion.",
+      "errorSignals": [
+        "ERR_INDUCTION_APPLICATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "An electrical generator.",
+        "A simple battery (cell).",
+        "A resistor."
+      ]
+    },
+    {
+      "id": "L6.T1.A2.q20",
+      "skill": "L6.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "If a coil is connected to a sensitive meter and a magnet is held perfectly still inside it, the meter reads...",
+      "answerMode": "choice",
+      "expectedAnswer": "zero.",
+      "marks": 2,
+      "explanation": "No flux change means no induced EMF, so the meter reads zero.",
+      "errorSignals": [
+        "ERR_STATIONARY_MAGNET"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "a steady high value.",
+        "zero.",
+        "an increasing value."
+      ]
+    }
+  ]
+}

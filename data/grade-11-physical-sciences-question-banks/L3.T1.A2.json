@@ -1,0 +1,401 @@
+{
+  "skill": "L3.T1.A2",
+  "skill_title": "Apply the critical angle and total internal reflection",
+  "grades": [
+    11
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L3.T1.A2.q01",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the critical angle?",
+      "answerMode": "choice",
+      "expectedAnswer": "The angle of incidence for which the angle of refraction is 90°.",
+      "marks": 2,
+      "explanation": "At the critical angle the refracted ray travels along the surface (refraction angle = 90°).",
+      "errorSignals": [
+        "ERR_CRITICAL_ANGLE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The angle of incidence for which the angle of refraction is 90°.",
+        "The angle at which light passes straight through.",
+        "Any angle greater than 45°."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q02",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is total internal reflection?",
+      "answerMode": "choice",
+      "expectedAnswer": "All the light reflects back inside the denser medium instead of refracting out.",
+      "marks": 2,
+      "explanation": "Beyond the critical angle, light is completely reflected back into the denser medium.",
+      "errorSignals": [
+        "ERR_TIR_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Light splits into colours.",
+        "All the light reflects back inside the denser medium instead of refracting out.",
+        "Light passes straight through the boundary."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q03",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the FIRST condition for total internal reflection?",
+      "answerMode": "choice",
+      "expectedAnswer": "Light travels from a denser to a less dense medium.",
+      "marks": 2,
+      "explanation": "TIR requires light moving from a denser (higher n) to a less dense (lower n) medium.",
+      "errorSignals": [
+        "ERR_TIR_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Light travels from a less dense to a denser medium.",
+        "Light hits the surface along the normal.",
+        "Light travels from a denser to a less dense medium."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q04",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the SECOND condition for total internal reflection?",
+      "answerMode": "choice",
+      "expectedAnswer": "The angle of incidence is greater than the critical angle.",
+      "marks": 2,
+      "explanation": "The angle of incidence must exceed the critical angle for TIR to occur.",
+      "errorSignals": [
+        "ERR_TIR_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The angle of incidence is greater than the critical angle.",
+        "The angle of incidence is less than the critical angle.",
+        "The angle of incidence is exactly zero."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q05",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation gives the critical angle?",
+      "answerMode": "choice",
+      "expectedAnswer": "sinθc = n₂/n₁ (n₂ = less dense medium)",
+      "marks": 2,
+      "explanation": "The critical angle satisfies sinθc = n₂/n₁, with n₂ the less dense medium.",
+      "errorSignals": [
+        "ERR_CRITICAL_ANGLE_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "sinθc = n₁/n₂",
+        "sinθc = n₂/n₁ (n₂ = less dense medium)",
+        "sinθc = n₁ × n₂"
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q06",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Optical fibres carry light signals using which effect?",
+      "answerMode": "choice",
+      "expectedAnswer": "Total internal reflection.",
+      "marks": 2,
+      "explanation": "Optical fibres rely on total internal reflection to keep light bouncing along the fibre.",
+      "errorSignals": [
+        "ERR_TIR_APPLICATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Refraction out of the fibre.",
+        "Absorption of light.",
+        "Total internal reflection."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q07",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "At an angle of incidence exactly equal to the critical angle, the refracted ray...",
+      "answerMode": "choice",
+      "expectedAnswer": "travels along the boundary (refraction angle 90°).",
+      "marks": 2,
+      "explanation": "At θc the refraction angle is 90°, so the ray skims along the surface.",
+      "errorSignals": [
+        "ERR_CRITICAL_ANGLE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "travels along the boundary (refraction angle 90°).",
+        "reflects straight back.",
+        "passes straight through."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q08",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Can total internal reflection occur when light goes from air into glass?",
+      "answerMode": "choice",
+      "expectedAnswer": "No — it must go from the denser medium to the less dense medium.",
+      "marks": 2,
+      "explanation": "TIR needs light moving denser → less dense (glass → air), not air → glass.",
+      "errorSignals": [
+        "ERR_TIR_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — at any angle.",
+        "No — it must go from the denser medium to the less dense medium.",
+        "Yes — only at small angles."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q09",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Below the critical angle (smaller angle of incidence), what happens to the light at the boundary?",
+      "answerMode": "choice",
+      "expectedAnswer": "Most of it refracts out of the medium.",
+      "marks": 2,
+      "explanation": "Below θc the light refracts out (with some partial reflection); TIR only happens above θc.",
+      "errorSignals": [
+        "ERR_TIR_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It is all reflected internally.",
+        "It is absorbed completely.",
+        "Most of it refracts out of the medium."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q10",
+      "skill": "L3.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Total internal reflection only happens at the boundary with a...",
+      "answerMode": "choice",
+      "expectedAnswer": "less dense (optically rarer) medium.",
+      "marks": 2,
+      "explanation": "TIR occurs going into a less dense medium, where the critical angle exists.",
+      "errorSignals": [
+        "ERR_TIR_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "less dense (optically rarer) medium.",
+        "denser (optically denser) medium.",
+        "vacuum only."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q11",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A glass has refractive index 1.5 and is in air (n = 1). Find the critical angle. (sin⁻¹(0.667) = 41.8°)",
+      "answerMode": "numeric",
+      "expectedAnswer": 41.8,
+      "tolerance": 0.5,
+      "unit": "°",
+      "marks": 3,
+      "explanation": "sinθc = n₂/n₁ = 1/1.5 = 0.667 ⇒ θc = 41.8°.",
+      "errorSignals": [
+        "ERR_CRITICAL_ANGLE_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q12",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Water has refractive index 1.33 (air = 1). Find the critical angle. (sin⁻¹(0.752) = 48.8°)",
+      "answerMode": "numeric",
+      "expectedAnswer": 48.8,
+      "tolerance": 0.5,
+      "unit": "°",
+      "marks": 3,
+      "explanation": "sinθc = 1/1.33 = 0.752 ⇒ θc = 48.8°.",
+      "errorSignals": [
+        "ERR_CRITICAL_ANGLE_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q13",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A light ray inside glass (θc = 42°) hits the glass-air surface at 50°. What happens?",
+      "answerMode": "choice",
+      "expectedAnswer": "Total internal reflection (50° > 42°).",
+      "marks": 2,
+      "explanation": "Since 50° exceeds the critical angle of 42°, the ray is totally internally reflected.",
+      "errorSignals": [
+        "ERR_TIR_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Total internal reflection (50° > 42°).",
+        "It refracts out into the air.",
+        "It travels along the surface."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q14",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A light ray inside glass (θc = 42°) hits the glass-air surface at 30°. What happens?",
+      "answerMode": "choice",
+      "expectedAnswer": "It refracts out into the air (30° < 42°).",
+      "marks": 2,
+      "explanation": "Below the critical angle (30° < 42°), the ray refracts out of the glass.",
+      "errorSignals": [
+        "ERR_TIR_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Total internal reflection.",
+        "It refracts out into the air (30° < 42°).",
+        "It is absorbed."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q15",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A denser medium has a SMALLER critical angle than a less dense one. Why is this useful in optical fibres?",
+      "answerMode": "choice",
+      "expectedAnswer": "A small critical angle means more rays undergo total internal reflection, trapping the light.",
+      "marks": 2,
+      "explanation": "A smaller θc means a wider range of angles cause TIR, keeping the signal inside the fibre.",
+      "errorSignals": [
+        "ERR_TIR_APPLICATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A small critical angle lets light escape easily.",
+        "It has no effect on the fibre.",
+        "A small critical angle means more rays undergo total internal reflection, trapping the light."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q16",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Diamond has a very high refractive index (2.42) and so a small critical angle (~24°). How does this affect its sparkle?",
+      "answerMode": "choice",
+      "expectedAnswer": "Light is internally reflected many times before leaving, increasing the sparkle.",
+      "marks": 2,
+      "explanation": "A small critical angle causes lots of total internal reflection, so light bounces around and exits brightly.",
+      "errorSignals": [
+        "ERR_TIR_APPLICATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Light is internally reflected many times before leaving, increasing the sparkle.",
+        "Light passes straight through without reflecting.",
+        "Diamond absorbs most light."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q17",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A medium has critical angle 30° with air. What is its refractive index? (sin30° = 0.5)",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "marks": 3,
+      "explanation": "sinθc = 1/n ⇒ n = 1/sin30° = 1/0.5 = 2.",
+      "errorSignals": [
+        "ERR_CRITICAL_ANGLE_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A2.q18",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does total internal reflection NOT occur when light goes from air into water?",
+      "answerMode": "choice",
+      "expectedAnswer": "There is no critical angle going from a less dense to a denser medium.",
+      "marks": 2,
+      "explanation": "TIR requires denser → less dense; going less dense → denser, the ray always refracts in, so no TIR.",
+      "errorSignals": [
+        "ERR_TIR_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The critical angle is too large.",
+        "Water absorbs all the light.",
+        "There is no critical angle going from a less dense to a denser medium."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q19",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An optical fibre's core must have a refractive index that is... compared with its cladding.",
+      "answerMode": "choice",
+      "expectedAnswer": "higher than the cladding's index.",
+      "marks": 2,
+      "explanation": "The core must be denser (higher n) so light travelling in it can totally internally reflect at the cladding.",
+      "errorSignals": [
+        "ERR_TIR_APPLICATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "higher than the cladding's index.",
+        "lower than the cladding's index.",
+        "equal to the cladding's index."
+      ]
+    },
+    {
+      "id": "L3.T1.A2.q20",
+      "skill": "L3.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "At an angle of incidence just below the critical angle, the refracted ray is...",
+      "answerMode": "choice",
+      "expectedAnswer": "very close to 90° (nearly along the surface).",
+      "marks": 2,
+      "explanation": "As the incidence angle approaches θc from below, the refraction angle approaches 90°.",
+      "errorSignals": [
+        "ERR_CRITICAL_ANGLE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "very close to 0° (along the normal).",
+        "very close to 90° (nearly along the surface).",
+        "reflected back inside."
+      ]
+    }
+  ]
+}
