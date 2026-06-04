@@ -1,3 +1,4 @@
+import { withRubies } from "@/lib/with-rubies";
 import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL, OPENAI_SMART_MODEL } from "@/lib/anthropic";
 import { checkLanguage, localiseFeedback } from "@/lib/language-utils";
@@ -19,7 +20,7 @@ const VALID_ERROR_TYPES: ErrorType[] = [
   "execution_slip",
 ];
 
-export async function POST(req: NextRequest) {
+async function handler(req: NextRequest) {
   try {
     const submission: AnswerSubmission = await req.json();
 
@@ -208,3 +209,5 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
+export const POST = withRubies("maths", handler);

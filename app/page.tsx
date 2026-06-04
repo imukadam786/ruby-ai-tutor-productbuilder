@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 // ── Always-needed (static imports) ──────────────────────────────────────────
 import Sidebar from "@/components/Sidebar";
 import UsageMeter from "@/components/UsageMeter";
+import RubyBalance from "@/components/RubyBalance";
 import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import HomeworkTutorial   from "@/components/tutorial/HomeworkTutorial";
@@ -443,6 +444,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           </svg>
         </button>
         <span className="flex-1 min-w-0 truncate font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
+        <RubyBalance theme="light" />
         <UsageMeter variant="compact" theme="light" />
         {["chat", "ruby", "reading", "discover-maths", "discover-reading", "discover", "subjects"].includes(activeView) ? (
           <button

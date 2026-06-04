@@ -1,3 +1,4 @@
+import { withRubies } from "@/lib/with-rubies";
 import { NextRequest, NextResponse } from "next/server";
 import { getMathsLiteracySkillById } from "@/lib/maths-literacy-student-model";
 import type {
@@ -96,7 +97,7 @@ function formatExpectedForFeedback(key: AnswerKey): string {
     .join("; ");
 }
 
-export async function POST(req: NextRequest) {
+async function handler(req: NextRequest) {
   try {
     const submission: MathsLiteracySubmitRequest = await req.json();
 
@@ -203,3 +204,5 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Failed to process answer" }, { status: 500 });
   }
 }
+
+export const POST = withRubies("maths-literacy", handler);

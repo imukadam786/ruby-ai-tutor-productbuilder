@@ -448,6 +448,23 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
         result.next_action = "advance_skill";
         setCurrentResult(result);
         document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "maths" } }));
+        // Rubies: first-time mastery bonus (idempotent server-side, once per skill).
+        void apiFetch("/api/rewards/skill-mastered", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            subject: "maths",
+            skillId: currentQuestion.skill_id,
+            profileId: profile.id,
+          }),
+        })
+          .then((r) => r.json())
+          .then((b) => {
+            if (b?.rubies?.awarded > 0) {
+              document.dispatchEvent(new CustomEvent("ruby-earned", { detail: b.rubies }));
+            }
+          })
+          .catch(() => { /* non-blocking */ });
         setPhase("mastered");
       } else {
         setCurrentResult(result);
@@ -727,8 +744,12 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
   const sessionCorrectRef = useRef(0);
   sessionAttemptsRef.current = sessionAttempts;
   sessionCorrectRef.current = sessionCorrect;
+  // Stable id for this learning session — the "lesson" the effort floor pays out
+  // for. Generated once so a strict-mode double-unmount stays idempotent.
+  const lessonIdRef = useRef<string>("");
+  if (!lessonIdRef.current) lessonIdRef.current = crypto.randomUUID();
 
-  // On unmount — emit session_ended analytics
+  // On unmount — emit session_ended analytics + the rubies effort floor
   useEffect(() => {
     return () => {
       const p = profileRef.current;
@@ -742,6 +763,13 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
           correct,
           accuracy: Math.round((correct / attempts) * 100),
         });
+        // Rubies: finished a lesson (even with wrong answers) → effort floor.
+        // Fire-and-forget; once per lesson per day server-side.
+        void apiFetch("/api/rewards/effort-floor", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ subject: "maths", lessonId: lessonIdRef.current }),
+        }).catch(() => { /* non-blocking */ });
       }
     };
   }, []);

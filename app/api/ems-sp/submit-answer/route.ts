@@ -1,3 +1,4 @@
+import { withRubies } from "@/lib/with-rubies";
 import { NextRequest, NextResponse } from "next/server";
 import { requireApiSecret } from "@/lib/api-auth";
 import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
@@ -19,7 +20,7 @@ const PRAISE = [
 
 const pick = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
 
-export async function POST(req: NextRequest) {
+async function handler(req: NextRequest) {
   const authError = requireApiSecret(req);
   if (authError) return authError;
 
@@ -88,3 +89,5 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
+export const POST = withRubies("ems-sp", handler);

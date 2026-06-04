@@ -1,3 +1,4 @@
+import { withRubies } from "@/lib/with-rubies";
 import { NextRequest, NextResponse } from "next/server";
 import { getOpenAI, OPENAI_MODEL } from "@/lib/anthropic";
 import { checkLanguage, localiseFeedback } from "@/lib/language-utils";
@@ -106,7 +107,7 @@ function sanitiseErrorType(raw: string, fallback: ReadingErrorType): ReadingErro
     : fallback;
 }
 
-export async function POST(req: NextRequest) {
+async function handler(req: NextRequest) {
   try {
     const submission: ReadingAnswerSubmission = await req.json();
 
@@ -491,3 +492,5 @@ Respond in this exact JSON format (no markdown, raw JSON only):
     return NextResponse.json({ error: "Failed to process answer" }, { status: 500 });
   }
 }
+
+export const POST = withRubies("reading", handler);

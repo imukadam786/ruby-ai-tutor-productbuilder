@@ -4,6 +4,7 @@ import React from "react";
 import { ActiveView } from "@/types";
 import { useT } from "@/lib/i18n";
 import UsageMeter from "@/components/UsageMeter";
+import RubyBalance from "@/components/RubyBalance";
 
 interface SidebarProps {
   activeView: ActiveView;
@@ -180,6 +181,9 @@ export default function Sidebar({
 
         {/* Footer */}
         <div className={`pb-5 flex-shrink-0 space-y-1 ${collapsed ? "px-1" : "px-4"}`}>
+          <div className={`pb-2 ${collapsed ? "flex justify-center" : "px-1 flex items-center gap-2"}`}>
+            <RubyBalance theme="dark" />
+          </div>
           {!collapsed && (
             <div className="px-1 pb-2">
               <p className="text-[10px] uppercase tracking-wider text-white/60 font-semibold mb-1.5">Today&apos;s usage</p>

@@ -66,6 +66,24 @@ export async function apiFetch(
         : (input as Request).url;
     if (url.includes("/submit-answer")) {
       document.dispatchEvent(new CustomEvent("ruby-usage-changed"));
+
+      // Rubies (Phase 1): the answer routes return a `rubies` award when a
+      // logged-in learner earns. Surface it so the balance counter can bump and
+      // a "+N" toast can fire — read a clone so the caller still gets the body.
+      res
+        .clone()
+        .json()
+        .then((body) => {
+          const award = body?.rubies;
+          if (award && award.awarded > 0) {
+            document.dispatchEvent(
+              new CustomEvent("ruby-earned", { detail: award }),
+            );
+          }
+        })
+        .catch(() => {
+          /* non-JSON body — nothing to surface */
+        });
     }
   }
 
