@@ -51,12 +51,22 @@ import {
   loadNaturalSciencesSpProfile,
   hydrateNaturalSciencesSpProfileFromSupabase,
 } from "@/lib/natural-sciences-sp-student-model";
+import {
+  loadSocialSciencesSpProfile,
+  hydrateSocialSciencesSpProfileFromSupabase,
+} from "@/lib/social-sciences-sp-student-model";
+import {
+  loadEmsSpProfile,
+  hydrateEmsSpProfileFromSupabase,
+} from "@/lib/ems-sp-student-model";
 import type { BusinessStudiesStudentProfile } from "@/types/business-studies";
 import type { LifeSciencesStudentProfile } from "@/types/life-sciences";
 import type { HistoryStudentProfile } from "@/types/history";
 import type { TourismStudentProfile } from "@/types/tourism";
 import type { GeographyStudentProfile } from "@/types/geography";
 import type { NaturalSciencesSpStudentProfile } from "@/types/natural-sciences-sp";
+import type { SocialSciencesSpStudentProfile } from "@/types/social-sciences-sp";
+import type { EmsSpStudentProfile } from "@/types/ems-sp";
 
 const SkillTreeView           = dynamic(() => import("@/components/ruby/SkillTreeView"),                       { ssr: false });
 const ReadingSkillTreeView    = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),             { ssr: false });
@@ -72,6 +82,8 @@ const BusinessStudiesSkillTreeView = dynamic(() => import("@/components/business
 const TourismSkillTreeView         = dynamic(() => import("@/components/tourism/TourismSkillTreeView"),                 { ssr: false });
 const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),             { ssr: false });
 const NaturalSciencesSpSkillTreeView = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSkillTreeView"), { ssr: false });
+const SocialSciencesSpSkillTreeView = dynamic(() => import("@/components/social-sciences-sp/SocialSciencesSpSkillTreeView"), { ssr: false });
+const EmsSpSkillTreeView = dynamic(() => import("@/components/ems-sp/EmsSpSkillTreeView"), { ssr: false });
 
 type SubjectId =
   | "discover"
@@ -88,7 +100,9 @@ type SubjectId =
   | "business-studies"
   | "tourism"
   | "geography"
-  | "natural-sciences-sp";
+  | "natural-sciences-sp"
+  | "social-sciences-sp"
+  | "ems-sp";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -170,6 +184,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [tourismProfile, setTourismProfile] = useState<TourismStudentProfile | null>(() => loadTourismProfile());
   const [geographyProfile, setGeographyProfile] = useState<GeographyStudentProfile | null>(() => loadGeographyProfile());
   const [naturalSciencesSpProfile, setNaturalSciencesSpProfile] = useState<NaturalSciencesSpStudentProfile | null>(() => loadNaturalSciencesSpProfile());
+  const [socialSciencesSpProfile, setSocialSciencesSpProfile] = useState<SocialSciencesSpStudentProfile | null>(() => loadSocialSciencesSpProfile());
+  const [emsSpProfile, setEmsSpProfile] = useState<EmsSpStudentProfile | null>(() => loadEmsSpProfile());
   const [grade, setGrade] = useState<number | null>(() => readCachedGrade());
   const [loading, setLoading] = useState(true);
 
@@ -198,13 +214,15 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [bs, ls, hi, to, ge, ns] = await Promise.all([
+      const [bs, ls, hi, to, ge, ns, ss, em] = await Promise.all([
         hydrateBusinessStudiesProfileFromSupabase(),
         hydrateLifeSciencesProfileFromSupabase(),
         hydrateHistoryProfileFromSupabase(),
         hydrateTourismProfileFromSupabase(),
         hydrateGeographyProfileFromSupabase(),
         hydrateNaturalSciencesSpProfileFromSupabase(),
+        hydrateSocialSciencesSpProfileFromSupabase(),
+        hydrateEmsSpProfileFromSupabase(),
       ]);
       if (cancelled) return;
       if (bs) setBusinessStudiesProfile(bs);
@@ -213,6 +231,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       if (to) setTourismProfile(to);
       if (ge) setGeographyProfile(ge);
       if (ns) setNaturalSciencesSpProfile(ns);
+      if (ss) setSocialSciencesSpProfile(ss);
+      if (em) setEmsSpProfile(em);
     })();
     return () => {
       cancelled = true;
@@ -248,6 +268,10 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const showGeography = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // Natural Sciences is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
   const showNaturalSciencesSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
+  // Social Sciences (History + Geography) is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
+  const showSocialSciencesSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
+  // EMS (Economic & Management Sciences) is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
+  const showEmsSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
 
   const mathsLiteracyMastered = mathsLiteracyProfile
     ? Object.values(mathsLiteracyProfile.skill_mastery ?? {}).filter(
@@ -485,6 +509,32 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "natural-sciences-sp",
       });
     }
+    if (showSocialSciencesSp) {
+      all.push({
+        id: "social-sciences-sp",
+        thumbnail: "/thumbnails/social-sciences-sp.webp",
+        label: "Social Sciences",
+        caption: "History & Geography · Grades 7–9",
+        badge: "Senior Phase",
+        badgeColor: "bg-orange-100 text-orange-700",
+        accentFrom: "from-orange-500",
+        accentTo: "to-amber-600",
+        navigateTo: "social-sciences-sp",
+      });
+    }
+    if (showEmsSp) {
+      all.push({
+        id: "ems-sp",
+        thumbnail: "/thumbnails/ems-sp.webp",
+        label: "Economic & Management Sciences",
+        caption: "The economy, money & business · Grades 7–9",
+        badge: "Senior Phase",
+        badgeColor: "bg-violet-100 text-violet-700",
+        accentFrom: "from-violet-500",
+        accentTo: "to-fuchsia-600",
+        navigateTo: "ems-sp",
+      });
+    }
     // "Discover" is the placement entry point, not a curriculum subject, so it
     // stays pinned at the top. Every real subject is then ordered alphabetically
     // by label — the same order for every grade.
@@ -505,6 +555,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     showTourism,
     showGeography,
     showNaturalSciencesSp,
+    showSocialSciencesSp,
+    showEmsSp,
   ]);
 
   // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
@@ -665,6 +717,22 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           <NaturalSciencesSpSkillTreeView
             onPickSkill={startContentSkill("natural-sciences-sp", "ruby_natural_sciences_sp_target_skill")}
             profile={naturalSciencesSpProfile}
+            compact
+          />
+        );
+      case "social-sciences-sp":
+        return (
+          <SocialSciencesSpSkillTreeView
+            onPickSkill={startContentSkill("social-sciences-sp", "ruby_social_sciences_sp_target_skill")}
+            profile={socialSciencesSpProfile}
+            compact
+          />
+        );
+      case "ems-sp":
+        return (
+          <EmsSpSkillTreeView
+            onPickSkill={startContentSkill("ems-sp", "ruby_ems_sp_target_skill")}
+            profile={emsSpProfile}
             compact
           />
         );

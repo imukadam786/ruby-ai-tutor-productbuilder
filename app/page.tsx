@@ -50,6 +50,10 @@ const GeographySession             = dynamic(() => import("@/components/geograph
 const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),                { ssr: false });
 const NaturalSciencesSpSession     = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSession"),     { ssr: false });
 const NaturalSciencesSpSkillTreeView = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSkillTreeView"), { ssr: false });
+const SocialSciencesSpSession      = dynamic(() => import("@/components/social-sciences-sp/SocialSciencesSpSession"),      { ssr: false });
+const SocialSciencesSpSkillTreeView = dynamic(() => import("@/components/social-sciences-sp/SocialSciencesSpSkillTreeView"), { ssr: false });
+const EmsSpSession                 = dynamic(() => import("@/components/ems-sp/EmsSpSession"),                            { ssr: false });
+const EmsSpSkillTreeView           = dynamic(() => import("@/components/ems-sp/EmsSpSkillTreeView"),                      { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -122,6 +126,7 @@ const SESSION_VIEWS: ActiveView[] = [
   "life-skills", "social-sciences", "natural-sciences-tech", "matric-phys-sci",
   "afrikaans-fal", "maths-literacy", "life-sciences", "history",
   "business-studies", "tourism", "geography", "natural-sciences-sp",
+  "social-sciences-sp", "ems-sp",
 ];
 
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
@@ -191,6 +196,10 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "geography-skill-tree": "Geography · Topics",
     "natural-sciences-sp": "Natural Sciences",
     "natural-sciences-sp-skill-tree": "Natural Sciences · Topics",
+    "social-sciences-sp": "Social Sciences",
+    "social-sciences-sp-skill-tree": "Social Sciences · Topics",
+    "ems-sp": "Economic & Management Sciences",
+    "ems-sp-skill-tree": "Economic & Management Sciences · Topics",
   };
 
   const refreshStats = useCallback(() => {
@@ -512,6 +521,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           onTourismPickSkill={() => handleViewChange("tourism")}
           onGeographyPickSkill={() => handleViewChange("geography")}
           onNaturalSciencesSpPickSkill={() => handleViewChange("natural-sciences-sp")}
+          onSocialSciencesSpPickSkill={() => handleViewChange("social-sciences-sp")}
+          onEmsSpPickSkill={() => handleViewChange("ems-sp")}
         />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
@@ -552,6 +563,12 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {/* Natural Sciences — Senior Phase (Gr 7–9), free like Geography */}
         {activeView === "natural-sciences-sp" && <ErrorBoundary><NaturalSciencesSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "natural-sciences-sp-skill-tree" && <NaturalSciencesSpSkillTreeView onPickSkill={() => handleViewChange("natural-sciences-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Social Sciences — Senior Phase (Gr 7–9), free like Natural Sciences */}
+        {activeView === "social-sciences-sp" && <ErrorBoundary><SocialSciencesSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "social-sciences-sp-skill-tree" && <SocialSciencesSpSkillTreeView onPickSkill={() => handleViewChange("social-sciences-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* EMS — Senior Phase (Gr 7–9), free like Social Sciences */}
+        {activeView === "ems-sp" && <ErrorBoundary><EmsSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "ems-sp-skill-tree" && <EmsSpSkillTreeView onPickSkill={() => handleViewChange("ems-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} onNavigate={handleViewChange} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}

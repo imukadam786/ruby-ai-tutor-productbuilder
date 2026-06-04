@@ -1,0 +1,3519 @@
+{
+  "version": "1.0",
+  "subject": "ems-sp",
+  "description": "Economic & Management Sciences Senior Phase (Grades 7–9). CAPS-aligned. One subject, three strands (The Economy, Financial Literacy, Entrepreneurship). All skills open once the grade is selected (gate NONE). Procedural accounting 'recording' skills are flagged deferred_recording until a later authoring pass.",
+  "grades_covered": [
+    7,
+    8,
+    9
+  ],
+  "levels": [
+    {
+      "id": 7,
+      "grade": 7,
+      "title": "Grade 7 — Economic & Management Sciences",
+      "description": "Grade 7 EMS (CAPS Senior Phase). Three strands — The Economy, Financial Literacy and Entrepreneurship — taught across the year.",
+      "tiers": [
+        {
+          "id": "L7.E1",
+          "title": "The Economy · Term 1: History of money",
+          "description": "CAPS G7 T1 — The Economy. History of money.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.E1.A1",
+              "bank_skill_id": "EMS.G7.E1.A1",
+              "title": "Barter and early money",
+              "description": "How traditional societies traded by barter, and early forms of money like promissory notes.",
+              "caps_term": "G7 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "History of money",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Barter and early money\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Barter = swapping goods directly, with no money in between.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.E1.A2",
+              "bank_skill_id": "EMS.G7.E1.A2",
+              "title": "Coins and paper money",
+              "description": "The move from barter to coins and paper money, and why money made trade easier.",
+              "caps_term": "G7 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "History of money",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Coins and paper money\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Money solved barter's problem: you no longer need a perfect match to trade.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.E1.A3",
+              "bank_skill_id": "EMS.G7.E1.A3",
+              "title": "Electronic banking and the role of money",
+              "description": "Electronic banking today, and the roles money plays (medium of exchange, store of value, measure of value).",
+              "caps_term": "G7 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "History of money",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Electronic banking and the role of money\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Money does three jobs: it pays, it stores wealth, and it prices things.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.E2",
+          "title": "The Economy · Term 1: Needs and wants",
+          "description": "CAPS G7 T1 — The Economy. Needs and wants.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.E2.A1",
+              "bank_skill_id": "EMS.G7.E2.A1",
+              "title": "Needs of individuals to countries",
+              "description": "The basic needs of individuals, families, communities and whole countries.",
+              "caps_term": "G7 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Needs and wants",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Needs of individuals to countries\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A need is something you must have to live; bigger groups have bigger needs.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.E2.A2",
+              "bank_skill_id": "EMS.G7.E2.A2",
+              "title": "Primary and secondary needs",
+              "description": "Telling primary needs (food, water, shelter) from secondary needs that make life better.",
+              "caps_term": "G7 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Needs and wants",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Primary and secondary needs\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Primary = survival; secondary = comfort and quality of life.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.E2.A3",
+              "bank_skill_id": "EMS.G7.E2.A3",
+              "title": "Unlimited wants, limited resources",
+              "description": "Why wants are unlimited but the resources to satisfy them are limited, and what that means for choices.",
+              "caps_term": "G7 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Needs and wants",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Unlimited wants, limited resources\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "We can't have everything — limited resources force us to choose.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.E3",
+          "title": "The Economy · Term 1: Goods and services",
+          "description": "CAPS G7 T1 — The Economy. Goods and services.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.E3.A1",
+              "bank_skill_id": "EMS.G7.E3.A1",
+              "title": "Goods versus services",
+              "description": "The difference between goods and services, with everyday examples of each.",
+              "caps_term": "G7 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Goods and services",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Goods versus services\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A good is a thing you can touch; a service is a job done for you.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.E3.A2",
+              "bank_skill_id": "EMS.G7.E3.A2",
+              "title": "Producers and consumers",
+              "description": "Producers and consumers, and how households act as both.",
+              "caps_term": "G7 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Goods and services",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Producers and consumers\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Households earn by producing and spend by consuming.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.E3.A3",
+              "bank_skill_id": "EMS.G7.E3.A3",
+              "title": "Using goods and services wisely",
+              "description": "Using goods and services efficiently and effectively, and recycling and reusing to satisfy needs and wants.",
+              "caps_term": "G7 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Goods and services",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Using goods and services wisely\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Efficient use and recycling make limited resources go further.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.E4",
+          "title": "The Economy · Term 3: Inequality and poverty",
+          "description": "CAPS G7 T3 — The Economy. Inequality and poverty.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.E4.A1",
+              "bank_skill_id": "EMS.G7.E4.A1",
+              "title": "Causes of socio-economic imbalances",
+              "description": "The causes of socio-economic imbalances and inequality in South Africa.",
+              "caps_term": "G7 T3",
+              "caps_strand": "The Economy",
+              "caps_topic": "Inequality and poverty",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Causes of socio-economic imbalances\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Inequality has roots in history, unequal access and unemployment.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.E4.A2",
+              "bank_skill_id": "EMS.G7.E4.A2",
+              "title": "Urban and rural challenges",
+              "description": "The different challenges faced in urban and in rural areas.",
+              "caps_term": "G7 T3",
+              "caps_strand": "The Economy",
+              "caps_topic": "Inequality and poverty",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Urban and rural challenges\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Cities and rural areas face different versions of poverty and inequality.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.E4.A3",
+              "bank_skill_id": "EMS.G7.E4.A3",
+              "title": "Fighting inequality with education and jobs",
+              "description": "How education, skills and sustainable job creation help fight inequality and injustice.",
+              "caps_term": "G7 T3",
+              "caps_strand": "The Economy",
+              "caps_topic": "Inequality and poverty",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Fighting inequality with education and jobs\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Skills and jobs are the long-term tools against inequality.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.E5",
+          "title": "The Economy · Term 4: The production process",
+          "description": "CAPS G7 T4 — The Economy. The production process.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.E5.A1",
+              "bank_skill_id": "EMS.G7.E5.A1",
+              "title": "Inputs and outputs",
+              "description": "The meaning of production, and the inputs that are turned into outputs.",
+              "caps_term": "G7 T4",
+              "caps_strand": "The Economy",
+              "caps_topic": "The production process",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Inputs and outputs\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Production turns inputs (materials, labour) into outputs (goods/services).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.E5.A2",
+              "bank_skill_id": "EMS.G7.E5.A2",
+              "title": "Economic growth and productivity",
+              "description": "The meaning of economic growth and productivity, and how productivity affects growth.",
+              "caps_term": "G7 T4",
+              "caps_strand": "The Economy",
+              "caps_topic": "The production process",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Economic growth and productivity\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Productivity = getting more output from the same inputs; it drives growth.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.E5.A3",
+              "bank_skill_id": "EMS.G7.E5.A3",
+              "title": "Technology and sustainable resources",
+              "description": "How technology improves productivity, and the sustainable use of resources in production.",
+              "caps_term": "G7 T4",
+              "caps_strand": "The Economy",
+              "caps_topic": "The production process",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Technology and sustainable resources\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Technology lifts output; sustainability keeps resources for the future.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.F1",
+          "title": "Financial Literacy · Term 2: Accounting concepts",
+          "description": "CAPS G7 T2 — Financial Literacy. Accounting concepts.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.F1.A1",
+              "bank_skill_id": "EMS.G7.F1.A1",
+              "title": "Capital, assets and liabilities",
+              "description": "The meaning of capital, assets and liabilities in everyday financial terms.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Accounting concepts",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Capital, assets and liabilities\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Assets = what you own; liabilities = what you owe; capital = the owner's stake.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.F1.A2",
+              "bank_skill_id": "EMS.G7.F1.A2",
+              "title": "Income, expenses, profit and loss",
+              "description": "Income and expenses, and how they produce a profit or a loss.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Accounting concepts",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Income, expenses, profit and loss\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Profit = income minus expenses; a loss is when expenses win.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.F1.A3",
+              "bank_skill_id": "EMS.G7.F1.A3",
+              "title": "Budgets, savings, banking and records",
+              "description": "Budgets, savings, banking, transactions and keeping financial records.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Accounting concepts",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Budgets, savings, banking and records\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Records track money in and out; a budget plans it ahead.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.F2",
+          "title": "Financial Literacy · Term 2: Income and expenses",
+          "description": "CAPS G7 T2 — Financial Literacy. Income and expenses.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.F2.A1",
+              "bank_skill_id": "EMS.G7.F2.A1",
+              "title": "Personal income",
+              "description": "Personal income and the different types of income a person can earn.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Income and expenses",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Personal income\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Income is money coming in — wages, salary, pocket money, interest.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.F2.A2",
+              "bank_skill_id": "EMS.G7.F2.A2",
+              "title": "Personal expenses and net worth",
+              "description": "Personal expenses and drawing up a personal statement of net worth.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Income and expenses",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Personal expenses and net worth\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Net worth = what you own minus what you owe.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.F2.A3",
+              "bank_skill_id": "EMS.G7.F2.A3",
+              "title": "Business income and expenses",
+              "description": "Types of income businesses receive and expenses they have, and savings and investment in a business.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Income and expenses",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Business income and expenses\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Businesses have their own income and expenses, just on a bigger scale.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.F3",
+          "title": "Financial Literacy · Term 2: Budgets",
+          "description": "CAPS G7 T2 — Financial Literacy. Budgets.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.F3.A1",
+              "bank_skill_id": "EMS.G7.F3.A1",
+              "title": "Personal budget",
+              "description": "What a budget is, and drawing up a simple personal budget of income and expenditure.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Budgets",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Personal budget\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A budget makes sure spending does not beat income.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.F3.A2",
+              "bank_skill_id": "EMS.G7.F3.A2",
+              "title": "Business budget",
+              "description": "The purpose of a business budget and how it differs from a personal one.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Budgets",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Business budget\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A business budget plans the firm's income and spending.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.F4",
+          "title": "Financial Literacy · Term 4: Savings",
+          "description": "CAPS G7 T4 — Financial Literacy. Savings.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.F4.A1",
+              "bank_skill_id": "EMS.G7.F4.A1",
+              "title": "Personal savings and its purpose",
+              "description": "Personal savings and why saving matters for the future.",
+              "caps_term": "G7 T4",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Savings",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Personal savings and its purpose\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Saving = spending less than you earn and keeping the rest.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.F4.A2",
+              "bank_skill_id": "EMS.G7.F4.A2",
+              "title": "Banks and their services",
+              "description": "The history and role of banks and the services they offer.",
+              "caps_term": "G7 T4",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Savings",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Banks and their services\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Banks keep money safe, lend it out, and help with payments.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.F4.A3",
+              "bank_skill_id": "EMS.G7.F4.A3",
+              "title": "Opening accounts and savings schemes",
+              "description": "Opening a savings account, community savings schemes (e.g. stokvels) and financial institutions.",
+              "caps_term": "G7 T4",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Savings",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Opening accounts and savings schemes\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "From bank accounts to stokvels — many ways to save together.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.B1",
+          "title": "Entrepreneurship · Term 1: Businesses",
+          "description": "CAPS G7 T1 — Entrepreneurship. Businesses.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.B1.A1",
+              "bank_skill_id": "EMS.G7.B1.A1",
+              "title": "Formal and informal businesses",
+              "description": "The difference between formal and informal businesses, with their advantages and disadvantages.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Businesses",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Formal and informal businesses\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Formal = registered and taxed; informal = small and unregistered.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.B1.A2",
+              "bank_skill_id": "EMS.G7.B1.A2",
+              "title": "Types of businesses",
+              "description": "Trading, manufacturing and service businesses, both formal and informal.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Businesses",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Types of businesses\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Trading sells goods, manufacturing makes them, service does jobs.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.B1.A3",
+              "bank_skill_id": "EMS.G7.B1.A3",
+              "title": "Businesses, disasters and epidemics",
+              "description": "The role of businesses as producers and consumers, and how natural disasters and health epidemics affect them.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Businesses",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Businesses, disasters and epidemics\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Businesses both make and buy — and shocks hit both sides.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.B2",
+          "title": "Entrepreneurship · Term 3: The entrepreneur",
+          "description": "CAPS G7 T3 — Entrepreneurship. The entrepreneur.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.B2.A1",
+              "bank_skill_id": "EMS.G7.B2.A1",
+              "title": "Who is an entrepreneur?",
+              "description": "The definition and characteristics of an entrepreneur.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "The entrepreneur",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Who is an entrepreneur?\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "An entrepreneur spots a need and takes a risk to meet it for profit.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.B2.A2",
+              "bank_skill_id": "EMS.G7.B2.A2",
+              "title": "Entrepreneurial skills and actions",
+              "description": "The skills of an entrepreneur and the actions of buying, selling, producing and making a profit.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "The entrepreneur",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Entrepreneurial skills and actions\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Entrepreneurs buy, make and sell — aiming to end with more than they started.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.B3",
+          "title": "Entrepreneurship · Term 3: Starting a business",
+          "description": "CAPS G7 T3 — Entrepreneurship. Starting a business.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.B3.A1",
+              "bank_skill_id": "EMS.G7.B3.A1",
+              "title": "SWOT and setting goals",
+              "description": "Analysing strengths, weaknesses, opportunities and threats (SWOT), and setting and achieving goals.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Starting a business",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"SWOT and setting goals\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "SWOT: two inside (strengths/weaknesses), two outside (opportunities/threats).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.B3.A2",
+              "bank_skill_id": "EMS.G7.B3.A2",
+              "title": "Advertising",
+              "description": "The concept of advertising, the media used, and the principles of good advertising.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Starting a business",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Advertising\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Advertising tells the right people, in the right place, why to buy.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.B3.A3",
+              "bank_skill_id": "EMS.G7.B3.A3",
+              "title": "Simple cost calculation",
+              "description": "Working out variable cost, fixed cost and a selling price for a simple product.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Starting a business",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Simple cost calculation\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Fixed cost stays the same; variable cost grows with how much you make.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.B4",
+          "title": "Entrepreneurship · Term 3: Entrepreneur's Day",
+          "description": "CAPS G7 T3 — Entrepreneurship. Entrepreneur's Day.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G7.B4.A1",
+              "bank_skill_id": "EMS.G7.B4.A1",
+              "title": "Hosting Entrepreneur's Day",
+              "description": "Planning and hosting an Entrepreneur's Day, including budgeting and using recycled materials.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Entrepreneur's Day",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Hosting Entrepreneur's Day\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Plan it like a real stall: product, price, costs and a budget.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G7.B4.A2",
+              "bank_skill_id": "EMS.G7.B4.A2",
+              "title": "Income and expenditure statement",
+              "description": "Drawing up a simple income and expenditure statement for the event.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Entrepreneur's Day",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Income and expenditure statement\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Income minus expenses on the day shows if you made a profit.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "grade": 8,
+      "title": "Grade 8 — Economic & Management Sciences",
+      "description": "Grade 8 EMS (CAPS Senior Phase). Three strands — The Economy, Financial Literacy and Entrepreneurship — taught across the year.",
+      "tiers": [
+        {
+          "id": "L8.E1",
+          "title": "The Economy · Term 1: Government",
+          "description": "CAPS G8 T1 — The Economy. Government.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.E1.A1",
+              "bank_skill_id": "EMS.G8.E1.A1",
+              "title": "Levels of government",
+              "description": "The meaning of government and the national, provincial and local levels.",
+              "caps_term": "G8 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Government",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Levels of government\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Three levels: national, provincial and local — each with its own jobs.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.E1.A2",
+              "bank_skill_id": "EMS.G8.E1.A2",
+              "title": "Government and households",
+              "description": "The roles of the different levels of government towards households, as both consumer and producer.",
+              "caps_term": "G8 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Government",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Government and households\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Government serves households — and also buys and provides.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.E1.A3",
+              "bank_skill_id": "EMS.G8.E1.A3",
+              "title": "Government and businesses",
+              "description": "The roles of the different levels of government towards businesses, as both consumer and producer.",
+              "caps_term": "G8 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Government",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Government and businesses\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Government buys from, regulates and supports businesses.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.E2",
+          "title": "The Economy · Term 1: The National Budget",
+          "description": "CAPS G8 T1 — The Economy. The National Budget.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.E2.A1",
+              "bank_skill_id": "EMS.G8.E2.A1",
+              "title": "Government revenue: tax",
+              "description": "Government revenue through direct tax and indirect tax.",
+              "caps_term": "G8 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "The National Budget",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Government revenue: tax\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Direct tax is on income; indirect tax is on what you buy (like VAT).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.E2.A2",
+              "bank_skill_id": "EMS.G8.E2.A2",
+              "title": "Government expenditure",
+              "description": "Government spending on services such as education, health, housing, grants, transport and security.",
+              "caps_term": "G8 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "The National Budget",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Government expenditure\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Tax money is spent on public services everyone uses.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.E2.A3",
+              "bank_skill_id": "EMS.G8.E2.A3",
+              "title": "The budget, growth and inequality",
+              "description": "How the National Budget influences economic growth and redresses economic inequality.",
+              "caps_term": "G8 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "The National Budget",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The budget, growth and inequality\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The budget is a tool to grow the economy and reduce unfairness.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.E3",
+          "title": "The Economy · Term 1: Standard of living",
+          "description": "CAPS G8 T1 — The Economy. Standard of living.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.E3.A1",
+              "bank_skill_id": "EMS.G8.E3.A1",
+              "title": "Lifestyles and types of society",
+              "description": "Lifestyles, and self-sufficient, modern and rural societies.",
+              "caps_term": "G8 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Standard of living",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Lifestyles and types of society\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Standard of living = how comfortably people are able to live.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.E3.A2",
+              "bank_skill_id": "EMS.G8.E3.A2",
+              "title": "Development, environment and unemployment",
+              "description": "The impact of development on the environment, unemployment, and the productive use of resources.",
+              "caps_term": "G8 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Standard of living",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Development, environment and unemployment\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Higher living standards must be weighed against the environmental cost.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.E4",
+          "title": "The Economy · Term 2: Markets",
+          "description": "CAPS G8 T2 — The Economy. Markets.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.E4.A1",
+              "bank_skill_id": "EMS.G8.E4.A1",
+              "title": "The goods and services market",
+              "description": "The market for goods and services and how it works.",
+              "caps_term": "G8 T2",
+              "caps_strand": "The Economy",
+              "caps_topic": "Markets",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The goods and services market\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "In the goods market, households buy what businesses sell.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.E4.A2",
+              "bank_skill_id": "EMS.G8.E4.A2",
+              "title": "The factor market",
+              "description": "The factor market — the labour market and the financial market.",
+              "caps_term": "G8 T2",
+              "caps_strand": "The Economy",
+              "caps_topic": "Markets",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The factor market\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "In the factor market, businesses buy labour and finance.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.F1",
+          "title": "Financial Literacy · Term 1: Accounting concepts",
+          "description": "CAPS G8 T1 — Financial Literacy. Accounting concepts.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.F1.A1",
+              "bank_skill_id": "EMS.G8.F1.A1",
+              "title": "Sole trader, debit and credit",
+              "description": "The sole trader as a business, and the meaning of debit and credit.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Accounting concepts",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Sole trader, debit and credit\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A sole trader is one owner; debit and credit are the two sides of every entry.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.F1.A2",
+              "bank_skill_id": "EMS.G8.F1.A2",
+              "title": "The accounting equation",
+              "description": "The accounting equation: assets = owner's equity + liabilities (A = OE + L).",
+              "caps_term": "G8 T1",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Accounting concepts",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The accounting equation\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The equation always balances: what you own = your stake + what you owe.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.F1.A3",
+              "bank_skill_id": "EMS.G8.F1.A3",
+              "title": "Effect of transactions on the equation",
+              "description": "How everyday cash transactions change assets, owner's equity and liabilities.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Accounting concepts",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Effect of transactions on the equation\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Every transaction touches at least two parts, keeping the equation balanced.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.F2",
+          "title": "Financial Literacy · Term 1: Source documents",
+          "description": "CAPS G8 T1 — Financial Literacy. Source documents.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.F2.A1",
+              "bank_skill_id": "EMS.G8.F2.A1",
+              "title": "Receipts and deposit slips",
+              "description": "Receipts, deposit slips and till slips, and what each records.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Source documents",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Receipts and deposit slips\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A source document is the paper proof that a transaction happened.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.F2.A2",
+              "bank_skill_id": "EMS.G8.F2.A2",
+              "title": "Cheques and counterfoils",
+              "description": "Cheques and cheque counterfoils, and how they are used.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Source documents",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Cheques and counterfoils\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The counterfoil is the stub you keep as your record of the cheque.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.F2.A3",
+              "bank_skill_id": "EMS.G8.F2.A3",
+              "title": "Bank statements and invoices",
+              "description": "Bank statements and cash invoices, and the information they show.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Source documents",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Bank statements and invoices\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A bank statement is the bank's list of all your account activity.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.F3",
+          "title": "Financial Literacy · Term 2: The accounting cycle",
+          "description": "CAPS G8 T2 — Financial Literacy. The accounting cycle.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.F3.A1",
+              "bank_skill_id": "EMS.G8.F3.A1",
+              "title": "Steps of the accounting cycle",
+              "description": "The order of the accounting cycle, from a transaction through to financial statements.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "The accounting cycle",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Steps of the accounting cycle\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Transaction → source doc → journal → ledger → trial balance → statements.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.F3.A2",
+              "bank_skill_id": "EMS.G8.F3.A2",
+              "title": "Purpose of the cash journals",
+              "description": "The purpose and importance of the Cash Journals of a service business.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "The accounting cycle",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Purpose of the cash journals\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Cash journals are the first books where cash in and out are listed.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.F4",
+          "title": "Financial Literacy · Term 2: Cash Receipts Journal (service)",
+          "description": "CAPS G8 T2 — Financial Literacy. Cash Receipts Journal (service).",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.F4.A1",
+              "bank_skill_id": "EMS.G8.F4.A1",
+              "title": "Concept and columns of the CRJ",
+              "description": "What the Cash Receipts Journal is, and the format and use of its columns.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Cash Receipts Journal (service)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Concept and columns of the CRJ\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The CRJ lists all the money the business receives.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.F4.A2",
+              "bank_skill_id": "EMS.G8.F4.A2",
+              "title": "Entering receipts in the CRJ",
+              "description": "Entering cash transactions into the CRJ from source documents.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Cash Receipts Journal (service)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Entering receipts in the CRJ\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Each receipt becomes one line in the CRJ.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            },
+            {
+              "id": "EMS.G8.F4.A3",
+              "bank_skill_id": "EMS.G8.F4.A3",
+              "title": "Closing off the CRJ",
+              "description": "Closing off the CRJ and the effect of these transactions on the accounting equation.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Cash Receipts Journal (service)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Closing off the CRJ\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Totalling the CRJ feeds the ledger and keeps the equation balanced.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            }
+          ]
+        },
+        {
+          "id": "L8.F5",
+          "title": "Financial Literacy · Term 3: Cash Payments Journal (service)",
+          "description": "CAPS G8 T3 — Financial Literacy. Cash Payments Journal (service).",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.F5.A1",
+              "bank_skill_id": "EMS.G8.F5.A1",
+              "title": "Concept and columns of the CPJ",
+              "description": "What the Cash Payments Journal is, and the format and use of its columns.",
+              "caps_term": "G8 T3",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Cash Payments Journal (service)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Concept and columns of the CPJ\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The CPJ lists all the money the business pays out.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.F5.A2",
+              "bank_skill_id": "EMS.G8.F5.A2",
+              "title": "Entering and closing the CPJ",
+              "description": "Entering cash payments and closing off the CPJ.",
+              "caps_term": "G8 T3",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Cash Payments Journal (service)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Entering and closing the CPJ\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Each payment becomes one line in the CPJ.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            },
+            {
+              "id": "EMS.G8.F5.A3",
+              "bank_skill_id": "EMS.G8.F5.A3",
+              "title": "Combined CRJ and CPJ",
+              "description": "Entering combined transactions in the CRJ and CPJ and their effect on the accounting equation.",
+              "caps_term": "G8 T3",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Cash Payments Journal (service)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Combined CRJ and CPJ\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Together the two journals capture all the business's cash.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            }
+          ]
+        },
+        {
+          "id": "L8.F6",
+          "title": "Financial Literacy · Term 4: General Ledger and Trial Balance (service)",
+          "description": "CAPS G8 T4 — Financial Literacy. General Ledger and Trial Balance (service).",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.F6.A1",
+              "bank_skill_id": "EMS.G8.F6.A1",
+              "title": "Double-entry and T-accounts",
+              "description": "The double-entry principle and the layout of T-accounts in the General Ledger.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "General Ledger and Trial Balance (service)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Double-entry and T-accounts\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Every entry has a debit side and a credit side — that's double entry.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.F6.A2",
+              "bank_skill_id": "EMS.G8.F6.A2",
+              "title": "Posting to the General Ledger",
+              "description": "Posting transactions from the CRJ and CPJ to the General Ledger.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "General Ledger and Trial Balance (service)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Posting to the General Ledger\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Posting copies the journal totals into the ledger accounts.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            },
+            {
+              "id": "EMS.G8.F6.A3",
+              "bank_skill_id": "EMS.G8.F6.A3",
+              "title": "Balancing and the Trial Balance",
+              "description": "Balancing the General Ledger and preparing a Trial Balance of a service business.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "General Ledger and Trial Balance (service)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Balancing and the Trial Balance\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A Trial Balance checks that total debits equal total credits.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            }
+          ]
+        },
+        {
+          "id": "L8.B1",
+          "title": "Entrepreneurship · Term 2: Factors of production",
+          "description": "CAPS G8 T2 — Entrepreneurship. Factors of production.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.B1.A1",
+              "bank_skill_id": "EMS.G8.B1.A1",
+              "title": "Capital",
+              "description": "Capital as a factor of production — own capital and borrowed capital.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Factors of production",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Capital\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Capital is the money and equipment a business uses to operate.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.B1.A2",
+              "bank_skill_id": "EMS.G8.B1.A2",
+              "title": "Labour",
+              "description": "Labour — unskilled, semi-skilled and skilled — and fair employment practices.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Factors of production",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Labour\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Labour is the human effort; skill levels differ and so does pay.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.B1.A3",
+              "bank_skill_id": "EMS.G8.B1.A3",
+              "title": "Natural resources and entrepreneurship",
+              "description": "Natural resources and entrepreneurship as factors, and how each factor is rewarded (remuneration).",
+              "caps_term": "G8 T2",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Factors of production",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Natural resources and entrepreneurship\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Four factors: land, labour, capital, entrepreneurship — each earns a reward.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.B2",
+          "title": "Entrepreneurship · Term 3: Forms of ownership",
+          "description": "CAPS G8 T3 — Entrepreneurship. Forms of ownership.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.B2.A1",
+              "bank_skill_id": "EMS.G8.B2.A1",
+              "title": "Sole trader and partnership",
+              "description": "The sole trader and the partnership — their characteristics, advantages and disadvantages.",
+              "caps_term": "G8 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Forms of ownership",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Sole trader and partnership\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Sole trader = one owner; partnership = a few owners sharing.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.B2.A2",
+              "bank_skill_id": "EMS.G8.B2.A2",
+              "title": "Companies and close corporations",
+              "description": "Close corporations and private and public companies, and their characteristics.",
+              "caps_term": "G8 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Forms of ownership",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Companies and close corporations\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A company is a separate legal 'person' owned by shareholders.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.B2.A3",
+              "bank_skill_id": "EMS.G8.B2.A3",
+              "title": "Ownership and job creation",
+              "description": "Comparing the forms of ownership and their role in sustainable job creation and resource use.",
+              "caps_term": "G8 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Forms of ownership",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Ownership and job creation\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Bigger ownership forms can raise more money and create more jobs.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.B3",
+          "title": "Entrepreneurship · Term 4: Levels and functions of management",
+          "description": "CAPS G8 T4 — Entrepreneurship. Levels and functions of management.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G8.B3.A1",
+              "bank_skill_id": "EMS.G8.B3.A1",
+              "title": "Levels of management",
+              "description": "The different levels of management in a business.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Levels and functions of management",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Levels of management\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Top plans, middle organises, lower supervises day to day.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.B3.A2",
+              "bank_skill_id": "EMS.G8.B3.A2",
+              "title": "Management tasks",
+              "description": "The management tasks of planning, organising, leading and controlling.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Levels and functions of management",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Management tasks\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Four tasks: plan, organise, lead, control.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G8.B3.A3",
+              "bank_skill_id": "EMS.G8.B3.A3",
+              "title": "Management styles",
+              "description": "Characteristics of good management and the autocratic, laissez-faire and democratic styles.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Levels and functions of management",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Management styles\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Styles range from 'I decide' (autocratic) to 'we decide' (democratic).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "grade": 9,
+      "title": "Grade 9 — Economic & Management Sciences",
+      "description": "Grade 9 EMS (CAPS Senior Phase). Three strands — The Economy, Financial Literacy and Entrepreneurship — taught across the year.",
+      "tiers": [
+        {
+          "id": "L9.E1",
+          "title": "The Economy · Term 1: Economic systems",
+          "description": "CAPS G9 T1 — The Economy. Economic systems.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G9.E1.A1",
+              "bank_skill_id": "EMS.G9.E1.A1",
+              "title": "The planned economy",
+              "description": "The planned (command) economy — its origin, characteristics, advantages and disadvantages.",
+              "caps_term": "G9 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Economic systems",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The planned economy\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "In a planned economy the government decides what is produced.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G9.E1.A2",
+              "bank_skill_id": "EMS.G9.E1.A2",
+              "title": "The market economy",
+              "description": "The market economy — its origin, characteristics, advantages and disadvantages.",
+              "caps_term": "G9 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Economic systems",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The market economy\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "In a market economy, supply and demand decide, not the state.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G9.E1.A3",
+              "bank_skill_id": "EMS.G9.E1.A3",
+              "title": "The mixed economy and global economy",
+              "description": "The mixed economy, and South Africa within the global economy.",
+              "caps_term": "G9 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "Economic systems",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The mixed economy and global economy\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A mixed economy blends market freedom with government's role.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.E2",
+          "title": "The Economy · Term 1: The circular flow",
+          "description": "CAPS G9 T1 — The Economy. The circular flow.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G9.E2.A1",
+              "bank_skill_id": "EMS.G9.E2.A1",
+              "title": "Participants in the circular flow",
+              "description": "The participants in the circular flow of a closed economy (households and businesses).",
+              "caps_term": "G9 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "The circular flow",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "diagram-label",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Participants in the circular flow\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Households and businesses depend on each other in a loop.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "EMS.G9.E2.A2",
+              "bank_skill_id": "EMS.G9.E2.A2",
+              "title": "Flows of money, goods and factors",
+              "description": "The flow of goods and services, money and factors of production, shown on a flow diagram.",
+              "caps_term": "G9 T1",
+              "caps_strand": "The Economy",
+              "caps_topic": "The circular flow",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "diagram-label",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Flows of money, goods and factors\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Money flows one way, goods and factors the other — a closed loop.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            }
+          ]
+        },
+        {
+          "id": "L9.E3",
+          "title": "The Economy · Term 2: Price theory",
+          "description": "CAPS G9 T2 — The Economy. Price theory.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G9.E3.A1",
+              "bank_skill_id": "EMS.G9.E3.A1",
+              "title": "The law of demand",
+              "description": "The law of demand, a demand schedule and the demand curve.",
+              "caps_term": "G9 T2",
+              "caps_strand": "The Economy",
+              "caps_topic": "Price theory",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "diagram-label",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The law of demand\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Demand: when price goes up, quantity wanted goes down.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "EMS.G9.E3.A2",
+              "bank_skill_id": "EMS.G9.E3.A2",
+              "title": "The law of supply",
+              "description": "The law of supply, a supply schedule and the supply curve.",
+              "caps_term": "G9 T2",
+              "caps_strand": "The Economy",
+              "caps_topic": "Price theory",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "diagram-label",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The law of supply\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Supply: when price goes up, quantity offered goes up.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "EMS.G9.E3.A3",
+              "bank_skill_id": "EMS.G9.E3.A3",
+              "title": "Equilibrium and shifts",
+              "description": "Equilibrium price and quantity, and changes/shifts in demand and supply.",
+              "caps_term": "G9 T2",
+              "caps_strand": "The Economy",
+              "caps_topic": "Price theory",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "diagram-label",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Equilibrium and shifts\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Equilibrium is where the demand and supply curves cross.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            }
+          ]
+        },
+        {
+          "id": "L9.E4",
+          "title": "The Economy · Term 3: Trade unions",
+          "description": "CAPS G9 T3 — The Economy. Trade unions.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G9.E4.A1",
+              "bank_skill_id": "EMS.G9.E4.A1",
+              "title": "What trade unions are",
+              "description": "The concept of trade unions and a brief history of their development.",
+              "caps_term": "G9 T3",
+              "caps_strand": "The Economy",
+              "caps_topic": "Trade unions",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"What trade unions are\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A trade union is workers joining together to bargain as one.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G9.E4.A2",
+              "bank_skill_id": "EMS.G9.E4.A2",
+              "title": "The role of trade unions",
+              "description": "The roles and responsibilities of trade unions in South Africa, their effect on business, and their contribution to growth.",
+              "caps_term": "G9 T3",
+              "caps_strand": "The Economy",
+              "caps_topic": "Trade unions",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The role of trade unions\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Unions push for workers — affecting wages, conditions and the economy.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.F1",
+          "title": "Financial Literacy · Term 1: Cash journals (sole trader)",
+          "description": "CAPS G9 T1 — Financial Literacy. Cash journals (sole trader).",
+          "atomic_skills": [
+            {
+              "id": "EMS.G9.F1.A1",
+              "bank_skill_id": "EMS.G9.F1.A1",
+              "title": "Cash transactions of a trading business",
+              "description": "Recording cash transactions of a trading (sole trader) business in the CRJ and CPJ.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Cash journals (sole trader)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Cash transactions of a trading business\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A trading business buys and sells stock — recorded in the cash journals.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            },
+            {
+              "id": "EMS.G9.F1.A2",
+              "bank_skill_id": "EMS.G9.F1.A2",
+              "title": "Effect on the accounting equation",
+              "description": "The effect of a trading business's cash transactions on the accounting equation.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Cash journals (sole trader)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Effect on the accounting equation\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Even for a trader, every transaction keeps A = OE + L balanced.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.F2",
+          "title": "Financial Literacy · Term 1: General Ledger and Trial Balance (sole trader)",
+          "description": "CAPS G9 T1 — Financial Literacy. General Ledger and Trial Balance (sole trader).",
+          "atomic_skills": [
+            {
+              "id": "EMS.G9.F2.A1",
+              "bank_skill_id": "EMS.G9.F2.A1",
+              "title": "Posting to the General Ledger",
+              "description": "Posting the cash transactions of a trading business from the CRJ and CPJ to the General Ledger.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "General Ledger and Trial Balance (sole trader)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Posting to the General Ledger\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Posting moves the journal totals into ledger accounts.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            },
+            {
+              "id": "EMS.G9.F2.A2",
+              "bank_skill_id": "EMS.G9.F2.A2",
+              "title": "Preparing the Trial Balance",
+              "description": "Preparing a Trial Balance of a trading business.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "General Ledger and Trial Balance (sole trader)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Preparing the Trial Balance\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The Trial Balance lists every account to check debits = credits.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            }
+          ]
+        },
+        {
+          "id": "L9.F3",
+          "title": "Financial Literacy · Term 2: Credit transactions — debtors",
+          "description": "CAPS G9 T2 — Financial Literacy. Credit transactions — debtors.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G9.F3.A1",
+              "bank_skill_id": "EMS.G9.F3.A1",
+              "title": "Credit sales, debtors and the NCA",
+              "description": "Credit sales, debtors, and the National Credit Act.",
+              "caps_term": "G9 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Credit transactions — debtors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Credit sales, debtors and the NCA\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A debtor owes you money; the NCA protects people who buy on credit.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G9.F3.A2",
+              "bank_skill_id": "EMS.G9.F3.A2",
+              "title": "Debtors Journal and Allowance Journal",
+              "description": "Recording transactions in the Debtors Journal (DJ) and Debtors Allowance Journal (DAJ).",
+              "caps_term": "G9 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Credit transactions — debtors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Debtors Journal and Allowance Journal\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The DJ records credit sales; the DAJ records goods returned.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            },
+            {
+              "id": "EMS.G9.F3.A3",
+              "bank_skill_id": "EMS.G9.F3.A3",
+              "title": "Posting to the Debtors and General Ledger",
+              "description": "Posting to the Debtors Ledger and General Ledger and the effect on the accounting equation.",
+              "caps_term": "G9 T2",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Credit transactions — debtors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Posting to the Debtors and General Ledger\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Each debtor has an account; postings keep the equation balanced.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            }
+          ]
+        },
+        {
+          "id": "L9.F4",
+          "title": "Financial Literacy · Term 3: Credit transactions — creditors",
+          "description": "CAPS G9 T3 — Financial Literacy. Credit transactions — creditors.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G9.F4.A1",
+              "bank_skill_id": "EMS.G9.F4.A1",
+              "title": "Creditors and creditors allowance",
+              "description": "Creditors and creditors allowance, and where they fit in the accounting cycle.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Credit transactions — creditors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Creditors and creditors allowance\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A creditor is someone you owe; an allowance is goods you returned to them.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G9.F4.A2",
+              "bank_skill_id": "EMS.G9.F4.A2",
+              "title": "Creditors Journal and Allowance Journal",
+              "description": "Recording transactions in the Creditors Journal (CJ) and Creditors Allowance Journal (CAJ).",
+              "caps_term": "G9 T3",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Credit transactions — creditors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Creditors Journal and Allowance Journal\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The CJ records credit purchases; the CAJ records returns to suppliers.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            },
+            {
+              "id": "EMS.G9.F4.A3",
+              "bank_skill_id": "EMS.G9.F4.A3",
+              "title": "Payments and posting to creditors",
+              "description": "Recording payments to creditors in the CPJ, posting to the Creditors and General Ledger, and the effect on the equation.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Credit transactions — creditors",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Payments and posting to creditors\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Paying a creditor reduces both cash and what you owe.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            }
+          ]
+        },
+        {
+          "id": "L9.F5",
+          "title": "Financial Literacy · Term 4: Cash and credit transactions combined",
+          "description": "CAPS G9 T4 — Financial Literacy. Cash and credit transactions combined.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G9.F5.A1",
+              "bank_skill_id": "EMS.G9.F5.A1",
+              "title": "Recording in all subsidiary journals",
+              "description": "Recording cash and credit transactions of a sole trader across all the subsidiary journals.",
+              "caps_term": "G9 T4",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Cash and credit transactions combined",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Recording in all subsidiary journals\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Pull it together: every journal plays its part for one business.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            },
+            {
+              "id": "EMS.G9.F5.A2",
+              "bank_skill_id": "EMS.G9.F5.A2",
+              "title": "Posting and the Trial Balance",
+              "description": "Posting to the ledgers and preparing a Trial Balance.",
+              "caps_term": "G9 T4",
+              "caps_strand": "Financial Literacy",
+              "caps_topic": "Cash and credit transactions combined",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Posting and the Trial Balance\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The final check: a balanced Trial Balance from all the journals.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "deferred_recording": true
+            }
+          ]
+        },
+        {
+          "id": "L9.B1",
+          "title": "Entrepreneurship · Term 2: Sectors of the economy",
+          "description": "CAPS G9 T2 — Entrepreneurship. Sectors of the economy.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G9.B1.A1",
+              "bank_skill_id": "EMS.G9.B1.A1",
+              "title": "Primary, secondary and tertiary sectors",
+              "description": "The primary, secondary and tertiary sectors and the businesses found in each.",
+              "caps_term": "G9 T2",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Sectors of the economy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Primary, secondary and tertiary sectors\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Primary takes from nature, secondary makes, tertiary serves.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G9.B1.A2",
+              "bank_skill_id": "EMS.G9.B1.A2",
+              "title": "How the sectors connect",
+              "description": "The interrelationship of the three sectors, the skills each needs, and sustainable use of resources.",
+              "caps_term": "G9 T2",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Sectors of the economy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"How the sectors connect\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Goods pass from primary to secondary to tertiary on the way to you.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.B2",
+          "title": "Entrepreneurship · Term 3: Functions of a business",
+          "description": "CAPS G9 T3 — Entrepreneurship. Functions of a business.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G9.B2.A1",
+              "bank_skill_id": "EMS.G9.B2.A1",
+              "title": "The eight business functions",
+              "description": "The business functions: administration, purchasing, marketing, finance, public relations, human resources, production, and general/risk management.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Functions of a business",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The eight business functions\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A business does many jobs at once — these are its functions.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G9.B2.A2",
+              "bank_skill_id": "EMS.G9.B2.A2",
+              "title": "Characteristics of each function",
+              "description": "The characteristics of each business function.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Functions of a business",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Characteristics of each function\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Each function has its own focus, from buying to selling to people.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G9.B2.A3",
+              "bank_skill_id": "EMS.G9.B2.A3",
+              "title": "Role and importance of the functions",
+              "description": "The role and importance of the business functions and how they work together.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Functions of a business",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Role and importance of the functions\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The functions must work as a team for the business to succeed.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.B3",
+          "title": "Entrepreneurship · Term 4: Business plan",
+          "description": "CAPS G9 T4 — Entrepreneurship. Business plan.",
+          "atomic_skills": [
+            {
+              "id": "EMS.G9.B3.A1",
+              "bank_skill_id": "EMS.G9.B3.A1",
+              "title": "What a business plan is",
+              "description": "The concept of a business plan and the components it contains.",
+              "caps_term": "G9 T4",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Business plan",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"What a business plan is\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A business plan is a written map of what the business will do.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G9.B3.A2",
+              "bank_skill_id": "EMS.G9.B3.A2",
+              "title": "Format of a business plan",
+              "description": "The format of a business plan, from the front cover and contents to the SWOT analysis and conclusion.",
+              "caps_term": "G9 T4",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Business plan",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Format of a business plan\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "It runs in order: cover, contents, product, goals, plans, SWOT, conclusion.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "EMS.G9.B3.A3",
+              "bank_skill_id": "EMS.G9.B3.A3",
+              "title": "The financial plan",
+              "description": "The financial plan — fixed and variable costs, break-even point, mark-up on sales and profit percentage.",
+              "caps_term": "G9 T4",
+              "caps_strand": "Entrepreneurship",
+              "caps_topic": "Business plan",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The financial plan\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Break-even is where income finally covers all the costs.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2636 @@
+{
+  "version": "1.0",
+  "subject": "social-sciences-sp",
+  "description": "Social Sciences Senior Phase (Grades 7–9). CAPS-aligned. One subject, two disciplines (History + Geography), each taught every term. All skills open once the grade is selected (gate NONE).",
+  "grades_covered": [
+    7,
+    8,
+    9
+  ],
+  "levels": [
+    {
+      "id": 7,
+      "grade": 7,
+      "title": "Grade 7 — Social Sciences",
+      "description": "Grade 7 History and Geography (CAPS Senior Phase). Four History topics and four Geography topics, one per term.",
+      "tiers": [
+        {
+          "id": "L7.H1",
+          "title": "History · Term 1: The kingdom of Mali & Timbuktu",
+          "description": "CAPS G7 T1 — History. The kingdom of Mali & Timbuktu.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G7.H1.A1",
+              "bank_skill_id": "SSSP.G7.H1.A1",
+              "title": "Trade across the Sahara",
+              "description": "Camel caravans, the goods traded (gold, salt, ivory, enslaved people) and the spread of Islam into West Africa.",
+              "caps_term": "G7 T1",
+              "caps_topic": "The kingdom of Mali & Timbuktu",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Trade across the Sahara\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Picture the caravan route: salt comes south, gold goes north.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.H1.A2",
+              "bank_skill_id": "SSSP.G7.H1.A2",
+              "title": "The kingdom of Mali",
+              "description": "Mali at its height under Mansa Musa, his pilgrimage to Mecca and the building of the Great Mosque.",
+              "caps_term": "G7 T1",
+              "caps_topic": "The kingdom of Mali & Timbuktu",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The kingdom of Mali\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Mansa Musa = Mali's richest king, famous for his hajj to Mecca.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.H1.A3",
+              "bank_skill_id": "SSSP.G7.H1.A3",
+              "title": "The city of Timbuktu",
+              "description": "Timbuktu as a trade centre and a centre of learning, the manuscripts, and why it is a World Heritage Site.",
+              "caps_term": "G7 T1",
+              "caps_topic": "The kingdom of Mali & Timbuktu",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The city of Timbuktu\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Timbuktu was famous for two things: trade AND books/learning.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.H2",
+          "title": "History · Term 2: The Transatlantic slave trade",
+          "description": "CAPS G7 T2 — History. The Transatlantic slave trade.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G7.H2.A1",
+              "bank_skill_id": "SSSP.G7.H2.A1",
+              "title": "West Africa & slavery before Europeans",
+              "description": "What West African societies were like, and the nature of slavery there before the European trade.",
+              "caps_term": "G7 T2",
+              "caps_topic": "The Transatlantic slave trade",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"West Africa & slavery before Europeans\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Slavery existed before Europeans, but the Atlantic trade was far larger and harsher.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.H2.A2",
+              "bank_skill_id": "SSSP.G7.H2.A2",
+              "title": "Slavery in the American South",
+              "description": "Plantations (cotton, sugar, tobacco, rice), why enslaved labour was used, capture, sale and the Middle Passage.",
+              "caps_term": "G7 T2",
+              "caps_topic": "The Transatlantic slave trade",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Slavery in the American South\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Follow the chain: captured in West Africa → Middle Passage → sold → plantation.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.H2.A3",
+              "bank_skill_id": "SSSP.G7.H2.A3",
+              "title": "Impact on enslaved people",
+              "description": "Plantation life, slave culture, resistance and rebellion — Nat Turner, the Amistad, the Underground Railroad, Harriet Tubman.",
+              "caps_term": "G7 T2",
+              "caps_topic": "The Transatlantic slave trade",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Impact on enslaved people\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Resistance ranged from quiet (go-slow) to open revolt and escape.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.H2.A4",
+              "bank_skill_id": "SSSP.G7.H2.A4",
+              "title": "Impact on economies",
+              "description": "Gains for America and Britain versus the lasting damage done to West Africa.",
+              "caps_term": "G7 T2",
+              "caps_topic": "The Transatlantic slave trade",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Impact on economies\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "One side grew rich; the other lost people and wealth.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.H3",
+          "title": "History · Term 3: Colonisation of the Cape (17th–18th C)",
+          "description": "CAPS G7 T3 — History. Colonisation of the Cape (17th–18th C).",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G7.H3.A1",
+              "bank_skill_id": "SSSP.G7.H3.A1",
+              "title": "Indigenous peoples of the Cape",
+              "description": "The Khoikhoi, San and African farmers living at and beyond the Cape before Dutch settlement.",
+              "caps_term": "G7 T3",
+              "caps_topic": "Colonisation of the Cape (17th–18th C)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Indigenous peoples of the Cape\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Khoikhoi = herders, San = hunter-gatherers, African farmers = further east.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.H3.A2",
+              "bank_skill_id": "SSSP.G7.H3.A2",
+              "title": "Dutch settlement and the VOC",
+              "description": "Why the VOC set up a refreshment station in 1652, free burghers and French Huguenot immigration.",
+              "caps_term": "G7 T3",
+              "caps_topic": "Colonisation of the Cape (17th–18th C)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Dutch settlement and the VOC\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The VOC came for a supply stop on the way to the East, not to farm.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.H3.A3",
+              "bank_skill_id": "SSSP.G7.H3.A3",
+              "title": "Slavery at the Cape",
+              "description": "Where the enslaved came from, conditions, resistance and the legacy (Islam, the Afrikaans language).",
+              "caps_term": "G7 T3",
+              "caps_topic": "Colonisation of the Cape (17th–18th C)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Slavery at the Cape\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Cape slaves came mostly from the East and Africa — not the Atlantic trade.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.H3.A4",
+              "bank_skill_id": "SSSP.G7.H3.A4",
+              "title": "Expanding frontiers and dispossession",
+              "description": "Trekboers moving inland, land dispossession, and the Genadendal mission station.",
+              "caps_term": "G7 T3",
+              "caps_topic": "Colonisation of the Cape (17th–18th C)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Expanding frontiers and dispossession\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "As settlers moved inland, indigenous people lost land and independence.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.H4",
+          "title": "History · Term 4: Conflict on the Cape frontiers (early 19th C)",
+          "description": "CAPS G7 T4 — History. Conflict on the Cape frontiers (early 19th C).",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G7.H4.A1",
+              "bank_skill_id": "SSSP.G7.H4.A1",
+              "title": "British arrival and expanding settlement",
+              "description": "The British takeover of the Cape and the growth of European settlement in the early 1800s.",
+              "caps_term": "G7 T4",
+              "caps_topic": "Conflict on the Cape frontiers (early 19th C)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"British arrival and expanding settlement\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Power shifted from the Dutch VOC to Britain.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.H4.A2",
+              "bank_skill_id": "SSSP.G7.H4.A2",
+              "title": "The eastern frontier",
+              "description": "Frontier wars and Xhosa resistance — Chief Maqoma, Andries Stockenström, 1820 settlers and the Great Trek.",
+              "caps_term": "G7 T4",
+              "caps_topic": "Conflict on the Cape frontiers (early 19th C)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The eastern frontier\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The eastern frontier = repeated wars between settlers and the Xhosa.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.H4.A3",
+              "bank_skill_id": "SSSP.G7.H4.A3",
+              "title": "The northern frontier",
+              "description": "Trade on the northern frontier — the Kora and Griqua, the Tswana towns, and missionaries like Robert Moffat.",
+              "caps_term": "G7 T4",
+              "caps_topic": "Conflict on the Cape frontiers (early 19th C)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The northern frontier\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Northern frontier = trade and mission contact, not just war.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.G1",
+          "title": "Geography · Term 1: Map skills (local maps)",
+          "description": "CAPS G7 T1 — Geography. Map skills (local maps).",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G7.G1.A1",
+              "bank_skill_id": "SSSP.G7.G1.A1",
+              "title": "Local and street maps",
+              "description": "Finding places on a local map, and using an index and grid to locate places in a street guide.",
+              "caps_term": "G7 T1",
+              "caps_topic": "Map skills (local maps)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Local and street maps\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Grid reference: read along the bottom first, then up the side.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "SSSP.G7.G1.A2",
+              "bank_skill_id": "SSSP.G7.G1.A2",
+              "title": "Sketch maps and routes",
+              "description": "Drawing a simple sketch map, showing compass directions and describing a route.",
+              "caps_term": "G7 T1",
+              "caps_topic": "Map skills (local maps)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Sketch maps and routes\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A good sketch map needs a key, a scale and a north arrow.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "SSSP.G7.G1.A3",
+              "bank_skill_id": "SSSP.G7.G1.A3",
+              "title": "Distance and scale",
+              "description": "Line and word scales, and measuring straight and winding distances on a map.",
+              "caps_term": "G7 T1",
+              "caps_topic": "Map skills (local maps)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Distance and scale\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Use string for a winding road, a ruler for a straight line, then read the scale.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "SSSP.G7.G1.A4",
+              "bank_skill_id": "SSSP.G7.G1.A4",
+              "title": "Places in the news",
+              "description": "Locating places in the news on a world map using latitude and longitude.",
+              "caps_term": "G7 T1",
+              "caps_topic": "Map skills (local maps)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Places in the news\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Latitude = how far north/south; longitude = how far east/west.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            }
+          ]
+        },
+        {
+          "id": "L7.G2",
+          "title": "Geography · Term 2: Volcanoes, earthquakes & floods",
+          "description": "CAPS G7 T2 — Geography. Volcanoes, earthquakes & floods.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G7.G2.A1",
+              "bank_skill_id": "SSSP.G7.G2.A1",
+              "title": "Structure of the earth",
+              "description": "The core, mantle and crust, and how the crust moves on tectonic plates.",
+              "caps_term": "G7 T2",
+              "caps_topic": "Volcanoes, earthquakes & floods",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Structure of the earth\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Three layers: crust (thin skin), mantle (thick middle), core (hot centre).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.G2.A2",
+              "bank_skill_id": "SSSP.G7.G2.A2",
+              "title": "Volcanoes",
+              "description": "Where volcanoes occur in the world and why they form along plate boundaries.",
+              "caps_term": "G7 T2",
+              "caps_topic": "Volcanoes, earthquakes & floods",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Volcanoes\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Volcanoes line up along the edges of tectonic plates.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.G2.A3",
+              "bank_skill_id": "SSSP.G7.G2.A3",
+              "title": "Earthquakes",
+              "description": "Causes and effects of earthquakes, why some communities are at higher risk, and how to reduce the impact.",
+              "caps_term": "G7 T2",
+              "caps_topic": "Volcanoes, earthquakes & floods",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Earthquakes\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Earthquakes happen where plates grind past each other.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.G2.A4",
+              "bank_skill_id": "SSSP.G7.G2.A4",
+              "title": "Floods",
+              "description": "Causes of floods (heavy rain, land use), their effects, and how communities prepare and respond.",
+              "caps_term": "G7 T2",
+              "caps_topic": "Volcanoes, earthquakes & floods",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Floods\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Floods worsen when land can't soak up or carry away the water.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.G3",
+          "title": "Geography · Term 3: Population growth & change",
+          "description": "CAPS G7 T3 — Geography. Population growth & change.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G7.G3.A1",
+              "bank_skill_id": "SSSP.G7.G3.A1",
+              "title": "Population concepts",
+              "description": "Birth rate, death rate, growth rate, infant mortality and life expectancy.",
+              "caps_term": "G7 T3",
+              "caps_topic": "Population growth & change",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Population concepts\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Growth rate = births minus deaths (ignoring migration).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.G3.A2",
+              "bank_skill_id": "SSSP.G7.G3.A2",
+              "title": "Factors affecting birth and death rates",
+              "description": "How disease, economic status, beliefs, conflict and government policy change birth and death rates.",
+              "caps_term": "G7 T3",
+              "caps_topic": "Population growth & change",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Factors affecting birth and death rates\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Ask of each factor: does it push births/deaths up or down?",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.G3.A3",
+              "bank_skill_id": "SSSP.G7.G3.A3",
+              "title": "World population growth",
+              "description": "Reading the world population graph from 1 AD to today, and what drove the rapid rise.",
+              "caps_term": "G7 T3",
+              "caps_topic": "Population growth & change",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"World population growth\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Population stayed flat for ages, then shot up with food, medicine and sanitation.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.G4",
+          "title": "Geography · Term 4: Natural resources & conservation (SA)",
+          "description": "CAPS G7 T4 — Geography. Natural resources & conservation (SA).",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G7.G4.A1",
+              "bank_skill_id": "SSSP.G7.G4.A1",
+              "title": "Natural resources",
+              "description": "Earth's natural resources (water, air, soil, forests, animal and marine life) and their use and abuse.",
+              "caps_term": "G7 T4",
+              "caps_topic": "Natural resources & conservation (SA)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Natural resources\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A natural resource is something useful we take from nature.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.G4.A2",
+              "bank_skill_id": "SSSP.G7.G4.A2",
+              "title": "Management and conservation",
+              "description": "Conservation, conservation areas and marine reserves, community projects and eco-tourism.",
+              "caps_term": "G7 T4",
+              "caps_topic": "Natural resources & conservation (SA)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Management and conservation\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Conservation = using and protecting resources so they last.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G7.G4.A3",
+              "bank_skill_id": "SSSP.G7.G4.A3",
+              "title": "Water in South Africa",
+              "description": "Who uses South Africa's water, its availability, catchment care and wetlands.",
+              "caps_term": "G7 T4",
+              "caps_topic": "Natural resources & conservation (SA)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Water in South Africa\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "South Africa is a dry country — water is a scarce, shared resource.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "grade": 8,
+      "title": "Grade 8 — Social Sciences",
+      "description": "Grade 8 History and Geography (CAPS Senior Phase). Four History topics and four Geography topics, one per term.",
+      "tiers": [
+        {
+          "id": "L8.H1",
+          "title": "History · Term 1: The Industrial Revolution (Britain & southern Africa)",
+          "description": "CAPS G8 T1 — History. The Industrial Revolution (Britain & southern Africa).",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G8.H1.A1",
+              "bank_skill_id": "SSSP.G8.H1.A1",
+              "title": "Changes during the Industrial Revolution in Britain",
+              "description": "From a farming and cottage-industry economy to factories — urbanisation, working-class life, child labour and trade unions.",
+              "caps_term": "G8 T1",
+              "caps_topic": "The Industrial Revolution (Britain & southern Africa)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Changes during the Industrial Revolution in Britain\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Industrial Revolution = work moves from home/farm to factories and cities.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G8.H1.A2",
+              "bank_skill_id": "SSSP.G8.H1.A2",
+              "title": "Southern Africa by 1860",
+              "description": "Indentured labour brought from India to the sugar plantations of Natal, and why.",
+              "caps_term": "G8 T1",
+              "caps_topic": "The Industrial Revolution (Britain & southern Africa)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Southern Africa by 1860\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Indenture = a fixed-term work contract, not slavery but very harsh.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G8.H1.A3",
+              "bank_skill_id": "SSSP.G8.H1.A3",
+              "title": "Diamond mining in Kimberley",
+              "description": "The 1867 diamond discovery, the move to deep mining, monopoly and the formation of De Beers.",
+              "caps_term": "G8 T1",
+              "caps_topic": "The Industrial Revolution (Britain & southern Africa)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Diamond mining in Kimberley\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Diamonds pulled Britain deeper into controlling South Africa.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.H2",
+          "title": "History · Term 2: The Mineral Revolution in South Africa",
+          "description": "CAPS G8 T2 — History. The Mineral Revolution in South Africa.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G8.H2.A1",
+              "bank_skill_id": "SSSP.G8.H2.A1",
+              "title": "Labour control and land expansion",
+              "description": "Closed compounds, migrant labour, and the defeat of African kingdoms (Xhosa, Pedi, Zulu).",
+              "caps_term": "G8 T2",
+              "caps_topic": "The Mineral Revolution in South Africa",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Labour control and land expansion\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Mines needed cheap, controllable labour — so independence was crushed.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G8.H2.A2",
+              "bank_skill_id": "SSSP.G8.H2.A2",
+              "title": "Deep-level gold mining on the Witwatersrand",
+              "description": "The 1886 gold discovery, mining conditions, the Randlords, migrant labour and the rise of Johannesburg.",
+              "caps_term": "G8 T2",
+              "caps_topic": "The Mineral Revolution in South Africa",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Deep-level gold mining on the Witwatersrand\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Gold was deep and expensive — it needed big companies and many workers.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G8.H2.A3",
+              "bank_skill_id": "SSSP.G8.H2.A3",
+              "title": "The Mineral Revolution as a turning point",
+              "description": "How mining shifted power: Union 1910, the SANNC (later the ANC) 1912 and the 1913 Land Act.",
+              "caps_term": "G8 T2",
+              "caps_topic": "The Mineral Revolution in South Africa",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The Mineral Revolution as a turning point\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Minerals reshaped power, land and labour for the whole 20th century.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.H3",
+          "title": "History · Term 3: The Scramble for Africa",
+          "description": "CAPS G8 T3 — History. The Scramble for Africa.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G8.H3.A1",
+              "bank_skill_id": "SSSP.G8.H3.A1",
+              "title": "European colonisation of Africa",
+              "description": "The Berlin Conference 1884, the causes of colonisation, and why Europe could colonise Africa so fast.",
+              "caps_term": "G8 T3",
+              "caps_topic": "The Scramble for Africa",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"European colonisation of Africa\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Europe carved up Africa on a map — Africans were not consulted.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G8.H3.A2",
+              "bank_skill_id": "SSSP.G8.H3.A2",
+              "title": "Case study: the Ashanti kingdom",
+              "description": "The Ashanti, their contact with Europeans, and the British colonisation of the Gold Coast (Ghana).",
+              "caps_term": "G8 T3",
+              "caps_topic": "The Scramble for Africa",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Case study: the Ashanti kingdom\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Use the Ashanti as one detailed example of the wider Scramble.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.H4",
+          "title": "History · Term 4: World War I (1914–1918)",
+          "description": "CAPS G8 T4 — History. World War I (1914–1918).",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G8.H4.A1",
+              "bank_skill_id": "SSSP.G8.H4.A1",
+              "title": "Why World War I broke out",
+              "description": "Long-term causes (nationalism, empires, alliances, arms) and the spark at Sarajevo; Allies vs Central Powers.",
+              "caps_term": "G8 T4",
+              "caps_topic": "World War I (1914–1918)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Why World War I broke out\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Long-term tension + one assassination = war.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G8.H4.A2",
+              "bank_skill_id": "SSSP.G8.H4.A2",
+              "title": "Experiences of World War I",
+              "description": "Trench warfare, conscription and propaganda, and South Africa's part — Delville Wood and the sinking of the Mendi.",
+              "caps_term": "G8 T4",
+              "caps_topic": "World War I (1914–1918)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Experiences of World War I\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The war was fought in trenches and felt at home through conscription.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G8.H4.A3",
+              "bank_skill_id": "SSSP.G8.H4.A3",
+              "title": "Women in Britain during World War I",
+              "description": "Changing roles of women in the workplace and the campaign for the vote.",
+              "caps_term": "G8 T4",
+              "caps_topic": "World War I (1914–1918)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Women in Britain during World War I\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "With men at the front, women filled the factories — and demanded the vote.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G8.H4.A4",
+              "bank_skill_id": "SSSP.G8.H4.A4",
+              "title": "The defeat of Germany and the Treaty of Versailles",
+              "description": "Germany's defeat and the punishing terms of the 1919 treaty (picked up again in Grade 9).",
+              "caps_term": "G8 T4",
+              "caps_topic": "World War I (1914–1918)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The defeat of Germany and the Treaty of Versailles\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Versailles punished Germany harshly — which mattered later.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.G1",
+          "title": "Geography · Term 1: Maps & globes",
+          "description": "CAPS G8 T1 — Geography. Maps & globes.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G8.G1.A1",
+              "bank_skill_id": "SSSP.G8.G1.A1",
+              "title": "Maps and atlases",
+              "description": "Latitude and longitude in degrees and minutes, the atlas index, and line, word and ratio scales.",
+              "caps_term": "G8 T1",
+              "caps_topic": "Maps & globes",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Maps and atlases\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Ratio scale 1:50 000 means 1 cm on the map = 50 000 cm on the ground.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "SSSP.G8.G1.A2",
+              "bank_skill_id": "SSSP.G8.G1.A2",
+              "title": "The globe",
+              "description": "Time zones and the date line, the earth's tilt, and how the earth's revolution makes the seasons.",
+              "caps_term": "G8 T1",
+              "caps_topic": "Maps & globes",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The globe\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Day/night = spin; seasons = tilt + orbit around the sun.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "SSSP.G8.G1.A3",
+              "bank_skill_id": "SSSP.G8.G1.A3",
+              "title": "Satellite images",
+              "description": "What satellite images show — water, vegetation, land use and cloud — and how they are used.",
+              "caps_term": "G8 T1",
+              "caps_topic": "Maps & globes",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Satellite images\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Satellite images are photos from space, read by colour and pattern.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            }
+          ]
+        },
+        {
+          "id": "L8.G2",
+          "title": "Geography · Term 2: Climate regions",
+          "description": "CAPS G8 T2 — Geography. Climate regions.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G8.G2.A1",
+              "bank_skill_id": "SSSP.G8.G2.A1",
+              "title": "Factors influencing temperature and rainfall",
+              "description": "Latitude, distance from the sea, altitude, ocean currents and mountains.",
+              "caps_term": "G8 T2",
+              "caps_topic": "Climate regions",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Factors influencing temperature and rainfall\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Five controls: latitude, sea, height, currents, mountains.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G8.G2.A2",
+              "bank_skill_id": "SSSP.G8.G2.A2",
+              "title": "South Africa's climate",
+              "description": "How those factors shape temperature and rainfall across South African centres.",
+              "caps_term": "G8 T2",
+              "caps_topic": "Climate regions",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"South Africa's climate\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Compare coastal vs inland, high vs low, east vs west.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G8.G2.A3",
+              "bank_skill_id": "SSSP.G8.G2.A3",
+              "title": "Climate around the world",
+              "description": "Weather vs climate, the elements of weather, the main climate types and a world climate map.",
+              "caps_term": "G8 T2",
+              "caps_topic": "Climate regions",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Climate around the world\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Weather = today; climate = the long-run average.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.G3",
+          "title": "Geography · Term 3: Settlement & urbanisation",
+          "description": "CAPS G8 T3 — Geography. Settlement & urbanisation.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G8.G3.A1",
+              "bank_skill_id": "SSSP.G8.G3.A1",
+              "title": "Settlement and land use",
+              "description": "Urban land-use zones (CBD, industry, residential) and types of rural settlement.",
+              "caps_term": "G8 T3",
+              "caps_topic": "Settlement & urbanisation",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Settlement and land use\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A city has zones: business centre, industry, and where people live.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "SSSP.G8.G3.A2",
+              "bank_skill_id": "SSSP.G8.G3.A2",
+              "title": "Land use on aerial photographs",
+              "description": "Reading oblique and vertical aerial photos to identify natural and built features and land use.",
+              "caps_term": "G8 T3",
+              "caps_topic": "Settlement & urbanisation",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Land use on aerial photographs\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Vertical photo = straight down (like a map); oblique = at an angle.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "SSSP.G8.G3.A3",
+              "bank_skill_id": "SSSP.G8.G3.A3",
+              "title": "Urbanisation",
+              "description": "Why cities grow — push and pull migration — and the social issues of rapid growth in South Africa.",
+              "caps_term": "G8 T3",
+              "caps_topic": "Settlement & urbanisation",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Urbanisation\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Push = reasons to leave the country; pull = reasons cities attract people.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            }
+          ]
+        },
+        {
+          "id": "L8.G4",
+          "title": "Geography · Term 4: Transport & trade",
+          "description": "CAPS G8 T4 — Geography. Transport & trade.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G8.G4.A1",
+              "bank_skill_id": "SSSP.G8.G4.A1",
+              "title": "Trade and transport around the world",
+              "description": "Why people trade, the link between trade and transport, and the modes (sea, air, road, rail, pipeline).",
+              "caps_term": "G8 T4",
+              "caps_topic": "Transport & trade",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Trade and transport around the world\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Trade needs transport — match the goods to the best mode.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G8.G4.A2",
+              "bank_skill_id": "SSSP.G8.G4.A2",
+              "title": "Trade and transport in South Africa",
+              "description": "South Africa's roads, railways, airports and harbours, with a harbour case study.",
+              "caps_term": "G8 T4",
+              "caps_topic": "Transport & trade",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Trade and transport in South Africa\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Harbours connect South African exports to the world.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G8.G4.A3",
+              "bank_skill_id": "SSSP.G8.G4.A3",
+              "title": "People and transport in urban areas",
+              "description": "Public and private commuter transport, transport problems and public-transit solutions.",
+              "caps_term": "G8 T4",
+              "caps_topic": "Transport & trade",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"People and transport in urban areas\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Think of the daily commute: cost, congestion and pollution.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "grade": 9,
+      "title": "Grade 9 — Social Sciences",
+      "description": "Grade 9 History and Geography (CAPS Senior Phase). Four History topics and four Geography topics, one per term.",
+      "tiers": [
+        {
+          "id": "L9.H1",
+          "title": "History · Term 1: World War II (1919–1945)",
+          "description": "CAPS G9 T1 — History. World War II (1919–1945).",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G9.H1.A1",
+              "bank_skill_id": "SSSP.G9.H1.A1",
+              "title": "The rise of Nazi Germany",
+              "description": "The Weimar Republic's failure, Hitler and the Nazis, the Depression, the Nuremberg Laws and the fascist state.",
+              "caps_term": "G9 T1",
+              "caps_topic": "World War II (1919–1945)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The rise of Nazi Germany\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Weak democracy + economic crisis = the opening Hitler used.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.H1.A2",
+              "bank_skill_id": "SSSP.G9.H1.A2",
+              "title": "World War II in Europe",
+              "description": "The outbreak of war, the Holocaust and the 'Final Solution', resistance, and the war's end in Europe.",
+              "caps_term": "G9 T1",
+              "caps_topic": "World War II (1919–1945)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"World War II in Europe\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Two threads: the fighting, and the genocide of the Holocaust.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.H1.A3",
+              "bank_skill_id": "SSSP.G9.H1.A3",
+              "title": "World War II in the Pacific",
+              "description": "Pearl Harbour and America's entry, Japanese expansion, and the internment of Japanese Americans.",
+              "caps_term": "G9 T1",
+              "caps_topic": "World War II (1919–1945)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"World War II in the Pacific\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Pearl Harbour (1941) pulled the USA into the war against Japan.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.H2",
+          "title": "History · Term 2: The Nuclear Age & the Cold War",
+          "description": "CAPS G9 T2 — History. The Nuclear Age & the Cold War.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G9.H2.A1",
+              "bank_skill_id": "SSSP.G9.H2.A1",
+              "title": "Tension after World War II",
+              "description": "Growing distrust between the USSR (communism) and the USA and the West (capitalism).",
+              "caps_term": "G9 T2",
+              "caps_topic": "The Nuclear Age & the Cold War",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Tension after World War II\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Allies in war became rivals in peace: communism vs capitalism.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.H2.A2",
+              "bank_skill_id": "SSSP.G9.H2.A2",
+              "title": "Atomic bombs and the Nuclear Age",
+              "description": "How the war ended in the Pacific, why the USA dropped the bombs, and whether it was justified.",
+              "caps_term": "G9 T2",
+              "caps_topic": "The Nuclear Age & the Cold War",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Atomic bombs and the Nuclear Age\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Hiroshima and Nagasaki ended the war and opened the nuclear age.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.H2.A3",
+              "bank_skill_id": "SSSP.G9.H2.A3",
+              "title": "The Cold War: areas of conflict",
+              "description": "The arms race, the space race, and the division of Germany and the Berlin Wall.",
+              "caps_term": "G9 T2",
+              "caps_topic": "The Nuclear Age & the Cold War",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The Cold War: areas of conflict\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "'Cold' War = rivalry and proxy contests, not direct superpower fighting.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.H2.A4",
+              "bank_skill_id": "SSSP.G9.H2.A4",
+              "title": "The end of the Cold War",
+              "description": "The fall of the Berlin Wall in 1989 and the collapse of the Soviet Union in 1991.",
+              "caps_term": "G9 T2",
+              "caps_topic": "The Nuclear Age & the Cold War",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The end of the Cold War\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "1989 the Wall falls; 1991 the USSR breaks up.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.H3",
+          "title": "History · Term 3: Turning points: 1948 & the 1950s",
+          "description": "CAPS G9 T3 — History. Turning points: 1948 & the 1950s.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G9.H3.A1",
+              "bank_skill_id": "SSSP.G9.H3.A1",
+              "title": "Human rights and the myth of race",
+              "description": "The Universal Declaration of Human Rights, human evolution and common ancestry, and why 'race' is not biological.",
+              "caps_term": "G9 T3",
+              "caps_topic": "Turning points: 1948 & the 1950s",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Human rights and the myth of race\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Science says 'race' is a social idea, not a biological fact.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.H3.A2",
+              "bank_skill_id": "SSSP.G9.H3.A2",
+              "title": "1948: the National Party and apartheid laws",
+              "description": "Segregation before 1948 and the main apartheid laws — Group Areas (Sophiatown) and the Bantustans.",
+              "caps_term": "G9 T3",
+              "caps_topic": "Turning points: 1948 & the 1950s",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"1948: the National Party and apartheid laws\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "1948 didn't invent segregation — it made it total law.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.H3.A3",
+              "bank_skill_id": "SSSP.G9.H3.A3",
+              "title": "1950s: non-violent resistance",
+              "description": "The Defiance Campaign, the Freedom Charter, the Treason Trial and the Women's March.",
+              "caps_term": "G9 T3",
+              "caps_topic": "Turning points: 1948 & the 1950s",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"1950s: non-violent resistance\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "1950s resistance was organised and mostly non-violent.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.H4",
+          "title": "History · Term 4: Turning points: 1960, 1976 & 1994",
+          "description": "CAPS G9 T4 — History. Turning points: 1960, 1976 & 1994.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G9.H4.A1",
+              "bank_skill_id": "SSSP.G9.H4.A1",
+              "title": "1960: Sharpeville and Langa",
+              "description": "The formation of the PAC, the Sharpeville massacre and Langa march, and their consequences.",
+              "caps_term": "G9 T4",
+              "caps_topic": "Turning points: 1960, 1976 & 1994",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"1960: Sharpeville and Langa\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Sharpeville (1960) turned resistance and repression sharply.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.H4.A2",
+              "bank_skill_id": "SSSP.G9.H4.A2",
+              "title": "1976: the Soweto uprising",
+              "description": "Causes, the events of 16 June, the spread of protest and the longer-term consequences.",
+              "caps_term": "G9 T4",
+              "caps_topic": "Turning points: 1960, 1976 & 1994",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"1976: the Soweto uprising\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "16 June 1976: students protest Afrikaans-medium schooling.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.H4.A3",
+              "bank_skill_id": "SSSP.G9.H4.A3",
+              "title": "1990–1994: Mandela's release and democracy",
+              "description": "Internal and external pressure, the unbanning of movements, Mandela's release, negotiations and the 1994 election.",
+              "caps_term": "G9 T4",
+              "caps_topic": "Turning points: 1960, 1976 & 1994",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "sequence",
+                "sort-buckets",
+                "highlight-source"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"1990–1994: Mandela's release and democracy\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "1990 unbanning and release → negotiations → 1994 vote.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.G1",
+          "title": "Geography · Term 1: Map skills (topographic & orthophoto)",
+          "description": "CAPS G9 T1 — Geography. Map skills (topographic & orthophoto).",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G9.G1.A1",
+              "bank_skill_id": "SSSP.G9.G1.A1",
+              "title": "Contour lines",
+              "description": "What contour lines show, reading steep and gentle slopes, and spotting river valleys and spurs.",
+              "caps_term": "G9 T1",
+              "caps_topic": "Map skills (topographic & orthophoto)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Contour lines\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Contours close together = steep; far apart = gentle.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "SSSP.G9.G1.A2",
+              "bank_skill_id": "SSSP.G9.G1.A2",
+              "title": "Orthophoto maps",
+              "description": "Vertical aerial photos turned into orthophoto maps and how height is shown on them.",
+              "caps_term": "G9 T1",
+              "caps_topic": "Map skills (topographic & orthophoto)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Orthophoto maps\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "An orthophoto is a photo corrected to map scale, with contours added.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "SSSP.G9.G1.A3",
+              "bank_skill_id": "SSSP.G9.G1.A3",
+              "title": "Topographic maps",
+              "description": "Reading 1:50 000 map symbols, height clues, contour patterns, scale, distance and coordinates.",
+              "caps_term": "G9 T1",
+              "caps_topic": "Map skills (topographic & orthophoto)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Topographic maps\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Learn the symbol key first — then everything else reads off it.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "SSSP.G9.G1.A4",
+              "bank_skill_id": "SSSP.G9.G1.A4",
+              "title": "Interpreting maps and photographs",
+              "description": "Cross-referencing maps and photos to describe landscape, land use and settlement patterns.",
+              "caps_term": "G9 T1",
+              "caps_topic": "Map skills (topographic & orthophoto)",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "diagram-label",
+                "data-interpret",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Interpreting maps and photographs\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Combine sources: the map gives height, the photo gives detail.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            }
+          ]
+        },
+        {
+          "id": "L9.G2",
+          "title": "Geography · Term 2: Development issues",
+          "description": "CAPS G9 T2 — Geography. Development issues.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G9.G2.A1",
+              "bank_skill_id": "SSSP.G9.G2.A1",
+              "title": "Meaning and measuring development",
+              "description": "Economic, social and environmental development, and measuring it with the Human Development Index.",
+              "caps_term": "G9 T2",
+              "caps_topic": "Development issues",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Meaning and measuring development\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "HDI blends income, education and life expectancy into one score.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.G2.A2",
+              "bank_skill_id": "SSSP.G9.G2.A2",
+              "title": "Factors affecting development",
+              "description": "Why countries differ — history (colonialism), trade, technology, health, education and stability.",
+              "caps_term": "G9 T2",
+              "caps_topic": "Development issues",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Factors affecting development\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "No single cause — development comes from many factors together.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.G2.A3",
+              "bank_skill_id": "SSSP.G9.G2.A3",
+              "title": "Opportunities for development",
+              "description": "Fairer trade, alternatives to industrialisation and sustainable development.",
+              "caps_term": "G9 T2",
+              "caps_topic": "Development issues",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Opportunities for development\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Development should also be fair and sustainable, not just bigger.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.G3",
+          "title": "Geography · Term 3: Surface forces that shape the earth",
+          "description": "CAPS G9 T3 — Geography. Surface forces that shape the earth.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G9.G3.A1",
+              "bank_skill_id": "SSSP.G9.G3.A1",
+              "title": "Weathering",
+              "description": "Physical, chemical and biological weathering, and how people speed it up.",
+              "caps_term": "G9 T3",
+              "caps_topic": "Surface forces that shape the earth",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Weathering\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Weathering breaks rock in place; it doesn't move it (that's erosion).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.G3.A2",
+              "bank_skill_id": "SSSP.G9.G3.A2",
+              "title": "Erosion and deposition",
+              "description": "How rivers, the sea, ice and wind wear away and build up landforms.",
+              "caps_term": "G9 T3",
+              "caps_topic": "Surface forces that shape the earth",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Erosion and deposition\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Erosion carries material away; deposition drops it somewhere else.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.G3.A3",
+              "bank_skill_id": "SSSP.G9.G3.A3",
+              "title": "People and soil erosion",
+              "description": "How farming, construction and mining cause soil erosion — with a case study.",
+              "caps_term": "G9 T3",
+              "caps_topic": "Surface forces that shape the earth",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"People and soil erosion\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Bare, overworked soil washes or blows away fastest.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.G4",
+          "title": "Geography · Term 4: Resource use & sustainability",
+          "description": "CAPS G9 T4 — Geography. Resource use & sustainability.",
+          "atomic_skills": [
+            {
+              "id": "SSSP.G9.G4.A1",
+              "bank_skill_id": "SSSP.G9.G4.A1",
+              "title": "Resource use",
+              "description": "Renewable and non-renewable resources and the effects of unwise use (over-fishing, over-grazing).",
+              "caps_term": "G9 T4",
+              "caps_topic": "Resource use & sustainability",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Resource use\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Renewable can refill if used carefully; non-renewable runs out.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.G4.A2",
+              "bank_skill_id": "SSSP.G9.G4.A2",
+              "title": "Sustainable use of resources",
+              "description": "What sustainable use means and the role of consumers, business and government in achieving it.",
+              "caps_term": "G9 T4",
+              "caps_topic": "Resource use & sustainability",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Sustainable use of resources\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Sustainable = meeting today's needs without robbing the future.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "SSSP.G9.G4.A3",
+              "bank_skill_id": "SSSP.G9.G4.A3",
+              "title": "Food resources and food security",
+              "description": "Food security, the role of science and technology in food, and sustainable farming.",
+              "caps_term": "G9 T4",
+              "caps_topic": "Resource use & sustainability",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "match",
+                "data-interpret",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Food resources and food security\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Food security = everyone has enough safe food, reliably.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
