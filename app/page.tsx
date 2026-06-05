@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import Sidebar from "@/components/Sidebar";
 import UsageMeter from "@/components/UsageMeter";
 import RubyBalance from "@/components/RubyBalance";
+import RubyCelebrations from "@/components/RubyCelebrations";
 import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import HomeworkTutorial   from "@/components/tutorial/HomeworkTutorial";
@@ -49,6 +50,8 @@ const TourismSession               = dynamic(() => import("@/components/tourism/
 const TourismSkillTreeView         = dynamic(() => import("@/components/tourism/TourismSkillTreeView"),                    { ssr: false });
 const AccountingSession            = dynamic(() => import("@/components/accounting/AccountingSession"),                     { ssr: false });
 const AccountingSkillTreeView      = dynamic(() => import("@/components/accounting/AccountingSkillTreeView"),               { ssr: false });
+const EconomicsSession             = dynamic(() => import("@/components/economics/EconomicsSession"),                       { ssr: false });
+const EconomicsSkillTreeView       = dynamic(() => import("@/components/economics/EconomicsSkillTreeView"),                 { ssr: false });
 const GeographySession             = dynamic(() => import("@/components/geography/GeographySession"),                      { ssr: false });
 const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),                { ssr: false });
 const NaturalSciencesSpSession     = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSession"),     { ssr: false });
@@ -131,7 +134,7 @@ const SESSION_VIEWS: ActiveView[] = [
   "grade-10-phys-sci", "grade-11-phys-sci",
   "afrikaans-fal", "maths-literacy", "life-sciences", "history",
   "business-studies", "tourism", "geography", "natural-sciences-sp",
-  "social-sciences-sp", "ems-sp", "accounting",
+  "social-sciences-sp", "ems-sp", "accounting", "economics",
 ];
 
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
@@ -204,6 +207,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "business-studies-skill-tree": "Business Studies · Topics",
     "accounting": "Accounting",
     "accounting-skill-tree": "Accounting · Topics",
+    "economics": "Economics",
+    "economics-skill-tree": "Economics · Topics",
     "tourism": "Tourism",
     "tourism-skill-tree": "Tourism · Topics",
     "geography": "Geography",
@@ -452,6 +457,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
 
       {showInstall && <InstallPrompt onDismiss={() => setShowInstall(false)} />}
 
+      {/* Global ruby celebration overlay — plays milestone Lotties on events */}
+      <RubyCelebrations />
+
       {/* Mobile top bar — in normal flow so banner shows above it */}
       <header className="md:hidden flex-shrink-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm z-30">
         <button
@@ -551,6 +559,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           onSocialSciencesSpPickSkill={() => handleViewChange("social-sciences-sp")}
           onEmsSpPickSkill={() => handleViewChange("ems-sp")}
           onAccountingPickSkill={() => handleViewChange("accounting")}
+          onEconomicsPickSkill={() => handleViewChange("economics")}
         />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
@@ -589,6 +598,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {/* Accounting — FET Phase (Gr 10–12), free like History */}
         {activeView === "accounting" && <ErrorBoundary><AccountingSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "accounting-skill-tree" && <AccountingSkillTreeView onPickSkill={() => handleViewChange("accounting")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Economics — FET Phase (Gr 10–12), free like History */}
+        {activeView === "economics" && <ErrorBoundary><EconomicsSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "economics-skill-tree" && <EconomicsSkillTreeView onPickSkill={() => handleViewChange("economics")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {/* Tourism — FET Phase (Gr 10–12), free like History */}
         {activeView === "tourism" && <ErrorBoundary><TourismSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "tourism-skill-tree" && <TourismSkillTreeView onPickSkill={() => handleViewChange("tourism")} profile={null} onBack={() => handleViewChange("subjects")} />}

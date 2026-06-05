@@ -72,6 +72,10 @@ import {
   hydrateAccountingProfileFromSupabase,
 } from "@/lib/accounting-student-model";
 import {
+  loadEconomicsProfile,
+  hydrateEconomicsProfileFromSupabase,
+} from "@/lib/economics-student-model";
+import {
   loadAfrikaansProfile,
   hydrateAfrikaansProfileFromSupabase,
 } from "@/lib/afrikaans-student-model";
@@ -85,6 +89,7 @@ import type { NaturalSciencesSpStudentProfile } from "@/types/natural-sciences-s
 import type { SocialSciencesSpStudentProfile } from "@/types/social-sciences-sp";
 import type { EmsSpStudentProfile } from "@/types/ems-sp";
 import type { AccountingStudentProfile } from "@/types/accounting";
+import type { EconomicsStudentProfile } from "@/types/economics";
 
 const SkillTreeView           = dynamic(() => import("@/components/ruby/SkillTreeView"),                       { ssr: false });
 const ReadingSkillTreeView    = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),             { ssr: false });
@@ -103,6 +108,7 @@ const NaturalSciencesSpSkillTreeView = dynamic(() => import("@/components/natura
 const SocialSciencesSpSkillTreeView = dynamic(() => import("@/components/social-sciences-sp/SocialSciencesSpSkillTreeView"), { ssr: false });
 const EmsSpSkillTreeView = dynamic(() => import("@/components/ems-sp/EmsSpSkillTreeView"), { ssr: false });
 const AccountingSkillTreeView = dynamic(() => import("@/components/accounting/AccountingSkillTreeView"), { ssr: false });
+const EconomicsSkillTreeView = dynamic(() => import("@/components/economics/EconomicsSkillTreeView"), { ssr: false });
 
 type SubjectId =
   | "discover"
@@ -124,7 +130,8 @@ type SubjectId =
   | "natural-sciences-sp"
   | "social-sciences-sp"
   | "ems-sp"
-  | "accounting";
+  | "accounting"
+  | "economics";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -210,6 +217,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [socialSciencesSpProfile, setSocialSciencesSpProfile] = useState<SocialSciencesSpStudentProfile | null>(() => loadSocialSciencesSpProfile());
   const [emsSpProfile, setEmsSpProfile] = useState<EmsSpStudentProfile | null>(() => loadEmsSpProfile());
   const [accountingProfile, setAccountingProfile] = useState<AccountingStudentProfile | null>(() => loadAccountingProfile());
+  const [economicsProfile, setEconomicsProfile] = useState<EconomicsStudentProfile | null>(() => loadEconomicsProfile());
   const [afrikaansProfile, setAfrikaansProfile] = useState<AfrikaansStudentProfile | null>(() => loadAfrikaansProfile());
   const [grade, setGrade] = useState<number | null>(() => readCachedGrade());
   // null = no saved selection → show all (fail open). Only ever filters Gr 10–12.
@@ -255,7 +263,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [bs, ls, hi, to, ge, ns, ss, em, ac, af] = await Promise.all([
+      const [bs, ls, hi, to, ge, ns, ss, em, ac, ec, af] = await Promise.all([
         hydrateBusinessStudiesProfileFromSupabase(),
         hydrateLifeSciencesProfileFromSupabase(),
         hydrateHistoryProfileFromSupabase(),
@@ -265,6 +273,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         hydrateSocialSciencesSpProfileFromSupabase(),
         hydrateEmsSpProfileFromSupabase(),
         hydrateAccountingProfileFromSupabase(),
+        hydrateEconomicsProfileFromSupabase(),
         hydrateAfrikaansProfileFromSupabase(),
       ]);
       if (cancelled) return;
@@ -277,6 +286,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       if (ss) setSocialSciencesSpProfile(ss);
       if (em) setEmsSpProfile(em);
       if (ac) setAccountingProfile(ac);
+      if (ec) setEconomicsProfile(ec);
       if (af) setAfrikaansProfile(af);
     })();
     return () => {
@@ -312,6 +322,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const showBusinessStudies = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // Accounting is a FET subject (Gr 10–12 only). Free for all plans.
   const showAccounting = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
+  // Economics is a FET subject (Gr 10–12 only). Free for all plans.
+  const showEconomics = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // Tourism is a FET subject (Gr 10–12 only). Free for all plans.
   const showTourism = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // Geography is a FET subject (Gr 10–12 only). Free for all plans.
@@ -546,6 +558,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "accounting",
       });
     }
+    if (showEconomics) {
+      all.push({
+        id: "economics",
+        thumbnail: "/thumbnails/economics.webp",
+        label: "Economics",
+        caption: "Markets, the circular flow, growth, money, inflation & trade · Grades 10–12",
+        badge: "FET",
+        badgeColor: "bg-indigo-100 text-indigo-700",
+        accentFrom: "from-indigo-500",
+        accentTo: "to-blue-600",
+        navigateTo: "economics",
+      });
+    }
     if (showBusinessStudies) {
       all.push({
         id: "business-studies",
@@ -654,6 +679,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     showHistory,
     showBusinessStudies,
     showAccounting,
+    showEconomics,
     showTourism,
     showGeography,
     showNaturalSciencesSp,
@@ -808,6 +834,14 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           <AccountingSkillTreeView
             onPickSkill={startContentSkill("accounting", "ruby_accounting_target_skill")}
             profile={accountingProfile}
+            compact
+          />
+        );
+      case "economics":
+        return (
+          <EconomicsSkillTreeView
+            onPickSkill={startContentSkill("economics", "ruby_economics_target_skill")}
+            profile={economicsProfile}
             compact
           />
         );

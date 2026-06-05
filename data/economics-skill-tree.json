@@ -1,0 +1,1514 @@
+{
+  "version": "1.0",
+  "subject": "economics",
+  "description": "Economics skill tree, FET (CAPS Economics Grades 10-12). Tiers = CAPS terms within each grade. 51 atomic skills across the three grades, all-unlocked within a grade (content subject — no prerequisite chains, like History/Geography). Mastery = 60% of a 20-item pool (FET rule, no timer). Cognitive mix per CAPS: ~30% Knowledge/Comprehension (difficulty 1), ~40% Application/Analysis (difficulty 2), ~30% Synthesis/Evaluation (difficulty 3). Tap-based mechanics only (no free-text): choice, true-false, cloze, sequence, sort-buckets, diagram-label (graph reading), paragraph-template and source-comparison. Questions live in data/economics-question-bank.json, authored from data/economics-authoring/grade{10,11,12}.mjs via scripts/gen-economics-bank.mjs.",
+  "grades_covered": [
+    10,
+    11,
+    12
+  ],
+  "levels": [
+    {
+      "id": 10,
+      "grade": 10,
+      "title": "Grade 10 — Economics",
+      "description": "Foundations of Economics. T1 macroeconomics — basic concepts and methods, the economic problem, the circular flow, GDP/GNI and business cycles. T2 microeconomics — demand and supply, the production possibility curve and public-sector intervention. T3 economic pursuits — the history of growth, development, money, banking and the labour force. T4 contemporary issues — unemployment, labour relations and economic redress.",
+      "tiers": [
+        {
+          "id": "L10.T1",
+          "title": "Term 1 — Macroeconomics: basic concepts, the economic problem & the circular flow",
+          "atomic_skills": [
+            {
+              "id": "ECON.G10.T1.CONCEPTS.A1",
+              "bank_skill_id": "ECON.G10.T1.CONCEPTS.A1",
+              "title": "Economics: basic concepts & methods",
+              "description": "What economics is, its branches (micro/macro) and approaches; positive vs normative statements, the scientific method, the use of models, and economics' links to other disciplines and careers.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Economics: basic concepts",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses positive (fact) and normative (opinion) statements",
+                  "example": "Calls 'the government should cut tax' a positive statement"
+                }
+              ],
+              "recovery_strategy": "A positive statement can be tested as true or false; a normative statement is a value judgement ('should/ought').",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G10.T1.SCARCITY.A1",
+              "bank_skill_id": "ECON.G10.T1.SCARCITY.A1",
+              "title": "Scarcity & the economic problem",
+              "description": "Absolute vs relative scarcity, economic vs free goods, choice and opportunity cost, and the basic processes of production, exchange and consumption.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Basic economic problem",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Thinks opportunity cost is the money spent rather than the next-best alternative given up",
+                  "example": "Says the opportunity cost of studying is the bus fare, not the part-time job foregone"
+                }
+              ],
+              "recovery_strategy": "Opportunity cost = the value of the NEXT-BEST option you gave up, not the rand price.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G10.T1.CIRCFLOW.A1",
+              "bank_skill_id": "ECON.G10.T1.CIRCFLOW.A1",
+              "title": "The circular flow model",
+              "description": "Participants (households, firms, government, foreign sector), product and factor markets, the real and money flows between them, and leakages and injections in an open economy.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Circular flow",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Mixes up leakages and injections, or real and money flows",
+                  "example": "Calls imports an injection instead of a leakage"
+                }
+              ],
+              "recovery_strategy": "Leakages (S, T, M) flow OUT of the circular flow; injections (I, G, X) flow IN.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G10.T1.GDP.A1",
+              "bank_skill_id": "ECON.G10.T1.GDP.A1",
+              "title": "GDP & GNI (quantitative)",
+              "description": "Defining and deriving GDP and GNI, their composition, importance and comparison; reading simple national-accounts figures.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Quantitative elements: production and income",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "computational",
+                  "description": "Confuses GDP (production inside the country) with GNI (income earned by citizens)",
+                  "example": "Counts a foreigner's SA factory output in GNI instead of GDP"
+                }
+              ],
+              "recovery_strategy": "GDP = produced INSIDE the borders; GNI = earned BY the country's citizens, wherever they are.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G10.T1.BUSCYCLE.A1",
+              "bank_skill_id": "ECON.G10.T1.BUSCYCLE.A1",
+              "title": "Business cycles",
+              "description": "The phases and indicators of business cycles, South African cycles, measuring them, exogenous and endogenous causes, and their effects on growth, employment and the vulnerable.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Business cycles",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sequence",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot order the phases (recovery, boom/peak, recession, trough)",
+                  "example": "Puts 'trough' before 'recession'"
+                }
+              ],
+              "recovery_strategy": "One cycle runs trough → recovery → peak (boom) → recession → next trough.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L10.T2",
+          "title": "Term 2 — Microeconomics: markets, the PPC & the public sector",
+          "atomic_skills": [
+            {
+              "id": "ECON.G10.T2.DEMSUP.A1",
+              "bank_skill_id": "ECON.G10.T2.DEMSUP.A1",
+              "title": "Demand, supply & price formation",
+              "description": "Demand and supply, how equilibrium price and quantity are set, and the meaning of value, price and utility.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Dynamics of markets",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses a shift of the curve with a movement along it",
+                  "example": "Says a price change shifts the demand curve"
+                }
+              ],
+              "recovery_strategy": "Price change → MOVEMENT along the curve; a non-price factor → SHIFT of the whole curve.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G10.T2.MKTTYPES.A1",
+              "bank_skill_id": "ECON.G10.T2.MKTTYPES.A1",
+              "title": "Types & functions of markets",
+              "description": "Product vs factor markets, perfect vs imperfect markets, world markets, and the functions of markets (bringing demand and supply together, allocating resources, self-regulation).",
+              "caps_term": "G10 T2",
+              "caps_topic": "Dynamics of markets",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot classify a market as perfect or imperfect",
+                  "example": "Calls a market with one seller 'perfect competition'"
+                }
+              ],
+              "recovery_strategy": "Perfect markets: many buyers/sellers, identical product, free entry. One seller = monopoly (imperfect).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G10.T2.PPC.A1",
+              "bank_skill_id": "ECON.G10.T2.PPC.A1",
+              "title": "Production possibility curve",
+              "description": "Reading the PPC to show choice, scarcity, opportunity cost and efficiency; points on, inside and beyond the curve; what shifts it.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Production possibility curve",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Thinks a point inside the PPC is unattainable",
+                  "example": "Says a point inside the curve cannot be produced"
+                }
+              ],
+              "recovery_strategy": "Inside = attainable but INEFFICIENT (idle resources); beyond = currently unattainable; on = efficient.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G10.T2.PUBSEC.A1",
+              "bank_skill_id": "ECON.G10.T2.PUBSEC.A1",
+              "title": "Public sector intervention",
+              "description": "How the state intervenes in markets — indirect taxes, subsidies, welfare, maximum and minimum prices, minimum wages and production — and the effects on price and quantity.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Public sector",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Swaps the effect of a maximum (price ceiling) and a minimum (price floor) price",
+                  "example": "Says a maximum price causes a surplus"
+                }
+              ],
+              "recovery_strategy": "Max price (ceiling) below equilibrium → shortage; min price (floor) above equilibrium → surplus.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L10.T3",
+          "title": "Term 3 — Economic pursuits: growth, development, money & labour (history)",
+          "atomic_skills": [
+            {
+              "id": "ECON.G10.T3.GLOBHIST.A1",
+              "bank_skill_id": "ECON.G10.T3.GLOBHIST.A1",
+              "title": "Growth, development & globalisation in history",
+              "description": "How economies developed historically: early trade and money, the growth of markets and towns, industrial development, and the rise of economic institutions and globalisation.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Growth, development and globalisation",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot sequence the historical stages of economic development",
+                  "example": "Puts industrialisation before the emergence of trade and money"
+                }
+              ],
+              "recovery_strategy": "Roughly: self-sufficiency → barter/trade → money → markets/towns → industrialisation → globalisation.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G10.T3.SAHIST.A1",
+              "bank_skill_id": "ECON.G10.T3.SAHIST.A1",
+              "title": "South African economic history",
+              "description": "Economic development in South Africa through animal husbandry/agriculture, mining, manufacturing and services — what promoted and hampered development at each stage.",
+              "caps_term": "G10 T3",
+              "caps_topic": "SA economic growth and development — historical view",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses the order of SA's economic stages",
+                  "example": "Says manufacturing came before mining in SA's development"
+                }
+              ],
+              "recovery_strategy": "SA broadly moved farming → mining (diamonds/gold) → manufacturing → services.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G10.T3.MONEYHIST.A1",
+              "bank_skill_id": "ECON.G10.T3.MONEYHIST.A1",
+              "title": "History of money & banking",
+              "description": "The history of money in South Africa (early African, indigenous, colonial, imperial, SA money) and the history of banking (early development, private and imperial banks, consolidation).",
+              "caps_term": "G10 T3",
+              "caps_topic": "The history of money and banking",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sequence",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "factual",
+                  "description": "Confuses the stages of money's evolution",
+                  "example": "Says coins came before barter"
+                }
+              ],
+              "recovery_strategy": "Money evolved: barter → commodity money → metal coins → paper money → modern/electronic money.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G10.T3.POPLAB.A1",
+              "bank_skill_id": "ECON.G10.T3.POPLAB.A1",
+              "title": "Population & labour force",
+              "description": "The size and growth of the South African population (natural growth, the demographic cycle, migration) and the labour force (age composition, employment, unemployment, distribution).",
+              "caps_term": "G10 T3",
+              "caps_topic": "Population & labour force",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses the population with the labour force",
+                  "example": "Counts children and pensioners in the labour force"
+                }
+              ],
+              "recovery_strategy": "The labour force = people of working age who are working OR actively looking for work.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L10.T4",
+          "title": "Term 4 — Contemporary issues: unemployment, labour & redress",
+          "atomic_skills": [
+            {
+              "id": "ECON.G10.T4.UNEMP.A1",
+              "bank_skill_id": "ECON.G10.T4.UNEMP.A1",
+              "title": "Unemployment",
+              "description": "The nature, numbers and rates of unemployment, the characteristics, causes and effects of South African unemployment, and approaches to solve it.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Unemployment",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses the types of unemployment (cyclical, structural, frictional, seasonal)",
+                  "example": "Calls a retrenchment due to recession 'frictional' unemployment"
+                }
+              ],
+              "recovery_strategy": "Cyclical = downturn; structural = skills/industry mismatch; frictional = between jobs; seasonal = time of year.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G10.T4.LABREL.A1",
+              "bank_skill_id": "ECON.G10.T4.LABREL.A1",
+              "title": "Labour relations",
+              "description": "The SA labour market, the Labour Relations Act, BCEA and COIDA, labour rights and conventions, collective bargaining, the CCMA and the labour courts.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Labour relations",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "paragraph-template"
+              ],
+              "error_signatures": [
+                {
+                  "type": "factual",
+                  "description": "Confuses which Act or body deals with a given labour matter",
+                  "example": "Says the CCMA sets the minimum wage"
+                }
+              ],
+              "recovery_strategy": "LRA = unions/bargaining/disputes; BCEA = basic conditions; CCMA = conciliation/mediation/arbitration of disputes.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G10.T4.REDRESS.A1",
+              "bank_skill_id": "ECON.G10.T4.REDRESS.A1",
+              "title": "Economic redress since 1994",
+              "description": "Reconstruction of the South African economy after 1994 to redress past inequality: human and natural resources, capital, entrepreneurship, BEE, democratisation and macroeconomic adaptation.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Economic redress",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot link a redress measure to the inequality it targets",
+                  "example": "Says BEE is mainly about lowering taxes"
+                }
+              ],
+              "recovery_strategy": "Redress measures (BEE, employment equity, land reform) aim to widen access to ownership, jobs and skills.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "grade": 11,
+      "title": "Grade 11 — Economics",
+      "description": "Analysis year. T1 macroeconomics — factors of production, measuring GDP/GNI, economic systems and SA's economic structure. T2 microeconomics — price elasticity, market relationships and structures, cost and revenue, and wealth, distribution and growth. T3 economic pursuits — development, poverty, money and banking, and SA's role in Africa. T4 contemporary issues — globalisation and the environment.",
+      "tiers": [
+        {
+          "id": "L11.T1",
+          "title": "Term 1 — Macroeconomics: production, systems & SA's structure",
+          "atomic_skills": [
+            {
+              "id": "ECON.G11.T1.FOP.A1",
+              "bank_skill_id": "ECON.G11.T1.FOP.A1",
+              "title": "Factors of production & remuneration",
+              "description": "The factors of production (natural resources, labour, capital, entrepreneurship), their characteristics and importance, and how each is remunerated (rent, wages, interest, profit).",
+              "caps_term": "G11 T1",
+              "caps_topic": "Factors of production",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "factual",
+                  "description": "Mismatches a factor of production with its income",
+                  "example": "Says labour earns interest"
+                }
+              ],
+              "recovery_strategy": "Natural resources → rent; labour → wages; capital → interest; entrepreneurship → profit.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T1.GDPEXP.A1",
+              "bank_skill_id": "ECON.G11.T1.GDPEXP.A1",
+              "title": "GDP & GNI: expenditure and income",
+              "description": "Measuring national output: final consumption (C), government consumption (G), gross fixed capital formation (I), and the main aggregates (GVA, GNE, GNI).",
+              "caps_term": "G11 T1",
+              "caps_topic": "Circular flow: economic goods and services",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "computational",
+                  "description": "Leaves a component out of the expenditure method",
+                  "example": "Calculates GDP as C + I only, omitting G and net exports"
+                }
+              ],
+              "recovery_strategy": "Expenditure method: GDP = C + I + G + (X − M).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T1.SYSTEMS.A1",
+              "bank_skill_id": "ECON.G11.T1.SYSTEMS.A1",
+              "title": "Economic systems & the mixed economy",
+              "description": "Market, centrally planned and mixed economies — their characteristics, advantages and disadvantages — and the efficiency of South Africa's mixed economy in delivering socio-economic services.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Economic systems: mixed economy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses who answers the central economic questions in each system",
+                  "example": "Says the market system relies on government planning"
+                }
+              ],
+              "recovery_strategy": "Market = price mechanism decides; command = the state decides; mixed = both market and state.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T1.STRUCTURE.A1",
+              "bank_skill_id": "ECON.G11.T1.STRUCTURE.A1",
+              "title": "South Africa's economic structure",
+              "description": "The primary, secondary and tertiary sectors (composition and importance) and South Africa's infrastructure (communication, transport, energy) and issues of exclusion.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Economic structure",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Misclassifies an activity into the wrong sector",
+                  "example": "Calls banking a primary-sector activity"
+                }
+              ],
+              "recovery_strategy": "Primary = extract raw materials; secondary = manufacture; tertiary = services (banking, retail, transport).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L11.T2",
+          "title": "Term 2 — Microeconomics: elasticity, market structures, cost & growth",
+          "atomic_skills": [
+            {
+              "id": "ECON.G11.T2.ELAST.A1",
+              "bank_skill_id": "ECON.G11.T2.ELAST.A1",
+              "title": "Price elasticity",
+              "description": "Marginal utility, price elasticity of demand and supply, the factors that determine elasticity, and income and cross elasticity of demand.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Price elasticity",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "computational",
+                  "description": "Treats a flat (elastic) and steep (inelastic) demand curve as the same",
+                  "example": "Says necessities are price-elastic"
+                }
+              ],
+              "recovery_strategy": "Elastic (>1): quantity reacts a lot (luxuries). Inelastic (<1): quantity barely reacts (necessities).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T2.MKTREL.A1",
+              "bank_skill_id": "ECON.G11.T2.MKTREL.A1",
+              "title": "Relationships between markets",
+              "description": "Relative prices, demand and supply relationships (substitutes and complements) and the link between product and factor markets.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Relationship between markets",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses substitutes and complements",
+                  "example": "Calls cars and petrol substitutes"
+                }
+              ],
+              "recovery_strategy": "Substitutes replace each other (tea/coffee); complements are used together (cars/petrol).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T2.MKTSTRUCT.A1",
+              "bank_skill_id": "ECON.G11.T2.MKTSTRUCT.A1",
+              "title": "Market structures",
+              "description": "The four basic market structure models, their characteristics and differences, and classifying them into perfect and imperfect markets.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Market structure",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot match a market structure to its number of firms and product type",
+                  "example": "Says monopolistic competition has only one firm"
+                }
+              ],
+              "recovery_strategy": "Perfect comp: many, identical. Monopolistic comp: many, differentiated. Oligopoly: few. Monopoly: one.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T2.COSTREV.A1",
+              "bank_skill_id": "ECON.G11.T2.COSTREV.A1",
+              "title": "Cost & revenue",
+              "description": "Business objectives, short-run and long-run costs (total, average, marginal), revenue calculations and changes, and profits and losses.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Effects of cost & revenue",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "computational",
+                  "description": "Confuses average cost and marginal cost",
+                  "example": "Calls the cost of one more unit the 'average cost'"
+                }
+              ],
+              "recovery_strategy": "Average cost = total cost ÷ units; marginal cost = the cost of producing ONE MORE unit.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T2.WEALTH.A1",
+              "bank_skill_id": "ECON.G11.T2.WEALTH.A1",
+              "title": "Wealth creation & distribution",
+              "description": "The wealth-creation process, the distribution of income and wealth, measuring inequality with the Gini coefficient and Lorenz curve, and redistribution methods.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Economic growth",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Misreads the Lorenz curve / Gini coefficient",
+                  "example": "Says a Gini of 0 means perfect inequality"
+                }
+              ],
+              "recovery_strategy": "Gini 0 = perfect equality; Gini 1 = perfect inequality. The further the Lorenz curve bows, the more unequal.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T2.GROWTH.A1",
+              "bank_skill_id": "ECON.G11.T2.GROWTH.A1",
+              "title": "Economic growth",
+              "description": "The meaning and importance of economic growth, methods of achieving it, constraints on growth, South Africa's recent growth experience and the standard of living.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Economic growth",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses economic growth with economic development",
+                  "example": "Says rising GDP automatically means people are better off"
+                }
+              ],
+              "recovery_strategy": "Growth = more output (GDP). Development = growth PLUS better living standards, health and education.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L11.T3",
+          "title": "Term 3 — Economic pursuits: development, poverty, money & Africa",
+          "atomic_skills": [
+            {
+              "id": "ECON.G11.T3.DEVELOP.A1",
+              "bank_skill_id": "ECON.G11.T3.DEVELOP.A1",
+              "title": "Economic development",
+              "description": "Methods of development, the common characteristics of developing countries, development strategies, South Africa's endeavours and indigenous knowledge systems.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Economic development",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "paragraph-template"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot identify the features of a developing economy",
+                  "example": "Says high productivity is a feature of a developing country"
+                }
+              ],
+              "recovery_strategy": "Developing economies typically show low income/productivity, high population growth and reliance on the primary sector.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T3.POVERTY.A1",
+              "bank_skill_id": "ECON.G11.T3.POVERTY.A1",
+              "title": "Poverty",
+              "description": "Absolute and relative poverty, measuring poverty, the causes and effects of poverty, and the South African government's measures to alleviate it.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Poverty",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses absolute and relative poverty",
+                  "example": "Says relative poverty means having no income at all"
+                }
+              ],
+              "recovery_strategy": "Absolute poverty = can't afford basic needs; relative poverty = far below the average living standard around you.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T3.MONEY.A1",
+              "bank_skill_id": "ECON.G11.T3.MONEY.A1",
+              "title": "Money & the monetary system",
+              "description": "The technical functions of money, modern money and money-associated instruments, the monetary system, the value of money and how it is stabilised.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Money & banking",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "factual",
+                  "description": "Cannot list the functions of money",
+                  "example": "Says money's main job is to cause inflation"
+                }
+              ],
+              "recovery_strategy": "Money is a medium of exchange, a store of value, a unit of account and a standard of deferred payment.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T3.BANKING.A1",
+              "bank_skill_id": "ECON.G11.T3.BANKING.A1",
+              "title": "Banking & the central bank",
+              "description": "The basic principles of credit creation, interest rates, micro-lending, central banking and its functions, monetary policy, and bank failures and their consequences.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Money & banking",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses the role of the central bank and a commercial bank",
+                  "example": "Says ordinary banks set the repo rate"
+                }
+              ],
+              "recovery_strategy": "The Reserve Bank (central bank) sets the repo rate and oversees the system; commercial banks lend to the public.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T3.AFRICA.A1",
+              "bank_skill_id": "ECON.G11.T3.AFRICA.A1",
+              "title": "SA's economic importance in Africa",
+              "description": "South Africa's role and relative economic importance in Africa, comparisons on economic and social indicators, and economic integration and co-operation (AU, SADC, NEPAD).",
+              "caps_term": "G11 T3",
+              "caps_topic": "South Africa's economic importance in Africa",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "factual",
+                  "description": "Confuses the African economic bodies and what they do",
+                  "example": "Says SADC is a global trade body unrelated to Africa"
+                }
+              ],
+              "recovery_strategy": "SADC = Southern African development community; AU = African Union; NEPAD = Africa's development partnership.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L11.T4",
+          "title": "Term 4 — Contemporary issues: globalisation & the environment",
+          "atomic_skills": [
+            {
+              "id": "ECON.G11.T4.GLOBAL.A1",
+              "bank_skill_id": "ECON.G11.T4.GLOBAL.A1",
+              "title": "Globalisation",
+              "description": "The meaning, causes and consequences of globalisation, absolute and comparative advantages and disadvantages, and the North/South divide and its effects on South Africa.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Globalisation",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "paragraph-template"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses absolute and comparative advantage",
+                  "example": "Says a country should make everything it is best at in absolute terms"
+                }
+              ],
+              "recovery_strategy": "Comparative advantage = produce what you give up the LEAST to make, then trade — even if another country is better at everything.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G11.T4.ENVIRO.A1",
+              "bank_skill_id": "ECON.G11.T4.ENVIRO.A1",
+              "title": "Environmental deterioration",
+              "description": "Environmental problems, protecting the environment, approaches to sustainability, and the global and local impact on South Africa.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Environmental deterioration",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Treats economic growth and environmental care as always opposed",
+                  "example": "Says sustainability means stopping all production"
+                }
+              ],
+              "recovery_strategy": "Sustainable development meets today's needs WITHOUT harming the ability of future generations to meet theirs.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Grade 12 — Economics",
+      "description": "Matric depth. T1 macroeconomics — the circular flow and multiplier, business cycles and forecasting, the public sector and fiscal policy, the balance of payments and foreign exchange. T2 microeconomics — protectionism and free trade, perfect and imperfect markets, and market failure. T3 pursuits and contemporary issues — growth and industrial policy, economic and social indicators, inflation, tourism and environmental sustainability.",
+      "tiers": [
+        {
+          "id": "L12.T1",
+          "title": "Term 1 — Macroeconomics: circular flow, cycles, the state & forex",
+          "atomic_skills": [
+            {
+              "id": "ECON.G12.T1.CIRCFLOW.A1",
+              "bank_skill_id": "ECON.G12.T1.CIRCFLOW.A1",
+              "title": "Circular flow & national accounts",
+              "description": "The open-economy circular flow model, the markets, and deducing and converting the national-account aggregates.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Circular flow",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot convert between the national-account aggregates",
+                  "example": "Treats GDP and GNI as interchangeable in the conversions"
+                }
+              ],
+              "recovery_strategy": "Move between aggregates by adding/subtracting the right items (e.g. GDP + primary income from abroad → GNI).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T1.MULTIPLIER.A1",
+              "bank_skill_id": "ECON.G12.T1.MULTIPLIER.A1",
+              "title": "The multiplier",
+              "description": "The definition of the multiplier effect and an explanation of the multiplier process, aided with the circular flow and examples.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Circular flow",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "computational",
+                  "description": "Gets the multiplier formula or direction wrong",
+                  "example": "Thinks a bigger savings rate makes the multiplier bigger"
+                }
+              ],
+              "recovery_strategy": "Multiplier = 1 ÷ (1 − marginal propensity to consume). More leakage (saving) → SMALLER multiplier.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T1.BUSCYCLE.A1",
+              "bank_skill_id": "ECON.G12.T1.BUSCYCLE.A1",
+              "title": "Business cycles & forecasting",
+              "description": "The composition and features of business cycles, explanations, government policy, the new economic paradigm (smoothing cycles), and forecasting with leading, coincident and lagging indicators.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Business cycles",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses leading, coincident and lagging indicators",
+                  "example": "Calls the unemployment rate a leading indicator"
+                }
+              ],
+              "recovery_strategy": "Leading indicators change BEFORE the economy; coincident move WITH it; lagging change AFTER it.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T1.PUBSEC.A1",
+              "bank_skill_id": "ECON.G12.T1.PUBSEC.A1",
+              "title": "Public sector & fiscal policy",
+              "description": "The composition and necessity of the public sector, problems of public-sector provisioning, budget objectives, fiscal policy (including the Laffer curve) and reasons for public-sector failure.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Public sector",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses fiscal policy with monetary policy",
+                  "example": "Says changing the repo rate is fiscal policy"
+                }
+              ],
+              "recovery_strategy": "Fiscal policy = government tax and spending (the budget); monetary policy = the Reserve Bank and interest rates.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T1.BOP.A1",
+              "bank_skill_id": "ECON.G12.T1.BOP.A1",
+              "title": "The balance of payments",
+              "description": "The main reasons for international trade and the balance of payments — its accounts, and surpluses and deficits (disequilibria) and their correction.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Foreign exchange market",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Puts a transaction in the wrong BOP account",
+                  "example": "Records imported goods on the financial account"
+                }
+              ],
+              "recovery_strategy": "Current account = goods, services, income, transfers; financial account = investment and capital flows.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T1.FOREX.A1",
+              "bank_skill_id": "ECON.G12.T1.FOREX.A1",
+              "title": "Foreign exchange markets",
+              "description": "Foreign exchange markets, how exchange rates are established, and how appreciation and depreciation affect the balance of payments.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Foreign exchange market",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses appreciation and depreciation and their effects",
+                  "example": "Says a weaker rand makes imports cheaper"
+                }
+              ],
+              "recovery_strategy": "Rand depreciation → imports DEARER, exports CHEAPER (more competitive); appreciation does the opposite.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L12.T2",
+          "title": "Term 2 — Microeconomics: trade, market structures & failure",
+          "atomic_skills": [
+            {
+              "id": "ECON.G12.T2.TRADE.A1",
+              "bank_skill_id": "ECON.G12.T2.TRADE.A1",
+              "title": "Protectionism & free trade",
+              "description": "Export promotion and import substitution, the arguments for protectionism and for free trade, a desirable mix, and evaluating South Africa's trade policies.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Protection and free trade",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "paragraph-template"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses a tariff with a subsidy or quota",
+                  "example": "Says a tariff is a payment to local producers"
+                }
+              ],
+              "recovery_strategy": "Tariff = tax on imports; quota = limit on import quantity; subsidy = payment to local producers.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T2.PERFECT.A1",
+              "bank_skill_id": "ECON.G12.T2.PERFECT.A1",
+              "title": "Perfect markets",
+              "description": "The dynamics of perfect competition using cost and revenue curves — the individual firm and the industry, output, profits, losses and supply, and competition policy.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Perfect markets",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Thinks a perfectly competitive firm can set its own price",
+                  "example": "Says the firm raises price to increase profit"
+                }
+              ],
+              "recovery_strategy": "A perfectly competitive firm is a PRICE-TAKER: it accepts the market price and chooses only how much to produce.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T2.MONOPOLY.A1",
+              "bank_skill_id": "ECON.G12.T2.MONOPOLY.A1",
+              "title": "Monopoly",
+              "description": "The dynamics of a monopoly with the aid of cost and revenue curves — price and output decisions, profit, and how a monopoly differs from perfect competition.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Imperfect markets",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Assumes a monopoly can charge any price and sell any amount",
+                  "example": "Says a monopoly faces no demand constraint"
+                }
+              ],
+              "recovery_strategy": "A monopoly is a price-MAKER but still faces a downward-sloping demand curve — higher price means fewer sales.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T2.IMPERFECTOTHER.A1",
+              "bank_skill_id": "ECON.G12.T2.IMPERFECTOTHER.A1",
+              "title": "Oligopoly & monopolistic competition",
+              "description": "The dynamics of oligopoly and monopolistic competition — their characteristics, non-price competition, and how they sit between monopoly and perfect competition.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Imperfect markets",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot distinguish oligopoly from monopolistic competition",
+                  "example": "Says a market of a few large firms is monopolistic competition"
+                }
+              ],
+              "recovery_strategy": "Oligopoly = a FEW firms that affect each other; monopolistic competition = MANY firms with differentiated products.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T2.MKTFAIL.A1",
+              "bank_skill_id": "ECON.G12.T2.MKTFAIL.A1",
+              "title": "Market failures",
+              "description": "The causes and consequences of market failure (externalities, public goods, imperfect competition, missing markets) and cost-benefit analysis.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Market failures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "diagram-label"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses positive and negative externalities",
+                  "example": "Calls pollution a positive externality"
+                }
+              ],
+              "recovery_strategy": "Negative externality = a cost imposed on others (pollution); positive = a benefit others get free (vaccination).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L12.T3",
+          "title": "Term 3 — Pursuits & contemporary issues: growth, indicators, inflation, tourism, environment",
+          "atomic_skills": [
+            {
+              "id": "ECON.G12.T3.GROWTHPOL.A1",
+              "bank_skill_id": "ECON.G12.T3.GROWTHPOL.A1",
+              "title": "Growth & development policies",
+              "description": "Comparing South Africa's growth and development policies against international benchmarks — the demand-side and supply-side approaches, their evaluation, and the North/South divide.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Economic growth & development",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses demand-side and supply-side approaches",
+                  "example": "Says cutting business red tape is a demand-side policy"
+                }
+              ],
+              "recovery_strategy": "Demand-side lifts total spending (C+I+G); supply-side improves the capacity to produce (skills, infrastructure, less red tape).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T3.INDDEV.A1",
+              "bank_skill_id": "ECON.G12.T3.INDDEV.A1",
+              "title": "Industrial development policies",
+              "description": "South Africa's industrial and regional development policies and their suitability against international best practice.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Industrial development policies",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "factual",
+                  "description": "Confuses the SA industrial-policy initiatives and what they target",
+                  "example": "Says the IDZ/SEZ programme is a welfare grant"
+                }
+              ],
+              "recovery_strategy": "Industrial policies (IPAP, SEZs, the SDIs) aim to build manufacturing, exports and regional development — not welfare.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T3.ECONIND.A1",
+              "bank_skill_id": "ECON.G12.T3.ECONIND.A1",
+              "title": "Economic performance indicators",
+              "description": "The performance of an economy and its key economic indicators — the inflation rate, foreign trade, employment, productivity, interest rates and money supply.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Economic and social performance indicators",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot tell whether an indicator signals a strong or weak economy",
+                  "example": "Says rising unemployment is a sign of a healthy economy"
+                }
+              ],
+              "recovery_strategy": "Strong economy: rising output/employment/productivity, stable low inflation. The opposite signals weakness.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T3.SOCIND.A1",
+              "bank_skill_id": "ECON.G12.T3.SOCIND.A1",
+              "title": "Social performance indicators",
+              "description": "Social indicators and their uses — demographics, health and nutrition, education, services, housing and urbanisation — and international comparisons.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Economic and social performance indicators",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses economic and social indicators",
+                  "example": "Calls the literacy rate an economic indicator"
+                }
+              ],
+              "recovery_strategy": "Economic indicators measure output/money (GDP, inflation); social indicators measure wellbeing (health, education, housing).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T3.INFLATION.A1",
+              "bank_skill_id": "ECON.G12.T3.INFLATION.A1",
+              "title": "Inflation",
+              "description": "The meaning, types and characteristics of inflation, its causes and consequences, the inflation problem in South Africa, and the measures used to combat it.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Inflation",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses demand-pull and cost-push inflation",
+                  "example": "Says rising wages and oil prices cause demand-pull inflation"
+                }
+              ],
+              "recovery_strategy": "Demand-pull = too much spending chasing too few goods; cost-push = rising production costs (wages, oil) push prices up.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T3.TOURISM.A1",
+              "bank_skill_id": "ECON.G12.T3.TOURISM.A1",
+              "title": "Tourism",
+              "description": "The reasons for tourism's growth, its effects and benefits, South Africa's tourism profile (including indigenous knowledge systems), and policies to promote it.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Tourism",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "paragraph-template"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Sees only the direct effects of tourism and misses the multiplier and indirect jobs",
+                  "example": "Says tourism only benefits hotels"
+                }
+              ],
+              "recovery_strategy": "Tourism spending ripples out (the multiplier) into transport, food, crafts and many indirect jobs.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ECON.G12.T3.ENVIRO.A1",
+              "bank_skill_id": "ECON.G12.T3.ENVIRO.A1",
+              "title": "Environmental sustainability",
+              "description": "The state of the environment, measures to ensure sustainability, and major international agreements (for example the Rio de Janeiro and Johannesburg summits).",
+              "caps_term": "G12 T3",
+              "caps_topic": "Environmental sustainability",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "factual",
+                  "description": "Cannot link an environmental agreement to its purpose",
+                  "example": "Says the Rio summit was about trade tariffs"
+                }
+              ],
+              "recovery_strategy": "The Rio and Johannesburg summits set goals for sustainable development and protecting the environment, not trade.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

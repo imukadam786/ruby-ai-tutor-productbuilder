@@ -15,6 +15,7 @@ export type FetSubjectKey =
   | "geography"
   | "business-studies"
   | "accounting"
+  | "economics"
   | "tourism";
 
 export interface FetSubject {
@@ -30,6 +31,7 @@ export const FET_SUBJECTS: FetSubject[] = [
   { key: "english", label: "English", locked: true },
   { key: "accounting", label: "Accounting" },
   { key: "business-studies", label: "Business Studies" },
+  { key: "economics", label: "Economics" },
   { key: "geography", label: "Geography" },
   { key: "history", label: "History" },
   { key: "life-sciences", label: "Life Sciences" },
@@ -57,6 +59,7 @@ export const HUB_ID_TO_FET_KEY: Record<string, FetSubjectKey> = {
   geography: "geography",
   "business-studies": "business-studies",
   accounting: "accounting",
+  economics: "economics",
   tourism: "tourism",
 };
 
