@@ -298,8 +298,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   // with no saved grade), show every subject rather than silently defaulting
   // to a grade and hiding the wrong ones. A learner with a known grade only
   // ever sees the subjects that grade is entitled to.
-  const gradeKnown = grade !== null;
-  const learnerGrade = grade ?? 0;
+  //
+  // (b) Subject-VISIBILITY grade: prefer the authoritative server grade, but fall
+  // back to the grade in the learner's local profile so legacy/grade-less accounts
+  // still get a filtered list instead of dumping every subject. This grade is
+  // self-entered on the device, so it's used ONLY to decide which cards show —
+  // Matric/Phys-Sci visibility below stays on the authoritative server grade so a
+  // local grade can never surface paid Matric content (access is plan-gated too).
+  const authGrade = grade;
+  const authGradeKnown = authGrade !== null;
+  const localProfileGrade = mathsProfile?.grade ?? readingProfile?.grade ?? null;
+  const visGrade = grade ?? localProfileGrade;
+  const gradeKnown = visGrade !== null;
+  const learnerGrade = visGrade ?? 0;
   const showLifeSkills = !gradeKnown || learnerGrade <= LIFE_SKILLS_MAX_GRADE;
   const showAfrikaans = !gradeKnown || learnerGrade <= AFRIKAANS_MAX_GRADE;
   const showSocialSciences =
@@ -307,10 +318,12 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     (learnerGrade >= SOCIAL_SCIENCES_MIN_GRADE && learnerGrade <= SOCIAL_SCIENCES_MAX_GRADE);
   const showNst =
     !gradeKnown || (learnerGrade >= NST_MIN_GRADE && learnerGrade <= NST_MAX_GRADE);
-  const showMatricPhysSci = !gradeKnown || learnerGrade === 12;
+  // Matric / Phys-Sci visibility stays on the AUTHORITATIVE server grade (not the
+  // local fallback) so a self-set device grade can't surface paid Matric content.
+  const showMatricPhysSci = !authGradeKnown || authGrade === 12;
   // Physical Sciences is also a FET subject for Grades 10 and 11 (tap-native).
-  const showGrade10PhysSci = !gradeKnown || learnerGrade === 10;
-  const showGrade11PhysSci = !gradeKnown || learnerGrade === 11;
+  const showGrade10PhysSci = !authGradeKnown || authGrade === 10;
+  const showGrade11PhysSci = !authGradeKnown || authGrade === 11;
   const showMathsLiteracy =
     !gradeKnown ||
     (learnerGrade >= MATHS_LITERACY_MIN_GRADE && learnerGrade <= MATHS_LITERACY_MAX_GRADE);
