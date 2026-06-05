@@ -457,7 +457,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showNst) {
       all.push({
         id: "nst",
-        thumbnail: "/thumbnails/natural-sciences-tech.webp",
+        thumbnail: "/thumbnails/natural-sciences-sp.webp",
         label: "Natural Sciences & Technology",
         caption: `Science & Technology for Grades ${NST_MIN_GRADE}–${NST_MAX_GRADE}`,
         badge: "Intermediate Phase",
