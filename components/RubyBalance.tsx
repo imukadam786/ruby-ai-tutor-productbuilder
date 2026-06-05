@@ -92,7 +92,9 @@ export default function RubyBalance({ theme = "dark", className = "" }: RubyBala
             if (award.awarded > 0) {
               onEarn(award.awarded);
               document.dispatchEvent(
-                new CustomEvent("ruby-celebrate", { detail: { kind: "daily_login" } }),
+                new CustomEvent("ruby-celebrate", {
+                  detail: { kind: "daily_login", rubies: award.awarded, streak: award.streak },
+                }),
               );
             }
           }

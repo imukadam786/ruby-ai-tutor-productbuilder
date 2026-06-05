@@ -604,9 +604,9 @@ export default function SkillTreeShell({
   // and the thumbnail stretches to the tree's height; on mobile they stack.
   if (inHub) {
     const thumb = hub.thumbnail ? (
-      <img src={hub.thumbnail} alt={hub.label ?? ""} className="w-full h-full object-cover rounded-xl" />
+      <img src={hub.thumbnail} alt={hub.label ?? ""} className="w-full h-full object-cover" />
     ) : (
-      <div className="w-full h-full rounded-xl bg-gray-50 flex items-center justify-center text-5xl">
+      <div className="w-full h-full bg-gray-50 flex items-center justify-center text-5xl">
         {hub.emoji ?? "📘"}
       </div>
     );
@@ -615,17 +615,9 @@ export default function SkillTreeShell({
       <div className="relative isolate">
         <div className="flex flex-col md:flex-row md:items-stretch gap-4">
           {/* Left: enlarged thumbnail + stat-line, sized to the tree's height.
-              The padded box is filled with the subject's accent gradient so the
-              thumbnail sits inside a coloured frame — each subject reads by its
-              own colour even though the trees are otherwise identical. */}
+              Just the image — no frame, border or padding. */}
           <div className="flex flex-col items-center md:items-stretch md:w-48 lg:w-56 md:flex-shrink-0">
-            <div
-              className={`w-40 aspect-square md:w-full md:aspect-auto md:flex-1 rounded-2xl shadow-sm border p-2 ${
-                hub.accentFrom && hub.accentTo
-                  ? `bg-gradient-to-br ${hub.accentFrom} ${hub.accentTo} border-transparent`
-                  : "bg-white border-gray-100"
-              }`}
-            >
+            <div className="w-40 aspect-square md:w-full md:aspect-auto md:flex-1 rounded-2xl overflow-hidden">
               {thumb}
             </div>
             {statline && (

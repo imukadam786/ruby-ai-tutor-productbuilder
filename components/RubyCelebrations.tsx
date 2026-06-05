@@ -37,7 +37,7 @@ const CONFIG: Record<CelebrationKind, CelebrationConfig> = {
   tier_complete:  { assets: ["confetti"],                 size: "md", ms: 2400, showCount: false },
   level_up:       { assets: ["confetti"],                 size: "lg", ms: 2800, showCount: false },
   tree_complete:  { assets: ["confetti", "trophy"],       size: "xl", ms: 4000, showCount: false },
-  daily_login:    { assets: ["streak-fire"],              size: "sm", ms: 2000, showCount: false },
+  daily_login:    { assets: ["streak-fire"],              size: "sm", ms: 3500, showCount: false },
 };
 
 const SIZE_CLASS: Record<CelebrationConfig["size"], string> = {
@@ -47,7 +47,7 @@ const SIZE_CLASS: Record<CelebrationConfig["size"], string> = {
   xl: "w-[28rem] h-[28rem] max-w-[90vw] max-h-[90vw]",
 };
 
-type Active = { kind: CelebrationKind; rubies?: number; id: number };
+type Active = { kind: CelebrationKind; rubies?: number; streak?: number; id: number };
 
 export default function RubyCelebrations() {
   const [active, setActive] = useState<Active | null>(null);
@@ -69,7 +69,7 @@ export default function RubyCelebrations() {
       if (!kind || !(kind in CONFIG)) return;
 
       const id = ++seq.current;
-      setActive({ kind, rubies: detail?.rubies, id });
+      setActive({ kind, rubies: detail?.rubies, streak: (detail as { streak?: number })?.streak, id });
       if (timer.current) clearTimeout(timer.current);
       timer.current = setTimeout(() => {
         // Only clear if this is still the celebration on screen.
@@ -86,6 +86,30 @@ export default function RubyCelebrations() {
 
   if (!active) return null;
   const cfg = CONFIG[active.kind];
+
+  // Daily login is a contextual top toast card, not a bare centre animation —
+  // a lone flame mid-screen reads as "why did I just get a random flame?".
+  if (active.kind === "daily_login") {
+    return (
+      <div className="fixed top-4 inset-x-0 z-[120] flex justify-center px-4 pointer-events-none">
+        <div className="flex items-center gap-3 bg-white rounded-2xl shadow-lg border border-gray-200 px-4 py-3">
+          <DotLottieReact src="/lottie/streak-fire.json" autoplay loop className="w-10 h-10 flex-shrink-0" />
+          <div className="text-left">
+            <p className="text-sm font-bold text-[#1a2744]">Welcome back!</p>
+            <p className="text-xs text-gray-600 flex items-center gap-1">
+              <span>{active.streak && active.streak > 1 ? `${active.streak}-day streak` : "Day 1"}</span>
+              {active.rubies ? (
+                <span className="flex items-center gap-0.5 font-semibold text-[#BE1832]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  · <img src="/rubytransparent.png" alt="" className="w-3.5 h-3.5 object-contain" /> +{active.rubies}
+                </span>
+              ) : null}
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 z-[120] flex items-center justify-center pointer-events-none">

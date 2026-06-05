@@ -146,7 +146,7 @@ export async function rewardAnswer(opts: {
  * yesterday, reset if a gap, no-op if already counted today) and pays
  * base + (streak-1)*perDay capped. Idempotent per day via the streak date.
  */
-export async function awardDailyLogin(userId: string): Promise<RubyAward | null> {
+export async function awardDailyLogin(userId: string): Promise<(RubyAward & { streak?: number }) | null> {
   const day = today();
   const { data: streak } = await supabaseAdmin
     .from("user_streaks")
@@ -184,12 +184,13 @@ export async function awardDailyLogin(userId: string): Promise<RubyAward | null>
   const { base, perDayStreak, cap } = RUBY_RULES.dailyLogin;
   const amount = Math.min(base + (newStreak - 1) * perDayStreak, cap);
 
-  return awardFlat({
+  const award = await awardFlat({
     userId,
     amount,
     reason: "daily_login",
     idempotencyKey: `${userId}:daily_login:${day}`,
   });
+  return award ? { ...award, streak: newStreak } : null;
 }
 
 /** First-time-ever skill mastery bonus. Idempotency key makes it once-per-skill. */
