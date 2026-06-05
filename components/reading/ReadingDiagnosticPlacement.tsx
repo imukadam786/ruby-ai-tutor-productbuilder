@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import RubyLoader from "@/components/RubyLoader";
 import { apiFetch } from "@/lib/fetch";
 import { DiagnosticPlacementResult, DiagnosticTaskResult } from "@/types/reading";
 import { speakViaAPI, prefetchTTS } from "@/lib/tts";
@@ -842,8 +843,7 @@ export default function ReadingDiagnosticPlacement({
   if (TASKS.length === 0) {
     return (
       <div className="flex flex-col h-full bg-gradient-to-br from-purple-50 to-purple-100 items-center justify-center">
-        <div className="text-5xl animate-bounce mb-4">📚</div>
-        <p className="text-gray-600 text-base font-medium">Loading your activities…</p>
+        <RubyLoader label="Loading your activities…" />
       </div>
     );
   }

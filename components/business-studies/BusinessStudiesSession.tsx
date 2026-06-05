@@ -1,5 +1,6 @@
 "use client";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
+import RubyLoader from "@/components/RubyLoader";
 
 // BusinessStudiesSession — clone of LifeSciencesSession with a wider answer
 // dispatcher. Key differences from LSC:
@@ -429,7 +430,7 @@ export default function BusinessStudiesSession({ onBack }: { onBack?: () => void
     return (
       <div className="relative flex items-center justify-center h-full bg-[#F4F4F5]">
         <EduBackground />
-        <p className="relative text-gray-500 text-lg">Loading…</p>
+        <RubyLoader className="relative" label="Loading…" />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 "use client";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
+import RubyLoader from "@/components/RubyLoader";
 
 // SocialSciencesSpSession — clone of GeographySession for the Natural Sciences
 // Senior-Phase bank. Key points:
@@ -440,7 +441,7 @@ export default function SocialSciencesSpSession({ onBack }: { onBack?: () => voi
     return (
       <div className="relative flex items-center justify-center h-full bg-[#F4F4F5]">
         <EduBackground />
-        <p className="relative text-gray-500 text-lg">Loading…</p>
+        <RubyLoader className="relative" label="Loading…" />
       </div>
     );
   }

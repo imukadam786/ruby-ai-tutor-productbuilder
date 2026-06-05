@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect, useRef } from "react";
+import RubyLoader from "@/components/RubyLoader";
 import { MathsPlacementResult, MathsPlacementTaskResult, DiagnosticBlock } from "@/types/ruby";
 import { getSkillIdsForLevels, getLevelById } from "@/lib/student-model";
 import { SEARCH_GATES, LEVEL_LABEL, getSearchWindow, isGatePassed, resolveEntryLevel } from "@/lib/maths-placement-engine";
@@ -484,8 +485,7 @@ export default function MathsDiagnosticPlacement({
   if (phase === "loading") {
     return (
       <div className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-blue-100 items-center justify-center">
-        <div className="text-4xl animate-spin">⚙️</div>
-        <p className="mt-4 text-blue-700 font-medium">Preparing your questions…</p>
+        <RubyLoader label="Preparing your questions…" />
       </div>
     );
   }

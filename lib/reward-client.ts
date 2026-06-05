@@ -22,7 +22,18 @@ export function rewardSkillMastered(subject: string, skillId: string, profileId?
     body: JSON.stringify({ subject, skillId, profileId }),
   })
     .then((r) => r.json())
-    .then(emitEarned)
+    .then((b) => {
+      emitEarned(b);
+      // Celebrate mastery on every subject — fires the Success Burst overlay.
+      const awarded = b?.rubies?.awarded ?? 0;
+      if (awarded > 0) {
+        document.dispatchEvent(
+          new CustomEvent("ruby-celebrate", {
+            detail: { kind: "skill_mastered", rubies: awarded },
+          }),
+        );
+      }
+    })
     .catch(() => { /* non-blocking */ });
 }
 

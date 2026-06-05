@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import RubyLoader from "@/components/RubyLoader";
 import { apiFetch } from "@/lib/fetch";
 import EduBackground from "@/components/EduBackground";
 import MatricPhysSciSkillTreeView from "./MatricPhysSciSkillTreeView";
@@ -335,7 +336,7 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
     return (
       <div className="relative flex items-center justify-center h-full bg-[#F4F4F5]">
         <EduBackground />
-        <p className="relative text-gray-500 text-lg">Loading…</p>
+        <RubyLoader className="relative" label="Loading…" />
       </div>
     );
   }

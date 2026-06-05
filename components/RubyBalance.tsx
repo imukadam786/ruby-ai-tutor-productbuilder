@@ -1,15 +1,17 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { apiFetch } from "@/lib/fetch";
 import { supabase } from "@/lib/supabase";
 
 /**
- * Rubies balance counter (Phase 1 — display only, no spending).
+ * Rubies balance counter (Phase 1 / 1.5 — display only, no spending).
  *
- * Shows the logged-in learner's ruby balance and pops a "+N" when they earn.
- * Listens for the `ruby-earned` event fired by lib/fetch.ts on a rewarded
- * answer, and on first mount per app load it fires the daily-login reward.
+ * Shows the balance with a count-up on change and a Diamond glint on each earn.
+ * Listens for `ruby-earned` (from lib/fetch.ts + reward-client) and, once per
+ * app load, fires the daily-login reward. Big milestone celebrations are handled
+ * separately by <RubyCelebrations>.
  */
 
 // Module-scoped so daily login fires once per app load even though the counter
@@ -23,8 +25,11 @@ interface RubyBalanceProps {
 
 export default function RubyBalance({ theme = "dark", className = "" }: RubyBalanceProps) {
   const [balance, setBalance] = useState<number | null>(null);
+  const [display, setDisplay] = useState<number>(0); // animated count-up value
   const [pop, setPop] = useState<number | null>(null);
+  const [glint, setGlint] = useState(0); // bump to replay the icon glint
   const popTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const rafRef = useRef<number | null>(null);
 
   const fetchBalance = useCallback(async () => {
     const { data: { session } } = await supabase.auth.getSession();
@@ -42,12 +47,32 @@ export default function RubyBalance({ theme = "dark", className = "" }: RubyBala
     }
   }, []);
 
-  const showPop = useCallback((amount: number) => {
+  const onEarn = useCallback((amount: number) => {
     if (amount <= 0) return;
     setPop(amount);
+    setGlint((g) => g + 1);
     if (popTimer.current) clearTimeout(popTimer.current);
     popTimer.current = setTimeout(() => setPop(null), 1600);
   }, []);
+
+  // Count-up animation whenever the balance changes.
+  useEffect(() => {
+    if (balance === null) return;
+    const from = display;
+    const to = balance;
+    if (from === to) return;
+    const start = performance.now();
+    const dur = 600;
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - (1 - t) * (1 - t); // ease-out
+      setDisplay(Math.round(from + (to - from) * eased));
+      if (t < 1) rafRef.current = requestAnimationFrame(tick);
+    };
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(tick);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, [balance]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Initial balance + once-per-load daily login.
   useEffect(() => {
@@ -64,29 +89,34 @@ export default function RubyBalance({ theme = "dark", className = "" }: RubyBala
           const award = body?.rubies;
           if (award && typeof award.new_balance === "number") {
             setBalance(award.new_balance);
-            if (award.awarded > 0) showPop(award.awarded);
+            if (award.awarded > 0) {
+              onEarn(award.awarded);
+              document.dispatchEvent(
+                new CustomEvent("ruby-celebrate", { detail: { kind: "daily_login" } }),
+              );
+            }
           }
         } catch {
           /* non-blocking */
         }
       })();
     }
-  }, [fetchBalance, showPop]);
+  }, [fetchBalance, onEarn]);
 
-  // Earn events from answered questions.
+  // Earn events (answers, mastery, effort floor, daily login).
   useEffect(() => {
     const handler = (e: Event) => {
       const award = (e as CustomEvent).detail as { awarded?: number; new_balance?: number } | undefined;
       if (award && typeof award.new_balance === "number") {
         setBalance(award.new_balance);
-        if (award.awarded) showPop(award.awarded);
+        if (award.awarded) onEarn(award.awarded);
       } else {
         void fetchBalance();
       }
     };
     document.addEventListener("ruby-earned", handler);
     return () => document.removeEventListener("ruby-earned", handler);
-  }, [fetchBalance, showPop]);
+  }, [fetchBalance, onEarn]);
 
   useEffect(() => () => { if (popTimer.current) clearTimeout(popTimer.current); }, []);
 
@@ -103,9 +133,20 @@ export default function RubyBalance({ theme = "dark", className = "" }: RubyBala
       title={`${balance} rubies earned`}
       className={`relative inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold leading-none border ${palette} ${className}`}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/rubytransparent.png" alt="rubies" className="w-4 h-4 object-contain" />
-      <span>{balance.toLocaleString()}</span>
+      <span className="relative w-4 h-4 flex-shrink-0">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/rubytransparent.png" alt="rubies" className="w-4 h-4 object-contain" />
+        {glint > 0 && (
+          <DotLottieReact
+            key={glint}
+            src="/lottie/ruby-gem.json"
+            autoplay
+            loop={false}
+            className="absolute inset-0 w-4 h-4 pointer-events-none"
+          />
+        )}
+      </span>
+      <span>{display.toLocaleString()}</span>
       {pop !== null && (
         <span
           className="absolute -top-3 right-0 text-[11px] font-bold text-rose-500 animate-bounce pointer-events-none"

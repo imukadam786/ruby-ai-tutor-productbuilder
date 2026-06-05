@@ -1,5 +1,6 @@
 "use client";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
+import RubyLoader from "@/components/RubyLoader";
 
 // EconomicsSession — content-subject session (clone of AccountingSession with a
 // narrower dispatcher: no equation-effect / double-entry). Every mechanic is
@@ -417,7 +418,7 @@ export default function EconomicsSession({ onBack }: { onBack?: () => void } = {
     return (
       <div className="relative flex items-center justify-center h-full bg-[#F4F4F5]">
         <EduBackground />
-        <p className="relative text-gray-500 text-lg">Loading…</p>
+        <RubyLoader className="relative" label="Loading…" />
       </div>
     );
   }

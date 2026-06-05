@@ -79,6 +79,14 @@ export async function apiFetch(
             document.dispatchEvent(
               new CustomEvent("ruby-earned", { detail: award }),
             );
+            // A streak milestone (5/8/10 in a row) was hit → combo celebration.
+            if (award.milestone_bonus > 0) {
+              document.dispatchEvent(
+                new CustomEvent("ruby-celebrate", {
+                  detail: { kind: "combo", rubies: award.milestone_bonus },
+                }),
+              );
+            }
           }
         })
         .catch(() => {
