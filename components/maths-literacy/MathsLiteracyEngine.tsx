@@ -420,25 +420,45 @@ function FeedbackView({
   onContinue: () => void;
   advanceLabel: string;
 }) {
+  const correct = result.is_correct;
+  // Show the redundant "Correct." string only if the engine gave something more
+  // useful than the word itself.
+  const extraFeedback =
+    result.feedback && result.feedback.trim().toLowerCase() !== "correct."
+      ? result.feedback
+      : "";
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 sm:p-6 space-y-4">
-      <div
-        className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full ${
-          result.is_correct
-            ? "bg-green-100 text-green-700"
-            : "bg-amber-100 text-amber-700"
-        }`}
-      >
-        {result.is_correct
-          ? "Correct"
-          : result.partial_credit
-          ? `Partial (${result.partial_credit.correct}/${result.partial_credit.total})`
-          : "Not quite"}
+      <div className="flex items-center gap-3">
+        <div
+          className={`w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold ${
+            correct ? "bg-green-100 text-green-600" : "bg-amber-100 text-amber-600"
+          }`}
+          aria-hidden
+        >
+          {correct ? "✓" : "✕"}
+        </div>
+        <div>
+          <p className={`text-lg font-bold ${correct ? "text-green-700" : "text-amber-700"}`}>
+            {correct
+              ? "Correct!"
+              : result.partial_credit
+              ? `Partial credit (${result.partial_credit.correct}/${result.partial_credit.total})`
+              : "Not quite"}
+          </p>
+          <p className="text-sm text-gray-500">
+            {correct ? "Nice work — here's the method." : "Have a look at the working below."}
+          </p>
+        </div>
       </div>
-      <div className="text-sm text-gray-800 leading-relaxed">{result.feedback}</div>
-      {!result.is_correct && workingSteps.length > 0 && (
+      {extraFeedback && (
+        <div className="text-sm text-gray-800 leading-relaxed">{extraFeedback}</div>
+      )}
+      {workingSteps.length > 0 && (
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
-          <div className="text-xs font-semibold text-gray-700 mb-2">Working</div>
+          <div className="text-xs font-semibold text-gray-700 mb-2">
+            {correct ? "How it's done" : "Working"}
+          </div>
           <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
             {workingSteps.map((s, i) => (
               <li key={i}>{s}</li>

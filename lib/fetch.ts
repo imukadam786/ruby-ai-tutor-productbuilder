@@ -83,7 +83,7 @@ export async function apiFetch(
             if (award.milestone_bonus > 0) {
               document.dispatchEvent(
                 new CustomEvent("ruby-celebrate", {
-                  detail: { kind: "combo", rubies: award.milestone_bonus },
+                  detail: { kind: "combo", rubies: award.milestone_bonus, streak: award.combo },
                 }),
               );
             }
