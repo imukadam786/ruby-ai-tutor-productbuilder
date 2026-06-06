@@ -76,6 +76,14 @@ import {
   hydrateEconomicsProfileFromSupabase,
 } from "@/lib/economics-student-model";
 import {
+  loadTechnologySpProfile,
+  hydrateTechnologySpProfileFromSupabase,
+} from "@/lib/technology-sp-student-model";
+import {
+  loadLifeOrientationSpProfile,
+  hydrateLifeOrientationSpProfileFromSupabase,
+} from "@/lib/life-orientation-sp-student-model";
+import {
   loadAfrikaansProfile,
   hydrateAfrikaansProfileFromSupabase,
 } from "@/lib/afrikaans-student-model";
@@ -90,6 +98,8 @@ import type { SocialSciencesSpStudentProfile } from "@/types/social-sciences-sp"
 import type { EmsSpStudentProfile } from "@/types/ems-sp";
 import type { AccountingStudentProfile } from "@/types/accounting";
 import type { EconomicsStudentProfile } from "@/types/economics";
+import type { TechnologySpStudentProfile } from "@/types/technology-sp";
+import type { LifeOrientationSpStudentProfile } from "@/types/life-orientation-sp";
 
 const SkillTreeView           = dynamic(() => import("@/components/ruby/SkillTreeView"),                       { ssr: false });
 const ReadingSkillTreeView    = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),             { ssr: false });
@@ -109,6 +119,8 @@ const SocialSciencesSpSkillTreeView = dynamic(() => import("@/components/social-
 const EmsSpSkillTreeView = dynamic(() => import("@/components/ems-sp/EmsSpSkillTreeView"), { ssr: false });
 const AccountingSkillTreeView = dynamic(() => import("@/components/accounting/AccountingSkillTreeView"), { ssr: false });
 const EconomicsSkillTreeView = dynamic(() => import("@/components/economics/EconomicsSkillTreeView"), { ssr: false });
+const TechnologySpSkillTreeView = dynamic(() => import("@/components/technology-sp/TechnologySpSkillTreeView"), { ssr: false });
+const LifeOrientationSpSkillTreeView = dynamic(() => import("@/components/life-orientation-sp/LifeOrientationSpSkillTreeView"), { ssr: false });
 
 type SubjectId =
   | "discover"
@@ -131,7 +143,9 @@ type SubjectId =
   | "social-sciences-sp"
   | "ems-sp"
   | "accounting"
-  | "economics";
+  | "economics"
+  | "technology-sp"
+  | "life-orientation-sp";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -218,6 +232,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [emsSpProfile, setEmsSpProfile] = useState<EmsSpStudentProfile | null>(() => loadEmsSpProfile());
   const [accountingProfile, setAccountingProfile] = useState<AccountingStudentProfile | null>(() => loadAccountingProfile());
   const [economicsProfile, setEconomicsProfile] = useState<EconomicsStudentProfile | null>(() => loadEconomicsProfile());
+  const [technologySpProfile, setTechnologySpProfile] = useState<TechnologySpStudentProfile | null>(() => loadTechnologySpProfile());
+  const [lifeOrientationSpProfile, setLifeOrientationSpProfile] = useState<LifeOrientationSpStudentProfile | null>(() => loadLifeOrientationSpProfile());
   const [afrikaansProfile, setAfrikaansProfile] = useState<AfrikaansStudentProfile | null>(() => loadAfrikaansProfile());
   const [grade, setGrade] = useState<number | null>(() => readCachedGrade());
   // null = no saved selection → show all (fail open). Only ever filters Gr 10–12.
@@ -263,7 +279,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [bs, ls, hi, to, ge, ns, ss, em, ac, ec, af] = await Promise.all([
+      const [bs, ls, hi, to, ge, ns, ss, em, ac, ec, ts, lo, af] = await Promise.all([
         hydrateBusinessStudiesProfileFromSupabase(),
         hydrateLifeSciencesProfileFromSupabase(),
         hydrateHistoryProfileFromSupabase(),
@@ -274,6 +290,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         hydrateEmsSpProfileFromSupabase(),
         hydrateAccountingProfileFromSupabase(),
         hydrateEconomicsProfileFromSupabase(),
+        hydrateTechnologySpProfileFromSupabase(),
+        hydrateLifeOrientationSpProfileFromSupabase(),
         hydrateAfrikaansProfileFromSupabase(),
       ]);
       if (cancelled) return;
@@ -287,6 +305,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       if (em) setEmsSpProfile(em);
       if (ac) setAccountingProfile(ac);
       if (ec) setEconomicsProfile(ec);
+      if (ts) setTechnologySpProfile(ts);
+      if (lo) setLifeOrientationSpProfile(lo);
       if (af) setAfrikaansProfile(af);
     })();
     return () => {
@@ -347,6 +367,10 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const showSocialSciencesSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
   // EMS (Economic & Management Sciences) is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
   const showEmsSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
+  // Technology is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
+  const showTechnologySp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
+  // Life Orientation is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
+  const showLifeOrientationSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
 
   const mathsLiteracyMastered = mathsLiteracyProfile
     ? Object.values(mathsLiteracyProfile.skill_mastery ?? {}).filter(
@@ -662,6 +686,33 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "ems-sp",
       });
     }
+    if (showTechnologySp) {
+      all.push({
+        id: "technology-sp",
+        thumbnail: "/thumbnails/technology-sp.webp",
+        label: "Technology",
+        caption: "Structures, machines, electronics & making · Grades 7–9",
+        badge: "Senior Phase",
+        badgeColor: "bg-slate-100 text-slate-700",
+        accentFrom: "from-slate-500",
+        accentTo: "to-zinc-600",
+        navigateTo: "technology-sp",
+      });
+    }
+    if (showLifeOrientationSp) {
+      all.push({
+        id: "life-orientation-sp",
+        thumbnail: "/thumbnails/life-orientation-sp.webp",
+        placeholderEmoji: "🧭",
+        label: "Life Orientation",
+        caption: "Self, health, rights & the world of work · Grades 7–9",
+        badge: "Senior Phase",
+        badgeColor: "bg-lime-100 text-lime-700",
+        accentFrom: "from-lime-500",
+        accentTo: "to-green-600",
+        navigateTo: "life-orientation-sp",
+      });
+    }
     // FET learners (Gr 10–12) who saved a subject selection during onboarding
     // see only the subjects they picked. Cards with no FET picker key (Discover)
     // always remain. Grades 1–9 and any account with no saved selection fail
@@ -698,6 +749,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     showNaturalSciencesSp,
     showSocialSciencesSp,
     showEmsSp,
+    showTechnologySp,
+    showLifeOrientationSp,
   ]);
 
   // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
@@ -895,6 +948,22 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           <EmsSpSkillTreeView
             onPickSkill={startContentSkill("ems-sp", "ruby_ems_sp_target_skill")}
             profile={emsSpProfile}
+            compact
+          />
+        );
+      case "technology-sp":
+        return (
+          <TechnologySpSkillTreeView
+            onPickSkill={startContentSkill("technology-sp", "ruby_technology_sp_target_skill")}
+            profile={technologySpProfile}
+            compact
+          />
+        );
+      case "life-orientation-sp":
+        return (
+          <LifeOrientationSpSkillTreeView
+            onPickSkill={startContentSkill("life-orientation-sp", "ruby_life_orientation_sp_target_skill")}
+            profile={lifeOrientationSpProfile}
             compact
           />
         );

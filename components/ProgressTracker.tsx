@@ -44,6 +44,7 @@ import GeographySkillTreeView from "@/components/geography/GeographySkillTreeVie
 import NaturalSciencesSpSkillTreeView from "@/components/natural-sciences-sp/NaturalSciencesSpSkillTreeView";
 import SocialSciencesSpSkillTreeView from "@/components/social-sciences-sp/SocialSciencesSpSkillTreeView";
 import EmsSpSkillTreeView from "@/components/ems-sp/EmsSpSkillTreeView";
+import TechnologySpSkillTreeView from "@/components/technology-sp/TechnologySpSkillTreeView";
 import AccountingSkillTreeView from "@/components/accounting/AccountingSkillTreeView";
 import EconomicsSkillTreeView from "@/components/economics/EconomicsSkillTreeView";
 import { getMathsLiteracyProfile } from "@/lib/maths-literacy-student-model";
@@ -83,6 +84,7 @@ type SubjectTabId =
   | "naturalsciencessp"
   | "socialsciencessp"
   | "emssp"
+  | "technologysp"
   | "accounting"
   | "economics";
 interface SubjectConfig {
@@ -110,6 +112,7 @@ const SUBJECTS: SubjectConfig[] = [
   { id: "naturalsciencessp", emoji: "🔭", label: "Natural Sciences", hex: "#e11d48", activeCard: "bg-rose-50",   activeBorder: "border-rose-400" },
   { id: "socialsciencessp", emoji: "🌐", label: "Social Sciences",  hex: "#f97316", activeCard: "bg-orange-50", activeBorder: "border-orange-400" },
   { id: "emssp",            emoji: "💰", label: "EMS",              hex: "#8b5cf6", activeCard: "bg-violet-50", activeBorder: "border-violet-400" },
+  { id: "technologysp",     emoji: "⚙️", label: "Technology",       hex: "#475569", activeCard: "bg-slate-50",  activeBorder: "border-slate-400" },
   { id: "nst",            emoji: "🔬", label: "Natural Sci & Tech", hex: "#10b981", activeCard: "bg-emerald-50",  activeBorder: "border-emerald-400" },
   { id: "matricphyssci",  emoji: "⚗️", label: "Physical Sciences", hex: "#e11d48", activeCard: "bg-rose-50",     activeBorder: "border-rose-400" },
   { id: "socialsciences", emoji: "🌍", label: "Social Sciences",   hex: "#0ea5e9", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
@@ -239,6 +242,8 @@ interface ProgressTrackerProps {
   onSocialSciencesSpPickSkill?: (skillId: string) => void;
   /** Open EMS (Senior Phase) — clicking a topic opens that session. */
   onEmsSpPickSkill?: (skillId: string) => void;
+  /** Open Technology — clicking a topic opens that session. */
+  onTechnologySpPickSkill?: (skillId: string) => void;
   /** Open Accounting — clicking a topic opens that session. */
   onAccountingPickSkill?: (skillId: string) => void;
   /** Open Economics — clicking a topic opens that session. */
@@ -265,6 +270,7 @@ export default function ProgressTracker({
   onNaturalSciencesSpPickSkill,
   onSocialSciencesSpPickSkill,
   onEmsSpPickSkill,
+  onTechnologySpPickSkill,
   onAccountingPickSkill,
   onEconomicsPickSkill,
 }: ProgressTrackerProps = {}) {
@@ -387,6 +393,7 @@ export default function ProgressTracker({
     naturalsciencessp: 0,
     socialsciencessp: 0,
     emssp: 0,
+    technologysp: 0,
     accounting: 0,
     economics: 0,
   };
@@ -428,6 +435,8 @@ export default function ProgressTracker({
     if (s.id === "socialsciencessp") return learnerGrade >= 7 && learnerGrade <= 9;
     // EMS is a Senior-Phase subject (Gr 7–9), free like the rest.
     if (s.id === "emssp") return learnerGrade >= 7 && learnerGrade <= 9;
+    // Technology is a Senior-Phase subject (Gr 7–9), free like the rest.
+    if (s.id === "technologysp") return learnerGrade >= 7 && learnerGrade <= 9;
     return true;
   });
 
@@ -882,6 +891,10 @@ export default function ProgressTracker({
 
               {activeTab === "emssp" && (
                 <EmsSpSkillTreeView onPickSkill={(id) => onEmsSpPickSkill?.(id)} profile={null} compact />
+              )}
+
+              {activeTab === "technologysp" && (
+                <TechnologySpSkillTreeView onPickSkill={(id) => onTechnologySpPickSkill?.(id)} profile={null} compact />
               )}
             </div>
           </div>

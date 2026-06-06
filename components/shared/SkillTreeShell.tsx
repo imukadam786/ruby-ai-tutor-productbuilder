@@ -60,7 +60,8 @@ export type SkillTreeAccent =
   | "violet"
   | "orange"
   | "lime"
-  | "pink";
+  | "pink"
+  | "slate";
 
 export type SkillTreeStatus =
   | "locked"
@@ -286,6 +287,19 @@ const ACCENTS: Record<
     activeTile: "bg-orange-100 text-orange-800 border-orange-400",
     activeRing: "ring-2 ring-orange-500 ring-offset-1 animate-pulse shadow-sm shadow-orange-300",
     hoverRing: "cursor-pointer hover:ring-2 hover:ring-orange-300 hover:shadow-sm transition-all",
+  },
+  slate: {
+    headerBg: "bg-slate-50 border-slate-200",
+    headerTitle: "text-slate-700",
+    headerSub: "text-slate-400",
+    bar: "bg-slate-500",
+    currentBadge: "bg-slate-600 text-white",
+    currentCard: "border-slate-300 shadow-md shadow-slate-500/10",
+    currentHeaderBg: "bg-slate-50",
+    currentPill: "bg-slate-100 text-slate-700",
+    activeTile: "bg-slate-100 text-slate-800 border-slate-400",
+    activeRing: "ring-2 ring-slate-500 ring-offset-1 animate-pulse shadow-sm shadow-slate-300",
+    hoverRing: "cursor-pointer hover:ring-2 hover:ring-slate-300 hover:shadow-sm transition-all",
   },
   lime: {
     headerBg: "bg-lime-50 border-lime-200",

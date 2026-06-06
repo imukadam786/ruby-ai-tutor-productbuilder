@@ -1,0 +1,2035 @@
+{
+  "version": "1.0",
+  "subject": "technology-sp",
+  "description": "Technology Senior Phase (Grades 7–9). CAPS-aligned. Four content strands done every grade (Structures, Mechanical Systems & Control, Electrical Systems & Control, Processing) plus the Design Process & graphics. All skills open once the grade is selected (gate NONE). Practical/making work is reframed into tap-only knowledge questions. Drawing-heavy skills flagged image_dependent carry held image-only questions until art exists.",
+  "grades_covered": [
+    7,
+    8,
+    9
+  ],
+  "levels": [
+    {
+      "id": 7,
+      "grade": 7,
+      "title": "Grade 7 — Technology",
+      "description": "Grade 7 Technology (CAPS Senior Phase). Four content strands — Structures, Mechanical Systems, Electrical Systems and Processing — plus the Design Process and graphics, taught across the year.",
+      "tiers": [
+        {
+          "id": "L7.DG",
+          "title": "Design Process & Graphics · Term 1",
+          "description": "CAPS G7 T1 — Design Process & Graphics. Design process & graphics.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G7.DG.A1",
+              "bank_skill_id": "TECH.G7.DG.A1",
+              "title": "What is Technology?",
+              "description": "What Technology means, its scope, and the careers in the world of work that use it.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Design Process & Graphics",
+              "caps_topic": "Design process & graphics",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"What is Technology?\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Technology means using knowledge, skills and resources to solve people's real problems.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.DG.A2",
+              "bank_skill_id": "TECH.G7.DG.A2",
+              "title": "The design process (IDMEC)",
+              "description": "The five stages of the design process: Investigate, Design, Make, Evaluate and Communicate.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Design Process & Graphics",
+              "caps_topic": "Design process & graphics",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The design process (IDMEC)\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The design process: Investigate, Design, Make, Evaluate, Communicate.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.DG.A3",
+              "bank_skill_id": "TECH.G7.DG.A3",
+              "title": "Design considerations & fitness-for-purpose",
+              "description": "Judging a design by who it is for, whether it works, cost, safety, ergonomics and looks.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Design Process & Graphics",
+              "caps_topic": "Design process & graphics",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Design considerations & fitness-for-purpose\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Fit-for-purpose asks: who is it for, will it do the job, is it safe, does it look good?",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.DG.A4",
+              "bank_skill_id": "TECH.G7.DG.A4",
+              "title": "Graphical communication & line types",
+              "description": "The purpose of drawings and the line conventions: outlines, construction lines, hidden detail, scale and dimensioning.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Design Process & Graphics",
+              "caps_topic": "Design process & graphics",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Graphical communication & line types\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Drawings use different lines: dark outlines, feint construction lines and dashed hidden detail.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.DG.A5",
+              "bank_skill_id": "TECH.G7.DG.A5",
+              "title": "Drawing techniques: sketch, oblique, perspective",
+              "description": "Free-hand sketching, 2D working drawings of one face, 3D oblique at 45°, and single-vanishing-point perspective.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Design Process & Graphics",
+              "caps_topic": "Design process & graphics",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Drawing techniques: sketch, oblique, perspective\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Sketches, flat working drawings and 3D drawings each show an object a different way.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            }
+          ]
+        },
+        {
+          "id": "L7.ST",
+          "title": "Structures · Term 2",
+          "description": "CAPS G7 T2 — Structures. Structures.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G7.ST.A1",
+              "bank_skill_id": "TECH.G7.ST.A1",
+              "title": "Purpose & classification of structures",
+              "description": "What structures do (contain, support, protect, span) and natural versus man-made structures.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Structures",
+              "caps_topic": "Structures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Purpose & classification of structures\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A structure contains, supports, protects or spans; it can be natural or man-made.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.ST.A2",
+              "bank_skill_id": "TECH.G7.ST.A2",
+              "title": "Types of structures: shell, frame, solid",
+              "description": "The three types of structures — shell, frame and solid — with everyday examples.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Structures",
+              "caps_topic": "Structures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Types of structures: shell, frame, solid\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Three structure types: shell (hollow), frame (bars joined) and solid (one mass).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.ST.A3",
+              "bank_skill_id": "TECH.G7.ST.A3",
+              "title": "Stiffening & reinforcing",
+              "description": "Making materials and structures stiffer by tubing, folding and triangulation.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Structures",
+              "caps_topic": "Structures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Stiffening & reinforcing\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "You can stiffen materials by folding, rolling into tubes, or triangulating a frame.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.ST.A4",
+              "bank_skill_id": "TECH.G7.ST.A4",
+              "title": "Frame structures & stability",
+              "description": "Frame structures (towers, pylons) and what makes a structure stable — base size and centre of gravity.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Structures",
+              "caps_topic": "Structures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Frame structures & stability\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A wide base and a low centre of gravity make a structure stable and hard to topple.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.MS",
+          "title": "Mechanical Systems & Control · Term 1",
+          "description": "CAPS G7 T1 — Mechanical Systems & Control. Mechanical systems & control.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G7.MS.A1",
+              "bank_skill_id": "TECH.G7.MS.A1",
+              "title": "Levers & mechanical advantage",
+              "description": "First-, second- and third-class levers, and how the pivot position gives a mechanical advantage.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Levers & mechanical advantage\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A lever's class depends on where the fulcrum, load and effort are placed.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.MS.A2",
+              "bank_skill_id": "TECH.G7.MS.A2",
+              "title": "Linkages in tools",
+              "description": "Linked levers in everyday tools — scissors, pliers, punches, staplers, tweezers.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Linkages in tools\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Linked levers join two levers so they work together, like the blades of scissors.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.MS.A3",
+              "bank_skill_id": "TECH.G7.MS.A3",
+              "title": "Pneumatics & hydraulics",
+              "description": "Transferring force through air (pneumatic) and liquid (hydraulic) systems using syringes.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Pneumatics & hydraulics\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Pneumatics use air; hydraulics use liquid; both push force along a tube.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.MS.A4",
+              "bank_skill_id": "TECH.G7.MS.A4",
+              "title": "Cranks & pulleys",
+              "description": "The crank as an adapted second-class lever, and the pulley as a wheel and axle.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Cranks & pulleys\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A crank turns round motion into back-and-forth; a pulley is a wheel turning on an axle.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.ES",
+          "title": "Electrical Systems & Control · Term 3",
+          "description": "CAPS G7 T3 — Electrical Systems & Control. Electrical systems & control.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G7.ES.A1",
+              "bank_skill_id": "TECH.G7.ES.A1",
+              "title": "Magnetism & magnetic materials",
+              "description": "Permanent magnets (bar, horseshoe) and which materials a magnet attracts.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Magnetism & magnetic materials\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Magnets attract some metals (iron, steel, nickel) but not non-metals or copper and aluminium.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.ES.A2",
+              "bank_skill_id": "TECH.G7.ES.A2",
+              "title": "Simple electric circuits & symbols",
+              "description": "A simple circuit with a cell, switch, conductor and an output, drawn with correct symbols.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Simple electric circuits & symbols\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A circuit needs a power source, a conductor, a switch and an output like a bulb or buzzer.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.ES.A3",
+              "bank_skill_id": "TECH.G7.ES.A3",
+              "title": "Electromagnets",
+              "description": "Making an electromagnet by coiling insulated wire around an iron core, and switching it on and off.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Electromagnets\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "An electromagnet is wire coiled around an iron core; it is magnetic only while current flows.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.PR",
+          "title": "Processing, Society & Environment · Term 4",
+          "description": "CAPS G7 T4 — Processing, Society & Environment. Processing, society & environment.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G7.PR.A1",
+              "bank_skill_id": "TECH.G7.PR.A1",
+              "title": "Processing food",
+              "description": "Processing food into useful, nutritious meals and the sequence of preparing a food item.",
+              "caps_term": "G7 T4",
+              "caps_strand": "Processing, Society & Environment",
+              "caps_topic": "Processing, society & environment",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Processing food\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Processing changes raw ingredients into a useful product, like turning flour into bread.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.PR.A2",
+              "bank_skill_id": "TECH.G7.PR.A2",
+              "title": "Materials & textiles",
+              "description": "Properties of materials and textiles, including waterproofing and burning characteristics.",
+              "caps_term": "G7 T4",
+              "caps_strand": "Processing, Society & Environment",
+              "caps_topic": "Processing, society & environment",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Materials & textiles\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Different materials and textiles suit different jobs because of their properties.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.PR.A3",
+              "bank_skill_id": "TECH.G7.PR.A3",
+              "title": "Indigenous technology",
+              "description": "Materials and building techniques used by indigenous people — local, appropriate, environmentally friendly.",
+              "caps_term": "G7 T4",
+              "caps_strand": "Processing, Society & Environment",
+              "caps_topic": "Processing, society & environment",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Indigenous technology\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Indigenous builders use local materials that are appropriate and kind to the environment.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G7.PR.A4",
+              "bank_skill_id": "TECH.G7.PR.A4",
+              "title": "Impact & bias in technology",
+              "description": "How technology affects society and the environment, recycling, and bias for or against groups.",
+              "caps_term": "G7 T4",
+              "caps_strand": "Processing, Society & Environment",
+              "caps_topic": "Processing, society & environment",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Impact & bias in technology\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Technology can help or harm people and the environment, and can favour some groups over others.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "grade": 8,
+      "title": "Grade 8 — Technology",
+      "description": "Grade 8 Technology (CAPS Senior Phase). Four content strands — Structures, Mechanical Systems, Electrical Systems and Processing — plus the Design Process and graphics, taught across the year.",
+      "tiers": [
+        {
+          "id": "L8.DG",
+          "title": "Design Process & Graphics · Term 1",
+          "description": "CAPS G8 T1 — Design Process & Graphics. Graphics & drawing.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G8.DG.A1",
+              "bank_skill_id": "TECH.G8.DG.A1",
+              "title": "Graphics conventions",
+              "description": "Drawing conventions — centre lines (chain dash-dot), scaling up and down, dimensioning in mm.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Design Process & Graphics",
+              "caps_topic": "Graphics & drawing",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Graphics conventions\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Conventions like centre lines, scaling and dimensions in mm keep drawings clear and standard.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "TECH.G8.DG.A2",
+              "bank_skill_id": "TECH.G8.DG.A2",
+              "title": "Isometric & two-point perspective",
+              "description": "Isometric drawing on a 30° grid and double-vanishing-point perspective with colour and shading.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Design Process & Graphics",
+              "caps_topic": "Graphics & drawing",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Isometric & two-point perspective\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Isometric uses a slanted grid; two-point perspective uses two vanishing points for realism.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "TECH.G8.DG.A3",
+              "bank_skill_id": "TECH.G8.DG.A3",
+              "title": "Developments (nets)",
+              "description": "Drawing the development (net) of an opened container that folds up into a 3D shape.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Design Process & Graphics",
+              "caps_topic": "Graphics & drawing",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Developments (nets)\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A development (net) is the flat shape that folds up into a box or container.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.ST",
+          "title": "Structures · Term 1",
+          "description": "CAPS G8 T1 — Structures. Structures.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G8.ST.A1",
+              "bank_skill_id": "TECH.G8.ST.A1",
+              "title": "Frame members & roof trusses",
+              "description": "Structural members of wood and steel roof trusses — king/queen post, strut, tie, rafter, tie beam.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Structures",
+              "caps_topic": "Structures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Frame members & roof trusses\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A roof truss is built from struts, ties, rafters and posts, each doing a job.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "TECH.G8.ST.A2",
+              "bank_skill_id": "TECH.G8.ST.A2",
+              "title": "Forces acting on members",
+              "description": "The forces that act on structural members — tension, compression, shear, torsion and bending.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Structures",
+              "caps_topic": "Structures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Forces acting on members\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Five forces act on materials: tension (pull), compression (push), shear, torsion (twist) and bending.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.ST.A3",
+              "bank_skill_id": "TECH.G8.ST.A3",
+              "title": "Structures that span space",
+              "description": "Ways of spanning a gap — beams and girders, suspension and cable-stayed bridges, arches and cantilevers.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Structures",
+              "caps_topic": "Structures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Structures that span space\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Beams, arches, cantilevers and bridges each span a gap in a different way.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.ST.A4",
+              "bank_skill_id": "TECH.G8.ST.A4",
+              "title": "Structural failure",
+              "description": "The three main ways structures fail — fracture (strength), bending (stiffness) and toppling (stability).",
+              "caps_term": "G8 T1",
+              "caps_strand": "Structures",
+              "caps_topic": "Structures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Structural failure\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Structures fail by fracturing (too weak), bending (not stiff) or toppling (not stable).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.MS",
+          "title": "Mechanical Systems & Control · Term 3",
+          "description": "CAPS G8 T3 — Mechanical Systems & Control. Mechanical systems & control.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G8.MS.A1",
+              "bank_skill_id": "TECH.G8.MS.A1",
+              "title": "Simple mechanisms: wedge, wheel & axle",
+              "description": "Simple machines — the wedge (inclined plane, blade) and the wheel and axle.",
+              "caps_term": "G8 T3",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Simple mechanisms: wedge, wheel & axle\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A wedge and a wheel-and-axle are simple machines that make work easier.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.MS.A2",
+              "bank_skill_id": "TECH.G8.MS.A2",
+              "title": "Gears: counter-rotation & idlers",
+              "description": "How two meshed spur gears counter-rotate, and how an idler gear synchronises rotation.",
+              "caps_term": "G8 T3",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Gears: counter-rotation & idlers\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Meshed gears turn opposite ways; an idler gear between them makes them turn the same way.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.MS.A3",
+              "bank_skill_id": "TECH.G8.MS.A3",
+              "title": "Gear ratios: velocity & force",
+              "description": "Gear ratios — how different gear sizes trade speed for force (velocity ratio and force ratio).",
+              "caps_term": "G8 T3",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Gear ratios: velocity & force\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A small gear driving a big one cuts speed but increases force; the opposite raises speed.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.MS.A4",
+              "bank_skill_id": "TECH.G8.MS.A4",
+              "title": "Cams & cranks",
+              "description": "Mechanisms that change the direction of movement — the cam and the crank turn rotary into reciprocating motion.",
+              "caps_term": "G8 T3",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Cams & cranks\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A cam and a crank both change round motion into up-and-down (reciprocating) motion.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.MS.A5",
+              "bank_skill_id": "TECH.G8.MS.A5",
+              "title": "Mechanical advantage calculations",
+              "description": "Calculating mechanical advantage for levers and gears using ratios (load/effort, tooth ratios) — no moments.",
+              "caps_term": "G8 T3",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Mechanical advantage calculations\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Mechanical advantage = load ÷ effort, worked out with simple ratios.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.MS.A6",
+              "bank_skill_id": "TECH.G8.MS.A6",
+              "title": "Systems diagrams",
+              "description": "Analysing a mechanical system as input → process → output, e.g. a bicycle gear system.",
+              "caps_term": "G8 T3",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Systems diagrams\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Every system has an input, a process and an output.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.ES",
+          "title": "Electrical Systems & Control · Term 4",
+          "description": "CAPS G8 T4 — Electrical Systems & Control. Electrical systems & control.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G8.ES.A1",
+              "bank_skill_id": "TECH.G8.ES.A1",
+              "title": "Circuit components & symbols",
+              "description": "Circuit components grouped as input, output and control devices, with their correct symbols.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Circuit components & symbols\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Devices are input (cell), output (lamp, buzzer, motor) or control (switch).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.ES.A2",
+              "bank_skill_id": "TECH.G8.ES.A2",
+              "title": "Cells & energy sources",
+              "description": "Electrochemical cells, series versus parallel batteries, and solar (photovoltaic) cells.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Cells & energy sources\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Cells store energy; series batteries give more voltage, parallel ones last longer.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.ES.A3",
+              "bank_skill_id": "TECH.G8.ES.A3",
+              "title": "Generating electricity for the nation",
+              "description": "Generating electricity — thermal, hydroelectric and wind — and the national grid with transformers.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Generating electricity for the nation\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Power stations (coal, water, wind) feed the national grid through step-up and step-down transformers.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.ES.A4",
+              "bank_skill_id": "TECH.G8.ES.A4",
+              "title": "Ohm's law (qualitative) & logic gates",
+              "description": "Ohm's law qualitatively (more cells, more current) and AND/OR logic gates with truth tables.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Ohm's law (qualitative) & logic gates\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "More cells means more current; AND and OR logic gates decide when a circuit switches on.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.PR",
+          "title": "Processing, Society & Environment · Term 2",
+          "description": "CAPS G8 T2 — Processing, Society & Environment. Processing, society & environment.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G8.PR.A1",
+              "bank_skill_id": "TECH.G8.PR.A1",
+              "title": "Materials & the environment",
+              "description": "How new and improved materials replace natural ones, and biodegradable materials.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Processing, Society & Environment",
+              "caps_topic": "Processing, society & environment",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Materials & the environment\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "New materials can replace natural ones; biodegradable materials break down safely.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.PR.A2",
+              "bank_skill_id": "TECH.G8.PR.A2",
+              "title": "Recycling & packaging design",
+              "description": "Recycling paper and cardboard, and designing packaging suited to a product.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Processing, Society & Environment",
+              "caps_topic": "Processing, society & environment",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Recycling & packaging design\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Packaging protects a product; paper and plastic can be recycled into new products.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.PR.A3",
+              "bank_skill_id": "TECH.G8.PR.A3",
+              "title": "Impact of technology",
+              "description": "The positive and negative impacts of technology and ways to counteract the negative effects.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Processing, Society & Environment",
+              "caps_topic": "Processing, society & environment",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Impact of technology\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Technology has good and bad impacts; we can design to reduce the harm.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G8.PR.A4",
+              "bank_skill_id": "TECH.G8.PR.A4",
+              "title": "Mining impact, indigenous mining & bias",
+              "description": "The environmental impact of mining, indigenous iron-age mining, and bias such as gender bias.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Processing, Society & Environment",
+              "caps_topic": "Processing, society & environment",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Mining impact, indigenous mining & bias\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Mining brings wealth but harms the environment, and technology can carry bias against groups.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "grade": 9,
+      "title": "Grade 9 — Technology",
+      "description": "Grade 9 Technology (CAPS Senior Phase). Four content strands — Structures, Mechanical Systems, Electrical Systems and Processing — plus the Design Process and graphics, taught across the year.",
+      "tiers": [
+        {
+          "id": "L9.DG",
+          "title": "Design Process & Graphics · Term 1",
+          "description": "CAPS G9 T1 — Design Process & Graphics. Graphics & drawing.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G9.DG.A1",
+              "bank_skill_id": "TECH.G9.DG.A1",
+              "title": "First-angle orthographic projection",
+              "description": "Showing a 3D object as three flat views — front, top and side — in first-angle orthographic projection.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Design Process & Graphics",
+              "caps_topic": "Graphics & drawing",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"First-angle orthographic projection\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Orthographic projection shows an object as three flat views: front, top and side.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "TECH.G9.DG.A2",
+              "bank_skill_id": "TECH.G9.DG.A2",
+              "title": "Working drawings & design problems",
+              "description": "Drawing a working plan that actually solves a problem (e.g. a stair and ramp), to scale with dimensions.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Design Process & Graphics",
+              "caps_topic": "Graphics & drawing",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Working drawings & design problems\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A working drawing must really solve the problem — neat is not enough if it won't work.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            },
+            {
+              "id": "TECH.G9.DG.A3",
+              "bank_skill_id": "TECH.G9.DG.A3",
+              "title": "Artistic & exploded assembly drawing",
+              "description": "Artistic single-VP perspective for realism and exploded assembly views showing how parts fit.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Design Process & Graphics",
+              "caps_topic": "Graphics & drawing",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Artistic & exploded assembly drawing\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "An exploded view shows the parts pulled apart to reveal how they fit together.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              },
+              "image_dependent": true
+            }
+          ]
+        },
+        {
+          "id": "L9.ST",
+          "title": "Structures · Term 1",
+          "description": "CAPS G9 T1 — Structures. Structures.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G9.ST.A1",
+              "bank_skill_id": "TECH.G9.ST.A1",
+              "title": "Forces: static, dynamic & loads",
+              "description": "Static and dynamic forces, even and uneven loads, and how members resist tension, compression and torsion.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Structures",
+              "caps_topic": "Structures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Forces: static, dynamic & loads\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Forces can be static (still) or dynamic (moving); loads can be even or uneven.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.ST.A2",
+              "bank_skill_id": "TECH.G9.ST.A2",
+              "title": "Strength of materials & cross-sections",
+              "description": "How a material's cross-section (I-beam, angle iron, tube) helps it resist forces and save material.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Structures",
+              "caps_topic": "Structures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Strength of materials & cross-sections\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A material's cross-section, like an I-beam, helps it resist bending without extra weight.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.ST.A3",
+              "bank_skill_id": "TECH.G9.ST.A3",
+              "title": "Properties of construction materials",
+              "description": "Properties of construction materials — density, hardness, stiffness, flexibility and corrosion resistance.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Structures",
+              "caps_topic": "Structures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Properties of construction materials\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Materials differ in density, hardness, stiffness, flexibility and how much they corrode.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.ST.A4",
+              "bank_skill_id": "TECH.G9.ST.A4",
+              "title": "Costing & the tender process",
+              "description": "Costing a real solution (materials and labour) and the tender process, including ethics.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Structures",
+              "caps_topic": "Structures",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Costing & the tender process\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A tender is a priced offer to do a job; costing includes both materials and labour.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.MS",
+          "title": "Mechanical Systems & Control · Term 2",
+          "description": "CAPS G9 T2 — Mechanical Systems & Control. Mechanical systems & control.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G9.MS.A1",
+              "bank_skill_id": "TECH.G9.MS.A1",
+              "title": "Hydraulics & Pascal's principle",
+              "description": "Pascal's principle, compressible versus incompressible fluids, and the hydraulic press and jack.",
+              "caps_term": "G9 T2",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Hydraulics & Pascal's principle\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Pascal's principle: pressure spreads equally through a liquid; cylinder sizes change the force.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.MS.A2",
+              "bank_skill_id": "TECH.G9.MS.A2",
+              "title": "Pulleys & mechanical control devices",
+              "description": "Fixed and moveable pulleys, block and tackle, and control devices — ratchet and pawl, brakes, cleat.",
+              "caps_term": "G9 T2",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Pulleys & mechanical control devices\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Moveable pulleys and block-and-tackle multiply force; ratchets and brakes control motion.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.MS.A3",
+              "bank_skill_id": "TECH.G9.MS.A3",
+              "title": "Advanced gears",
+              "description": "Bevel gears, rack-and-pinion and worm gear systems and what each is used for.",
+              "caps_term": "G9 T2",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Advanced gears\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Bevel gears turn a corner; rack-and-pinion gives straight motion; a worm gear slows speed a lot.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.MS.A4",
+              "bank_skill_id": "TECH.G9.MS.A4",
+              "title": "Integrated systems",
+              "description": "Machines that combine at least two of mechanical, electrical and hydraulic/pneumatic sub-systems.",
+              "caps_term": "G9 T2",
+              "caps_strand": "Mechanical Systems & Control",
+              "caps_topic": "Mechanical systems & control",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Integrated systems\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Real machines often combine mechanical, electrical and hydraulic or pneumatic systems.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.ES",
+          "title": "Electrical Systems & Control · Term 3",
+          "description": "CAPS G9 T3 — Electrical Systems & Control. Electrical & electronic systems.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G9.ES.A1",
+              "bank_skill_id": "TECH.G9.ES.A1",
+              "title": "Ohm's law (quantitative)",
+              "description": "Ohm's law as V = I × R, and calculating resistance, voltage or current from the other two.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical & electronic systems",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Ohm's law (quantitative)\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Ohm's law: V = I × R, so any one value can be found from the other two.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.ES.A2",
+              "bank_skill_id": "TECH.G9.ES.A2",
+              "title": "Resistor colour codes",
+              "description": "Reading the value of a resistor from its coloured bands and the tolerance band.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical & electronic systems",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Resistor colour codes\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Coloured bands on a resistor give its value in ohms, with the last band a tolerance.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.ES.A3",
+              "bank_skill_id": "TECH.G9.ES.A3",
+              "title": "Electronic components",
+              "description": "Diodes, LEDs, NPN transistors (switch and amplifier) and capacitors and what each does.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical & electronic systems",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Electronic components\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A diode lets current flow one way; a transistor switches or amplifies; a capacitor stores charge.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.ES.A4",
+              "bank_skill_id": "TECH.G9.ES.A4",
+              "title": "Sensors",
+              "description": "Sensors as input devices — LDR (light), thermistor (heat) and touch/moisture detectors.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical & electronic systems",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Sensors\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Sensors change their resistance with light (LDR), heat (thermistor) or moisture.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.ES.A5",
+              "bank_skill_id": "TECH.G9.ES.A5",
+              "title": "Switches & circuit logic",
+              "description": "Manual switches (push, SPST, SPDT, DPDT) and series (AND) versus parallel (OR) circuit logic.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical & electronic systems",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Switches & circuit logic\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Switches in series make AND logic; switches in parallel make OR logic.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.ES.A6",
+              "bank_skill_id": "TECH.G9.ES.A6",
+              "title": "Simple electronic circuits",
+              "description": "Recognising simple electronic circuits that combine an LED, resistor, sensor, transistor or capacitor.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Electrical Systems & Control",
+              "caps_topic": "Electrical & electronic systems",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets",
+                "data-interpret"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Simple electronic circuits\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Electronic circuits combine components like an LED, resistor and sensor to do a job.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.PR",
+          "title": "Processing, Society & Environment · Term 4",
+          "description": "CAPS G9 T4 — Processing, Society & Environment. Processing.",
+          "atomic_skills": [
+            {
+              "id": "TECH.G9.PR.A1",
+              "bank_skill_id": "TECH.G9.PR.A1",
+              "title": "Preserving metals",
+              "description": "Protecting metals from corrosion by painting, galvanising and electroplating.",
+              "caps_term": "G9 T4",
+              "caps_strand": "Processing, Society & Environment",
+              "caps_topic": "Processing",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Preserving metals\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Metals are protected from rusting by painting, galvanising (zinc) or electroplating.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.PR.A2",
+              "bank_skill_id": "TECH.G9.PR.A2",
+              "title": "Preserving food",
+              "description": "Preserving food by storing grain, pickling, and drying and/or salting.",
+              "caps_term": "G9 T4",
+              "caps_strand": "Processing, Society & Environment",
+              "caps_topic": "Processing",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Preserving food\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Food is preserved by storing it dry, pickling it, or drying and salting it.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.PR.A3",
+              "bank_skill_id": "TECH.G9.PR.A3",
+              "title": "Plastics: types & properties",
+              "description": "Types of plastics, their identification codes and properties, and thermoplastics versus thermosets.",
+              "caps_term": "G9 T4",
+              "caps_strand": "Processing, Society & Environment",
+              "caps_topic": "Processing",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Plastics: types & properties\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Thermoplastics soften when heated and can be remoulded; thermosets stay hard.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "TECH.G9.PR.A4",
+              "bank_skill_id": "TECH.G9.PR.A4",
+              "title": "Recycling plastics",
+              "description": "Reduce-reuse-recycle, remanufacturing waste plastic into pellets, and a plastics recycling system.",
+              "caps_term": "G9 T4",
+              "caps_strand": "Processing, Society & Environment",
+              "caps_topic": "Processing",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Recycling plastics\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Reduce, reuse, recycle: waste plastic can be remade into pellets and then new products.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

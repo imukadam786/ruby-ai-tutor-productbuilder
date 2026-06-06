@@ -52,6 +52,10 @@ const AccountingSession            = dynamic(() => import("@/components/accounti
 const AccountingSkillTreeView      = dynamic(() => import("@/components/accounting/AccountingSkillTreeView"),               { ssr: false });
 const EconomicsSession             = dynamic(() => import("@/components/economics/EconomicsSession"),                       { ssr: false });
 const EconomicsSkillTreeView       = dynamic(() => import("@/components/economics/EconomicsSkillTreeView"),                 { ssr: false });
+const TechnologySpSession          = dynamic(() => import("@/components/technology-sp/TechnologySpSession"),                { ssr: false });
+const TechnologySpSkillTreeView    = dynamic(() => import("@/components/technology-sp/TechnologySpSkillTreeView"),          { ssr: false });
+const LifeOrientationSpSession       = dynamic(() => import("@/components/life-orientation-sp/LifeOrientationSpSession"),         { ssr: false });
+const LifeOrientationSpSkillTreeView = dynamic(() => import("@/components/life-orientation-sp/LifeOrientationSpSkillTreeView"),   { ssr: false });
 const GeographySession             = dynamic(() => import("@/components/geography/GeographySession"),                      { ssr: false });
 const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),                { ssr: false });
 const NaturalSciencesSpSession     = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSession"),     { ssr: false });
@@ -135,6 +139,7 @@ const SESSION_VIEWS: ActiveView[] = [
   "afrikaans-fal", "maths-literacy", "life-sciences", "history",
   "business-studies", "tourism", "geography", "natural-sciences-sp",
   "social-sciences-sp", "ems-sp", "accounting", "economics",
+  "technology-sp", "life-orientation-sp",
 ];
 
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
@@ -209,6 +214,10 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "accounting-skill-tree": "Accounting · Topics",
     "economics": "Economics",
     "economics-skill-tree": "Economics · Topics",
+    "technology-sp": "Technology",
+    "technology-sp-skill-tree": "Technology · Topics",
+    "life-orientation-sp": "Life Orientation",
+    "life-orientation-sp-skill-tree": "Life Orientation · Topics",
     "tourism": "Tourism",
     "tourism-skill-tree": "Tourism · Topics",
     "geography": "Geography",
@@ -560,6 +569,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           onEmsSpPickSkill={() => handleViewChange("ems-sp")}
           onAccountingPickSkill={() => handleViewChange("accounting")}
           onEconomicsPickSkill={() => handleViewChange("economics")}
+          onTechnologySpPickSkill={() => handleViewChange("technology-sp")}
         />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
@@ -601,6 +611,11 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {/* Economics — FET Phase (Gr 10–12), free like History */}
         {activeView === "economics" && <ErrorBoundary><EconomicsSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "economics-skill-tree" && <EconomicsSkillTreeView onPickSkill={() => handleViewChange("economics")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Technology — Senior Phase (Gr 7–9) content subject */}
+        {activeView === "technology-sp" && <ErrorBoundary><TechnologySpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "technology-sp-skill-tree" && <TechnologySpSkillTreeView onPickSkill={() => handleViewChange("technology-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "life-orientation-sp" && <ErrorBoundary><LifeOrientationSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "life-orientation-sp-skill-tree" && <LifeOrientationSpSkillTreeView onPickSkill={() => handleViewChange("life-orientation-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {/* Tourism — FET Phase (Gr 10–12), free like History */}
         {activeView === "tourism" && <ErrorBoundary><TourismSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "tourism-skill-tree" && <TourismSkillTreeView onPickSkill={() => handleViewChange("tourism")} profile={null} onBack={() => handleViewChange("subjects")} />}

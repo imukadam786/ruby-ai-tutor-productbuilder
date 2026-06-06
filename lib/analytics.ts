@@ -43,7 +43,9 @@ export type Subject =
   | "social-sciences-sp"
   | "ems-sp"
   | "accounting"
-  | "economics";
+  | "economics"
+  | "technology-sp"
+  | "life-orientation-sp";
 
 export function trackPlacementStarted(opts: {
   subject: Subject;

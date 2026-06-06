@@ -1,0 +1,1410 @@
+{
+  "version": "1.0",
+  "subject": "life-orientation-sp",
+  "description": "Life Orientation Senior Phase (Grades 7–9). CAPS-aligned. Four desk topics done every grade (Development of the self in society; Health, social & environmental responsibility; Constitutional rights & responsibilities; World of work). Physical Education is excluded as it is movement-based. All skills open once the grade is selected (gate NONE). Essay/project/discussion work is reframed into tap-only knowledge and scenario questions. No free text.",
+  "grades_covered": [
+    7,
+    8,
+    9
+  ],
+  "levels": [
+    {
+      "id": 7,
+      "grade": 7,
+      "title": "Grade 7 — Life Orientation",
+      "description": "Grade 7 Life Orientation (CAPS Senior Phase). Four desk topics — Development of the self in society, Health & environmental responsibility, Constitutional rights & responsibilities, and World of work — taught across the year. Physical Education is excluded (movement-based).",
+      "tiers": [
+        {
+          "id": "L7.DS",
+          "title": "Development of the self in society · Term 1",
+          "description": "CAPS G7 T1 — Development of the self in society. Development of the self in society.",
+          "atomic_skills": [
+            {
+              "id": "LO.G7.DS.A1",
+              "bank_skill_id": "LO.G7.DS.A1",
+              "title": "Self-image",
+              "description": "Recognising your positive qualities and using respect for yourself and others to build a healthy self-image.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Development of the self in society",
+              "caps_topic": "Development of the self in society",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Self-image\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Your self-image is how you see yourself; positive actions and respect build it up.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G7.DS.A2",
+              "bank_skill_id": "LO.G7.DS.A2",
+              "title": "Puberty and gender constructs",
+              "description": "The physical and emotional changes of puberty in boys and girls, and respecting your own and others' changing bodies and feelings.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Development of the self in society",
+              "caps_topic": "Development of the self in society",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Puberty and gender constructs\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Puberty brings physical and emotional changes; everyone changes at their own pace, and that is normal.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G7.DS.A3",
+              "bank_skill_id": "LO.G7.DS.A3",
+              "title": "Peer pressure",
+              "description": "How peer pressure works, and using assertiveness, negotiation and help-seeking to respond to it.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Development of the self in society",
+              "caps_topic": "Development of the self in society",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Peer pressure\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Peer pressure is when others push you to act a certain way; being assertive lets you say no calmly.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G7.DS.A4",
+              "bank_skill_id": "LO.G7.DS.A4",
+              "title": "Personal diet and nutrition",
+              "description": "What influences the food you choose and how to plan healthier eating habits.",
+              "caps_term": "G7 T1",
+              "caps_strand": "Development of the self in society",
+              "caps_topic": "Development of the self in society",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Personal diet and nutrition\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A balanced diet gives your body the right nutrients; small healthy swaps improve your eating.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.HE",
+          "title": "Health, social & environmental responsibility · Term 3",
+          "description": "CAPS G7 T3 — Health, social & environmental responsibility. Health, social and environmental responsibility.",
+          "atomic_skills": [
+            {
+              "id": "LO.G7.HE.A1",
+              "bank_skill_id": "LO.G7.HE.A1",
+              "title": "Substance abuse",
+              "description": "What substance abuse is, its symptoms, the personal factors behind it, and how to prevent it.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Health, social & environmental responsibility",
+              "caps_topic": "Health, social and environmental responsibility",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Substance abuse\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Substance abuse is harmful use of drugs or alcohol; knowing the risks helps you avoid it.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G7.HE.A2",
+              "bank_skill_id": "LO.G7.HE.A2",
+              "title": "Environmental health",
+              "description": "Local environmental health problems and making an action plan to prevent and solve them.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Health, social & environmental responsibility",
+              "caps_topic": "Health, social and environmental responsibility",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Environmental health\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Environmental health means keeping our surroundings clean and safe so people stay healthy.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G7.HE.A3",
+              "bank_skill_id": "LO.G7.HE.A3",
+              "title": "Common diseases",
+              "description": "The causes, treatment and management of common diseases — TB, diabetes, epilepsy, obesity, anorexia, and HIV and AIDS.",
+              "caps_term": "G7 T3",
+              "caps_strand": "Health, social & environmental responsibility",
+              "caps_topic": "Health, social and environmental responsibility",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Common diseases\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Many common diseases can be treated or managed with the right care, diet and medicine.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.CR",
+          "title": "Constitutional rights & responsibilities · Term 2",
+          "description": "CAPS G7 T2 — Constitutional rights & responsibilities. Constitutional rights and responsibilities.",
+          "atomic_skills": [
+            {
+              "id": "LO.G7.CR.A1",
+              "bank_skill_id": "LO.G7.CR.A1",
+              "title": "Human rights in the Constitution",
+              "description": "The human rights in the South African Constitution and the responsibilities that come with them.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Human rights in the Constitution\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Every right in the Constitution comes with a responsibility to respect the same right in others.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G7.CR.A2",
+              "bank_skill_id": "LO.G7.CR.A2",
+              "title": "Fair play in sport",
+              "description": "The role of values, trust and respect for difference in playing sport fairly.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Fair play in sport\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Fair play means respecting the rules, your opponents and the referee, win or lose.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G7.CR.A3",
+              "bank_skill_id": "LO.G7.CR.A3",
+              "title": "Dealing with abuse",
+              "description": "Recognising threatening and risky situations, the effects of abuse, and where to find help and safety.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Dealing with abuse\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Abuse is never the victim's fault; knowing the warning signs and where to get help keeps you safe.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G7.CR.A4",
+              "bank_skill_id": "LO.G7.CR.A4",
+              "title": "Oral traditions and scriptures of religions",
+              "description": "The role of oral traditions and scriptures in South Africa's major religions: Judaism, Christianity, Islam, Hinduism, Buddhism and African religion.",
+              "caps_term": "G7 T2",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Oral traditions and scriptures of religions\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Each major religion passes on its values through stories, oral traditions and sacred writings.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.WW",
+          "title": "World of work · Term 2",
+          "description": "CAPS G7 T2 — World of work. World of work.",
+          "atomic_skills": [
+            {
+              "id": "LO.G7.WW.A1",
+              "bank_skill_id": "LO.G7.WW.A1",
+              "title": "Reading, studying and memory skills",
+              "description": "Reading for enjoyment and understanding, and skills to improve memory and recall.",
+              "caps_term": "G7 T2",
+              "caps_strand": "World of work",
+              "caps_topic": "World of work",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Reading, studying and memory skills\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Reading with understanding and using memory tricks helps you study and remember more.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G7.WW.A2",
+              "bank_skill_id": "LO.G7.WW.A2",
+              "title": "Career fields",
+              "description": "The qualities, school subjects, opportunities and requirements that go with different career fields.",
+              "caps_term": "G7 T2",
+              "caps_strand": "World of work",
+              "caps_topic": "World of work",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Career fields\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A career field groups related jobs; each needs certain subjects, interests and training.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G7.WW.A3",
+              "bank_skill_id": "LO.G7.WW.A3",
+              "title": "Career simulation and the value of work",
+              "description": "Exploring a real career's dress code, tools and requirements, and why work helps fulfil personal needs.",
+              "caps_term": "G7 T2",
+              "caps_strand": "World of work",
+              "caps_topic": "World of work",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Career simulation and the value of work\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Work meets our needs and gives purpose; every career has its own tools, dress and requirements.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "grade": 8,
+      "title": "Grade 8 — Life Orientation",
+      "description": "Grade 8 Life Orientation (CAPS Senior Phase). Four desk topics — Development of the self in society, Health & environmental responsibility, Constitutional rights & responsibilities, and World of work — taught across the year. Physical Education is excluded (movement-based).",
+      "tiers": [
+        {
+          "id": "L8.DS",
+          "title": "Development of the self in society · Term 1",
+          "description": "CAPS G8 T1 — Development of the self in society. Development of the self in society.",
+          "atomic_skills": [
+            {
+              "id": "LO.G8.DS.A1",
+              "bank_skill_id": "LO.G8.DS.A1",
+              "title": "Self-concept and self-motivation",
+              "description": "What shapes your self-concept and self-motivation, and using positive self-talk to reach your potential.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Development of the self in society",
+              "caps_topic": "Development of the self in society",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Self-concept and self-motivation\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Your self-concept is built by many influences; positive self-talk keeps you motivated.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G8.DS.A2",
+              "bank_skill_id": "LO.G8.DS.A2",
+              "title": "Sexuality",
+              "description": "Understanding your own sexuality and the family, peer, cultural and media influences on it.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Development of the self in society",
+              "caps_topic": "Development of the self in society",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Sexuality\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Sexuality is a natural part of who you are, shaped by your feelings, values and surroundings.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G8.DS.A3",
+              "bank_skill_id": "LO.G8.DS.A3",
+              "title": "Relationships and friendships",
+              "description": "Starting, keeping and ending relationships in healthy ways, and communicating and disagreeing respectfully.",
+              "caps_term": "G8 T1",
+              "caps_strand": "Development of the self in society",
+              "caps_topic": "Development of the self in society",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Relationships and friendships\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Healthy relationships are built on respect, good communication and honesty.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.HE",
+          "title": "Health, social & environmental responsibility · Term 2",
+          "description": "CAPS G8 T2 — Health, social & environmental responsibility. Health, social and environmental responsibility.",
+          "atomic_skills": [
+            {
+              "id": "LO.G8.HE.A1",
+              "bank_skill_id": "LO.G8.HE.A1",
+              "title": "Social factors in substance abuse",
+              "description": "Community and media factors behind substance abuse, refusal skills, and where to find rehabilitation help.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Health, social & environmental responsibility",
+              "caps_topic": "Health, social and environmental responsibility",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Social factors in substance abuse\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Friends, community and media can push substance use; refusal skills help you resist.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G8.HE.A2",
+              "bank_skill_id": "LO.G8.HE.A2",
+              "title": "Environmental health issues",
+              "description": "Using laws and policies to protect environmental health and running an environmental health programme.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Health, social & environmental responsibility",
+              "caps_topic": "Health, social and environmental responsibility",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Environmental health issues\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Laws and small everyday actions both help protect the environment and our health.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G8.HE.A3",
+              "bank_skill_id": "LO.G8.HE.A3",
+              "title": "Decisions about HIV and AIDS",
+              "description": "Responsible decision-making about HIV and AIDS: management, prevention, safety and caring for others.",
+              "caps_term": "G8 T2",
+              "caps_strand": "Health, social & environmental responsibility",
+              "caps_topic": "Health, social and environmental responsibility",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Decisions about HIV and AIDS\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "HIV can be managed with medication and healthy living; prevention and care reduce its spread and stigma.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.CR",
+          "title": "Constitutional rights & responsibilities · Term 4",
+          "description": "CAPS G8 T4 — Constitutional rights & responsibilities. Constitutional rights and responsibilities.",
+          "atomic_skills": [
+            {
+              "id": "LO.G8.CR.A1",
+              "bank_skill_id": "LO.G8.CR.A1",
+              "title": "Nation building",
+              "description": "What nation building means and how individuals and groups, women and men, promote it.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Nation building\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Nation building means working together across our differences to build one united country.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G8.CR.A2",
+              "bank_skill_id": "LO.G8.CR.A2",
+              "title": "Human rights violations",
+              "description": "The types of human rights violations and the strategies used to counter them.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Human rights violations\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A human rights violation is when someone's rights are denied; we counter it by speaking up and acting.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G8.CR.A3",
+              "bank_skill_id": "LO.G8.CR.A3",
+              "title": "Gender equity",
+              "description": "Gender equity, gender-based violence, its impact, prevention and where victims find help.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Gender equity\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Gender equity means fair treatment of all genders; gender-based violence is a crime with help available.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G8.CR.A4",
+              "bank_skill_id": "LO.G8.CR.A4",
+              "title": "Cultural diversity in South Africa",
+              "description": "Respecting diverse cultural norms and values and celebrating unity in diversity.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Cultural diversity in South Africa\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "South Africa's many cultures enrich us; respecting difference builds unity in diversity.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G8.CR.A5",
+              "bank_skill_id": "LO.G8.CR.A5",
+              "title": "Religions and social development",
+              "description": "How organisations from various religions contribute to social development.",
+              "caps_term": "G8 T4",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Religions and social development\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Faith-based organisations help society through charity, care and community upliftment.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.WW",
+          "title": "World of work · Term 2",
+          "description": "CAPS G8 T2 — World of work. World of work.",
+          "atomic_skills": [
+            {
+              "id": "LO.G8.WW.A1",
+              "bank_skill_id": "LO.G8.WW.A1",
+              "title": "Learning styles",
+              "description": "The different learning styles — visual, aural, kinesthetic, reading and writing — and applying your own.",
+              "caps_term": "G8 T2",
+              "caps_strand": "World of work",
+              "caps_topic": "World of work",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Learning styles\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Knowing your learning style (seeing, hearing, doing, reading) helps you study more effectively.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G8.WW.A2",
+              "bank_skill_id": "LO.G8.WW.A2",
+              "title": "Six career categories",
+              "description": "The six career categories — investigative, enterprising, realistic, artistic, conventional and social — and how work meets South Africa's needs.",
+              "caps_term": "G8 T2",
+              "caps_strand": "World of work",
+              "caps_topic": "World of work",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Six career categories\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Careers group into six types; matching your interests to a type helps you choose a direction.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G8.WW.A3",
+              "bank_skill_id": "LO.G8.WW.A3",
+              "title": "School subjects and decision-making",
+              "description": "Linking performance in school subjects to interests and abilities, and the steps for choosing a career direction.",
+              "caps_term": "G8 T2",
+              "caps_strand": "World of work",
+              "caps_topic": "World of work",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"School subjects and decision-making\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Your strengths in subjects hint at careers; good decisions weigh interest, ability and passion.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "grade": 9,
+      "title": "Grade 9 — Life Orientation",
+      "description": "Grade 9 Life Orientation (CAPS Senior Phase). Four desk topics — Development of the self in society, Health & environmental responsibility, Constitutional rights & responsibilities, and World of work — taught across the year. Physical Education is excluded (movement-based).",
+      "tiers": [
+        {
+          "id": "L9.DS",
+          "title": "Development of the self in society · Term 1",
+          "description": "CAPS G9 T1 — Development of the self in society. Development of the self in society.",
+          "atomic_skills": [
+            {
+              "id": "LO.G9.DS.A1",
+              "bank_skill_id": "LO.G9.DS.A1",
+              "title": "Goal-setting and lifestyle choices",
+              "description": "Making informed, assertive goals and personal lifestyle choices despite outside influences.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Development of the self in society",
+              "caps_topic": "Development of the self in society",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Goal-setting and lifestyle choices\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Clear goals and assertiveness help you make lifestyle choices that are right for you.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G9.DS.A2",
+              "bank_skill_id": "LO.G9.DS.A2",
+              "title": "Sexual behaviour and sexual health",
+              "description": "Risk factors and consequences of unhealthy sexual behaviour, and strategies like abstinence and where to get help.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Development of the self in society",
+              "caps_topic": "Development of the self in society",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Sexual behaviour and sexual health\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Healthy choices like abstinence protect you from STIs, HIV and teenage pregnancy.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G9.DS.A3",
+              "bank_skill_id": "LO.G9.DS.A3",
+              "title": "Challenging situations",
+              "description": "Causes of depression, grief, loss, trauma and crisis, and healthy strategies to cope with strong emotions.",
+              "caps_term": "G9 T1",
+              "caps_strand": "Development of the self in society",
+              "caps_topic": "Development of the self in society",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Challenging situations\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Tough emotions are normal; healthy coping and asking for help work better than alcohol or drugs.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.HE",
+          "title": "Health, social & environmental responsibility · Term 3",
+          "description": "CAPS G9 T3 — Health, social & environmental responsibility. Health, social and environmental responsibility.",
+          "atomic_skills": [
+            {
+              "id": "LO.G9.HE.A1",
+              "bank_skill_id": "LO.G9.HE.A1",
+              "title": "Volunteerism",
+              "description": "What volunteerism is and how community and non-profit organisations contribute to social and environmental health.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Health, social & environmental responsibility",
+              "caps_topic": "Health, social and environmental responsibility",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Volunteerism\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Volunteering is giving your time to help others and your community without being paid.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G9.HE.A2",
+              "bank_skill_id": "LO.G9.HE.A2",
+              "title": "Violence and safety",
+              "description": "The causes and impact of violence and alternatives like problem-solving, conflict management and where to find help.",
+              "caps_term": "G9 T3",
+              "caps_strand": "Health, social & environmental responsibility",
+              "caps_topic": "Health, social and environmental responsibility",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Violence and safety\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Violence harms everyone; conflict can be solved with communication and problem-solving instead.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.CR",
+          "title": "Constitutional rights & responsibilities · Term 2",
+          "description": "CAPS G9 T2 — Constitutional rights & responsibilities. Constitutional rights and responsibilities.",
+          "atomic_skills": [
+            {
+              "id": "LO.G9.CR.A1",
+              "bank_skill_id": "LO.G9.CR.A1",
+              "title": "Citizens' rights and national days",
+              "description": "Respecting the rights of all people and the meaning of South Africa's national and international days.",
+              "caps_term": "G9 T2",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Citizens' rights and national days\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Good citizens respect others' rights and remember the meaning behind our national days.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G9.CR.A2",
+              "bank_skill_id": "LO.G9.CR.A2",
+              "title": "Constitutional values",
+              "description": "The values in the South African Constitution, positive role models, and applying these values daily.",
+              "caps_term": "G9 T2",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Constitutional values\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Constitutional values like equality and dignity guide how we should treat one another every day.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G9.CR.A3",
+              "bank_skill_id": "LO.G9.CR.A3",
+              "title": "Religions and peace",
+              "description": "How various religions contribute to promoting peace.",
+              "caps_term": "G9 T2",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Religions and peace\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "All major religions teach peace, compassion and respect for others.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G9.CR.A4",
+              "bank_skill_id": "LO.G9.CR.A4",
+              "title": "Sport ethics",
+              "description": "Ethical behaviour in all physical activities and sport.",
+              "caps_term": "G9 T2",
+              "caps_strand": "Constitutional rights & responsibilities",
+              "caps_topic": "Constitutional rights and responsibilities",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Sport ethics\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Sport ethics means honesty, fair play and respect — no cheating, doping or violence.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.WW",
+          "title": "World of work · Term 3",
+          "description": "CAPS G9 T3 — World of work. World of work.",
+          "atomic_skills": [
+            {
+              "id": "LO.G9.WW.A1",
+              "bank_skill_id": "LO.G9.WW.A1",
+              "title": "Time-management skills",
+              "description": "Being accountable, organising your work and using time effectively and efficiently.",
+              "caps_term": "G9 T3",
+              "caps_strand": "World of work",
+              "caps_topic": "World of work",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Time-management skills\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Good time management means planning your work and using each part of your day well.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G9.WW.A2",
+              "bank_skill_id": "LO.G9.WW.A2",
+              "title": "Reading and writing for purpose",
+              "description": "Reading and writing for different purposes — journals, summaries — and improving these skills.",
+              "caps_term": "G9 T3",
+              "caps_strand": "World of work",
+              "caps_topic": "World of work",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Reading and writing for purpose\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Writing journals and summaries sharpens your reading and writing for study and life.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G9.WW.A3",
+              "bank_skill_id": "LO.G9.WW.A3",
+              "title": "Options after Grade 9",
+              "description": "The options after Grade 9 — the NSC and the NCV — and the implications of choosing between them.",
+              "caps_term": "G9 T3",
+              "caps_strand": "World of work",
+              "caps_topic": "World of work",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Options after Grade 9\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "After Grade 9 you can take the NSC at school or the NCV at a college; each suits different goals.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G9.WW.A4",
+              "bank_skill_id": "LO.G9.WW.A4",
+              "title": "Knowledge of the world of work",
+              "description": "Rights, responsibilities and opportunities in the workplace.",
+              "caps_term": "G9 T3",
+              "caps_strand": "World of work",
+              "caps_topic": "World of work",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Knowledge of the world of work\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Workers have rights and responsibilities; knowing them prepares you for the world of work.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G9.WW.A5",
+              "bank_skill_id": "LO.G9.WW.A5",
+              "title": "Career and subject choices",
+              "description": "Choosing Grade 10–12 subjects linked to careers, interests and abilities using decision-making skills.",
+              "caps_term": "G9 T3",
+              "caps_strand": "World of work",
+              "caps_topic": "World of work",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Career and subject choices\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Your Grade 10 subject choices open or close career doors, so choose by interest and ability.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "LO.G9.WW.A6",
+              "bank_skill_id": "LO.G9.WW.A6",
+              "title": "Funding and lifelong learning",
+              "description": "Study and career funding providers and planning for your own lifelong learning.",
+              "caps_term": "G9 T3",
+              "caps_strand": "World of work",
+              "caps_topic": "World of work",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Funding and lifelong learning\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Bursaries and loans can fund study; lifelong learning means you keep growing after school.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
