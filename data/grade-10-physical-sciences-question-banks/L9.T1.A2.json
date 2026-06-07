@@ -1,0 +1,411 @@
+{
+  "skill": "L9.T1.A2",
+  "skill_title": "Write and interpret names and formulae of substances",
+  "grades": [
+    10
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L9.T1.A2.q01",
+      "skill": "L9.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the chemical formula of sodium chloride?",
+      "answerMode": "choice",
+      "expectedAnswer": "NaCl",
+      "marks": 2,
+      "explanation": "Na⁺ and Cl⁻ combine 1:1, giving NaCl.",
+      "errorSignals": [
+        "ERR_FORMULA_CHARGE_BALANCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "NaCl",
+        "NaCl₂",
+        "Na₂Cl"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q02",
+      "skill": "L9.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the chemical formula of water?",
+      "answerMode": "choice",
+      "expectedAnswer": "H₂O",
+      "marks": 2,
+      "explanation": "Water is two hydrogen atoms and one oxygen: H₂O. (H₂O₂ is hydrogen peroxide.)",
+      "errorSignals": [
+        "ERR_FORMULA_RECALL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "HO₂",
+        "H₂O",
+        "H₂O₂"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q03",
+      "skill": "L9.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the name of the compound CO₂?",
+      "answerMode": "choice",
+      "expectedAnswer": "Carbon dioxide",
+      "marks": 2,
+      "explanation": "The prefix di- means two oxygen atoms: carbon dioxide.",
+      "errorSignals": [
+        "ERR_COVALENT_PREFIX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Carbon monoxide",
+        "Carbonate",
+        "Carbon dioxide"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q04",
+      "skill": "L9.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "The ending '-ide' (as in chloride) usually indicates...",
+      "answerMode": "choice",
+      "expectedAnswer": "a simple ion of a single element.",
+      "marks": 2,
+      "explanation": "-ide is used for simple ions like chloride (Cl⁻), oxide (O²⁻), sulphide (S²⁻).",
+      "errorSignals": [
+        "ERR_ION_ENDINGS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "a simple ion of a single element.",
+        "an ion containing oxygen.",
+        "a metal."
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q05",
+      "skill": "L9.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which ion is the sulphate ion?",
+      "answerMode": "choice",
+      "expectedAnswer": "SO₄²⁻",
+      "marks": 2,
+      "explanation": "Sulphate is SO₄²⁻; sulphite is SO₃²⁻ and sulphide is S²⁻.",
+      "errorSignals": [
+        "ERR_ION_ENDINGS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "SO₃²⁻",
+        "SO₄²⁻",
+        "S²⁻"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q06",
+      "skill": "L9.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the formula of calcium chloride? (Ca²⁺ and Cl⁻)",
+      "answerMode": "choice",
+      "expectedAnswer": "CaCl₂",
+      "marks": 2,
+      "explanation": "One Ca²⁺ needs two Cl⁻ to balance charge: CaCl₂.",
+      "errorSignals": [
+        "ERR_FORMULA_CHARGE_BALANCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CaCl",
+        "Ca₂Cl",
+        "CaCl₂"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q07",
+      "skill": "L9.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does the prefix 'mono-' mean in a compound name like carbon monoxide?",
+      "answerMode": "choice",
+      "expectedAnswer": "One",
+      "marks": 2,
+      "explanation": "Mono- = one; carbon monoxide is CO (one oxygen).",
+      "errorSignals": [
+        "ERR_COVALENT_PREFIX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "One",
+        "Two",
+        "Four"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q08",
+      "skill": "L9.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "The ending '-ate' (as in nitrate, NO₃⁻) usually indicates an ion that...",
+      "answerMode": "choice",
+      "expectedAnswer": "contains oxygen.",
+      "marks": 2,
+      "explanation": "-ate ions (nitrate, sulphate, carbonate) contain oxygen.",
+      "errorSignals": [
+        "ERR_ION_ENDINGS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "is a single element.",
+        "contains oxygen.",
+        "is a metal."
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q09",
+      "skill": "L9.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the name of the compound with formula MgO? (Mg²⁺ and O²⁻)",
+      "answerMode": "choice",
+      "expectedAnswer": "Magnesium oxide",
+      "marks": 2,
+      "explanation": "Mg²⁺ + O²⁻ → MgO, named magnesium oxide (no prefix needed for ionic compounds).",
+      "errorSignals": [
+        "ERR_IONIC_NAMING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Magnesium dioxide",
+        "Magnesium oxate",
+        "Magnesium oxide"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q10",
+      "skill": "L9.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which formula correctly uses brackets for a polyatomic ion?",
+      "answerMode": "choice",
+      "expectedAnswer": "Ca(NO₃)₂",
+      "marks": 2,
+      "explanation": "When a polyatomic ion is used more than once, enclose it in brackets: Ca(NO₃)₂.",
+      "errorSignals": [
+        "ERR_POLYATOMIC_BRACKETS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ca(NO₃)₂",
+        "CaNO₃₂",
+        "Ca(NO₃₂)"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q11",
+      "skill": "L9.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the formula of aluminium oxide? (Al³⁺ and O²⁻)",
+      "answerMode": "choice",
+      "expectedAnswer": "Al₂O₃",
+      "marks": 2,
+      "explanation": "Balance charges by crossing over: 2×Al³⁺ and 3×O²⁻ give Al₂O₃ (total +6 and −6).",
+      "errorSignals": [
+        "ERR_FORMULA_CHARGE_BALANCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "AlO",
+        "Al₂O₃",
+        "Al₃O₂"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q12",
+      "skill": "L9.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the formula of sodium carbonate? (Na⁺ and CO₃²⁻)",
+      "answerMode": "choice",
+      "expectedAnswer": "Na₂CO₃",
+      "marks": 2,
+      "explanation": "Two Na⁺ balance one CO₃²⁻: Na₂CO₃.",
+      "errorSignals": [
+        "ERR_FORMULA_CHARGE_BALANCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "NaCO₃",
+        "Na(CO₃)₂",
+        "Na₂CO₃"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q13",
+      "skill": "L9.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the name of the compound N₂O₃?",
+      "answerMode": "choice",
+      "expectedAnswer": "Dinitrogen trioxide",
+      "marks": 2,
+      "explanation": "Covalent naming uses prefixes for both elements: di- (2) nitrogen, tri- (3) oxide.",
+      "errorSignals": [
+        "ERR_COVALENT_PREFIX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Dinitrogen trioxide",
+        "Nitrogen oxide",
+        "Nitrogen trioxide"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q14",
+      "skill": "L9.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the formula of ammonium sulphate? (NH₄⁺ and SO₄²⁻)",
+      "answerMode": "choice",
+      "expectedAnswer": "(NH₄)₂SO₄",
+      "marks": 2,
+      "explanation": "Two NH₄⁺ balance one SO₄²⁻; the ammonium ion needs brackets: (NH₄)₂SO₄.",
+      "errorSignals": [
+        "ERR_POLYATOMIC_BRACKETS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "NH₄SO₄",
+        "(NH₄)₂SO₄",
+        "(NH₄)SO₄₂"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q15",
+      "skill": "L9.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which name correctly distinguishes the compound FeCl₃ from FeCl₂?",
+      "answerMode": "choice",
+      "expectedAnswer": "Iron(III) chloride (Fe³⁺) vs iron(II) chloride (Fe²⁺).",
+      "marks": 2,
+      "explanation": "Transition metals can have different charges, shown with Roman numerals: Fe³⁺ = iron(III).",
+      "errorSignals": [
+        "ERR_TRANSITION_NAMING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Both are simply iron chloride.",
+        "Iron dichloride and iron trichloride.",
+        "Iron(III) chloride (Fe³⁺) vs iron(II) chloride (Fe²⁺)."
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q16",
+      "skill": "L9.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the formula of potassium nitrate? (K⁺ and NO₃⁻)",
+      "answerMode": "choice",
+      "expectedAnswer": "KNO₃",
+      "marks": 2,
+      "explanation": "K⁺ and NO₃⁻ combine 1:1: KNO₃.",
+      "errorSignals": [
+        "ERR_FORMULA_CHARGE_BALANCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "KNO₃",
+        "K₂NO₃",
+        "K(NO₃)₂"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q17",
+      "skill": "L9.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is the name 'sodium monochloride' incorrect for NaCl?",
+      "answerMode": "choice",
+      "expectedAnswer": "Prefixes like mono- are for covalent compounds, not ionic ones.",
+      "marks": 2,
+      "explanation": "Ionic compounds (metal + non-metal) are named without prefixes: sodium chloride.",
+      "errorSignals": [
+        "ERR_IONIC_NAMING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "NaCl has two chlorine atoms.",
+        "Prefixes like mono- are for covalent compounds, not ionic ones.",
+        "Sodium is a non-metal."
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q18",
+      "skill": "L9.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the formula of magnesium nitrate? (Mg²⁺ and NO₃⁻)",
+      "answerMode": "choice",
+      "expectedAnswer": "Mg(NO₃)₂",
+      "marks": 2,
+      "explanation": "One Mg²⁺ needs two NO₃⁻; brackets are needed: Mg(NO₃)₂.",
+      "errorSignals": [
+        "ERR_POLYATOMIC_BRACKETS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "MgNO₃",
+        "Mg₂NO₃",
+        "Mg(NO₃)₂"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q19",
+      "skill": "L9.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which compound is named correctly?",
+      "answerMode": "choice",
+      "expectedAnswer": "Calcium carbonate — CaCO₃",
+      "marks": 2,
+      "explanation": "CaCO₃ contains the carbonate ion (CO₃²⁻), so it is calcium carbonate.",
+      "errorSignals": [
+        "ERR_ION_ENDINGS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Calcium carbonate — CaCO₃",
+        "Calcium carbon — CaCO₃",
+        "Calcium carbonide — CaCO₃"
+      ]
+    },
+    {
+      "id": "L9.T1.A2.q20",
+      "skill": "L9.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the formula of iron(II) sulphate? (Fe²⁺ and SO₄²⁻)",
+      "answerMode": "choice",
+      "expectedAnswer": "FeSO₄",
+      "marks": 2,
+      "explanation": "Fe²⁺ and SO₄²⁻ both have charge 2, so they combine 1:1: FeSO₄.",
+      "errorSignals": [
+        "ERR_FORMULA_CHARGE_BALANCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Fe₂SO₄",
+        "FeSO₄",
+        "Fe(SO₄)₂"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+{
+  "skill": "L5.T1.A1",
+  "skill_title": "Apply Coulomb's Law to the force between point charges",
+  "grades": [
+    11
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L5.T1.A1.q01",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation is Coulomb's Law?",
+      "answerMode": "choice",
+      "expectedAnswer": "F = kQ₁Q₂/r²",
+      "marks": 2,
+      "explanation": "Coulomb's Law: F = kQ₁Q₂/r² (inverse square of separation).",
+      "errorSignals": [
+        "ERR_COULOMB_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "F = kQ₁Q₂/r²",
+        "F = kQ₁Q₂/r",
+        "F = kQ₁Q₂·r²"
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q02",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two like charges (both positive) exert what kind of force on each other?",
+      "answerMode": "choice",
+      "expectedAnswer": "A repulsive force.",
+      "marks": 2,
+      "explanation": "Like charges repel; unlike charges attract.",
+      "errorSignals": [
+        "ERR_CHARGE_FORCE_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "An attractive force.",
+        "A repulsive force.",
+        "No force."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q03",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In Coulomb's Law, if the distance between two charges doubles, the force becomes...",
+      "answerMode": "choice",
+      "expectedAnswer": "one quarter of the original.",
+      "marks": 2,
+      "explanation": "Inverse-square law: doubling r divides F by 4.",
+      "errorSignals": [
+        "ERR_INVERSE_SQUARE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "one half of the original.",
+        "double the original.",
+        "one quarter of the original."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q04",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "The Coulomb's Law constant k has a value of about...",
+      "answerMode": "choice",
+      "expectedAnswer": "9×10⁹ N·m²·C⁻²",
+      "marks": 2,
+      "explanation": "k ≈ 9×10⁹ N·m²·C⁻².",
+      "errorSignals": [
+        "ERR_COULOMB_CONSTANT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "9×10⁹ N·m²·C⁻²",
+        "6.02×10²³ N·m²·C⁻²",
+        "1.6×10⁻¹⁹ N·m²·C⁻²"
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q05",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Coulomb's Law gives the force as a magnitude. How do you decide its direction?",
+      "answerMode": "choice",
+      "expectedAnswer": "From whether the charges are like (repel) or unlike (attract).",
+      "marks": 2,
+      "explanation": "Use the signs only to decide attraction/repulsion; the formula gives the magnitude.",
+      "errorSignals": [
+        "ERR_COULOMB_SIGN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "From the negative sign in the answer.",
+        "From whether the charges are like (repel) or unlike (attract).",
+        "The force has no direction."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q06",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two charges of +2 µC and +3 µC are 1 m apart. Using F = kQ₁Q₂/r², what is the force? (k = 9×10⁹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.054,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "F = 9×10⁹ × (2×10⁻⁶)(3×10⁻⁶)/1² = 9×10⁹ × 6×10⁻¹² = 0.054 N (repulsive).",
+      "errorSignals": [
+        "ERR_COULOMB_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L5.T1.A1.q07",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "If one of the charges is doubled (distance unchanged), the Coulomb force...",
+      "answerMode": "choice",
+      "expectedAnswer": "doubles.",
+      "marks": 2,
+      "explanation": "F ∝ each charge, so doubling one charge doubles the force.",
+      "errorSignals": [
+        "ERR_COULOMB_PROPORTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "doubles.",
+        "halves.",
+        "quarters."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q08",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What must you convert microcoulombs (µC) to before using Coulomb's Law in SI units?",
+      "answerMode": "choice",
+      "expectedAnswer": "Coulombs (multiply by 10⁻⁶).",
+      "marks": 2,
+      "explanation": "Charges must be in coulombs: 1 µC = 1×10⁻⁶ C.",
+      "errorSignals": [
+        "ERR_CHARGE_UNIT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Newtons.",
+        "Coulombs (multiply by 10⁻⁶).",
+        "Metres."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q09",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two opposite charges are brought closer together. The attractive force between them...",
+      "answerMode": "choice",
+      "expectedAnswer": "increases.",
+      "marks": 2,
+      "explanation": "Smaller r gives a larger force (inverse-square law).",
+      "errorSignals": [
+        "ERR_INVERSE_SQUARE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "decreases.",
+        "stays the same.",
+        "increases."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q10",
+      "skill": "L5.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "The force one point charge exerts on another, and the force the second exerts on the first, are...",
+      "answerMode": "choice",
+      "expectedAnswer": "equal in magnitude and opposite in direction.",
+      "marks": 2,
+      "explanation": "By Newton's Third Law the two electrostatic forces are equal and opposite.",
+      "errorSignals": [
+        "ERR_COULOMB_THIRD_LAW"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "equal in magnitude and opposite in direction.",
+        "larger on the bigger charge.",
+        "only on the smaller charge."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q11",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two charges of +4 µC and −4 µC are 2 m apart. Find the magnitude of the force. (k = 9×10⁹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.036,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "F = 9×10⁹ × (4×10⁻⁶)(4×10⁻⁶)/2² = 9×10⁹ × 16×10⁻¹²/4 = 0.036 N (attractive).",
+      "errorSignals": [
+        "ERR_COULOMB_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L5.T1.A1.q12",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "If both charges are doubled and the distance is kept the same, the Coulomb force becomes...",
+      "answerMode": "choice",
+      "expectedAnswer": "four times larger.",
+      "marks": 2,
+      "explanation": "F ∝ Q₁Q₂, so doubling both multiplies F by 2 × 2 = 4.",
+      "errorSignals": [
+        "ERR_COULOMB_PROPORTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "two times larger.",
+        "the same.",
+        "four times larger."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q13",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "If the distance between two charges is halved, the Coulomb force becomes...",
+      "answerMode": "choice",
+      "expectedAnswer": "four times larger.",
+      "marks": 2,
+      "explanation": "Inverse-square: halving r multiplies F by 1/(½)² = 4.",
+      "errorSignals": [
+        "ERR_INVERSE_SQUARE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "four times larger.",
+        "two times larger.",
+        "half as large."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q14",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two equal charges 3 m apart experience a force of 2 N. What force would they feel at 1 m apart?",
+      "answerMode": "numeric",
+      "expectedAnswer": 18,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "F ∝ 1/r²: going from 3 m to 1 m multiplies F by (3/1)² = 9, so 2 × 9 = 18 N.",
+      "errorSignals": [
+        "ERR_INVERSE_SQUARE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L5.T1.A1.q15",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A +5 µC and a +5 µC charge are 0.5 m apart. Find the force. (k = 9×10⁹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.9,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "F = 9×10⁹ × (5×10⁻⁶)²/0.5² = 9×10⁹ × 25×10⁻¹²/0.25 = 0.9 N (repulsive).",
+      "errorSignals": [
+        "ERR_COULOMB_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L5.T1.A1.q16",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does the answer from Coulomb's Law never need a negative sign in the magnitude?",
+      "answerMode": "choice",
+      "expectedAnswer": "The formula uses the sizes of the charges; direction is decided separately.",
+      "marks": 2,
+      "explanation": "Use absolute values for the magnitude; the attraction/repulsion gives the direction.",
+      "errorSignals": [
+        "ERR_COULOMB_SIGN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The formula uses the sizes of the charges; direction is decided separately.",
+        "Because charges are always positive.",
+        "Because force is always negative."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q17",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two charges experience a force of 8 N. One charge is then tripled. What is the new force (same distance)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 24,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "F ∝ charge, so tripling one charge gives 8 × 3 = 24 N.",
+      "errorSignals": [
+        "ERR_COULOMB_PROPORTION"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L5.T1.A1.q18",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Charge A (+6 µC) and charge B (−2 µC) are 3 m apart. Find the magnitude of the force. (k = 9×10⁹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.012,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "F = 9×10⁹ × (6×10⁻⁶)(2×10⁻⁶)/3² = 9×10⁹ × 12×10⁻¹²/9 = 0.012 N (attractive).",
+      "errorSignals": [
+        "ERR_COULOMB_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L5.T1.A1.q19",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Compared with gravitation, the Coulomb force between two charged particles is usually...",
+      "answerMode": "choice",
+      "expectedAnswer": "much stronger.",
+      "marks": 2,
+      "explanation": "For subatomic particles the electrostatic force is vastly stronger than the gravitational force.",
+      "errorSignals": [
+        "ERR_FORCE_COMPARISON"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "much stronger.",
+        "much weaker.",
+        "exactly equal."
+      ]
+    },
+    {
+      "id": "L5.T1.A1.q20",
+      "skill": "L5.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two charges 4 m apart feel a force of 9 N. If both the distance is halved and one charge doubled, the new force is...",
+      "answerMode": "numeric",
+      "expectedAnswer": 72,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Halving r ×4; doubling one charge ×2; total 9 × 4 × 2 = 72 N.",
+      "errorSignals": [
+        "ERR_COULOMB_COMBINED"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

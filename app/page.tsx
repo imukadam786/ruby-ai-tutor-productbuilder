@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 // ── Always-needed (static imports) ──────────────────────────────────────────
 import Sidebar from "@/components/Sidebar";
 import UsageMeter from "@/components/UsageMeter";
+import RubyBalance from "@/components/RubyBalance";
+import RubyCelebrations from "@/components/RubyCelebrations";
 import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import HomeworkTutorial   from "@/components/tutorial/HomeworkTutorial";
@@ -19,6 +21,7 @@ const ProgressTutorial   = dynamic(() => import("@/components/tutorial/ProgressT
 
 // ── Loaded on demand (dynamic imports) ──────────────────────────────────────
 const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
+const CharacterPicker      = dynamic(() => import("@/components/CharacterPicker"),                      { ssr: false });
 const ProgressTracker      = dynamic(() => import("@/components/ProgressTracker"),                     { ssr: false });
 const DiagnosticSession    = dynamic(() => import("@/components/ruby/DiagnosticSession"),               { ssr: false });
 const SkillTreeView        = dynamic(() => import("@/components/ruby/SkillTreeView"),                   { ssr: false });
@@ -45,8 +48,24 @@ const BusinessStudiesSession       = dynamic(() => import("@/components/business
 const BusinessStudiesSkillTreeView = dynamic(() => import("@/components/business-studies/BusinessStudiesSkillTreeView"),   { ssr: false });
 const TourismSession               = dynamic(() => import("@/components/tourism/TourismSession"),                          { ssr: false });
 const TourismSkillTreeView         = dynamic(() => import("@/components/tourism/TourismSkillTreeView"),                    { ssr: false });
+const AccountingSession            = dynamic(() => import("@/components/accounting/AccountingSession"),                     { ssr: false });
+const AccountingSkillTreeView      = dynamic(() => import("@/components/accounting/AccountingSkillTreeView"),               { ssr: false });
+const EconomicsSession             = dynamic(() => import("@/components/economics/EconomicsSession"),                       { ssr: false });
+const EconomicsSkillTreeView       = dynamic(() => import("@/components/economics/EconomicsSkillTreeView"),                 { ssr: false });
+const TechnologySpSession          = dynamic(() => import("@/components/technology-sp/TechnologySpSession"),                { ssr: false });
+const TechnologySpSkillTreeView    = dynamic(() => import("@/components/technology-sp/TechnologySpSkillTreeView"),          { ssr: false });
+const LifeOrientationSpSession       = dynamic(() => import("@/components/life-orientation-sp/LifeOrientationSpSession"),         { ssr: false });
+const LifeOrientationSpSkillTreeView = dynamic(() => import("@/components/life-orientation-sp/LifeOrientationSpSkillTreeView"),   { ssr: false });
+const CreativeArtsSpSession          = dynamic(() => import("@/components/creative-arts-sp/CreativeArtsSpSession"),               { ssr: false });
+const CreativeArtsSpSkillTreeView    = dynamic(() => import("@/components/creative-arts-sp/CreativeArtsSpSkillTreeView"),         { ssr: false });
 const GeographySession             = dynamic(() => import("@/components/geography/GeographySession"),                      { ssr: false });
 const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),                { ssr: false });
+const NaturalSciencesSpSession     = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSession"),     { ssr: false });
+const NaturalSciencesSpSkillTreeView = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSkillTreeView"), { ssr: false });
+const SocialSciencesSpSession      = dynamic(() => import("@/components/social-sciences-sp/SocialSciencesSpSession"),      { ssr: false });
+const SocialSciencesSpSkillTreeView = dynamic(() => import("@/components/social-sciences-sp/SocialSciencesSpSkillTreeView"), { ssr: false });
+const EmsSpSession                 = dynamic(() => import("@/components/ems-sp/EmsSpSession"),                            { ssr: false });
+const EmsSpSkillTreeView           = dynamic(() => import("@/components/ems-sp/EmsSpSkillTreeView"),                      { ssr: false });
 const SettingsView         = dynamic(() => import("@/components/SettingsView"),                        { ssr: false });
 const MatricPastPapers         = dynamic(() => import("@/components/matric/MatricPastPapers"),             { ssr: false });
 const PrepPapers2026           = dynamic(() => import("@/components/matric/PrepPapers2026"),               { ssr: false });
@@ -67,6 +86,7 @@ import { LanguageProvider, useT } from "@/lib/i18n";
 import { getProgress, incrementSession } from "@/lib/storage";
 import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
 import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
+import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import { StudentProfile } from "@/types/ruby";
 import { ReadingStudentProfile } from "@/types/reading";
 
@@ -117,8 +137,11 @@ const FEATURE_TUTORIAL_KEYS: Partial<Record<ActiveView, string>> = {
 const SESSION_VIEWS: ActiveView[] = [
   "ruby", "discover-maths", "reading", "discover-reading",
   "life-skills", "social-sciences", "natural-sciences-tech", "matric-phys-sci",
+  "grade-10-phys-sci", "grade-11-phys-sci",
   "afrikaans-fal", "maths-literacy", "life-sciences", "history",
-  "business-studies", "tourism", "geography",
+  "business-studies", "tourism", "geography", "natural-sciences-sp",
+  "social-sciences-sp", "ems-sp", "accounting", "economics",
+  "technology-sp", "life-orientation-sp", "creative-arts-sp",
 ];
 
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
@@ -137,6 +160,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
   const [survey, setSurvey] = useState<{ type: "maths" | "reading" | "chat" } | null>(null);
   const [activeTutorial, setActiveTutorial] = useState<ActiveView | null>(null);
   const [userPlan, setUserPlan] = useState<string | null>(null);
+  // Learner's grade drives matric gating. null = not yet known; we fail closed
+  // (no matric) until a confirmed Grade 12 is read from the profile.
+  const [grade, setGrade] = useState<number | null>(null);
   // The tutor whose chat is currently open (null = general Ruby chat).
   const [selectedTutor, setSelectedTutor] = useState<string | null>(null);
 
@@ -174,6 +200,10 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "natural-sciences-tech-skill-tree": "Natural Sciences & Tech · Topics",
     "matric-phys-sci": "Matric Physical Sciences",
     "matric-phys-sci-skill-tree": "Matric Physical Sciences · Skills",
+    "grade-10-phys-sci": "Grade 10 Physical Sciences",
+    "grade-10-phys-sci-skill-tree": "Grade 10 Physical Sciences · Skills",
+    "grade-11-phys-sci": "Grade 11 Physical Sciences",
+    "grade-11-phys-sci-skill-tree": "Grade 11 Physical Sciences · Skills",
     "maths-literacy": "Maths Literacy",
     "maths-literacy-skill-tree": "Maths Literacy · Skills",
     "life-sciences": "Life Sciences",
@@ -182,10 +212,26 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "history-skill-tree": "History · Topics",
     "business-studies": "Business Studies",
     "business-studies-skill-tree": "Business Studies · Topics",
+    "accounting": "Accounting",
+    "accounting-skill-tree": "Accounting · Topics",
+    "economics": "Economics",
+    "economics-skill-tree": "Economics · Topics",
+    "technology-sp": "Technology",
+    "technology-sp-skill-tree": "Technology · Topics",
+    "life-orientation-sp": "Life Orientation",
+    "life-orientation-sp-skill-tree": "Life Orientation · Topics",
+    "creative-arts-sp": "Creative Arts",
+    "creative-arts-sp-skill-tree": "Creative Arts · Topics",
     "tourism": "Tourism",
     "tourism-skill-tree": "Tourism · Topics",
     "geography": "Geography",
     "geography-skill-tree": "Geography · Topics",
+    "natural-sciences-sp": "Natural Sciences",
+    "natural-sciences-sp-skill-tree": "Natural Sciences · Topics",
+    "social-sciences-sp": "Social Sciences",
+    "social-sciences-sp-skill-tree": "Social Sciences · Topics",
+    "ems-sp": "Economic & Management Sciences",
+    "ems-sp-skill-tree": "Economic & Management Sciences · Topics",
   };
 
   const refreshStats = useCallback(() => {
@@ -291,6 +337,11 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
 
   useEffect(() => { void fetchUserPlan(); }, [fetchUserPlan]);
 
+  // Load the learner's grade once so matric surfaces can be gated to Grade 12.
+  useEffect(() => {
+    void fetchAuthorisedGrade().then((auth) => setGrade(auth?.grade ?? null));
+  }, []);
+
   // Hydrate the reading profile on mount too (refreshStats only does maths), so
   // a reading-skill-tree initial view — e.g. landing here straight after
   // onboarding Discovery — has the learner's placement to show.
@@ -306,6 +357,13 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
   const MATRIC_PLANS = ["master", "matric-pack"];
 
   const handleViewChange = (view: ActiveView) => {
+    // Matric is a Grade 12-only experience. Backstop the UI gating: even a stale
+    // link can't open matric for a non-Grade-12 learner. Fail closed — unknown
+    // grade is treated as not-Grade-12.
+    if (MATRIC_VIEWS.includes(view) && grade !== 12) {
+      return;
+    }
+
     // Gate matric features — accessible on Master and Matric Pack plans
     if (MATRIC_VIEWS.includes(view) && userPlan !== null && !MATRIC_PLANS.includes(userPlan)) {
       document.dispatchEvent(
@@ -412,6 +470,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
 
       {showInstall && <InstallPrompt onDismiss={() => setShowInstall(false)} />}
 
+      {/* Global ruby celebration overlay — plays milestone Lotties on events */}
+      <RubyCelebrations />
+
       {/* Mobile top bar — in normal flow so banner shows above it */}
       <header className="md:hidden flex-shrink-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm z-30">
         <button
@@ -425,6 +486,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           </svg>
         </button>
         <span className="flex-1 min-w-0 truncate font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
+        <RubyBalance theme="light" />
         <UsageMeter variant="compact" theme="light" />
         {["chat", "ruby", "reading", "discover-maths", "discover-reading", "discover", "subjects"].includes(activeView) ? (
           <button
@@ -461,7 +523,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         onToggleCollapse={() => setSidebarCollapsed((v) => !v)}
         onSettings={() => handleViewChange("settings")}
         onOpenLangPicker={() => setShowLangPicker(true)}
-        userPlan={userPlan}
+        grade={grade}
         onLogout={async () => {
           // Do NOT wipe localStorage on logout — data belongs to this user and
           // must still be visible when they log back in on the same device.
@@ -484,7 +546,11 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         )}
         <div className="flex-1 min-h-0 overflow-hidden">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} onOpenLangPicker={() => setShowLangPicker(true)} onOpenChatWithTutor={(name) => { handleViewChange("chat"); setSelectedTutor(name); }} />}
-        {activeView === "chat" && <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} tutorName={selectedTutor} />}
+        {activeView === "chat" && (
+          selectedTutor
+            ? <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} tutorName={selectedTutor} onChangeTutor={() => setSelectedTutor(null)} />
+            : <CharacterPicker onPick={(name) => setSelectedTutor(name)} />
+        )}
         {activeView === "progress" && <ProgressTracker
           onMathsReplaySkill={startMathsReplay}
           onReadingReplaySkill={startReadingReplay}
@@ -502,6 +568,12 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           onBusinessStudiesPickSkill={() => handleViewChange("business-studies")}
           onTourismPickSkill={() => handleViewChange("tourism")}
           onGeographyPickSkill={() => handleViewChange("geography")}
+          onNaturalSciencesSpPickSkill={() => handleViewChange("natural-sciences-sp")}
+          onSocialSciencesSpPickSkill={() => handleViewChange("social-sciences-sp")}
+          onEmsSpPickSkill={() => handleViewChange("ems-sp")}
+          onAccountingPickSkill={() => handleViewChange("accounting")}
+          onEconomicsPickSkill={() => handleViewChange("economics")}
+          onTechnologySpPickSkill={() => handleViewChange("technology-sp")}
         />}
         {activeView === "ruby" && <ErrorBoundary><DiagnosticSession onExitReplay={() => handleViewChange("skill-tree")} /></ErrorBoundary>}
         {activeView === "discover-maths" && <ErrorBoundary><DiagnosticSession onSelectPlan={onPostDiscovery} /></ErrorBoundary>}
@@ -518,6 +590,10 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "natural-sciences-tech-skill-tree" && <NstSkillTreeView onPickTopic={() => handleViewChange("natural-sciences-tech")} onBack={() => handleViewChange("subjects")} />}
         {activeView === "matric-phys-sci" && <ErrorBoundary><MatricPhysSciSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "matric-phys-sci-skill-tree" && <MatricPhysSciSkillTreeView onPickSkill={() => handleViewChange("matric-phys-sci")} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "grade-10-phys-sci" && <ErrorBoundary><MatricPhysSciSession grade={10} onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "grade-10-phys-sci-skill-tree" && <MatricPhysSciSkillTreeView grade={10} onPickSkill={() => handleViewChange("grade-10-phys-sci")} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "grade-11-phys-sci" && <ErrorBoundary><MatricPhysSciSession grade={11} onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "grade-11-phys-sci-skill-tree" && <MatricPhysSciSkillTreeView grade={11} onPickSkill={() => handleViewChange("grade-11-phys-sci")} onBack={() => handleViewChange("subjects")} />}
         {/* Afrikaans FAL — free, like reading (not in the Scholar/MATRIC gated lists) */}
         {activeView === "afrikaans-fal" && <ErrorBoundary><AfrikaansSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "afrikaans-fal-skill-tree" && <AfrikaansSkillTreeView onPickSkill={() => handleViewChange("afrikaans-fal")} profile={null} onBack={() => handleViewChange("subjects")} />}
@@ -533,12 +609,34 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {/* Business Studies — FET Phase (Gr 10–12), free like History */}
         {activeView === "business-studies" && <ErrorBoundary><BusinessStudiesSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "business-studies-skill-tree" && <BusinessStudiesSkillTreeView onPickSkill={() => handleViewChange("business-studies")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Accounting — FET Phase (Gr 10–12), free like History */}
+        {activeView === "accounting" && <ErrorBoundary><AccountingSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "accounting-skill-tree" && <AccountingSkillTreeView onPickSkill={() => handleViewChange("accounting")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Economics — FET Phase (Gr 10–12), free like History */}
+        {activeView === "economics" && <ErrorBoundary><EconomicsSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "economics-skill-tree" && <EconomicsSkillTreeView onPickSkill={() => handleViewChange("economics")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Technology — Senior Phase (Gr 7–9) content subject */}
+        {activeView === "technology-sp" && <ErrorBoundary><TechnologySpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "technology-sp-skill-tree" && <TechnologySpSkillTreeView onPickSkill={() => handleViewChange("technology-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "life-orientation-sp" && <ErrorBoundary><LifeOrientationSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "life-orientation-sp-skill-tree" && <LifeOrientationSpSkillTreeView onPickSkill={() => handleViewChange("life-orientation-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "creative-arts-sp" && <ErrorBoundary><CreativeArtsSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "creative-arts-sp-skill-tree" && <CreativeArtsSpSkillTreeView onPickSkill={() => handleViewChange("creative-arts-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {/* Tourism — FET Phase (Gr 10–12), free like History */}
         {activeView === "tourism" && <ErrorBoundary><TourismSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "tourism-skill-tree" && <TourismSkillTreeView onPickSkill={() => handleViewChange("tourism")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {/* Geography — FET Phase (Gr 10–12), free like History */}
         {activeView === "geography" && <ErrorBoundary><GeographySession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "geography-skill-tree" && <GeographySkillTreeView onPickSkill={() => handleViewChange("geography")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Natural Sciences — Senior Phase (Gr 7–9), free like Geography */}
+        {activeView === "natural-sciences-sp" && <ErrorBoundary><NaturalSciencesSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "natural-sciences-sp-skill-tree" && <NaturalSciencesSpSkillTreeView onPickSkill={() => handleViewChange("natural-sciences-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* Social Sciences — Senior Phase (Gr 7–9), free like Natural Sciences */}
+        {activeView === "social-sciences-sp" && <ErrorBoundary><SocialSciencesSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "social-sciences-sp-skill-tree" && <SocialSciencesSpSkillTreeView onPickSkill={() => handleViewChange("social-sciences-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {/* EMS — Senior Phase (Gr 7–9), free like Social Sciences */}
+        {activeView === "ems-sp" && <ErrorBoundary><EmsSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "ems-sp-skill-tree" && <EmsSpSkillTreeView onPickSkill={() => handleViewChange("ems-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} onNavigate={handleViewChange} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}

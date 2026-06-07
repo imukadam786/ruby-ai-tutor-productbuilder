@@ -1,0 +1,378 @@
+{
+  "skill": "L7.T1.A1",
+  "skill_title": "Apply Ohm's Law and resistance in series and parallel circuits",
+  "grades": [
+    11
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L7.T1.A1.q01",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does Ohm's Law state?",
+      "answerMode": "choice",
+      "expectedAnswer": "The current through a conductor is directly proportional to the voltage across it (at constant temperature).",
+      "marks": 2,
+      "explanation": "Ohm's Law: V = IR; current ∝ voltage at constant temperature.",
+      "errorSignals": [
+        "ERR_OHMS_LAW"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The current through a conductor is directly proportional to the voltage across it (at constant temperature).",
+        "Current is inversely proportional to voltage.",
+        "Voltage equals current times time."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q02",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation is Ohm's Law?",
+      "answerMode": "choice",
+      "expectedAnswer": "V = IR",
+      "marks": 2,
+      "explanation": "Ohm's Law: V = IR.",
+      "errorSignals": [
+        "ERR_OHMS_FORM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "V = I/R",
+        "V = IR",
+        "V = R/I"
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q03",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is an ohmic conductor?",
+      "answerMode": "choice",
+      "expectedAnswer": "One whose resistance stays constant, giving a straight-line V–I graph through the origin.",
+      "marks": 2,
+      "explanation": "An ohmic conductor obeys V = IR with constant R (straight V–I graph).",
+      "errorSignals": [
+        "ERR_OHMIC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "One whose resistance changes with current.",
+        "One that does not conduct at all.",
+        "One whose resistance stays constant, giving a straight-line V–I graph through the origin."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q04",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A non-ohmic conductor (like a light bulb filament) has a V–I graph that is...",
+      "answerMode": "choice",
+      "expectedAnswer": "curved (resistance changes as it heats up).",
+      "marks": 2,
+      "explanation": "Non-ohmic conductors do not have constant resistance, so the V–I graph curves.",
+      "errorSignals": [
+        "ERR_NON_OHMIC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "curved (resistance changes as it heats up).",
+        "a straight line through the origin.",
+        "a horizontal line."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q05",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A resistor has 12 V across it and a current of 3 A. What is its resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "R = V/I = 12/3 = 4 Ω.",
+      "errorSignals": [
+        "ERR_OHMS_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q06",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two resistors, 5 Ω and 7 Ω, are in series. What is the total resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 12,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "Series resistances add: 5 + 7 = 12 Ω.",
+      "errorSignals": [
+        "ERR_SERIES_RESISTANCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q07",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two resistors, 6 Ω and 3 Ω, are in parallel. What is the total resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "1/R = 1/6 + 1/3 = 3/6, so R = 2 Ω.",
+      "errorSignals": [
+        "ERR_PARALLEL_RESISTANCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q08",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A current of 2 A flows through a 10 Ω resistor. What is the voltage across it?",
+      "answerMode": "numeric",
+      "expectedAnswer": 20,
+      "tolerance": 0.05,
+      "unit": "V",
+      "marks": 3,
+      "explanation": "V = IR = 2 × 10 = 20 V.",
+      "errorSignals": [
+        "ERR_OHMS_FORM"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q09",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When resistors are added in series, the total resistance...",
+      "answerMode": "choice",
+      "expectedAnswer": "increases.",
+      "marks": 2,
+      "explanation": "Series resistances add, so total resistance increases.",
+      "errorSignals": [
+        "ERR_SERIES_RESISTANCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "decreases.",
+        "stays the same.",
+        "increases."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q10",
+      "skill": "L7.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When resistors are added in parallel, the total resistance...",
+      "answerMode": "choice",
+      "expectedAnswer": "decreases.",
+      "marks": 2,
+      "explanation": "Adding parallel paths lowers the total resistance.",
+      "errorSignals": [
+        "ERR_PARALLEL_RESISTANCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "decreases.",
+        "increases.",
+        "stays the same."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q11",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two equal 8 Ω resistors are connected in parallel. What is the total resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "For two equal resistors in parallel, R = R/2 = 8/2 = 4 Ω.",
+      "errorSignals": [
+        "ERR_PARALLEL_RESISTANCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q12",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 2 Ω and a 4 Ω resistor are in parallel; this combination is in series with a 5 Ω resistor. What is the total resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 6.33,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "Parallel: 1/R = 1/2 + 1/4 = 3/4 ⇒ R = 1.33 Ω; series: 1.33 + 5 = 6.33 Ω.",
+      "errorSignals": [
+        "ERR_MIXED_CIRCUIT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q13",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 6 V battery is connected across a 2 Ω and a 4 Ω resistor in series. What is the current?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1,
+      "tolerance": 0.05,
+      "unit": "A",
+      "marks": 3,
+      "explanation": "Total R = 6 Ω; I = V/R = 6/6 = 1 A (same through series resistors).",
+      "errorSignals": [
+        "ERR_SERIES_CURRENT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q14",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does the V–I graph of a metal conductor at constant temperature pass straight through the origin?",
+      "answerMode": "choice",
+      "expectedAnswer": "Because resistance is constant, so V is directly proportional to I.",
+      "marks": 2,
+      "explanation": "Constant resistance gives V ∝ I, a straight line through the origin (ohmic behaviour).",
+      "errorSignals": [
+        "ERR_OHMIC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because the resistance increases with current.",
+        "Because resistance is constant, so V is directly proportional to I.",
+        "Because no current flows at low voltage."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q15",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 12 V battery drives 4 A through a network. What is the total resistance of the network?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "R = V/I = 12/4 = 3 Ω.",
+      "errorSignals": [
+        "ERR_OHMS_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q16",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Three 6 Ω resistors are connected in parallel. What is the total resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "For n equal resistors in parallel, R = R/n = 6/3 = 2 Ω.",
+      "errorSignals": [
+        "ERR_PARALLEL_RESISTANCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q17",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does the resistance of a light bulb filament increase as it gets brighter?",
+      "answerMode": "choice",
+      "expectedAnswer": "Its temperature rises, which increases resistance (non-ohmic).",
+      "marks": 2,
+      "explanation": "As the filament heats up, its resistance increases, making it non-ohmic.",
+      "errorSignals": [
+        "ERR_NON_OHMIC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "More voltage lowers its resistance.",
+        "Its temperature rises, which increases resistance (non-ohmic).",
+        "Resistance never changes."
+      ]
+    },
+    {
+      "id": "L7.T1.A1.q18",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 3 Ω resistor carries 4 A. What voltage is across it?",
+      "answerMode": "numeric",
+      "expectedAnswer": 12,
+      "tolerance": 0.05,
+      "unit": "V",
+      "marks": 3,
+      "explanation": "V = IR = 4 × 3 = 12 V.",
+      "errorSignals": [
+        "ERR_OHMS_FORM"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q19",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In a parallel combination of a 12 Ω and a 4 Ω resistor, what is the total resistance?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "Ω",
+      "marks": 3,
+      "explanation": "1/R = 1/12 + 1/4 = 1/12 + 3/12 = 4/12, so R = 3 Ω.",
+      "errorSignals": [
+        "ERR_PARALLEL_RESISTANCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L7.T1.A1.q20",
+      "skill": "L7.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Replacing a single resistor with two identical ones in parallel does what to the current drawn from a fixed battery?",
+      "answerMode": "choice",
+      "expectedAnswer": "Increases the current (lower total resistance).",
+      "marks": 2,
+      "explanation": "Parallel lowers total resistance, so for a fixed voltage the current increases (I = V/R).",
+      "errorSignals": [
+        "ERR_PARALLEL_RESISTANCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Decreases the current.",
+        "Increases the current (lower total resistance).",
+        "Leaves the current unchanged."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,411 @@
+{
+  "skill": "L6.T1.A1",
+  "skill_title": "Describe magnetic fields, poles and the Earth's magnetic field",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L6.T1.A1.q01",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What happens when the north pole of one magnet is brought near the north pole of another?",
+      "answerMode": "choice",
+      "expectedAnswer": "They repel each other.",
+      "marks": 2,
+      "explanation": "Like poles repel; two north poles push apart.",
+      "errorSignals": [
+        "ERR_LIKE_POLES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They repel each other.",
+        "They attract each other.",
+        "Nothing happens."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q02",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What happens when the north pole of one magnet is brought near the south pole of another?",
+      "answerMode": "choice",
+      "expectedAnswer": "They attract each other.",
+      "marks": 2,
+      "explanation": "Unlike poles (north–south) attract.",
+      "errorSignals": [
+        "ERR_UNLIKE_POLES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They repel each other.",
+        "They attract each other.",
+        "Nothing happens."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q03",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Outside a bar magnet, in which direction do the magnetic field lines point?",
+      "answerMode": "choice",
+      "expectedAnswer": "From the north pole to the south pole.",
+      "marks": 2,
+      "explanation": "By convention, field lines run from N to S outside the magnet.",
+      "errorSignals": [
+        "ERR_FIELD_LINE_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "From the south pole to the north pole.",
+        "Into both poles.",
+        "From the north pole to the south pole."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q04",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Can two magnetic field lines ever cross each other?",
+      "answerMode": "choice",
+      "expectedAnswer": "No — field lines never cross.",
+      "marks": 2,
+      "explanation": "Magnetic field lines never cross; a crossing would mean two field directions at one point.",
+      "errorSignals": [
+        "ERR_FIELD_LINES_CROSS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "No — field lines never cross.",
+        "Yes — they cross at the poles.",
+        "Yes — they cross midway between magnets."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q05",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Where is a bar magnet's magnetic field strongest?",
+      "answerMode": "choice",
+      "expectedAnswer": "At the poles, where the field lines are closest together.",
+      "marks": 2,
+      "explanation": "Closely spaced field lines at the poles indicate the strongest field.",
+      "errorSignals": [
+        "ERR_FIELD_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "In the middle of the magnet.",
+        "At the poles, where the field lines are closest together.",
+        "It is the same strength everywhere."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q06",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does the closeness (density) of magnetic field lines show?",
+      "answerMode": "choice",
+      "expectedAnswer": "How strong the field is (closer lines = stronger field).",
+      "marks": 2,
+      "explanation": "The spacing of field lines represents field strength: closer = stronger.",
+      "errorSignals": [
+        "ERR_FIELD_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "How fast the magnet is moving.",
+        "The temperature of the magnet.",
+        "How strong the field is (closer lines = stronger field)."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q07",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why does a freely suspended bar magnet always come to rest pointing roughly north–south?",
+      "answerMode": "choice",
+      "expectedAnswer": "It lines up with the Earth's magnetic field.",
+      "marks": 2,
+      "explanation": "The Earth acts like a giant magnet, so a free magnet aligns with the Earth's field (a compass).",
+      "errorSignals": [
+        "ERR_EARTH_FIELD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It lines up with the Earth's magnetic field.",
+        "It is pulled by the Sun.",
+        "It is repelled by all metals."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q08",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A compass needle is itself a small...",
+      "answerMode": "choice",
+      "expectedAnswer": "magnet.",
+      "marks": 2,
+      "explanation": "A compass needle is a small magnet free to rotate and align with a magnetic field.",
+      "errorSignals": [
+        "ERR_COMPASS_MAGNET"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "battery.",
+        "magnet.",
+        "electric charge."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q09",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two unlike poles are placed near each other. How are the field lines between them arranged?",
+      "answerMode": "choice",
+      "expectedAnswer": "They run directly from the north pole across to the south pole.",
+      "marks": 2,
+      "explanation": "Between unlike poles the field lines link N to S directly (an attractive pattern).",
+      "errorSignals": [
+        "ERR_FIELD_LINE_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They point away from each other.",
+        "There are no field lines between them.",
+        "They run directly from the north pole across to the south pole."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q10",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which material is magnetic (attracted to a magnet)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Iron",
+      "marks": 2,
+      "explanation": "Iron (and steel, nickel, cobalt) is magnetic; copper and wood are not.",
+      "errorSignals": [
+        "ERR_MAGNETIC_MATERIAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Iron",
+        "Copper",
+        "Wood"
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q11",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Inside a bar magnet, the field lines point...",
+      "answerMode": "choice",
+      "expectedAnswer": "from the south pole to the north pole (completing a loop).",
+      "marks": 2,
+      "explanation": "Field lines form closed loops: N→S outside, and S→N inside the magnet.",
+      "errorSignals": [
+        "ERR_FIELD_LINE_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "from the north pole to the south pole.",
+        "from the south pole to the north pole (completing a loop).",
+        "they stop at the poles."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q12",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A compass is placed near a bar magnet's north pole. Which way does the compass's north (red) end point?",
+      "answerMode": "choice",
+      "expectedAnswer": "Away from the magnet's north pole (it is repelled).",
+      "marks": 2,
+      "explanation": "Like poles repel, so the compass north end points away from the magnet's north pole, along the field.",
+      "errorSignals": [
+        "ERR_COMPASS_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Towards the magnet's north pole.",
+        "It spins continuously.",
+        "Away from the magnet's north pole (it is repelled)."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q13",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "The Earth's magnetic field behaves as if there is a bar magnet inside the Earth. Where is this imaginary magnet's SOUTH pole?",
+      "answerMode": "choice",
+      "expectedAnswer": "Near the Earth's geographic NORTH.",
+      "marks": 2,
+      "explanation": "A compass north points geographically north because the Earth's magnetic south is near the geographic north.",
+      "errorSignals": [
+        "ERR_EARTH_POLES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Near the Earth's geographic NORTH.",
+        "Near the Earth's geographic south.",
+        "At the centre of the Earth only."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q14",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does a compass needle's north end point towards the Earth's geographic north?",
+      "answerMode": "choice",
+      "expectedAnswer": "The Earth's magnetic south pole lies near the geographic north, attracting the needle's north end.",
+      "marks": 2,
+      "explanation": "Unlike poles attract: the compass north is drawn to the Earth's magnetic south, located near geographic north.",
+      "errorSignals": [
+        "ERR_EARTH_POLES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The geographic north is also a magnetic north pole.",
+        "The Earth's magnetic south pole lies near the geographic north, attracting the needle's north end.",
+        "The needle is attracted to the cold."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q15",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two bar magnets are placed end to end with field lines that seem to push apart and avoid each other between them. Which poles face each other?",
+      "answerMode": "choice",
+      "expectedAnswer": "Two like poles (e.g. N and N).",
+      "marks": 2,
+      "explanation": "Like poles repel, producing a field pattern where lines push apart with a neutral point between.",
+      "errorSignals": [
+        "ERR_FIELD_PATTERN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A north and a south pole.",
+        "It is impossible to tell.",
+        "Two like poles (e.g. N and N)."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q16",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is a 'neutral point' in a magnetic field?",
+      "answerMode": "choice",
+      "expectedAnswer": "A point where the magnetic fields cancel and the net field is zero.",
+      "marks": 2,
+      "explanation": "At a neutral point the fields from different sources cancel, giving zero net field.",
+      "errorSignals": [
+        "ERR_NEUTRAL_POINT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A point where the magnetic fields cancel and the net field is zero.",
+        "The strongest point of the field.",
+        "The centre of a single magnet."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q17",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "You have an unmarked bar magnet and a compass. How can you identify the magnet's north pole?",
+      "answerMode": "choice",
+      "expectedAnswer": "The compass end that points to the Earth's north is its north; the magnet pole that repels it is north.",
+      "marks": 2,
+      "explanation": "The compass north end is repelled by the magnet's north pole (like poles repel), identifying it.",
+      "errorSignals": [
+        "ERR_POLE_IDENTIFY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The pole that attracts the compass north end is north.",
+        "The compass end that points to the Earth's north is its north; the magnet pole that repels it is north.",
+        "Both poles attract the compass equally."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q18",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Iron filings sprinkled around a bar magnet line up to show...",
+      "answerMode": "choice",
+      "expectedAnswer": "the shape and direction of the magnetic field.",
+      "marks": 2,
+      "explanation": "Iron filings become tiny magnets and align along the field lines, revealing the field pattern.",
+      "errorSignals": [
+        "ERR_FIELD_VISUALISE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the electric current in the magnet.",
+        "the weight of the magnet.",
+        "the shape and direction of the magnetic field."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q19",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which statement about magnetic poles is correct?",
+      "answerMode": "choice",
+      "expectedAnswer": "Poles always occur in north–south pairs; a single isolated pole has never been found.",
+      "marks": 2,
+      "explanation": "Magnetic poles always come in pairs; cutting a magnet makes two smaller magnets, each with N and S.",
+      "errorSignals": [
+        "ERR_MONOPOLE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Poles always occur in north–south pairs; a single isolated pole has never been found.",
+        "You can have a magnet with only a north pole.",
+        "Cutting a magnet in half removes one pole."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q20",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A magnet is cut in half across its middle. What are the two pieces?",
+      "answerMode": "choice",
+      "expectedAnswer": "Two complete magnets, each with its own north and south pole.",
+      "marks": 2,
+      "explanation": "Each half becomes a full magnet with both poles — isolated single poles do not exist.",
+      "errorSignals": [
+        "ERR_MONOPOLE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "One north-only and one south-only magnet.",
+        "Two complete magnets, each with its own north and south pole.",
+        "Two non-magnetic pieces."
+      ]
+    }
+  ]
+}

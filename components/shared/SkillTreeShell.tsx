@@ -31,6 +31,10 @@ export interface HubTreeInfo {
   emoji?: string;
   /** Subject name shown as the hub header title (e.g. "Geography"). */
   label?: string;
+  /** Subject accent gradient (Tailwind `from-*`/`to-*`) — paints the coloured
+   *  frame around the hub thumbnail so each subject reads by its own colour. */
+  accentFrom?: string;
+  accentTo?: string;
 }
 export const HubTreeContext = createContext<HubTreeInfo>({ inHub: false });
 
@@ -56,7 +60,8 @@ export type SkillTreeAccent =
   | "violet"
   | "orange"
   | "lime"
-  | "pink";
+  | "pink"
+  | "slate";
 
 export type SkillTreeStatus =
   | "locked"
@@ -283,6 +288,19 @@ const ACCENTS: Record<
     activeRing: "ring-2 ring-orange-500 ring-offset-1 animate-pulse shadow-sm shadow-orange-300",
     hoverRing: "cursor-pointer hover:ring-2 hover:ring-orange-300 hover:shadow-sm transition-all",
   },
+  slate: {
+    headerBg: "bg-slate-50 border-slate-200",
+    headerTitle: "text-slate-700",
+    headerSub: "text-slate-400",
+    bar: "bg-slate-500",
+    currentBadge: "bg-slate-600 text-white",
+    currentCard: "border-slate-300 shadow-md shadow-slate-500/10",
+    currentHeaderBg: "bg-slate-50",
+    currentPill: "bg-slate-100 text-slate-700",
+    activeTile: "bg-slate-100 text-slate-800 border-slate-400",
+    activeRing: "ring-2 ring-slate-500 ring-offset-1 animate-pulse shadow-sm shadow-slate-300",
+    hoverRing: "cursor-pointer hover:ring-2 hover:ring-slate-300 hover:shadow-sm transition-all",
+  },
   lime: {
     headerBg: "bg-lime-50 border-lime-200",
     headerTitle: "text-lime-700",
@@ -400,19 +418,29 @@ function LevelCard({
   const isCurrent = !!level.isCurrent;
   const inHub = useContext(HubTreeContext).inHub;
 
-  // In the hub, an open level shows only the next tier the learner is working
-  // on. The learner can reveal the rest of the level with the toggle below.
+  // In the hub, an open level previews only the focus tier the learner is working
+  // on, capped to a few skills — so every subject's card is the same compact size
+  // no matter how many topics/skills the level holds (content subjects can have
+  // 16+ per tier). The learner reveals the rest of the level with the toggle.
+  const HUB_PREVIEW_SKILLS = 3;
   const [tiersExpanded, setTiersExpanded] = useState(false);
-  const canCollapseTiers = inHub && level.tiers.length > 1;
   const focusTierIndex = (() => {
     const next = level.tiers.findIndex((t) => t.skills.some((s) => ACTIONABLE_STATUSES.has(s.status)));
     if (next >= 0) return next;
     const firstUnlocked = level.tiers.findIndex((t) => t.skills.some((s) => s.status !== "locked"));
     return firstUnlocked >= 0 ? firstUnlocked : 0;
   })();
+  const focusTier = level.tiers[focusTierIndex];
+  // Start the preview at the actionable skill so "Start here" is always visible.
+  const previewSkills = (() => {
+    if (!focusTier) return [];
+    const firstActionable = focusTier.skills.findIndex((s) => ACTIONABLE_STATUSES.has(s.status));
+    const start = firstActionable > 0 ? firstActionable : 0;
+    return focusTier.skills.slice(start, start + HUB_PREVIEW_SKILLS);
+  })();
+  const totalSkills = level.tiers.reduce((n, t) => n + t.skills.length, 0);
+  const canCollapseTiers = inHub && totalSkills > previewSkills.length;
   const showAllTiers = !canCollapseTiers || tiersExpanded;
-  const visibleTiers = showAllTiers ? level.tiers : [level.tiers[focusTierIndex]];
-  const hiddenTierCount = level.tiers.length - visibleTiers.length;
 
   return (
     <div ref={innerRef}>
@@ -503,23 +531,36 @@ function LevelCard({
 
         {isOpen && (
           <div className="px-5 pb-4">
-            {visibleTiers.map((tier) => (
-              <div key={tier.id} className="mt-3">
-                <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">{tier.title}</p>
+            {showAllTiers ? (
+              level.tiers.map((tier) => (
+                <div key={tier.id} className="mt-3">
+                  <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">{tier.title}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {tier.skills.map((skill) => (
+                      <SkillTile key={skill.id} skill={skill} accent={accent} />
+                    ))}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="mt-3">
+                {focusTier && (
+                  <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">{focusTier.title}</p>
+                )}
                 <div className="flex flex-wrap gap-2">
-                  {tier.skills.map((skill) => (
+                  {previewSkills.map((skill) => (
                     <SkillTile key={skill.id} skill={skill} accent={accent} />
                   ))}
                 </div>
               </div>
-            ))}
+            )}
             {canCollapseTiers && (
               <button
                 type="button"
                 onClick={() => setTiersExpanded((v) => !v)}
                 className="mt-3 text-xs font-semibold text-gray-500 hover:text-gray-700 transition-colors"
               >
-                {tiersExpanded ? "Show less ▴" : `Show all ${hiddenTierCount + 1} sections ▾`}
+                {tiersExpanded ? "Show less ▴" : `Show all ${totalSkills} skills ▾`}
               </button>
             )}
           </div>
@@ -564,41 +605,86 @@ export default function SkillTreeShell({
     return () => window.cancelAnimationFrame(id);
   }, [compact, currentKey]);
 
-  return (
-    <div className={`relative isolate ${inHub ? "" : "bg-gray-50"} ${compact || inHub ? "" : "flex flex-col h-full"}`}>
-      {!inHub && (
-        <div className="absolute inset-0 -z-10">
-          <EduBackground />
-        </div>
-      )}
+  // The levels + footer, shared by the hub and standalone layouts.
+  const body = emptyState ? (
+    emptyState
+  ) : (
+    <div className="space-y-4">
+      {notice}
+      {levels.map((level) => (
+        <LevelCard
+          key={level.id}
+          level={level}
+          accent={accent}
+          isOpen={isOpen(level)}
+          onToggle={() => toggle(level)}
+          innerRef={level.isCurrent ? (el) => (currentRef.current = el) : undefined}
+        />
+      ))}
 
-      <div
-        className={`border-b px-6 py-4 ${accent.headerBg} ${
-          inHub ? "flex items-center gap-3 rounded-t-2xl" : "hidden md:block"
-        }`}
-      >
-        {inHub && (hub.thumbnail || hub.emoji) && (
-          hub.thumbnail ? (
-            <img
-              src={hub.thumbnail}
-              alt={hub.label ?? ""}
-              className="w-10 h-10 rounded-xl object-cover flex-shrink-0 shadow-sm"
-            />
-          ) : (
-            <span className="w-10 h-10 rounded-xl bg-white/60 flex items-center justify-center text-2xl flex-shrink-0">
-              {hub.emoji}
-            </span>
-          )
-        )}
+      {footerToggle && (
+        <button
+          type="button"
+          onClick={footerToggle.onClick}
+          className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+        >
+          {footerToggle.label}
+        </button>
+      )}
+    </div>
+  );
+
+  // ── Hub presentation ──────────────────────────────────────────────────────
+  // Inside the Subjects hub there's no header bar and no subject title: the
+  // learner sees only the subject thumbnail (with the stat-line beneath it) and
+  // the skill-tree card beside it. The thumbnail is a fixed square — pinned to
+  // the top, NOT stretched to the tree's height — so every subject's card reads
+  // at the same size regardless of how tall its tree is. On mobile they stack.
+  if (inHub) {
+    const thumb = hub.thumbnail ? (
+      <img src={hub.thumbnail} alt={hub.label ?? ""} className="w-full h-full object-cover" />
+    ) : (
+      <div className="w-full h-full bg-gray-50 flex items-center justify-center text-5xl">
+        {hub.emoji ?? "📘"}
+      </div>
+    );
+
+    return (
+      <div className="relative isolate">
+        <div className="flex flex-col md:flex-row md:items-start gap-4">
+          {/* Left: fixed-square thumbnail + stat-line. Just the image — no frame,
+              border or padding — and a constant size across every subject. */}
+          <div className="flex flex-col items-center md:items-stretch md:w-48 lg:w-56 md:flex-shrink-0">
+            <div className="w-40 aspect-square md:w-full md:aspect-square rounded-2xl overflow-hidden">
+              {thumb}
+            </div>
+            {statline && (
+              <p className="text-center text-xs text-gray-500 mt-2">{statline}</p>
+            )}
+          </div>
+
+          {/* Right: the skill-tree card */}
+          <div className="flex-1 min-w-0">{body}</div>
+        </div>
+      </div>
+    );
+  }
+
+  // ── Standalone / full-page presentation ───────────────────────────────────
+  return (
+    <div className={`relative isolate bg-gray-50 ${compact ? "" : "flex flex-col h-full"}`}>
+      <div className="absolute inset-0 -z-10">
+        <EduBackground />
+      </div>
+
+      <div className={`border-b px-6 py-4 ${accent.headerBg} hidden md:block`}>
         <div className="min-w-0">
-          <h2 className={`font-semibold text-lg ${accent.headerTitle}`}>
-            {inHub ? hub.label ?? "Skill Tree" : title}
-          </h2>
+          <h2 className={`font-semibold text-lg ${accent.headerTitle}`}>{title}</h2>
           {statline && <p className={`text-sm ${accent.headerSub}`}>{statline}</p>}
         </div>
       </div>
 
-      <div className={inHub ? "px-4 pt-4 pb-1" : compact ? "p-6" : "flex-1 overflow-y-auto p-6"}>
+      <div className={compact ? "p-6" : "flex-1 overflow-y-auto p-6"}>
         {onBack && (
           <div className="max-w-2xl mx-auto mb-4">
             <button
@@ -610,33 +696,7 @@ export default function SkillTreeShell({
           </div>
         )}
 
-        {emptyState ? (
-          emptyState
-        ) : (
-          <div className="max-w-2xl mx-auto space-y-4">
-            {notice}
-            {levels.map((level) => (
-              <LevelCard
-                key={level.id}
-                level={level}
-                accent={accent}
-                isOpen={isOpen(level)}
-                onToggle={() => toggle(level)}
-                innerRef={level.isCurrent ? (el) => (currentRef.current = el) : undefined}
-              />
-            ))}
-
-            {footerToggle && (
-              <button
-                type="button"
-                onClick={footerToggle.onClick}
-                className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
-              >
-                {footerToggle.label}
-              </button>
-            )}
-          </div>
-        )}
+        <div className="max-w-2xl mx-auto">{body}</div>
       </div>
     </div>
   );

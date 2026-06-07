@@ -1,0 +1,411 @@
+{
+  "skill": "L13.T1.A1",
+  "skill_title": "Distinguish covalent, ionic and metallic bonding and draw Lewis diagrams",
+  "grades": [
+    10
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L13.T1.A1.q01",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is a covalent bond?",
+      "answerMode": "choice",
+      "expectedAnswer": "The sharing of electron pairs between atoms.",
+      "marks": 2,
+      "explanation": "A covalent bond forms when atoms share pairs of electrons.",
+      "errorSignals": [
+        "ERR_COVALENT_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The sharing of electron pairs between atoms.",
+        "The transfer of electrons from one atom to another.",
+        "The attraction between a metal and a non-metal."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q02",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is an ionic bond?",
+      "answerMode": "choice",
+      "expectedAnswer": "The transfer of electrons forming oppositely charged ions that attract.",
+      "marks": 2,
+      "explanation": "Ionic bonding involves electron transfer, forming cations and anions that attract.",
+      "errorSignals": [
+        "ERR_IONIC_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The sharing of electrons between atoms.",
+        "The transfer of electrons forming oppositely charged ions that attract.",
+        "A sea of delocalised electrons."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q03",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is metallic bonding?",
+      "answerMode": "choice",
+      "expectedAnswer": "Positive metal ions held together by a 'sea' of delocalised electrons.",
+      "marks": 2,
+      "explanation": "In metallic bonding, delocalised electrons move freely among positive metal ions.",
+      "errorSignals": [
+        "ERR_METALLIC_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The sharing of electron pairs between two non-metals.",
+        "The transfer of electrons to a non-metal.",
+        "Positive metal ions held together by a 'sea' of delocalised electrons."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q04",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What type of bonding forms between a metal and a non-metal?",
+      "answerMode": "choice",
+      "expectedAnswer": "Ionic bonding",
+      "marks": 2,
+      "explanation": "Metal + non-metal usually gives ionic bonding (electron transfer).",
+      "errorSignals": [
+        "ERR_BOND_PREDICT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ionic bonding",
+        "Covalent bonding",
+        "Metallic bonding"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q05",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What type of bonding forms between two non-metals?",
+      "answerMode": "choice",
+      "expectedAnswer": "Covalent bonding",
+      "marks": 2,
+      "explanation": "Non-metal + non-metal gives covalent bonding (electron sharing).",
+      "errorSignals": [
+        "ERR_BOND_PREDICT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ionic bonding",
+        "Covalent bonding",
+        "Metallic bonding"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q06",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many electrons are shared in a single covalent bond?",
+      "answerMode": "choice",
+      "expectedAnswer": "2 (one pair)",
+      "marks": 2,
+      "explanation": "A single covalent bond is one shared pair = 2 electrons.",
+      "errorSignals": [
+        "ERR_BOND_ELECTRONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1",
+        "4",
+        "2 (one pair)"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q07",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many electrons are shared in a double covalent bond?",
+      "answerMode": "choice",
+      "expectedAnswer": "4 (two pairs)",
+      "marks": 2,
+      "explanation": "A double bond shares two pairs = 4 electrons (e.g. O₂).",
+      "errorSignals": [
+        "ERR_BOND_ELECTRONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "4 (two pairs)",
+        "2",
+        "6"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q08",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When sodium reacts with chlorine, what happens to the electrons?",
+      "answerMode": "choice",
+      "expectedAnswer": "Sodium transfers one electron to chlorine, forming Na⁺ and Cl⁻.",
+      "marks": 2,
+      "explanation": "Na loses one electron (→ Na⁺) and Cl gains it (→ Cl⁻): ionic bonding.",
+      "errorSignals": [
+        "ERR_IONIC_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They share a pair of electrons.",
+        "Sodium transfers one electron to chlorine, forming Na⁺ and Cl⁻.",
+        "Chlorine gives an electron to sodium."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q09",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which statement about an ionic compound is correct?",
+      "answerMode": "choice",
+      "expectedAnswer": "It forms a lattice of ions, not individual molecules.",
+      "marks": 2,
+      "explanation": "Ionic compounds form giant lattices of alternating ions; they do not form molecules.",
+      "errorSignals": [
+        "ERR_IONIC_MOLECULE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It exists as separate molecules.",
+        "It is held together by shared electrons.",
+        "It forms a lattice of ions, not individual molecules."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q10",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does a Lewis (electron) diagram show?",
+      "answerMode": "choice",
+      "expectedAnswer": "The valence electrons of atoms as dots/crosses and how they bond.",
+      "marks": 2,
+      "explanation": "Lewis diagrams show valence electrons and bonding/lone pairs.",
+      "errorSignals": [
+        "ERR_LEWIS_PURPOSE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The valence electrons of atoms as dots/crosses and how they bond.",
+        "The number of neutrons in the nucleus.",
+        "The mass of the atom."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q11",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In the molecule O₂, how are the two oxygen atoms bonded?",
+      "answerMode": "choice",
+      "expectedAnswer": "By a double covalent bond (two shared pairs).",
+      "marks": 2,
+      "explanation": "Each O needs 2 more electrons, so they share two pairs — a double bond.",
+      "errorSignals": [
+        "ERR_BOND_ELECTRONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "By a single covalent bond.",
+        "By a double covalent bond (two shared pairs).",
+        "By an ionic bond."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q12",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In the molecule N₂, the two nitrogen atoms share three pairs of electrons. This is a...",
+      "answerMode": "choice",
+      "expectedAnswer": "triple covalent bond.",
+      "marks": 2,
+      "explanation": "Three shared pairs (6 electrons) form a triple bond, as in N₂.",
+      "errorSignals": [
+        "ERR_BOND_ELECTRONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "single covalent bond.",
+        "double covalent bond.",
+        "triple covalent bond."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q13",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Magnesium (group 2) bonds with oxygen (group 16). What ions form?",
+      "answerMode": "choice",
+      "expectedAnswer": "Mg²⁺ and O²⁻",
+      "marks": 2,
+      "explanation": "Mg loses 2 electrons (Mg²⁺); O gains 2 (O²⁻), giving MgO.",
+      "errorSignals": [
+        "ERR_ION_FORMATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Mg²⁺ and O²⁻",
+        "Mg⁺ and O⁻",
+        "Mg²⁻ and O²⁺"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q14",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why can metals conduct electricity?",
+      "answerMode": "choice",
+      "expectedAnswer": "Their delocalised electrons are free to move and carry charge.",
+      "marks": 2,
+      "explanation": "The 'sea' of delocalised electrons in metallic bonding can move, carrying current.",
+      "errorSignals": [
+        "ERR_METALLIC_CONDUCTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Their ions move through the solid.",
+        "Their delocalised electrons are free to move and carry charge.",
+        "They share electrons in fixed pairs."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q15",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does water (H₂O) use covalent bonding rather than ionic bonding?",
+      "answerMode": "choice",
+      "expectedAnswer": "Both hydrogen and oxygen are non-metals, so they share electrons.",
+      "marks": 2,
+      "explanation": "H and O are both non-metals; non-metals share electrons (covalent).",
+      "errorSignals": [
+        "ERR_BOND_PREDICT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Oxygen is a metal that transfers electrons.",
+        "Hydrogen forms a metallic lattice.",
+        "Both hydrogen and oxygen are non-metals, so they share electrons."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q16",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many covalent bonds does a carbon atom typically form?",
+      "answerMode": "choice",
+      "expectedAnswer": "4",
+      "marks": 2,
+      "explanation": "Carbon has 4 valence electrons and shares all four, forming 4 covalent bonds (e.g. CH₄).",
+      "errorSignals": [
+        "ERR_VALENCE_BONDS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "4",
+        "2",
+        "6"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q17",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which compound is held together by ionic bonds?",
+      "answerMode": "choice",
+      "expectedAnswer": "Potassium chloride (KCl)",
+      "marks": 2,
+      "explanation": "KCl is a metal + non-metal (ionic). CO₂ and CH₄ are non-metal combinations (covalent).",
+      "errorSignals": [
+        "ERR_BOND_PREDICT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Carbon dioxide (CO₂)",
+        "Potassium chloride (KCl)",
+        "Methane (CH₄)"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q18",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In a Lewis diagram of HCl, how many electrons are shared between H and Cl?",
+      "answerMode": "choice",
+      "expectedAnswer": "2 (a single bonding pair)",
+      "marks": 2,
+      "explanation": "H and Cl share one pair (2 electrons) in a single covalent bond.",
+      "errorSignals": [
+        "ERR_BOND_ELECTRONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1",
+        "8",
+        "2 (a single bonding pair)"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q19",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why do ionic compounds have high melting points?",
+      "answerMode": "choice",
+      "expectedAnswer": "Strong electrostatic forces hold the lattice of ions together.",
+      "marks": 2,
+      "explanation": "Strong ionic attractions throughout the lattice require a lot of energy to break, giving high melting points.",
+      "errorSignals": [
+        "ERR_IONIC_PROPERTIES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Strong electrostatic forces hold the lattice of ions together.",
+        "Weak forces between molecules.",
+        "Delocalised electrons hold them loosely."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q20",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A compound conducts electricity when molten or dissolved but not when solid. What bonding does it have?",
+      "answerMode": "choice",
+      "expectedAnswer": "Ionic bonding",
+      "marks": 2,
+      "explanation": "Ionic compounds conduct only when their ions are free to move (molten/dissolved), not as a solid.",
+      "errorSignals": [
+        "ERR_IONIC_CONDUCTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Covalent bonding",
+        "Ionic bonding",
+        "Metallic bonding"
+      ]
+    }
+  ]
+}

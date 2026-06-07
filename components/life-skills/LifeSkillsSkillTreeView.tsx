@@ -62,7 +62,7 @@ export default function LifeSkillsSkillTreeView({
       levelProgress[level.id] = levelSkillCount > 0 ? Math.round((levelMasteredCount / levelSkillCount) * 100) : 0;
     }
     return {
-      statline: `${masteredLevels}/${tree.levels.length} Levels · ${masteredTiers}/${totalTiers} Tiers · ${masteredSkills}/${totalSkills} Atomic skills`,
+      statline: `${masteredLevels}/${tree.levels.length} Levels · ${masteredTiers}/${totalTiers} Tiers · ${masteredSkills}/${totalSkills} Atomic skills · ${totalSkills > 0 ? Math.round((masteredSkills / totalSkills) * 100) : 0}%`,
       levelProgress,
     };
   }, [mastery]);

@@ -41,6 +41,12 @@ import HistorySkillTreeView from "@/components/history/HistorySkillTreeView";
 import BusinessStudiesSkillTreeView from "@/components/business-studies/BusinessStudiesSkillTreeView";
 import TourismSkillTreeView from "@/components/tourism/TourismSkillTreeView";
 import GeographySkillTreeView from "@/components/geography/GeographySkillTreeView";
+import NaturalSciencesSpSkillTreeView from "@/components/natural-sciences-sp/NaturalSciencesSpSkillTreeView";
+import SocialSciencesSpSkillTreeView from "@/components/social-sciences-sp/SocialSciencesSpSkillTreeView";
+import EmsSpSkillTreeView from "@/components/ems-sp/EmsSpSkillTreeView";
+import TechnologySpSkillTreeView from "@/components/technology-sp/TechnologySpSkillTreeView";
+import AccountingSkillTreeView from "@/components/accounting/AccountingSkillTreeView";
+import EconomicsSkillTreeView from "@/components/economics/EconomicsSkillTreeView";
 import { getMathsLiteracyProfile } from "@/lib/maths-literacy-student-model";
 import type { MathsLiteracyStudentProfile } from "@/types/maths-literacy";
 import {
@@ -74,7 +80,13 @@ type SubjectTabId =
   | "history"
   | "businessstudies"
   | "tourism"
-  | "geography";
+  | "geography"
+  | "naturalsciencessp"
+  | "socialsciencessp"
+  | "emssp"
+  | "technologysp"
+  | "accounting"
+  | "economics";
 interface SubjectConfig {
   id: SubjectTabId;
   emoji: string;
@@ -86,8 +98,10 @@ interface SubjectConfig {
 // Ordered alphabetically by label (matches the Subjects page). "Maths" stays
 // the default-selected tab regardless of its position here.
 const SUBJECTS: SubjectConfig[] = [
+  { id: "accounting",     emoji: "🧮", label: "Accounting",        hex: "#059669", activeCard: "bg-emerald-50",  activeBorder: "border-emerald-400" },
   { id: "afrikaans",      emoji: "🇿🇦", label: "Afrikaans",         hex: "#10b981", activeCard: "bg-emerald-50",  activeBorder: "border-emerald-400" },
   { id: "businessstudies",emoji: "💼", label: "Business Studies",  hex: "#0284c7", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
+  { id: "economics",      emoji: "📈", label: "Economics",         hex: "#4f46e5", activeCard: "bg-indigo-50",   activeBorder: "border-indigo-400" },
   { id: "reading",        emoji: "📖", label: "English",           hex: "#a855f7", activeCard: "bg-purple-50",   activeBorder: "border-purple-400" },
   { id: "geography",      emoji: "🗺️", label: "Geography",         hex: "#06b6d4", activeCard: "bg-cyan-50",     activeBorder: "border-cyan-400" },
   { id: "history",        emoji: "📜", label: "History",           hex: "#d97706", activeCard: "bg-amber-50",    activeBorder: "border-amber-400" },
@@ -95,6 +109,10 @@ const SUBJECTS: SubjectConfig[] = [
   { id: "lifeskills",     emoji: "🌟", label: "Life Skills",       hex: "#f59e0b", activeCard: "bg-amber-50",    activeBorder: "border-amber-400" },
   { id: "maths",          emoji: "🧮", label: "Maths",             hex: "#3b82f6", activeCard: "bg-blue-50",     activeBorder: "border-blue-400" },
   { id: "mathsliteracy",  emoji: "📊", label: "Maths Literacy",    hex: "#6366f1", activeCard: "bg-indigo-50",   activeBorder: "border-indigo-400" },
+  { id: "naturalsciencessp", emoji: "🔭", label: "Natural Sciences", hex: "#e11d48", activeCard: "bg-rose-50",   activeBorder: "border-rose-400" },
+  { id: "socialsciencessp", emoji: "🌐", label: "Social Sciences",  hex: "#f97316", activeCard: "bg-orange-50", activeBorder: "border-orange-400" },
+  { id: "emssp",            emoji: "💰", label: "EMS",              hex: "#8b5cf6", activeCard: "bg-violet-50", activeBorder: "border-violet-400" },
+  { id: "technologysp",     emoji: "⚙️", label: "Technology",       hex: "#475569", activeCard: "bg-slate-50",  activeBorder: "border-slate-400" },
   { id: "nst",            emoji: "🔬", label: "Natural Sci & Tech", hex: "#10b981", activeCard: "bg-emerald-50",  activeBorder: "border-emerald-400" },
   { id: "matricphyssci",  emoji: "⚗️", label: "Physical Sciences", hex: "#e11d48", activeCard: "bg-rose-50",     activeBorder: "border-rose-400" },
   { id: "socialsciences", emoji: "🌍", label: "Social Sciences",   hex: "#0ea5e9", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
@@ -218,6 +236,18 @@ interface ProgressTrackerProps {
   onTourismPickSkill?: (skillId: string) => void;
   /** Open Geography — clicking a topic opens that session. */
   onGeographyPickSkill?: (skillId: string) => void;
+  /** Open Natural Sciences (Senior Phase) — clicking a topic opens that session. */
+  onNaturalSciencesSpPickSkill?: (skillId: string) => void;
+  /** Open Social Sciences (Senior Phase) — clicking a topic opens that session. */
+  onSocialSciencesSpPickSkill?: (skillId: string) => void;
+  /** Open EMS (Senior Phase) — clicking a topic opens that session. */
+  onEmsSpPickSkill?: (skillId: string) => void;
+  /** Open Technology — clicking a topic opens that session. */
+  onTechnologySpPickSkill?: (skillId: string) => void;
+  /** Open Accounting — clicking a topic opens that session. */
+  onAccountingPickSkill?: (skillId: string) => void;
+  /** Open Economics — clicking a topic opens that session. */
+  onEconomicsPickSkill?: (skillId: string) => void;
 }
 
 export default function ProgressTracker({
@@ -237,6 +267,12 @@ export default function ProgressTracker({
   onBusinessStudiesPickSkill,
   onTourismPickSkill,
   onGeographyPickSkill,
+  onNaturalSciencesSpPickSkill,
+  onSocialSciencesSpPickSkill,
+  onEmsSpPickSkill,
+  onTechnologySpPickSkill,
+  onAccountingPickSkill,
+  onEconomicsPickSkill,
 }: ProgressTrackerProps = {}) {
   const { t } = useT();
   const [progress, setProgress] = useState<ProgressData>({
@@ -354,6 +390,12 @@ export default function ProgressTracker({
     businessstudies: 0,
     tourism: 0,
     geography: 0,
+    naturalsciencessp: 0,
+    socialsciencessp: 0,
+    emssp: 0,
+    technologysp: 0,
+    accounting: 0,
+    economics: 0,
   };
 
   // Each subject is gated by its own authored-content range, so it stays in
@@ -382,9 +424,19 @@ export default function ProgressTracker({
       s.id === "history" ||
       s.id === "businessstudies" ||
       s.id === "tourism" ||
-      s.id === "geography"
+      s.id === "geography" ||
+      s.id === "accounting" ||
+      s.id === "economics"
     )
       return learnerGrade >= 10 && learnerGrade <= 12;
+    // Natural Sciences is a Senior-Phase subject (Gr 7–9), free like the rest.
+    if (s.id === "naturalsciencessp") return learnerGrade >= 7 && learnerGrade <= 9;
+    // Social Sciences is a Senior-Phase subject (Gr 7–9), free like the rest.
+    if (s.id === "socialsciencessp") return learnerGrade >= 7 && learnerGrade <= 9;
+    // EMS is a Senior-Phase subject (Gr 7–9), free like the rest.
+    if (s.id === "emssp") return learnerGrade >= 7 && learnerGrade <= 9;
+    // Technology is a Senior-Phase subject (Gr 7–9), free like the rest.
+    if (s.id === "technologysp") return learnerGrade >= 7 && learnerGrade <= 9;
     return true;
   });
 
@@ -813,12 +865,36 @@ export default function ProgressTracker({
                 <BusinessStudiesSkillTreeView onPickSkill={(id) => onBusinessStudiesPickSkill?.(id)} profile={null} compact />
               )}
 
+              {activeTab === "accounting" && (
+                <AccountingSkillTreeView onPickSkill={(id) => onAccountingPickSkill?.(id)} profile={null} compact />
+              )}
+
+              {activeTab === "economics" && (
+                <EconomicsSkillTreeView onPickSkill={(id) => onEconomicsPickSkill?.(id)} profile={null} compact />
+              )}
+
               {activeTab === "tourism" && (
                 <TourismSkillTreeView onPickSkill={(id) => onTourismPickSkill?.(id)} profile={null} compact />
               )}
 
               {activeTab === "geography" && (
                 <GeographySkillTreeView onPickSkill={(id) => onGeographyPickSkill?.(id)} profile={null} compact />
+              )}
+
+              {activeTab === "naturalsciencessp" && (
+                <NaturalSciencesSpSkillTreeView onPickSkill={(id) => onNaturalSciencesSpPickSkill?.(id)} profile={null} compact />
+              )}
+
+              {activeTab === "socialsciencessp" && (
+                <SocialSciencesSpSkillTreeView onPickSkill={(id) => onSocialSciencesSpPickSkill?.(id)} profile={null} compact />
+              )}
+
+              {activeTab === "emssp" && (
+                <EmsSpSkillTreeView onPickSkill={(id) => onEmsSpPickSkill?.(id)} profile={null} compact />
+              )}
+
+              {activeTab === "technologysp" && (
+                <TechnologySpSkillTreeView onPickSkill={(id) => onTechnologySpPickSkill?.(id)} profile={null} compact />
               )}
             </div>
           </div>

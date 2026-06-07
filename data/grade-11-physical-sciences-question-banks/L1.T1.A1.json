@@ -1,0 +1,369 @@
+{
+  "skill": "L1.T1.A1",
+  "skill_title": "Find the resultant of perpendicular vectors and resolve a vector into components",
+  "grades": [
+    11
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L1.T1.A1.q01",
+      "skill": "L1.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the resultant of two vectors?",
+      "answerMode": "choice",
+      "expectedAnswer": "The single vector that has the same effect as the vectors combined.",
+      "marks": 2,
+      "explanation": "The resultant is one vector equivalent in effect to all the vectors added together.",
+      "errorSignals": [
+        "ERR_RESULTANT_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The single vector that has the same effect as the vectors combined.",
+        "The difference between their sizes.",
+        "The average of the two vectors."
+      ]
+    },
+    {
+      "id": "L1.T1.A1.q02",
+      "skill": "L1.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which method finds the magnitude of the resultant of two PERPENDICULAR vectors?",
+      "answerMode": "choice",
+      "expectedAnswer": "Pythagoras' theorem: R = √(Ax² + Ay²).",
+      "marks": 2,
+      "explanation": "Perpendicular vectors form a right angle, so the resultant magnitude uses Pythagoras.",
+      "errorSignals": [
+        "ERR_PERPENDICULAR_ADD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Simple addition: R = Ax + Ay.",
+        "Pythagoras' theorem: R = √(Ax² + Ay²).",
+        "Subtraction: R = Ax − Ay."
+      ]
+    },
+    {
+      "id": "L1.T1.A1.q03",
+      "skill": "L1.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A force of 3 N east and 4 N north act on a point. What is the magnitude of the resultant?",
+      "answerMode": "numeric",
+      "expectedAnswer": 5,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "R = √(3² + 4²) = √(9 + 16) = √25 = 5 N.",
+      "errorSignals": [
+        "ERR_PERPENDICULAR_ADD"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q04",
+      "skill": "L1.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A vector of magnitude 10 N acts at 30° above the horizontal. What is its horizontal component? (cos30° = 0.866)",
+      "answerMode": "numeric",
+      "expectedAnswer": 8.66,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Horizontal component = Fcosθ = 10 × cos30° = 8.66 N.",
+      "errorSignals": [
+        "ERR_COMPONENT_TRIG"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q05",
+      "skill": "L1.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A vector of magnitude 10 N acts at 30° above the horizontal. What is its vertical component? (sin30° = 0.5)",
+      "answerMode": "numeric",
+      "expectedAnswer": 5,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Vertical component = Fsinθ = 10 × sin30° = 5 N.",
+      "errorSignals": [
+        "ERR_COMPONENT_TRIG"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q06",
+      "skill": "L1.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why must the direction of a resultant always be stated?",
+      "answerMode": "choice",
+      "expectedAnswer": "Because a resultant is a vector, which needs magnitude and direction.",
+      "marks": 2,
+      "explanation": "A resultant is a vector; without a direction it is incomplete.",
+      "errorSignals": [
+        "ERR_RESULTANT_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because the magnitude is always unknown.",
+        "Because direction changes the magnitude.",
+        "Because a resultant is a vector, which needs magnitude and direction."
+      ]
+    },
+    {
+      "id": "L1.T1.A1.q07",
+      "skill": "L1.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two perpendicular forces, 6 N and 8 N, act on a body. What is the magnitude of the resultant?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "R = √(6² + 8²) = √(36 + 64) = √100 = 10 N.",
+      "errorSignals": [
+        "ERR_PERPENDICULAR_ADD"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q08",
+      "skill": "L1.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When you resolve a single vector into perpendicular components, the components are...",
+      "answerMode": "choice",
+      "expectedAnswer": "always smaller than the original vector.",
+      "marks": 2,
+      "explanation": "Components are projections, so each is smaller than (or equal to) the original vector.",
+      "errorSignals": [
+        "ERR_COMPONENT_SIZE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "always larger than the original vector.",
+        "always smaller than the original vector.",
+        "equal to the original vector each."
+      ]
+    },
+    {
+      "id": "L1.T1.A1.q09",
+      "skill": "L1.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two perpendicular displacements, 5 m and 12 m, are added. What is the magnitude of the resultant displacement?",
+      "answerMode": "numeric",
+      "expectedAnswer": 13,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "R = √(5² + 12²) = √(25 + 144) = √169 = 13 m.",
+      "errorSignals": [
+        "ERR_PERPENDICULAR_ADD"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q10",
+      "skill": "L1.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A velocity vector points due east. What is its component in the north direction?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0,
+      "tolerance": 0.01,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "A vector along east has no north component (the perpendicular component is zero).",
+      "errorSignals": [
+        "ERR_COMPONENT_TRIG"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q11",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two perpendicular forces of 9 N and 12 N act on an object. Find the magnitude of the resultant.",
+      "answerMode": "numeric",
+      "expectedAnswer": 15,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "R = √(9² + 12²) = √(81 + 144) = √225 = 15 N.",
+      "errorSignals": [
+        "ERR_PERPENDICULAR_ADD"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q12",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A resultant force of 5 N acts east and 5 N acts north on an object. What angle does the resultant make with the east direction?",
+      "answerMode": "numeric",
+      "expectedAnswer": 45,
+      "tolerance": 0.5,
+      "unit": "°",
+      "marks": 3,
+      "explanation": "tanθ = opposite/adjacent = 5/5 = 1, so θ = 45°.",
+      "errorSignals": [
+        "ERR_RESULTANT_ANGLE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q13",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A box is pulled with a 20 N force at 60° to the horizontal. What is the horizontal component? (cos60° = 0.5)",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Horizontal = Fcosθ = 20 × cos60° = 20 × 0.5 = 10 N.",
+      "errorSignals": [
+        "ERR_COMPONENT_TRIG"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q14",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A box is pulled with a 20 N force at 60° to the horizontal. What is the vertical component? (sin60° = 0.866)",
+      "answerMode": "numeric",
+      "expectedAnswer": 17.3,
+      "tolerance": 0.1,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Vertical = Fsinθ = 20 × sin60° = 20 × 0.866 = 17.3 N.",
+      "errorSignals": [
+        "ERR_COMPONENT_TRIG"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q15",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two perpendicular forces give a resultant of magnitude 10 N. If one force is 6 N, what is the other?",
+      "answerMode": "numeric",
+      "expectedAnswer": 8,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "R² = Ax² + Ay² ⇒ 10² = 6² + Ay² ⇒ Ay² = 100 − 36 = 64 ⇒ Ay = 8 N.",
+      "errorSignals": [
+        "ERR_PERPENDICULAR_ADD"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q16",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why can two perpendicular 3 N forces NOT give a 6 N resultant?",
+      "answerMode": "choice",
+      "expectedAnswer": "Perpendicular vectors add by Pythagoras, giving √(3²+3²) ≈ 4.24 N, not 6 N.",
+      "marks": 2,
+      "explanation": "Only parallel vectors add directly; perpendicular ones combine via Pythagoras (≈ 4.24 N).",
+      "errorSignals": [
+        "ERR_PERPENDICULAR_ADD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Perpendicular vectors add by Pythagoras, giving √(3²+3²) ≈ 4.24 N, not 6 N.",
+        "They can — 3 + 3 = 6 N.",
+        "Because forces cannot be added."
+      ]
+    },
+    {
+      "id": "L1.T1.A1.q17",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A plane flies at 100 m·s⁻¹ east while a wind blows it 75 m·s⁻¹ north. What is its resultant ground speed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 125,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "R = √(100² + 75²) = √(10000 + 5625) = √15625 = 125 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_PERPENDICULAR_ADD"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q18",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 50 N weight rests on a slope inclined at 30°. What is the component of the weight along the slope? (sin30° = 0.5)",
+      "answerMode": "numeric",
+      "expectedAnswer": 25,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Component along the slope = mg sinθ = 50 × sin30° = 50 × 0.5 = 25 N.",
+      "errorSignals": [
+        "ERR_INCLINE_COMPONENT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q19",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 50 N weight rests on a slope inclined at 30°. What is the component of the weight perpendicular to the slope? (cos30° = 0.866)",
+      "answerMode": "numeric",
+      "expectedAnswer": 43.3,
+      "tolerance": 0.2,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Component perpendicular = mg cosθ = 50 × cos30° = 50 × 0.866 = 43.3 N.",
+      "errorSignals": [
+        "ERR_INCLINE_COMPONENT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L1.T1.A1.q20",
+      "skill": "L1.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "When resolving a vector F at angle θ to the horizontal, which pair of components is correct?",
+      "answerMode": "choice",
+      "expectedAnswer": "Horizontal = Fcosθ, vertical = Fsinθ.",
+      "marks": 2,
+      "explanation": "Measured from the horizontal, the horizontal component is Fcosθ and the vertical is Fsinθ.",
+      "errorSignals": [
+        "ERR_COMPONENT_TRIG"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Horizontal = Fsinθ, vertical = Fcosθ.",
+        "Horizontal = Fcosθ, vertical = Fsinθ.",
+        "Both components equal F."
+      ]
+    }
+  ]
+}

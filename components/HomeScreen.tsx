@@ -86,6 +86,8 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
   const { t } = useT();
 
   const [firstName, setFirstName] = useState("there");
+  // Matric Prep is Grade 12-only. Fail closed: unknown grade keeps it hidden.
+  const [isGrade12, setIsGrade12] = useState(false);
   const [mathsDone, setMathsDone] = useState(false);
   const [readingDone, setReadingDone] = useState(false);
   const [viewReport, setViewReport] = useState<"maths" | "reading" | null>(null);
@@ -102,6 +104,7 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
         hydrateReadingProfileFromSupabase(),
       ]);
       if (auth?.name) setFirstName(auth.name.split(" ")[0]);
+      setIsGrade12(auth?.grade === 12);
       setMathsDone(profile?.placementCompleted ?? false);
       setReadingDone((readingProfile as ReadingStudentProfile | null)?.placementCompleted ?? false);
     };
@@ -213,25 +216,28 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
 
           {/* ── Discovery CTAs ────────────────────────────────────────────── */}
           <section className="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <button
-              onClick={handleMatricPrepClick}
-              className="w-full h-full bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
-            >
-              <div className="flex-1 flex items-start gap-3">
-                <span className="text-2xl">🎓</span>
-                <div className="min-w-0">
-                  <p className="font-semibold text-white leading-tight">Matric Prep</p>
-                  <p className="text-sm text-emerald-50 mt-0.5 leading-snug">
-                    {hasMatricAccess
-                      ? "Past papers, prep papers and study guides"
-                      : "Unlock past papers, prep papers and study guides"}
-                  </p>
+            {/* Matric Prep is Grade 12-only — hidden for every other learner. */}
+            {isGrade12 && (
+              <button
+                onClick={handleMatricPrepClick}
+                className="w-full h-full bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+              >
+                <div className="flex-1 flex items-start gap-3">
+                  <span className="text-2xl">🎓</span>
+                  <div className="min-w-0">
+                    <p className="font-semibold text-white leading-tight">Matric Prep</p>
+                    <p className="text-sm text-emerald-50 mt-0.5 leading-snug">
+                      {hasMatricAccess
+                        ? "Past papers, prep papers and study guides"
+                        : "Unlock past papers, prep papers and study guides"}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <span className="text-white font-semibold text-sm self-end mt-auto">
-                {hasMatricAccess ? "View →" : "Upgrade →"}
-              </span>
-            </button>
+                <span className="text-white font-semibold text-sm self-end mt-auto">
+                  {hasMatricAccess ? "View →" : "Upgrade →"}
+                </span>
+              </button>
+            )}
 
             {mathsDone ? (
               <button
@@ -319,26 +325,19 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
                       <button
                         key={tutor.name}
                         onClick={() => onOpenChatWithTutor?.(tutor.name)}
-                        className="bg-white rounded-2xl border border-gray-100 p-3 sm:p-4 flex flex-col items-center gap-2 text-center hover:shadow-md hover:border-[#BE1832]/40 active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
+                        className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
                       >
-                        <p className="font-semibold text-gray-800 text-sm sm:text-base">{tutor.name}</p>
-                        <div className="w-full aspect-square rounded-xl bg-gray-50 overflow-hidden flex items-center justify-center">
-                          <img
-                            src={tutor.img}
-                            alt={tutor.name}
-                            className="w-full h-full object-contain"
-                            draggable={false}
-                          />
-                        </div>
-                        <div className="flex flex-wrap justify-center gap-1">
-                          {tutor.subjects.map((s) => (
-                            <span
-                              key={s}
-                              className="px-2 py-0.5 rounded-full bg-[#BE1832]/10 text-[#BE1832] text-[10px] sm:text-[11px] font-medium leading-tight"
-                            >
-                              {s}
-                            </span>
-                          ))}
+                        <img
+                          src={tutor.img}
+                          alt={tutor.name}
+                          className="w-full block"
+                          draggable={false}
+                        />
+                        <div className="px-2 py-2 text-center">
+                          <p className="font-semibold text-[#BE1832] text-sm sm:text-base">{tutor.name}</p>
+                          <p className="text-[#BE1832] text-[10px] sm:text-[11px] font-medium leading-tight mt-0.5">
+                            {tutor.subjects.join(" · ")}
+                          </p>
                         </div>
                       </button>
                     ))}

@@ -1,0 +1,411 @@
+{
+  "skill": "L6.T1.A1",
+  "skill_title": "Describe the magnetic field of a current-carrying conductor and solenoid",
+  "grades": [
+    11
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L6.T1.A1.q01",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is produced around a wire that carries an electric current?",
+      "answerMode": "choice",
+      "expectedAnswer": "A magnetic field.",
+      "marks": 2,
+      "explanation": "A current always produces a magnetic field around the conductor.",
+      "errorSignals": [
+        "ERR_CURRENT_FIELD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A magnetic field.",
+        "No field at all.",
+        "Only an electric field."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q02",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the shape of the magnetic field around a long straight current-carrying wire?",
+      "answerMode": "choice",
+      "expectedAnswer": "Concentric circles around the wire.",
+      "marks": 2,
+      "explanation": "The field forms concentric circles around a straight current-carrying conductor.",
+      "errorSignals": [
+        "ERR_STRAIGHT_WIRE_FIELD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Straight lines along the wire.",
+        "Concentric circles around the wire.",
+        "A single dot at the centre."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q03",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "The right-hand rule for a straight wire uses the thumb to point in the direction of...",
+      "answerMode": "choice",
+      "expectedAnswer": "the conventional current.",
+      "marks": 2,
+      "explanation": "Point the right thumb along the conventional current; the curled fingers show the field direction.",
+      "errorSignals": [
+        "ERR_RIGHT_HAND_RULE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the electron flow.",
+        "the magnetic north.",
+        "the conventional current."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q04",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A coil of wire wound into a long cylinder is called a...",
+      "answerMode": "choice",
+      "expectedAnswer": "solenoid.",
+      "marks": 2,
+      "explanation": "A solenoid is a long coil of wire; carrying current it acts like a bar magnet.",
+      "errorSignals": [
+        "ERR_SOLENOID_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "solenoid.",
+        "resistor.",
+        "capacitor."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q05",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A current-carrying solenoid produces a magnetic field similar to that of a...",
+      "answerMode": "choice",
+      "expectedAnswer": "bar magnet.",
+      "marks": 2,
+      "explanation": "A solenoid behaves like a bar magnet, with a north and south pole.",
+      "errorSignals": [
+        "ERR_SOLENOID_FIELD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "point charge.",
+        "bar magnet.",
+        "single straight wire only."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q06",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What happens to the magnetic field direction if the current in a wire is reversed?",
+      "answerMode": "choice",
+      "expectedAnswer": "The field direction reverses.",
+      "marks": 2,
+      "explanation": "Reversing the current reverses the direction of the magnetic field.",
+      "errorSignals": [
+        "ERR_FIELD_REVERSAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The field stays the same.",
+        "The field disappears.",
+        "The field direction reverses."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q07",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which change would make an electromagnet (solenoid) stronger?",
+      "answerMode": "choice",
+      "expectedAnswer": "Increasing the current or adding more turns.",
+      "marks": 2,
+      "explanation": "More current, more turns, or an iron core all strengthen the field.",
+      "errorSignals": [
+        "ERR_ELECTROMAGNET_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Increasing the current or adding more turns.",
+        "Decreasing the current.",
+        "Removing the iron core."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q08",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Adding an iron core to a solenoid does what to its magnetic field?",
+      "answerMode": "choice",
+      "expectedAnswer": "Strengthens it.",
+      "marks": 2,
+      "explanation": "A soft-iron core concentrates and strengthens the magnetic field.",
+      "errorSignals": [
+        "ERR_ELECTROMAGNET_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Weakens it.",
+        "Strengthens it.",
+        "Reverses it."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q09",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Further from a straight current-carrying wire, the magnetic field is...",
+      "answerMode": "choice",
+      "expectedAnswer": "weaker.",
+      "marks": 2,
+      "explanation": "The field weakens with distance from the wire (the circles spread apart).",
+      "errorSignals": [
+        "ERR_FIELD_DISTANCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "stronger.",
+        "unchanged.",
+        "weaker."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q10",
+      "skill": "L6.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "An advantage of an electromagnet over a permanent magnet is that...",
+      "answerMode": "choice",
+      "expectedAnswer": "it can be switched on and off.",
+      "marks": 2,
+      "explanation": "An electromagnet's field can be turned on or off and varied with the current.",
+      "errorSignals": [
+        "ERR_ELECTROMAGNET_ADVANTAGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "it can be switched on and off.",
+        "it is always magnetic.",
+        "it needs no electricity."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q11",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Using the right-hand rule, if conventional current flows upward in a vertical wire, the field on the wire's left side (facing it) points...",
+      "answerMode": "choice",
+      "expectedAnswer": "out of the page toward you / around the wire anticlockwise (as seen from above).",
+      "marks": 2,
+      "explanation": "Curling the right hand around the upward current gives a circular field; the rule sets its direction around the wire.",
+      "errorSignals": [
+        "ERR_RIGHT_HAND_RULE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "straight up the wire.",
+        "out of the page toward you / around the wire anticlockwise (as seen from above).",
+        "there is no field beside the wire."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q12",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does using conventional current (not electron flow) matter for the right-hand rule?",
+      "answerMode": "choice",
+      "expectedAnswer": "Conventional current is opposite to electron flow, so using the wrong one reverses the predicted field.",
+      "marks": 2,
+      "explanation": "Conventional current flows opposite to electrons; the right-hand rule is defined for conventional current.",
+      "errorSignals": [
+        "ERR_CONVENTIONAL_CURRENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They are the same direction.",
+        "Electron flow has no direction.",
+        "Conventional current is opposite to electron flow, so using the wrong one reverses the predicted field."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q13",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two parallel wires carry current in the SAME direction. They tend to...",
+      "answerMode": "choice",
+      "expectedAnswer": "attract each other.",
+      "marks": 2,
+      "explanation": "Parallel currents in the same direction attract (their fields interact).",
+      "errorSignals": [
+        "ERR_PARALLEL_WIRES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "attract each other.",
+        "repel each other.",
+        "have no effect on each other."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q14",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How can you reverse the poles of a solenoid electromagnet?",
+      "answerMode": "choice",
+      "expectedAnswer": "Reverse the direction of the current.",
+      "marks": 2,
+      "explanation": "Reversing the current swaps the north and south poles of the solenoid.",
+      "errorSignals": [
+        "ERR_FIELD_REVERSAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Increase the current.",
+        "Reverse the direction of the current.",
+        "Add more turns."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q15",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Compared with a single straight wire, why is a solenoid's field stronger and more uniform inside?",
+      "answerMode": "choice",
+      "expectedAnswer": "The fields of many turns add together inside the coil.",
+      "marks": 2,
+      "explanation": "Each turn contributes to the field; inside the solenoid these combine into a strong, fairly uniform field.",
+      "errorSignals": [
+        "ERR_SOLENOID_FIELD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The wire is thicker.",
+        "There is no current in a single wire.",
+        "The fields of many turns add together inside the coil."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q16",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An electromagnet is used in a scrapyard crane. Why is an electromagnet better than a permanent magnet here?",
+      "answerMode": "choice",
+      "expectedAnswer": "It can be switched on to lift and off to drop the metal.",
+      "marks": 2,
+      "explanation": "Switching it off releases the load — impossible with a permanent magnet.",
+      "errorSignals": [
+        "ERR_ELECTROMAGNET_ADVANTAGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It can be switched on to lift and off to drop the metal.",
+        "It is always on, which is safer.",
+        "It does not need electricity."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q17",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "If the number of turns on a solenoid is doubled (same current), the magnetic field strength roughly...",
+      "answerMode": "choice",
+      "expectedAnswer": "increases.",
+      "marks": 2,
+      "explanation": "More turns per length increases the field strength of the solenoid.",
+      "errorSignals": [
+        "ERR_ELECTROMAGNET_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "decreases.",
+        "increases.",
+        "stays exactly the same."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q18",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "The magnetic field lines inside a solenoid point from...",
+      "answerMode": "choice",
+      "expectedAnswer": "its south pole to its north pole (inside), completing the loop.",
+      "marks": 2,
+      "explanation": "Like a bar magnet, field lines run N→S outside and S→N inside, forming closed loops.",
+      "errorSignals": [
+        "ERR_SOLENOID_FIELD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "north to south inside.",
+        "they stop at the ends.",
+        "its south pole to its north pole (inside), completing the loop."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q19",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What evidence shows that a current-carrying wire has a magnetic field?",
+      "answerMode": "choice",
+      "expectedAnswer": "A nearby compass needle deflects when the current flows.",
+      "marks": 2,
+      "explanation": "A compass placed near the wire deflects, showing the presence of a magnetic field (Oersted's discovery).",
+      "errorSignals": [
+        "ERR_FIELD_EVIDENCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A nearby compass needle deflects when the current flows.",
+        "The wire glows brightly.",
+        "The wire becomes charged."
+      ]
+    },
+    {
+      "id": "L6.T1.A1.q20",
+      "skill": "L6.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two parallel wires carry current in OPPOSITE directions. They tend to...",
+      "answerMode": "choice",
+      "expectedAnswer": "repel each other.",
+      "marks": 2,
+      "explanation": "Antiparallel currents repel each other through their magnetic interaction.",
+      "errorSignals": [
+        "ERR_PARALLEL_WIRES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "attract each other.",
+        "repel each other.",
+        "have no effect."
+      ]
+    }
+  ]
+}

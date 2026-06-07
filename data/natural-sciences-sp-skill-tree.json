@@ -1,0 +1,926 @@
+{
+  "version": "1.0",
+  "subject": "natural-sciences-sp",
+  "description": "Natural Sciences Senior Phase (Grades 7–9). CAPS-aligned. Each grade is one tree level; each term is a tier built on one of the four knowledge strands (Life & Living, Matter & Materials, Energy & Change, Planet Earth & Beyond). Topic-level atomic skills, all ungated within a grade. Grade 7 authored first; Grades 8–9 to follow.",
+  "grades_covered": [7, 8, 9],
+  "levels": [
+    {
+      "id": 7,
+      "grade": 7,
+      "title": "Grade 7 — Natural Sciences",
+      "description": "The first Senior-Phase science year. Four strands across four terms: the living world (biosphere, biodiversity, reproduction, variation); materials and their properties; energy, heat and electricity; and the Sun, Moon and the beginnings of astronomy.",
+      "tiers": [
+        {
+          "id": "L7.LL",
+          "title": "Term 1 — Life & Living",
+          "description": "The biosphere and what life needs; the variety of living things and how we classify them; how plants and humans reproduce; and how individuals of one species differ.",
+          "atomic_skills": [
+            {
+              "id": "NSSP.G7.LL.A1",
+              "bank_skill_id": "NSSP.G7.LL.A1",
+              "title": "The biosphere",
+              "description": "The biosphere as the part of Earth where life exists; the lithosphere, hydrosphere and atmosphere as its components; and the five requirements for sustaining life (air, water, food, shelter, suitable temperature).",
+              "caps_term": "G7 T1",
+              "caps_topic": "The biosphere",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "sphere_confusion", "description": "Mixes up the lithosphere, hydrosphere and atmosphere.", "example": "Calls the oceans part of the atmosphere." }
+              ],
+              "recovery_strategy": "Anchor each sphere to one word: lithosphere = land/rock, hydrosphere = water, atmosphere = air. The biosphere is where all three overlap and life can live.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.LL.A2",
+              "bank_skill_id": "NSSP.G7.LL.A2",
+              "title": "Biodiversity & classification",
+              "description": "Biodiversity as the variety of life; classifying living things into groups; and the diversity of animals (vertebrates and invertebrates) and plants.",
+              "caps_term": "G7 T1",
+              "caps_topic": "Biodiversity",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "sort-buckets"],
+              "error_signatures": [
+                { "type": "group_misplacement", "description": "Places an organism in the wrong group.", "example": "Calls a whale a fish because it lives in water." }
+              ],
+              "recovery_strategy": "Sort by key features, not where it lives: vertebrates have a backbone; mammals breathe air and feed young on milk. Test each organism against the feature, not the habitat.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.LL.A3",
+              "bank_skill_id": "NSSP.G7.LL.A3",
+              "title": "Sexual reproduction",
+              "description": "Sexual reproduction in flowering plants (parts of a flower, pollination, fertilisation, seeds and fruit) and an introduction to human reproduction.",
+              "caps_term": "G7 T1",
+              "caps_topic": "Sexual Reproduction",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label", "sequence"],
+              "error_signatures": [
+                { "type": "pollination_vs_fertilisation", "description": "Treats pollination and fertilisation as the same event.", "example": "Says fertilisation happens when pollen lands on the stigma." }
+              ],
+              "recovery_strategy": "Two steps, in order: pollination = pollen moves to the stigma; fertilisation = the male cell joins the egg inside the ovule. Pollination comes first and makes fertilisation possible.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.LL.A4",
+              "bank_skill_id": "NSSP.G7.LL.A4",
+              "title": "Variation",
+              "description": "Variation as the differences between individuals of the same species, and how variation helps a species survive in a changing environment.",
+              "caps_term": "G7 T1",
+              "caps_topic": "Variation",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario"],
+              "error_signatures": [
+                { "type": "species_boundary", "description": "Confuses variation within a species with differences between species.", "example": "Calls a dog and a cat 'variation'." }
+              ],
+              "recovery_strategy": "Variation is differences within one species — like tall and short people. Two different species (dog vs cat) is not variation.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "L7.MM",
+          "title": "Term 2 — Matter & Materials",
+          "description": "The properties of materials and why we choose them; separating mixtures; acids, bases and neutrals; and a first look at the Periodic Table of the elements.",
+          "atomic_skills": [
+            {
+              "id": "NSSP.G7.MM.A1",
+              "bank_skill_id": "NSSP.G7.MM.A1",
+              "title": "Properties of materials",
+              "description": "Physical properties of materials (strength, flexibility, hardness, electrical and thermal conductivity, magnetism) and how a material's properties suit it to a use — plus the environmental impact of using materials.",
+              "caps_term": "G7 T2",
+              "caps_topic": "Properties of materials",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "property_use_mismatch", "description": "Chooses a material whose property does not match the job.", "example": "Picks rubber for an electrical wire." }
+              ],
+              "recovery_strategy": "Match the job to the property it needs: a wire needs to conduct electricity (copper), a pot handle needs to NOT conduct heat (plastic/wood). Name the property the job needs first.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.MM.A2",
+              "bank_skill_id": "NSSP.G7.MM.A2",
+              "title": "Separating mixtures",
+              "description": "Mixtures and methods of physical separation (hand-sorting, sieving, filtration, evaporation, magnetism), plus sorting and recycling of materials.",
+              "caps_term": "G7 T2",
+              "caps_topic": "Separating mixtures",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario", "sort-buckets"],
+              "error_signatures": [
+                { "type": "method_choice", "description": "Picks a separation method that does not exploit a real difference.", "example": "Uses filtration to separate salt dissolved in water." }
+              ],
+              "recovery_strategy": "Choose the method by the difference: different sizes → sieving; insoluble solid in liquid → filtration; dissolved solid → evaporation; magnetic bits → a magnet.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.MM.A3",
+              "bank_skill_id": "NSSP.G7.MM.A3",
+              "title": "Acids, bases & neutrals",
+              "description": "Tastes of substances as a clue to acids and bases; properties of acids, bases and neutral substances; and using acid–base indicators (litmus, universal indicator) to test them.",
+              "caps_term": "G7 T2",
+              "caps_topic": "Acids, bases and neutrals",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "data-interpret"],
+              "error_signatures": [
+                { "type": "indicator_colour", "description": "Reverses the indicator colours for acids and bases.", "example": "Says litmus turns blue in acid." }
+              ],
+              "recovery_strategy": "Litmus: acid turns it red, base turns it blue ('A' before 'B', red before blue). Neutral stays in between. Learn one indicator's colours solidly before adding others.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.MM.A4",
+              "bank_skill_id": "NSSP.G7.MM.A4",
+              "title": "Introduction to the Periodic Table",
+              "description": "The Periodic Table as an organised list of the elements; the arrangement into rows and columns; and the properties that separate metals, semi-metals and non-metals.",
+              "caps_term": "G7 T2",
+              "caps_topic": "Introduction to the Periodic Table of Elements",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label", "sort-buckets"],
+              "error_signatures": [
+                { "type": "metal_nonmetal", "description": "Mislabels an element as metal or non-metal.", "example": "Calls oxygen a metal." }
+              ],
+              "recovery_strategy": "Metals: shiny, conduct electricity and heat, bend rather than shatter, on the left of the table. Non-metals: dull, poor conductors, brittle, on the right. Semi-metals sit on the dividing line.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "L7.EC",
+          "title": "Term 3 — Energy & Change",
+          "description": "Where energy comes from; potential and kinetic energy and the conservation of energy; how heat moves; insulation and saving energy; useful versus wasted energy; and the national electricity supply.",
+          "atomic_skills": [
+            {
+              "id": "NSSP.G7.EC.A1",
+              "bank_skill_id": "NSSP.G7.EC.A1",
+              "title": "Sources of energy",
+              "description": "Renewable and non-renewable sources of energy, examples of each, and why renewable sources matter for the future.",
+              "caps_term": "G7 T3",
+              "caps_topic": "Sources of energy",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "sort-buckets"],
+              "error_signatures": [
+                { "type": "renewable_misclass", "description": "Classifies a source as renewable/non-renewable incorrectly.", "example": "Calls coal a renewable source." }
+              ],
+              "recovery_strategy": "Renewable = will not run out / refills (sun, wind, water, biomass). Non-renewable = a fixed amount that runs out (coal, oil, gas, uranium). Ask: does it refill in a human lifetime?",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.EC.A2",
+              "bank_skill_id": "NSSP.G7.EC.A2",
+              "title": "Potential & kinetic energy",
+              "description": "Potential energy (stored, e.g. in food, fuels and raised objects) and kinetic energy (energy of movement); how they change into each other in a system; and the law of conservation of energy.",
+              "caps_term": "G7 T3",
+              "caps_topic": "Potential and Kinetic Energy",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "sequence"],
+              "error_signatures": [
+                { "type": "energy_created", "description": "Thinks energy is made or destroyed rather than transferred.", "example": "Says energy disappears when a ball stops bouncing." }
+              ],
+              "recovery_strategy": "Energy is never made or destroyed — only changed from one form to another. A raised ball has potential energy; falling, it becomes kinetic; at the bottom it transfers to sound and heat.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.EC.A3",
+              "bank_skill_id": "NSSP.G7.EC.A3",
+              "title": "Heat transfer",
+              "description": "Heating as a transfer of energy, and the three ways heat moves: conduction (through solids), convection (in liquids and gases) and radiation (through space, no medium needed).",
+              "caps_term": "G7 T3",
+              "caps_topic": "Heat transfer",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "transfer_type", "description": "Names the wrong heat-transfer type for a situation.", "example": "Says heat from the Sun reaches Earth by conduction." }
+              ],
+              "recovery_strategy": "Conduction needs touching solids; convection needs a moving liquid or gas; radiation needs nothing — it crosses empty space. The Sun warms Earth by radiation.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.EC.A4",
+              "bank_skill_id": "NSSP.G7.EC.A4",
+              "title": "Insulation & energy saving",
+              "description": "Insulating materials that slow heat transfer, and how using them (in homes, clothing and appliances) saves energy.",
+              "caps_term": "G7 T3",
+              "caps_topic": "Insulation and energy saving",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario"],
+              "error_signatures": [
+                { "type": "insulator_conductor", "description": "Confuses good insulators with good conductors.", "example": "Suggests a metal blanket to keep warm." }
+              ],
+              "recovery_strategy": "Insulators trap heat by being poor conductors and holding still air (wool, polystyrene, fibreglass). To keep warmth in, choose an insulator, not a metal.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.EC.A5",
+              "bank_skill_id": "NSSP.G7.EC.A5",
+              "title": "Energy transfer to surroundings",
+              "description": "Useful versus 'wasted' energy: in every transfer some energy spreads to the surroundings (often as heat), so no device is perfectly efficient.",
+              "caps_term": "G7 T3",
+              "caps_topic": "Energy transfer to surroundings",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario"],
+              "error_signatures": [
+                { "type": "wasted_destroyed", "description": "Treats 'wasted' energy as destroyed instead of spread out.", "example": "Says a light bulb destroys the energy it wastes." }
+              ],
+              "recovery_strategy": "'Wasted' energy is not gone — it has spread to the surroundings, usually as heat. A bulb's useful output is light; the heat it gives off is the wasted part.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.EC.A6",
+              "bank_skill_id": "NSSP.G7.EC.A6",
+              "title": "The national electricity supply system",
+              "description": "How energy is transferred through the national grid from power station to home, and ways to conserve electricity in the home.",
+              "caps_term": "G7 T3",
+              "caps_topic": "The national electricity supply system",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "sequence"],
+              "error_signatures": [
+                { "type": "grid_order", "description": "Gets the order of the grid wrong.", "example": "Says electricity goes from homes to the power station." }
+              ],
+              "recovery_strategy": "Follow the path: power station → transformer (steps voltage up) → power lines → transformer (steps voltage down) → home. Saving electricity at home reduces what the station must generate.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "L7.PEB",
+          "title": "Term 4 — Planet Earth & Beyond",
+          "description": "The Sun's relationship to Earth (seasons and life), the Moon's relationship to Earth (positions, gravity and tides), and the historical development of astronomy.",
+          "atomic_skills": [
+            {
+              "id": "NSSP.G7.PEB.A1",
+              "bank_skill_id": "NSSP.G7.PEB.A1",
+              "title": "Relationship of the Sun to the Earth",
+              "description": "How the Sun's energy and the tilt of the Earth cause the seasons; the Sun as the source of energy for life; and stored solar energy in food and fuels.",
+              "caps_term": "G7 T4",
+              "caps_topic": "Relationship of the Sun to the Earth",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "diagram-label"],
+              "error_signatures": [
+                { "type": "seasons_distance", "description": "Thinks seasons are caused by Earth's distance from the Sun.", "example": "Says it is summer because Earth is closer to the Sun." }
+              ],
+              "recovery_strategy": "Seasons come from Earth's tilt, not its distance. The hemisphere tilted toward the Sun gets more direct light and has summer; the one tilted away has winter — at the same time.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.PEB.A2",
+              "bank_skill_id": "NSSP.G7.PEB.A2",
+              "title": "Relationship of the Moon to the Earth",
+              "description": "The relative positions of the Sun, Earth and Moon; gravity between them; and how the Moon's gravity, with the Sun's, causes the tides.",
+              "caps_term": "G7 T4",
+              "caps_topic": "Relationship of the Moon to the Earth",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label"],
+              "error_signatures": [
+                { "type": "tide_cause", "description": "Attributes tides to the wrong cause.", "example": "Says tides are caused by wind." }
+              ],
+              "recovery_strategy": "Tides are mainly caused by the Moon's gravity pulling on the oceans (the Sun adds a smaller pull). The water bulges toward and away from the Moon, giving two high tides a day.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G7.PEB.A3",
+              "bank_skill_id": "NSSP.G7.PEB.A3",
+              "title": "Historical development of astronomy",
+              "description": "Early indigenous knowledge of the sky (using stars and seasons), and modern developments in astronomy that built on it.",
+              "caps_term": "G7 T4",
+              "caps_topic": "Historical development of astronomy",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "knowledge_dismissal", "description": "Assumes early/indigenous sky knowledge was not real science.", "example": "Says people long ago knew nothing useful about the stars." }
+              ],
+              "recovery_strategy": "Indigenous communities used the stars and the Sun to track seasons, plant crops and navigate — careful observation that laid the groundwork for modern astronomy.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "grade": 8,
+      "title": "Grade 8 — Natural Sciences",
+      "description": "The second Senior-Phase science year. Four strands across four terms: life processes and ecosystems (photosynthesis, respiration, food webs, micro-organisms); atoms, the particle model and chemical reactions; electricity, circuits and light; and the Solar System and beyond.",
+      "tiers": [
+        {
+          "id": "L8.LL",
+          "title": "Term 1 — Life & Living",
+          "description": "How plants make food and how living things release energy; how organisms interact in ecosystems and food webs; and the world of micro-organisms.",
+          "atomic_skills": [
+            {
+              "id": "NSSP.G8.LL.A1",
+              "bank_skill_id": "NSSP.G8.LL.A1",
+              "title": "Photosynthesis & respiration",
+              "description": "Photosynthesis: green plants use sunlight, carbon dioxide and water to make food (glucose) and release oxygen. Respiration: living cells release energy from food using oxygen, giving off carbon dioxide and water.",
+              "caps_term": "G8 T1",
+              "caps_topic": "Photosynthesis and respiration",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario", "sequence"],
+              "error_signatures": [
+                { "type": "process_reversal", "description": "Swaps the inputs and outputs of photosynthesis and respiration.", "example": "Says plants take in oxygen and give out carbon dioxide during photosynthesis." }
+              ],
+              "recovery_strategy": "Photosynthesis takes IN carbon dioxide + water (and light) and gives OUT glucose + oxygen. Respiration is the reverse: it uses glucose + oxygen and releases energy + carbon dioxide + water.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G8.LL.A2",
+              "bank_skill_id": "NSSP.G8.LL.A2",
+              "title": "Interactions & interdependence",
+              "description": "Ecosystems and ecology: producers, consumers and decomposers; food chains and food webs; the flow of energy; balance in an ecosystem; adaptations; and conservation.",
+              "caps_term": "G8 T1",
+              "caps_topic": "Interactions and interdependence within the environment",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario", "sort-buckets", "sequence"],
+              "error_signatures": [
+                { "type": "energy_flow_direction", "description": "Reverses the direction of energy flow in a food chain.", "example": "Says energy flows from the hawk to the grass." }
+              ],
+              "recovery_strategy": "Energy flows one way along the arrows: from the producer (plant) to the animal that eats it, and on to the next. The arrow points to the eater. Producers make food; consumers eat; decomposers break down dead matter.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G8.LL.A3",
+              "bank_skill_id": "NSSP.G8.LL.A3",
+              "title": "Micro-organisms",
+              "description": "The main types of micro-organisms (bacteria, viruses, fungi and protists); harmful micro-organisms that cause disease and decay; and useful micro-organisms in food, medicine and decomposition.",
+              "caps_term": "G8 T1",
+              "caps_topic": "Micro-organisms",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario", "sort-buckets"],
+              "error_signatures": [
+                { "type": "all_harmful", "description": "Assumes all micro-organisms are harmful.", "example": "Says all bacteria make you sick." }
+              ],
+              "recovery_strategy": "Micro-organisms can be harmful (cause disease or spoil food) OR useful (make bread, yoghurt and medicine, and break down dead matter). Judge each by what it does, not assume all are bad.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "L8.MM",
+          "title": "Term 2 — Matter & Materials",
+          "description": "The atom and its parts; pure substances, elements, compounds and mixtures; the particle model of matter and how it explains states, density, expansion and pressure; and chemical reactions.",
+          "atomic_skills": [
+            {
+              "id": "NSSP.G8.MM.A1",
+              "bank_skill_id": "NSSP.G8.MM.A1",
+              "title": "Atoms",
+              "description": "Atoms as the building blocks of matter; the sub-atomic particles (protons, neutrons and electrons); pure substances; elements and compounds; and mixtures of elements and compounds.",
+              "caps_term": "G8 T2",
+              "caps_topic": "Atoms",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label", "sort-buckets"],
+              "error_signatures": [
+                { "type": "element_compound", "description": "Confuses an element with a compound.", "example": "Calls water (H2O) an element." }
+              ],
+              "recovery_strategy": "An element is made of only one kind of atom (oxygen, gold). A compound is two or more different atoms chemically joined (water = hydrogen + oxygen). A mixture is not chemically joined and can be separated.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G8.MM.A2",
+              "bank_skill_id": "NSSP.G8.MM.A2",
+              "title": "Particle model of matter",
+              "description": "The particle model: all matter is made of tiny moving particles. It explains the solid, liquid and gas states, changes of state, density (mass and volume), expansion and contraction, and pressure.",
+              "caps_term": "G8 T2",
+              "caps_topic": "Particle model of matter",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario", "sort-buckets"],
+              "error_signatures": [
+                { "type": "state_particle_spacing", "description": "Gets the particle arrangement of the states wrong.", "example": "Says gas particles are packed closely together and solids are far apart." }
+              ],
+              "recovery_strategy": "Solid = particles packed tightly in a fixed shape; liquid = particles close but able to slide (takes the container's shape); gas = particles far apart and moving fast (fills the container). Heating gives particles more energy and spreads them out.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G8.MM.A3",
+              "bank_skill_id": "NSSP.G8.MM.A3",
+              "title": "Chemical reactions",
+              "description": "Chemical reactions: reactants change into new products with different properties; signs that a reaction has happened; and how a chemical change differs from a physical change.",
+              "caps_term": "G8 T2",
+              "caps_topic": "Chemical reactions",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "physical_vs_chemical", "description": "Treats a physical change as a chemical reaction.", "example": "Says melting ice is a chemical reaction." }
+              ],
+              "recovery_strategy": "A chemical reaction makes a NEW substance (e.g. burning, rusting). A physical change (melting, dissolving) makes no new substance and can usually be reversed. Ask: is a new substance formed?",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "L8.EC",
+          "title": "Term 3 — Energy & Change",
+          "description": "Static electricity and charge; electric circuits and current; series and parallel circuits; and visible light, including reflection, refraction and colour.",
+          "atomic_skills": [
+            {
+              "id": "NSSP.G8.EC.A1",
+              "bank_skill_id": "NSSP.G8.EC.A1",
+              "title": "Static electricity",
+              "description": "How rubbing (friction) moves tiny charges to build up static electricity; positive and negative charges; and how like charges repel while unlike charges attract.",
+              "caps_term": "G8 T3",
+              "caps_topic": "Static electricity",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "attract_repel", "description": "Reverses which charges attract and which repel.", "example": "Says two negative charges attract each other." }
+              ],
+              "recovery_strategy": "Like charges repel (push apart); unlike charges attract (pull together). Two negatives or two positives push apart; a positive and a negative pull together.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G8.EC.A2",
+              "bank_skill_id": "NSSP.G8.EC.A2",
+              "title": "Energy transfer in electrical systems",
+              "description": "Electric circuits and current; the components of a circuit (cell, wires, switch, bulb) and their job; and the effects of an electric current (heating, lighting and magnetic effects).",
+              "caps_term": "G8 T3",
+              "caps_topic": "Energy transfer in electrical systems",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label", "scenario"],
+              "error_signatures": [
+                { "type": "open_circuit", "description": "Thinks a current flows in an incomplete (open) circuit.", "example": "Says the bulb lights even when the switch is open." }
+              ],
+              "recovery_strategy": "Current only flows in a complete (closed) loop from the cell, through the components, and back. If there is a break (open switch, loose wire), no current flows and the bulb stays off.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G8.EC.A3",
+              "bank_skill_id": "NSSP.G8.EC.A3",
+              "title": "Series & parallel circuits",
+              "description": "Series circuits (one single loop) and parallel circuits (more than one path); how each behaves when a bulb is removed; and different output devices.",
+              "caps_term": "G8 T3",
+              "caps_topic": "Series and parallel circuits",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label", "scenario"],
+              "error_signatures": [
+                { "type": "series_parallel_mixup", "description": "Confuses how series and parallel circuits behave.", "example": "Says removing one bulb in a parallel circuit switches off all the others." }
+              ],
+              "recovery_strategy": "Series = one single loop, so removing one bulb breaks the whole circuit and all go off. Parallel = separate paths, so removing one bulb leaves the others on.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G8.EC.A4",
+              "bank_skill_id": "NSSP.G8.EC.A4",
+              "title": "Visible light",
+              "description": "Light travels in straight lines; the spectrum of visible colours; opaque, transparent and translucent materials; and the absorption, reflection and refraction of light.",
+              "caps_term": "G8 T3",
+              "caps_topic": "Visible light",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario", "sort-buckets"],
+              "error_signatures": [
+                { "type": "reflection_refraction", "description": "Confuses reflection with refraction.", "example": "Says light bouncing off a mirror is refraction." }
+              ],
+              "recovery_strategy": "Reflection = light bounces OFF a surface (a mirror). Refraction = light BENDS as it passes from one material into another (a straw looking bent in water). Reflect = bounce; refract = bend.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "L8.PEB",
+          "title": "Term 4 — Planet Earth & Beyond",
+          "description": "The Solar System and the objects in it; the galaxies and vast distances beyond it; and how people look into space using telescopes and exploration.",
+          "atomic_skills": [
+            {
+              "id": "NSSP.G8.PEB.A1",
+              "bank_skill_id": "NSSP.G8.PEB.A1",
+              "title": "The Solar System",
+              "description": "The Sun at the centre; the planets and other objects (moons, asteroids, comets) that orbit it; the order of the planets; and Earth's position in the Solar System.",
+              "caps_term": "G8 T4",
+              "caps_topic": "The Solar System",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label", "sequence"],
+              "error_signatures": [
+                { "type": "sun_planet", "description": "Calls the Sun a planet, or thinks planets make their own light.", "example": "Says the Sun is a planet that orbits the Earth." }
+              ],
+              "recovery_strategy": "The Sun is a star at the centre; the planets orbit it. Planets do not make their own light — they reflect the Sun's. The order from the Sun starts Mercury, Venus, Earth, Mars …",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G8.PEB.A2",
+              "bank_skill_id": "NSSP.G8.PEB.A2",
+              "title": "Beyond the Solar System",
+              "description": "The Milky Way galaxy and the stars in it; our nearest star; and how huge space distances are measured in light-years, light-hours and light-minutes.",
+              "caps_term": "G8 T4",
+              "caps_topic": "Beyond the Solar System",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "lightyear_time", "description": "Thinks a light-year measures time, not distance.", "example": "Says a light-year is how long light shines for." }
+              ],
+              "recovery_strategy": "A light-year is a DISTANCE — how far light travels in one year. The Sun is our nearest star; the Milky Way is the galaxy that holds it and billions of others.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G8.PEB.A3",
+              "bank_skill_id": "NSSP.G8.PEB.A3",
+              "title": "Looking into space",
+              "description": "Early ways of viewing space; how telescopes let us see further and more clearly; and modern space exploration with satellites, probes and space telescopes.",
+              "caps_term": "G8 T4",
+              "caps_topic": "Looking into space",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario", "sort-buckets"],
+              "error_signatures": [
+                { "type": "telescope_purpose", "description": "Mistakes what a telescope does.", "example": "Says a telescope makes nearby small things look bigger, like a microscope." }
+              ],
+              "recovery_strategy": "A telescope gathers light to make faraway objects in space look closer and clearer (a microscope is for tiny near objects). Bigger and better telescopes let us see fainter, more distant objects.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "grade": 9,
+      "title": "Grade 9 — Natural Sciences",
+      "description": "The final Senior-Phase science year. Four strands across four terms: cells, body systems and human biology; compounds, equations and chemical reactions (the densest term); forces, electricity and the national grid; and the Earth's systems, mining, the atmosphere and the life of stars.",
+      "tiers": [
+        {
+          "id": "L9.LL",
+          "title": "Term 1 — Life & Living",
+          "description": "Cells as the building blocks of life; how cells form tissues, organs and systems; the body systems and human reproduction; and the circulatory, respiratory and digestive systems.",
+          "atomic_skills": [
+            {
+              "id": "NSSP.G9.LL.A1",
+              "bank_skill_id": "NSSP.G9.LL.A1",
+              "title": "Cells as the basic units of life",
+              "description": "The cell as the basic unit of life; the main parts of a cell; the differences between plant and animal cells; and how cells are organised into tissues, organs and systems.",
+              "caps_term": "G9 T1",
+              "caps_topic": "Cells as the basic units of life",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label", "sequence"],
+              "error_signatures": [
+                { "type": "plant_animal_cell", "description": "Confuses which parts belong to plant and animal cells.", "example": "Says animal cells have a cell wall and chloroplasts." }
+              ],
+              "recovery_strategy": "Both plant and animal cells have a cell membrane, cytoplasm and a nucleus. ONLY plant cells also have a cell wall, a large vacuole and chloroplasts. Organisation goes: cells → tissues → organs → systems.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.LL.A2",
+              "bank_skill_id": "NSSP.G9.LL.A2",
+              "title": "Systems in the human body",
+              "description": "The main systems of the human body (such as the circulatory, respiratory, digestive, skeletal, muscular and nervous systems) and the basic job of each.",
+              "caps_term": "G9 T1",
+              "caps_topic": "Systems in the human body",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "sort-buckets"],
+              "error_signatures": [
+                { "type": "system_job", "description": "Matches a body system to the wrong job.", "example": "Says the respiratory system pumps blood." }
+              ],
+              "recovery_strategy": "Match each system to one key job: circulatory = transports blood; respiratory = takes in oxygen; digestive = breaks down food; skeletal = supports the body; nervous = sends messages.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.LL.A3",
+              "bank_skill_id": "NSSP.G9.LL.A3",
+              "title": "Human reproduction",
+              "description": "The purpose of reproduction and the changes of puberty; the male and female reproductive organs; and the stages of reproduction (from fertilisation to birth).",
+              "caps_term": "G9 T1",
+              "caps_topic": "Human reproduction",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario", "sequence"],
+              "error_signatures": [
+                { "type": "repro_stage_order", "description": "Gets the order of the stages of reproduction wrong.", "example": "Says birth comes before fertilisation." }
+              ],
+              "recovery_strategy": "The order is: fertilisation (sperm meets egg) → the fertilised egg develops in the uterus → the baby grows → birth. Puberty is the time the body matures and becomes able to reproduce.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.LL.A4",
+              "bank_skill_id": "NSSP.G9.LL.A4",
+              "title": "Circulatory & respiratory systems",
+              "description": "Breathing and gaseous exchange in the lungs; the heart and blood vessels that circulate blood; and how the circulatory and respiratory systems work together to supply oxygen and remove carbon dioxide.",
+              "caps_term": "G9 T1",
+              "caps_topic": "Circulatory and respiratory systems",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label", "scenario"],
+              "error_signatures": [
+                { "type": "gas_exchange", "description": "Reverses which gas is taken in and which is given out.", "example": "Says the lungs take in carbon dioxide and give out oxygen." }
+              ],
+              "recovery_strategy": "We breathe IN oxygen and breathe OUT carbon dioxide. The lungs do gaseous exchange; the heart pumps blood to carry the oxygen around the body and bring carbon dioxide back to the lungs.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.LL.A5",
+              "bank_skill_id": "NSSP.G9.LL.A5",
+              "title": "Digestive system",
+              "description": "What makes a healthy, balanced diet; the parts of the alimentary canal; and how food is digested and absorbed as it passes through the gut.",
+              "caps_term": "G9 T1",
+              "caps_topic": "Digestive system",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label", "sequence"],
+              "error_signatures": [
+                { "type": "digestion_order", "description": "Gets the path of food through the gut wrong.", "example": "Says food goes from the stomach to the mouth." }
+              ],
+              "recovery_strategy": "Food travels: mouth → oesophagus → stomach → small intestine → large intestine. Digestion breaks food into small pieces the body can absorb. A balanced diet has the right mix of food groups.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "L9.MM",
+          "title": "Term 2 — Matter & Materials",
+          "description": "The densest term: compounds and their names; writing and balancing chemical equations; reactions of metals and non-metals with oxygen; rusting; pH; and reactions of acids with bases and metals.",
+          "atomic_skills": [
+            {
+              "id": "NSSP.G9.MM.A1",
+              "bank_skill_id": "NSSP.G9.MM.A1",
+              "title": "Compounds",
+              "description": "How the Periodic Table organises elements; how compounds form when elements combine; and how compounds are named (for example, the rule for names ending in -ide and -ate).",
+              "caps_term": "G9 T2",
+              "caps_topic": "Compounds",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "naming_rule", "description": "Names a simple compound incorrectly.", "example": "Calls a compound of sodium and chlorine 'sodium chlorate'." }
+              ],
+              "recovery_strategy": "When two elements join, the name usually ends in -ide (sodium + chlorine → sodium chloride). When oxygen is part of a group with another element, the name often ends in -ate (e.g. carbonate, sulfate).",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.MM.A2",
+              "bank_skill_id": "NSSP.G9.MM.A2",
+              "title": "Chemical reactions & equations",
+              "description": "Representing reactions with word and symbol equations; the idea that atoms are not created or destroyed; and balancing simple chemical equations.",
+              "caps_term": "G9 T2",
+              "caps_topic": "Chemical reactions",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "conservation_mass", "description": "Thinks atoms can appear or disappear in a reaction.", "example": "Says a balanced equation can have more atoms on one side." }
+              ],
+              "recovery_strategy": "In any reaction, atoms are only rearranged — none are made or lost. A balanced equation must have the same number of each kind of atom on both sides (reactants = products).",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.MM.A3",
+              "bank_skill_id": "NSSP.G9.MM.A3",
+              "title": "Reactions of metals with oxygen",
+              "description": "The general reaction of a metal with oxygen to form a metal oxide; examples (iron, magnesium); the formation of rust; and ways to prevent rusting.",
+              "caps_term": "G9 T2",
+              "caps_topic": "Reactions of metals with oxygen",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "rust_conditions", "description": "Gets the conditions needed for rusting wrong.", "example": "Says iron rusts only when it is completely dry." }
+              ],
+              "recovery_strategy": "metal + oxygen → metal oxide. Rusting is iron reacting with oxygen AND water, so keeping iron dry or coated (paint, oil, galvanising) prevents rust.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.MM.A4",
+              "bank_skill_id": "NSSP.G9.MM.A4",
+              "title": "Reactions of non-metals with oxygen",
+              "description": "The general reaction of a non-metal with oxygen to form a non-metal oxide; examples (carbon, sulfur); and how many non-metal oxides dissolve in water to form acids.",
+              "caps_term": "G9 T2",
+              "caps_topic": "Reactions of non-metals with oxygen",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "oxide_acid_base", "description": "Confuses whether metal or non-metal oxides are acidic.", "example": "Says carbon dioxide dissolves to form a base." }
+              ],
+              "recovery_strategy": "non-metal + oxygen → non-metal oxide. Non-metal oxides (like carbon dioxide and sulfur dioxide) usually dissolve in water to form ACIDS, while metal oxides tend to be basic.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.MM.A5",
+              "bank_skill_id": "NSSP.G9.MM.A5",
+              "title": "Acids, bases & the pH value",
+              "description": "The pH scale as a measure of how acidic or basic a substance is; pH below 7 is acidic, 7 is neutral, above 7 is basic; and reading the pH of common substances.",
+              "caps_term": "G9 T2",
+              "caps_topic": "Acids & bases, and pH value",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "data-interpret"],
+              "error_signatures": [
+                { "type": "ph_scale", "description": "Reads the pH scale the wrong way round.", "example": "Says a high pH means a strong acid." }
+              ],
+              "recovery_strategy": "On the pH scale: below 7 = acidic, exactly 7 = neutral, above 7 = basic. The LOWER the pH, the stronger the acid; the HIGHER the pH, the stronger the base.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.MM.A6",
+              "bank_skill_id": "NSSP.G9.MM.A6",
+              "title": "Reactions of acids with bases",
+              "description": "Neutralisation, where an acid and a base react to form a salt and water; the general reactions of an acid with a metal oxide, a metal hydroxide and a metal carbonate; and everyday applications.",
+              "caps_term": "G9 T2",
+              "caps_topic": "Reactions of acids with bases",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "neutralisation_product", "description": "Forgets that neutralisation makes a salt and water.", "example": "Says an acid and a base react to make only more acid." }
+              ],
+              "recovery_strategy": "Neutralisation: acid + base → salt + water. With a metal carbonate you also get carbon dioxide gas (acid + metal carbonate → salt + water + carbon dioxide).",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.MM.A7",
+              "bank_skill_id": "NSSP.G9.MM.A7",
+              "title": "Reactions of acids with metals",
+              "description": "The general reaction of an acid with a metal to form a salt and hydrogen gas; recognising the bubbles of hydrogen; and the 'pop' test for hydrogen.",
+              "caps_term": "G9 T2",
+              "caps_topic": "Reactions of acids with metals",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "acid_metal_gas", "description": "Names the wrong gas released when an acid reacts with a metal.", "example": "Says an acid reacting with a metal gives off oxygen." }
+              ],
+              "recovery_strategy": "acid + metal → salt + hydrogen gas. The bubbles are hydrogen, which gives a squeaky 'pop' with a lit splint.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "L9.EC",
+          "title": "Term 3 — Energy & Change",
+          "description": "Forces and how they act; electric cells as energy systems; resistance and what affects it; series and parallel circuits; electrical safety; how electricity is generated and carried by the national grid; and the cost of electrical power.",
+          "atomic_skills": [
+            {
+              "id": "NSSP.G9.EC.A1",
+              "bank_skill_id": "NSSP.G9.EC.A1",
+              "title": "Forces",
+              "description": "What a force is and what it can do (change an object's speed, direction or shape); contact forces (such as friction and applied force); and non-contact (field) forces (such as gravity and magnetism).",
+              "caps_term": "G9 T3",
+              "caps_topic": "Forces",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario", "sort-buckets"],
+              "error_signatures": [
+                { "type": "contact_noncontact", "description": "Confuses contact forces with non-contact forces.", "example": "Says gravity is a contact force." }
+              ],
+              "recovery_strategy": "A contact force needs the objects to touch (friction, a push). A non-contact (field) force acts at a distance without touching (gravity, magnetism). Ask: do the objects have to touch?",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.EC.A2",
+              "bank_skill_id": "NSSP.G9.EC.A2",
+              "title": "Electric cells as energy systems",
+              "description": "How an electric cell (battery) stores chemical energy and changes it into electrical energy to drive a current; and the idea of cells joined together.",
+              "caps_term": "G9 T3",
+              "caps_topic": "Electric cells as energy systems",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "cell_energy", "description": "Mistakes the energy change in a cell.", "example": "Says a cell makes energy from nothing." }
+              ],
+              "recovery_strategy": "A cell changes stored CHEMICAL energy into ELECTRICAL energy. It does not make energy from nothing — it transfers it. When the chemicals are used up, the cell goes flat.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.EC.A3",
+              "bank_skill_id": "NSSP.G9.EC.A3",
+              "title": "Resistance",
+              "description": "Resistance as the opposing of current flow; how resistors are used; and the factors that affect the resistance of a wire (length, thickness and material).",
+              "caps_term": "G9 T3",
+              "caps_topic": "Resistance",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario"],
+              "error_signatures": [
+                { "type": "resistance_factor", "description": "Gets a resistance factor backwards.", "example": "Says a thicker wire has more resistance than a thin one." }
+              ],
+              "recovery_strategy": "Resistance opposes the current. A LONGER wire has more resistance; a THICKER wire has LESS resistance. More resistance means less current flows.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.EC.A4",
+              "bank_skill_id": "NSSP.G9.EC.A4",
+              "title": "Series & parallel circuits",
+              "description": "Comparing series and parallel circuits more closely; how adding components changes the current; and where each type of circuit is used.",
+              "caps_term": "G9 T3",
+              "caps_topic": "Series and parallel circuits",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label", "scenario"],
+              "error_signatures": [
+                { "type": "series_parallel_behaviour", "description": "Confuses how current behaves in series versus parallel.", "example": "Says adding more bulbs in series makes them brighter." }
+              ],
+              "recovery_strategy": "Series = one path; adding more bulbs in series shares the energy, so each is dimmer, and a break stops them all. Parallel = separate paths, so each bulb is independent and stays at full brightness.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.EC.A5",
+              "bank_skill_id": "NSSP.G9.EC.A5",
+              "title": "Safety with electricity",
+              "description": "Why electricity can be dangerous; safe practices in the home; and the role of safety features such as insulation, fuses and not mixing electricity with water.",
+              "caps_term": "G9 T3",
+              "caps_topic": "Safety with electricity",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario"],
+              "error_signatures": [
+                { "type": "unsafe_practice", "description": "Identifies a dangerous action as safe.", "example": "Says it is safe to use an electric appliance with wet hands." }
+              ],
+              "recovery_strategy": "Keep electricity away from water, never touch sockets or appliances with wet hands, do not overload plugs, and use insulated wires. If unsure, treat electricity as dangerous.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.EC.A6",
+              "bank_skill_id": "NSSP.G9.EC.A6",
+              "title": "Energy & the national electricity grid",
+              "description": "How electricity is generated (often by burning coal to drive turbines); nuclear power in South Africa; and how the national grid carries electricity to homes and industry.",
+              "caps_term": "G9 T3",
+              "caps_topic": "Energy and the national electricity grid",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "sequence", "scenario"],
+              "error_signatures": [
+                { "type": "generation_source", "description": "Mistakes how most South African electricity is generated.", "example": "Says all South African electricity comes from sunlight." }
+              ],
+              "recovery_strategy": "Most South African electricity is generated by burning coal to make steam that spins turbines; some comes from nuclear and renewables. The national grid then carries it to homes and industry.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.EC.A7",
+              "bank_skill_id": "NSSP.G9.EC.A7",
+              "title": "Cost of electrical power",
+              "description": "How the electricity we use is measured and paid for; why appliances that use a lot of power cost more to run; and simple ways to reduce the cost.",
+              "caps_term": "G9 T3",
+              "caps_topic": "Cost of electrical power",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "scenario", "data-interpret"],
+              "error_signatures": [
+                { "type": "power_cost", "description": "Misjudges which appliance costs most to run.", "example": "Says a small phone charger costs more to run than a geyser." }
+              ],
+              "recovery_strategy": "The more power an appliance uses and the longer it runs, the more it costs. High-power appliances like geysers and heaters cost the most; switching them off when not needed saves money.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        },
+        {
+          "id": "L9.PEB",
+          "title": "Term 4 — Planet Earth & Beyond",
+          "description": "The Earth as a system of interacting spheres; the lithosphere and the rock cycle; mining of mineral resources in South Africa; the layers of the atmosphere and the greenhouse effect; and the birth, life and death of stars.",
+          "atomic_skills": [
+            {
+              "id": "NSSP.G9.PEB.A1",
+              "bank_skill_id": "NSSP.G9.PEB.A1",
+              "title": "The Earth as a system",
+              "description": "The Earth as a set of interacting spheres — the lithosphere, hydrosphere, atmosphere and biosphere — and how matter and energy move between them.",
+              "caps_term": "G9 T4",
+              "caps_topic": "The Earth as a system",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "sort-buckets"],
+              "error_signatures": [
+                { "type": "sphere_identity", "description": "Mislabels one of the Earth's spheres.", "example": "Says the biosphere is all the rock of the Earth." }
+              ],
+              "recovery_strategy": "Lithosphere = land/rock, hydrosphere = water, atmosphere = air, biosphere = living things. These spheres interact and exchange matter and energy.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.PEB.A2",
+              "bank_skill_id": "NSSP.G9.PEB.A2",
+              "title": "Lithosphere & the rock cycle",
+              "description": "The lithosphere as the solid outer layer of the Earth; the three rock types (igneous, sedimentary and metamorphic); and how the rock cycle changes one type into another.",
+              "caps_term": "G9 T4",
+              "caps_topic": "Lithosphere",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label", "sequence"],
+              "error_signatures": [
+                { "type": "rock_type", "description": "Confuses how the three rock types form.", "example": "Says igneous rock forms from layers of mud pressed together." }
+              ],
+              "recovery_strategy": "Igneous rock forms when molten rock cools and hardens; sedimentary rock forms when layers of sediment are pressed together; metamorphic rock forms when heat and pressure change an existing rock.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.PEB.A3",
+              "bank_skill_id": "NSSP.G9.PEB.A3",
+              "title": "Mining of mineral resources",
+              "description": "Why we mine; how ores are extracted and refined to get useful metals; and the importance and impact of mining in South Africa.",
+              "caps_term": "G9 T4",
+              "caps_topic": "Mining of mineral resources",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario", "sequence"],
+              "error_signatures": [
+                { "type": "ore_definition", "description": "Misunderstands what an ore is.", "example": "Says an ore is a pure, ready-to-use metal." }
+              ],
+              "recovery_strategy": "An ore is a rock that contains enough of a useful mineral or metal to be worth mining. The metal must be extracted from the ore and then refined (purified) before use.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.PEB.A4",
+              "bank_skill_id": "NSSP.G9.PEB.A4",
+              "title": "Atmosphere",
+              "description": "The layers of the atmosphere (such as the troposphere and stratosphere); the gases that make up the air; and the greenhouse effect and its link to climate.",
+              "caps_term": "G9 T4",
+              "caps_topic": "Atmosphere",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "diagram-label", "scenario"],
+              "error_signatures": [
+                { "type": "greenhouse_effect", "description": "Misunderstands the greenhouse effect.", "example": "Says greenhouse gases cool the Earth down." }
+              ],
+              "recovery_strategy": "Greenhouse gases trap some of the Sun's heat in the atmosphere, keeping the Earth warm. Too much greenhouse gas traps too much heat, warming the planet further. The troposphere is the lowest layer, where weather happens.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            },
+            {
+              "id": "NSSP.G9.PEB.A5",
+              "bank_skill_id": "NSSP.G9.PEB.A5",
+              "title": "Birth, life & death of stars",
+              "description": "How a star is born from a cloud of gas and dust; the long stable life of a star like the Sun; and what happens when a star runs out of fuel and dies.",
+              "caps_term": "G9 T4",
+              "caps_topic": "Birth, life and death of stars",
+              "prerequisites": [],
+              "templates": ["choice", "true-false", "cloze", "match", "scenario", "sequence"],
+              "error_signatures": [
+                { "type": "star_lifecycle", "description": "Gets the stages of a star's life out of order.", "example": "Says a star dies before it is born from a gas cloud." }
+              ],
+              "recovery_strategy": "A star is born when a cloud of gas and dust pulls together and heats up; it lives for a long, stable time while it has fuel; when the fuel runs out, it dies. Order: gas cloud → star shines → fuel runs out → star dies.",
+              "mastery_criteria": { "correct_required": 15, "formats_required": 2, "allow_scaffolding": false }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

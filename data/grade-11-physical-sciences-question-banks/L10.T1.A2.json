@@ -1,0 +1,399 @@
+{
+  "skill": "L10.T1.A2",
+  "skill_title": "Apply the ideal gas equation and kinetic theory of gases",
+  "grades": [
+    11
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L10.T1.A2.q01",
+      "skill": "L10.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation is the ideal gas equation?",
+      "answerMode": "choice",
+      "expectedAnswer": "pV = nRT",
+      "marks": 2,
+      "explanation": "The ideal gas equation: pV = nRT (R is the universal gas constant).",
+      "errorSignals": [
+        "ERR_IDEAL_GAS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "pV = nRT",
+        "pV = nR/T",
+        "p/V = nRT"
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q02",
+      "skill": "L10.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In pV = nRT, what does n represent?",
+      "answerMode": "choice",
+      "expectedAnswer": "The number of moles of gas.",
+      "marks": 2,
+      "explanation": "n is the amount of gas in moles.",
+      "errorSignals": [
+        "ERR_N_MEANING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The number of molecules.",
+        "The number of moles of gas.",
+        "The mass of the gas in grams."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q03",
+      "skill": "L10.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In the ideal gas equation, temperature T must be in...",
+      "answerMode": "choice",
+      "expectedAnswer": "kelvin.",
+      "marks": 2,
+      "explanation": "T must always be in kelvin in pV = nRT.",
+      "errorSignals": [
+        "ERR_KELVIN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "degrees Celsius.",
+        "degrees Fahrenheit.",
+        "kelvin."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q04",
+      "skill": "L10.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which is an assumption of the kinetic theory of an ideal gas?",
+      "answerMode": "choice",
+      "expectedAnswer": "Gas particles have negligible volume and no forces between them.",
+      "marks": 2,
+      "explanation": "Ideal gas particles are treated as point masses with no intermolecular forces, in constant motion.",
+      "errorSignals": [
+        "ERR_KINETIC_THEORY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Gas particles have negligible volume and no forces between them.",
+        "Gas particles attract each other strongly.",
+        "Gas particles are at rest."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q05",
+      "skill": "L10.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "According to kinetic theory, the collisions between ideal gas particles are...",
+      "answerMode": "choice",
+      "expectedAnswer": "perfectly elastic (no kinetic energy lost).",
+      "marks": 2,
+      "explanation": "Ideal gas collisions are perfectly elastic — total kinetic energy is conserved.",
+      "errorSignals": [
+        "ERR_ELASTIC_COLLISION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "inelastic (energy lost each time).",
+        "perfectly elastic (no kinetic energy lost).",
+        "non-existent."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q06",
+      "skill": "L10.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Real gases behave MOST like ideal gases at...",
+      "answerMode": "choice",
+      "expectedAnswer": "high temperature and low pressure.",
+      "marks": 2,
+      "explanation": "At high T and low p, particles are far apart and fast, so forces and volume are negligible (most ideal).",
+      "errorSignals": [
+        "ERR_REAL_GAS_DEVIATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "low temperature and high pressure.",
+        "low temperature and low volume.",
+        "high temperature and low pressure."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q07",
+      "skill": "L10.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What causes the pressure of a gas in a container?",
+      "answerMode": "choice",
+      "expectedAnswer": "Gas particles colliding with the container walls.",
+      "marks": 2,
+      "explanation": "Pressure arises from the force of countless particle collisions with the walls.",
+      "errorSignals": [
+        "ERR_PRESSURE_ORIGIN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Gas particles colliding with the container walls.",
+        "Particles sticking to the walls.",
+        "The weight of the particles."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q08",
+      "skill": "L10.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "The average kinetic energy of gas particles depends on the gas's...",
+      "answerMode": "choice",
+      "expectedAnswer": "absolute temperature.",
+      "marks": 2,
+      "explanation": "Average kinetic energy is proportional to the absolute (kelvin) temperature.",
+      "errorSignals": [
+        "ERR_KE_TEMPERATURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "pressure only.",
+        "absolute temperature.",
+        "volume only."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q09",
+      "skill": "L10.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When using pV = nRT with SI units, pressure should be in...",
+      "answerMode": "choice",
+      "expectedAnswer": "pascals (Pa).",
+      "marks": 2,
+      "explanation": "In SI units pressure is in pascals, volume in m³, with R = 8.31 J·K⁻¹·mol⁻¹.",
+      "errorSignals": [
+        "ERR_GAS_UNITS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "kilopascals only.",
+        "atmospheres only.",
+        "pascals (Pa)."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q10",
+      "skill": "L10.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Heating a gas (at fixed volume) makes its particles move...",
+      "answerMode": "choice",
+      "expectedAnswer": "faster, with more kinetic energy.",
+      "marks": 2,
+      "explanation": "Higher temperature means greater average kinetic energy, so particles move faster.",
+      "errorSignals": [
+        "ERR_KE_TEMPERATURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "faster, with more kinetic energy.",
+        "slower.",
+        "at the same speed."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q11",
+      "skill": "L10.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many moles of an ideal gas occupy 0.0249 m³ at 100 000 Pa and 300 K? (R = 8.31 J·K⁻¹·mol⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 1,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = pV/(RT) = (100000 × 0.0249)/(8.31 × 300) = 2490/2493 ≈ 1 mol.",
+      "errorSignals": [
+        "ERR_IDEAL_GAS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A2.q12",
+      "skill": "L10.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A gas occupies 0.05 m³ at 200 000 Pa and 400 K. How many moles are present? (R = 8.31)",
+      "answerMode": "numeric",
+      "expectedAnswer": 3.01,
+      "tolerance": 0.1,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = pV/(RT) = (200000 × 0.05)/(8.31 × 400) = 10000/3324 = 3.01 mol.",
+      "errorSignals": [
+        "ERR_IDEAL_GAS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A2.q13",
+      "skill": "L10.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why do real gases deviate from ideal behaviour at high pressure?",
+      "answerMode": "choice",
+      "expectedAnswer": "Particles are forced close together, so their volume and attractions are no longer negligible.",
+      "marks": 2,
+      "explanation": "At high pressure the particles' own volume and intermolecular forces become significant, so real gases deviate.",
+      "errorSignals": [
+        "ERR_REAL_GAS_DEVIATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Particles are forced close together, so their volume and attractions are no longer negligible.",
+        "The particles move faster than light.",
+        "Pressure has no effect on gases."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q14",
+      "skill": "L10.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "2 moles of an ideal gas are at 300 K in a 0.05 m³ container. What is the pressure? (R = 8.31)",
+      "answerMode": "numeric",
+      "expectedAnswer": 99720,
+      "tolerance": 0.05,
+      "unit": "Pa",
+      "marks": 3,
+      "explanation": "p = nRT/V = (2 × 8.31 × 300)/0.05 = 4986/0.05 = 99 720 Pa.",
+      "errorSignals": [
+        "ERR_IDEAL_GAS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A2.q15",
+      "skill": "L10.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "At the same temperature, which gas particles move faster on average: lighter or heavier ones?",
+      "answerMode": "choice",
+      "expectedAnswer": "Lighter particles (same average KE, smaller mass ⇒ higher speed).",
+      "marks": 2,
+      "explanation": "At equal temperature the average KE is equal; lighter particles must move faster to have the same ½mv².",
+      "errorSignals": [
+        "ERR_PARTICLE_SPEED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Heavier particles.",
+        "They move at the same speed.",
+        "Lighter particles (same average KE, smaller mass ⇒ higher speed)."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q16",
+      "skill": "L10.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What happens to gas pressure (fixed volume and amount) if the absolute temperature doubles?",
+      "answerMode": "choice",
+      "expectedAnswer": "The pressure doubles.",
+      "marks": 2,
+      "explanation": "From pV = nRT at fixed V and n, p ∝ T, so doubling T doubles p.",
+      "errorSignals": [
+        "ERR_IDEAL_GAS_PROPORTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The pressure doubles.",
+        "The pressure halves.",
+        "The pressure is unchanged."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q17",
+      "skill": "L10.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is the kinetic energy of gas particles said to be zero only at absolute zero (0 K)?",
+      "answerMode": "choice",
+      "expectedAnswer": "At 0 K particle motion theoretically stops, so kinetic energy is zero.",
+      "marks": 2,
+      "explanation": "Absolute zero is the temperature at which particle motion (and kinetic energy) would theoretically cease.",
+      "errorSignals": [
+        "ERR_ABSOLUTE_ZERO"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "At 0 K particles move fastest.",
+        "At 0 K particle motion theoretically stops, so kinetic energy is zero.",
+        "Kinetic energy is never zero."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q18",
+      "skill": "L10.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 0.5 mol sample of gas is at 250 000 Pa in 0.004 m³. What is its temperature? (R = 8.31)",
+      "answerMode": "numeric",
+      "expectedAnswer": 240.7,
+      "tolerance": 1,
+      "unit": "K",
+      "marks": 3,
+      "explanation": "T = pV/(nR) = (250000 × 0.004)/(0.5 × 8.31) = 1000/4.155 = 240.7 K.",
+      "errorSignals": [
+        "ERR_IDEAL_GAS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L10.T1.A2.q19",
+      "skill": "L10.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Doubling the number of moles of gas (fixed T and V) does what to the pressure?",
+      "answerMode": "choice",
+      "expectedAnswer": "Doubles it.",
+      "marks": 2,
+      "explanation": "From pV = nRT at fixed T and V, p ∝ n, so doubling the moles doubles the pressure.",
+      "errorSignals": [
+        "ERR_IDEAL_GAS_PROPORTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Doubles it.",
+        "Halves it.",
+        "Leaves it unchanged."
+      ]
+    },
+    {
+      "id": "L10.T1.A2.q20",
+      "skill": "L10.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which statement about an ideal gas is FALSE?",
+      "answerMode": "choice",
+      "expectedAnswer": "Its particles strongly attract each other.",
+      "marks": 2,
+      "explanation": "Ideal gas particles are assumed to have NO intermolecular forces — the 'strong attraction' statement is false.",
+      "errorSignals": [
+        "ERR_KINETIC_THEORY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Its particles are in constant random motion.",
+        "Its particles strongly attract each other.",
+        "Its collisions are perfectly elastic."
+      ]
+    }
+  ]
+}

@@ -6,6 +6,8 @@ import SpinningGlobe from "@/components/SpinningGlobe";
 import EduBackground from "@/components/EduBackground";
 import { supabase } from "@/lib/supabase";
 import SavedReportView from "@/components/SavedReportView";
+import EditSubjectsModal from "@/components/onboarding/EditSubjectsModal";
+import { isFetGrade, readCachedSubjects, type FetSubjectKey } from "@/lib/fet-subjects";
 import { ActiveView } from "@/types";
 
 interface SettingsViewProps {
@@ -299,6 +301,9 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [grade, setGrade] = useState("");
+  // FET (Gr 10–12) subject selection — edited via the "My subjects" row below.
+  const [subjects, setSubjects] = useState<FetSubjectKey[] | null>(() => readCachedSubjects());
+  const [showSubjectsModal, setShowSubjectsModal] = useState(false);
   const [accountLang, setAccountLang] = useState("English");
   const [learnLang, setLearnLang] = useState("English");
   const [plan, setPlan] = useState("free");
@@ -351,6 +356,17 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
     })();
   }, []);
 
+  // Deep-link from the Subjects hub's "Choose my subjects" gate — open the
+  // picker straight away so the learner lands exactly where they were sent.
+  useEffect(() => {
+    try {
+      if (window.sessionStorage.getItem("ruby_open_subjects_picker")) {
+        window.sessionStorage.removeItem("ruby_open_subjects_picker");
+        setShowSubjectsModal(true);
+      }
+    } catch { /* private mode */ }
+  }, []);
+
   useEffect(() => {
     const loadProfile = async () => {
       const { data: { session } } = await supabase.auth.getSession();
@@ -358,12 +374,14 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
       if (!user) return;
       const { data: profile } = await supabase
         .from("users")
-        .select("full_name, grade, language, average_score")
+        .select("full_name, grade, language, average_score, subjects")
         .eq("id", user.id)
         .single();
       setName((profile?.full_name as string | undefined) || (user.user_metadata?.full_name as string | undefined) || "");
       setEmail(user.email || "");
       setGrade((profile?.grade as string | undefined) || "");
+      const rawSubjects = profile?.subjects as string[] | null | undefined;
+      setSubjects(Array.isArray(rawSubjects) && rawSubjects.length ? (rawSubjects as FetSubjectKey[]) : null);
       const lang = (profile?.language as string | undefined) || "English";
       setAccountLang(lang);
       setLearnLang(lang);
@@ -552,6 +570,14 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
                   value={learnLang}
                   onClick={() => setModal("learnLang")}
                 />
+                {/* My subjects — Grade 10–12 only; pick which subjects show in the hub. */}
+                {isFetGrade(parseInt(grade, 10)) && (
+                  <Row
+                    icon={icons.book}
+                    label="My subjects"
+                    onClick={() => setShowSubjectsModal(true)}
+                  />
+                )}
                 <Row
                   icon={icons.book}
                   label="Maths Discovery Report"
@@ -990,6 +1016,16 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
           <SpinningGlobe />
           <p className="text-white text-sm font-medium">Translating platform...</p>
         </div>
+      )}
+
+      {showSubjectsModal && (
+        <EditSubjectsModal
+          initial={subjects}
+          onClose={() => {
+            setSubjects(readCachedSubjects());
+            setShowSubjectsModal(false);
+          }}
+        />
       )}
     </>
   );

@@ -7,6 +7,15 @@ import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/stud
 import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
 import { getMathsLiteracyProfile } from "@/lib/maths-literacy-student-model";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import EditSubjectsModal from "@/components/onboarding/EditSubjectsModal";
+import {
+  HUB_ID_TO_FET_KEY,
+  isFetGrade,
+  readCachedSubjects,
+  writeCachedSubjects,
+  SUBJECTS_UPDATED_EVENT,
+  type FetSubjectKey,
+} from "@/lib/fet-subjects";
 import { HIGHEST_AVAILABLE_LEVEL as LIFE_SKILLS_MAX_GRADE } from "@/lib/life-skills-grade-map";
 import { HIGHEST_AVAILABLE_LEVEL as AFRIKAANS_MAX_GRADE } from "@/lib/afrikaans-grade-map";
 import {
@@ -47,11 +56,56 @@ import {
   loadGeographyProfile,
   hydrateGeographyProfileFromSupabase,
 } from "@/lib/geography-student-model";
+import {
+  loadNaturalSciencesSpProfile,
+  hydrateNaturalSciencesSpProfileFromSupabase,
+} from "@/lib/natural-sciences-sp-student-model";
+import {
+  loadSocialSciencesSpProfile,
+  hydrateSocialSciencesSpProfileFromSupabase,
+} from "@/lib/social-sciences-sp-student-model";
+import {
+  loadEmsSpProfile,
+  hydrateEmsSpProfileFromSupabase,
+} from "@/lib/ems-sp-student-model";
+import {
+  loadAccountingProfile,
+  hydrateAccountingProfileFromSupabase,
+} from "@/lib/accounting-student-model";
+import {
+  loadEconomicsProfile,
+  hydrateEconomicsProfileFromSupabase,
+} from "@/lib/economics-student-model";
+import {
+  loadTechnologySpProfile,
+  hydrateTechnologySpProfileFromSupabase,
+} from "@/lib/technology-sp-student-model";
+import {
+  loadLifeOrientationSpProfile,
+  hydrateLifeOrientationSpProfileFromSupabase,
+} from "@/lib/life-orientation-sp-student-model";
+import {
+  loadCreativeArtsSpProfile,
+  hydrateCreativeArtsSpProfileFromSupabase,
+} from "@/lib/creative-arts-sp-student-model";
+import {
+  loadAfrikaansProfile,
+  hydrateAfrikaansProfileFromSupabase,
+} from "@/lib/afrikaans-student-model";
+import type { AfrikaansStudentProfile } from "@/types/afrikaans";
 import type { BusinessStudiesStudentProfile } from "@/types/business-studies";
 import type { LifeSciencesStudentProfile } from "@/types/life-sciences";
 import type { HistoryStudentProfile } from "@/types/history";
 import type { TourismStudentProfile } from "@/types/tourism";
 import type { GeographyStudentProfile } from "@/types/geography";
+import type { NaturalSciencesSpStudentProfile } from "@/types/natural-sciences-sp";
+import type { SocialSciencesSpStudentProfile } from "@/types/social-sciences-sp";
+import type { EmsSpStudentProfile } from "@/types/ems-sp";
+import type { AccountingStudentProfile } from "@/types/accounting";
+import type { EconomicsStudentProfile } from "@/types/economics";
+import type { TechnologySpStudentProfile } from "@/types/technology-sp";
+import type { LifeOrientationSpStudentProfile } from "@/types/life-orientation-sp";
+import type { CreativeArtsSpStudentProfile } from "@/types/creative-arts-sp";
 
 const SkillTreeView           = dynamic(() => import("@/components/ruby/SkillTreeView"),                       { ssr: false });
 const ReadingSkillTreeView    = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),             { ssr: false });
@@ -66,6 +120,14 @@ const HistorySkillTreeView         = dynamic(() => import("@/components/history/
 const BusinessStudiesSkillTreeView = dynamic(() => import("@/components/business-studies/BusinessStudiesSkillTreeView"), { ssr: false });
 const TourismSkillTreeView         = dynamic(() => import("@/components/tourism/TourismSkillTreeView"),                 { ssr: false });
 const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),             { ssr: false });
+const NaturalSciencesSpSkillTreeView = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSkillTreeView"), { ssr: false });
+const SocialSciencesSpSkillTreeView = dynamic(() => import("@/components/social-sciences-sp/SocialSciencesSpSkillTreeView"), { ssr: false });
+const EmsSpSkillTreeView = dynamic(() => import("@/components/ems-sp/EmsSpSkillTreeView"), { ssr: false });
+const AccountingSkillTreeView = dynamic(() => import("@/components/accounting/AccountingSkillTreeView"), { ssr: false });
+const EconomicsSkillTreeView = dynamic(() => import("@/components/economics/EconomicsSkillTreeView"), { ssr: false });
+const TechnologySpSkillTreeView = dynamic(() => import("@/components/technology-sp/TechnologySpSkillTreeView"), { ssr: false });
+const LifeOrientationSpSkillTreeView = dynamic(() => import("@/components/life-orientation-sp/LifeOrientationSpSkillTreeView"), { ssr: false });
+const CreativeArtsSpSkillTreeView = dynamic(() => import("@/components/creative-arts-sp/CreativeArtsSpSkillTreeView"), { ssr: false });
 
 type SubjectId =
   | "discover"
@@ -76,12 +138,22 @@ type SubjectId =
   | "social-sciences"
   | "nst"
   | "matric-phys-sci"
+  | "grade-10-phys-sci"
+  | "grade-11-phys-sci"
   | "maths-literacy"
   | "life-sciences"
   | "history"
   | "business-studies"
   | "tourism"
-  | "geography";
+  | "geography"
+  | "natural-sciences-sp"
+  | "social-sciences-sp"
+  | "ems-sp"
+  | "accounting"
+  | "economics"
+  | "technology-sp"
+  | "life-orientation-sp"
+  | "creative-arts-sp";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -97,6 +169,7 @@ function readCachedGrade(): number | null {
   const n = parseInt(window.localStorage.getItem(GRADE_CACHE_KEY) ?? "", 10);
   return !isNaN(n) && n >= 1 && n <= 12 ? n : null;
 }
+
 
 // Defers mounting a subject's (heavy) skill tree until it nears the viewport, so
 // opening the Subjects tab paints instantly instead of mounting every tree (and
@@ -162,7 +235,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [historyProfile, setHistoryProfile] = useState<HistoryStudentProfile | null>(() => loadHistoryProfile());
   const [tourismProfile, setTourismProfile] = useState<TourismStudentProfile | null>(() => loadTourismProfile());
   const [geographyProfile, setGeographyProfile] = useState<GeographyStudentProfile | null>(() => loadGeographyProfile());
+  const [naturalSciencesSpProfile, setNaturalSciencesSpProfile] = useState<NaturalSciencesSpStudentProfile | null>(() => loadNaturalSciencesSpProfile());
+  const [socialSciencesSpProfile, setSocialSciencesSpProfile] = useState<SocialSciencesSpStudentProfile | null>(() => loadSocialSciencesSpProfile());
+  const [emsSpProfile, setEmsSpProfile] = useState<EmsSpStudentProfile | null>(() => loadEmsSpProfile());
+  const [accountingProfile, setAccountingProfile] = useState<AccountingStudentProfile | null>(() => loadAccountingProfile());
+  const [economicsProfile, setEconomicsProfile] = useState<EconomicsStudentProfile | null>(() => loadEconomicsProfile());
+  const [technologySpProfile, setTechnologySpProfile] = useState<TechnologySpStudentProfile | null>(() => loadTechnologySpProfile());
+  const [lifeOrientationSpProfile, setLifeOrientationSpProfile] = useState<LifeOrientationSpStudentProfile | null>(() => loadLifeOrientationSpProfile());
+  const [creativeArtsSpProfile, setCreativeArtsSpProfile] = useState<CreativeArtsSpStudentProfile | null>(() => loadCreativeArtsSpProfile());
+  const [afrikaansProfile, setAfrikaansProfile] = useState<AfrikaansStudentProfile | null>(() => loadAfrikaansProfile());
   const [grade, setGrade] = useState<number | null>(() => readCachedGrade());
+  // null = no saved selection → FET learners are gated into picking (see below).
+  // Only ever filters Gr 10–12.
+  const [selectedSubjects, setSelectedSubjects] = useState<FetSubjectKey[] | null>(() => readCachedSubjects());
   const [loading, setLoading] = useState(true);
 
   // Background refresh: pull the authoritative profiles + grade from Supabase
@@ -181,8 +266,22 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         setGrade(auth.grade);
         try { window.localStorage.setItem(GRADE_CACHE_KEY, String(auth.grade)); } catch { /* quota / private mode */ }
       }
+      if (auth) {
+        setSelectedSubjects(auth.subjects);
+        writeCachedSubjects(auth.subjects);
+      }
       setLoading(false);
-    });
+    }).catch(() => setLoading(false)); // never strand the hub on a loading skeleton
+  }, []);
+
+  // Reflect edits made via the "My subjects" editor without a full reload.
+  useEffect(() => {
+    const onUpdated = (e: Event) => {
+      const detail = (e as CustomEvent<FetSubjectKey[] | null>).detail;
+      setSelectedSubjects(detail && detail.length ? detail : null);
+    };
+    window.addEventListener(SUBJECTS_UPDATED_EVENT, onUpdated);
+    return () => window.removeEventListener(SUBJECTS_UPDATED_EVENT, onUpdated);
   }, []);
 
   // Background refresh for the FET content-subject profiles (already seeded from
@@ -190,12 +289,21 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [bs, ls, hi, to, ge] = await Promise.all([
+      const [bs, ls, hi, to, ge, ns, ss, em, ac, ec, ts, lo, ca, af] = await Promise.all([
         hydrateBusinessStudiesProfileFromSupabase(),
         hydrateLifeSciencesProfileFromSupabase(),
         hydrateHistoryProfileFromSupabase(),
         hydrateTourismProfileFromSupabase(),
         hydrateGeographyProfileFromSupabase(),
+        hydrateNaturalSciencesSpProfileFromSupabase(),
+        hydrateSocialSciencesSpProfileFromSupabase(),
+        hydrateEmsSpProfileFromSupabase(),
+        hydrateAccountingProfileFromSupabase(),
+        hydrateEconomicsProfileFromSupabase(),
+        hydrateTechnologySpProfileFromSupabase(),
+        hydrateLifeOrientationSpProfileFromSupabase(),
+        hydrateCreativeArtsSpProfileFromSupabase(),
+        hydrateAfrikaansProfileFromSupabase(),
       ]);
       if (cancelled) return;
       if (bs) setBusinessStudiesProfile(bs);
@@ -203,6 +311,15 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       if (hi) setHistoryProfile(hi);
       if (to) setTourismProfile(to);
       if (ge) setGeographyProfile(ge);
+      if (ns) setNaturalSciencesSpProfile(ns);
+      if (ss) setSocialSciencesSpProfile(ss);
+      if (em) setEmsSpProfile(em);
+      if (ac) setAccountingProfile(ac);
+      if (ec) setEconomicsProfile(ec);
+      if (ts) setTechnologySpProfile(ts);
+      if (lo) setLifeOrientationSpProfile(lo);
+      if (ca) setCreativeArtsSpProfile(ca);
+      if (af) setAfrikaansProfile(af);
     })();
     return () => {
       cancelled = true;
@@ -213,8 +330,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   // with no saved grade), show every subject rather than silently defaulting
   // to a grade and hiding the wrong ones. A learner with a known grade only
   // ever sees the subjects that grade is entitled to.
-  const gradeKnown = grade !== null;
-  const learnerGrade = grade ?? 0;
+  //
+  // (b) Subject-VISIBILITY grade: prefer the authoritative server grade, but fall
+  // back to the grade in the learner's local profile so legacy/grade-less accounts
+  // still get a filtered list instead of dumping every subject. This grade is
+  // self-entered on the device, so it's used ONLY to decide which cards show —
+  // Matric/Phys-Sci visibility below stays on the authoritative server grade so a
+  // local grade can never surface paid Matric content (access is plan-gated too).
+  const authGrade = grade;
+  const authGradeKnown = authGrade !== null;
+  const localProfileGrade = mathsProfile?.grade ?? readingProfile?.grade ?? null;
+  const visGrade = grade ?? localProfileGrade;
+  const gradeKnown = visGrade !== null;
+  const learnerGrade = visGrade ?? 0;
   const showLifeSkills = !gradeKnown || learnerGrade <= LIFE_SKILLS_MAX_GRADE;
   const showAfrikaans = !gradeKnown || learnerGrade <= AFRIKAANS_MAX_GRADE;
   const showSocialSciences =
@@ -222,7 +350,18 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     (learnerGrade >= SOCIAL_SCIENCES_MIN_GRADE && learnerGrade <= SOCIAL_SCIENCES_MAX_GRADE);
   const showNst =
     !gradeKnown || (learnerGrade >= NST_MIN_GRADE && learnerGrade <= NST_MAX_GRADE);
-  const showMatricPhysSci = !gradeKnown || learnerGrade === 12;
+  // Physical Sciences is one subject with grade-specific trees (10 / 11 / 12).
+  // Pick exactly ONE card by the authoritative server grade so it can never render
+  // more than once (a null grade used to make all three appear). When the grade
+  // isn't known yet we fall back to a single Matric card rather than three. Stays
+  // on the server grade (not the local fallback) so a self-set device grade can't
+  // surface paid Matric content.
+  const physSciCardId: "matric-phys-sci" | "grade-10-phys-sci" | "grade-11-phys-sci" | null =
+    authGrade === 10 ? "grade-10-phys-sci"
+    : authGrade === 11 ? "grade-11-phys-sci"
+    : authGrade === 12 ? "matric-phys-sci"
+    : !authGradeKnown ? "matric-phys-sci"
+    : null;
   const showMathsLiteracy =
     !gradeKnown ||
     (learnerGrade >= MATHS_LITERACY_MIN_GRADE && learnerGrade <= MATHS_LITERACY_MAX_GRADE);
@@ -232,10 +371,26 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const showHistory = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // Business Studies is a FET subject (Gr 10–12 only). Free for all plans.
   const showBusinessStudies = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
+  // Accounting is a FET subject (Gr 10–12 only). Free for all plans.
+  const showAccounting = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
+  // Economics is a FET subject (Gr 10–12 only). Free for all plans.
+  const showEconomics = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // Tourism is a FET subject (Gr 10–12 only). Free for all plans.
   const showTourism = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
   // Geography is a FET subject (Gr 10–12 only). Free for all plans.
   const showGeography = !gradeKnown || (learnerGrade >= 10 && learnerGrade <= 12);
+  // Natural Sciences is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
+  const showNaturalSciencesSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
+  // Social Sciences (History + Geography) is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
+  const showSocialSciencesSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
+  // EMS (Economic & Management Sciences) is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
+  const showEmsSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
+  // Technology is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
+  const showTechnologySp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
+  // Life Orientation is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
+  const showLifeOrientationSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
+  // Creative Arts (Music + Visual Arts) is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
+  const showCreativeArtsSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
 
   const mathsLiteracyMastered = mathsLiteracyProfile
     ? Object.values(mathsLiteracyProfile.skill_mastery ?? {}).filter(
@@ -287,7 +442,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     const all: SubjectMeta[] = [
       {
         id: "discover",
-        thumbnail: "/thumbnails/discover.png",
+        thumbnail: "/thumbnails/discover.webp",
         label: "Discover",
         caption: "Take the placement and find your starting point",
         badge: discoverBadge,
@@ -298,8 +453,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       },
       {
         id: "maths",
-        thumbnail: "/thumbnails/mathematics.jpeg",
-        label: "Maths",
+        thumbnail: "/thumbnails/mathematics.webp",
+        label: "Mathematics",
         caption: "Personalised lessons that adapt to your level",
         badge: mathsBadge,
         badgeColor: mathsBadgeColor,
@@ -309,9 +464,9 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       },
       {
         id: "english",
-        thumbnail: "/thumbnails/english.jpeg",
+        thumbnail: "/thumbnails/english.webp",
         label: "English",
-        caption: "Reading, comprehension and writing — adapts to your grade",
+        caption: "Reading, comprehension and writing — adapts to your level",
         badge: readingBadge,
         badgeColor: readingBadgeColor,
         accentFrom: "from-purple-600",
@@ -322,7 +477,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showLifeSkills) {
       all.push({
         id: "life-skills",
-        thumbnail: "/thumbnails/life-skills.png",
+        thumbnail: "/thumbnails/life-skills.webp",
         label: "Life Skills",
         caption: `Beginning Knowledge & Health for Grades 1–${LIFE_SKILLS_MAX_GRADE}`,
         badge: "Foundation Phase",
@@ -335,9 +490,9 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showAfrikaans) {
       all.push({
         id: "afrikaans",
-        thumbnail: "/thumbnails/afrikaans-fal.jpeg",
+        thumbnail: "/thumbnails/afrikaans-fal.webp",
         label: "Afrikaans",
-        caption: `First Additional Language — listen, choose and learn (Grades 1–${AFRIKAANS_MAX_GRADE})`,
+        caption: `First Additional Language · listen, choose and learn (Grades 1–${AFRIKAANS_MAX_GRADE})`,
         accentFrom: "from-emerald-500",
         accentTo: "to-teal-600",
         navigateTo: "afrikaans-fal",
@@ -346,7 +501,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showSocialSciences) {
       all.push({
         id: "social-sciences",
-        thumbnail: "/thumbnails/social-sciences.png",
+        thumbnail: "/thumbnails/social-sciences.webp",
         label: "Social Sciences",
         caption: `History & Geography for Grades ${SOCIAL_SCIENCES_MIN_GRADE}–${SOCIAL_SCIENCES_MAX_GRADE}`,
         badge: "Intermediate Phase",
@@ -359,9 +514,9 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showNst) {
       all.push({
         id: "nst",
-        placeholderEmoji: "🔬",
-        label: "Natural Sciences & Tech",
-        caption: `Science and Technology for Grades ${NST_MIN_GRADE}–${NST_MAX_GRADE}`,
+        thumbnail: "/thumbnails/natural-sciences-sp.webp",
+        label: "Natural Sciences & Technology",
+        caption: `Science & Technology for Grades ${NST_MIN_GRADE}–${NST_MAX_GRADE}`,
         badge: "Intermediate Phase",
         badgeColor: "bg-sky-100 text-sky-700",
         accentFrom: "from-green-500",
@@ -369,10 +524,10 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "natural-sciences-tech",
       });
     }
-    if (showMatricPhysSci) {
+    if (physSciCardId === "matric-phys-sci") {
       all.push({
         id: "matric-phys-sci",
-        thumbnail: "/thumbnails/physical-science.jpeg",
+        thumbnail: "/thumbnails/physical-science.webp",
         label: "Physical Sciences",
         caption: "Grade 12 NSC · 42 skills across P1 Physics and P2 Chemistry",
         badge: "Matric",
@@ -382,11 +537,37 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "matric-phys-sci",
       });
     }
+    if (physSciCardId === "grade-10-phys-sci") {
+      all.push({
+        id: "grade-10-phys-sci",
+        thumbnail: "/thumbnails/physical-science.webp",
+        label: "Physical Sciences",
+        caption: "Grade 10 · 27 skills across P1 Physics and P2 Chemistry",
+        badge: "Grade 10",
+        badgeColor: "bg-rose-100 text-rose-700",
+        accentFrom: "from-rose-500",
+        accentTo: "to-amber-500",
+        navigateTo: "grade-10-phys-sci",
+      });
+    }
+    if (physSciCardId === "grade-11-phys-sci") {
+      all.push({
+        id: "grade-11-phys-sci",
+        thumbnail: "/thumbnails/physical-science.webp",
+        label: "Physical Sciences",
+        caption: "Grade 11 · 24 skills across P1 Physics and P2 Chemistry",
+        badge: "Grade 11",
+        badgeColor: "bg-rose-100 text-rose-700",
+        accentFrom: "from-rose-500",
+        accentTo: "to-amber-500",
+        navigateTo: "grade-11-phys-sci",
+      });
+    }
     if (showMathsLiteracy) {
       all.push({
         id: "maths-literacy",
-        thumbnail: "/thumbnails/maths-literacy.jpeg",
-        label: "Maths Literacy",
+        thumbnail: "/thumbnails/maths-literacy.webp",
+        label: "Mathematical Literacy",
         caption: `Applied maths for Grades ${MATHS_LITERACY_MIN_GRADE}–${MATHS_LITERACY_MAX_GRADE} · 85 skills across 10 levels`,
         badge: mathsLiteracyBadge,
         badgeColor: mathsLiteracyMastered > 0 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600",
@@ -398,7 +579,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showLifeSciences) {
       all.push({
         id: "life-sciences",
-        thumbnail: "/thumbnails/life-sciences.jpeg",
+        thumbnail: "/thumbnails/life-sciences.webp",
         label: "Life Sciences",
         caption: "Cells, life processes, ecology and diversity · Grades 10–12 · 70 topics",
         badge: "FET",
@@ -411,7 +592,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showHistory) {
       all.push({
         id: "history",
-        thumbnail: "/thumbnails/history.jpeg",
+        thumbnail: "/thumbnails/history.webp",
         label: "History",
         caption: "Precolonial African empires, source-work and argument-building · Grades 10–12",
         badge: "FET",
@@ -421,10 +602,36 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "history",
       });
     }
+    if (showAccounting) {
+      all.push({
+        id: "accounting",
+        thumbnail: "/thumbnails/accounting.webp",
+        label: "Accounting",
+        caption: "Bookkeeping, financial statements, companies, cost accounting & budgeting · Grades 10–12",
+        badge: "FET",
+        badgeColor: "bg-emerald-100 text-emerald-700",
+        accentFrom: "from-emerald-500",
+        accentTo: "to-green-600",
+        navigateTo: "accounting",
+      });
+    }
+    if (showEconomics) {
+      all.push({
+        id: "economics",
+        thumbnail: "/thumbnails/economics.webp",
+        label: "Economics",
+        caption: "Markets, the circular flow, growth, money, inflation & trade · Grades 10–12",
+        badge: "FET",
+        badgeColor: "bg-indigo-100 text-indigo-700",
+        accentFrom: "from-indigo-500",
+        accentTo: "to-blue-600",
+        navigateTo: "economics",
+      });
+    }
     if (showBusinessStudies) {
       all.push({
         id: "business-studies",
-        thumbnail: "/thumbnails/business-studies.jpeg",
+        thumbnail: "/thumbnails/business-studies.webp",
         label: "Business Studies",
         caption: "Business environments, ventures, roles and operations · Grades 10–12",
         badge: "FET",
@@ -437,7 +644,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showTourism) {
       all.push({
         id: "tourism",
-        thumbnail: "/thumbnails/tourism.jpeg",
+        thumbnail: "/thumbnails/tourism.webp",
         label: "Tourism",
         caption: "Tourist sectors, map work, attractions, sustainability & customer care · Grades 10–12",
         badge: "FET",
@@ -450,7 +657,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (showGeography) {
       all.push({
         id: "geography",
-        thumbnail: "/thumbnails/geography.jpeg",
+        thumbnail: "/thumbnails/geography.webp",
         label: "Geography",
         caption: "Atmosphere, geomorphology, settlement, mapwork · Grades 10–12",
         badge: "FET",
@@ -460,25 +667,124 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "geography",
       });
     }
+    if (showNaturalSciencesSp) {
+      all.push({
+        id: "natural-sciences-sp",
+        thumbnail: "/thumbnails/natural-sciences-sp.webp",
+        label: "Natural Sciences",
+        caption: "Life, matter, energy, planet Earth & beyond · Grades 7–9",
+        badge: "Senior Phase",
+        badgeColor: "bg-rose-100 text-rose-700",
+        accentFrom: "from-rose-500",
+        accentTo: "to-pink-600",
+        navigateTo: "natural-sciences-sp",
+      });
+    }
+    if (showSocialSciencesSp) {
+      all.push({
+        id: "social-sciences-sp",
+        thumbnail: "/thumbnails/social-sciences-sp.webp",
+        label: "Social Sciences",
+        caption: "History & Geography · Grades 7–9",
+        badge: "Senior Phase",
+        badgeColor: "bg-orange-100 text-orange-700",
+        accentFrom: "from-orange-500",
+        accentTo: "to-amber-600",
+        navigateTo: "social-sciences-sp",
+      });
+    }
+    if (showEmsSp) {
+      all.push({
+        id: "ems-sp",
+        thumbnail: "/thumbnails/ems-sp.webp",
+        label: "Economic & Management Sciences",
+        caption: "The economy, money & business · Grades 7–9",
+        badge: "Senior Phase",
+        badgeColor: "bg-violet-100 text-violet-700",
+        accentFrom: "from-violet-500",
+        accentTo: "to-fuchsia-600",
+        navigateTo: "ems-sp",
+      });
+    }
+    if (showTechnologySp) {
+      all.push({
+        id: "technology-sp",
+        thumbnail: "/thumbnails/technology-sp.webp",
+        label: "Technology",
+        caption: "Structures, machines, electronics & making · Grades 7–9",
+        badge: "Senior Phase",
+        badgeColor: "bg-slate-100 text-slate-700",
+        accentFrom: "from-slate-500",
+        accentTo: "to-zinc-600",
+        navigateTo: "technology-sp",
+      });
+    }
+    if (showLifeOrientationSp) {
+      all.push({
+        id: "life-orientation-sp",
+        thumbnail: "/thumbnails/life-orientation-sp.webp",
+        placeholderEmoji: "🧭",
+        label: "Life Orientation",
+        caption: "Self, health, rights & the world of work · Grades 7–9",
+        badge: "Senior Phase",
+        badgeColor: "bg-lime-100 text-lime-700",
+        accentFrom: "from-lime-500",
+        accentTo: "to-green-600",
+        navigateTo: "life-orientation-sp",
+      });
+    }
+    if (showCreativeArtsSp) {
+      all.push({
+        id: "creative-arts-sp",
+        thumbnail: "/thumbnails/creative-arts-sp.webp",
+        placeholderEmoji: "🎨",
+        label: "Creative Arts",
+        caption: "Music & Visual Arts · Grades 7–9",
+        badge: "Senior Phase",
+        badgeColor: "bg-pink-100 text-pink-700",
+        accentFrom: "from-pink-500",
+        accentTo: "to-rose-600",
+        navigateTo: "creative-arts-sp",
+      });
+    }
+    // FET learners (Gr 10–12) who saved a subject selection during onboarding
+    // see only the subjects they picked. Cards with no FET picker key (Discover)
+    // always remain. Grades 1–9 and any account with no saved selection fail
+    // open — every grade-entitled subject shows, exactly as before.
+    const fetFiltered = isFetGrade(grade) && selectedSubjects
+      ? all.filter((s) => {
+          const key = HUB_ID_TO_FET_KEY[s.id];
+          return !key || selectedSubjects.includes(key);
+        })
+      : all;
     // "Discover" is the placement entry point, not a curriculum subject, so it
     // stays pinned at the top. Every real subject is then ordered alphabetically
     // by label — the same order for every grade.
-    const pinned = all.filter((s) => s.id === "discover");
-    const rest = all
+    const pinned = fetFiltered.filter((s) => s.id === "discover");
+    const rest = fetFiltered
       .filter((s) => s.id !== "discover")
       .sort((a, b) => a.label.localeCompare(b.label));
     return [...pinned, ...rest];
   }, [
+    grade, selectedSubjects,
     discoverBadge, discoverBadgeColor,
     mathsBadge, mathsBadgeColor,
     readingBadge, readingBadgeColor,
-    showLifeSkills, showAfrikaans, showSocialSciences, showNst, showMatricPhysSci,
+    showLifeSkills, showAfrikaans, showSocialSciences, showNst, physSciCardId,
     showMathsLiteracy, mathsLiteracyBadge, mathsLiteracyMastered,
     showLifeSciences,
     showHistory,
     showBusinessStudies,
+    showAccounting,
+    showEconomics,
     showTourism,
     showGeography,
+    showNaturalSciencesSp,
+    showSocialSciencesSp,
+    showEmsSp,
+    showTechnologySp,
+    showLifeOrientationSp,
+    showCreativeArtsSp,
   ]);
 
   // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
@@ -564,7 +870,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         return (
           <AfrikaansSkillTreeView
             onPickSkill={startAfrikaansSkill}
-            profile={null}
+            profile={afrikaansProfile}
+            compact
           />
         );
       case "social-sciences":
@@ -583,6 +890,10 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         );
       case "matric-phys-sci":
         return <MatricPhysSciSkillTreeView onPickSkill={() => onNavigate("matric-phys-sci")} compact />;
+      case "grade-10-phys-sci":
+        return <MatricPhysSciSkillTreeView grade={10} onPickSkill={() => onNavigate("grade-10-phys-sci")} compact />;
+      case "grade-11-phys-sci":
+        return <MatricPhysSciSkillTreeView grade={11} onPickSkill={() => onNavigate("grade-11-phys-sci")} compact />;
       case "maths-literacy":
         return (
           <MathsLiteracySkillTreeView
@@ -618,6 +929,22 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             compact
           />
         );
+      case "accounting":
+        return (
+          <AccountingSkillTreeView
+            onPickSkill={startContentSkill("accounting", "ruby_accounting_target_skill")}
+            profile={accountingProfile}
+            compact
+          />
+        );
+      case "economics":
+        return (
+          <EconomicsSkillTreeView
+            onPickSkill={startContentSkill("economics", "ruby_economics_target_skill")}
+            profile={economicsProfile}
+            compact
+          />
+        );
       case "tourism":
         return (
           <TourismSkillTreeView
@@ -634,10 +961,65 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             compact
           />
         );
+      case "natural-sciences-sp":
+        return (
+          <NaturalSciencesSpSkillTreeView
+            onPickSkill={startContentSkill("natural-sciences-sp", "ruby_natural_sciences_sp_target_skill")}
+            profile={naturalSciencesSpProfile}
+            compact
+          />
+        );
+      case "social-sciences-sp":
+        return (
+          <SocialSciencesSpSkillTreeView
+            onPickSkill={startContentSkill("social-sciences-sp", "ruby_social_sciences_sp_target_skill")}
+            profile={socialSciencesSpProfile}
+            compact
+          />
+        );
+      case "ems-sp":
+        return (
+          <EmsSpSkillTreeView
+            onPickSkill={startContentSkill("ems-sp", "ruby_ems_sp_target_skill")}
+            profile={emsSpProfile}
+            compact
+          />
+        );
+      case "technology-sp":
+        return (
+          <TechnologySpSkillTreeView
+            onPickSkill={startContentSkill("technology-sp", "ruby_technology_sp_target_skill")}
+            profile={technologySpProfile}
+            compact
+          />
+        );
+      case "life-orientation-sp":
+        return (
+          <LifeOrientationSpSkillTreeView
+            onPickSkill={startContentSkill("life-orientation-sp", "ruby_life_orientation_sp_target_skill")}
+            profile={lifeOrientationSpProfile}
+            compact
+          />
+        );
+      case "creative-arts-sp":
+        return (
+          <CreativeArtsSpSkillTreeView
+            onPickSkill={startContentSkill("creative-arts-sp", "ruby_creative_arts_sp_target_skill")}
+            profile={creativeArtsSpProfile}
+            compact
+          />
+        );
       default:
         return null;
     }
   }
+
+  // FET learners (Gr 10–12) with no saved subject selection are gated into
+  // picking before the hub opens. While the grade / saved subjects are still
+  // resolving we wait (skeleton) rather than flashing the wrong content or the
+  // gate prematurely. Grades 1–9 and learners with a saved selection skip both.
+  const needsSubjectChoice = isFetGrade(grade) && !selectedSubjects;
+  const waitingForGrade = loading && (!gradeKnown || needsSubjectChoice);
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
@@ -651,24 +1033,53 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             <p className="text-gray-500 text-sm mt-0.5">{t("subjects.subtitle")}</p>
           </div>
 
-          {/* Each subject's skill tree is centred in a single column that lines
-              up with the chat window. The subject thumbnail + name now live in
-              the tree's own header (passed via HubTreeContext, like Ruby's chat
-              avatar), so there's no separate left-hand card. Every embedded tree
-              renders in its hub presentation: rounded header, current section
-              only by default. */}
-          <div className="max-w-3xl mx-auto space-y-6">
-            {subjects.map((s, i) => (
-              <HubTreeContext.Provider
-                key={s.id}
-                value={{ inHub: true, thumbnail: s.thumbnail, emoji: s.placeholderEmoji, label: s.label }}
-              >
-                <section className="min-w-0">
-                  <LazyMount eager={i < 2}>{renderSubjectPanel(s)}</LazyMount>
-                </section>
-              </HubTreeContext.Provider>
-            ))}
-          </div>
+          {waitingForGrade ? (
+            /* Until the learner's grade (and saved subjects) resolve, show a
+               skeleton rather than the fail-open "every subject" list — which
+               would otherwise flash the wrong grades + a duplicated Physical
+               Sciences before settling. */
+            <div className="max-w-4xl mx-auto space-y-6" aria-hidden>
+              {[0, 1, 2].map((i) => (
+                <div key={i} className="h-40 rounded-2xl bg-gray-200/60 animate-pulse" />
+              ))}
+            </div>
+          ) : needsSubjectChoice ? (
+            /* FET learners (Gr 10–12) must pick their subjects before the hub
+               opens, so it only ever shows the subjects they actually take. The
+               picker appears as a non-dismissible popup (like the in-app
+               tutorial) over a soft skeleton — not as a card on the page. On
+               save it fires SUBJECTS_UPDATED_EVENT, which clears this gate. */
+            <>
+              <div className="max-w-4xl mx-auto space-y-6" aria-hidden>
+                {[0, 1, 2].map((i) => (
+                  <div key={i} className="h-40 rounded-2xl bg-gray-200/60 animate-pulse" />
+                ))}
+              </div>
+              <EditSubjectsModal
+                initial={selectedSubjects}
+                dismissible={false}
+                onClose={() => { /* closes itself once the save fires SUBJECTS_UPDATED_EVENT */ }}
+              />
+            </>
+          ) : (
+            /* Each subject renders as a self-contained two-column unit (enlarged
+               thumbnail + stat-line on the left, skill-tree card on the right) —
+               that whole layout lives in SkillTreeShell's hub mode, so every
+               subject's tree looks identical. The thumbnail, emoji fallback and
+               subject name are handed down via HubTreeContext. */
+            <div className="max-w-4xl mx-auto space-y-6">
+              {subjects.map((s, i) => (
+                <HubTreeContext.Provider
+                  key={s.id}
+                  value={{ inHub: true, thumbnail: s.thumbnail, emoji: s.placeholderEmoji, label: s.label, accentFrom: s.accentFrom, accentTo: s.accentTo }}
+                >
+                  <section className="min-w-0">
+                    <LazyMount eager={i < 2}>{renderSubjectPanel(s)}</LazyMount>
+                  </section>
+                </HubTreeContext.Provider>
+              ))}
+            </div>
+          )}
 
         </div>
       </div>

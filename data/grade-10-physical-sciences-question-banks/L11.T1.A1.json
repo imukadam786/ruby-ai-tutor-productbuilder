@@ -1,0 +1,381 @@
+{
+  "skill": "L11.T1.A1",
+  "skill_title": "Apply atomic structure: protons, neutrons, electrons, isotopes and nuclide notation",
+  "grades": [
+    10
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L11.T1.A1.q01",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does the atomic number (Z) of an element tell you?",
+      "answerMode": "choice",
+      "expectedAnswer": "The number of protons in the nucleus.",
+      "marks": 2,
+      "explanation": "The atomic number Z is the number of protons (and equals the electrons in a neutral atom).",
+      "errorSignals": [
+        "ERR_ATOMIC_NUMBER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The number of protons in the nucleus.",
+        "The number of neutrons.",
+        "The total number of protons and neutrons."
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q02",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does the mass number (A) of an atom represent?",
+      "answerMode": "choice",
+      "expectedAnswer": "The total number of protons and neutrons.",
+      "marks": 2,
+      "explanation": "Mass number A = protons + neutrons (the nucleons).",
+      "errorSignals": [
+        "ERR_MASS_NUMBER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The number of electrons only.",
+        "The total number of protons and neutrons.",
+        "The number of protons only."
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q03",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How do you calculate the number of neutrons in an atom?",
+      "answerMode": "choice",
+      "expectedAnswer": "Neutrons = A − Z (mass number minus atomic number).",
+      "marks": 2,
+      "explanation": "Since A = protons + neutrons and Z = protons, neutrons = A − Z.",
+      "errorSignals": [
+        "ERR_NEUTRON_CALC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Neutrons = A + Z.",
+        "Neutrons = Z − A.",
+        "Neutrons = A − Z (mass number minus atomic number)."
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q04",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "An atom has atomic number 11 and mass number 23. How many protons does it have?",
+      "answerMode": "numeric",
+      "expectedAnswer": 11,
+      "tolerance": 0.05,
+      "unit": "protons",
+      "marks": 3,
+      "explanation": "The atomic number gives the protons directly: 11.",
+      "errorSignals": [
+        "ERR_ATOMIC_NUMBER"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q05",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "An atom has atomic number 11 and mass number 23. How many neutrons does it have?",
+      "answerMode": "numeric",
+      "expectedAnswer": 12,
+      "tolerance": 0.05,
+      "unit": "neutrons",
+      "marks": 3,
+      "explanation": "Neutrons = A − Z = 23 − 11 = 12.",
+      "errorSignals": [
+        "ERR_NEUTRON_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q06",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many electrons are in a neutral atom with atomic number 8?",
+      "answerMode": "numeric",
+      "expectedAnswer": 8,
+      "tolerance": 0.05,
+      "unit": "electrons",
+      "marks": 3,
+      "explanation": "A neutral atom has equal protons and electrons, so electrons = Z = 8.",
+      "errorSignals": [
+        "ERR_NEUTRAL_ELECTRONS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q07",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What are isotopes?",
+      "answerMode": "choice",
+      "expectedAnswer": "Atoms of the same element with the same protons but different numbers of neutrons.",
+      "marks": 2,
+      "explanation": "Isotopes share the atomic number (protons) but differ in neutrons (and so mass number).",
+      "errorSignals": [
+        "ERR_ISOTOPE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Atoms of the same element with the same protons but different numbers of neutrons.",
+        "Atoms with different numbers of protons.",
+        "Atoms with different numbers of electrons."
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q08",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In the nuclide notation ²³₁₁Na, what does the 11 represent?",
+      "answerMode": "choice",
+      "expectedAnswer": "The atomic number (number of protons).",
+      "marks": 2,
+      "explanation": "The lower number is the atomic number Z = 11 (protons).",
+      "errorSignals": [
+        "ERR_NUCLIDE_NOTATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The number of neutrons.",
+        "The atomic number (number of protons).",
+        "The mass number."
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q09",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In the nuclide notation ³⁵₁₇Cl, what does the 35 represent?",
+      "answerMode": "choice",
+      "expectedAnswer": "The mass number (protons + neutrons).",
+      "marks": 2,
+      "explanation": "The upper number is the mass number A = 35.",
+      "errorSignals": [
+        "ERR_NUCLIDE_NOTATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The number of protons.",
+        "The number of electrons.",
+        "The mass number (protons + neutrons)."
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q10",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two isotopes of carbon are carbon-12 and carbon-14. How do they differ?",
+      "answerMode": "choice",
+      "expectedAnswer": "Carbon-14 has two more neutrons than carbon-12.",
+      "marks": 2,
+      "explanation": "Isotopes differ in neutrons only: 14 − 12 = 2 extra neutrons.",
+      "errorSignals": [
+        "ERR_ISOTOPE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Carbon-14 has two more neutrons than carbon-12.",
+        "Carbon-14 has two more protons.",
+        "Carbon-14 has two more electrons."
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q11",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An ion has 12 protons, 12 neutrons and 10 electrons. What is its charge?",
+      "answerMode": "choice",
+      "expectedAnswer": "2+",
+      "marks": 2,
+      "explanation": "Charge = protons − electrons = 12 − 10 = +2, so it is a 2+ ion.",
+      "errorSignals": [
+        "ERR_ION_CHARGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "2−",
+        "2+",
+        "0"
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q12",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A chlorine atom (Z = 17) gains one electron to become a chloride ion. What is its charge?",
+      "answerMode": "choice",
+      "expectedAnswer": "1−",
+      "marks": 2,
+      "explanation": "Gaining one electron gives one more negative charge: Cl⁻ (1−).",
+      "errorSignals": [
+        "ERR_ION_CHARGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1+",
+        "0",
+        "1−"
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q13",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An atom of an element has 19 protons and 20 neutrons. What is its mass number?",
+      "answerMode": "numeric",
+      "expectedAnswer": 39,
+      "tolerance": 0.05,
+      "marks": 3,
+      "explanation": "Mass number A = protons + neutrons = 19 + 20 = 39.",
+      "errorSignals": [
+        "ERR_MASS_NUMBER"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q14",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Chlorine has two isotopes: ³⁵Cl (75%) and ³⁷Cl (25%). What is its relative atomic mass?",
+      "answerMode": "numeric",
+      "expectedAnswer": 35.5,
+      "tolerance": 0.02,
+      "marks": 3,
+      "explanation": "Weighted average = (35 × 75 + 37 × 25)/100 = (2625 + 925)/100 = 35.5.",
+      "errorSignals": [
+        "ERR_RAM_WEIGHTED"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q15",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An element has isotopes of mass 10 (20%) and mass 11 (80%). What is its relative atomic mass?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10.8,
+      "tolerance": 0.02,
+      "marks": 3,
+      "explanation": "RAM = (10 × 20 + 11 × 80)/100 = (200 + 880)/100 = 10.8.",
+      "errorSignals": [
+        "ERR_RAM_WEIGHTED"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q16",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why do isotopes of the same element have identical chemical properties?",
+      "answerMode": "choice",
+      "expectedAnswer": "They have the same number of electrons (same electron arrangement).",
+      "marks": 2,
+      "explanation": "Chemistry depends on electrons; isotopes have the same electron arrangement, so they react the same.",
+      "errorSignals": [
+        "ERR_ISOTOPE_CHEMISTRY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They have the same number of electrons (same electron arrangement).",
+        "They have the same number of neutrons.",
+        "They have the same mass."
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q17",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An atom is represented as ⁴⁰₂₀Ca. How many neutrons does it have?",
+      "answerMode": "numeric",
+      "expectedAnswer": 20,
+      "tolerance": 0.05,
+      "unit": "neutrons",
+      "marks": 3,
+      "explanation": "Neutrons = A − Z = 40 − 20 = 20.",
+      "errorSignals": [
+        "ERR_NEUTRON_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q18",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A sodium atom (Z = 11) loses one electron to form Na⁺. How many electrons does the ion have?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.05,
+      "unit": "electrons",
+      "marks": 3,
+      "explanation": "Neutral Na has 11 electrons; losing one leaves 10.",
+      "errorSignals": [
+        "ERR_ION_ELECTRONS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q19",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is the relative atomic mass of chlorine 35.5 and not a whole number?",
+      "answerMode": "choice",
+      "expectedAnswer": "It is a weighted average of its isotopes' masses and abundances.",
+      "marks": 2,
+      "explanation": "Relative atomic mass averages the isotope masses by abundance, often giving a non-integer.",
+      "errorSignals": [
+        "ERR_RAM_WEIGHTED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It is a weighted average of its isotopes' masses and abundances.",
+        "Chlorine atoms each weigh 35.5.",
+        "It has 35.5 neutrons."
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q20",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An oxide ion O²⁻ comes from an oxygen atom (Z = 8). How many electrons does the ion have?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.05,
+      "unit": "electrons",
+      "marks": 3,
+      "explanation": "Neutral O has 8 electrons; gaining 2 to form O²⁻ gives 10 electrons.",
+      "errorSignals": [
+        "ERR_ION_ELECTRONS"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

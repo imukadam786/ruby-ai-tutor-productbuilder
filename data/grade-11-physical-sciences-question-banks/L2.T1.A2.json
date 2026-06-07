@@ -1,0 +1,380 @@
+{
+  "skill": "L2.T1.A2",
+  "skill_title": "Apply Newton's laws to connected bodies, inclined planes and friction",
+  "grades": [
+    11
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L2.T1.A2.q01",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "On a frictionless inclined plane, what is the component of weight acting DOWN the slope?",
+      "answerMode": "choice",
+      "expectedAnswer": "mg sinθ",
+      "marks": 2,
+      "explanation": "The down-slope component of weight is mg sinθ (θ measured from the horizontal).",
+      "errorSignals": [
+        "ERR_INCLINE_PARALLEL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "mg sinθ",
+        "mg cosθ",
+        "mg"
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q02",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "On an inclined plane, what is the component of weight PERPENDICULAR to the slope?",
+      "answerMode": "choice",
+      "expectedAnswer": "mg cosθ",
+      "marks": 2,
+      "explanation": "The perpendicular component (equal to the normal force) is mg cosθ.",
+      "errorSignals": [
+        "ERR_INCLINE_PERPENDICULAR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "mg sinθ",
+        "mg cosθ",
+        "mg"
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q03",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation gives the friction force?",
+      "answerMode": "choice",
+      "expectedAnswer": "f = μN",
+      "marks": 2,
+      "explanation": "Friction force = coefficient of friction × normal force: f = μN.",
+      "errorSignals": [
+        "ERR_FRICTION_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "f = μ/N",
+        "f = N/μ",
+        "f = μN"
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q04",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does the normal force equal for an object on a horizontal surface (no vertical applied force)?",
+      "answerMode": "choice",
+      "expectedAnswer": "The object's weight, N = mg.",
+      "marks": 2,
+      "explanation": "On a flat surface with no extra vertical force, the normal force balances the weight: N = mg.",
+      "errorSignals": [
+        "ERR_NORMAL_FORCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The object's weight, N = mg.",
+        "Zero.",
+        "The friction force."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q05",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Kinetic friction acts when an object is...",
+      "answerMode": "choice",
+      "expectedAnswer": "moving (sliding).",
+      "marks": 2,
+      "explanation": "Kinetic (sliding) friction acts while an object moves; static friction acts before it slides.",
+      "errorSignals": [
+        "ERR_STATIC_KINETIC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "stationary.",
+        "moving (sliding).",
+        "about to start moving only."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q06",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 4 kg block on a horizontal surface has μ = 0.3. What is the kinetic friction force? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 11.76,
+      "tolerance": 0.1,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "N = mg = 4 × 9.8 = 39.2 N; f = μN = 0.3 × 39.2 = 11.76 N.",
+      "errorSignals": [
+        "ERR_FRICTION_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q07",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In connected bodies joined by a single inextensible string, the tension is...",
+      "answerMode": "choice",
+      "expectedAnswer": "the same throughout the string.",
+      "marks": 2,
+      "explanation": "A single light inextensible string has the same tension throughout.",
+      "errorSignals": [
+        "ERR_TENSION_STRING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the same throughout the string.",
+        "different at each end.",
+        "zero everywhere."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q08",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two blocks (2 kg and 3 kg) are connected and pulled together. To find their shared acceleration, treat them as...",
+      "answerMode": "choice",
+      "expectedAnswer": "a single system of total mass 5 kg.",
+      "marks": 2,
+      "explanation": "For shared acceleration, treat connected bodies as one combined mass (2 + 3 = 5 kg).",
+      "errorSignals": [
+        "ERR_SYSTEM_MASS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "two separate independent masses.",
+        "a single system of total mass 5 kg.",
+        "one mass of 1 kg."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q09",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 10 N down-slope force acts on a block held still on a slope. What is the static friction force?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "If the block is stationary, static friction balances the down-slope force: 10 N up the slope.",
+      "errorSignals": [
+        "ERR_STATIC_EQUILIBRIUM"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q10",
+      "skill": "L2.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why does increasing the angle of an incline increase the tendency of a block to slide?",
+      "answerMode": "choice",
+      "expectedAnswer": "The down-slope component mg sinθ increases with θ.",
+      "marks": 2,
+      "explanation": "As θ rises, mg sinθ (down-slope force) increases while mg cosθ (and friction) decreases, so it slides more easily.",
+      "errorSignals": [
+        "ERR_INCLINE_PARALLEL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The down-slope component mg sinθ increases with θ.",
+        "The normal force increases with θ.",
+        "The weight increases with θ."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q11",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 5 kg block on a 30° frictionless incline. What is its acceleration down the slope? (g = 9.8 m·s⁻², sin30° = 0.5)",
+      "answerMode": "numeric",
+      "expectedAnswer": 4.9,
+      "tolerance": 0.05,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "a = g sinθ = 9.8 × 0.5 = 4.9 m·s⁻² (mass cancels on a frictionless incline).",
+      "errorSignals": [
+        "ERR_INCLINE_ACCEL"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q12",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 2 kg and a 3 kg block are connected by a string and pulled by 20 N on a frictionless surface. What is their acceleration?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "Treat as one system: a = F/(m₁+m₂) = 20/(2+3) = 4 m·s⁻².",
+      "errorSignals": [
+        "ERR_SYSTEM_MASS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q13",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "For the 2 kg and 3 kg connected blocks above (a = 4 m·s⁻², 20 N pulling the 3 kg block), what is the tension in the string pulling the 2 kg block?",
+      "answerMode": "numeric",
+      "expectedAnswer": 8,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "Isolate the 2 kg block: T = m₁a = 2 × 4 = 8 N.",
+      "errorSignals": [
+        "ERR_TENSION_ISOLATE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q14",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 6 kg block on a horizontal surface (μ = 0.2) is pushed with 30 N. What is its acceleration? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 3.04,
+      "tolerance": 0.1,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "f = μmg = 0.2 × 6 × 9.8 = 11.76 N; Fnet = 30 − 11.76 = 18.24 N; a = 18.24/6 = 3.04 m·s⁻².",
+      "errorSignals": [
+        "ERR_FRICTION_NET"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q15",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A block on a 20° incline is on the verge of sliding. What does the coefficient of static friction equal? (tan20° = 0.364)",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.364,
+      "tolerance": 0.02,
+      "marks": 3,
+      "explanation": "On the verge of sliding, μs = tanθ = tan20° = 0.364.",
+      "errorSignals": [
+        "ERR_INCLINE_FRICTION"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q16",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is the normal force on a slope LESS than the object's weight?",
+      "answerMode": "choice",
+      "expectedAnswer": "The normal force equals only mg cosθ, the perpendicular component.",
+      "marks": 2,
+      "explanation": "On a slope the surface only supports the perpendicular component, N = mg cosθ < mg.",
+      "errorSignals": [
+        "ERR_INCLINE_PERPENDICULAR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The normal force equals only mg cosθ, the perpendicular component.",
+        "The normal force equals mg sinθ.",
+        "The weight decreases on a slope."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q17",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 4 kg block on a 30° incline with friction force 5 N. What is its acceleration down the slope? (g = 9.8 m·s⁻², sin30° = 0.5)",
+      "answerMode": "numeric",
+      "expectedAnswer": 3.65,
+      "tolerance": 0.1,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "Fnet = mg sinθ − f = (4 × 9.8 × 0.5) − 5 = 19.6 − 5 = 14.6 N; a = 14.6/4 = 3.65 m·s⁻².",
+      "errorSignals": [
+        "ERR_INCLINE_NET_FORCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q18",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two masses hang over a frictionless pulley: 3 kg and 5 kg (Atwood machine). What is the acceleration of the system? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 2.45,
+      "tolerance": 0.05,
+      "unit": "m·s⁻²",
+      "marks": 3,
+      "explanation": "a = (m₂−m₁)g/(m₁+m₂) = (5−3)(9.8)/(3+5) = 19.6/8 = 2.45 m·s⁻².",
+      "errorSignals": [
+        "ERR_ATWOOD"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A2.q19",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is static friction able to take a range of values up to a maximum?",
+      "answerMode": "choice",
+      "expectedAnswer": "It adjusts to balance the applied force until the object is on the verge of slipping.",
+      "marks": 2,
+      "explanation": "Static friction matches the applied force up to f_max = μsN, then the object slips.",
+      "errorSignals": [
+        "ERR_STATIC_FRICTION_RANGE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It adjusts to balance the applied force until the object is on the verge of slipping.",
+        "It is always at its maximum value.",
+        "It is always zero until movement begins."
+      ]
+    },
+    {
+      "id": "L2.T1.A2.q20",
+      "skill": "L2.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 2 kg block sits on top of a 3 kg block; the lower block is pulled so both accelerate together at 2 m·s⁻². What net force acts on the TOP block?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "N",
+      "marks": 3,
+      "explanation": "For the top block alone: Fnet = ma = 2 × 2 = 4 N (provided by friction from the lower block).",
+      "errorSignals": [
+        "ERR_STACKED_BLOCKS"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

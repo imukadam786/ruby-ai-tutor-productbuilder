@@ -1,3 +1,4 @@
+import { withRubies } from "@/lib/with-rubies";
 import { NextRequest, NextResponse } from "next/server";
 import { getMathsLiteracySkillById } from "@/lib/maths-literacy-student-model";
 import type {
@@ -10,24 +11,43 @@ import type {
 import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
 
 // ─── Number parsing (SA decimal-comma aware) ────────────────────────────────
-// "R5 400"   → 5400
-// "5,4"      → 5.4
-// "59,5%"    → 59.5
-// "R1 234,56"→ 1234.56
-// "1,234.56" → 1234.56 (US fallback: comma = thousands when point present)
+// "R5 400"    → 5400
+// "5,4"       → 5.4
+// "59,5%"     → 59.5
+// "R1 234,56" → 1234.56
+// "1,234.56"  → 1234.56   (US: comma = thousands when a point is also present)
+// "4 200 000" → 4200000   (SA thousands grouping with spaces)
+// "4,200,000" → 4200000   (US thousands grouping — multiple commas, no point)
 function parseNumber(raw: string | number | null | undefined): number | null {
   if (raw == null) return null;
   if (typeof raw === "number") return Number.isFinite(raw) ? raw : null;
   let s = String(raw).trim();
   if (!s) return null;
+  // Normalise unicode minus / dashes to ASCII "-".
+  s = s.replace(/[−‒–—－]/g, "-");
   // Strip common unit/currency markers and whitespace (incl. NBSP and SA thousands space)
   s = s.replace(/[Rr$€£%]/g, "").replace(/\s+/g, "").replace(/[a-zA-Zµ°]+$/g, "");
-  if (s.includes(".") && s.includes(",")) {
-    // Both present — treat comma as thousands separator (US format)
-    s = s.replace(/,/g, "");
-  } else if (s.includes(",") && !s.includes(".")) {
-    // Decimal comma (SA convention)
-    s = s.replace(",", ".");
+  if (!s) return null;
+  const hasDot = s.includes(".");
+  const hasComma = s.includes(",");
+  if (hasDot && hasComma) {
+    // Both present — the LAST separator is the decimal point; the other groups
+    // thousands. ("1,234.56" → 1234.56  and  "1.234,56" → 1234.56)
+    if (s.lastIndexOf(",") > s.lastIndexOf(".")) {
+      s = s.replace(/\./g, "").replace(",", ".");
+    } else {
+      s = s.replace(/,/g, "");
+    }
+  } else if (hasComma) {
+    // Only commas. A single comma followed by anything other than exactly three
+    // digits is a decimal comma (SA: "5,4", "8699,00"). Multiple commas, or one
+    // comma + a 3-digit group ("4,200,000", "4,200"), is thousands grouping.
+    const parts = s.split(",");
+    if (parts.length === 2 && parts[1].length !== 3) {
+      s = s.replace(",", ".");
+    } else {
+      s = s.replace(/,/g, "");
+    }
   }
   const n = parseFloat(s);
   return Number.isFinite(n) ? n : null;
@@ -46,7 +66,9 @@ interface AnswerKey {
 function checkNumeric(studentRaw: string, expected: number, tolerance: number): boolean {
   const student = parseNumber(studentRaw);
   if (student === null) return false;
-  return Math.abs(student - expected) <= tolerance;
+  // Floor the tolerance with a tiny epsilon so exact-match answers aren't
+  // rejected by floating-point rounding (e.g. 0.1 + 0.2).
+  return Math.abs(student - expected) <= Math.max(tolerance, 1e-9);
 }
 
 function normaliseChoice(s: string): string {
@@ -96,7 +118,7 @@ function formatExpectedForFeedback(key: AnswerKey): string {
     .join("; ");
 }
 
-export async function POST(req: NextRequest) {
+async function handler(req: NextRequest) {
   try {
     const submission: MathsLiteracySubmitRequest = await req.json();
 
@@ -203,3 +225,5 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Failed to process answer" }, { status: 500 });
   }
 }
+
+export const POST = withRubies("maths-literacy", handler);

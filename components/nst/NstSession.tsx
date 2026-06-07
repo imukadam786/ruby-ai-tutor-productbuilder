@@ -1,4 +1,6 @@
 "use client";
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
+import RubyLoader from "@/components/RubyLoader";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { apiFetch } from "@/lib/fetch";
@@ -355,6 +357,9 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
             correct: nextCorrect,
             accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
+          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+          rewardEffortFloor("natural-sciences-tech", skillId);
+          if (didMaster) rewardSkillMastered("natural-sciences-tech", skillId);
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {
@@ -419,7 +424,7 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
     return (
       <div className="relative flex items-center justify-center h-full bg-[#F4F4F5]">
         <EduBackground />
-        <p className="relative text-gray-500 text-lg">Loading…</p>
+        <RubyLoader className="relative" label="Loading…" />
       </div>
     );
   }

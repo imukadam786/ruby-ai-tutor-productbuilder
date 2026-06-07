@@ -1,0 +1,372 @@
+{
+  "skill": "L2.T1.A1",
+  "skill_title": "Calculate gravitational potential energy and kinetic energy",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L2.T1.A1.q01",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which formula gives gravitational potential energy?",
+      "answerMode": "choice",
+      "expectedAnswer": "Ep = mgh",
+      "marks": 2,
+      "explanation": "Gravitational potential energy depends on mass, gravity and height: Ep = mgh.",
+      "errorSignals": [
+        "ERR_EP_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ep = mgh",
+        "Ep = ½mv²",
+        "Ep = mv"
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q02",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which formula gives kinetic energy?",
+      "answerMode": "choice",
+      "expectedAnswer": "Ek = ½mv²",
+      "marks": 2,
+      "explanation": "Kinetic energy is Ek = ½mv² — note the speed is squared.",
+      "errorSignals": [
+        "ERR_EK_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Ek = mgh",
+        "Ek = ½mv²",
+        "Ek = ½mv"
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q03",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 2 kg book is lifted to a shelf 1.5 m high. What is its gravitational potential energy? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 29.4,
+      "tolerance": 0.1,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "Ep = mgh = 2 × 9.8 × 1.5 = 29.4 J.",
+      "errorSignals": [
+        "ERR_EP_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q04",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 4 kg object moves at 3 m·s⁻¹. What is its kinetic energy?",
+      "answerMode": "numeric",
+      "expectedAnswer": 18,
+      "tolerance": 0.05,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "Ek = ½mv² = ½ × 4 × 3² = ½ × 4 × 9 = 18 J.",
+      "errorSignals": [
+        "ERR_EK_SQUARE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q05",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 1 kg ball is held 5 m above the ground. What is its gravitational potential energy? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 49,
+      "tolerance": 0.1,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "Ep = mgh = 1 × 9.8 × 5 = 49 J.",
+      "errorSignals": [
+        "ERR_EP_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q06",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "If the speed of a moving object doubles, what happens to its kinetic energy?",
+      "answerMode": "choice",
+      "expectedAnswer": "It becomes four times larger.",
+      "marks": 2,
+      "explanation": "Ek = ½mv²; doubling v multiplies v² by 4, so Ek becomes 4 times larger.",
+      "errorSignals": [
+        "ERR_EK_DOUBLING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It doubles.",
+        "It stays the same.",
+        "It becomes four times larger."
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q07",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 3 kg object moves at 2 m·s⁻¹. What is its kinetic energy?",
+      "answerMode": "numeric",
+      "expectedAnswer": 6,
+      "tolerance": 0.05,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "Ek = ½mv² = ½ × 3 × 2² = ½ × 3 × 4 = 6 J.",
+      "errorSignals": [
+        "ERR_EK_SQUARE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q08",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What happens to an object's gravitational potential energy as it is lifted higher (at constant g)?",
+      "answerMode": "choice",
+      "expectedAnswer": "It increases.",
+      "marks": 2,
+      "explanation": "Ep = mgh, so increasing the height h increases the potential energy.",
+      "errorSignals": [
+        "ERR_EP_HEIGHT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It decreases.",
+        "It increases.",
+        "It stays the same."
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q09",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Where is an object's gravitational potential energy taken as zero?",
+      "answerMode": "choice",
+      "expectedAnswer": "At the chosen reference level.",
+      "marks": 2,
+      "explanation": "Ep is measured relative to a chosen zero (reference) level; heights are measured from there.",
+      "errorSignals": [
+        "ERR_EP_REFERENCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "At the top of its motion.",
+        "At the centre of the Earth always.",
+        "At the chosen reference level."
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q10",
+      "skill": "L2.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 6 kg mass rests on the ground (taken as h = 0). What is its gravitational potential energy relative to the ground?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0,
+      "tolerance": 0.01,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "At the reference level h = 0, so Ep = mgh = 0 J.",
+      "errorSignals": [
+        "ERR_EP_REFERENCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q11",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 0.5 kg ball is thrown so that its kinetic energy is 25 J. What is its speed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "Ek = ½mv² ⇒ 25 = ½(0.5)v² ⇒ v² = 100 ⇒ v = 10 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_EK_SOLVE_V"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q12",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An object has 360 J of gravitational potential energy at a height of 6 m. What is its mass? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 6.12,
+      "tolerance": 0.1,
+      "unit": "kg",
+      "marks": 3,
+      "explanation": "Ep = mgh ⇒ m = Ep/(gh) = 360/(9.8 × 6) = 360/58.8 = 6.12 kg.",
+      "errorSignals": [
+        "ERR_EP_SOLVE_M"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q13",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 2 kg ball is dropped and just before it lands it moves at 8 m·s⁻¹. What is its kinetic energy at that moment?",
+      "answerMode": "numeric",
+      "expectedAnswer": 64,
+      "tolerance": 0.05,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "Ek = ½mv² = ½ × 2 × 8² = ½ × 2 × 64 = 64 J.",
+      "errorSignals": [
+        "ERR_EK_SQUARE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q14",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 10 kg crate is lifted from the floor to a height of 2 m, then to 4 m. By how much does its potential energy change between 2 m and 4 m? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 196,
+      "tolerance": 0.5,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "ΔEp = mg(h₂ − h₁) = 10 × 9.8 × (4 − 2) = 196 J.",
+      "errorSignals": [
+        "ERR_EP_CHANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q15",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Object A has mass 2 kg moving at 4 m·s⁻¹. Object B has mass 4 kg moving at 2 m·s⁻¹. Which has more kinetic energy?",
+      "answerMode": "choice",
+      "expectedAnswer": "Object A",
+      "marks": 2,
+      "explanation": "A: ½(2)(4²) = 16 J. B: ½(4)(2²) = 8 J. A has more because speed is squared.",
+      "errorSignals": [
+        "ERR_EK_SQUARE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Object B",
+        "They are equal",
+        "Object A"
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q16",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 1.5 kg object moving at 6 m·s⁻¹ is at a height of 3 m. What is its kinetic energy? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 27,
+      "tolerance": 0.05,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "Ek = ½mv² = ½ × 1.5 × 36 = 27 J (height is not needed for kinetic energy).",
+      "errorSignals": [
+        "ERR_EK_USES_HEIGHT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q17",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 1.5 kg object moving at 6 m·s⁻¹ is at a height of 3 m. What is its gravitational potential energy? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 44.1,
+      "tolerance": 0.2,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "Ep = mgh = 1.5 × 9.8 × 3 = 44.1 J (speed is not needed for potential energy).",
+      "errorSignals": [
+        "ERR_EP_USES_SPEED"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q18",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two identical balls are at the same height, but ball X has twice the mass of ball Y. How do their potential energies compare?",
+      "answerMode": "choice",
+      "expectedAnswer": "Ball X has twice the potential energy.",
+      "marks": 2,
+      "explanation": "Ep = mgh; at the same h and g, doubling the mass doubles Ep.",
+      "errorSignals": [
+        "ERR_EP_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They are equal.",
+        "Ball Y has twice the potential energy.",
+        "Ball X has twice the potential energy."
+      ]
+    },
+    {
+      "id": "L2.T1.A1.q19",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 2 kg ball has 100 J of kinetic energy. What is its speed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 10,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "Ek = ½mv² ⇒ 100 = ½(2)v² ⇒ v² = 100 ⇒ v = 10 m·s⁻¹.",
+      "errorSignals": [
+        "ERR_EK_SOLVE_V"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L2.T1.A1.q20",
+      "skill": "L2.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A crane does work to lift a 50 kg load 8 m at constant velocity. How much gravitational potential energy does the load gain? (g = 9.8 m·s⁻²)",
+      "answerMode": "numeric",
+      "expectedAnswer": 3920,
+      "tolerance": 1,
+      "unit": "J",
+      "marks": 3,
+      "explanation": "ΔEp = mgh = 50 × 9.8 × 8 = 3920 J.",
+      "errorSignals": [
+        "ERR_EP_FORMULA"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

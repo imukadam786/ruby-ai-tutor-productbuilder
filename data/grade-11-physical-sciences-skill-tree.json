@@ -1,0 +1,578 @@
+{
+  "version": "1.0",
+  "subject": "grade-11-physical-sciences",
+  "description": "Grade 11 Physical Sciences skill tree (CAPS FET). 15 levels (one per CAPS topic) split across Physics (P1) and Chemistry (P2), covering the six CAPS knowledge areas: Mechanics, Waves/Sound/Light, Electricity & Magnetism, Matter & Materials, Chemical Change, Chemical Systems. 24 atomic skills. Tap-native bank (choice / numeric / sequence — no free-text). Items live in data/grade-11-physical-sciences-question-banks/<skill-id>.json.",
+  "grades_covered": [11],
+  "levels": [
+    {
+      "id": 1,
+      "title": "Vectors in Two Dimensions",
+      "paper": "P1",
+      "description": "Resultant of perpendicular vectors (graphically and by Pythagoras/trigonometry) and resolving a vector into perpendicular components.",
+      "tiers": [
+        {
+          "id": "L1.T1",
+          "title": "Vectors in two dimensions",
+          "atomic_skills": [
+            {
+              "id": "L1.T1.A1",
+              "title": "Find the resultant of perpendicular vectors and resolve a vector into components",
+              "description": "Calculate the magnitude and direction of the resultant of two perpendicular vectors using Pythagoras and trigonometry; resolve a single vector into its perpendicular (x and y) components.",
+              "prerequisites": [],
+              "templates": ["calculation", "diagram", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Adds perpendicular vector magnitudes directly instead of using Pythagoras", "example": "Says a 3 N and 4 N perpendicular pair give a 7 N resultant"},
+                {"type": "execution_slip", "description": "Swaps sin and cos when resolving components", "example": "Uses Fcosθ for the vertical component measured from the horizontal"},
+                {"type": "execution_slip", "description": "Omits the direction (angle) of the resultant", "example": "Gives the resultant as 5 N with no angle"},
+                {"type": "conceptual_gap", "description": "Resolves into components that do not add back to the original vector", "example": "Chooses components larger than the original vector"}
+              ],
+              "recovery_strategy": "For perpendicular vectors: resultant magnitude R = √(Ax² + Ay²); direction from tanθ = opposite/adjacent. To resolve: component along the angle = Fcosθ, perpendicular component = Fsinθ (θ measured from that axis). Components are always SMALLER than the original vector and must add back to it.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Newton's Laws and Application of Newton's Laws",
+      "paper": "P1",
+      "description": "Newton's three laws, free-body diagrams, friction (static and kinetic), single bodies, connected bodies and inclined planes, and Newton's Law of Universal Gravitation.",
+      "tiers": [
+        {
+          "id": "L2.T1",
+          "title": "Newton's laws and gravitation",
+          "atomic_skills": [
+            {
+              "id": "L2.T1.A1",
+              "title": "State Newton's laws, draw free-body diagrams and apply Fnet = ma to a single body",
+              "description": "State Newton's First, Second and Third Laws in CAPS wording and identify which applies; draw a free-body diagram showing all forces on one object; apply Fnet = ma to a single body on a horizontal or vertical surface (including weight, normal force, applied force and friction).",
+              "prerequisites": ["L1.T1.A1"],
+              "templates": ["definition", "diagram", "calculation", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Treats a Newton's Third Law pair as acting on the same body", "example": "Says the normal force and weight on a book are an action-reaction pair"},
+                {"type": "execution_slip", "description": "Uses weight instead of net force in Fnet = ma", "example": "Sets mg = ma for a block being pushed across a floor"},
+                {"type": "conceptual_gap", "description": "Includes a force the body exerts on something else in its FBD", "example": "Adds 'force of block on table' to the block's free-body diagram"},
+                {"type": "sign_error", "description": "Treats friction as acting in the direction of motion", "example": "Adds friction to the applied force"}
+              ],
+              "recovery_strategy": "1st law = no net force ⇒ velocity unchanged; 2nd law = Fnet = ma; 3rd law = equal, opposite forces on DIFFERENT bodies. On a free-body diagram draw only the forces acting ON the chosen object, from a single point. Sum forces along the direction of motion with consistent signs; friction always opposes motion.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L2.T1.A2",
+              "title": "Apply Newton's laws to connected bodies, inclined planes and friction",
+              "description": "Solve Fnet = ma problems for objects connected by strings/pulleys (shared acceleration, single tension) and for bodies on inclined planes; resolve weight into mg sinθ and mg cosθ; apply static and kinetic friction (f = μN).",
+              "prerequisites": ["L2.T1.A1"],
+              "templates": ["calculation", "diagram", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Uses mg as the down-slope force instead of mg sinθ", "example": "Sets the force along the incline equal to mg"},
+                {"type": "execution_slip", "description": "Swaps sin and cos for the incline components", "example": "Writes parallel component = mg cosθ"},
+                {"type": "strategy_gap", "description": "Solves one connected body in isolation without the system acceleration", "example": "Uses only one block's forces to find the shared acceleration"},
+                {"type": "conceptual_gap", "description": "Confuses static and kinetic friction or uses the wrong coefficient", "example": "Uses μ_k while the object is still stationary"}
+              ],
+              "recovery_strategy": "Connected bodies: treat the whole system as one mass to get acceleration, then isolate one body for the tension (same string ⇒ same tension). On an incline tilt your axes with the slope: down-slope weight component = mg sinθ, perpendicular = mg cosθ. Friction f = μN; static friction (μ_s) up to the point of slipping, kinetic (μ_k) once moving.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L2.T1.A3",
+              "title": "Apply Newton's Law of Universal Gravitation",
+              "description": "Use F = GMm/r² to find the gravitational force between two masses and analyse how it changes with mass or separation; relate weight to gravitational force and calculate g = GM/r²; distinguish mass and weight.",
+              "prerequisites": ["L2.T1.A1"],
+              "templates": ["calculation", "symbolic", "scenario"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Forgets to square r in F = GMm/r²", "example": "Writes F = GMm/r"},
+                {"type": "conceptual_gap", "description": "Doubles r and predicts the force halves", "example": "Predicts F → F/2 when separation doubles instead of F/4"},
+                {"type": "conceptual_gap", "description": "Says mass changes from planet to planet", "example": "States an astronaut's mass is less on the Moon"},
+                {"type": "execution_slip", "description": "Uses diameter instead of radius (distance from centre) for r", "example": "Substitutes a planet's diameter into g = GM/r²"}
+              ],
+              "recovery_strategy": "F = GMm/r² is an inverse-square law: r doubles ⇒ F divides by 4; r halves ⇒ F ×4. Mass stays the same everywhere; WEIGHT (w = mg) changes with g. g = GM/r² where r is measured from the CENTRE of the planet.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Geometrical Optics",
+      "paper": "P1",
+      "description": "Refraction of light, refractive index, Snell's Law, the critical angle and total internal reflection.",
+      "tiers": [
+        {
+          "id": "L3.T1",
+          "title": "Geometrical optics",
+          "atomic_skills": [
+            {
+              "id": "L3.T1.A1",
+              "title": "Apply refraction and Snell's Law",
+              "description": "Describe refraction in terms of change of speed at a boundary; define refractive index (n = c/v); apply Snell's Law n₁sinθ₁ = n₂sinθ₂ to find an unknown angle or refractive index; predict whether light bends towards or away from the normal.",
+              "prerequisites": [],
+              "templates": ["definition", "calculation", "diagram", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Measures the angle of incidence from the surface instead of the normal", "example": "Uses the angle between the ray and the boundary in Snell's Law"},
+                {"type": "conceptual_gap", "description": "Says light bends away from the normal when entering a denser medium", "example": "Predicts light bends away from the normal going from air into glass"},
+                {"type": "execution_slip", "description": "Inverts the refractive index n = c/v", "example": "Calculates n as v/c"},
+                {"type": "execution_slip", "description": "Mixes up which medium is n₁ and n₂", "example": "Swaps the two media in n₁sinθ₁ = n₂sinθ₂"}
+              ],
+              "recovery_strategy": "Angles are always measured from the NORMAL (perpendicular to the surface). Refractive index n = c/v ≥ 1 (denser medium = larger n, slower light). Entering a DENSER medium ⇒ light bends TOWARDS the normal; into a less dense medium ⇒ AWAY. Apply n₁sinθ₁ = n₂sinθ₂ with subscript 1 for the incident side.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L3.T1.A2",
+              "title": "Apply the critical angle and total internal reflection",
+              "description": "Define the critical angle and total internal reflection; calculate the critical angle using sinθc = n₂/n₁; state the two conditions for total internal reflection and apply it to optical fibres.",
+              "prerequisites": ["L3.T1.A1"],
+              "templates": ["definition", "calculation", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says total internal reflection happens going from a less dense to a denser medium", "example": "Predicts TIR when light passes from air into glass"},
+                {"type": "recall_slip", "description": "States only one of the two conditions for TIR", "example": "Says TIR needs only that the angle exceeds the critical angle"},
+                {"type": "execution_slip", "description": "Inverts the critical-angle ratio", "example": "Uses sinθc = n₁/n₂ instead of n₂/n₁"},
+                {"type": "conceptual_gap", "description": "Says light refracts out when the angle exceeds the critical angle", "example": "Predicts the ray still emerges at angles above θc"}
+              ],
+              "recovery_strategy": "Total internal reflection needs BOTH: light travelling from a denser to a less dense medium AND the angle of incidence greater than the critical angle. Critical angle: sinθc = n₂/n₁ (n₂ = less dense medium). Above θc, no light escapes — it all reflects internally (used in optical fibres).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "2D and 3D Wavefronts",
+      "paper": "P1",
+      "description": "Wavefronts, Huygens' principle and diffraction of waves through a single slit (qualitative).",
+      "tiers": [
+        {
+          "id": "L4.T1",
+          "title": "2D and 3D wavefronts",
+          "atomic_skills": [
+            {
+              "id": "L4.T1.A1",
+              "title": "Describe wavefronts, Huygens' principle and diffraction",
+              "description": "Define a wavefront; apply Huygens' principle (each point on a wavefront is a source of secondary wavelets); describe diffraction through a single slit and predict qualitatively how slit width and wavelength affect the amount of diffraction.",
+              "prerequisites": [],
+              "templates": ["definition", "diagram", "scenario", "comparison"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says a wider slit produces more diffraction", "example": "Predicts more spreading when the gap is made larger"},
+                {"type": "conceptual_gap", "description": "Says diffraction changes the wavelength of the wave", "example": "Claims the wave's wavelength increases after passing the slit"},
+                {"type": "recall_slip", "description": "Says diffraction only happens with light, not sound or water", "example": "States only light waves diffract"},
+                {"type": "conceptual_gap", "description": "Reverses the effect of wavelength on diffraction", "example": "Says shorter wavelength diffracts more for the same slit"}
+              ],
+              "recovery_strategy": "A wavefront joins points in phase; Huygens: every point on it acts as a source of new wavelets. Diffraction = waves spreading as they pass an edge/slit. MORE diffraction when the slit is NARROW or the wavelength is LONG (when slit width ≈ wavelength). The wavelength itself is unchanged. All waves diffract (water, sound, light).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Electrostatics",
+      "paper": "P1",
+      "description": "Coulomb's Law (force between point charges) and the electric field of point charges.",
+      "tiers": [
+        {
+          "id": "L5.T1",
+          "title": "Electrostatics",
+          "atomic_skills": [
+            {
+              "id": "L5.T1.A1",
+              "title": "Apply Coulomb's Law to the force between point charges",
+              "description": "Use F = kQ₁Q₂/r² to calculate the magnitude of the electrostatic force between two point charges and decide whether it is attractive or repulsive; analyse how the force changes when charge or separation changes.",
+              "prerequisites": [],
+              "templates": ["calculation", "symbolic", "scenario"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Forgets to square r in Coulomb's Law", "example": "Writes F = kQ₁Q₂/r"},
+                {"type": "sign_error", "description": "Treats a negative product of charges as a force direction", "example": "Reports F = -2 N and calls that the direction"},
+                {"type": "conceptual_gap", "description": "Doubles a charge and predicts the force doubles only if separation also changes", "example": "Cannot predict F when Q₁ doubles and r halves"},
+                {"type": "execution_slip", "description": "Leaves charges in microcoulombs without converting", "example": "Uses 5 instead of 5×10⁻⁶ C"}
+              ],
+              "recovery_strategy": "F = kQ₁Q₂/r² gives a MAGNITUDE (use absolute charge values); sign of charges only tells you attractive (opposite) or repulsive (same). Don't forget r². Convert µC to C (×10⁻⁶). Inverse-square in r and proportional to each charge: e.g. Q₁ doubles ⇒ F doubles; r halves ⇒ F ×4.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L5.T1.A2",
+              "title": "Calculate and describe the electric field of point charges",
+              "description": "Define electric field; use E = kQ/r² for a single point charge and E = F/q; draw electric field patterns; combine fields from charges on a line to find the net field at a point.",
+              "prerequisites": ["L5.T1.A1"],
+              "templates": ["definition", "calculation", "diagram"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Adds field magnitudes when the fields point in opposite directions", "example": "Reports net E as the sum when the two fields oppose"},
+                {"type": "recall_slip", "description": "Draws field lines pointing into a positive charge", "example": "Shows arrows towards a positive charge"},
+                {"type": "execution_slip", "description": "Uses E = kQ/r² with the test charge instead of the source charge", "example": "Substitutes the test charge q for Q"},
+                {"type": "conceptual_gap", "description": "Treats electric field as a scalar", "example": "Ignores direction when combining two fields"}
+              ],
+              "recovery_strategy": "Electric field is a VECTOR. From a + charge, field points OUTWARD; from a − charge, INWARD. For a single charge E = kQ/r² (Q = source charge); the force on a test charge is F = qE. Combine fields as vectors: same direction ⇒ add; opposite ⇒ subtract.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Electromagnetism",
+      "paper": "P1",
+      "description": "The magnetic field associated with a current-carrying conductor and solenoid; Faraday's Law of electromagnetic induction (qualitative).",
+      "tiers": [
+        {
+          "id": "L6.T1",
+          "title": "Electromagnetism",
+          "atomic_skills": [
+            {
+              "id": "L6.T1.A1",
+              "title": "Describe the magnetic field of a current-carrying conductor and solenoid",
+              "description": "Describe and predict the magnetic field pattern around a straight current-carrying conductor and inside/around a solenoid; apply the right-hand rule to find field direction; describe factors affecting the strength of an electromagnet.",
+              "prerequisites": [],
+              "templates": ["definition", "diagram", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says a steady current produces no magnetic field", "example": "Claims only moving magnets, not currents, make fields"},
+                {"type": "execution_slip", "description": "Applies the right-hand rule with the wrong current direction (conventional vs electron flow)", "example": "Uses electron flow direction in the right-hand rule"},
+                {"type": "conceptual_gap", "description": "Draws the field around a straight wire as straight lines instead of concentric circles", "example": "Shows the field as parallel lines along the wire"},
+                {"type": "recall_slip", "description": "Says reversing the current leaves the field direction unchanged", "example": "Predicts the same field direction after reversing the current"}
+              ],
+              "recovery_strategy": "A current ALWAYS produces a magnetic field. Around a straight wire the field is CONCENTRIC CIRCLES; use the right-hand rule (thumb = conventional current, fingers curl = field). A solenoid behaves like a bar magnet. Reversing the current reverses the field. Stronger field: more current, more turns, or an iron core.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            },
+            {
+              "id": "L6.T1.A2",
+              "title": "Apply Faraday's Law of electromagnetic induction (qualitative)",
+              "description": "State Faraday's Law (a changing magnetic flux induces an EMF) and apply it qualitatively; relate induced EMF to the rate of change of flux, number of turns and field strength; describe how moving a magnet relative to a coil induces a current.",
+              "prerequisites": ["L6.T1.A1"],
+              "templates": ["definition", "explanation", "scenario"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says a stationary magnet inside a coil induces a current", "example": "Predicts a current when the magnet is held still in the coil"},
+                {"type": "recall_slip", "description": "Says induced EMF depends on the flux itself, not its rate of change", "example": "States a large steady flux gives a large EMF"},
+                {"type": "conceptual_gap", "description": "Says faster movement of the magnet gives a smaller induced EMF", "example": "Predicts less EMF when the magnet moves quickly"},
+                {"type": "execution_slip", "description": "Ignores the number of turns when comparing two coils", "example": "Says two coils with different turns give the same EMF"}
+              ],
+              "recovery_strategy": "Induction needs a CHANGING magnetic flux through the coil — a stationary magnet induces nothing. Induced EMF is larger when the flux changes FASTER, the field is stronger, or there are MORE turns. Move a magnet in/out of a coil ⇒ changing flux ⇒ induced EMF and current.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Electric Circuits",
+      "paper": "P1",
+      "description": "Ohm's Law (ohmic vs non-ohmic conductors), resistance in series and parallel, and electrical power and energy.",
+      "tiers": [
+        {
+          "id": "L7.T1",
+          "title": "Electric circuits",
+          "atomic_skills": [
+            {
+              "id": "L7.T1.A1",
+              "title": "Apply Ohm's Law and resistance in series and parallel circuits",
+              "description": "State Ohm's Law and distinguish ohmic from non-ohmic conductors; apply V = IR; calculate total resistance for series (R = R₁ + R₂ + …) and parallel (1/R = 1/R₁ + 1/R₂ + …) combinations and reduce mixed networks.",
+              "prerequisites": [],
+              "templates": ["definition", "calculation", "diagram", "graph"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Adds parallel resistances directly", "example": "Reports two 4 Ω resistors in parallel as 8 Ω"},
+                {"type": "conceptual_gap", "description": "Forgets to invert 1/R after summing reciprocals", "example": "Reports 1/R = 0.5 as R = 0.5 Ω"},
+                {"type": "conceptual_gap", "description": "Says a non-ohmic conductor obeys V = IR at all currents", "example": "Treats a light bulb filament as ohmic across all voltages"},
+                {"type": "execution_slip", "description": "Rearranges V = IR incorrectly", "example": "Writes I = V × R"}
+              ],
+              "recovery_strategy": "Ohm's Law: V = IR, valid for OHMIC conductors at constant temperature (straight V-I graph through the origin). Non-ohmic (e.g. bulb) curves. SERIES: resistances ADD. PARALLEL: add reciprocals then INVERT (1/R_total = 1/R₁ + 1/R₂…). Reduce mixed circuits one block at a time.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L7.T1.A2",
+              "title": "Calculate electrical power and energy",
+              "description": "Use P = VI, P = I²R, P = V²/R to calculate power, and W = Pt = VIt for energy; relate to the cost of electricity (kWh).",
+              "prerequisites": ["L7.T1.A1"],
+              "templates": ["calculation", "symbolic", "scenario"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Chooses a power formula using a quantity not given", "example": "Uses P = V²/R when only current and resistance are known"},
+                {"type": "execution_slip", "description": "Forgets to square the current or voltage", "example": "Writes P = IR instead of P = I²R"},
+                {"type": "execution_slip", "description": "Mixes time units in W = Pt", "example": "Uses minutes with watts and seconds inconsistently"},
+                {"type": "conceptual_gap", "description": "Confuses power and energy", "example": "Reports an answer in watts when energy in joules is required"}
+              ],
+              "recovery_strategy": "Pick the power formula matching your known quantities: P = VI, P = I²R, or P = V²/R. Energy W = Pt = VIt (use seconds for joules). Power is the RATE of using energy (W); energy is power × time (J or kWh). 1 kWh = energy of 1 kW running for 1 hour.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Atomic Combinations (Molecular Structure)",
+      "paper": "P2",
+      "description": "Chemical bonding revisited — Lewis diagrams and bond formation; molecular shape (VSEPR), electronegativity and bond polarity.",
+      "tiers": [
+        {
+          "id": "L8.T1",
+          "title": "Atomic combinations and molecular structure",
+          "atomic_skills": [
+            {
+              "id": "L8.T1.A1",
+              "title": "Draw Lewis diagrams and describe covalent bond formation",
+              "description": "Draw Lewis (electron) diagrams for molecules and polyatomic ions; identify bonding and lone pairs; describe single, double, triple and dative (coordinate) covalent bonds; relate bond energy and bond length.",
+              "prerequisites": [],
+              "templates": ["diagram", "identification", "definition", "symbolic"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Gives an atom the wrong number of bonds (breaks the octet)", "example": "Draws nitrogen with four single bonds and no lone pair in NH₃"},
+                {"type": "conceptual_gap", "description": "Confuses bonding pairs and lone pairs", "example": "Counts a lone pair as a bond"},
+                {"type": "conceptual_gap", "description": "Says a shorter bond is weaker", "example": "Claims a triple bond is weaker than a single bond"},
+                {"type": "recall_slip", "description": "Cannot identify a dative (coordinate) bond", "example": "Treats the extra bond in NH₄⁺ as identical-origin to the others"}
+              ],
+              "recovery_strategy": "Each atom aims for a full outer shell (octet; H = 2). Count valence electrons, form shared pairs (single/double/triple), and place remaining electrons as lone pairs. A dative/coordinate bond = both shared electrons come from ONE atom (e.g. NH₄⁺). More bonds between two atoms ⇒ SHORTER and STRONGER bond.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L8.T1.A2",
+              "title": "Predict molecular shape (VSEPR) and bond polarity",
+              "description": "Use VSEPR theory to predict the shape of a molecule from its bonding and lone pairs; use electronegativity differences to classify bonds as non-polar, polar covalent or ionic; determine whether a molecule is polar overall.",
+              "prerequisites": ["L8.T1.A1"],
+              "templates": ["identification", "comparison", "scenario", "diagram"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Ignores lone pairs when predicting shape", "example": "Calls water linear because it has two bonds"},
+                {"type": "conceptual_gap", "description": "Says a molecule with polar bonds is always polar", "example": "Calls CO₂ a polar molecule"},
+                {"type": "execution_slip", "description": "Uses the wrong electronegativity-difference cut-offs", "example": "Calls a 0.2 difference bond ionic"},
+                {"type": "recall_slip", "description": "Confuses molecular shapes (e.g. tetrahedral vs trigonal pyramidal)", "example": "Calls NH₃ tetrahedral because nitrogen has four electron pairs"}
+              ],
+              "recovery_strategy": "VSEPR: electron pairs (bonding AND lone) repel and spread out. Count pairs around the central atom: 2 = linear, 3 = trigonal planar, 4 = tetrahedral; lone pairs change the SHAPE name (e.g. 4 pairs with 1 lone = trigonal pyramidal like NH₃; 2 lone = bent like H₂O). Bigger electronegativity difference ⇒ more polar (large difference ⇒ ionic). A molecule is non-polar overall if its polar bonds are SYMMETRICAL and cancel (e.g. CO₂).",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Intermolecular Forces",
+      "paper": "P2",
+      "description": "Intermolecular and interatomic forces; relating intermolecular forces to the physical properties of substances (melting/boiling points, vapour pressure, solubility).",
+      "tiers": [
+        {
+          "id": "L9.T1",
+          "title": "Intermolecular forces",
+          "atomic_skills": [
+            {
+              "id": "L9.T1.A1",
+              "title": "Identify intermolecular forces and relate them to physical properties",
+              "description": "Identify the intermolecular forces (London/dispersion, dipole-dipole, hydrogen bonding, ion-dipole) present in a substance from its structure; relate the strength of these forces to melting and boiling points, vapour pressure, solubility and other physical properties.",
+              "prerequisites": ["L8.T1.A2"],
+              "templates": ["identification", "comparison", "explanation"],
+              "error_signatures": [
+                {"type": "conceptual_gap", "description": "Says all polar molecules show hydrogen bonding", "example": "Claims HCl has hydrogen bonds"},
+                {"type": "conceptual_gap", "description": "Confuses intermolecular forces with covalent bonds", "example": "Says boiling water breaks the O–H bonds"},
+                {"type": "conceptual_gap", "description": "Says stronger forces give a higher vapour pressure", "example": "Predicts water has a higher vapour pressure than ether"},
+                {"type": "recall_slip", "description": "Says non-polar molecules have no intermolecular forces", "example": "States that methane molecules have no forces between them"}
+              ],
+              "recovery_strategy": "London (dispersion) forces are in ALL molecules (stronger in bigger molecules). Dipole-dipole adds in polar molecules. Hydrogen bonding only when H is bonded to N, O or F — the strongest of the three. Boiling/melting a substance breaks the INTERMOLECULAR forces, not the covalent bonds. Stronger forces ⇒ higher boiling/melting point, LOWER vapour pressure.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Ideal Gases and Thermal Properties",
+      "paper": "P2",
+      "description": "The gas laws (Boyle, Charles, Gay-Lussac), the general and ideal gas equations, and the kinetic theory of gases.",
+      "tiers": [
+        {
+          "id": "L10.T1",
+          "title": "Ideal gases and thermal properties",
+          "atomic_skills": [
+            {
+              "id": "L10.T1.A1",
+              "title": "Apply the gas laws (Boyle, Charles, Gay-Lussac) and the general gas equation",
+              "description": "Apply Boyle's Law (pV = constant), Charles' Law (V/T = constant) and Gay-Lussac's/pressure law (p/T = constant), and the combined general gas equation p₁V₁/T₁ = p₂V₂/T₂, converting temperatures to kelvin.",
+              "prerequisites": [],
+              "templates": ["calculation", "symbolic", "graph", "scenario"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Uses temperature in degrees Celsius instead of kelvin", "example": "Substitutes 25 instead of 298 K in Charles' Law"},
+                {"type": "conceptual_gap", "description": "Says pressure and volume are directly proportional at constant temperature", "example": "Predicts volume increases when pressure increases (Boyle)"},
+                {"type": "execution_slip", "description": "Mixes up which quantity is held constant", "example": "Uses Boyle's Law for a constant-pressure process"},
+                {"type": "execution_slip", "description": "Sets up the combined equation with mismatched subscripts", "example": "Pairs p₁ with V₂ in p₁V₁/T₁ = p₂V₂/T₂"}
+              ],
+              "recovery_strategy": "ALWAYS convert temperature to kelvin (K = °C + 273). Boyle (constant T): p and V are INVERSELY proportional (pV constant). Charles (constant p): V/T constant. Gay-Lussac (constant V): p/T constant. Combined: p₁V₁/T₁ = p₂V₂/T₂ — keep each state's quantities together.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L10.T1.A2",
+              "title": "Apply the ideal gas equation and kinetic theory of gases",
+              "description": "Use the ideal gas equation pV = nRT to find pressure, volume, temperature or amount; describe the kinetic theory of gases and the assumptions of an ideal gas, and explain deviations from ideal behaviour.",
+              "prerequisites": ["L10.T1.A1"],
+              "templates": ["calculation", "symbolic", "explanation"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Mixes units (uses cm³ or kPa inconsistently with R)", "example": "Uses volume in dm³ with R for SI units without converting"},
+                {"type": "execution_slip", "description": "Forgets to convert temperature to kelvin in pV = nRT", "example": "Uses Celsius for T"},
+                {"type": "conceptual_gap", "description": "Says real gases behave most ideally at high pressure and low temperature", "example": "Claims ideal behaviour improves as a gas is compressed and cooled"},
+                {"type": "recall_slip", "description": "States an incorrect assumption of the kinetic theory", "example": "Says ideal gas particles have significant volume and attractions"}
+              ],
+              "recovery_strategy": "pV = nRT — match units to R (SI: Pa, m³, K) or convert. T must be in kelvin. Ideal gas assumptions: particles have negligible volume, no intermolecular forces, collisions are perfectly elastic, constant random motion. Real gases deviate most at HIGH pressure and LOW temperature (particles close together).",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Quantitative Aspects of Chemical Change (Stoichiometry)",
+      "paper": "P2",
+      "description": "Molar volume of gases and concentration; limiting reagents, percentage yield, percentage purity, empirical and molecular formulae and water of crystallisation.",
+      "tiers": [
+        {
+          "id": "L11.T1",
+          "title": "Stoichiometry",
+          "atomic_skills": [
+            {
+              "id": "L11.T1.A1",
+              "title": "Apply moles, molar volume and concentration in calculations",
+              "description": "Use n = m/M, molar volume of a gas (n = V/Vm), concentration c = n/V and number of particles to convert between quantities; combine with mole ratios from a balanced equation.",
+              "prerequisites": [],
+              "templates": ["calculation", "symbolic", "scenario"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Inverts n = m/M or c = n/V", "example": "Calculates moles as M/m"},
+                {"type": "execution_slip", "description": "Ignores the mole ratio from the balanced equation", "example": "Assumes 1:1 when the equation gives 2:1"},
+                {"type": "execution_slip", "description": "Mixes volume units (cm³ vs dm³)", "example": "Uses 500 cm³ as 500 dm³"},
+                {"type": "conceptual_gap", "description": "Applies molar volume at non-STP conditions", "example": "Uses 22.4 dm³/mol for a gas not at STP"}
+              ],
+              "recovery_strategy": "Core conversions: n = m/M; c = n/V (convert cm³→dm³ by ÷1000); for gases at STP, n = V/22.4. For reactions: convert known to moles → multiply by the MOLE RATIO from the balanced equation → convert to the quantity asked.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            },
+            {
+              "id": "L11.T1.A2",
+              "title": "Solve limiting reagent, percentage yield, percentage purity and empirical formula problems",
+              "description": "Identify the limiting reagent and use it to find product amounts; calculate percentage yield and percentage purity; determine empirical and molecular formulae and the formula of a hydrate (water of crystallisation).",
+              "prerequisites": ["L11.T1.A1"],
+              "templates": ["calculation", "symbolic", "scenario"],
+              "error_signatures": [
+                {"type": "strategy_gap", "description": "Picks the reactant with the smaller mass as limiting without using moles and the ratio", "example": "Calls the lighter reactant limiting by mass alone"},
+                {"type": "execution_slip", "description": "Calculates percentage yield as theoretical/actual", "example": "Inverts the yield fraction"},
+                {"type": "execution_slip", "description": "Does not divide by the smallest mole value for empirical formula", "example": "Uses raw mole values as subscripts"},
+                {"type": "conceptual_gap", "description": "Confuses percentage yield and percentage purity", "example": "Uses the purity formula to find yield"}
+              ],
+              "recovery_strategy": "Limiting reagent: convert BOTH reactants to moles, divide each by its coefficient — the smaller value is limiting and sets the product. % yield = (actual/theoretical) × 100. % purity = (pure mass/total sample mass) × 100. Empirical formula: moles of each element ÷ smallest, round to whole numbers. Hydrate: find the mole ratio of salt to water.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Energy and Chemical Change",
+      "paper": "P2",
+      "description": "Exothermic and endothermic reactions, activation energy, bond energy and potential-energy diagrams.",
+      "tiers": [
+        {
+          "id": "L12.T1",
+          "title": "Energy and chemical change",
+          "atomic_skills": [
+            {
+              "id": "L12.T1.A1",
+              "title": "Classify reactions as exothermic/endothermic and interpret potential-energy diagrams",
+              "description": "Classify reactions as exothermic or endothermic from ΔH or a potential-energy diagram; relate bond breaking (absorbs energy) and bond forming (releases energy) to the net energy change; identify activation energy, the activated complex, and the heat of reaction on a potential-energy graph.",
+              "prerequisites": [],
+              "templates": ["definition", "graph", "identification", "scenario"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Swaps the sign of ΔH for exothermic and endothermic", "example": "Says exothermic reactions have a positive ΔH"},
+                {"type": "conceptual_gap", "description": "Says bond breaking releases energy", "example": "States energy is given out when bonds break"},
+                {"type": "conceptual_gap", "description": "Reads activation energy as the heat of reaction on the graph", "example": "Calls the products-minus-reactants gap the activation energy"},
+                {"type": "conceptual_gap", "description": "Says a catalyst changes ΔH", "example": "Predicts a more exothermic reaction when a catalyst is added"}
+              ],
+              "recovery_strategy": "Bond BREAKING absorbs energy; bond FORMING releases energy. Exothermic = releases energy, products LOWER than reactants, ΔH NEGATIVE. Endothermic = absorbs energy, products HIGHER, ΔH POSITIVE. On a potential-energy diagram: activation energy = reactants up to the peak (activated complex); heat of reaction (ΔH) = products minus reactants. A catalyst lowers activation energy only — ΔH is unchanged.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Acids and Bases",
+      "paper": "P2",
+      "description": "Acids and bases — their reactions (with metals, carbonates and bases) and the products of neutralisation reactions.",
+      "tiers": [
+        {
+          "id": "L13.T1",
+          "title": "Acids and bases",
+          "atomic_skills": [
+            {
+              "id": "L13.T1.A1",
+              "title": "Predict the products of acid reactions and neutralisation",
+              "description": "Identify common acids and bases; predict the products of acid + metal, acid + metal oxide, acid + metal hydroxide (neutralisation) and acid + metal carbonate/hydrogen carbonate reactions; write balanced equations for these reactions.",
+              "prerequisites": [],
+              "templates": ["identification", "symbolic", "scenario"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Forgets a product of an acid-carbonate reaction", "example": "Omits CO₂ and water from acid + carbonate"},
+                {"type": "conceptual_gap", "description": "Says acid + metal produces water", "example": "Writes water as a product of acid + magnesium"},
+                {"type": "execution_slip", "description": "Names the wrong salt for the acid used", "example": "Gives a chloride salt from sulphuric acid"},
+                {"type": "execution_slip", "description": "Leaves the neutralisation equation unbalanced", "example": "Writes HCl + Ca(OH)₂ → CaCl₂ + H₂O unbalanced"}
+              ],
+              "recovery_strategy": "Acid + metal ⇒ salt + HYDROGEN gas. Acid + metal oxide / metal hydroxide ⇒ salt + WATER (neutralisation). Acid + carbonate (or hydrogen carbonate) ⇒ salt + water + CARBON DIOXIDE. The salt's anion comes from the acid: HCl→chloride, H₂SO₄→sulphate, HNO₃→nitrate. Then balance.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Redox Reactions",
+      "paper": "P2",
+      "description": "Oxidation numbers, identifying oxidation and reduction, oxidising and reducing agents, and distinguishing redox from non-redox reactions.",
+      "tiers": [
+        {
+          "id": "L14.T1",
+          "title": "Redox reactions",
+          "atomic_skills": [
+            {
+              "id": "L14.T1.A1",
+              "title": "Assign oxidation numbers and identify oxidation, reduction and agents",
+              "description": "Assign oxidation numbers using the rules; identify which species is oxidised and which is reduced; identify the oxidising agent and reducing agent; classify a reaction as redox or non-redox.",
+              "prerequisites": [],
+              "templates": ["calculation", "identification", "symbolic", "scenario"],
+              "error_signatures": [
+                {"type": "execution_slip", "description": "Assigns the wrong oxidation number to oxygen or hydrogen in a special case", "example": "Gives oxygen −2 in a peroxide"},
+                {"type": "conceptual_gap", "description": "Swaps oxidation and reduction", "example": "Calls a decrease in oxidation number oxidation"},
+                {"type": "conceptual_gap", "description": "Identifies the oxidising agent as the species oxidised", "example": "Calls the reducing agent the one that gets reduced"},
+                {"type": "execution_slip", "description": "Oxidation numbers in an ion do not sum to its charge", "example": "Assigns numbers in SO₄²⁻ that add up to 0"}
+              ],
+              "recovery_strategy": "Rules: free element = 0; group 1 = +1, group 2 = +2; O = −2 (except peroxides −1); H = +1 (except metal hydrides −1); sum = 0 for a molecule or = the charge for an ion. OXIDATION = oxidation number INCREASES (loses electrons); REDUCTION = DECREASES (gains electrons). The OXIDISING agent is itself REDUCED; the REDUCING agent is itself OXIDISED. If no oxidation numbers change, it is non-redox.",
+              "mastery_criteria": {"correct_required": 4, "formats_required": 2, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Exploiting the Lithosphere",
+      "paper": "P2",
+      "description": "The lithosphere as a chemical system — the minerals and mining industry of South Africa, extraction of metals and the associated energy and environmental considerations.",
+      "tiers": [
+        {
+          "id": "L15.T1",
+          "title": "Exploiting the lithosphere",
+          "atomic_skills": [
+            {
+              "id": "L15.T1.A1",
+              "title": "Describe mining, mineral extraction and its impact in the lithosphere",
+              "description": "Describe the lithosphere and South Africa's mineral wealth; outline how selected minerals/metals are mined and extracted; describe the energy requirements and environmental and social impacts of mining and the need for responsible exploitation.",
+              "prerequisites": [],
+              "templates": ["definition", "scenario", "identification"],
+              "error_signatures": [
+                {"type": "recall_slip", "description": "Confuses the lithosphere with the hydrosphere or atmosphere", "example": "Says the lithosphere is all the water on Earth"},
+                {"type": "conceptual_gap", "description": "Says a metal is found in the ground as the pure element", "example": "Claims iron is mined as pure iron metal"},
+                {"type": "conceptual_gap", "description": "Says mining has no environmental impact", "example": "States mining does not affect water or air quality"},
+                {"type": "recall_slip", "description": "Mismatches a mineral with how it is extracted", "example": "Says gold is extracted by simple heating in air"}
+              ],
+              "recovery_strategy": "The lithosphere = the solid, rocky outer layer of the Earth, rich in minerals. Most metals occur as ORES (compounds), not pure elements, and must be extracted (e.g. by reduction or electrolysis), which needs ENERGY. Mining brings economic benefit but has environmental and social costs (water, air, land), so it must be done responsibly and sustainably.",
+              "mastery_criteria": {"correct_required": 3, "formats_required": 1, "allow_scaffolding": false}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

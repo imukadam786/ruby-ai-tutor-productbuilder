@@ -1,0 +1,411 @@
+{
+  "skill": "L9.T1.A1",
+  "skill_title": "Classify matter as mixtures, pure substances, elements, compounds, metals and non-metals",
+  "grades": [
+    10
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L9.T1.A1.q01",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which of these is a pure substance?",
+      "answerMode": "choice",
+      "expectedAnswer": "Distilled water",
+      "marks": 2,
+      "explanation": "Distilled water has a fixed composition (a pure compound). Sea water and air are mixtures.",
+      "errorSignals": [
+        "ERR_PURE_VS_MIXTURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Distilled water",
+        "Sea water",
+        "Air"
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q02",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which of these is a mixture?",
+      "answerMode": "choice",
+      "expectedAnswer": "Air",
+      "marks": 2,
+      "explanation": "Air is a mixture of gases. Oxygen and copper are pure substances.",
+      "errorSignals": [
+        "ERR_PURE_VS_MIXTURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Oxygen gas",
+        "Air",
+        "Pure copper"
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q03",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is an element?",
+      "answerMode": "choice",
+      "expectedAnswer": "A pure substance made of only one kind of atom.",
+      "marks": 2,
+      "explanation": "An element contains only one type of atom (e.g. oxygen, copper).",
+      "errorSignals": [
+        "ERR_ELEMENT_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A substance made of two or more atoms chemically bonded.",
+        "A mixture of metals.",
+        "A pure substance made of only one kind of atom."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q04",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is a compound?",
+      "answerMode": "choice",
+      "expectedAnswer": "A pure substance of two or more elements chemically bonded in a fixed ratio.",
+      "marks": 2,
+      "explanation": "A compound has different elements chemically bonded in a fixed ratio (e.g. water, CO₂).",
+      "errorSignals": [
+        "ERR_COMPOUND_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A pure substance of two or more elements chemically bonded in a fixed ratio.",
+        "A mixture that can be separated physically.",
+        "A substance made of one kind of atom."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q05",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which is a homogeneous mixture?",
+      "answerMode": "choice",
+      "expectedAnswer": "Salt dissolved in water (salt solution)",
+      "marks": 2,
+      "explanation": "A salt solution is uniform throughout (homogeneous). Sand-water and oil-water are heterogeneous.",
+      "errorSignals": [
+        "ERR_HOMO_HETERO"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sand mixed with water",
+        "Salt dissolved in water (salt solution)",
+        "Oil floating on water"
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q06",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which is a heterogeneous mixture?",
+      "answerMode": "choice",
+      "expectedAnswer": "A mixture of sand and iron filings",
+      "marks": 2,
+      "explanation": "Sand and iron filings are non-uniform (heterogeneous). A sugar solution is homogeneous; nitrogen is pure.",
+      "errorSignals": [
+        "ERR_HOMO_HETERO"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sugar dissolved in water",
+        "Pure nitrogen gas",
+        "A mixture of sand and iron filings"
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q07",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which property is typical of a metal?",
+      "answerMode": "choice",
+      "expectedAnswer": "Good conductor of electricity and malleable.",
+      "marks": 2,
+      "explanation": "Metals conduct electricity and heat well and are malleable/ductile.",
+      "errorSignals": [
+        "ERR_METAL_PROPERTIES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Good conductor of electricity and malleable.",
+        "Brittle and a poor conductor.",
+        "Always a gas at room temperature."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q08",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which property is typical of a non-metal?",
+      "answerMode": "choice",
+      "expectedAnswer": "Poor conductor of electricity (an insulator).",
+      "marks": 2,
+      "explanation": "Non-metals are generally poor conductors, brittle if solid, and dull.",
+      "errorSignals": [
+        "ERR_NONMETAL_PROPERTIES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Malleable and shiny.",
+        "Poor conductor of electricity (an insulator).",
+        "Always magnetic."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q09",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is a metalloid (semi-metal)?",
+      "answerMode": "choice",
+      "expectedAnswer": "An element with properties between metals and non-metals (e.g. silicon).",
+      "marks": 2,
+      "explanation": "Metalloids like silicon have intermediate properties and are used as semiconductors.",
+      "errorSignals": [
+        "ERR_METALLOID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A pure metal only.",
+        "A mixture of two metals.",
+        "An element with properties between metals and non-metals (e.g. silicon)."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q10",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which material is a good electrical insulator?",
+      "answerMode": "choice",
+      "expectedAnswer": "Plastic",
+      "marks": 2,
+      "explanation": "Plastic does not conduct electricity (insulator); copper and aluminium are conductors.",
+      "errorSignals": [
+        "ERR_CONDUCTOR_INSULATOR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Plastic",
+        "Copper",
+        "Aluminium"
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q11",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A semiconductor such as silicon conducts electricity...",
+      "answerMode": "choice",
+      "expectedAnswer": "better as its temperature increases.",
+      "marks": 2,
+      "explanation": "Unlike metals, a semiconductor conducts more as temperature rises.",
+      "errorSignals": [
+        "ERR_SEMICONDUCTOR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "worse as its temperature increases.",
+        "better as its temperature increases.",
+        "not at all under any conditions."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q12",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which substance is magnetic?",
+      "answerMode": "choice",
+      "expectedAnswer": "Iron",
+      "marks": 2,
+      "explanation": "Iron is magnetic; copper and glass are not.",
+      "errorSignals": [
+        "ERR_MAGNETIC_MATERIAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Copper",
+        "Glass",
+        "Iron"
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q13",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Water can be broken down by electrolysis into hydrogen and oxygen. This shows that water is...",
+      "answerMode": "choice",
+      "expectedAnswer": "a compound.",
+      "marks": 2,
+      "explanation": "Being chemically split into different elements (H and O) means water is a compound, not an element.",
+      "errorSignals": [
+        "ERR_COMPOUND_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "a compound.",
+        "an element.",
+        "a mixture."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q14",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Brass is made of copper and zinc that can be present in varying proportions. Brass is therefore...",
+      "answerMode": "choice",
+      "expectedAnswer": "a mixture (an alloy).",
+      "marks": 2,
+      "explanation": "Varying proportions and no fixed chemical formula mean brass is a mixture (alloy).",
+      "errorSignals": [
+        "ERR_PURE_VS_MIXTURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "a compound.",
+        "a mixture (an alloy).",
+        "an element."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q15",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A clear, colourless liquid boils over a range of temperatures rather than at one fixed point. What does this suggest?",
+      "answerMode": "choice",
+      "expectedAnswer": "It is a mixture, not a pure substance.",
+      "marks": 2,
+      "explanation": "Pure substances have sharp, fixed melting/boiling points; a boiling range indicates a mixture.",
+      "errorSignals": [
+        "ERR_PURITY_BOILING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It is a pure compound.",
+        "It is a pure element.",
+        "It is a mixture, not a pure substance."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q16",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which list contains only elements?",
+      "answerMode": "choice",
+      "expectedAnswer": "Copper, oxygen, carbon",
+      "marks": 2,
+      "explanation": "Copper, oxygen and carbon are all single-atom-type substances (elements). Water and salt are compounds; air is a mixture.",
+      "errorSignals": [
+        "ERR_ELEMENT_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Copper, oxygen, carbon",
+        "Water, copper, oxygen",
+        "Salt, carbon, air"
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q17",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Chromatography separates the dyes in an ink. This is evidence that the ink is...",
+      "answerMode": "choice",
+      "expectedAnswer": "a mixture of different coloured substances.",
+      "marks": 2,
+      "explanation": "Separating it into components by physical means shows the ink is a mixture.",
+      "errorSignals": [
+        "ERR_PURE_VS_MIXTURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "a single pure compound.",
+        "a mixture of different coloured substances.",
+        "an element."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q18",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An element is shiny, conducts electricity, but is brittle and conducts better when warmed. It is most likely...",
+      "answerMode": "choice",
+      "expectedAnswer": "a metalloid.",
+      "marks": 2,
+      "explanation": "Intermediate properties (conducts but brittle, conductivity rising with temperature) point to a metalloid.",
+      "errorSignals": [
+        "ERR_METALLOID"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "a typical metal.",
+        "a typical non-metal.",
+        "a metalloid."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q19",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is copper used for electrical wiring but plastic used to coat the wires?",
+      "answerMode": "choice",
+      "expectedAnswer": "Copper is a good conductor; plastic is a good insulator.",
+      "marks": 2,
+      "explanation": "Copper conducts the current; the plastic insulation prevents shocks and short circuits.",
+      "errorSignals": [
+        "ERR_CONDUCTOR_INSULATOR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Copper is a good conductor; plastic is a good insulator.",
+        "Both are conductors.",
+        "Both are insulators."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q20",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which classification is correct for carbon dioxide (CO₂)?",
+      "answerMode": "choice",
+      "expectedAnswer": "A pure compound.",
+      "marks": 2,
+      "explanation": "CO₂ is two elements (C and O) chemically bonded in a fixed ratio — a pure compound.",
+      "errorSignals": [
+        "ERR_COMPOUND_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A mixture.",
+        "A pure compound.",
+        "An element."
+      ]
+    }
+  ]
+}

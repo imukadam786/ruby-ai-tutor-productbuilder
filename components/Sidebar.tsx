@@ -4,6 +4,7 @@ import React from "react";
 import { ActiveView } from "@/types";
 import { useT } from "@/lib/i18n";
 import UsageMeter from "@/components/UsageMeter";
+import RubyBalance from "@/components/RubyBalance";
 
 interface SidebarProps {
   activeView: ActiveView;
@@ -15,7 +16,7 @@ interface SidebarProps {
   onSettings?: () => void;
   onLogout?: () => void;
   onOpenLangPicker?: () => void;
-  userPlan?: string | null;
+  grade?: number | null;
 }
 
 export default function Sidebar({
@@ -28,10 +29,12 @@ export default function Sidebar({
   onSettings,
   onLogout,
   onOpenLangPicker,
-  userPlan,
+  grade,
 }: SidebarProps) {
-  const matricLocked = userPlan !== "master" && userPlan !== "matric-pack";
   const { t } = useT();
+  // Matric is a Grade 12-only experience. Fail closed: anyone who isn't a
+  // confirmed Grade 12 learner (including unknown/legacy grade) never sees it.
+  const showMatric = grade === 12;
 
   const handleNav = (view: ActiveView) => {
     onViewChange(view);
@@ -66,7 +69,8 @@ export default function Sidebar({
     { id: "progress", emoji: "📊", label: t("sidebar.progress") },
     { id: "chat",     emoji: "💬", label: t("sidebar.homework") },
     { id: "subjects", emoji: "📚", label: "Subjects" },
-    { id: "matrics",  emoji: "🎓", label: "Matrics" },
+    // Matrics is Grade 12-only — omitted entirely for every other learner.
+    ...(showMatric ? [{ id: "matrics" as ActiveView, emoji: "🎓", label: "Matrics" }] : []),
   ];
 
   return (
@@ -161,7 +165,6 @@ export default function Sidebar({
               id === "subjects" ? subjectsActive :
               id === "matrics"  ? matricsActive :
               activeView === id;
-            const isLockedMatric = id === "matrics" && matricLocked;
             return (
               <button
                 key={id}
@@ -180,6 +183,9 @@ export default function Sidebar({
 
         {/* Footer */}
         <div className={`pb-5 flex-shrink-0 space-y-1 ${collapsed ? "px-1" : "px-4"}`}>
+          <div className={`pb-2 ${collapsed ? "flex justify-center" : "px-1 flex items-center gap-2"}`}>
+            <RubyBalance theme="dark" />
+          </div>
           {!collapsed && (
             <div className="px-1 pb-2">
               <p className="text-[10px] uppercase tracking-wider text-white/60 font-semibold mb-1.5">Today&apos;s usage</p>

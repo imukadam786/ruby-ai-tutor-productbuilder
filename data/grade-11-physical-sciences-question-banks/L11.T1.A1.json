@@ -1,0 +1,363 @@
+{
+  "skill": "L11.T1.A1",
+  "skill_title": "Apply moles, molar volume and concentration in calculations",
+  "grades": [
+    11
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L11.T1.A1.q01",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation relates moles (n), mass (m) and molar mass (M)?",
+      "answerMode": "choice",
+      "expectedAnswer": "n = m/M",
+      "marks": 2,
+      "explanation": "n = m/M (mass ÷ molar mass).",
+      "errorSignals": [
+        "ERR_MOLE_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "n = m/M",
+        "n = M/m",
+        "n = m × M"
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q02",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation gives concentration?",
+      "answerMode": "choice",
+      "expectedAnswer": "c = n/V",
+      "marks": 2,
+      "explanation": "Concentration = moles ÷ volume (dm³): c = n/V.",
+      "errorSignals": [
+        "ERR_CONCENTRATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "c = V/n",
+        "c = n/V",
+        "c = nV"
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q03",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What volume does 1 mole of gas occupy at STP?",
+      "answerMode": "choice",
+      "expectedAnswer": "22.4 dm³",
+      "marks": 2,
+      "explanation": "At STP, 1 mole of any gas occupies 22.4 dm³.",
+      "errorSignals": [
+        "ERR_MOLAR_VOLUME"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1 dm³",
+        "24 dm³",
+        "22.4 dm³"
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q04",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many moles are in 49 g of H₂SO₄? (M = 98 g·mol⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.5,
+      "tolerance": 0.01,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = m/M = 49/98 = 0.5 mol.",
+      "errorSignals": [
+        "ERR_MOLE_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q05",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the concentration of 0.5 mol of NaCl dissolved in 2 dm³ of solution?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.25,
+      "tolerance": 0.01,
+      "unit": "mol·dm⁻³",
+      "marks": 3,
+      "explanation": "c = n/V = 0.5/2 = 0.25 mol·dm⁻³.",
+      "errorSignals": [
+        "ERR_CONCENTRATION"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q06",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How do you convert cm³ to dm³?",
+      "answerMode": "choice",
+      "expectedAnswer": "Divide by 1000.",
+      "marks": 2,
+      "explanation": "1 dm³ = 1000 cm³, so divide cm³ by 1000.",
+      "errorSignals": [
+        "ERR_VOLUME_UNIT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Multiply by 1000.",
+        "Divide by 100.",
+        "Divide by 1000."
+      ]
+    },
+    {
+      "id": "L11.T1.A1.q07",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many moles of gas are in 11.2 dm³ at STP?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.5,
+      "tolerance": 0.01,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = V/22.4 = 11.2/22.4 = 0.5 mol.",
+      "errorSignals": [
+        "ERR_MOLAR_VOLUME"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q08",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the mass of 2 mol of CaCO₃? (M = 100 g·mol⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 200,
+      "tolerance": 0.05,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "m = n × M = 2 × 100 = 200 g.",
+      "errorSignals": [
+        "ERR_MOLE_FORMULA_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q09",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many moles of solute are in 0.5 dm³ of a 2 mol·dm⁻³ solution?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = c × V = 2 × 0.5 = 1 mol.",
+      "errorSignals": [
+        "ERR_CONCENTRATION_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q10",
+      "skill": "L11.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the molar mass of NaOH? (Na = 23, O = 16, H = 1)",
+      "answerMode": "numeric",
+      "expectedAnswer": 40,
+      "tolerance": 0.05,
+      "unit": "g·mol⁻¹",
+      "marks": 3,
+      "explanation": "M = 23 + 16 + 1 = 40 g·mol⁻¹.",
+      "errorSignals": [
+        "ERR_MOLAR_MASS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q11",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many moles are in 250 cm³ of a 0.4 mol·dm⁻³ solution?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.1,
+      "tolerance": 0.01,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "V = 250 cm³ = 0.25 dm³; n = c × V = 0.4 × 0.25 = 0.1 mol.",
+      "errorSignals": [
+        "ERR_VOLUME_UNIT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q12",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What mass of NaCl is needed to make 500 cm³ of a 1 mol·dm⁻³ solution? (M = 58.5 g·mol⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 29.25,
+      "tolerance": 0.1,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "V = 0.5 dm³; n = c × V = 1 × 0.5 = 0.5 mol; m = n × M = 0.5 × 58.5 = 29.25 g.",
+      "errorSignals": [
+        "ERR_CONCENTRATION_MASS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q13",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What volume (at STP) is occupied by 4 g of helium gas? (He = 4 g·mol⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 22.4,
+      "tolerance": 0.1,
+      "unit": "dm³",
+      "marks": 3,
+      "explanation": "n = m/M = 4/4 = 1 mol; V = n × 22.4 = 22.4 dm³.",
+      "errorSignals": [
+        "ERR_MOLAR_VOLUME"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q14",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the concentration when 9.8 g of H₂SO₄ is dissolved to make 250 cm³ of solution? (M = 98 g·mol⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.4,
+      "tolerance": 0.02,
+      "unit": "mol·dm⁻³",
+      "marks": 3,
+      "explanation": "n = 9.8/98 = 0.1 mol; V = 0.25 dm³; c = n/V = 0.1/0.25 = 0.4 mol·dm⁻³.",
+      "errorSignals": [
+        "ERR_CONCENTRATION"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q15",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many moles of CO₂ are in 5.6 dm³ at STP?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.25,
+      "tolerance": 0.01,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = V/22.4 = 5.6/22.4 = 0.25 mol.",
+      "errorSignals": [
+        "ERR_MOLAR_VOLUME"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q16",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many molecules are in 0.5 mol of a gas? (Nₐ = 6.02×10²³)",
+      "answerMode": "numeric",
+      "expectedAnswer": 3.01e+23,
+      "tolerance": 0.02,
+      "unit": "molecules",
+      "marks": 3,
+      "explanation": "N = n × Nₐ = 0.5 × 6.02×10²³ = 3.01×10²³ molecules.",
+      "errorSignals": [
+        "ERR_AVOGADRO"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q17",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What mass of oxygen gas (O₂, M = 32 g·mol⁻¹) occupies 11.2 dm³ at STP?",
+      "answerMode": "numeric",
+      "expectedAnswer": 16,
+      "tolerance": 0.05,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "n = V/22.4 = 11.2/22.4 = 0.5 mol; m = n × M = 0.5 × 32 = 16 g.",
+      "errorSignals": [
+        "ERR_MOLAR_VOLUME"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q18",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 0.2 mol·dm⁻³ solution has a volume of 750 cm³. How many moles of solute does it contain?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.15,
+      "tolerance": 0.01,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "V = 0.75 dm³; n = c × V = 0.2 × 0.75 = 0.15 mol.",
+      "errorSignals": [
+        "ERR_VOLUME_UNIT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q19",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the concentration of a solution containing 4 g of NaOH (M = 40) in 200 cm³?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.5,
+      "tolerance": 0.02,
+      "unit": "mol·dm⁻³",
+      "marks": 3,
+      "explanation": "n = 4/40 = 0.1 mol; V = 0.2 dm³; c = 0.1/0.2 = 0.5 mol·dm⁻³.",
+      "errorSignals": [
+        "ERR_CONCENTRATION"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A1.q20",
+      "skill": "L11.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many moles of nitrogen gas are in 44.8 dm³ at STP?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = V/22.4 = 44.8/22.4 = 2 mol.",
+      "errorSignals": [
+        "ERR_MOLAR_VOLUME"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

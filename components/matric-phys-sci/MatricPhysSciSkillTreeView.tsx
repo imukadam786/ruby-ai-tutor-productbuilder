@@ -1,12 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import treeData from "@/data/matric-physical-sciences-skill-tree.json";
 import { getMatricPhysSciMasteryMap } from "@/lib/matric-phys-sci-student-model";
-import type { MatricPhysSciSkillTree } from "@/types/matric-phys-sci";
+import { physSciConfig, type PhysSciGrade } from "@/lib/phys-sci-grade";
 import SkillTreeShell, { type TreeLevel, type SkillTreeStatus } from "@/components/shared/SkillTreeShell";
-
-const tree = treeData as unknown as MatricPhysSciSkillTree;
 
 interface Props {
   onPickSkill: (skillId: string) => void;
@@ -15,6 +12,8 @@ interface Props {
   /** When true, only the first level (or the level with the most progress)
    *  renders by default. A toggle reveals the full tree. */
   compact?: boolean;
+  /** Which Physical Sciences grade's tree to show. Defaults to 12 (matric). */
+  grade?: PhysSciGrade;
 }
 
 export default function MatricPhysSciSkillTreeView({
@@ -22,13 +21,16 @@ export default function MatricPhysSciSkillTreeView({
   masteryStatus,
   onBack,
   compact,
+  grade = 12,
 }: Props) {
+  const config = physSciConfig(grade);
+  const tree = config.tree;
   const [showAllLevels, setShowAllLevels] = useState<boolean>(!compact);
   useEffect(() => { setShowAllLevels(!compact); }, [compact]);
   const [localMastery, setLocalMastery] = useState<Record<string, "mastered" | "in_progress" | "available">>({});
   useEffect(() => {
-    if (!masteryStatus) setLocalMastery(getMatricPhysSciMasteryMap());
-  }, [masteryStatus]);
+    if (!masteryStatus) setLocalMastery(getMatricPhysSciMasteryMap(grade));
+  }, [masteryStatus, grade]);
   const mastery = masteryStatus ?? localMastery;
 
   const { statline, levelProgress } = useMemo(() => {
@@ -49,10 +51,10 @@ export default function MatricPhysSciSkillTreeView({
       levelProgress[level.id] = levelSkillCount > 0 ? Math.round((levelMasteredCount / levelSkillCount) * 100) : 0;
     }
     return {
-      statline: `${masteredLevels}/${tree.levels.length} Levels · ${masteredTiers}/${totalTiers} Tiers · ${masteredSkills}/${totalSkills} Atomic skills`,
+      statline: `${masteredLevels}/${tree.levels.length} Levels · ${masteredTiers}/${totalTiers} Tiers · ${masteredSkills}/${totalSkills} Atomic skills · ${totalSkills > 0 ? Math.round((masteredSkills / totalSkills) * 100) : 0}%`,
       levelProgress,
     };
-  }, [mastery]);
+  }, [mastery, tree]);
 
   const levels: TreeLevel[] = useMemo(() => {
     const source = showAllLevels
@@ -84,12 +86,12 @@ export default function MatricPhysSciSkillTreeView({
         })),
       })),
     }));
-  }, [showAllLevels, mastery, levelProgress, onPickSkill]);
+  }, [showAllLevels, mastery, levelProgress, onPickSkill, tree]);
 
   return (
     <SkillTreeShell
       accent="rose"
-      title="Physical Sciences Skill Tree"
+      title={config.treeTitle}
       statline={statline}
       levels={levels}
       compact={compact}

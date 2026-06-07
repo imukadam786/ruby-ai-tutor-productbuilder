@@ -1,4 +1,6 @@
 "use client";
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
+import RubyLoader from "@/components/RubyLoader";
 
 // Cloned from components/life-skills/LifeSkillsSession.tsx — the learner taps /
 // chooses / listens, and answers are graded deterministically by the
@@ -374,6 +376,9 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
             correct: nextCorrect,
             accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
+          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+          rewardEffortFloor("afrikaans-fal", skillId);
+          if (didMaster) rewardSkillMastered("afrikaans-fal", skillId, profile?.id);
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {
@@ -444,7 +449,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
     return (
       <div className="relative flex items-center justify-center h-full bg-[#F4F4F5]">
         <EduBackground />
-        <p className="relative text-gray-500 text-lg">Loading…</p>
+        <RubyLoader className="relative" label="Loading…" />
       </div>
     );
   }

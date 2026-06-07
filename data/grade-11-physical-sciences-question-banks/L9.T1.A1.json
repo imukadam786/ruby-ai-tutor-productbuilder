@@ -1,0 +1,411 @@
+{
+  "skill": "L9.T1.A1",
+  "skill_title": "Identify intermolecular forces and relate them to physical properties",
+  "grades": [
+    11
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L9.T1.A1.q01",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What are intermolecular forces?",
+      "answerMode": "choice",
+      "expectedAnswer": "Forces of attraction between molecules.",
+      "marks": 2,
+      "explanation": "Intermolecular forces act between separate molecules, not within their covalent bonds.",
+      "errorSignals": [
+        "ERR_IMF_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Forces of attraction between molecules.",
+        "Forces within a molecule's bonds.",
+        "Forces between protons and neutrons."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q02",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which intermolecular force is present in ALL molecules?",
+      "answerMode": "choice",
+      "expectedAnswer": "London (dispersion) forces.",
+      "marks": 2,
+      "explanation": "London (dispersion) forces occur between all molecules, polar or non-polar.",
+      "errorSignals": [
+        "ERR_LONDON_UNIVERSAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Hydrogen bonding.",
+        "London (dispersion) forces.",
+        "Ionic bonding."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q03",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Hydrogen bonding occurs when hydrogen is bonded directly to which atoms?",
+      "answerMode": "choice",
+      "expectedAnswer": "Nitrogen, oxygen or fluorine (N, O, F).",
+      "marks": 2,
+      "explanation": "Hydrogen bonds form when H is bonded to the highly electronegative N, O or F.",
+      "errorSignals": [
+        "ERR_HYDROGEN_BOND_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Carbon, sulfur or chlorine.",
+        "Any atom at all.",
+        "Nitrogen, oxygen or fluorine (N, O, F)."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q04",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which intermolecular force is the strongest?",
+      "answerMode": "choice",
+      "expectedAnswer": "Hydrogen bonding.",
+      "marks": 2,
+      "explanation": "Of the common intermolecular forces, hydrogen bonding is the strongest.",
+      "errorSignals": [
+        "ERR_IMF_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Hydrogen bonding.",
+        "London (dispersion) forces.",
+        "All are equal."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q05",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Stronger intermolecular forces lead to a... boiling point.",
+      "answerMode": "choice",
+      "expectedAnswer": "higher",
+      "marks": 2,
+      "explanation": "Stronger forces need more energy to separate molecules, raising the boiling point.",
+      "errorSignals": [
+        "ERR_IMF_BOILING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "lower",
+        "higher",
+        "unchanged"
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q06",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which intermolecular force acts between polar molecules (in addition to London forces)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Dipole-dipole forces.",
+      "marks": 2,
+      "explanation": "Polar molecules attract via dipole-dipole forces as well as London forces.",
+      "errorSignals": [
+        "ERR_DIPOLE_DIPOLE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Metallic bonds.",
+        "Only ionic forces.",
+        "Dipole-dipole forces."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q07",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When water boils, which forces are broken?",
+      "answerMode": "choice",
+      "expectedAnswer": "The intermolecular forces (hydrogen bonds) between water molecules.",
+      "marks": 2,
+      "explanation": "Boiling separates molecules by breaking intermolecular forces, not the covalent bonds.",
+      "errorSignals": [
+        "ERR_IMF_VS_COVALENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The intermolecular forces (hydrogen bonds) between water molecules.",
+        "The O–H covalent bonds inside the molecules.",
+        "The bonds inside the oxygen atom."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q08",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Stronger intermolecular forces give a substance a... vapour pressure.",
+      "answerMode": "choice",
+      "expectedAnswer": "lower",
+      "marks": 2,
+      "explanation": "Stronger forces hold molecules in the liquid, so fewer escape — lower vapour pressure.",
+      "errorSignals": [
+        "ERR_IMF_VAPOUR_PRESSURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "higher",
+        "lower",
+        "zero"
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q09",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "London forces become stronger as the molecule gets...",
+      "answerMode": "choice",
+      "expectedAnswer": "larger (more electrons).",
+      "marks": 2,
+      "explanation": "Bigger molecules with more electrons have stronger London (dispersion) forces.",
+      "errorSignals": [
+        "ERR_LONDON_SIZE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "smaller.",
+        "more charged.",
+        "larger (more electrons)."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q10",
+      "skill": "L9.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why does a non-polar molecule like methane still have some intermolecular forces?",
+      "answerMode": "choice",
+      "expectedAnswer": "It has London (dispersion) forces.",
+      "marks": 2,
+      "explanation": "All molecules, including non-polar ones, experience London forces.",
+      "errorSignals": [
+        "ERR_LONDON_UNIVERSAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It has London (dispersion) forces.",
+        "It has hydrogen bonds.",
+        "It has no forces at all."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q11",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does water (H₂O) have a much higher boiling point than hydrogen sulfide (H₂S)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Water has hydrogen bonding, which H₂S does not.",
+      "marks": 2,
+      "explanation": "Water's hydrogen bonds (H bonded to O) are much stronger than H₂S's dipole-dipole forces, raising its boiling point.",
+      "errorSignals": [
+        "ERR_HYDROGEN_BOND_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "H₂S is a larger molecule.",
+        "Water has hydrogen bonding, which H₂S does not.",
+        "Water has weaker forces."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q12",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does HF have hydrogen bonding but HCl does not?",
+      "answerMode": "choice",
+      "expectedAnswer": "In HF, hydrogen is bonded to fluorine (N, O or F); chlorine is not in that group.",
+      "marks": 2,
+      "explanation": "Hydrogen bonding needs H bonded to N, O or F; chlorine does not qualify, so HCl has only dipole-dipole.",
+      "errorSignals": [
+        "ERR_HYDROGEN_BOND_CONDITION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "HCl is more polar.",
+        "HF is non-polar.",
+        "In HF, hydrogen is bonded to fluorine (N, O or F); chlorine is not in that group."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q13",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two alkanes: butane (C₄H₁₀) and octane (C₈H₁₈). Which has the higher boiling point?",
+      "answerMode": "choice",
+      "expectedAnswer": "Octane (larger, stronger London forces).",
+      "marks": 2,
+      "explanation": "Octane is larger with more electrons, so stronger London forces and a higher boiling point.",
+      "errorSignals": [
+        "ERR_LONDON_SIZE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Octane (larger, stronger London forces).",
+        "Butane.",
+        "They boil at the same temperature."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q14",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is ethanol more soluble in water than hexane is?",
+      "answerMode": "choice",
+      "expectedAnswer": "Ethanol can form hydrogen bonds with water; hexane cannot.",
+      "marks": 2,
+      "explanation": "Ethanol's –OH group hydrogen-bonds with water, so it dissolves well, unlike non-polar hexane.",
+      "errorSignals": [
+        "ERR_SOLUBILITY_IMF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Hexane is more polar than ethanol.",
+        "Ethanol can form hydrogen bonds with water; hexane cannot.",
+        "Water has no intermolecular forces."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q15",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which substance has the LOWEST boiling point?",
+      "answerMode": "choice",
+      "expectedAnswer": "Helium (only weak London forces).",
+      "marks": 2,
+      "explanation": "Helium has only very weak London forces, so it boils at a very low temperature.",
+      "errorSignals": [
+        "ERR_IMF_BOILING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Water (hydrogen bonding).",
+        "Ethanol (hydrogen bonding).",
+        "Helium (only weak London forces)."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q16",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A liquid that evaporates very quickly (high vapour pressure) most likely has...",
+      "answerMode": "choice",
+      "expectedAnswer": "weak intermolecular forces.",
+      "marks": 2,
+      "explanation": "Weak intermolecular forces let molecules escape easily, giving a high vapour pressure and fast evaporation.",
+      "errorSignals": [
+        "ERR_IMF_VAPOUR_PRESSURE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "weak intermolecular forces.",
+        "strong hydrogen bonding.",
+        "ionic bonding."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q17",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which list orders the intermolecular forces from weakest to strongest?",
+      "answerMode": "choice",
+      "expectedAnswer": "London < dipole-dipole < hydrogen bonding.",
+      "marks": 2,
+      "explanation": "Typical strength order: London (weakest) < dipole-dipole < hydrogen bonding (strongest).",
+      "errorSignals": [
+        "ERR_IMF_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Hydrogen bonding < dipole-dipole < London.",
+        "London < dipole-dipole < hydrogen bonding.",
+        "Dipole-dipole < London < hydrogen bonding."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q18",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Ice floats on water because hydrogen bonds hold water molecules in an open structure. This shows intermolecular forces affect...",
+      "answerMode": "choice",
+      "expectedAnswer": "physical properties such as density.",
+      "marks": 2,
+      "explanation": "Hydrogen bonding gives ice a lower density than liquid water — an intermolecular-force effect on a physical property.",
+      "errorSignals": [
+        "ERR_IMF_PROPERTIES"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the chemical formula of water.",
+        "the number of atoms in water.",
+        "physical properties such as density."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q19",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does a molecular substance generally have a lower melting point than an ionic substance?",
+      "answerMode": "choice",
+      "expectedAnswer": "Intermolecular forces are weaker than the ionic bonds in a lattice.",
+      "marks": 2,
+      "explanation": "Weaker intermolecular forces (vs strong ionic bonds) mean lower melting points for molecular substances.",
+      "errorSignals": [
+        "ERR_IMF_VS_IONIC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Intermolecular forces are weaker than the ionic bonds in a lattice.",
+        "Molecules are heavier than ions.",
+        "Molecular substances have no forces."
+      ]
+    },
+    {
+      "id": "L9.T1.A1.q20",
+      "skill": "L9.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two molecules have similar sizes, but one is polar and one is non-polar. Which has the higher boiling point?",
+      "answerMode": "choice",
+      "expectedAnswer": "The polar molecule (extra dipole-dipole forces).",
+      "marks": 2,
+      "explanation": "The polar molecule has dipole-dipole forces in addition to London forces, giving a higher boiling point.",
+      "errorSignals": [
+        "ERR_DIPOLE_DIPOLE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The non-polar molecule.",
+        "The polar molecule (extra dipole-dipole forces).",
+        "They are identical."
+      ]
+    }
+  ]
+}

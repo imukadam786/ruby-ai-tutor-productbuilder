@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import RubyLoader from "@/components/RubyLoader";
 import { apiFetch } from "@/lib/fetch";
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import { useT } from "@/lib/i18n";
 
 import { speakViaAPI, prefetchTTS } from "@/lib/tts";
@@ -521,6 +523,8 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
         result.next_action = "advance_skill";
         setCurrentResult(result);
         document.dispatchEvent(new CustomEvent("ruby-skill-mastered", { detail: { type: "reading" } }));
+        // Rubies: first-time mastery bonus.
+        rewardSkillMastered("reading", currentQuestion.skill_id, profile.id);
         setPhase("mastered");
       } else {
         setCurrentResult(result);
@@ -660,9 +664,11 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
         const transition = classifyTransition(profile.current_skill_id, nextSkillId);
         if (transition === "level_up") {
           setPendingNextSkillId(nextSkillId);
+          document.dispatchEvent(new CustomEvent("ruby-celebrate", { detail: { kind: "level_up" } }));
           setPhase("level_up");
         } else if (transition === "tier_complete") {
           setPendingNextSkillId(nextSkillId);
+          document.dispatchEvent(new CustomEvent("ruby-celebrate", { detail: { kind: "tier_complete" } }));
           setPhase("tier_complete");
         } else {
           const updated = advanceToReadingSkill(profile, nextSkillId);
@@ -672,6 +678,7 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
           setPhase("loading_question");
         }
       } else {
+        document.dispatchEvent(new CustomEvent("ruby-celebrate", { detail: { kind: "tree_complete" } }));
         setPhase("complete");
       }
     } catch (err) {
@@ -754,6 +761,9 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
   const sessionCorrectRef = useRef(0);
   sessionAttemptsRef.current = sessionAttempts;
   sessionCorrectRef.current = sessionCorrect;
+  // Stable id for this reading session — the "lesson" the effort floor pays for.
+  const lessonIdRef = useRef<string>("");
+  if (!lessonIdRef.current) lessonIdRef.current = crypto.randomUUID();
 
   // Reset session-record flag whenever the student moves to a new skill
   const prevSkillRef = useRef<string | null>(null);
@@ -779,6 +789,8 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
           correct,
           accuracy: Math.round((correct / attempts) * 100),
         });
+        // Rubies: finished a reading lesson (even with wrong answers).
+        rewardEffortFloor("reading", lessonIdRef.current);
       }
 
       if (!p || hasRecordedSession.current) return;
@@ -856,10 +868,7 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
           : <ReadingSessionHeader profile={profile} onReset={resetSkillTree} sessionCorrect={sessionCorrect} sessionAttempts={sessionAttempts} />}
         <div className="flex-1 flex items-center justify-center p-6">
           {loadErrorCount === 0 ? (
-            <div className="text-center">
-              <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-              <p className="text-gray-600 font-medium text-base">{statusMessage || "Ruby is personalising your learning..."}</p>
-            </div>
+            <RubyLoader label={statusMessage || "Ruby is personalising your learning..."} />
           ) : (
             <div className="text-center max-w-sm w-full space-y-4">
               <div className="text-4xl">⚠️</div>

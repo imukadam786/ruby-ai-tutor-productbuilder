@@ -1,0 +1,399 @@
+{
+  "skill": "L11.T1.A2",
+  "skill_title": "Write electron configurations (Aufbau, orbital and spectroscopic notation)",
+  "grades": [
+    10
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L11.T1.A2.q01",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the maximum number of electrons that one orbital can hold?",
+      "answerMode": "choice",
+      "expectedAnswer": "2",
+      "marks": 2,
+      "explanation": "By the Pauli exclusion principle, each orbital holds a maximum of 2 electrons (opposite spins).",
+      "errorSignals": [
+        "ERR_ORBITAL_CAPACITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "2",
+        "1",
+        "8"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q02",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "According to the Aufbau principle, which orbital is filled first?",
+      "answerMode": "choice",
+      "expectedAnswer": "The orbital with the lowest energy.",
+      "marks": 2,
+      "explanation": "Aufbau: electrons fill the lowest-energy orbitals first.",
+      "errorSignals": [
+        "ERR_AUFBAU"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The orbital with the highest energy.",
+        "The orbital with the lowest energy.",
+        "Any orbital, in any order."
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q03",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In the filling order, which orbital is filled BEFORE 3d?",
+      "answerMode": "choice",
+      "expectedAnswer": "4s",
+      "marks": 2,
+      "explanation": "The Aufbau order is …3p, 4s, 3d… — 4s fills before 3d.",
+      "errorSignals": [
+        "ERR_AUFBAU_4S_3D"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "4p",
+        "5s",
+        "4s"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q04",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the spectroscopic electron configuration of a neutral carbon atom (Z = 6)?",
+      "answerMode": "choice",
+      "expectedAnswer": "1s² 2s² 2p²",
+      "marks": 2,
+      "explanation": "Six electrons fill 1s², 2s², then 2p²: 1s² 2s² 2p².",
+      "errorSignals": [
+        "ERR_CONFIG_COUNT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1s² 2s² 2p²",
+        "1s² 2s² 2p⁴",
+        "1s² 2p⁴"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q05",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the electron configuration of a neutral oxygen atom (Z = 8)?",
+      "answerMode": "choice",
+      "expectedAnswer": "1s² 2s² 2p⁴",
+      "marks": 2,
+      "explanation": "Eight electrons: 1s², 2s², 2p⁴.",
+      "errorSignals": [
+        "ERR_CONFIG_COUNT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1s² 2s² 2p⁶",
+        "1s² 2s² 2p⁴",
+        "1s² 2s⁴ 2p²"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q06",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many electrons can the 2p sublevel hold in total?",
+      "answerMode": "choice",
+      "expectedAnswer": "6",
+      "marks": 2,
+      "explanation": "The p sublevel has three orbitals × 2 electrons = 6.",
+      "errorSignals": [
+        "ERR_SUBLEVEL_CAPACITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "2",
+        "8",
+        "6"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q07",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does Hund's rule state about filling orbitals of equal energy?",
+      "answerMode": "choice",
+      "expectedAnswer": "Each orbital gets one electron before any is paired.",
+      "marks": 2,
+      "explanation": "Hund's rule: singly occupy each equal-energy orbital before pairing.",
+      "errorSignals": [
+        "ERR_HUND"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Each orbital gets one electron before any is paired.",
+        "Orbitals are paired up first.",
+        "Electrons fill from highest energy down."
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q08",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the electron configuration of a neutral neon atom (Z = 10)?",
+      "answerMode": "choice",
+      "expectedAnswer": "1s² 2s² 2p⁶",
+      "marks": 2,
+      "explanation": "Ten electrons completely fill 1s², 2s², 2p⁶.",
+      "errorSignals": [
+        "ERR_CONFIG_COUNT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1s² 2s² 2p⁴",
+        "1s² 2s² 2p⁶",
+        "1s² 2s⁴ 2p⁴"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q09",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many electrons does the configuration 1s² 2s² 2p⁶ 3s¹ represent?",
+      "answerMode": "numeric",
+      "expectedAnswer": 11,
+      "tolerance": 0.05,
+      "unit": "electrons",
+      "marks": 3,
+      "explanation": "Add the superscripts: 2 + 2 + 6 + 1 = 11 (sodium).",
+      "errorSignals": [
+        "ERR_CONFIG_COUNT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A2.q10",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the electron configuration of a neutral hydrogen atom (Z = 1)?",
+      "answerMode": "choice",
+      "expectedAnswer": "1s¹",
+      "marks": 2,
+      "explanation": "One electron goes into the lowest orbital: 1s¹.",
+      "errorSignals": [
+        "ERR_CONFIG_COUNT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1s¹",
+        "1s²",
+        "2s¹"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q11",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the electron configuration of a neutral calcium atom (Z = 20)?",
+      "answerMode": "choice",
+      "expectedAnswer": "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²",
+      "marks": 2,
+      "explanation": "Twenty electrons; after 3p⁶, 4s fills before 3d: …3p⁶ 4s².",
+      "errorSignals": [
+        "ERR_AUFBAU_4S_3D"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 3d²",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²",
+        "1s² 2s² 2p⁶ 3s² 3p⁸"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q12",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which configuration breaks the Aufbau rule for an atom with Z = 19?",
+      "answerMode": "choice",
+      "expectedAnswer": "1s² 2s² 2p⁶ 3s² 3p⁶ 3d¹ (wrong)",
+      "marks": 2,
+      "explanation": "4s fills before 3d, so the correct configuration ends in 4s¹, not 3d¹.",
+      "errorSignals": [
+        "ERR_AUFBAU_4S_3D"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹ (correct)",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹ 3d⁰",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 3d¹ (wrong)"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q13",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In carbon's 2p² configuration, how are the two 2p electrons arranged?",
+      "answerMode": "choice",
+      "expectedAnswer": "Singly, in two separate p orbitals (Hund's rule).",
+      "marks": 2,
+      "explanation": "Hund's rule places one electron in each of two 2p orbitals before any pairing.",
+      "errorSignals": [
+        "ERR_HUND"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Singly, in two separate p orbitals (Hund's rule).",
+        "Paired together in one p orbital.",
+        "Both in the 2s orbital."
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q14",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many electrons are unpaired in a nitrogen atom (Z = 7: 1s² 2s² 2p³)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "electrons",
+      "marks": 3,
+      "explanation": "The three 2p electrons occupy separate orbitals singly (Hund's rule), giving 3 unpaired electrons.",
+      "errorSignals": [
+        "ERR_HUND"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A2.q15",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which atom has the configuration 1s² 2s² 2p⁶ 3s² 3p⁴?",
+      "answerMode": "choice",
+      "expectedAnswer": "Sulphur (Z = 16)",
+      "marks": 2,
+      "explanation": "The superscripts sum to 16, which is sulphur.",
+      "errorSignals": [
+        "ERR_CONFIG_COUNT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Oxygen (Z = 8)",
+        "Silicon (Z = 14)",
+        "Sulphur (Z = 16)"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q16",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why can a single orbital not hold three electrons?",
+      "answerMode": "choice",
+      "expectedAnswer": "The Pauli exclusion principle limits each orbital to two electrons of opposite spin.",
+      "marks": 2,
+      "explanation": "Pauli's exclusion principle restricts an orbital to two electrons with opposite spins.",
+      "errorSignals": [
+        "ERR_PAULI"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The Pauli exclusion principle limits each orbital to two electrons of opposite spin.",
+        "There is not enough energy.",
+        "Hund's rule forbids it."
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q17",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the electron configuration of a magnesium ion Mg²⁺ (Mg is Z = 12)?",
+      "answerMode": "choice",
+      "expectedAnswer": "1s² 2s² 2p⁶",
+      "marks": 2,
+      "explanation": "Mg loses its two 3s electrons to form Mg²⁺: 1s² 2s² 2p⁶ (10 electrons).",
+      "errorSignals": [
+        "ERR_ION_CONFIG"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1s² 2s² 2p⁶ 3s²",
+        "1s² 2s² 2p⁶",
+        "1s² 2s² 2p⁶ 3s⁴"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q18",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An atom has the configuration 1s² 2s² 2p⁶ 3s². How many electrons are in its outermost (valence) energy level?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "electrons",
+      "marks": 3,
+      "explanation": "The outermost level is 3s², which has 2 valence electrons (magnesium).",
+      "errorSignals": [
+        "ERR_VALENCE_COUNT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A2.q19",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which is the correct order of increasing orbital energy?",
+      "answerMode": "choice",
+      "expectedAnswer": "1s, 2s, 2p, 3s, 3p, 4s, 3d",
+      "marks": 2,
+      "explanation": "The Aufbau order has 4s below 3d in energy: …3p, 4s, 3d.",
+      "errorSignals": [
+        "ERR_AUFBAU_4S_3D"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1s, 2s, 2p, 3s, 3p, 4s, 3d",
+        "1s, 2s, 2p, 3s, 3p, 3d, 4s",
+        "1s, 2s, 3s, 2p, 3p, 4s, 3d"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q20",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An aluminium atom is 1s² 2s² 2p⁶ 3s² 3p¹ (Z = 13). How many unpaired electrons does it have?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1,
+      "tolerance": 0.05,
+      "unit": "electrons",
+      "marks": 3,
+      "explanation": "Only the single 3p¹ electron is unpaired; all others are paired.",
+      "errorSignals": [
+        "ERR_HUND"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

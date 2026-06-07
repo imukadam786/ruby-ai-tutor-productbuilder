@@ -1,4 +1,6 @@
 "use client";
+import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
+import RubyLoader from "@/components/RubyLoader";
 
 // GeographySession — clone of HistorySession with a dispatcher widened for the
 // Geography bank. Key points:
@@ -355,6 +357,9 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
             correct: nextCorrect,
             accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
           });
+          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+          rewardEffortFloor("geography", skillId);
+          if (didMaster) rewardSkillMastered("geography", skillId, profile?.id);
           void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
           setPhase("mastered");
         } else {
@@ -428,7 +433,7 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
     return (
       <div className="relative flex items-center justify-center h-full bg-[#F4F4F5]">
         <EduBackground />
-        <p className="relative text-gray-500 text-lg">Loading…</p>
+        <RubyLoader className="relative" label="Loading…" />
       </div>
     );
   }

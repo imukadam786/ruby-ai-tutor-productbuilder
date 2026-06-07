@@ -24,12 +24,15 @@ interface AfrikaansSkillTreeViewProps {
   profile: AfrikaansStudentProfile | null;
   /** Optional back action — shows a "← Subjects" button when provided. */
   onBack?: () => void;
+  /** Compact embed (Subjects hub / Progress page) — matches every other tree. */
+  compact?: boolean;
 }
 
 export default function AfrikaansSkillTreeView({
   onPickSkill,
   profile,
   onBack,
+  compact,
 }: AfrikaansSkillTreeViewProps) {
   const [grade, setGrade] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
@@ -105,8 +108,9 @@ export default function AfrikaansSkillTreeView({
     <SkillTreeShell
       accent="orange"
       title="Afrikaans Skill Tree"
-      statline={`Graad ${seed.level} · ${masteredStrands}/${totalStrands} Strands · ${masteredSkills}/${totalSkills} Skills · ${progress}%`}
+      statline={`${totalSkills > 0 && masteredSkills === totalSkills ? 1 : 0}/1 Levels · ${masteredStrands}/${totalStrands} Tiers · ${masteredSkills}/${totalSkills} Atomic skills · ${progress}%`}
       levels={levels}
+      compact={compact}
       onBack={onBack}
       notice={
         seed.beyondContent ? (

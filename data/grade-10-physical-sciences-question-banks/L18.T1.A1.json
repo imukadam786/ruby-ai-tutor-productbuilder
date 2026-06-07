@@ -1,0 +1,411 @@
+{
+  "skill": "L18.T1.A1",
+  "skill_title": "Describe the hydrosphere, ions in water and threats to water quality",
+  "grades": [
+    10
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L18.T1.A1.q01",
+      "skill": "L18.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the hydrosphere?",
+      "answerMode": "choice",
+      "expectedAnswer": "All the water on Earth — oceans, rivers, ice, groundwater and vapour.",
+      "marks": 2,
+      "explanation": "The hydrosphere is all of Earth's water in its various forms.",
+      "errorSignals": [
+        "ERR_HYDROSPHERE_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "All the water on Earth — oceans, rivers, ice, groundwater and vapour.",
+        "All the air surrounding the Earth.",
+        "The solid rocky outer layer of the Earth."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q02",
+      "skill": "L18.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which of these is part of the hydrosphere?",
+      "answerMode": "choice",
+      "expectedAnswer": "Groundwater",
+      "marks": 2,
+      "explanation": "Groundwater is water stored underground — part of the hydrosphere.",
+      "errorSignals": [
+        "ERR_HYDROSPHERE_PARTS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The atmosphere's nitrogen",
+        "Groundwater",
+        "Mountain rock"
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q03",
+      "skill": "L18.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why is natural water rarely 'pure'?",
+      "answerMode": "choice",
+      "expectedAnswer": "It dissolves ions and substances from rocks, soil and the air.",
+      "marks": 2,
+      "explanation": "As water moves it dissolves minerals and gases, so it contains dissolved ions.",
+      "errorSignals": [
+        "ERR_NATURAL_WATER_IONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It always contains free electrons.",
+        "Water cannot be pure by nature.",
+        "It dissolves ions and substances from rocks, soil and the air."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q04",
+      "skill": "L18.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which ions are commonly found dissolved in natural water?",
+      "answerMode": "choice",
+      "expectedAnswer": "Na⁺, Cl⁻, Ca²⁺ and Mg²⁺",
+      "marks": 2,
+      "explanation": "Natural water commonly contains dissolved ions such as Na⁺, Cl⁻, Ca²⁺ and Mg²⁺.",
+      "errorSignals": [
+        "ERR_NATURAL_WATER_IONS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Na⁺, Cl⁻, Ca²⁺ and Mg²⁺",
+        "Only H₂ molecules",
+        "Only free electrons"
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q05",
+      "skill": "L18.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Is fresh water an unlimited resource?",
+      "answerMode": "choice",
+      "expectedAnswer": "No — fresh water is limited and must be conserved.",
+      "marks": 2,
+      "explanation": "Usable fresh water is a limited resource, especially in dry countries, so conservation matters.",
+      "errorSignals": [
+        "ERR_WATER_LIMITED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — there is endless fresh water.",
+        "No — fresh water is limited and must be conserved.",
+        "Yes — the oceans provide endless fresh water."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q06",
+      "skill": "L18.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which is a major threat to water quality?",
+      "answerMode": "choice",
+      "expectedAnswer": "Pollution from industry, mining and sewage.",
+      "marks": 2,
+      "explanation": "Pollution from human activities (industry, mining, sewage) threatens water quality.",
+      "errorSignals": [
+        "ERR_WATER_THREATS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The presence of any dissolved ions.",
+        "The water cycle.",
+        "Pollution from industry, mining and sewage."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q07",
+      "skill": "L18.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "The hydrosphere interacts with which other Earth systems?",
+      "answerMode": "choice",
+      "expectedAnswer": "The atmosphere, lithosphere and biosphere.",
+      "marks": 2,
+      "explanation": "Water exchanges matter and energy with the air (atmosphere), land (lithosphere) and living things (biosphere).",
+      "errorSignals": [
+        "ERR_HYDROSPHERE_INTERACTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The atmosphere, lithosphere and biosphere.",
+        "Only the atmosphere.",
+        "None — it is isolated."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q08",
+      "skill": "L18.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why is water described as an important resource?",
+      "answerMode": "choice",
+      "expectedAnswer": "It is essential for life, agriculture and industry.",
+      "marks": 2,
+      "explanation": "Water is vital for living things, growing food and industrial processes.",
+      "errorSignals": [
+        "ERR_WATER_RESOURCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It has no real uses.",
+        "It is essential for life, agriculture and industry.",
+        "It is only useful in the ocean."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q09",
+      "skill": "L18.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What can be done to protect the hydrosphere?",
+      "answerMode": "choice",
+      "expectedAnswer": "Use water carefully and reduce pollution.",
+      "marks": 2,
+      "explanation": "Conserving water and limiting pollution protects this limited resource.",
+      "errorSignals": [
+        "ERR_WATER_CONSERVATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Use as much water as possible.",
+        "Dump waste into rivers.",
+        "Use water carefully and reduce pollution."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q10",
+      "skill": "L18.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Where is most of the Earth's water found?",
+      "answerMode": "choice",
+      "expectedAnswer": "In the oceans (salt water).",
+      "marks": 2,
+      "explanation": "The vast majority of Earth's water is salt water in the oceans; fresh water is a small fraction.",
+      "errorSignals": [
+        "ERR_WATER_DISTRIBUTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "In the oceans (salt water).",
+        "In rivers and lakes.",
+        "In the atmosphere as vapour."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q11",
+      "skill": "L18.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does acid mine drainage threaten the hydrosphere?",
+      "answerMode": "choice",
+      "expectedAnswer": "It releases acidic, metal-rich water that pollutes rivers and groundwater.",
+      "marks": 2,
+      "explanation": "Acid mine drainage lowers water pH and adds toxic dissolved metals, harming water quality and life.",
+      "errorSignals": [
+        "ERR_WATER_THREATS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It makes water purer.",
+        "It releases acidic, metal-rich water that pollutes rivers and groundwater.",
+        "It adds useful nutrients only."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q12",
+      "skill": "L18.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "'Hard water' contains higher amounts of which dissolved ions?",
+      "answerMode": "choice",
+      "expectedAnswer": "Calcium (Ca²⁺) and magnesium (Mg²⁺)",
+      "marks": 2,
+      "explanation": "Hard water is caused by dissolved Ca²⁺ and Mg²⁺ ions, usually from rocks.",
+      "errorSignals": [
+        "ERR_HARD_WATER"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sodium (Na⁺) only",
+        "Hydrogen (H⁺) only",
+        "Calcium (Ca²⁺) and magnesium (Mg²⁺)"
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q13",
+      "skill": "L18.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How does the hydrosphere link to the atmosphere in the water cycle?",
+      "answerMode": "choice",
+      "expectedAnswer": "Water evaporates into the air and falls back as rain.",
+      "marks": 2,
+      "explanation": "Evaporation moves water into the atmosphere; precipitation returns it — linking the two systems.",
+      "errorSignals": [
+        "ERR_HYDROSPHERE_INTERACTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Water evaporates into the air and falls back as rain.",
+        "Water never leaves the oceans.",
+        "The air contains no water."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q14",
+      "skill": "L18.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is South Africa especially concerned about water conservation?",
+      "answerMode": "choice",
+      "expectedAnswer": "It is a relatively dry country with limited fresh water.",
+      "marks": 2,
+      "explanation": "South Africa is water-scarce, so careful management of limited fresh water is important.",
+      "errorSignals": [
+        "ERR_WATER_LIMITED"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It has unlimited fresh water.",
+        "It is a relatively dry country with limited fresh water.",
+        "It has no rivers at all."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q15",
+      "skill": "L18.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Sewage entering a river can cause which problem?",
+      "answerMode": "choice",
+      "expectedAnswer": "It pollutes the water, harming aquatic life and human health.",
+      "marks": 2,
+      "explanation": "Sewage adds harmful substances and reduces oxygen, damaging the ecosystem and water quality.",
+      "errorSignals": [
+        "ERR_WATER_THREATS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It purifies the river.",
+        "It increases the oxygen for fish.",
+        "It pollutes the water, harming aquatic life and human health."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q16",
+      "skill": "L18.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How does the hydrosphere interact with the lithosphere?",
+      "answerMode": "choice",
+      "expectedAnswer": "Water dissolves and erodes minerals from rocks and soil.",
+      "marks": 2,
+      "explanation": "Flowing water dissolves and wears away rock, transferring dissolved ions into the water.",
+      "errorSignals": [
+        "ERR_HYDROSPHERE_INTERACTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Water dissolves and erodes minerals from rocks and soil.",
+        "Water has no effect on rock.",
+        "Rocks turn water into gas."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q17",
+      "skill": "L18.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why must water be treated before it is safe to drink?",
+      "answerMode": "choice",
+      "expectedAnswer": "To remove harmful microbes and pollutants.",
+      "marks": 2,
+      "explanation": "Treatment removes disease-causing microbes and contaminants to make water safe.",
+      "errorSignals": [
+        "ERR_WATER_TREATMENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "To add pollutants.",
+        "To remove harmful microbes and pollutants.",
+        "To remove all the water."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q18",
+      "skill": "L18.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which human activity does NOT threaten water quality?",
+      "answerMode": "choice",
+      "expectedAnswer": "Planting trees to reduce soil erosion.",
+      "marks": 2,
+      "explanation": "Reducing erosion protects water quality, unlike pollution from waste or oil spills.",
+      "errorSignals": [
+        "ERR_WATER_THREATS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Releasing untreated factory waste.",
+        "Spilling oil into rivers.",
+        "Planting trees to reduce soil erosion."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q19",
+      "skill": "L18.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does the hydrosphere matter to the biosphere?",
+      "answerMode": "choice",
+      "expectedAnswer": "All living things depend on water to survive.",
+      "marks": 2,
+      "explanation": "Water is essential to all life, linking the hydrosphere closely to the biosphere.",
+      "errorSignals": [
+        "ERR_HYDROSPHERE_INTERACTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "All living things depend on water to survive.",
+        "Living things do not need water.",
+        "Only ocean life needs water."
+      ]
+    },
+    {
+      "id": "L18.T1.A1.q20",
+      "skill": "L18.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Balancing water use with conservation means...",
+      "answerMode": "choice",
+      "expectedAnswer": "using water for people and industry while protecting it for the future.",
+      "marks": 2,
+      "explanation": "Sustainable use balances current needs with protecting the resource for the future.",
+      "errorSignals": [
+        "ERR_WATER_CONSERVATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "using all the water now.",
+        "using water for people and industry while protecting it for the future.",
+        "never using any water."
+      ]
+    }
+  ]
+}

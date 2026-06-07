@@ -1,0 +1,407 @@
+{
+  "skill": "L13.T1.A1",
+  "skill_title": "Predict the products of acid reactions and neutralisation",
+  "grades": [
+    11
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L13.T1.A1.q01",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What are the products of acid + metal?",
+      "answerMode": "choice",
+      "expectedAnswer": "Salt + hydrogen gas.",
+      "marks": 2,
+      "explanation": "Acid + metal → salt + hydrogen gas.",
+      "errorSignals": [
+        "ERR_ACID_METAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Salt + hydrogen gas.",
+        "Salt + water.",
+        "Salt + carbon dioxide."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q02",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What are the products of an acid-base neutralisation (acid + metal hydroxide)?",
+      "answerMode": "choice",
+      "expectedAnswer": "Salt + water.",
+      "marks": 2,
+      "explanation": "Acid + metal hydroxide → salt + water (neutralisation).",
+      "errorSignals": [
+        "ERR_NEUTRALISATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Salt + hydrogen.",
+        "Salt + water.",
+        "Salt + oxygen."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q03",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What are the products of acid + metal carbonate?",
+      "answerMode": "choice",
+      "expectedAnswer": "Salt + water + carbon dioxide.",
+      "marks": 2,
+      "explanation": "Acid + carbonate → salt + water + CO₂.",
+      "errorSignals": [
+        "ERR_ACID_CARBONATE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Salt + hydrogen.",
+        "Salt + water only.",
+        "Salt + water + carbon dioxide."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q04",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which gas is released when a metal reacts with an acid?",
+      "answerMode": "choice",
+      "expectedAnswer": "Hydrogen",
+      "marks": 2,
+      "explanation": "Acid + metal produces hydrogen gas (often seen as bubbles, gives a 'pop' test).",
+      "errorSignals": [
+        "ERR_ACID_METAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Hydrogen",
+        "Oxygen",
+        "Carbon dioxide"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q05",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which acid produces chloride salts?",
+      "answerMode": "choice",
+      "expectedAnswer": "Hydrochloric acid (HCl)",
+      "marks": 2,
+      "explanation": "HCl gives chloride salts; H₂SO₄ gives sulfates; HNO₃ gives nitrates.",
+      "errorSignals": [
+        "ERR_SALT_NAMING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sulfuric acid (H₂SO₄)",
+        "Hydrochloric acid (HCl)",
+        "Nitric acid (HNO₃)"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q06",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which acid produces sulfate salts?",
+      "answerMode": "choice",
+      "expectedAnswer": "Sulfuric acid (H₂SO₄)",
+      "marks": 2,
+      "explanation": "H₂SO₄ produces sulfate salts (SO₄²⁻).",
+      "errorSignals": [
+        "ERR_SALT_NAMING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Hydrochloric acid (HCl)",
+        "Nitric acid (HNO₃)",
+        "Sulfuric acid (H₂SO₄)"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q07",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What salt forms when hydrochloric acid reacts with sodium hydroxide?",
+      "answerMode": "choice",
+      "expectedAnswer": "Sodium chloride (NaCl)",
+      "marks": 2,
+      "explanation": "HCl + NaOH → NaCl + H₂O; the salt is sodium chloride.",
+      "errorSignals": [
+        "ERR_SALT_NAMING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sodium chloride (NaCl)",
+        "Sodium sulfate",
+        "Sodium nitrate"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q08",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When an acid reacts with a metal oxide, the products are...",
+      "answerMode": "choice",
+      "expectedAnswer": "salt + water.",
+      "marks": 2,
+      "explanation": "Acid + metal oxide → salt + water (a neutralisation).",
+      "errorSignals": [
+        "ERR_ACID_OXIDE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "salt + hydrogen.",
+        "salt + water.",
+        "salt + carbon dioxide."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q09",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What observation indicates an acid + carbonate reaction?",
+      "answerMode": "choice",
+      "expectedAnswer": "Bubbling/effervescence (CO₂ gas released).",
+      "marks": 2,
+      "explanation": "Acid + carbonate releases CO₂, seen as fizzing/effervescence.",
+      "errorSignals": [
+        "ERR_ACID_CARBONATE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A colour change to blue.",
+        "A precipitate forms.",
+        "Bubbling/effervescence (CO₂ gas released)."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q10",
+      "skill": "L13.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A neutralisation reaction always produces which substance?",
+      "answerMode": "choice",
+      "expectedAnswer": "Water",
+      "marks": 2,
+      "explanation": "Neutralisation (acid + base) always produces water (and a salt).",
+      "errorSignals": [
+        "ERR_NEUTRALISATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Water",
+        "Hydrogen gas",
+        "A precipitate"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q11",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What salt forms when sulfuric acid reacts with potassium hydroxide?",
+      "answerMode": "choice",
+      "expectedAnswer": "Potassium sulfate (K₂SO₄)",
+      "marks": 2,
+      "explanation": "H₂SO₄ + 2KOH → K₂SO₄ + 2H₂O; the salt is potassium sulfate.",
+      "errorSignals": [
+        "ERR_SALT_NAMING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Potassium chloride",
+        "Potassium sulfate (K₂SO₄)",
+        "Potassium nitrate"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q12",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Complete: Mg + 2HCl → MgCl₂ + ?",
+      "answerMode": "choice",
+      "expectedAnswer": "H₂ (hydrogen gas)",
+      "marks": 2,
+      "explanation": "Acid + metal gives a salt plus hydrogen gas: Mg + 2HCl → MgCl₂ + H₂.",
+      "errorSignals": [
+        "ERR_ACID_METAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "H₂O (water)",
+        "CO₂ (carbon dioxide)",
+        "H₂ (hydrogen gas)"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q13",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Complete: CaCO₃ + 2HCl → CaCl₂ + H₂O + ?",
+      "answerMode": "choice",
+      "expectedAnswer": "CO₂ (carbon dioxide)",
+      "marks": 2,
+      "explanation": "Acid + carbonate gives salt + water + carbon dioxide.",
+      "errorSignals": [
+        "ERR_ACID_CARBONATE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CO₂ (carbon dioxide)",
+        "H₂ (hydrogen)",
+        "O₂ (oxygen)"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q14",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which balanced equation correctly shows the neutralisation of HCl by NaOH?",
+      "answerMode": "choice",
+      "expectedAnswer": "HCl + NaOH → NaCl + H₂O",
+      "marks": 2,
+      "explanation": "HCl + NaOH → NaCl + H₂O is balanced (1:1, salt + water).",
+      "errorSignals": [
+        "ERR_NEUTRALISATION_EQUATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "HCl + NaOH → NaCl + H₂",
+        "HCl + NaOH → NaCl + H₂O",
+        "2HCl + NaOH → NaCl₂ + H₂O"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q15",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What salt forms when nitric acid reacts with sodium carbonate?",
+      "answerMode": "choice",
+      "expectedAnswer": "Sodium nitrate (NaNO₃)",
+      "marks": 2,
+      "explanation": "HNO₃ gives nitrate salts: 2HNO₃ + Na₂CO₃ → 2NaNO₃ + H₂O + CO₂.",
+      "errorSignals": [
+        "ERR_SALT_NAMING"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sodium chloride",
+        "Sodium sulfate",
+        "Sodium nitrate (NaNO₃)"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q16",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is the reaction of an acid with a metal NOT classed as a neutralisation?",
+      "answerMode": "choice",
+      "expectedAnswer": "It produces hydrogen gas, not just water with a salt.",
+      "marks": 2,
+      "explanation": "Neutralisation gives salt + water; acid + metal gives salt + hydrogen, so it is different.",
+      "errorSignals": [
+        "ERR_NEUTRALISATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It produces hydrogen gas, not just water with a salt.",
+        "It produces no salt.",
+        "It does not involve an acid."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q17",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Balance: H₂SO₄ + NaOH → Na₂SO₄ + H₂O. How many NaOH are needed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "marks": 3,
+      "explanation": "H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O (two NaOH balance the two sodiums and hydrogens).",
+      "errorSignals": [
+        "ERR_NEUTRALISATION_EQUATION"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L13.T1.A1.q18",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A metal oxide reacts with hydrochloric acid. Predict the products of CuO + 2HCl.",
+      "answerMode": "choice",
+      "expectedAnswer": "CuCl₂ + H₂O",
+      "marks": 2,
+      "explanation": "Acid + metal oxide → salt + water: CuO + 2HCl → CuCl₂ + H₂O.",
+      "errorSignals": [
+        "ERR_ACID_OXIDE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CuCl₂ + H₂",
+        "CuCl₂ + CO₂",
+        "CuCl₂ + H₂O"
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q19",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which reaction would produce a gas that relights a glowing splint? (Hint: that gas is oxygen — which of these does NOT make it?)",
+      "answerMode": "choice",
+      "expectedAnswer": "None of these acid reactions make oxygen.",
+      "marks": 2,
+      "explanation": "Acid + metal makes hydrogen; acid + carbonate makes CO₂. Neither makes oxygen, so none relights a glowing splint.",
+      "errorSignals": [
+        "ERR_GAS_TEST"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "None of these acid reactions make oxygen.",
+        "Acid + metal (makes oxygen).",
+        "Acid + carbonate (makes oxygen)."
+      ]
+    },
+    {
+      "id": "L13.T1.A1.q20",
+      "skill": "L13.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Zinc reacts with sulfuric acid. What are the products?",
+      "answerMode": "choice",
+      "expectedAnswer": "Zinc sulfate + hydrogen.",
+      "marks": 2,
+      "explanation": "Zn + H₂SO₄ → ZnSO₄ + H₂ (acid + metal → salt + hydrogen; H₂SO₄ gives a sulfate).",
+      "errorSignals": [
+        "ERR_ACID_METAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Zinc sulfate + water.",
+        "Zinc sulfate + hydrogen.",
+        "Zinc chloride + hydrogen."
+      ]
+    }
+  ]
+}

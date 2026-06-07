@@ -1,7 +1,9 @@
+import { withRubies } from "@/lib/with-rubies";
 import { NextRequest, NextResponse } from "next/server";
 import { requireApiSecret } from "@/lib/api-auth";
 import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
 import { getSkill } from "@/lib/matric-phys-sci-selector";
+import { asPhysSciGrade } from "@/lib/phys-sci-grade";
 import type {
   MatricPhysSciSubmitAnswerRequest,
   MatricPhysSciSubmitAnswerResponse,
@@ -100,7 +102,7 @@ function scoreMultiField(
   return true;
 }
 
-export async function POST(req: NextRequest) {
+async function handler(req: NextRequest) {
   const authError = requireApiSecret(req);
   if (authError) return authError;
 
@@ -121,8 +123,9 @@ export async function POST(req: NextRequest) {
 
   try {
     const submission: MatricPhysSciSubmitAnswerRequest = await req.json();
+    const grade = asPhysSciGrade(submission.grade);
 
-    const skill = getSkill(submission.skill_id);
+    const skill = getSkill(submission.skill_id, grade);
     if (!skill) {
       return NextResponse.json({ error: "Skill not found" }, { status: 404 });
     }
@@ -177,3 +180,5 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
+export const POST = withRubies("matric-phys-sci", handler);

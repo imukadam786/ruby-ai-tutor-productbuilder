@@ -1,0 +1,411 @@
+{
+  "skill": "L14.T1.A1",
+  "skill_title": "Assign oxidation numbers and identify oxidation, reduction and agents",
+  "grades": [
+    11
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L14.T1.A1.q01",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the oxidation number of an atom in its free (uncombined) element, e.g. O₂ or Cu?",
+      "answerMode": "choice",
+      "expectedAnswer": "0",
+      "marks": 2,
+      "explanation": "Any element in its free (uncombined) state has an oxidation number of 0.",
+      "errorSignals": [
+        "ERR_FREE_ELEMENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "0",
+        "+1",
+        "−2"
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q02",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the usual oxidation number of oxygen in a compound?",
+      "answerMode": "choice",
+      "expectedAnswer": "−2",
+      "marks": 2,
+      "explanation": "Oxygen is usually −2 (except in peroxides, where it is −1).",
+      "errorSignals": [
+        "ERR_OXYGEN_RULE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "+2",
+        "−2",
+        "−1"
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q03",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the usual oxidation number of hydrogen in a compound?",
+      "answerMode": "choice",
+      "expectedAnswer": "+1",
+      "marks": 2,
+      "explanation": "Hydrogen is usually +1 (except in metal hydrides, where it is −1).",
+      "errorSignals": [
+        "ERR_HYDROGEN_RULE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "−1",
+        "0",
+        "+1"
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q04",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does oxidation mean in terms of oxidation number?",
+      "answerMode": "choice",
+      "expectedAnswer": "An increase in oxidation number (loss of electrons).",
+      "marks": 2,
+      "explanation": "Oxidation = increase in oxidation number = loss of electrons.",
+      "errorSignals": [
+        "ERR_OXIDATION_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "An increase in oxidation number (loss of electrons).",
+        "A decrease in oxidation number.",
+        "No change in oxidation number."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q05",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does reduction mean in terms of oxidation number?",
+      "answerMode": "choice",
+      "expectedAnswer": "A decrease in oxidation number (gain of electrons).",
+      "marks": 2,
+      "explanation": "Reduction = decrease in oxidation number = gain of electrons.",
+      "errorSignals": [
+        "ERR_REDUCTION_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "An increase in oxidation number.",
+        "A decrease in oxidation number (gain of electrons).",
+        "No change in oxidation number."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q06",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In a neutral compound, the sum of all oxidation numbers must equal...",
+      "answerMode": "choice",
+      "expectedAnswer": "0.",
+      "marks": 2,
+      "explanation": "Oxidation numbers in a neutral molecule sum to zero.",
+      "errorSignals": [
+        "ERR_SUM_RULE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "+1.",
+        "the number of atoms.",
+        "0."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q07",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In a polyatomic ion, the sum of the oxidation numbers equals...",
+      "answerMode": "choice",
+      "expectedAnswer": "the charge on the ion.",
+      "marks": 2,
+      "explanation": "For an ion, the oxidation numbers sum to the ion's overall charge.",
+      "errorSignals": [
+        "ERR_SUM_RULE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the charge on the ion.",
+        "zero.",
+        "the number of atoms."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q08",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the oxidation number of sodium in NaCl?",
+      "answerMode": "choice",
+      "expectedAnswer": "+1",
+      "marks": 2,
+      "explanation": "Group 1 metals are always +1, so Na is +1 (and Cl is −1).",
+      "errorSignals": [
+        "ERR_GROUP1_RULE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "−1",
+        "+1",
+        "0"
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q09",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the oxidation number of chlorine in NaCl?",
+      "answerMode": "choice",
+      "expectedAnswer": "−1",
+      "marks": 2,
+      "explanation": "Na is +1, so Cl must be −1 for the sum to be zero.",
+      "errorSignals": [
+        "ERR_SUM_RULE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "+1",
+        "0",
+        "−1"
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q10",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "An oxidising agent is the substance that...",
+      "answerMode": "choice",
+      "expectedAnswer": "is itself reduced (it takes electrons).",
+      "marks": 2,
+      "explanation": "An oxidising agent oxidises something else, so it is itself reduced (gains electrons).",
+      "errorSignals": [
+        "ERR_OXIDISING_AGENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "is itself reduced (it takes electrons).",
+        "is itself oxidised.",
+        "does not change."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q11",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the oxidation number of sulfur in SO₄²⁻?",
+      "answerMode": "choice",
+      "expectedAnswer": "+6",
+      "marks": 2,
+      "explanation": "Four O at −2 = −8; for the ion's −2 charge, S must be +6 (since +6 − 8 = −2).",
+      "errorSignals": [
+        "ERR_OXIDATION_CALC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "+4",
+        "+6",
+        "−2"
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q12",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the oxidation number of nitrogen in NO₃⁻?",
+      "answerMode": "choice",
+      "expectedAnswer": "+5",
+      "marks": 2,
+      "explanation": "Three O at −2 = −6; for the −1 charge, N = +5 (since +5 − 6 = −1).",
+      "errorSignals": [
+        "ERR_OXIDATION_CALC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "+3",
+        "−3",
+        "+5"
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q13",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the oxidation number of manganese in MnO₄⁻?",
+      "answerMode": "choice",
+      "expectedAnswer": "+7",
+      "marks": 2,
+      "explanation": "Four O at −2 = −8; for the −1 charge, Mn = +7 (since +7 − 8 = −1).",
+      "errorSignals": [
+        "ERR_OXIDATION_CALC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "+7",
+        "+2",
+        "+4"
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q14",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the oxidation number of carbon in CO₂?",
+      "answerMode": "choice",
+      "expectedAnswer": "+4",
+      "marks": 2,
+      "explanation": "Two O at −2 = −4; for a neutral molecule, C = +4.",
+      "errorSignals": [
+        "ERR_OXIDATION_CALC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "−4",
+        "+4",
+        "+2"
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q15",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What is the oxidation number of oxygen in hydrogen peroxide, H₂O₂?",
+      "answerMode": "choice",
+      "expectedAnswer": "−1",
+      "marks": 2,
+      "explanation": "Peroxides are an exception: oxygen is −1 in H₂O₂ (two H at +1 balance two O at −1).",
+      "errorSignals": [
+        "ERR_PEROXIDE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "−2",
+        "+1",
+        "−1"
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q16",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In the reaction Zn + Cu²⁺ → Zn²⁺ + Cu, which species is oxidised?",
+      "answerMode": "choice",
+      "expectedAnswer": "Zn (0 → +2, loses electrons).",
+      "marks": 2,
+      "explanation": "Zinc's oxidation number rises from 0 to +2, so it is oxidised (loses electrons).",
+      "errorSignals": [
+        "ERR_IDENTIFY_OXIDATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Zn (0 → +2, loses electrons).",
+        "Cu²⁺ (it is oxidised).",
+        "Neither is oxidised."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q17",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In Zn + Cu²⁺ → Zn²⁺ + Cu, which species is the oxidising agent?",
+      "answerMode": "choice",
+      "expectedAnswer": "Cu²⁺ (it is reduced).",
+      "marks": 2,
+      "explanation": "Cu²⁺ gains electrons (reduced from +2 to 0), so it is the oxidising agent.",
+      "errorSignals": [
+        "ERR_OXIDISING_AGENT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Zn (it is reduced).",
+        "Cu²⁺ (it is reduced).",
+        "Zn²⁺."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q18",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In 2Mg + O₂ → 2MgO, what happens to the oxygen?",
+      "answerMode": "choice",
+      "expectedAnswer": "It is reduced (0 → −2, gains electrons).",
+      "marks": 2,
+      "explanation": "Oxygen goes from 0 in O₂ to −2 in MgO — a decrease, so it is reduced.",
+      "errorSignals": [
+        "ERR_IDENTIFY_REDUCTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It is oxidised (0 → +2).",
+        "It does not change.",
+        "It is reduced (0 → −2, gains electrons)."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q19",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How can you tell a reaction is NOT a redox reaction?",
+      "answerMode": "choice",
+      "expectedAnswer": "No oxidation numbers change.",
+      "marks": 2,
+      "explanation": "If no atom's oxidation number changes, no electrons are transferred, so it is not redox.",
+      "errorSignals": [
+        "ERR_NON_REDOX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "No oxidation numbers change.",
+        "A gas is produced.",
+        "A precipitate forms."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q20",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In the reaction Fe³⁺ + e⁻ → Fe²⁺, the iron is...",
+      "answerMode": "choice",
+      "expectedAnswer": "reduced (+3 → +2, gains an electron).",
+      "marks": 2,
+      "explanation": "The oxidation number drops from +3 to +2 as it gains an electron — reduction.",
+      "errorSignals": [
+        "ERR_IDENTIFY_REDUCTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "oxidised (+3 → +2).",
+        "reduced (+3 → +2, gains an electron).",
+        "unchanged."
+      ]
+    }
+  ]
+}

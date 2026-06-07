@@ -1,3 +1,4 @@
+import { withRubies } from "@/lib/with-rubies";
 import { NextRequest, NextResponse } from "next/server";
 import { requireApiSecret } from "@/lib/api-auth";
 import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
@@ -56,7 +57,7 @@ function scoreAnswer(
   }
 }
 
-export async function POST(req: NextRequest) {
+async function handler(req: NextRequest) {
   const authError = requireApiSecret(req);
   if (authError) return authError;
 
@@ -121,3 +122,5 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
+export const POST = withRubies("social-sciences", handler);

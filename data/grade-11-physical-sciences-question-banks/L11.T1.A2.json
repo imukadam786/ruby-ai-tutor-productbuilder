@@ -1,0 +1,393 @@
+{
+  "skill": "L11.T1.A2",
+  "skill_title": "Solve limiting reagent, percentage yield, percentage purity and empirical formula problems",
+  "grades": [
+    11
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L11.T1.A2.q01",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the limiting reagent in a reaction?",
+      "answerMode": "choice",
+      "expectedAnswer": "The reactant that runs out first and limits the amount of product.",
+      "marks": 2,
+      "explanation": "The limiting reagent is fully used up first, setting the maximum amount of product.",
+      "errorSignals": [
+        "ERR_LIMITING_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The reactant that runs out first and limits the amount of product.",
+        "The reactant present in the largest amount.",
+        "The reactant with the highest molar mass."
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q02",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation gives percentage yield?",
+      "answerMode": "choice",
+      "expectedAnswer": "(actual yield ÷ theoretical yield) × 100",
+      "marks": 2,
+      "explanation": "% yield = (actual/theoretical) × 100.",
+      "errorSignals": [
+        "ERR_YIELD_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "(theoretical ÷ actual) × 100",
+        "(actual yield ÷ theoretical yield) × 100",
+        "actual × theoretical × 100"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q03",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation gives percentage purity?",
+      "answerMode": "choice",
+      "expectedAnswer": "(mass of pure substance ÷ mass of sample) × 100",
+      "marks": 2,
+      "explanation": "% purity = (pure mass/total sample mass) × 100.",
+      "errorSignals": [
+        "ERR_PURITY_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "(mass of sample ÷ pure mass) × 100",
+        "pure mass × sample mass",
+        "(mass of pure substance ÷ mass of sample) × 100"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q04",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is an empirical formula?",
+      "answerMode": "choice",
+      "expectedAnswer": "The simplest whole-number ratio of atoms in a compound.",
+      "marks": 2,
+      "explanation": "The empirical formula is the simplest ratio (e.g. CH₂O), which may differ from the molecular formula.",
+      "errorSignals": [
+        "ERR_EMPIRICAL_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The simplest whole-number ratio of atoms in a compound.",
+        "The actual number of atoms in a molecule.",
+        "The mass of one molecule."
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q05",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "To find an empirical formula, after converting masses to moles you...",
+      "answerMode": "choice",
+      "expectedAnswer": "divide each by the smallest number of moles.",
+      "marks": 2,
+      "explanation": "Divide each mole value by the smallest to get the simplest whole-number ratio.",
+      "errorSignals": [
+        "ERR_EMPIRICAL_METHOD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "multiply each by the largest.",
+        "divide each by the smallest number of moles.",
+        "add the moles together."
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q06",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A reaction's theoretical yield is 50 g but only 40 g is obtained. What is the percentage yield?",
+      "answerMode": "numeric",
+      "expectedAnswer": 80,
+      "tolerance": 0.05,
+      "unit": "%",
+      "marks": 3,
+      "explanation": "% yield = (40/50) × 100 = 80%.",
+      "errorSignals": [
+        "ERR_YIELD_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A2.q07",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A 20 g sample of limestone contains 16 g of pure CaCO₃. What is its percentage purity?",
+      "answerMode": "numeric",
+      "expectedAnswer": 80,
+      "tolerance": 0.05,
+      "unit": "%",
+      "marks": 3,
+      "explanation": "% purity = (16/20) × 100 = 80%.",
+      "errorSignals": [
+        "ERR_PURITY_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A2.q08",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is 'water of crystallisation'?",
+      "answerMode": "choice",
+      "expectedAnswer": "Water molecules that are part of a crystal's structure (a hydrate).",
+      "marks": 2,
+      "explanation": "Water of crystallisation is built into the crystal lattice of a hydrated salt (e.g. CuSO₄·5H₂O).",
+      "errorSignals": [
+        "ERR_HYDRATE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Water used to dissolve a salt.",
+        "Water molecules that are part of a crystal's structure (a hydrate).",
+        "Water produced in a reaction."
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q09",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Why is the actual yield usually less than the theoretical yield?",
+      "answerMode": "choice",
+      "expectedAnswer": "Reactions may be incomplete or product is lost during the process.",
+      "marks": 2,
+      "explanation": "Side reactions, incomplete reactions and losses mean the actual yield is typically below the theoretical maximum.",
+      "errorSignals": [
+        "ERR_YIELD_REASON"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The theoretical yield is always wrong.",
+        "Mass is destroyed in reactions.",
+        "Reactions may be incomplete or product is lost during the process."
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q10",
+      "skill": "L11.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A compound contains 1 mol of carbon and 2 mol of hydrogen and 1 mol of oxygen. What is its empirical formula?",
+      "answerMode": "choice",
+      "expectedAnswer": "CH₂O",
+      "marks": 2,
+      "explanation": "The simplest ratio C:H:O = 1:2:1 gives CH₂O.",
+      "errorSignals": [
+        "ERR_EMPIRICAL_METHOD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CH₂O",
+        "C₂H₄O₂",
+        "CHO"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q11",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In N₂ + 3H₂ → 2NH₃, you have 2 mol N₂ and 3 mol H₂. Which is the limiting reagent?",
+      "answerMode": "choice",
+      "expectedAnswer": "H₂ (hydrogen).",
+      "marks": 2,
+      "explanation": "3 mol H₂ needs 1 mol N₂; you have plenty of N₂ (2 mol) but H₂ runs out first, so H₂ is limiting.",
+      "errorSignals": [
+        "ERR_LIMITING_CALC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "N₂ (nitrogen).",
+        "H₂ (hydrogen).",
+        "Neither — they are balanced."
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q12",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A compound is 40% carbon, 6.7% hydrogen and 53.3% oxygen by mass. What is its empirical formula? (C=12, H=1, O=16)",
+      "answerMode": "choice",
+      "expectedAnswer": "CH₂O",
+      "marks": 2,
+      "explanation": "Moles: C 40/12=3.33, H 6.7/1=6.7, O 53.3/16=3.33. Divide by 3.33: 1:2:1 → CH₂O.",
+      "errorSignals": [
+        "ERR_EMPIRICAL_METHOD"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "C₂H₄O₂",
+        "CHO",
+        "CH₂O"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q13",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "8 g of methane (CH₄, M=16) reacts with excess oxygen. The theoretical yield of CO₂ is 0.5 mol. If 0.4 mol forms, what is the percentage yield?",
+      "answerMode": "numeric",
+      "expectedAnswer": 80,
+      "tolerance": 0.05,
+      "unit": "%",
+      "marks": 3,
+      "explanation": "% yield = (0.4/0.5) × 100 = 80%.",
+      "errorSignals": [
+        "ERR_YIELD_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A2.q14",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 50 g impure sample contains 35 g of pure NaCl. What is its percentage purity?",
+      "answerMode": "numeric",
+      "expectedAnswer": 70,
+      "tolerance": 0.05,
+      "unit": "%",
+      "marks": 3,
+      "explanation": "% purity = (35/50) × 100 = 70%.",
+      "errorSignals": [
+        "ERR_PURITY_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A2.q15",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In 2H₂ + O₂ → 2H₂O, you have 4 mol H₂ and 1 mol O₂. Which reactant is limiting?",
+      "answerMode": "choice",
+      "expectedAnswer": "O₂ (oxygen).",
+      "marks": 2,
+      "explanation": "4 mol H₂ needs 2 mol O₂, but only 1 mol O₂ is present, so O₂ runs out first — it is limiting.",
+      "errorSignals": [
+        "ERR_LIMITING_CALC"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "H₂ (hydrogen).",
+        "Neither.",
+        "O₂ (oxygen)."
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q16",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A hydrate has 1 mol of MgSO₄ to 7 mol of H₂O. What is its formula?",
+      "answerMode": "choice",
+      "expectedAnswer": "MgSO₄·7H₂O",
+      "marks": 2,
+      "explanation": "The ratio of salt to water (1:7) gives MgSO₄·7H₂O.",
+      "errorSignals": [
+        "ERR_HYDRATE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "MgSO₄·7H₂O",
+        "MgSO₄·H₂O",
+        "Mg₇SO₄·H₂O"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q17",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why must you identify the limiting reagent before calculating product amounts?",
+      "answerMode": "choice",
+      "expectedAnswer": "Because the limiting reagent determines how much product can form.",
+      "marks": 2,
+      "explanation": "Product is limited by the reactant that runs out first, so calculations must be based on it.",
+      "errorSignals": [
+        "ERR_LIMITING_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Because the excess reagent decides the product.",
+        "Because the limiting reagent determines how much product can form.",
+        "Limiting reagents do not matter."
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q18",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A compound has empirical formula CH₂ and molar mass 42 g·mol⁻¹. What is its molecular formula? (CH₂ = 14)",
+      "answerMode": "choice",
+      "expectedAnswer": "C₃H₆",
+      "marks": 2,
+      "explanation": "42/14 = 3, so the molecular formula is (CH₂)₃ = C₃H₆.",
+      "errorSignals": [
+        "ERR_MOLECULAR_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "CH₂",
+        "C₂H₄",
+        "C₃H₆"
+      ]
+    },
+    {
+      "id": "L11.T1.A2.q19",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "10 g of CaCO₃ (M=100) is heated and produces 0.08 mol of CO₂. The theoretical yield is 0.1 mol. What is the percentage yield?",
+      "answerMode": "numeric",
+      "expectedAnswer": 80,
+      "tolerance": 0.05,
+      "unit": "%",
+      "marks": 3,
+      "explanation": "% yield = (0.08/0.1) × 100 = 80%.",
+      "errorSignals": [
+        "ERR_YIELD_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L11.T1.A2.q20",
+      "skill": "L11.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A 4 g sample of impure zinc reacts; only 3.2 g is pure zinc. What is the percentage purity?",
+      "answerMode": "numeric",
+      "expectedAnswer": 80,
+      "tolerance": 0.05,
+      "unit": "%",
+      "marks": 3,
+      "explanation": "% purity = (3.2/4) × 100 = 80%.",
+      "errorSignals": [
+        "ERR_PURITY_FORMULA"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

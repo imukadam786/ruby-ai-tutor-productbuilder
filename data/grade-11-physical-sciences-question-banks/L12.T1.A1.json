@@ -1,0 +1,402 @@
+{
+  "skill": "L12.T1.A1",
+  "skill_title": "Classify reactions as exothermic/endothermic and interpret potential-energy diagrams",
+  "grades": [
+    11
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L12.T1.A1.q01",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is an exothermic reaction?",
+      "answerMode": "choice",
+      "expectedAnswer": "One that releases energy to the surroundings.",
+      "marks": 2,
+      "explanation": "Exothermic reactions release energy (the surroundings get warmer).",
+      "errorSignals": [
+        "ERR_EXO_ENDO"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "One that releases energy to the surroundings.",
+        "One that absorbs energy from the surroundings.",
+        "One with no energy change."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q02",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is an endothermic reaction?",
+      "answerMode": "choice",
+      "expectedAnswer": "One that absorbs energy from the surroundings.",
+      "marks": 2,
+      "explanation": "Endothermic reactions absorb energy (the surroundings get colder).",
+      "errorSignals": [
+        "ERR_EXO_ENDO"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "One that releases energy.",
+        "One that absorbs energy from the surroundings.",
+        "One with no products."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q03",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "For an exothermic reaction, the sign of ΔH (heat of reaction) is...",
+      "answerMode": "choice",
+      "expectedAnswer": "negative.",
+      "marks": 2,
+      "explanation": "Exothermic releases energy, so ΔH is negative.",
+      "errorSignals": [
+        "ERR_DELTA_H_SIGN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "positive.",
+        "zero.",
+        "negative."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q04",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "For an endothermic reaction, the sign of ΔH is...",
+      "answerMode": "choice",
+      "expectedAnswer": "positive.",
+      "marks": 2,
+      "explanation": "Endothermic absorbs energy, so ΔH is positive.",
+      "errorSignals": [
+        "ERR_DELTA_H_SIGN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "positive.",
+        "negative.",
+        "always zero."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q05",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Breaking chemical bonds...",
+      "answerMode": "choice",
+      "expectedAnswer": "absorbs energy.",
+      "marks": 2,
+      "explanation": "Bond breaking requires (absorbs) energy.",
+      "errorSignals": [
+        "ERR_BOND_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "releases energy.",
+        "absorbs energy.",
+        "has no energy change."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q06",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Forming chemical bonds...",
+      "answerMode": "choice",
+      "expectedAnswer": "releases energy.",
+      "marks": 2,
+      "explanation": "Bond forming releases energy.",
+      "errorSignals": [
+        "ERR_BOND_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "absorbs energy.",
+        "has no energy change.",
+        "releases energy."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q07",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "On a potential-energy diagram, what is the activated complex?",
+      "answerMode": "choice",
+      "expectedAnswer": "The high-energy, unstable arrangement at the peak of the curve.",
+      "marks": 2,
+      "explanation": "The activated complex is the unstable species at the maximum (peak) of the energy profile.",
+      "errorSignals": [
+        "ERR_ACTIVATED_COMPLEX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The high-energy, unstable arrangement at the peak of the curve.",
+        "The starting reactants.",
+        "The final products."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q08",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "On a potential-energy diagram, what does the activation energy represent?",
+      "answerMode": "choice",
+      "expectedAnswer": "The energy from the reactants up to the peak.",
+      "marks": 2,
+      "explanation": "Activation energy is the energy needed to reach the activated complex (reactants → peak).",
+      "errorSignals": [
+        "ERR_ACTIVATION_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The energy difference between reactants and products.",
+        "The energy from the reactants up to the peak.",
+        "The total energy of the products."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q09",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In an exothermic reaction, the products are... than the reactants on a potential-energy diagram.",
+      "answerMode": "choice",
+      "expectedAnswer": "lower in energy",
+      "marks": 2,
+      "explanation": "Exothermic releases energy, so the products sit lower than the reactants.",
+      "errorSignals": [
+        "ERR_PE_DIAGRAM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "higher in energy",
+        "at the same energy",
+        "lower in energy"
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q10",
+      "skill": "L12.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In an endothermic reaction, the products are... than the reactants on a potential-energy diagram.",
+      "answerMode": "choice",
+      "expectedAnswer": "higher in energy",
+      "marks": 2,
+      "explanation": "Endothermic absorbs energy, so the products sit higher than the reactants.",
+      "errorSignals": [
+        "ERR_PE_DIAGRAM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "higher in energy",
+        "lower in energy",
+        "at the same energy"
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q11",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A reaction's potential-energy diagram shows products LOWER than reactants. What can you conclude?",
+      "answerMode": "choice",
+      "expectedAnswer": "The reaction is exothermic (ΔH negative).",
+      "marks": 2,
+      "explanation": "Products lower than reactants means energy was released — exothermic, ΔH negative.",
+      "errorSignals": [
+        "ERR_PE_DIAGRAM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The reaction is endothermic.",
+        "The reaction is exothermic (ΔH negative).",
+        "No reaction occurs."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q12",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "If the energy released in forming bonds is GREATER than the energy absorbed in breaking bonds, the reaction is...",
+      "answerMode": "choice",
+      "expectedAnswer": "exothermic.",
+      "marks": 2,
+      "explanation": "Net energy released (more out than in) makes the reaction exothermic.",
+      "errorSignals": [
+        "ERR_BOND_ENERGY_NET"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "endothermic.",
+        "neither.",
+        "exothermic."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q13",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How does a catalyst affect the activation energy and ΔH of a reaction?",
+      "answerMode": "choice",
+      "expectedAnswer": "It lowers the activation energy but does not change ΔH.",
+      "marks": 2,
+      "explanation": "A catalyst provides a lower-energy pathway (lower Ea) but the overall energy change ΔH is unchanged.",
+      "errorSignals": [
+        "ERR_CATALYST_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It lowers the activation energy but does not change ΔH.",
+        "It lowers both activation energy and ΔH.",
+        "It raises the activation energy."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q14",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Reactants have a potential energy of 150 kJ and products 90 kJ. What is ΔH?",
+      "answerMode": "numeric",
+      "expectedAnswer": -60,
+      "tolerance": 0.5,
+      "unit": "kJ",
+      "marks": 3,
+      "explanation": "ΔH = products − reactants = 90 − 150 = −60 kJ (exothermic).",
+      "errorSignals": [
+        "ERR_DELTA_H_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L12.T1.A1.q15",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Reactants have a potential energy of 80 kJ and products 130 kJ. What is ΔH?",
+      "answerMode": "numeric",
+      "expectedAnswer": 50,
+      "tolerance": 0.5,
+      "unit": "kJ",
+      "marks": 3,
+      "explanation": "ΔH = 130 − 80 = +50 kJ (endothermic).",
+      "errorSignals": [
+        "ERR_DELTA_H_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L12.T1.A1.q16",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does a reaction need activation energy even if it is exothermic overall?",
+      "answerMode": "choice",
+      "expectedAnswer": "Bonds must first be broken (energy in) before new bonds form (energy out).",
+      "marks": 2,
+      "explanation": "Even exothermic reactions need an initial energy input to reach the activated complex.",
+      "errorSignals": [
+        "ERR_ACTIVATION_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Bonds must first be broken (energy in) before new bonds form (energy out).",
+        "Exothermic reactions need no activation energy.",
+        "The products must be heated."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q17",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which everyday process is endothermic?",
+      "answerMode": "choice",
+      "expectedAnswer": "Photosynthesis (absorbs light energy).",
+      "marks": 2,
+      "explanation": "Photosynthesis absorbs energy (light), making it endothermic; combustion and respiration release energy.",
+      "errorSignals": [
+        "ERR_EXO_ENDO"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Burning of fuel.",
+        "Photosynthesis (absorbs light energy).",
+        "Respiration."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q18",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "The activation energy for the forward reaction is 70 kJ and ΔH is −30 kJ. What is the activation energy for the reverse reaction?",
+      "answerMode": "numeric",
+      "expectedAnswer": 100,
+      "tolerance": 0.5,
+      "unit": "kJ",
+      "marks": 3,
+      "explanation": "Reverse Ea = forward Ea − ΔH = 70 − (−30) = 100 kJ.",
+      "errorSignals": [
+        "ERR_REVERSE_EA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L12.T1.A1.q19",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "On a potential-energy diagram, the heat of reaction (ΔH) is measured as the energy difference between...",
+      "answerMode": "choice",
+      "expectedAnswer": "the reactants and the products.",
+      "marks": 2,
+      "explanation": "ΔH is the energy gap between reactants and products (not involving the peak).",
+      "errorSignals": [
+        "ERR_ACTIVATION_ENERGY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the reactants and the products.",
+        "the reactants and the activated complex.",
+        "the products and the activated complex."
+      ]
+    },
+    {
+      "id": "L12.T1.A1.q20",
+      "skill": "L12.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A reaction mixture becomes warmer as it proceeds. The bonds formed in the products must have released...",
+      "answerMode": "choice",
+      "expectedAnswer": "more energy than was needed to break the reactant bonds.",
+      "marks": 2,
+      "explanation": "A temperature rise (exothermic) means bond formation released more energy than bond breaking absorbed.",
+      "errorSignals": [
+        "ERR_BOND_ENERGY_NET"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "less energy than was needed to break the reactant bonds.",
+        "more energy than was needed to break the reactant bonds.",
+        "no energy at all."
+      ]
+    }
+  ]
+}

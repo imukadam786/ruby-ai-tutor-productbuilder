@@ -1,0 +1,399 @@
+{
+  "skill": "L8.T1.A1",
+  "skill_title": "Draw Lewis diagrams and describe covalent bond formation",
+  "grades": [
+    11
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L8.T1.A1.q01",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is shown by a Lewis (electron) diagram?",
+      "answerMode": "choice",
+      "expectedAnswer": "The valence electrons of atoms and how they are shared or arranged.",
+      "marks": 2,
+      "explanation": "Lewis diagrams show valence electrons as dots/crosses, including bonding and lone pairs.",
+      "errorSignals": [
+        "ERR_LEWIS_PURPOSE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The valence electrons of atoms and how they are shared or arranged.",
+        "The number of neutrons.",
+        "The mass of the molecule."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q02",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many electrons are in one shared (bonding) pair?",
+      "answerMode": "choice",
+      "expectedAnswer": "2",
+      "marks": 2,
+      "explanation": "A bonding pair is two shared electrons (a single bond).",
+      "errorSignals": [
+        "ERR_BONDING_PAIR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1",
+        "2",
+        "4"
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q03",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is a lone pair?",
+      "answerMode": "choice",
+      "expectedAnswer": "A pair of valence electrons not involved in bonding.",
+      "marks": 2,
+      "explanation": "A lone (non-bonding) pair stays on one atom and is not shared.",
+      "errorSignals": [
+        "ERR_LONE_PAIR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A pair of electrons shared between atoms.",
+        "A single unpaired electron.",
+        "A pair of valence electrons not involved in bonding."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q04",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many covalent bonds does carbon usually form?",
+      "answerMode": "choice",
+      "expectedAnswer": "4",
+      "marks": 2,
+      "explanation": "Carbon has 4 valence electrons and forms 4 covalent bonds to reach an octet.",
+      "errorSignals": [
+        "ERR_VALENCE_BONDS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "4",
+        "2",
+        "6"
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q05",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In a water molecule (H₂O), how many bonding pairs are around the oxygen atom?",
+      "answerMode": "choice",
+      "expectedAnswer": "2",
+      "marks": 2,
+      "explanation": "Oxygen forms two O–H bonds (2 bonding pairs) and has 2 lone pairs.",
+      "errorSignals": [
+        "ERR_BONDING_PAIR"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "4",
+        "2",
+        "1"
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q06",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is a double bond?",
+      "answerMode": "choice",
+      "expectedAnswer": "Two shared pairs of electrons between two atoms.",
+      "marks": 2,
+      "explanation": "A double bond is two shared pairs (4 electrons), as in O₂.",
+      "errorSignals": [
+        "ERR_DOUBLE_BOND"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "One shared pair.",
+        "Three shared pairs.",
+        "Two shared pairs of electrons between two atoms."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q07",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is a dative (coordinate) covalent bond?",
+      "answerMode": "choice",
+      "expectedAnswer": "A shared pair where both electrons come from the same atom.",
+      "marks": 2,
+      "explanation": "In a dative bond, one atom supplies both shared electrons (e.g. in NH₄⁺).",
+      "errorSignals": [
+        "ERR_DATIVE_BOND"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A shared pair where both electrons come from the same atom.",
+        "A bond where each atom gives one electron.",
+        "A bond formed by transferring electrons."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q08",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many electrons does a hydrogen atom need to share to complete its outer shell?",
+      "answerMode": "choice",
+      "expectedAnswer": "1 (to reach 2 electrons total).",
+      "marks": 2,
+      "explanation": "Hydrogen needs just 2 electrons (a duplet), so it shares one pair.",
+      "errorSignals": [
+        "ERR_HYDROGEN_DUPLET"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "8",
+        "1 (to reach 2 electrons total).",
+        "4"
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q09",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In the molecule N₂, the nitrogen atoms share three pairs of electrons. This is a...",
+      "answerMode": "choice",
+      "expectedAnswer": "triple bond.",
+      "marks": 2,
+      "explanation": "Three shared pairs (6 electrons) make a triple bond.",
+      "errorSignals": [
+        "ERR_TRIPLE_BOND"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "single bond.",
+        "double bond.",
+        "triple bond."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q10",
+      "skill": "L8.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "The octet rule states that atoms tend to gain a full outer shell of...",
+      "answerMode": "choice",
+      "expectedAnswer": "8 electrons (2 for hydrogen).",
+      "marks": 2,
+      "explanation": "Most atoms aim for 8 valence electrons (an octet); hydrogen aims for 2.",
+      "errorSignals": [
+        "ERR_OCTET"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "8 electrons (2 for hydrogen).",
+        "2 electrons for all atoms.",
+        "18 electrons."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q11",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many lone pairs are on the oxygen atom in a water molecule (H₂O)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "lone pairs",
+      "marks": 3,
+      "explanation": "Oxygen has 6 valence electrons: 2 form bonds with H, leaving 2 lone pairs.",
+      "errorSignals": [
+        "ERR_LONE_PAIR_COUNT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A1.q12",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In ammonia (NH₃), how many lone pairs are on the nitrogen atom?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1,
+      "tolerance": 0.05,
+      "unit": "lone pairs",
+      "marks": 3,
+      "explanation": "Nitrogen has 5 valence electrons: 3 bond with H, leaving one lone pair.",
+      "errorSignals": [
+        "ERR_LONE_PAIR_COUNT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A1.q13",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which bond is the strongest and shortest between two given atoms?",
+      "answerMode": "choice",
+      "expectedAnswer": "A triple bond.",
+      "marks": 2,
+      "explanation": "More shared pairs means a shorter, stronger bond, so triple > double > single.",
+      "errorSignals": [
+        "ERR_BOND_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A triple bond.",
+        "A single bond.",
+        "A double bond."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q14",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In carbon dioxide (CO₂), how is each oxygen bonded to the carbon?",
+      "answerMode": "choice",
+      "expectedAnswer": "By a double bond (O=C=O).",
+      "marks": 2,
+      "explanation": "Each O shares two pairs with C, giving two double bonds (O=C=O).",
+      "errorSignals": [
+        "ERR_DOUBLE_BOND"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "By a single bond.",
+        "By a double bond (O=C=O).",
+        "By a triple bond."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q15",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "The ammonium ion NH₄⁺ forms from NH₃ + H⁺. What type of bond is the fourth N–H bond?",
+      "answerMode": "choice",
+      "expectedAnswer": "A dative (coordinate) covalent bond.",
+      "marks": 2,
+      "explanation": "H⁺ has no electron, so nitrogen's lone pair supplies both electrons — a dative bond.",
+      "errorSignals": [
+        "ERR_DATIVE_BOND"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "An ionic bond.",
+        "A normal bond where H supplies an electron.",
+        "A dative (coordinate) covalent bond."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q16",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is a shorter bond generally stronger?",
+      "answerMode": "choice",
+      "expectedAnswer": "The atoms are held more tightly by more shared electrons.",
+      "marks": 2,
+      "explanation": "Shorter bonds (more shared pairs) bind the atoms more strongly.",
+      "errorSignals": [
+        "ERR_BOND_STRENGTH"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The atoms are held more tightly by more shared electrons.",
+        "A shorter bond has fewer electrons.",
+        "Length does not affect strength."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q17",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many bonding electrons are there in total in a molecule of methane, CH₄?",
+      "answerMode": "numeric",
+      "expectedAnswer": 8,
+      "tolerance": 0.05,
+      "unit": "electrons",
+      "marks": 3,
+      "explanation": "Four C–H single bonds × 2 electrons each = 8 bonding electrons.",
+      "errorSignals": [
+        "ERR_BONDING_ELECTRONS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L8.T1.A1.q18",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An atom of oxygen has 6 valence electrons. In O₂, how does it complete its octet?",
+      "answerMode": "choice",
+      "expectedAnswer": "By sharing two pairs with the other oxygen (a double bond).",
+      "marks": 2,
+      "explanation": "Each O shares 2 electrons with the other, forming a double bond so both reach 8.",
+      "errorSignals": [
+        "ERR_DOUBLE_BOND"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "By sharing one pair.",
+        "By transferring two electrons.",
+        "By sharing two pairs with the other oxygen (a double bond)."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q19",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which species contains a coordinate (dative) covalent bond?",
+      "answerMode": "choice",
+      "expectedAnswer": "The ammonium ion, NH₄⁺.",
+      "marks": 2,
+      "explanation": "NH₄⁺ contains a dative bond, where N donates both electrons of the fourth bond.",
+      "errorSignals": [
+        "ERR_DATIVE_BOND"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The ammonium ion, NH₄⁺.",
+        "The methane molecule, CH₄.",
+        "The chlorine molecule, Cl₂."
+      ]
+    },
+    {
+      "id": "L8.T1.A1.q20",
+      "skill": "L8.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In a nitrogen molecule (N₂), how many bonding electrons join the two atoms?",
+      "answerMode": "numeric",
+      "expectedAnswer": 6,
+      "tolerance": 0.05,
+      "unit": "electrons",
+      "marks": 3,
+      "explanation": "A triple bond shares three pairs = 6 bonding electrons.",
+      "errorSignals": [
+        "ERR_TRIPLE_BOND"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

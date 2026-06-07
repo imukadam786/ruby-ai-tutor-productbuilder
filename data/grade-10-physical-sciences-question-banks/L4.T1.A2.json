@@ -1,0 +1,396 @@
+{
+  "skill": "L4.T1.A2",
+  "skill_title": "Relate properties of sound to pitch, loudness and quality",
+  "grades": [
+    10
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L4.T1.A2.q01",
+      "skill": "L4.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which property of a sound wave determines its pitch?",
+      "answerMode": "choice",
+      "expectedAnswer": "Frequency",
+      "marks": 2,
+      "explanation": "Pitch is set by frequency: higher frequency = higher pitch.",
+      "errorSignals": [
+        "ERR_PITCH_PROPERTY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Frequency",
+        "Amplitude",
+        "Wavelength of the listener"
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q02",
+      "skill": "L4.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which property of a sound wave determines its loudness?",
+      "answerMode": "choice",
+      "expectedAnswer": "Amplitude",
+      "marks": 2,
+      "explanation": "Loudness is set by amplitude: bigger amplitude = louder sound.",
+      "errorSignals": [
+        "ERR_LOUDNESS_PROPERTY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Frequency",
+        "Amplitude",
+        "Period"
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q03",
+      "skill": "L4.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A singer sings a higher note. What has happened to the sound wave?",
+      "answerMode": "choice",
+      "expectedAnswer": "Its frequency increased.",
+      "marks": 2,
+      "explanation": "A higher note means higher pitch, which means a higher frequency.",
+      "errorSignals": [
+        "ERR_PITCH_PROPERTY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Its amplitude increased.",
+        "Its speed increased.",
+        "Its frequency increased."
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q04",
+      "skill": "L4.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Turning up the volume on a speaker (same note) changes which wave property?",
+      "answerMode": "choice",
+      "expectedAnswer": "The amplitude increases.",
+      "marks": 2,
+      "explanation": "A louder sound at the same pitch has a larger amplitude (same frequency).",
+      "errorSignals": [
+        "ERR_LOUDNESS_PROPERTY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The amplitude increases.",
+        "The frequency increases.",
+        "The wavelength increases."
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q05",
+      "skill": "L4.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In which medium does sound travel fastest?",
+      "answerMode": "choice",
+      "expectedAnswer": "In a solid (e.g. steel).",
+      "marks": 2,
+      "explanation": "Sound is fastest in solids (particles close together) and cannot travel in a vacuum.",
+      "errorSignals": [
+        "ERR_SOUND_SPEED_MEDIUM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "In a gas (e.g. air).",
+        "In a solid (e.g. steel).",
+        "In a vacuum."
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q06",
+      "skill": "L4.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is ultrasound?",
+      "answerMode": "choice",
+      "expectedAnswer": "Sound with a frequency above the human hearing range (above 20 000 Hz).",
+      "marks": 2,
+      "explanation": "Ultrasound has a frequency higher than 20 000 Hz, above what humans can hear.",
+      "errorSignals": [
+        "ERR_ULTRASOUND_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Very loud sound.",
+        "Sound that travels through a vacuum.",
+        "Sound with a frequency above the human hearing range (above 20 000 Hz)."
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q07",
+      "skill": "L4.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What causes an echo?",
+      "answerMode": "choice",
+      "expectedAnswer": "Sound reflecting off a hard surface and returning to the listener.",
+      "marks": 2,
+      "explanation": "An echo is reflected sound bouncing back from a surface.",
+      "errorSignals": [
+        "ERR_ECHO_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Sound reflecting off a hard surface and returning to the listener.",
+        "Sound speeding up in air.",
+        "Sound changing into light."
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q08",
+      "skill": "L4.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Two sounds have the same pitch and loudness but come from a guitar and a flute and still sound different. Which property differs?",
+      "answerMode": "choice",
+      "expectedAnswer": "The quality (tone) of the sound.",
+      "marks": 2,
+      "explanation": "Quality (timbre) depends on the waveform shape, letting us tell instruments apart.",
+      "errorSignals": [
+        "ERR_SOUND_QUALITY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The frequency.",
+        "The quality (tone) of the sound.",
+        "The amplitude."
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q09",
+      "skill": "L4.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Can sound travel through outer space (a vacuum)?",
+      "answerMode": "choice",
+      "expectedAnswer": "No — sound needs a medium of particles.",
+      "marks": 2,
+      "explanation": "Sound is a mechanical wave; with no particles in a vacuum it cannot travel.",
+      "errorSignals": [
+        "ERR_SOUND_VACUUM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — sound travels everywhere.",
+        "Yes — but only if it is loud enough.",
+        "No — sound needs a medium of particles."
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q10",
+      "skill": "L4.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A drummer hits a drum harder. How does the sound change?",
+      "answerMode": "choice",
+      "expectedAnswer": "It becomes louder (larger amplitude).",
+      "marks": 2,
+      "explanation": "Hitting harder gives the wave more amplitude, making it louder; pitch (frequency) is unchanged.",
+      "errorSignals": [
+        "ERR_LOUDNESS_PROPERTY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It becomes louder (larger amplitude).",
+        "It becomes higher pitched.",
+        "It travels faster."
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q11",
+      "skill": "L4.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Sound travels at about 340 m·s⁻¹ in air. A person shouts at a cliff and hears the echo 2 s later. How far away is the cliff?",
+      "answerMode": "numeric",
+      "expectedAnswer": 340,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "The sound travels to the cliff and back in 2 s, so total distance = 340 × 2 = 680 m; the cliff is half of that = 340 m.",
+      "errorSignals": [
+        "ERR_ECHO_DISTANCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A2.q12",
+      "skill": "L4.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A sonar pulse from a ship returns from the seabed after 0.4 s. If sound travels at 1500 m·s⁻¹ in water, how deep is the seabed?",
+      "answerMode": "numeric",
+      "expectedAnswer": 300,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "Total distance = 1500 × 0.4 = 600 m (down and back). Depth = 600/2 = 300 m.",
+      "errorSignals": [
+        "ERR_ECHO_DISTANCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A2.q13",
+      "skill": "L4.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does a high-pitched whistle have a shorter wavelength than a low-pitched hum in the same air?",
+      "answerMode": "choice",
+      "expectedAnswer": "Higher frequency at the same speed gives a shorter wavelength (v = fλ).",
+      "marks": 2,
+      "explanation": "At fixed speed, v = fλ means higher f ⇒ shorter λ.",
+      "errorSignals": [
+        "ERR_FREQUENCY_WAVELENGTH_INVERSE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Higher frequency at the same speed gives a shorter wavelength (v = fλ).",
+        "Higher frequency travels faster.",
+        "Higher pitch has a larger amplitude."
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q14",
+      "skill": "L4.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which change would make a sound BOTH higher pitched and quieter?",
+      "answerMode": "choice",
+      "expectedAnswer": "Increase the frequency and decrease the amplitude.",
+      "marks": 2,
+      "explanation": "Higher pitch = higher frequency; quieter = smaller amplitude.",
+      "errorSignals": [
+        "ERR_PITCH_LOUDNESS_MIX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Increase both frequency and amplitude.",
+        "Increase the frequency and decrease the amplitude.",
+        "Decrease the frequency and increase the amplitude."
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q15",
+      "skill": "L4.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A sound of frequency 680 Hz travels at 340 m·s⁻¹ in air. What is its wavelength?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.5,
+      "tolerance": 0.01,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "λ = v/f = 340/680 = 0.5 m.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A2.q16",
+      "skill": "L4.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "An ultrasound scanner uses 2 000 000 Hz waves at 1500 m·s⁻¹ in tissue. What is the wavelength?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.00075,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "λ = v/f = 1500/2 000 000 = 0.00075 m (0.75 mm) — short wavelengths give detailed images.",
+      "errorSignals": [
+        "ERR_WAVE_SPEED_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A2.q17",
+      "skill": "L4.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is the speed of sound greater in water than in air?",
+      "answerMode": "choice",
+      "expectedAnswer": "Particles in water are closer together, so vibrations pass on faster.",
+      "marks": 2,
+      "explanation": "Sound travels faster where particles are closer (liquids and solids) than in gases.",
+      "errorSignals": [
+        "ERR_SOUND_SPEED_MEDIUM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Water is colder than air.",
+        "Particles in water are closer together, so vibrations pass on faster.",
+        "Water has a higher frequency."
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q18",
+      "skill": "L4.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two notes are played. Note P has double the frequency of note Q. How do they sound?",
+      "answerMode": "choice",
+      "expectedAnswer": "Note P has a higher pitch than note Q.",
+      "marks": 2,
+      "explanation": "Double the frequency means a higher pitch; frequency does not change loudness or speed.",
+      "errorSignals": [
+        "ERR_PITCH_PROPERTY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Note P is louder than note Q.",
+        "Note P travels faster than note Q.",
+        "Note P has a higher pitch than note Q."
+      ]
+    },
+    {
+      "id": "L4.T1.A2.q19",
+      "skill": "L4.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A bat uses echolocation, sending out a pulse that returns after 0.01 s. If sound travels at 340 m·s⁻¹, how far away is the object?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.7,
+      "tolerance": 0.05,
+      "unit": "m",
+      "marks": 3,
+      "explanation": "Total path = 340 × 0.01 = 3.4 m (there and back); object distance = 3.4/2 = 1.7 m.",
+      "errorSignals": [
+        "ERR_ECHO_DISTANCE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L4.T1.A2.q20",
+      "skill": "L4.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "On an oscilloscope two sound waves have the same height but one is more tightly packed (more waves across the screen). What differs?",
+      "answerMode": "choice",
+      "expectedAnswer": "The tightly packed wave has a higher frequency (higher pitch).",
+      "marks": 2,
+      "explanation": "Same height = same amplitude (loudness); more waves across = higher frequency (pitch).",
+      "errorSignals": [
+        "ERR_PITCH_LOUDNESS_MIX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The tightly packed wave is louder.",
+        "The tightly packed wave has a higher frequency (higher pitch).",
+        "The tightly packed wave has a larger amplitude."
+      ]
+    }
+  ]
+}

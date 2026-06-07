@@ -8,25 +8,22 @@
  * answerMode of "text" | "choice" | "numeric" | "multiField".
  */
 
-import bankData from "@/data/matric-physical-sciences-question-bank.json";
 import type {
-  MatricPhysSciBank,
   MatricPhysSciBankItem,
   MatricPhysSciBankSkill,
   MatricPhysSciGeneratedQuestion,
   MatricPhysSciStudentProfile,
 } from "@/types/matric-phys-sci";
-
-const bank = bankData as unknown as MatricPhysSciBank;
+import { physSciConfig, type PhysSciGrade } from "@/lib/phys-sci-grade";
 
 // ─── Skill lookup ─────────────────────────────────────────────────────────────
 
-export function getSkill(skillId: string): MatricPhysSciBankSkill | null {
-  return bank.skills[skillId] ?? null;
+export function getSkill(skillId: string, grade: PhysSciGrade = 12): MatricPhysSciBankSkill | null {
+  return physSciConfig(grade).bank.skills[skillId] ?? null;
 }
 
-export function hasSkill(skillId: string): boolean {
-  return bank.skills[skillId] !== undefined;
+export function hasSkill(skillId: string, grade: PhysSciGrade = 12): boolean {
+  return physSciConfig(grade).bank.skills[skillId] !== undefined;
 }
 
 // ─── Question selection ───────────────────────────────────────────────────────
@@ -44,8 +41,9 @@ export function selectItem(
   skillId: string,
   usedRefs: string[],
   _isReteach = false,
+  grade: PhysSciGrade = 12,
 ): MatricPhysSciBankItem | null {
-  const skill = bank.skills[skillId];
+  const skill = physSciConfig(grade).bank.skills[skillId];
   if (!skill) return null;
 
   const pool = skill.items;
@@ -109,8 +107,8 @@ export function itemToGenerated(
 
 // ─── Pass threshold ──────────────────────────────────────────────────────────
 
-export function passThresholdForSkill(skillId: string): number {
-  const skill = bank.skills[skillId];
+export function passThresholdForSkill(skillId: string, grade: PhysSciGrade = 12): number {
+  const skill = physSciConfig(grade).bank.skills[skillId];
   if (!skill) return 0.6;
   // All items in a skill share the same passThreshold (set per item, but the
   // skill-level threshold is what we use for mastery). Read from the first
@@ -118,7 +116,7 @@ export function passThresholdForSkill(skillId: string): number {
   return skill.items[0]?.passThreshold ?? 0.7;
 }
 
-export function targetItemCount(skillId: string): number {
-  const skill = bank.skills[skillId];
+export function targetItemCount(skillId: string, grade: PhysSciGrade = 12): number {
+  const skill = physSciConfig(grade).bank.skills[skillId];
   return skill?.items.length ?? 20;
 }

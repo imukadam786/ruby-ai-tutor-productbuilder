@@ -1,0 +1,395 @@
+{
+  "skill": "L3.T1.A1",
+  "skill_title": "Apply refraction and Snell's Law",
+  "grades": [
+    11
+  ],
+  "paper": "P1",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L3.T1.A1.q01",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is refraction?",
+      "answerMode": "choice",
+      "expectedAnswer": "The bending of light as it changes speed crossing a boundary between media.",
+      "marks": 2,
+      "explanation": "Refraction is the change in direction of light due to a change in speed at a boundary.",
+      "errorSignals": [
+        "ERR_REFRACTION_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The bending of light as it changes speed crossing a boundary between media.",
+        "The bouncing of light off a surface.",
+        "The splitting of light into colours only."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q02",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "From where is the angle of incidence measured?",
+      "answerMode": "choice",
+      "expectedAnswer": "From the normal (the line perpendicular to the surface).",
+      "marks": 2,
+      "explanation": "Angles in optics are measured from the normal, not the surface.",
+      "errorSignals": [
+        "ERR_ANGLE_FROM_NORMAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "From the surface itself.",
+        "From the normal (the line perpendicular to the surface).",
+        "From the refracted ray."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q03",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How is refractive index defined?",
+      "answerMode": "choice",
+      "expectedAnswer": "n = c/v (speed of light in vacuum ÷ speed in the medium).",
+      "marks": 2,
+      "explanation": "Refractive index n = c/v; it is always ≥ 1.",
+      "errorSignals": [
+        "ERR_REFRACTIVE_INDEX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "n = v/c.",
+        "n = c × v.",
+        "n = c/v (speed of light in vacuum ÷ speed in the medium)."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q04",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When light passes from air into glass (a denser medium), it bends...",
+      "answerMode": "choice",
+      "expectedAnswer": "towards the normal.",
+      "marks": 2,
+      "explanation": "Entering a denser (slower) medium, light bends towards the normal.",
+      "errorSignals": [
+        "ERR_BEND_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "towards the normal.",
+        "away from the normal.",
+        "along the surface."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q05",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "When light passes from glass into air (a less dense medium), it bends...",
+      "answerMode": "choice",
+      "expectedAnswer": "away from the normal.",
+      "marks": 2,
+      "explanation": "Entering a less dense (faster) medium, light bends away from the normal.",
+      "errorSignals": [
+        "ERR_BEND_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "towards the normal.",
+        "away from the normal.",
+        "straight through with no bending."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q06",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation is Snell's Law?",
+      "answerMode": "choice",
+      "expectedAnswer": "n₁sinθ₁ = n₂sinθ₂",
+      "marks": 2,
+      "explanation": "Snell's Law: n₁sinθ₁ = n₂sinθ₂.",
+      "errorSignals": [
+        "ERR_SNELL_FORM"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "n₁cosθ₁ = n₂cosθ₂",
+        "n₁/sinθ₁ = n₂/sinθ₂",
+        "n₁sinθ₁ = n₂sinθ₂"
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q07",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A medium has a refractive index greater than 1. This means light travels...",
+      "answerMode": "choice",
+      "expectedAnswer": "slower in the medium than in a vacuum.",
+      "marks": 2,
+      "explanation": "n = c/v > 1 means v < c, so light is slower in the medium.",
+      "errorSignals": [
+        "ERR_REFRACTIVE_INDEX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "slower in the medium than in a vacuum.",
+        "faster in the medium than in a vacuum.",
+        "at the same speed as in a vacuum."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q08",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Light in a vacuum has refractive index...",
+      "answerMode": "choice",
+      "expectedAnswer": "1 (exactly).",
+      "marks": 2,
+      "explanation": "In a vacuum n = c/c = 1.",
+      "errorSignals": [
+        "ERR_REFRACTIVE_INDEX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "0.",
+        "1 (exactly).",
+        "greater than 1."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q09",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "If light hits a boundary along the normal (angle of incidence 0°), what happens?",
+      "answerMode": "choice",
+      "expectedAnswer": "It passes straight through without bending.",
+      "marks": 2,
+      "explanation": "At 0° incidence there is no bending; light continues straight (though its speed changes).",
+      "errorSignals": [
+        "ERR_NORMAL_INCIDENCE"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It bends towards the normal.",
+        "It reflects back.",
+        "It passes straight through without bending."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q10",
+      "skill": "L3.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "The speed of light in glass is 2×10⁸ m·s⁻¹. What is the refractive index of the glass? (c = 3×10⁸ m·s⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 1.5,
+      "tolerance": 0.02,
+      "marks": 3,
+      "explanation": "n = c/v = 3×10⁸ / 2×10⁸ = 1.5.",
+      "errorSignals": [
+        "ERR_REFRACTIVE_INDEX"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A1.q11",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Light travels from air (n = 1) into water (n = 1.33) at an angle of incidence of 30°. Find the angle of refraction. (sin30° = 0.5)",
+      "answerMode": "numeric",
+      "expectedAnswer": 22.1,
+      "tolerance": 0.5,
+      "unit": "°",
+      "marks": 3,
+      "explanation": "n₁sinθ₁ = n₂sinθ₂ ⇒ sinθ₂ = (1 × 0.5)/1.33 = 0.376 ⇒ θ₂ = 22.1°.",
+      "errorSignals": [
+        "ERR_SNELL_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A1.q12",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Light goes from glass (n = 1.5) into air (n = 1) at an angle of incidence of 20°. Find the angle of refraction. (sin20° = 0.342)",
+      "answerMode": "numeric",
+      "expectedAnswer": 30.9,
+      "tolerance": 0.5,
+      "unit": "°",
+      "marks": 3,
+      "explanation": "sinθ₂ = (1.5 × 0.342)/1 = 0.513 ⇒ θ₂ = 30.9° (bends away from the normal).",
+      "errorSignals": [
+        "ERR_SNELL_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A1.q13",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why does a straw in a glass of water appear bent at the surface?",
+      "answerMode": "choice",
+      "expectedAnswer": "Light from the straw refracts as it leaves the water, changing direction.",
+      "marks": 2,
+      "explanation": "Light bends (refracts) at the water-air boundary, making the submerged part appear displaced.",
+      "errorSignals": [
+        "ERR_REFRACTION_APPLICATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Light from the straw refracts as it leaves the water, changing direction.",
+        "The straw physically bends in water.",
+        "Water magnifies the straw."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q14",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A ray enters a medium and bends towards the normal. What can you conclude about the second medium?",
+      "answerMode": "choice",
+      "expectedAnswer": "It is denser (higher refractive index) than the first.",
+      "marks": 2,
+      "explanation": "Bending towards the normal means entering a denser, slower medium (higher n).",
+      "errorSignals": [
+        "ERR_BEND_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It is less dense than the first.",
+        "It is denser (higher refractive index) than the first.",
+        "It has the same density as the first."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q15",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "The refractive index of a diamond is 2.42. What is the speed of light in diamond? (c = 3×10⁸ m·s⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 124000000,
+      "tolerance": 0.05,
+      "unit": "m·s⁻¹",
+      "marks": 3,
+      "explanation": "v = c/n = 3×10⁸ / 2.42 = 1.24×10⁸ m·s⁻¹.",
+      "errorSignals": [
+        "ERR_REFRACTIVE_INDEX_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A1.q16",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Light travels from medium A (n = 1.2) to medium B (n = 1.6). Compared with medium A, the light in medium B is...",
+      "answerMode": "choice",
+      "expectedAnswer": "slower and bends towards the normal.",
+      "marks": 2,
+      "explanation": "Higher n in B means slower light, bending towards the normal.",
+      "errorSignals": [
+        "ERR_BEND_DIRECTION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "slower and bends towards the normal.",
+        "faster and bends away from the normal.",
+        "the same speed."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q17",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Light passes from water (n = 1.33) into air (n = 1.00) at 25° incidence. sin25° = 0.423. Find the angle of refraction.",
+      "answerMode": "numeric",
+      "expectedAnswer": 34.3,
+      "tolerance": 0.5,
+      "unit": "°",
+      "marks": 3,
+      "explanation": "sinθ₂ = (1.33 × 0.423)/1.00 = 0.563 ⇒ θ₂ = 34.3°.",
+      "errorSignals": [
+        "ERR_SNELL_CALC"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L3.T1.A1.q18",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Does the frequency of light change when it refracts into a new medium?",
+      "answerMode": "choice",
+      "expectedAnswer": "No — frequency stays the same; speed and wavelength change.",
+      "marks": 2,
+      "explanation": "On refraction frequency is unchanged; the speed and wavelength change together (v = fλ).",
+      "errorSignals": [
+        "ERR_REFRACTION_FREQUENCY"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Yes — frequency increases.",
+        "Yes — frequency decreases.",
+        "No — frequency stays the same; speed and wavelength change."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q19",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A ray hits a glass surface and part of it changes direction on entering. The bending happens because...",
+      "answerMode": "choice",
+      "expectedAnswer": "the light changes speed at the boundary.",
+      "marks": 2,
+      "explanation": "Refraction (bending) is caused by the change in light's speed crossing the boundary.",
+      "errorSignals": [
+        "ERR_REFRACTION_DEF"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "the light changes speed at the boundary.",
+        "the light changes frequency.",
+        "the glass absorbs part of the light."
+      ]
+    },
+    {
+      "id": "L3.T1.A1.q20",
+      "skill": "L3.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Two media have refractive indices 1.0 and 1.5. In which is the speed of light greater?",
+      "answerMode": "choice",
+      "expectedAnswer": "The medium with n = 1.0.",
+      "marks": 2,
+      "explanation": "Lower n means higher speed (v = c/n), so light is faster where n = 1.0.",
+      "errorSignals": [
+        "ERR_REFRACTIVE_INDEX"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The medium with n = 1.5.",
+        "The medium with n = 1.0.",
+        "The speed is equal in both."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,363 @@
+{
+  "skill": "L17.T1.A2",
+  "skill_title": "Apply molar volume, concentration and stoichiometric ratios",
+  "grades": [
+    10
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L17.T1.A2.q01",
+      "skill": "L17.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What volume does 1 mole of any gas occupy at STP?",
+      "answerMode": "choice",
+      "expectedAnswer": "22.4 dm³",
+      "marks": 2,
+      "explanation": "At standard temperature and pressure, 1 mole of any gas occupies 22.4 dm³.",
+      "errorSignals": [
+        "ERR_MOLAR_VOLUME"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "22.4 dm³",
+        "1 dm³",
+        "6.02×10²³ dm³"
+      ]
+    },
+    {
+      "id": "L17.T1.A2.q02",
+      "skill": "L17.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which equation gives the concentration of a solution?",
+      "answerMode": "choice",
+      "expectedAnswer": "c = n/V",
+      "marks": 2,
+      "explanation": "Concentration = moles ÷ volume (in dm³): c = n/V.",
+      "errorSignals": [
+        "ERR_CONCENTRATION_FORMULA"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "c = V/n",
+        "c = n/V",
+        "c = n × V"
+      ]
+    },
+    {
+      "id": "L17.T1.A2.q03",
+      "skill": "L17.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the concentration of a solution with 2 mol of solute in 4 dm³?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.5,
+      "tolerance": 0.01,
+      "unit": "mol·dm⁻³",
+      "marks": 3,
+      "explanation": "c = n/V = 2/4 = 0.5 mol·dm⁻³.",
+      "errorSignals": [
+        "ERR_CONCENTRATION_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q04",
+      "skill": "L17.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many moles of gas are in 44.8 dm³ at STP?",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = V/22.4 = 44.8/22.4 = 2 mol.",
+      "errorSignals": [
+        "ERR_MOLAR_VOLUME"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q05",
+      "skill": "L17.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How do you convert a volume in cm³ to dm³?",
+      "answerMode": "choice",
+      "expectedAnswer": "Divide by 1000.",
+      "marks": 2,
+      "explanation": "1 dm³ = 1000 cm³, so divide cm³ by 1000 to get dm³.",
+      "errorSignals": [
+        "ERR_VOLUME_UNIT"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Multiply by 1000.",
+        "Divide by 1000.",
+        "Divide by 100."
+      ]
+    },
+    {
+      "id": "L17.T1.A2.q06",
+      "skill": "L17.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What volume does 0.5 mol of a gas occupy at STP?",
+      "answerMode": "numeric",
+      "expectedAnswer": 11.2,
+      "tolerance": 0.05,
+      "unit": "dm³",
+      "marks": 3,
+      "explanation": "V = n × 22.4 = 0.5 × 22.4 = 11.2 dm³.",
+      "errorSignals": [
+        "ERR_MOLAR_VOLUME"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q07",
+      "skill": "L17.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "How many moles of solute are in 2 dm³ of a 1.5 mol·dm⁻³ solution?",
+      "answerMode": "numeric",
+      "expectedAnswer": 3,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "n = c × V = 1.5 × 2 = 3 mol.",
+      "errorSignals": [
+        "ERR_CONCENTRATION_REARRANGE"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q08",
+      "skill": "L17.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "In the reaction 2H₂ + O₂ → 2H₂O, what is the mole ratio of H₂ to O₂?",
+      "answerMode": "choice",
+      "expectedAnswer": "2 : 1",
+      "marks": 2,
+      "explanation": "The coefficients give the mole ratio: 2 H₂ to 1 O₂.",
+      "errorSignals": [
+        "ERR_MOLE_RATIO"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "1 : 2",
+        "2 : 1",
+        "1 : 1"
+      ]
+    },
+    {
+      "id": "L17.T1.A2.q09",
+      "skill": "L17.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the concentration of a solution containing 0.25 mol in 0.5 dm³?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.5,
+      "tolerance": 0.01,
+      "unit": "mol·dm⁻³",
+      "marks": 3,
+      "explanation": "c = n/V = 0.25/0.5 = 0.5 mol·dm⁻³.",
+      "errorSignals": [
+        "ERR_CONCENTRATION_FORMULA"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q10",
+      "skill": "L17.T1.A2",
+      "gate": "A",
+      "source": "fresh",
+      "question": "A solution has volume 250 cm³. What is this in dm³?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.25,
+      "tolerance": 0.01,
+      "unit": "dm³",
+      "marks": 3,
+      "explanation": "250 cm³ ÷ 1000 = 0.25 dm³.",
+      "errorSignals": [
+        "ERR_VOLUME_UNIT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q11",
+      "skill": "L17.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In 2H₂ + O₂ → 2H₂O, how many moles of water form from 4 mol of H₂ (excess O₂)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "Ratio H₂ : H₂O = 2 : 2 = 1 : 1, so 4 mol H₂ gives 4 mol H₂O.",
+      "errorSignals": [
+        "ERR_MOLE_RATIO"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q12",
+      "skill": "L17.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In N₂ + 3H₂ → 2NH₃, how many moles of NH₃ form from 6 mol of H₂ (excess N₂)?",
+      "answerMode": "numeric",
+      "expectedAnswer": 4,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "Ratio H₂ : NH₃ = 3 : 2, so 6 mol H₂ gives 6 × (2/3) = 4 mol NH₃.",
+      "errorSignals": [
+        "ERR_MOLE_RATIO"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q13",
+      "skill": "L17.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many moles are in 500 cm³ of a 2 mol·dm⁻³ solution?",
+      "answerMode": "numeric",
+      "expectedAnswer": 1,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "Convert: 500 cm³ = 0.5 dm³; n = c × V = 2 × 0.5 = 1 mol.",
+      "errorSignals": [
+        "ERR_VOLUME_UNIT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q14",
+      "skill": "L17.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What mass of magnesium oxide forms when 2 mol of Mg reacts fully? 2Mg + O₂ → 2MgO (MgO = 40 g·mol⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 80,
+      "tolerance": 0.05,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "Mg : MgO = 2 : 2 = 1 : 1, so 2 mol MgO forms; m = n × M = 2 × 40 = 80 g.",
+      "errorSignals": [
+        "ERR_STOICH_MASS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q15",
+      "skill": "L17.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What volume of CO₂ gas (at STP) is produced from 1 mol of CaCO₃? CaCO₃ → CaO + CO₂",
+      "answerMode": "numeric",
+      "expectedAnswer": 22.4,
+      "tolerance": 0.1,
+      "unit": "dm³",
+      "marks": 3,
+      "explanation": "1 mol CaCO₃ gives 1 mol CO₂; V = n × 22.4 = 1 × 22.4 = 22.4 dm³.",
+      "errorSignals": [
+        "ERR_MOLAR_VOLUME"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q16",
+      "skill": "L17.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What concentration results when 0.2 mol of NaOH is dissolved to make 400 cm³ of solution?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.5,
+      "tolerance": 0.01,
+      "unit": "mol·dm⁻³",
+      "marks": 3,
+      "explanation": "V = 400 cm³ = 0.4 dm³; c = n/V = 0.2/0.4 = 0.5 mol·dm⁻³.",
+      "errorSignals": [
+        "ERR_VOLUME_UNIT"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q17",
+      "skill": "L17.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many moles of O₂ are needed to react completely with 4 mol of H₂? 2H₂ + O₂ → 2H₂O",
+      "answerMode": "numeric",
+      "expectedAnswer": 2,
+      "tolerance": 0.05,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "Ratio H₂ : O₂ = 2 : 1, so 4 mol H₂ needs 2 mol O₂.",
+      "errorSignals": [
+        "ERR_MOLE_RATIO"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q18",
+      "skill": "L17.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "What mass of water forms from 0.5 mol of O₂? 2H₂ + O₂ → 2H₂O (H₂O = 18 g·mol⁻¹)",
+      "answerMode": "numeric",
+      "expectedAnswer": 18,
+      "tolerance": 0.05,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "Ratio O₂ : H₂O = 1 : 2, so 0.5 mol O₂ → 1 mol H₂O; m = 1 × 18 = 18 g.",
+      "errorSignals": [
+        "ERR_STOICH_MASS"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q19",
+      "skill": "L17.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A reaction produces 3 mol of a gas. What volume does it occupy at STP?",
+      "answerMode": "numeric",
+      "expectedAnswer": 67.2,
+      "tolerance": 0.2,
+      "unit": "dm³",
+      "marks": 3,
+      "explanation": "V = n × 22.4 = 3 × 22.4 = 67.2 dm³.",
+      "errorSignals": [
+        "ERR_MOLAR_VOLUME"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L17.T1.A2.q20",
+      "skill": "L17.T1.A2",
+      "gate": "B",
+      "source": "fresh",
+      "question": "How many moles of HCl are in 100 cm³ of 0.1 mol·dm⁻³ hydrochloric acid?",
+      "answerMode": "numeric",
+      "expectedAnswer": 0.01,
+      "tolerance": 0.01,
+      "unit": "mol",
+      "marks": 3,
+      "explanation": "V = 100 cm³ = 0.1 dm³; n = c × V = 0.1 × 0.1 = 0.01 mol.",
+      "errorSignals": [
+        "ERR_VOLUME_UNIT"
+      ],
+      "passThreshold": 0.7
+    }
+  ]
+}

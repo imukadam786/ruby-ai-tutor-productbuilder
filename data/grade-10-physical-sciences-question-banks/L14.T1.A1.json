@@ -1,0 +1,402 @@
+{
+  "skill": "L14.T1.A1",
+  "skill_title": "Distinguish physical and chemical change and apply conservation laws",
+  "grades": [
+    10
+  ],
+  "paper": "P2",
+  "version": "1.0",
+  "items": [
+    {
+      "id": "L14.T1.A1.q01",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which is a physical change?",
+      "answerMode": "choice",
+      "expectedAnswer": "Melting ice into water.",
+      "marks": 2,
+      "explanation": "Melting changes only the state, with no new substance — a physical change.",
+      "errorSignals": [
+        "ERR_PHYSICAL_CHEMICAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Melting ice into water.",
+        "Burning wood.",
+        "Rusting iron."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q02",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which is a chemical change?",
+      "answerMode": "choice",
+      "expectedAnswer": "Burning paper.",
+      "marks": 2,
+      "explanation": "Burning forms new substances (ash, gases) — a chemical change.",
+      "errorSignals": [
+        "ERR_PHYSICAL_CHEMICAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Boiling water.",
+        "Burning paper.",
+        "Crushing a can."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q03",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is the main sign that a chemical change has happened?",
+      "answerMode": "choice",
+      "expectedAnswer": "A new substance is formed.",
+      "marks": 2,
+      "explanation": "A chemical change always produces one or more new substances.",
+      "errorSignals": [
+        "ERR_CHEMICAL_CHANGE_SIGN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The substance changes shape.",
+        "The substance changes state.",
+        "A new substance is formed."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q04",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "During a chemical reaction, what happens to atoms?",
+      "answerMode": "choice",
+      "expectedAnswer": "They are rearranged, never created or destroyed.",
+      "marks": 2,
+      "explanation": "Atoms are conserved — they are only rearranged into new substances.",
+      "errorSignals": [
+        "ERR_ATOM_CONSERVATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "They are rearranged, never created or destroyed.",
+        "Some atoms are destroyed.",
+        "New atoms are created."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q05",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What does the law of conservation of mass state?",
+      "answerMode": "choice",
+      "expectedAnswer": "The total mass of reactants equals the total mass of products.",
+      "marks": 2,
+      "explanation": "Mass is conserved: total mass before = total mass after the reaction.",
+      "errorSignals": [
+        "ERR_MASS_CONSERVATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Mass is lost during every reaction.",
+        "The total mass of reactants equals the total mass of products.",
+        "Mass is created during reactions."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q06",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is an exothermic reaction?",
+      "answerMode": "choice",
+      "expectedAnswer": "One that releases energy (e.g. gets warmer).",
+      "marks": 2,
+      "explanation": "Exothermic reactions release energy to the surroundings (temperature rises).",
+      "errorSignals": [
+        "ERR_EXO_ENDO"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "One that absorbs energy (gets colder).",
+        "One with no energy change.",
+        "One that releases energy (e.g. gets warmer)."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q07",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "What is an endothermic reaction?",
+      "answerMode": "choice",
+      "expectedAnswer": "One that absorbs energy (e.g. gets colder).",
+      "marks": 2,
+      "explanation": "Endothermic reactions absorb energy from the surroundings (temperature falls).",
+      "errorSignals": [
+        "ERR_EXO_ENDO"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "One that absorbs energy (e.g. gets colder).",
+        "One that releases energy (gets warmer).",
+        "One that produces no products."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q08",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Dissolving sugar in water is which type of change?",
+      "answerMode": "choice",
+      "expectedAnswer": "A physical change (the sugar can be recovered).",
+      "marks": 2,
+      "explanation": "Dissolving is physical — no new substance forms and the sugar can be recovered by evaporation.",
+      "errorSignals": [
+        "ERR_PHYSICAL_CHEMICAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A chemical change.",
+        "A physical change (the sugar can be recovered).",
+        "A nuclear change."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q09",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Which observation usually signals a chemical change?",
+      "answerMode": "choice",
+      "expectedAnswer": "A colour change, a gas, a precipitate, or an energy change.",
+      "marks": 2,
+      "explanation": "Chemical changes show signs like colour change, gas/precipitate formation, or energy release/absorption.",
+      "errorSignals": [
+        "ERR_CHEMICAL_CHANGE_SIGN"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "A change of shape only.",
+        "A change in temperature of the room.",
+        "A colour change, a gas, a precipitate, or an energy change."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q10",
+      "skill": "L14.T1.A1",
+      "gate": "A",
+      "source": "fresh",
+      "question": "Is the boiling of water a physical or chemical change?",
+      "answerMode": "choice",
+      "expectedAnswer": "Physical — it is still water (H₂O) as a gas.",
+      "marks": 2,
+      "explanation": "Boiling changes liquid water to steam; both are H₂O, so it is a physical change.",
+      "errorSignals": [
+        "ERR_PHYSICAL_CHEMICAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Physical — it is still water (H₂O) as a gas.",
+        "Chemical — it makes hydrogen and oxygen.",
+        "Chemical — a new substance forms."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q11",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "In a sealed flask, 10 g of reactant A reacts fully with 15 g of reactant B. What is the total mass of products?",
+      "answerMode": "numeric",
+      "expectedAnswer": 25,
+      "tolerance": 0.05,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "By conservation of mass, products = 10 + 15 = 25 g.",
+      "errorSignals": [
+        "ERR_MASS_CONSERVATION"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L14.T1.A1.q12",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "When magnesium burns in air, the ash weighs MORE than the original magnesium. Why does this not break conservation of mass?",
+      "answerMode": "choice",
+      "expectedAnswer": "Oxygen from the air combined with the magnesium and adds to the mass.",
+      "marks": 2,
+      "explanation": "The product (magnesium oxide) includes oxygen from the air, so total mass (Mg + O) is still conserved.",
+      "errorSignals": [
+        "ERR_OPEN_SYSTEM_MASS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Mass was created in the flames.",
+        "The magnesium gained energy with mass.",
+        "Oxygen from the air combined with the magnesium and adds to the mass."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q13",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "When a candle burns in an open dish, the candle seems to lose mass. Where did the mass go?",
+      "answerMode": "choice",
+      "expectedAnswer": "It escaped as gases (carbon dioxide and water vapour).",
+      "marks": 2,
+      "explanation": "The products are gases that leave the dish; if collected, total mass would be conserved.",
+      "errorSignals": [
+        "ERR_OPEN_SYSTEM_MASS"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "It escaped as gases (carbon dioxide and water vapour).",
+        "It was destroyed.",
+        "It turned into pure energy with no mass."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q14",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A reaction beaker feels cold to the touch as it proceeds. What does this tell you?",
+      "answerMode": "choice",
+      "expectedAnswer": "The reaction is endothermic (absorbing energy).",
+      "marks": 2,
+      "explanation": "Absorbing energy from the surroundings cools the beaker — an endothermic reaction.",
+      "errorSignals": [
+        "ERR_EXO_ENDO"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The reaction is exothermic.",
+        "The reaction is endothermic (absorbing energy).",
+        "No reaction is occurring."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q15",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "12 g of carbon reacts with 32 g of oxygen to form carbon dioxide. What mass of carbon dioxide forms?",
+      "answerMode": "numeric",
+      "expectedAnswer": 44,
+      "tolerance": 0.05,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "Conservation of mass: 12 + 32 = 44 g of CO₂.",
+      "errorSignals": [
+        "ERR_MASS_CONSERVATION"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L14.T1.A1.q16",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which list contains only physical changes?",
+      "answerMode": "choice",
+      "expectedAnswer": "Melting, boiling, dissolving",
+      "marks": 2,
+      "explanation": "Melting, boiling and dissolving form no new substances — all physical changes.",
+      "errorSignals": [
+        "ERR_PHYSICAL_CHEMICAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Melting, boiling, dissolving",
+        "Burning, rusting, melting",
+        "Dissolving, burning, freezing"
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q17",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Why is the rusting of iron classified as a chemical change?",
+      "answerMode": "choice",
+      "expectedAnswer": "A new substance (iron oxide) forms.",
+      "marks": 2,
+      "explanation": "Rust is a different substance (hydrated iron oxide), so rusting is a chemical change.",
+      "errorSignals": [
+        "ERR_PHYSICAL_CHEMICAL"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "The iron only changes shape.",
+        "A new substance (iron oxide) forms.",
+        "The iron changes state."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q18",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "A self-heating food pack warms up when activated. The reaction inside is...",
+      "answerMode": "choice",
+      "expectedAnswer": "exothermic.",
+      "marks": 2,
+      "explanation": "It releases heat to warm the food, so the reaction is exothermic.",
+      "errorSignals": [
+        "ERR_EXO_ENDO"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "endothermic.",
+        "a physical change only.",
+        "exothermic."
+      ]
+    },
+    {
+      "id": "L14.T1.A1.q19",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "18 g of water decomposes completely. By conservation of mass, the total mass of hydrogen and oxygen produced is...",
+      "answerMode": "numeric",
+      "expectedAnswer": 18,
+      "tolerance": 0.05,
+      "unit": "g",
+      "marks": 3,
+      "explanation": "Mass is conserved, so the products (H₂ + O₂) together still mass 18 g.",
+      "errorSignals": [
+        "ERR_MASS_CONSERVATION"
+      ],
+      "passThreshold": 0.7
+    },
+    {
+      "id": "L14.T1.A1.q20",
+      "skill": "L14.T1.A1",
+      "gate": "B",
+      "source": "fresh",
+      "question": "Which statement about energy in chemical change is correct?",
+      "answerMode": "choice",
+      "expectedAnswer": "Energy is conserved — it is transferred between the reaction and surroundings, not created or destroyed.",
+      "marks": 2,
+      "explanation": "Energy is conserved overall; exothermic releases it and endothermic absorbs it, but the total is unchanged.",
+      "errorSignals": [
+        "ERR_ENERGY_CONSERVATION"
+      ],
+      "passThreshold": 0.7,
+      "options": [
+        "Energy is created in exothermic reactions.",
+        "Energy is conserved — it is transferred between the reaction and surroundings, not created or destroyed.",
+        "Energy is destroyed in endothermic reactions."
+      ]
+    }
+  ]
+}

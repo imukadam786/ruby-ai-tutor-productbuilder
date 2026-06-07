@@ -1,0 +1,1616 @@
+{
+  "version": "1.0",
+  "subject": "accounting",
+  "description": "Accounting skill tree, FET (CAPS Accounting Grades 10-12). Tiers = CAPS terms (T1-T4) within each grade. 51 atomic skills across the three grades, progression-gated in CAPS teaching order (each skill lists the previous CAPS-order skill as a prerequisite; the first skill of each grade has none). Mastery = 60% of a 20-item pool (FET rule, no timer). Tap-based mechanics only (no free-text / typed numbers): choice, true-false, cloze, sequence, image-match, sort-buckets, highlight-source, argument-builder, paragraph-template, source-comparison, plus two Accounting-specific mechanics — equation-effect (effect of a transaction on Assets / Owner's equity / Liabilities) and double-entry (which account is debited and credited). Questions live in data/accounting-question-bank.json.",
+  "grades_covered": [
+    10,
+    11,
+    12
+  ],
+  "levels": [
+    {
+      "id": 10,
+      "grade": 10,
+      "title": "Grade 10 — Accounting",
+      "description": "Foundations of Financial Accounting for a sole trader, plus the three managing-resources and managerial topics. T1: indigenous vs formal bookkeeping, ethics, GAAP, internal control, accounting concepts, the full bookkeeping cycle (source documents, cash & credit journals, ledgers, Trial Balance) and the accounting equation. T2: VAT, salaries & wages, year-end adjustments and final accounts. T3: financial statements and their analysis. T4: cost accounting and budgeting concepts. 19 atomic skills, progression-gated in CAPS teaching order.",
+      "tiers": [
+        {
+          "id": "L10.T1",
+          "title": "Term 1 — Concepts, GAAP, control & bookkeeping of a sole trader",
+          "atomic_skills": [
+            {
+              "id": "ACC.G10.T1.INFORMAL.A1",
+              "bank_skill_id": "ACC.G10.T1.INFORMAL.A1",
+              "title": "Informal vs formal bookkeeping",
+              "description": "Comparison of the bookkeeping of the informal/indigenous sector and the formal sector: the concepts capital, fixed assets, stock, cost price, labour cost, selling price, income, expenses and profit; how resources are managed; and the process of determining selling prices, cost of sales, labour costs, income and expenses.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Indigenous bookkeeping systems",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses cost price with selling price when working out profit",
+                  "example": "Says profit is the selling price, ignoring the cost price"
+                }
+              ],
+              "recovery_strategy": "Profit = selling price − cost price. The informal trader still tracks the same things a formal business does, just without formal books.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T1.ETHICS.A1",
+              "bank_skill_id": "ACC.G10.T1.ETHICS.A1",
+              "title": "Code of ethics in the financial environment",
+              "description": "The code of ethics applicable to all parties in the financial environment and the basic principles of ethics: leadership, discipline, transparency, accountability, fairness, sustainability and responsible management. Ethics is integrated across all topics.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Ethics",
+              "prerequisites": [
+                "ACC.G10.T1.INFORMAL.A1"
+              ],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "paragraph-template"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot match an ethical principle to a workplace example",
+                  "example": "Calls hiding information from owners 'transparency'"
+                }
+              ],
+              "recovery_strategy": "Tie each principle to a plain test: transparency = nothing hidden; accountability = answerable for your actions; fairness = same rules for all.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T1.GAAP.A1",
+              "bank_skill_id": "ACC.G10.T1.GAAP.A1",
+              "title": "GAAP principles",
+              "description": "Definition and application of the Generally Accepted Accounting Practice principles: historical cost, prudence, materiality, business entity rule, going concern and matching. Applied to all relevant topics.",
+              "caps_term": "G10 T1",
+              "caps_topic": "GAAP principles",
+              "prerequisites": [
+                "ACC.G10.T1.ETHICS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sort-buckets",
+                "source-comparison"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses the business entity rule with the going-concern principle",
+                  "example": "Says business entity means the business will continue operating indefinitely"
+                }
+              ],
+              "recovery_strategy": "Business entity = the owner and the business are separate. Going concern = the business will keep operating. Matching = record income with the expenses that earned it.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T1.CONTROL.A1",
+              "bank_skill_id": "ACC.G10.T1.CONTROL.A1",
+              "title": "Internal control basics",
+              "description": "What internal control means and the basic internal control processes: control environment, risk assessment, control activities supported by policy and procedures, information and communication, and monitoring of performance. Integrated with other topics.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Internal control",
+              "prerequisites": [
+                "ACC.G10.T1.GAAP.A1"
+              ],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "classification_error",
+                  "description": "Cannot identify which control process an example belongs to",
+                  "example": "Calls a stock count 'risk assessment' rather than a control activity"
+                }
+              ],
+              "recovery_strategy": "Division of duties, authorisation, and physical controls are control ACTIVITIES. Spotting what could go wrong is risk ASSESSMENT.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T1.CONCEPTS.A1",
+              "bank_skill_id": "ACC.G10.T1.CONCEPTS.A1",
+              "title": "Accounting concepts & the accounting cycle",
+              "description": "Definition of accounting concepts up to financial statements — debit, credit, equity, capital, assets, liabilities, ledger, journal, profit, loss, VAT, income, expenses, final accounts, financial statements, discounts, the accounting cycle, financial vs managerial accounting and the perpetual inventory system.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Accounting concepts",
+              "prerequisites": [
+                "ACC.G10.T1.CONTROL.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "classification_error",
+                  "description": "Misclassifies an item as an asset/liability/income/expense",
+                  "example": "Calls a loan from the bank an asset"
+                }
+              ],
+              "recovery_strategy": "Assets are what the business owns/controls; liabilities are what it owes; income increases equity; expenses decrease it.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T1.SOURCEDOCS.A1",
+              "bank_skill_id": "ACC.G10.T1.SOURCEDOCS.A1",
+              "title": "Source documents & double entry",
+              "description": "The source documents that start each transaction and the double-entry principle — every transaction has an equal debit and credit. Links each document to the journal it feeds.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Bookkeeping",
+              "prerequisites": [
+                "ACC.G10.T1.CONCEPTS.A1"
+              ],
+              "templates": [
+                "choice",
+                "image-match",
+                "sort-buckets",
+                "double-entry"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Records both entries on the same side",
+                  "example": "Debits both bank and sales for a cash sale"
+                }
+              ],
+              "recovery_strategy": "Every transaction has TWO sides — one debit and one credit of equal value. If both are on the same side, it cannot balance.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T1.CASHJOURNALS.A1",
+              "bank_skill_id": "ACC.G10.T1.CASHJOURNALS.A1",
+              "title": "Cash journals (CRJ, CPJ, Petty Cash)",
+              "description": "Recording cash transactions in the Cash Receipts Journal, Cash Payments Journal (including loans, fixed deposits, interest income and expense, dishonoured cheques, discount allowed and received) and Petty Cash Journal.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Bookkeeping",
+              "prerequisites": [
+                "ACC.G10.T1.SOURCEDOCS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "double-entry",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Records a receipt in the payments journal or vice versa",
+                  "example": "Puts rent paid in the Cash Receipts Journal"
+                }
+              ],
+              "recovery_strategy": "Money IN → Cash Receipts Journal. Money OUT → Cash Payments Journal. Small cash payments → Petty Cash Journal.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T1.CREDITJOURNALS.A1",
+              "bank_skill_id": "ACC.G10.T1.CREDITJOURNALS.A1",
+              "title": "Credit journals (DJ, DAJ, CJ, CAJ, GJ)",
+              "description": "Recording credit transactions in the Debtors' Journal, Debtors' Allowances Journal, Creditors' Journal and Creditors' Allowances Journal, and the General Journal entries for bad debts, interest on overdue accounts, cancellations of discount on dishonoured cheques and corrections of errors.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Bookkeeping",
+              "prerequisites": [
+                "ACC.G10.T1.CASHJOURNALS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "double-entry",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "classification_error",
+                  "description": "Confuses selling on credit with buying on credit",
+                  "example": "Records goods sold on credit in the Creditors' Journal"
+                }
+              ],
+              "recovery_strategy": "Sold goods on credit → Debtors' Journal. Bought goods on credit → Creditors' Journal. Returns reverse into the matching Allowances journal.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T1.LEDGERS.A1",
+              "bank_skill_id": "ACC.G10.T1.LEDGERS.A1",
+              "title": "Posting to ledgers, Trial Balance & control lists",
+              "description": "Posting journals to the General, Debtors' and Creditors' Ledgers, drawing up a Trial Balance, and preparing debtors' and creditors' lists to reconcile with the control accounts (including correcting errors and omissions).",
+              "caps_term": "G10 T1",
+              "caps_topic": "Bookkeeping",
+              "prerequisites": [
+                "ACC.G10.T1.CREDITJOURNALS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Trial Balance does not balance because a posting went to the wrong side",
+                  "example": "Posts a debit ledger total into the credit column of the Trial Balance"
+                }
+              ],
+              "recovery_strategy": "The Trial Balance debit total must equal the credit total. The debtors'/creditors' list total must equal its control account balance.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T1.EQUATION.A1",
+              "bank_skill_id": "ACC.G10.T1.EQUATION.A1",
+              "title": "The accounting equation",
+              "description": "Analysing transactions of a sole trader and showing their effect on the accounting equation (Assets = Owner's equity + Liabilities) for all transactions up to financial statements.",
+              "caps_term": "G10 T1",
+              "caps_topic": "Accounting equation",
+              "prerequisites": [
+                "ACC.G10.T1.LEDGERS.A1"
+              ],
+              "templates": [
+                "equation-effect",
+                "choice",
+                "double-entry"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Changes only one side of the equation",
+                  "example": "Increases assets for a cash sale but leaves owner's equity unchanged"
+                }
+              ],
+              "recovery_strategy": "Every transaction keeps A = OE + L in balance. If assets go up, something else must change by the same amount.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L10.T2",
+          "title": "Term 2 — VAT, salaries & wages, adjustments & final accounts",
+          "atomic_skills": [
+            {
+              "id": "ACC.G10.T2.VAT.A1",
+              "bank_skill_id": "ACC.G10.T2.VAT.A1",
+              "title": "VAT basics",
+              "description": "The basic concepts of Value-Added Tax: the need for, purpose of and principles of VAT, zero-rated items, VAT-exempt items, standard-rated (VAT-able) items and the current VAT rate.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Value-Added Tax",
+              "prerequisites": [
+                "ACC.G10.T1.EQUATION.A1"
+              ],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "classification_error",
+                  "description": "Confuses zero-rated with exempt supplies",
+                  "example": "Says financial services are zero-rated rather than exempt"
+                }
+              ],
+              "recovery_strategy": "Zero-rated = taxed at 0% (e.g. brown bread, maize meal). Exempt = outside VAT (e.g. some financial services). Standard-rated = the current VAT rate.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T2.SALARIES.A1",
+              "bank_skill_id": "ACC.G10.T2.SALARIES.A1",
+              "title": "Salaries & wages",
+              "description": "Calculating and recording salary and wage scales and payments: normal time, overtime, deductions (PAYE, pension fund, UIF, medical aid, union membership) and employer contributions (pension, UIF, medical aid, skills development levy), posted through the journals to the ledger.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Salaries and wages",
+              "prerequisites": [
+                "ACC.G10.T2.VAT.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sort-buckets",
+                "double-entry"
+              ],
+              "error_signatures": [
+                {
+                  "type": "classification_error",
+                  "description": "Treats an employer contribution as an employee deduction",
+                  "example": "Subtracts the skills development levy from the employee's gross pay"
+                }
+              ],
+              "recovery_strategy": "Deductions come OUT of the employee's gross pay. Contributions are an EXTRA cost paid BY the employer on top of gross pay.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T2.ADJUSTMENTS.A1",
+              "bank_skill_id": "ACC.G10.T2.ADJUSTMENTS.A1",
+              "title": "Year-end adjustments (sole trader)",
+              "description": "Year-end adjustments: trading stock deficit/surplus, consumable stores on hand, depreciation (cost/straight-line and diminishing balance), bad debts and bad debts recovered, correction of errors, accrued income, income received in advance, prepaid and accrued expenses, and interest on a mortgage bond.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Final accounts and financial statements",
+              "prerequisites": [
+                "ACC.G10.T2.SALARIES.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "equation-effect",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Treats accrued expenses as prepaid (or vice versa)",
+                  "example": "Treats rent still owing at year-end as a prepaid expense"
+                }
+              ],
+              "recovery_strategy": "Accrued = owing/earned but not yet paid/received. Prepaid/received-in-advance = paid/received but not yet used/earned. Match each to the correct period.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T2.FINALACCOUNTS.A1",
+              "bank_skill_id": "ACC.G10.T2.FINALACCOUNTS.A1",
+              "title": "Final accounts & Trial Balances",
+              "description": "The pre-adjustment Trial Balance, closing transfers, the Trading Account and Profit and Loss Account, the post-adjustment and post-closing Trial Balances, and the reversal of certain adjustments at the start of the next period.",
+              "caps_term": "G10 T2",
+              "caps_topic": "Final accounts and financial statements",
+              "prerequisites": [
+                "ACC.G10.T2.ADJUSTMENTS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sequence",
+                "double-entry"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Closes off a balance-sheet account into the Trading Account",
+                  "example": "Transfers the equipment balance to the Trading Account"
+                }
+              ],
+              "recovery_strategy": "Only nominal (income/expense) accounts close off to Trading or Profit and Loss. Balance-sheet accounts carry their balance forward.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L10.T3",
+          "title": "Term 3 — Financial statements & interpretation (sole trader)",
+          "atomic_skills": [
+            {
+              "id": "ACC.G10.T3.INCOMESTATEMENT.A1",
+              "bank_skill_id": "ACC.G10.T3.INCOMESTATEMENT.A1",
+              "title": "Income Statement (sole trader)",
+              "description": "Preparing the Income Statement (Statement of Comprehensive Income) of a sole trader from the adjusted figures, with the supporting notes.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Final accounts and financial statements",
+              "prerequisites": [
+                "ACC.G10.T2.FINALACCOUNTS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "classification_error",
+                  "description": "Places a balance-sheet item in the Income Statement",
+                  "example": "Lists the bank loan as an expense in the Income Statement"
+                }
+              ],
+              "recovery_strategy": "The Income Statement shows only income and expenses for the year. Assets, liabilities and equity belong on the Balance Sheet.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T3.BALANCESHEET.A1",
+              "bank_skill_id": "ACC.G10.T3.BALANCESHEET.A1",
+              "title": "Balance Sheet & notes (sole trader)",
+              "description": "Preparing the Balance Sheet (Statement of Financial Position) of a sole trader and its notes from the adjusted figures.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Final accounts and financial statements",
+              "prerequisites": [
+                "ACC.G10.T3.INCOMESTATEMENT.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Balance Sheet does not balance",
+                  "example": "Total assets do not equal owner's equity plus liabilities"
+                }
+              ],
+              "recovery_strategy": "Assets = Owner's equity + Liabilities, always. Use the notes (fixed assets, trade & other receivables, etc.) to build each total.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T3.INTERPRET.A1",
+              "bank_skill_id": "ACC.G10.T3.INTERPRET.A1",
+              "title": "Analysis & interpretation of financial statements",
+              "description": "Calculating and interpreting financial indicators: gross profit on sales, gross profit on cost of sales, net profit on sales, operating expenses on sales, operating profit on sales, current ratio, acid-test ratio, solvency ratio and return on equity.",
+              "caps_term": "G10 T3",
+              "caps_topic": "Analysis and interpretation",
+              "prerequisites": [
+                "ACC.G10.T3.BALANCESHEET.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "source-comparison",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Reads a worsening ratio as an improvement",
+                  "example": "Says a current ratio falling from 2:1 to 0.8:1 shows better liquidity"
+                }
+              ],
+              "recovery_strategy": "Liquidity ratios (current, acid-test) should comfortably cover what is owed; profitability percentages should hold or rise. Compare to last year and to a benchmark.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L10.T4",
+          "title": "Term 4 — Cost accounting & budgeting concepts",
+          "atomic_skills": [
+            {
+              "id": "ACC.G10.T4.COSTCONCEPTS.A1",
+              "bank_skill_id": "ACC.G10.T4.COSTCONCEPTS.A1",
+              "title": "Cost accounting concepts (manufacturing)",
+              "description": "Basic cost concepts of a manufacturing business: direct and indirect labour, direct (raw) and indirect materials, factory overhead costs, prime cost, variable costs, fixed costs and work-in-process.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Cost accounting",
+              "prerequisites": [
+                "ACC.G10.T3.INTERPRET.A1"
+              ],
+              "templates": [
+                "choice",
+                "sort-buckets",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "classification_error",
+                  "description": "Classifies an indirect cost as a direct cost",
+                  "example": "Calls the factory cleaner's wage direct labour"
+                }
+              ],
+              "recovery_strategy": "Direct costs can be traced straight to the product (raw materials, machine operators). Indirect costs (factory rent, cleaning) support production but are not in the product itself.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G10.T4.BUDGETCONCEPTS.A1",
+              "bank_skill_id": "ACC.G10.T4.BUDGETCONCEPTS.A1",
+              "title": "Budgeting concepts",
+              "description": "Basic budgeting concepts: the cash budget, zero-based budget, capital budget, long-term budget and medium-term budget.",
+              "caps_term": "G10 T4",
+              "caps_topic": "Budgeting",
+              "prerequisites": [
+                "ACC.G10.T4.COSTCONCEPTS.A1"
+              ],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses a cash budget with a projected income statement",
+                  "example": "Includes depreciation as a payment in the cash budget"
+                }
+              ],
+              "recovery_strategy": "A cash budget only tracks money actually flowing in and out. Non-cash items like depreciation never appear in it.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "grade": 11,
+      "title": "Grade 11 — Accounting",
+      "description": "Partnerships, clubs, manufacturing and the managing-resources topics. T1: ethics, internal audit, bank & creditors reconciliations, fixed assets, and the full partnership cycle to financial statements. T2: partnership analysis and clubs (non-profit organisations). T3: cost accounting, budgeting and inventory systems. T4: VAT calculations. 16 atomic skills, progression-gated in CAPS teaching order.",
+      "tiers": [
+        {
+          "id": "L11.T1",
+          "title": "Term 1 — Ethics, audit, reconciliations, fixed assets & partnerships",
+          "atomic_skills": [
+            {
+              "id": "ACC.G11.T1.ETHICS.A1",
+              "bank_skill_id": "ACC.G11.T1.ETHICS.A1",
+              "title": "Ethics in the financial environment",
+              "description": "Identifying and analysing ethical behaviour in financial environments with reference to accountability, transparency and sustainability, integrated through appropriate scenarios.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Ethics",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "paragraph-template",
+                "source-comparison",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot justify why an action is unethical",
+                  "example": "Calls a conflict of interest acceptable because it is profitable"
+                }
+              ],
+              "recovery_strategy": "Judge against accountability, transparency and sustainability. If an action hides information, harms stakeholders, or is not sustainable, it is unethical.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G11.T1.AUDIT.A1",
+              "bank_skill_id": "ACC.G11.T1.AUDIT.A1",
+              "title": "Internal audit & control",
+              "description": "Internal audit processes: the meaning of an internal audit, the difference between internal control and an internal audit, the role of the internal auditor, division of duties, documentation and physical controls, and audit procedures for cash, credit, stock, debtors and creditors.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Internal control",
+              "prerequisites": [
+                "ACC.G11.T1.ETHICS.A1"
+              ],
+              "templates": [
+                "choice",
+                "sort-buckets",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses internal control with internal audit",
+                  "example": "Says the internal auditor performs the daily authorisation of payments"
+                }
+              ],
+              "recovery_strategy": "Internal CONTROL is the day-to-day system that prevents errors/fraud. Internal AUDIT independently checks that the controls are working.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G11.T1.BANKREC.A1",
+              "bank_skill_id": "ACC.G11.T1.BANKREC.A1",
+              "title": "Bank reconciliation",
+              "description": "Reconciling the bank statement with the cash journals to prepare a bank reconciliation statement: outstanding deposits, cheques not yet presented, stop/debit orders, direct transfers, bank charges, interest, errors and omissions, R/D or cancelled cheques and post-dated cheques.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Reconciliations",
+              "prerequisites": [
+                "ACC.G11.T1.AUDIT.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sort-buckets",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Adds an item that should be subtracted on the reconciliation",
+                  "example": "Adds outstanding cheques to the bank statement balance"
+                }
+              ],
+              "recovery_strategy": "Outstanding deposits are added and unpresented cheques subtracted from the bank statement balance. Bank charges and interest update the cash book.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G11.T1.CREDITORSREC.A1",
+              "bank_skill_id": "ACC.G11.T1.CREDITORSREC.A1",
+              "title": "Creditors reconciliation",
+              "description": "Reconciling statements received from creditors with the accounts in the Creditors' Ledger to prepare creditors' reconciliation statements: outstanding invoices or credit notes, outstanding payments, discounts not recorded, and the correction of errors or omissions.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Reconciliations",
+              "prerequisites": [
+                "ACC.G11.T1.BANKREC.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Adjusts the wrong record for a discount not yet recorded",
+                  "example": "Changes the creditor's statement instead of the ledger account"
+                }
+              ],
+              "recovery_strategy": "Find the difference, decide which record is wrong, and correct that one. The reconciled creditor's account must agree with the supplier's statement.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G11.T1.FIXEDASSETS.A1",
+              "bank_skill_id": "ACC.G11.T1.FIXEDASSETS.A1",
+              "title": "Fixed/tangible assets",
+              "description": "The fixed/tangible asset register, recording the acquisition of assets, calculating and recording depreciation (straight-line and diminishing balance), how fully depreciated assets are shown, and recording the disposal of assets (cash, credit, trade-in) at the start, during and end of a financial year.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Fixed assets",
+              "prerequisites": [
+                "ACC.G11.T1.CREDITORSREC.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "double-entry",
+                "sequence"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Forgets to record depreciation up to the date of disposal",
+                  "example": "Disposes of a vehicle without first writing off the current year's depreciation"
+                }
+              ],
+              "recovery_strategy": "When disposing of an asset, first record depreciation up to the disposal date, then transfer cost and accumulated depreciation to the Asset Disposal account.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G11.T1.PARTCONCEPTS.A1",
+              "bank_skill_id": "ACC.G11.T1.PARTCONCEPTS.A1",
+              "title": "Partnerships: concepts & GAAP",
+              "description": "Concepts unique to partnerships — partnership, capital accounts, current accounts, interest on capital, salaries and bonus to partners, division of profits/losses — together with the GAAP principles applied to partnerships.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Partnerships",
+              "prerequisites": [
+                "ACC.G11.T1.FIXEDASSETS.A1"
+              ],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses the capital account with the current account",
+                  "example": "Records a partner's salary in the capital account"
+                }
+              ],
+              "recovery_strategy": "Capital accounts hold the fixed contributions. Current accounts hold the year's profit share, salaries, interest on capital and drawings.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G11.T1.PARTLEDGER.A1",
+              "bank_skill_id": "ACC.G11.T1.PARTLEDGER.A1",
+              "title": "Partnerships: ledger, adjustments & final accounts",
+              "description": "The partnership accounting cycle, year-end adjustments (including provision for bad debts, salaries and bonus to partners, interest on capital and interest on loan), and the Trading, Profit and Loss and Appropriation accounts.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Partnerships",
+              "prerequisites": [
+                "ACC.G11.T1.PARTCONCEPTS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "double-entry",
+                "equation-effect"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Stops at net profit and omits the appropriation of profit",
+                  "example": "Does not divide the profit between the partners"
+                }
+              ],
+              "recovery_strategy": "After the Profit and Loss Account gives net profit, the Appropriation Account shares it: partner salaries, interest on capital, then the remaining profit in the agreed ratio.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G11.T1.PARTSTATEMENTS.A1",
+              "bank_skill_id": "ACC.G11.T1.PARTSTATEMENTS.A1",
+              "title": "Partnerships: financial statements & notes",
+              "description": "Preparing the Income Statement and Balance Sheet of a partnership and the supporting notes (including the partners' current accounts), and reversing certain adjustments at the start of the next period.",
+              "caps_term": "G11 T1",
+              "caps_topic": "Partnerships",
+              "prerequisites": [
+                "ACC.G11.T1.PARTLEDGER.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Omits the current accounts note from the Balance Sheet",
+                  "example": "Shows owner's equity without the current account movements"
+                }
+              ],
+              "recovery_strategy": "Partnership equity = capital accounts + current accounts. The current accounts note shows salaries, interest, profit share and drawings for each partner.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L11.T2",
+          "title": "Term 2 — Partnership interpretation & clubs",
+          "atomic_skills": [
+            {
+              "id": "ACC.G11.T2.PARTINTERPRET.A1",
+              "bank_skill_id": "ACC.G11.T2.PARTINTERPRET.A1",
+              "title": "Partnerships: analysis & interpretation",
+              "description": "Analysing and interpreting partnership financial statements: the Grade 10 indicators plus stock turnover rate, stock holding period, average debtors' collection period, average creditors' payment period, debt-equity ratio (gearing), partners' earnings and return on partners' equity.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Partnerships",
+              "prerequisites": [
+                "ACC.G11.T1.PARTSTATEMENTS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "source-comparison",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Interprets a high gearing ratio as automatically good",
+                  "example": "Says more debt always means a healthier business"
+                }
+              ],
+              "recovery_strategy": "Gearing measures reliance on borrowed funds; high gearing is risky if returns fall. Compare each indicator to last year and to the cost of borrowing.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G11.T2.CLUBCONCEPTS.A1",
+              "bank_skill_id": "ACC.G11.T2.CLUBCONCEPTS.A1",
+              "title": "Clubs (NPO): concepts",
+              "description": "Concepts unique to non-profit organisations (clubs): non-profit organisation, constitution, accumulated fund, membership fees, entrance fees, affiliation fees, honorarium, surplus and deficit.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Clubs",
+              "prerequisites": [
+                "ACC.G11.T2.PARTINTERPRET.A1"
+              ],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Treats the accumulated fund as profit",
+                  "example": "Calls the accumulated fund the club's profit for the year"
+                }
+              ],
+              "recovery_strategy": "A club has no profit. Its capital is the accumulated fund, and its result for the year is a surplus or deficit, not a profit or loss.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G11.T2.CLUBLEDGER.A1",
+              "bank_skill_id": "ACC.G11.T2.CLUBLEDGER.A1",
+              "title": "Clubs: cash book, ledger & Statement of Receipts and Payments",
+              "description": "The accounting cycle for clubs: the analysis cash book, posting to the ledger (accumulated fund, membership fees, entrance fees and trading accounts such as refreshments), the Trial Balance, the Statement of Receipts and Payments, and the difference between receipts & income and payments & expenses.",
+              "caps_term": "G11 T2",
+              "caps_topic": "Clubs",
+              "prerequisites": [
+                "ACC.G11.T2.CLUBCONCEPTS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sort-buckets",
+                "double-entry"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses receipts with income",
+                  "example": "Treats a loan received as income in the club's results"
+                }
+              ],
+              "recovery_strategy": "Receipts and payments are cash movements; income and expenses belong to the period. A loan received is a receipt but not income.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L11.T3",
+          "title": "Term 3 — Cost accounting, budgeting & inventory",
+          "atomic_skills": [
+            {
+              "id": "ACC.G11.T3.COSTCALC.A1",
+              "bank_skill_id": "ACC.G11.T3.COSTCALC.A1",
+              "title": "Cost accounting: calculations",
+              "description": "Calculating, in a manufacturing environment, variable and fixed costs, the cost of a product using variable and fixed costs, unit cost, contribution per unit and the break-even point.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Cost accounting",
+              "prerequisites": [
+                "ACC.G11.T2.CLUBLEDGER.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Uses total fixed cost instead of contribution per unit in the break-even formula",
+                  "example": "Divides fixed costs by selling price rather than by contribution per unit"
+                }
+              ],
+              "recovery_strategy": "Contribution per unit = selling price − variable cost per unit. Break-even units = total fixed costs ÷ contribution per unit.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G11.T3.MANUFLEDGER.A1",
+              "bank_skill_id": "ACC.G11.T3.MANUFLEDGER.A1",
+              "title": "Manufacturing ledger accounts",
+              "description": "Preparing the ledger accounts of a manufacturing business: the Balance Sheet section (raw material, work-in-progress, finished goods and consumable stores stock), the nominal accounts section (sales, cost of sales, raw materials issued, factory wages, factory electricity and rent, depreciation) and the cost accounts section (direct materials, direct labour, factory overhead, administration and selling & distribution cost).",
+              "caps_term": "G11 T3",
+              "caps_topic": "Cost accounting",
+              "prerequisites": [
+                "ACC.G11.T3.COSTCALC.A1"
+              ],
+              "templates": [
+                "choice",
+                "sort-buckets",
+                "double-entry",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "classification_error",
+                  "description": "Allocates a factory cost to administration",
+                  "example": "Puts factory rent under administration cost"
+                }
+              ],
+              "recovery_strategy": "Factory-floor costs are factory overheads; office costs are administration; getting goods to customers is selling & distribution.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G11.T3.BUDGETING11.A1",
+              "bank_skill_id": "ACC.G11.T3.BUDGETING11.A1",
+              "title": "Budgeting: cash budget & projected income statement",
+              "description": "Preparing and presenting a cash budget for sole traders (projected receipts and payments, projected debtors' collection and creditors' payments) and a Projected Income Statement (projected revenue and expenditure).",
+              "caps_term": "G11 T3",
+              "caps_topic": "Budgeting",
+              "prerequisites": [
+                "ACC.G11.T3.MANUFLEDGER.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sort-buckets",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "classification_error",
+                  "description": "Includes a credit sale as a receipt in the month of sale",
+                  "example": "Records the full value of credit sales as cash received immediately"
+                }
+              ],
+              "recovery_strategy": "The cash budget records cash when it is actually received or paid. Credit sales become receipts only when debtors pay, per the collection pattern.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G11.T3.INVENTORY11.A1",
+              "bank_skill_id": "ACC.G11.T3.INVENTORY11.A1",
+              "title": "Inventory systems: perpetual vs periodic",
+              "description": "Defining the perpetual and periodic stock systems, their advantages and disadvantages, and recording transactions under the periodic system compared with the perpetual system: purchases account vs Trading Stock account, opening and closing stock accounts, the Trading Account, carriage on purchases and customs & import duties.",
+              "caps_term": "G11 T3",
+              "caps_topic": "Inventory",
+              "prerequisites": [
+                "ACC.G11.T3.BUDGETING11.A1"
+              ],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "cloze"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Uses a Trading Stock account under the periodic system",
+                  "example": "Records purchases into Trading Stock when the periodic system is in use"
+                }
+              ],
+              "recovery_strategy": "Perpetual = stock updated with every transaction (Trading Stock account). Periodic = a Purchases account is used and stock is counted at period-end.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L11.T4",
+          "title": "Term 4 — VAT",
+          "atomic_skills": [
+            {
+              "id": "ACC.G11.T4.VAT11.A1",
+              "bank_skill_id": "ACC.G11.T4.VAT11.A1",
+              "title": "VAT calculations",
+              "description": "Performing VAT calculations using the current rate: adding VAT to cost price plus mark-up, extracting VAT from a VAT-inclusive amount, working on an invoice or receipt basis, and the effect of bad debts, discounts and goods returned on VAT, with the related ethics and internal control.",
+              "caps_term": "G11 T4",
+              "caps_topic": "Value-Added Tax",
+              "prerequisites": [
+                "ACC.G11.T3.INVENTORY11.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Takes 15% of the inclusive amount instead of extracting VAT",
+                  "example": "Multiplies a VAT-inclusive total by 15% to find the VAT"
+                }
+              ],
+              "recovery_strategy": "To ADD VAT: amount × 15%. To EXTRACT VAT from an inclusive amount: amount × 15/115.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Grade 12 — Accounting",
+      "description": "Companies, close corporations and the full managing-resources and managerial set, building to the NSC examination. T1: company bookkeeping, financial statements (including the Cash Flow Statement), interpretation and published statements. T2: professional ethics, fixed assets, close corporations, controls, inventory valuation, reconciliations and the VAT control account. T3: cost accounting and budgeting analysis. Term 4 is examination revision (no new content). 16 atomic skills, progression-gated in CAPS teaching order.",
+      "tiers": [
+        {
+          "id": "L12.T1",
+          "title": "Term 1 — Companies: bookkeeping, statements & interpretation",
+          "atomic_skills": [
+            {
+              "id": "ACC.G12.T1.COCONCEPTS.A1",
+              "bank_skill_id": "ACC.G12.T1.COCONCEPTS.A1",
+              "title": "Companies: concepts & unique accounts",
+              "description": "Concepts unique to companies: public and private companies, the Companies Act, the Registrar of Companies, the Memorandum of Incorporation, income tax and provisional tax, dividends, shares, issue price, earnings, shareholders, directors, auditors, limited liability, the separation of ownership from control, retained income, authorised and issued share capital and the JSE.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Companies",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses authorised with issued share capital",
+                  "example": "Says issued capital is the maximum the company may ever sell"
+                }
+              ],
+              "recovery_strategy": "Authorised = the maximum number of shares the company MAY issue. Issued = the shares actually sold to shareholders.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T1.COBOOKKEEPING.A1",
+              "bank_skill_id": "ACC.G12.T1.COBOOKKEEPING.A1",
+              "title": "Companies: bookkeeping",
+              "description": "The accounting cycle for a company, including issuing shares at issue price (no par value or share premium under the Companies Act), buying back shares, loans and interest (mortgage interest capitalised), income tax, dividends, directors' fees and audit fees.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Companies",
+              "prerequisites": [
+                "ACC.G12.T1.COCONCEPTS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "double-entry",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Treats dividends as an expense in the Income Statement",
+                  "example": "Lists dividends among the operating expenses"
+                }
+              ],
+              "recovery_strategy": "Dividends are a distribution of profit, not an expense. They are appropriated after profit, not deducted in the Income Statement.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T1.COADJUSTMENTS.A1",
+              "bank_skill_id": "ACC.G12.T1.COADJUSTMENTS.A1",
+              "title": "Companies: adjustments & final accounts",
+              "description": "Preparing the final accounts of a company with year-end adjustments (including those for income tax and the declaration and payment of dividends), and the Trading, Profit and Loss and Appropriation accounts, with reversals.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Companies",
+              "prerequisites": [
+                "ACC.G12.T1.COBOOKKEEPING.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "double-entry",
+                "equation-effect"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Omits the income tax adjustment before appropriation",
+                  "example": "Appropriates profit without first accounting for company tax"
+                }
+              ],
+              "recovery_strategy": "Company profit is taxed: account for income tax to reach profit after tax, then appropriate dividends and retained income.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T1.COSTATEMENTS.A1",
+              "bank_skill_id": "ACC.G12.T1.COSTATEMENTS.A1",
+              "title": "Companies: financial statements & Cash Flow Statement",
+              "description": "Preparing the detailed financial statements of a company — the Income Statement, Balance Sheet and Cash Flow Statement — together with the notes.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Companies",
+              "prerequisites": [
+                "ACC.G12.T1.COADJUSTMENTS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "classification_error",
+                  "description": "Places a financing cash flow under operating activities",
+                  "example": "Shows proceeds from a new loan as an operating cash flow"
+                }
+              ],
+              "recovery_strategy": "The Cash Flow Statement has three parts: operating (trading), investing (assets) and financing (shares and loans). Place each flow in the right section.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T1.COINTERPRET.A1",
+              "bank_skill_id": "ACC.G12.T1.COINTERPRET.A1",
+              "title": "Companies: analysis & interpretation",
+              "description": "Analysing and interpreting the Income Statement, Balance Sheet and notes, including the earlier indicators plus debt-equity ratio (gearing), return on shareholders' equity, return on total capital employed, net asset value per share, dividends per share and earnings per share.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Companies",
+              "prerequisites": [
+                "ACC.G12.T1.COSTATEMENTS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "source-comparison",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses earnings per share with dividends per share",
+                  "example": "Says EPS is the cash each shareholder receives"
+                }
+              ],
+              "recovery_strategy": "EPS = total earnings ÷ shares (profit attributable per share). DPS = dividends actually declared ÷ shares (cash returned per share).",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T1.COPUBLISHED.A1",
+              "bank_skill_id": "ACC.G12.T1.COPUBLISHED.A1",
+              "title": "Analysis of published statements & audit reports",
+              "description": "Analysing a company's published financial statements and annual report: the Directors' Report, the Independent Auditors' Report, the abridged Income Statement, Balance Sheet and Cash Flow Statement, and information on governance and the company's activities.",
+              "caps_term": "G12 T1",
+              "caps_topic": "Companies",
+              "prerequisites": [
+                "ACC.G12.T1.COINTERPRET.A1"
+              ],
+              "templates": [
+                "choice",
+                "true-false",
+                "source-comparison",
+                "paragraph-template"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Misreads the meaning of an unqualified audit report",
+                  "example": "Says an unqualified report guarantees the company is profitable"
+                }
+              ],
+              "recovery_strategy": "An unqualified (clean) audit report means the statements fairly present the position — not that the company is doing well. Read the Directors' Report for performance.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L12.T2",
+          "title": "Term 2 — Ethics, fixed assets, close corporations, control, inventory, reconciliations & VAT",
+          "atomic_skills": [
+            {
+              "id": "ACC.G12.T2.ETHICS12.A1",
+              "bank_skill_id": "ACC.G12.T2.ETHICS12.A1",
+              "title": "Professional ethics & company legislation",
+              "description": "The role of professional bodies (SAICA, SAIPA), disciplinary and punitive measures for non-compliance with the Code of Professional Conduct, the King Code III, and the basic principles of the Companies Act (directors' performance evaluation, remuneration policies, dispute resolution, business rescue, conflict of interest and responsibilities of directors).",
+              "caps_term": "G12 T2",
+              "caps_topic": "Ethics",
+              "prerequisites": [
+                "ACC.G12.T1.COPUBLISHED.A1"
+              ],
+              "templates": [
+                "choice",
+                "true-false",
+                "paragraph-template",
+                "source-comparison"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot link a governance failure to a King III principle",
+                  "example": "Says directors have no accountability to shareholders"
+                }
+              ],
+              "recovery_strategy": "King III rests on responsibility, accountability, fairness and transparency. Directors must act in the company's best interest and answer for it.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T2.FIXEDASSETS12.A1",
+              "bank_skill_id": "ACC.G12.T2.FIXEDASSETS12.A1",
+              "title": "Fixed assets: interpretation",
+              "description": "Interpreting and reporting on the movement of fixed assets: the age of assets, the replacement rate and the life span of assets, with GAAP, ethics and internal control integrated.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Fixed assets",
+              "prerequisites": [
+                "ACC.G12.T2.ETHICS12.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Reads a low replacement rate as healthy without context",
+                  "example": "Says not replacing any assets is always good for cash flow"
+                }
+              ],
+              "recovery_strategy": "Compare the rate of replacement to the rate of wear and age. Failing to replace ageing assets risks breakdowns and lost production.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T2.CC.A1",
+              "bank_skill_id": "ACC.G12.T2.CC.A1",
+              "title": "Close corporations",
+              "description": "Concepts unique to close corporations — close corporation, founding statement, members, loans to and from members, and distribution to members — and the differences between the financial statements of companies and close corporations, particularly in terminology.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Close corporations",
+              "prerequisites": [
+                "ACC.G12.T2.FIXEDASSETS12.A1"
+              ],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets",
+                "source-comparison"
+              ],
+              "error_signatures": [
+                {
+                  "type": "classification_error",
+                  "description": "Uses company terminology for a CC",
+                  "example": "Refers to 'shareholders' and 'share capital' in a close corporation"
+                }
+              ],
+              "recovery_strategy": "A CC has MEMBERS and members' contributions, not shareholders and share capital. Distributions go to members, not dividends to shareholders.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T2.CONTROL12.A1",
+              "bank_skill_id": "ACC.G12.T2.CONTROL12.A1",
+              "title": "Internal control & audit (companies)",
+              "description": "Applying internal control and internal audit processes in a business: the means of gathering audit evidence, the basis for audit samples, basic sampling techniques, internal audit reports and the accountable management of resources, plus the difference between internal and external auditors.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Internal control",
+              "prerequisites": [
+                "ACC.G12.T2.CC.A1"
+              ],
+              "templates": [
+                "choice",
+                "true-false",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Confuses the role of the internal auditor with the external auditor",
+                  "example": "Says the external auditor runs the company's daily controls"
+                }
+              ],
+              "recovery_strategy": "Internal auditors work FOR the company checking controls all year. External auditors are independent and give an opinion on the annual statements.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T2.INVENTORY12.A1",
+              "bank_skill_id": "ACC.G12.T2.INVENTORY12.A1",
+              "title": "Inventory valuation",
+              "description": "Validating, valuing and calculating inventories using the perpetual and periodic systems: specific identification of cost price per unit, first-in-first-out (FIFO) and the weighted-average method, with GAAP, ethics and control integrated.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Inventory",
+              "prerequisites": [
+                "ACC.G12.T2.CONTROL12.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Applies LIFO assumptions when FIFO is required",
+                  "example": "Values closing stock using the oldest prices under FIFO"
+                }
+              ],
+              "recovery_strategy": "FIFO: the first units bought are sold first, so closing stock is valued at the MOST RECENT prices. Weighted average uses one blended cost per unit.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T2.RECONCILE12.A1",
+              "bank_skill_id": "ACC.G12.T2.RECONCILE12.A1",
+              "title": "Reconciliations: analysis & interpretation",
+              "description": "Analysing and interpreting bank, debtors' and creditors' reconciliations: reconciling creditors' statements with their accounts, reconciling debtors' and creditors' lists with the control accounts, and analysing and interpreting a debtors' age analysis and bank reconciliation statements.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Reconciliations",
+              "prerequisites": [
+                "ACC.G12.T2.INVENTORY12.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sort-buckets",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot draw a conclusion from a debtors' age analysis",
+                  "example": "Ignores that most debt sits in the 90+ day column"
+                }
+              ],
+              "recovery_strategy": "An age analysis shows how overdue debtors are. Debt sitting in the 60/90+ day columns signals poor collection and a higher risk of bad debts.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T2.VAT12.A1",
+              "bank_skill_id": "ACC.G12.T2.VAT12.A1",
+              "title": "VAT control account",
+              "description": "Calculating the amount payable to or receivable from SARS and completing the VAT control ledger account from given information, with ethics and internal control over the collection and payment of VAT.",
+              "caps_term": "G12 T2",
+              "caps_topic": "Value-Added Tax",
+              "prerequisites": [
+                "ACC.G12.T2.RECONCILE12.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "double-entry"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Treats input VAT as an amount owed to SARS",
+                  "example": "Adds VAT on purchases to the amount payable to SARS"
+                }
+              ],
+              "recovery_strategy": "Output VAT (on sales) is owed TO SARS; input VAT (on purchases) is claimed BACK. Amount payable = output VAT − input VAT.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L12.T3",
+          "title": "Term 3 — Cost accounting & budgeting",
+          "atomic_skills": [
+            {
+              "id": "ACC.G12.T3.PRODCOST.A1",
+              "bank_skill_id": "ACC.G12.T3.PRODCOST.A1",
+              "title": "Production Cost Statement",
+              "description": "Preparing a Production Cost Statement with notes for the manufacturing costs of a business, and calculating the total cost of production.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Cost accounting",
+              "prerequisites": [
+                "ACC.G12.T2.VAT12.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "procedural_error",
+                  "description": "Omits work-in-progress adjustments from the cost of production",
+                  "example": "Ignores opening and closing work-in-progress"
+                }
+              ],
+              "recovery_strategy": "Cost of production of finished goods = direct materials + direct labour + factory overheads, adjusted for opening and closing work-in-progress.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T3.COSTANALYSIS.A1",
+              "bank_skill_id": "ACC.G12.T3.COSTANALYSIS.A1",
+              "title": "Unit costs, break-even & cost control",
+              "description": "Preparing a short-form Income Statement with notes for administration and selling & distribution cost, calculating gross profit on finished goods sold, variable and fixed costs, cost per unit, contribution per unit and the break-even point, and interpreting the results.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Cost accounting",
+              "prerequisites": [
+                "ACC.G12.T3.PRODCOST.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "sort-buckets",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Cannot interpret production against the break-even point",
+                  "example": "Says producing below break-even still yields a profit"
+                }
+              ],
+              "recovery_strategy": "Above break-even = profit; below = loss. Compare units produced/sold to the break-even units to judge whether the business covers its costs.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "ACC.G12.T3.BUDGETING12.A1",
+              "bank_skill_id": "ACC.G12.T3.BUDGETING12.A1",
+              "title": "Budgeting: analysis & interpretation",
+              "description": "Analysing, interpreting and comparing Projected Income Statements and cash budgets for sole traders or companies (receipts, payments, debtors' collection, creditors' payment and cash balances), and comparing budgeted to actual figures as a control.",
+              "caps_term": "G12 T3",
+              "caps_topic": "Budgeting",
+              "prerequisites": [
+                "ACC.G12.T3.COSTANALYSIS.A1"
+              ],
+              "templates": [
+                "choice",
+                "cloze",
+                "source-comparison",
+                "true-false"
+              ],
+              "error_signatures": [
+                {
+                  "type": "conceptual_gap",
+                  "description": "Treats a favourable variance as automatically good",
+                  "example": "Praises spending far below budget on repairs without questioning why"
+                }
+              ],
+              "recovery_strategy": "Compare budget to actual and ask WHY. Underspending on maintenance or wages may signal neglect, not good control.",
+              "mastery_criteria": {
+                "correct_required": 12,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

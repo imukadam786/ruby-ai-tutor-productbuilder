@@ -147,6 +147,7 @@ export interface MatricPhysSciSubmitAnswerRequest {
   student_answer: string;                      // serialised; multiField is "|"-joined
   expected_answer?: string | number;
   tolerance?: number;
+  grade?: 10 | 11 | 12;                        // defaults to 12 (matric) when absent
 }
 
 export interface MatricPhysSciMasteryUpdate {
