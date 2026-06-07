@@ -15,6 +15,9 @@ interface SettingsViewProps {
   paymentReturn?: "success" | "cancelled" | null;
   /** Navigate elsewhere in the app (e.g. to the Discover hub to re-take). */
   onNavigate?: (view: ActiveView) => void;
+  /** Sign the user out. Surfaced here because the mobile bottom bar routes
+      logout through Settings rather than its own tab. */
+  onLogout?: () => void;
 }
 
 // ── Small reusable pieces ─────────────────────────────────────────────────────
@@ -123,6 +126,7 @@ const icons = {
   flag: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" /></svg>,
   lightbulb: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>,
   xCircle: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+  logout: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>,
 };
 
 // ── Toggle switch ─────────────────────────────────────────────────────────────
@@ -294,7 +298,7 @@ const CANCEL_DETAIL: Record<string, { prompt: string; options: { value: string; 
 
 // ── Main component ────────────────────────────────────────────────────────────
 
-export default function SettingsView({ onBack, paymentReturn, onNavigate }: SettingsViewProps) {
+export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogout }: SettingsViewProps) {
   const { t, setLanguage, isTranslating } = useT();
 
   // Profile state
@@ -655,6 +659,16 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
                 <Row icon={icons.lightbulb} label={t("settings.suggest")}      onClick={() => setModal("feature")} />
               </Card>
             </section>
+
+            {/* ── Account ───────────────────────────────────────────────── */}
+            {onLogout && (
+              <section>
+                <SectionHeader title="Account" subtitle={t("sidebar.logout_desc")} />
+                <Card>
+                  <Row icon={icons.logout} label={t("sidebar.logout")} danger onClick={onLogout} />
+                </Card>
+              </section>
+            )}
 
             <p className="text-center text-xs text-gray-300 pb-6">Ruby AI Tutor · Powered by Hula</p>
           </div>

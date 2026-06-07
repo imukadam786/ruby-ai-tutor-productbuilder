@@ -45,9 +45,9 @@ const STEPS: Step[] = [
   {
     icon: "🚀",
     title: "You're all set!",
-    desc: "Tap the menu icon to explore every section whenever you need it. Ruby is ready when you are.",
+    desc: "Use the bar at the bottom of your screen to jump between sections whenever you need it. Ruby is ready when you are.",
     view: "home",
-    spotlightTarget: "hamburger",
+    spotlightTarget: "bottom-nav",
   },
 ];
 

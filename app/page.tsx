@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 // ── Always-needed (static imports) ──────────────────────────────────────────
 import Sidebar from "@/components/Sidebar";
+import MobileBottomNav from "@/components/MobileBottomNav";
 import UsageMeter from "@/components/UsageMeter";
 import RubyBalance from "@/components/RubyBalance";
 import RubyCelebrations from "@/components/RubyCelebrations";
@@ -475,16 +476,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
 
       {/* Mobile top bar — in normal flow so banner shows above it */}
       <header className="md:hidden flex-shrink-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm z-30">
-        <button
-          onClick={() => setSidebarOpen(true)}
-          className="p-2 -ml-1 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
-          aria-label="Open menu"
-          data-tutorial="hamburger"
-        >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        {/* Hamburger retired on mobile — navigation now lives in the bottom bar
+            (MobileBottomNav). The drawer Sidebar stays for md+ only. */}
         <span className="flex-1 min-w-0 truncate font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>
         <RubyBalance theme="light" />
         <UsageMeter variant="compact" theme="light" />
@@ -637,7 +630,12 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {/* EMS — Senior Phase (Gr 7–9), free like Social Sciences */}
         {activeView === "ems-sp" && <ErrorBoundary><EmsSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "ems-sp-skill-tree" && <EmsSpSkillTreeView onPickSkill={() => handleViewChange("ems-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
-        {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} onNavigate={handleViewChange} />}
+        {activeView === "settings" && <SettingsView onBack={() => handleViewChange("home")} paymentReturn={paymentReturn} onNavigate={handleViewChange} onLogout={async () => {
+          // Same as the sidebar logout: sign out but never wipe localStorage —
+          // this user's data must still be here when they log back in.
+          await supabase.auth.signOut();
+          window.location.reload();
+        }} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}
         {activeView === "matrics" && <MatricsHub onNavigate={handleViewChange} />}
@@ -649,6 +647,14 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       </main>
 
       </div>{/* end inner row */}
+
+      {/* Mobile bottom navigation — replaces the hamburger drawer on phones */}
+      <MobileBottomNav
+        activeView={activeView}
+        onViewChange={handleViewChange}
+        onSettings={() => handleViewChange("settings")}
+        grade={grade}
+      />
 
       {survey && (
         <PostSessionSurvey
