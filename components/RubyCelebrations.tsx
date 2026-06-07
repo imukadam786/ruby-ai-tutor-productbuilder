@@ -38,7 +38,7 @@ const META: Record<Exclude<CelebrationKind, "daily_login">, Meta> = {
   tree_complete:  { title: () => "Subject complete!",     subtitle: "You finished the whole tree — wow!", assets: ["confetti", "trophy"],     anim: "xl", ms: 4500 },
 };
 
-const ANIM_CLASS = { md: "w-40 h-40", lg: "w-48 h-48", xl: "w-56 h-56" } as const;
+const ANIM_CLASS = { md: "w-52 h-52", lg: "w-60 h-60", xl: "w-72 h-72" } as const;
 
 type Active = { kind: CelebrationKind; rubies?: number; streak?: number; id: number };
 
@@ -105,8 +105,10 @@ export default function RubyCelebrations() {
   const meta = META[active.kind];
 
   return (
-    <div className="fixed inset-0 z-[120] flex items-center justify-center pointer-events-none p-4">
-      <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-100 px-8 py-6 flex flex-col items-center text-center w-[min(20rem,90vw)]">
+    // Dim + blur the page behind the celebration so the card is the clear focus.
+    // pointer-events-none keeps it non-blocking — it still auto-dismisses.
+    <div className="fixed inset-0 z-[120] flex items-center justify-center pointer-events-none p-4 bg-black/40 backdrop-blur-sm ruby-celebrate-pop">
+      <div className="relative bg-white rounded-[2rem] shadow-2xl border border-gray-100 px-10 py-9 flex flex-col items-center text-center w-[min(26rem,92vw)]">
         <div className={`relative ${ANIM_CLASS[meta.anim]}`}>
           {meta.assets.map((asset) => (
             <DotLottieReact
@@ -118,12 +120,12 @@ export default function RubyCelebrations() {
             />
           ))}
         </div>
-        <h3 className="text-xl font-extrabold text-[#1a2744]">{meta.title(active.streak)}</h3>
-        <p className="text-sm text-gray-500 mt-0.5">{meta.subtitle}</p>
+        <h3 className="text-3xl font-extrabold text-[#1a2744]">{meta.title(active.streak)}</h3>
+        <p className="text-base text-gray-500 mt-1">{meta.subtitle}</p>
         {active.rubies ? (
-          <div className="mt-3 inline-flex items-center gap-1.5 bg-rose-50 text-[#BE1832] font-bold px-3 py-1 rounded-full">
+          <div className="mt-4 inline-flex items-center gap-2 bg-rose-50 text-[#BE1832] font-bold text-lg px-4 py-1.5 rounded-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/rubytransparent.png" alt="" className="w-4 h-4 object-contain" /> +{active.rubies}
+            <img src="/rubytransparent.png" alt="" className="w-5 h-5 object-contain" /> +{active.rubies}
           </div>
         ) : null}
       </div>

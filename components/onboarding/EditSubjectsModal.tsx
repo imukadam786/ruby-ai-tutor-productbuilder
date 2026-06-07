@@ -16,9 +16,13 @@ import {
 export default function EditSubjectsModal({
   initial,
   onClose,
+  dismissible = true,
 }: {
   initial: FetSubjectKey[] | null;
   onClose: () => void;
+  // When false, the learner must pick before they can leave (no Cancel, no
+  // backdrop-to-close). Used to gate the hub on first FET load.
+  dismissible?: boolean;
 }) {
   // Start with only the always-on subject (English) ticked so the learner has to
   // actively choose the rest — nothing is pre-selected for them.
@@ -54,26 +58,33 @@ export default function EditSubjectsModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40" onClick={onClose}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
+      onClick={dismissible ? onClose : undefined}
+    >
       <div
         className="w-full max-w-md bg-white rounded-3xl shadow-xl flex flex-col max-h-[85vh] overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-6 flex-shrink-0">
-          <h2 className="text-2xl font-bold text-[#1a2744] leading-snug">My subjects</h2>
+          <h2 className="text-2xl font-bold text-[#1a2744] leading-snug">
+            {dismissible ? "My subjects" : "Choose your subjects"}
+          </h2>
           <p className="text-gray-400 text-sm mt-1">Tick the subjects you take. They&apos;re what shows on your home screen.</p>
         </div>
         <div className="px-6 flex-1 overflow-y-auto min-h-0 pb-2">
           <SubjectChecklist selected={subjects} onToggle={toggle} />
         </div>
         <div className="p-6 flex-shrink-0 flex gap-3">
-          <button
-            onClick={onClose}
-            disabled={saving}
-            className="flex-1 py-3.5 rounded-full border-2 border-gray-200 text-gray-700 font-semibold text-base hover:bg-gray-50 transition-colors disabled:opacity-40"
-          >
-            Cancel
-          </button>
+          {dismissible && (
+            <button
+              onClick={onClose}
+              disabled={saving}
+              className="flex-1 py-3.5 rounded-full border-2 border-gray-200 text-gray-700 font-semibold text-base hover:bg-gray-50 transition-colors disabled:opacity-40"
+            >
+              Cancel
+            </button>
+          )}
           <button
             onClick={save}
             disabled={saving || !hasRealChoice}

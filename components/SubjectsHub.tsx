@@ -7,6 +7,7 @@ import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/stud
 import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
 import { getMathsLiteracyProfile } from "@/lib/maths-literacy-student-model";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import EditSubjectsModal from "@/components/onboarding/EditSubjectsModal";
 import {
   HUB_ID_TO_FET_KEY,
   isFetGrade,
@@ -1045,23 +1046,21 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           ) : needsSubjectChoice ? (
             /* FET learners (Gr 10–12) must pick their subjects before the hub
                opens, so it only ever shows the subjects they actually take. The
-               picker lives in Settings — we deep-link straight into it. */
-            <div className="max-w-md mx-auto mt-8 sm:mt-12 text-center px-2">
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mb-4">📚</div>
-              <h2 className="text-lg font-bold text-gray-900">Choose your subjects</h2>
-              <p className="text-gray-500 text-sm mt-1.5 leading-relaxed">
-                Tell us which Grade {grade} subjects you take and your hub will show only those.
-              </p>
-              <button
-                onClick={() => {
-                  try { window.sessionStorage.setItem("ruby_open_subjects_picker", "1"); } catch { /* private mode */ }
-                  onNavigate("settings");
-                }}
-                className="mt-5 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition-colors"
-              >
-                Choose my subjects
-              </button>
-            </div>
+               picker appears as a non-dismissible popup (like the in-app
+               tutorial) over a soft skeleton — not as a card on the page. On
+               save it fires SUBJECTS_UPDATED_EVENT, which clears this gate. */
+            <>
+              <div className="max-w-4xl mx-auto space-y-6" aria-hidden>
+                {[0, 1, 2].map((i) => (
+                  <div key={i} className="h-40 rounded-2xl bg-gray-200/60 animate-pulse" />
+                ))}
+              </div>
+              <EditSubjectsModal
+                initial={selectedSubjects}
+                dismissible={false}
+                onClose={() => { /* closes itself once the save fires SUBJECTS_UPDATED_EVENT */ }}
+              />
+            </>
           ) : (
             /* Each subject renders as a self-contained two-column unit (enlarged
                thumbnail + stat-line on the left, skill-tree card on the right) —

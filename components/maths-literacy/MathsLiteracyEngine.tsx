@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { apiFetch } from "@/lib/fetch";
+import MathsLiteracyMarkdown from "@/components/maths-literacy/MathsLiteracyMarkdown";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import { seedForGrade } from "@/lib/maths-literacy-grade-map";
 import {
@@ -340,11 +341,13 @@ function QuestionView({
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 sm:p-6 space-y-4">
       {question.stimulus && (
-        <div className="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed">
+        <MathsLiteracyMarkdown className="text-sm text-gray-700 leading-relaxed">
           {question.stimulus}
-        </div>
+        </MathsLiteracyMarkdown>
       )}
-      <div className="text-base font-semibold text-gray-900">{question.question}</div>
+      <MathsLiteracyMarkdown className="text-base font-semibold text-gray-900">
+        {question.question}
+      </MathsLiteracyMarkdown>
 
       {question.answerMode === "numeric" && (
         <div>

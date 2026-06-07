@@ -15,6 +15,38 @@
   }
 }
 
+/* Pop-in for the celebration overlay (e.g. the "5 in a row!" streak card). */
+@keyframes ruby-celebrate-pop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.ruby-celebrate-pop > div {
+  animation: ruby-celebrate-card 320ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.ruby-celebrate-pop {
+  animation: ruby-celebrate-pop 200ms ease-out both;
+}
+@keyframes ruby-celebrate-card {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ruby-celebrate-pop,
+  .ruby-celebrate-pop > div {
+    animation: none;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
