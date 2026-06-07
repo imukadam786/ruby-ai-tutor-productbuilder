@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { getTranslations } from "@/lib/onboarding-translations";
 import { supabase } from "@/lib/supabase";
 import {
-  ALL_FET_KEYS,
   ALWAYS_ON_FET_KEYS,
   isFetGrade,
   type FetSubjectKey,
@@ -142,7 +141,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   // Continue without changing anything keeps all their subjects. English is
   // locked on (always selected, can't be unticked).
   const [subjects, setSubjects] = useState<FetSubjectKey[]>(
-    (initialData?.subjects as FetSubjectKey[] | undefined) ?? ALL_FET_KEYS,
+    (initialData?.subjects as FetSubjectKey[] | undefined) ?? [...ALWAYS_ON_FET_KEYS],
   );
   const [name, setName] = useState(initialData?.name || "");
   const [email, setEmail] = useState(initialData?.email || "");
@@ -605,7 +604,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 <SubjectChecklist selected={subjects} onToggle={toggleSubject} />
               </div>
               <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={next} disabled={subjects.length === 0} />
+                <ContinueBtn label={t.continueBtn} onClick={next} disabled={!subjects.some((k) => !ALWAYS_ON_FET_KEYS.includes(k))} />
               </div>
             </div>
           )}

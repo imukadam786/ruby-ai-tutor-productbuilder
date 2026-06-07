@@ -244,7 +244,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [creativeArtsSpProfile, setCreativeArtsSpProfile] = useState<CreativeArtsSpStudentProfile | null>(() => loadCreativeArtsSpProfile());
   const [afrikaansProfile, setAfrikaansProfile] = useState<AfrikaansStudentProfile | null>(() => loadAfrikaansProfile());
   const [grade, setGrade] = useState<number | null>(() => readCachedGrade());
-  // null = no saved selection → show all (fail open). Only ever filters Gr 10–12.
+  // null = no saved selection → FET learners are gated into picking (see below).
+  // Only ever filters Gr 10–12.
   const [selectedSubjects, setSelectedSubjects] = useState<FetSubjectKey[] | null>(() => readCachedSubjects());
   const [loading, setLoading] = useState(true);
 
@@ -269,7 +270,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         writeCachedSubjects(auth.subjects);
       }
       setLoading(false);
-    });
+    }).catch(() => setLoading(false)); // never strand the hub on a loading skeleton
   }, []);
 
   // Reflect edits made via the "My subjects" editor without a full reload.
@@ -348,12 +349,18 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     (learnerGrade >= SOCIAL_SCIENCES_MIN_GRADE && learnerGrade <= SOCIAL_SCIENCES_MAX_GRADE);
   const showNst =
     !gradeKnown || (learnerGrade >= NST_MIN_GRADE && learnerGrade <= NST_MAX_GRADE);
-  // Matric / Phys-Sci visibility stays on the AUTHORITATIVE server grade (not the
-  // local fallback) so a self-set device grade can't surface paid Matric content.
-  const showMatricPhysSci = !authGradeKnown || authGrade === 12;
-  // Physical Sciences is also a FET subject for Grades 10 and 11 (tap-native).
-  const showGrade10PhysSci = !authGradeKnown || authGrade === 10;
-  const showGrade11PhysSci = !authGradeKnown || authGrade === 11;
+  // Physical Sciences is one subject with grade-specific trees (10 / 11 / 12).
+  // Pick exactly ONE card by the authoritative server grade so it can never render
+  // more than once (a null grade used to make all three appear). When the grade
+  // isn't known yet we fall back to a single Matric card rather than three. Stays
+  // on the server grade (not the local fallback) so a self-set device grade can't
+  // surface paid Matric content.
+  const physSciCardId: "matric-phys-sci" | "grade-10-phys-sci" | "grade-11-phys-sci" | null =
+    authGrade === 10 ? "grade-10-phys-sci"
+    : authGrade === 11 ? "grade-11-phys-sci"
+    : authGrade === 12 ? "matric-phys-sci"
+    : !authGradeKnown ? "matric-phys-sci"
+    : null;
   const showMathsLiteracy =
     !gradeKnown ||
     (learnerGrade >= MATHS_LITERACY_MIN_GRADE && learnerGrade <= MATHS_LITERACY_MAX_GRADE);
@@ -516,7 +523,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "natural-sciences-tech",
       });
     }
-    if (showMatricPhysSci) {
+    if (physSciCardId === "matric-phys-sci") {
       all.push({
         id: "matric-phys-sci",
         thumbnail: "/thumbnails/physical-science.webp",
@@ -529,7 +536,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "matric-phys-sci",
       });
     }
-    if (showGrade10PhysSci) {
+    if (physSciCardId === "grade-10-phys-sci") {
       all.push({
         id: "grade-10-phys-sci",
         thumbnail: "/thumbnails/physical-science.webp",
@@ -542,7 +549,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "grade-10-phys-sci",
       });
     }
-    if (showGrade11PhysSci) {
+    if (physSciCardId === "grade-11-phys-sci") {
       all.push({
         id: "grade-11-phys-sci",
         thumbnail: "/thumbnails/physical-science.webp",
@@ -762,8 +769,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     discoverBadge, discoverBadgeColor,
     mathsBadge, mathsBadgeColor,
     readingBadge, readingBadgeColor,
-    showLifeSkills, showAfrikaans, showSocialSciences, showNst, showMatricPhysSci,
-    showGrade10PhysSci, showGrade11PhysSci,
+    showLifeSkills, showAfrikaans, showSocialSciences, showNst, physSciCardId,
     showMathsLiteracy, mathsLiteracyBadge, mathsLiteracyMastered,
     showLifeSciences,
     showHistory,
@@ -1007,6 +1013,13 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     }
   }
 
+  // FET learners (Gr 10–12) with no saved subject selection are gated into
+  // picking before the hub opens. While the grade / saved subjects are still
+  // resolving we wait (skeleton) rather than flashing the wrong content or the
+  // gate prematurely. Grades 1–9 and learners with a saved selection skip both.
+  const needsSubjectChoice = isFetGrade(grade) && !selectedSubjects;
+  const waitingForGrade = loading && (!gradeKnown || needsSubjectChoice);
+
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
@@ -1019,23 +1032,55 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             <p className="text-gray-500 text-sm mt-0.5">{t("subjects.subtitle")}</p>
           </div>
 
-          {/* Each subject renders as a self-contained two-column unit (enlarged
-              thumbnail + stat-line on the left, skill-tree card on the right) —
-              that whole layout lives in SkillTreeShell's hub mode, so every
-              subject's tree looks identical. The thumbnail, emoji fallback and
-              subject name are handed down via HubTreeContext. */}
-          <div className="max-w-4xl mx-auto space-y-6">
-            {subjects.map((s, i) => (
-              <HubTreeContext.Provider
-                key={s.id}
-                value={{ inHub: true, thumbnail: s.thumbnail, emoji: s.placeholderEmoji, label: s.label, accentFrom: s.accentFrom, accentTo: s.accentTo }}
+          {waitingForGrade ? (
+            /* Until the learner's grade (and saved subjects) resolve, show a
+               skeleton rather than the fail-open "every subject" list — which
+               would otherwise flash the wrong grades + a duplicated Physical
+               Sciences before settling. */
+            <div className="max-w-4xl mx-auto space-y-6" aria-hidden>
+              {[0, 1, 2].map((i) => (
+                <div key={i} className="h-40 rounded-2xl bg-gray-200/60 animate-pulse" />
+              ))}
+            </div>
+          ) : needsSubjectChoice ? (
+            /* FET learners (Gr 10–12) must pick their subjects before the hub
+               opens, so it only ever shows the subjects they actually take. The
+               picker lives in Settings — we deep-link straight into it. */
+            <div className="max-w-md mx-auto mt-8 sm:mt-12 text-center px-2">
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mb-4">📚</div>
+              <h2 className="text-lg font-bold text-gray-900">Choose your subjects</h2>
+              <p className="text-gray-500 text-sm mt-1.5 leading-relaxed">
+                Tell us which Grade {grade} subjects you take and your hub will show only those.
+              </p>
+              <button
+                onClick={() => {
+                  try { window.sessionStorage.setItem("ruby_open_subjects_picker", "1"); } catch { /* private mode */ }
+                  onNavigate("settings");
+                }}
+                className="mt-5 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition-colors"
               >
-                <section className="min-w-0">
-                  <LazyMount eager={i < 2}>{renderSubjectPanel(s)}</LazyMount>
-                </section>
-              </HubTreeContext.Provider>
-            ))}
-          </div>
+                Choose my subjects
+              </button>
+            </div>
+          ) : (
+            /* Each subject renders as a self-contained two-column unit (enlarged
+               thumbnail + stat-line on the left, skill-tree card on the right) —
+               that whole layout lives in SkillTreeShell's hub mode, so every
+               subject's tree looks identical. The thumbnail, emoji fallback and
+               subject name are handed down via HubTreeContext. */
+            <div className="max-w-4xl mx-auto space-y-6">
+              {subjects.map((s, i) => (
+                <HubTreeContext.Provider
+                  key={s.id}
+                  value={{ inHub: true, thumbnail: s.thumbnail, emoji: s.placeholderEmoji, label: s.label, accentFrom: s.accentFrom, accentTo: s.accentTo }}
+                >
+                  <section className="min-w-0">
+                    <LazyMount eager={i < 2}>{renderSubjectPanel(s)}</LazyMount>
+                  </section>
+                </HubTreeContext.Provider>
+              ))}
+            </div>
+          )}
 
         </div>
       </div>

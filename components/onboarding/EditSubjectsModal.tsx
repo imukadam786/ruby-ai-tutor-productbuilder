@@ -4,7 +4,6 @@ import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 import SubjectChecklist from "@/components/onboarding/SubjectChecklist";
 import {
-  ALL_FET_KEYS,
   ALWAYS_ON_FET_KEYS,
   writeCachedSubjects,
   SUBJECTS_UPDATED_EVENT,
@@ -21,10 +20,15 @@ export default function EditSubjectsModal({
   initial: FetSubjectKey[] | null;
   onClose: () => void;
 }) {
+  // Start with only the always-on subject (English) ticked so the learner has to
+  // actively choose the rest — nothing is pre-selected for them.
   const [subjects, setSubjects] = useState<FetSubjectKey[]>(
-    initial && initial.length ? initial : ALL_FET_KEYS,
+    initial && initial.length ? initial : [...ALWAYS_ON_FET_KEYS],
   );
   const [saving, setSaving] = useState(false);
+  // Require at least one chosen subject beyond the always-on English, so the
+  // learner can't save without actively selecting anything.
+  const hasRealChoice = subjects.some((k) => !ALWAYS_ON_FET_KEYS.includes(k));
 
   const toggle = (key: FetSubjectKey) => {
     if (ALWAYS_ON_FET_KEYS.includes(key)) return; // locked on
@@ -72,7 +76,7 @@ export default function EditSubjectsModal({
           </button>
           <button
             onClick={save}
-            disabled={saving || subjects.length === 0}
+            disabled={saving || !hasRealChoice}
             className="flex-1 py-3.5 rounded-full bg-rose-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-rose-700 transition-colors flex items-center justify-center gap-2"
           >
             {saving && (

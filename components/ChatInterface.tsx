@@ -10,6 +10,7 @@ import { getMessages, saveMessages, incrementMessageCount } from "@/lib/storage"
 import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
 import UsageMeter from "@/components/UsageMeter";
+import RubyBalance from "@/components/RubyBalance";
 import { getTutor } from "@/lib/tutors";
 
 // Default quick actions for the general (Ruby) chat. A specific tutor's chat
@@ -446,7 +447,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
             {tutor && onChangeTutor && (
               <button
                 onClick={onChangeTutor}
-                className="flex items-center gap-1 text-xs text-gray-500 hover:text-[#BE1832] transition-colors mt-0.5"
+                className="inline-flex items-center gap-1.5 mt-1 px-3 py-1 rounded-full bg-[#BE1832]/10 text-[#BE1832] text-xs font-semibold border border-[#BE1832]/20 hover:bg-[#BE1832] hover:text-white transition-colors"
               >
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -457,6 +458,8 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
           </div>
         </div>
         <div className="flex items-center gap-3 flex-shrink-0">
+          {/* Ruby counter (ticks up live on every earn) + freebie daily limits. */}
+          <RubyBalance theme="light" />
           <UsageMeter variant="compact" theme="light" />
           <button
           onClick={clearChat}

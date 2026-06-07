@@ -21,6 +21,8 @@ export type FetSubjectKey =
 export interface FetSubject {
   key: FetSubjectKey;
   label: string;
+  // Emoji shown beside the label in the picker (matches the onboarding style).
+  emoji: string;
   // Locked subjects are always selected and cannot be unticked in the picker.
   locked?: boolean;
 }
@@ -28,17 +30,17 @@ export interface FetSubject {
 // Display order: English pinned first (locked-on), then the rest alphabetically
 // to match how the hub already orders its cards.
 export const FET_SUBJECTS: FetSubject[] = [
-  { key: "english", label: "English", locked: true },
-  { key: "accounting", label: "Accounting" },
-  { key: "business-studies", label: "Business Studies" },
-  { key: "economics", label: "Economics" },
-  { key: "geography", label: "Geography" },
-  { key: "history", label: "History" },
-  { key: "life-sciences", label: "Life Sciences" },
-  { key: "maths-literacy", label: "Mathematical Literacy" },
-  { key: "mathematics", label: "Mathematics" },
-  { key: "physical-sciences", label: "Physical Sciences" },
-  { key: "tourism", label: "Tourism" },
+  { key: "english", label: "English", emoji: "📖", locked: true },
+  { key: "accounting", label: "Accounting", emoji: "🧾" },
+  { key: "business-studies", label: "Business Studies", emoji: "💼" },
+  { key: "economics", label: "Economics", emoji: "📈" },
+  { key: "geography", label: "Geography", emoji: "🌍" },
+  { key: "history", label: "History", emoji: "📜" },
+  { key: "life-sciences", label: "Life Sciences", emoji: "🧬" },
+  { key: "maths-literacy", label: "Mathematical Literacy", emoji: "🔢" },
+  { key: "mathematics", label: "Mathematics", emoji: "🧮" },
+  { key: "physical-sciences", label: "Physical Sciences", emoji: "⚗️" },
+  { key: "tourism", label: "Tourism", emoji: "✈️" },
 ];
 
 // Subjects that are always on regardless of what the learner ticks.

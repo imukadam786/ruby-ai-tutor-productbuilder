@@ -418,19 +418,29 @@ function LevelCard({
   const isCurrent = !!level.isCurrent;
   const inHub = useContext(HubTreeContext).inHub;
 
-  // In the hub, an open level shows only the next tier the learner is working
-  // on. The learner can reveal the rest of the level with the toggle below.
+  // In the hub, an open level previews only the focus tier the learner is working
+  // on, capped to a few skills — so every subject's card is the same compact size
+  // no matter how many topics/skills the level holds (content subjects can have
+  // 16+ per tier). The learner reveals the rest of the level with the toggle.
+  const HUB_PREVIEW_SKILLS = 3;
   const [tiersExpanded, setTiersExpanded] = useState(false);
-  const canCollapseTiers = inHub && level.tiers.length > 1;
   const focusTierIndex = (() => {
     const next = level.tiers.findIndex((t) => t.skills.some((s) => ACTIONABLE_STATUSES.has(s.status)));
     if (next >= 0) return next;
     const firstUnlocked = level.tiers.findIndex((t) => t.skills.some((s) => s.status !== "locked"));
     return firstUnlocked >= 0 ? firstUnlocked : 0;
   })();
+  const focusTier = level.tiers[focusTierIndex];
+  // Start the preview at the actionable skill so "Start here" is always visible.
+  const previewSkills = (() => {
+    if (!focusTier) return [];
+    const firstActionable = focusTier.skills.findIndex((s) => ACTIONABLE_STATUSES.has(s.status));
+    const start = firstActionable > 0 ? firstActionable : 0;
+    return focusTier.skills.slice(start, start + HUB_PREVIEW_SKILLS);
+  })();
+  const totalSkills = level.tiers.reduce((n, t) => n + t.skills.length, 0);
+  const canCollapseTiers = inHub && totalSkills > previewSkills.length;
   const showAllTiers = !canCollapseTiers || tiersExpanded;
-  const visibleTiers = showAllTiers ? level.tiers : [level.tiers[focusTierIndex]];
-  const hiddenTierCount = level.tiers.length - visibleTiers.length;
 
   return (
     <div ref={innerRef}>
@@ -521,23 +531,36 @@ function LevelCard({
 
         {isOpen && (
           <div className="px-5 pb-4">
-            {visibleTiers.map((tier) => (
-              <div key={tier.id} className="mt-3">
-                <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">{tier.title}</p>
+            {showAllTiers ? (
+              level.tiers.map((tier) => (
+                <div key={tier.id} className="mt-3">
+                  <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">{tier.title}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {tier.skills.map((skill) => (
+                      <SkillTile key={skill.id} skill={skill} accent={accent} />
+                    ))}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="mt-3">
+                {focusTier && (
+                  <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">{focusTier.title}</p>
+                )}
                 <div className="flex flex-wrap gap-2">
-                  {tier.skills.map((skill) => (
+                  {previewSkills.map((skill) => (
                     <SkillTile key={skill.id} skill={skill} accent={accent} />
                   ))}
                 </div>
               </div>
-            ))}
+            )}
             {canCollapseTiers && (
               <button
                 type="button"
                 onClick={() => setTiersExpanded((v) => !v)}
                 className="mt-3 text-xs font-semibold text-gray-500 hover:text-gray-700 transition-colors"
               >
-                {tiersExpanded ? "Show less ▴" : `Show all ${hiddenTierCount + 1} sections ▾`}
+                {tiersExpanded ? "Show less ▴" : `Show all ${totalSkills} skills ▾`}
               </button>
             )}
           </div>
@@ -613,9 +636,10 @@ export default function SkillTreeShell({
 
   // ── Hub presentation ──────────────────────────────────────────────────────
   // Inside the Subjects hub there's no header bar and no subject title: the
-  // learner sees only an enlarged subject thumbnail (with the stat-line beneath
-  // it) and the skill-tree card beside it. On desktop the two sit side by side
-  // and the thumbnail stretches to the tree's height; on mobile they stack.
+  // learner sees only the subject thumbnail (with the stat-line beneath it) and
+  // the skill-tree card beside it. The thumbnail is a fixed square — pinned to
+  // the top, NOT stretched to the tree's height — so every subject's card reads
+  // at the same size regardless of how tall its tree is. On mobile they stack.
   if (inHub) {
     const thumb = hub.thumbnail ? (
       <img src={hub.thumbnail} alt={hub.label ?? ""} className="w-full h-full object-cover" />
@@ -627,11 +651,11 @@ export default function SkillTreeShell({
 
     return (
       <div className="relative isolate">
-        <div className="flex flex-col md:flex-row md:items-stretch gap-4">
-          {/* Left: enlarged thumbnail + stat-line, sized to the tree's height.
-              Just the image — no frame, border or padding. */}
+        <div className="flex flex-col md:flex-row md:items-start gap-4">
+          {/* Left: fixed-square thumbnail + stat-line. Just the image — no frame,
+              border or padding — and a constant size across every subject. */}
           <div className="flex flex-col items-center md:items-stretch md:w-48 lg:w-56 md:flex-shrink-0">
-            <div className="w-40 aspect-square md:w-full md:aspect-auto md:flex-1 rounded-2xl overflow-hidden">
+            <div className="w-40 aspect-square md:w-full md:aspect-square rounded-2xl overflow-hidden">
               {thumb}
             </div>
             {statline && (

@@ -10,8 +10,6 @@ import EduBackground from "@/components/EduBackground";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import SavedReportView from "@/components/SavedReportView";
 import { TUTORS } from "@/lib/tutors";
-import EditSubjectsModal from "@/components/onboarding/EditSubjectsModal";
-import { isFetGrade, readCachedSubjects, type FetSubjectKey } from "@/lib/fet-subjects";
 
 interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
@@ -90,10 +88,6 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
   const [firstName, setFirstName] = useState("there");
   // Matric Prep is Grade 12-only. Fail closed: unknown grade keeps it hidden.
   const [isGrade12, setIsGrade12] = useState(false);
-  // FET learners (Gr 10–12) can edit which subjects show on their home/hub.
-  const [grade, setGrade] = useState<number | null>(null);
-  const [subjects, setSubjects] = useState<FetSubjectKey[] | null>(() => readCachedSubjects());
-  const [showSubjectsModal, setShowSubjectsModal] = useState(false);
   const [mathsDone, setMathsDone] = useState(false);
   const [readingDone, setReadingDone] = useState(false);
   const [viewReport, setViewReport] = useState<"maths" | "reading" | null>(null);
@@ -111,8 +105,6 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
       ]);
       if (auth?.name) setFirstName(auth.name.split(" ")[0]);
       setIsGrade12(auth?.grade === 12);
-      setGrade(auth?.grade ?? null);
-      if (auth) setSubjects(auth.subjects);
       setMathsDone(profile?.placementCompleted ?? false);
       setReadingDone((readingProfile as ReadingStudentProfile | null)?.placementCompleted ?? false);
     };
@@ -167,20 +159,6 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
                   <p className="text-gray-500 text-xs mt-0.5">Change app language</p>
                 </div>
               </button>
-
-              {/* My subjects — Grade 10–12 only; lets them change what shows in their hub. */}
-              {isFetGrade(grade) && (
-                <button
-                  onClick={() => setShowSubjectsModal(true)}
-                  className="bg-white rounded-2xl p-4 flex items-center gap-3 border border-gray-100 hover:shadow-md active:scale-[0.98] transition-all text-left"
-                >
-                  <span className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl flex-shrink-0">📚</span>
-                  <div className="min-w-0">
-                    <p className="font-semibold text-gray-800 text-base leading-tight">My subjects</p>
-                    <p className="text-gray-500 text-xs mt-0.5">Change your subjects</p>
-                  </div>
-                </button>
-              )}
 
               <button
                 onClick={handleUpgradeClick}
@@ -385,10 +363,6 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
 
         </div>
       </div>
-
-      {showSubjectsModal && (
-        <EditSubjectsModal initial={subjects} onClose={() => setShowSubjectsModal(false)} />
-      )}
     </div>
   );
 }
