@@ -56,6 +56,8 @@ const TechnologySpSession          = dynamic(() => import("@/components/technolo
 const TechnologySpSkillTreeView    = dynamic(() => import("@/components/technology-sp/TechnologySpSkillTreeView"),          { ssr: false });
 const LifeOrientationSpSession       = dynamic(() => import("@/components/life-orientation-sp/LifeOrientationSpSession"),         { ssr: false });
 const LifeOrientationSpSkillTreeView = dynamic(() => import("@/components/life-orientation-sp/LifeOrientationSpSkillTreeView"),   { ssr: false });
+const CreativeArtsSpSession          = dynamic(() => import("@/components/creative-arts-sp/CreativeArtsSpSession"),               { ssr: false });
+const CreativeArtsSpSkillTreeView    = dynamic(() => import("@/components/creative-arts-sp/CreativeArtsSpSkillTreeView"),         { ssr: false });
 const GeographySession             = dynamic(() => import("@/components/geography/GeographySession"),                      { ssr: false });
 const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),                { ssr: false });
 const NaturalSciencesSpSession     = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSession"),     { ssr: false });
@@ -139,7 +141,7 @@ const SESSION_VIEWS: ActiveView[] = [
   "afrikaans-fal", "maths-literacy", "life-sciences", "history",
   "business-studies", "tourism", "geography", "natural-sciences-sp",
   "social-sciences-sp", "ems-sp", "accounting", "economics",
-  "technology-sp", "life-orientation-sp",
+  "technology-sp", "life-orientation-sp", "creative-arts-sp",
 ];
 
 // ── Inner app — must live inside LanguageProvider to access useT ──────────────
@@ -218,6 +220,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "technology-sp-skill-tree": "Technology · Topics",
     "life-orientation-sp": "Life Orientation",
     "life-orientation-sp-skill-tree": "Life Orientation · Topics",
+    "creative-arts-sp": "Creative Arts",
+    "creative-arts-sp-skill-tree": "Creative Arts · Topics",
     "tourism": "Tourism",
     "tourism-skill-tree": "Tourism · Topics",
     "geography": "Geography",
@@ -616,6 +620,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "technology-sp-skill-tree" && <TechnologySpSkillTreeView onPickSkill={() => handleViewChange("technology-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {activeView === "life-orientation-sp" && <ErrorBoundary><LifeOrientationSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "life-orientation-sp-skill-tree" && <LifeOrientationSpSkillTreeView onPickSkill={() => handleViewChange("life-orientation-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
+        {activeView === "creative-arts-sp" && <ErrorBoundary><CreativeArtsSpSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "creative-arts-sp-skill-tree" && <CreativeArtsSpSkillTreeView onPickSkill={() => handleViewChange("creative-arts-sp")} profile={null} onBack={() => handleViewChange("subjects")} />}
         {/* Tourism — FET Phase (Gr 10–12), free like History */}
         {activeView === "tourism" && <ErrorBoundary><TourismSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "tourism-skill-tree" && <TourismSkillTreeView onPickSkill={() => handleViewChange("tourism")} profile={null} onBack={() => handleViewChange("subjects")} />}

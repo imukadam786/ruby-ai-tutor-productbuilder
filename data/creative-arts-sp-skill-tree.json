@@ -1,0 +1,1452 @@
+{
+  "version": "1.0",
+  "subject": "creative-arts-sp",
+  "description": "Creative Arts Senior Phase (Grades 7–9). CAPS-aligned. Two of the four art forms are built — Music and Visual Arts (the two with rich tap-native theory). Dance and Drama are excluded as movement/performance-based. Each art form has three CAPS topics. All skills open once the grade is selected (gate NONE). Making/performing work is reframed into tap-only knowledge. No free text.",
+  "grades_covered": [
+    7,
+    8,
+    9
+  ],
+  "levels": [
+    {
+      "id": 7,
+      "grade": 7,
+      "title": "Grade 7 — Creative Arts",
+      "description": "Grade 7 Creative Arts (CAPS Senior Phase). Two art forms — Music and Visual Arts — taught across the year. Dance and Drama are excluded (movement/performance-based, cannot be tapped).",
+      "tiers": [
+        {
+          "id": "L7.MUL",
+          "title": "Music · Music literacy",
+          "description": "CAPS G7 Music — Music literacy.",
+          "atomic_skills": [
+            {
+              "id": "CA.G7.MUL.A1",
+              "bank_skill_id": "CA.G7.MUL.A1",
+              "title": "Note values and rests",
+              "description": "Reading and naming note values and their rests — semibreve, minim, crotchet, quaver and the dotted minim — and how long each lasts.",
+              "caps_term": "G7",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Note values and rests\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A note's value tells you how many beats it lasts; a semibreve is longest, a quaver short.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G7.MUL.A2",
+              "bank_skill_id": "CA.G7.MUL.A2",
+              "title": "Treble and bass clef",
+              "description": "Naming notes on the lines and spaces of the treble and bass clefs.",
+              "caps_term": "G7",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Treble and bass clef\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The clef at the start of a staff tells you which note each line and space stands for.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G7.MUL.A3",
+              "bank_skill_id": "CA.G7.MUL.A3",
+              "title": "Beat and metre",
+              "description": "Hearing and counting the beat in duple (2), triple (3) and quadruple (4) time.",
+              "caps_term": "G7",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Beat and metre\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The metre is how the beats group — in 2s, 3s or 4s — and the first beat of each group is the strongest.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G7.MUL.A4",
+              "bank_skill_id": "CA.G7.MUL.A4",
+              "title": "Tonic sol-fa",
+              "description": "Using tonic sol-fa names (doh, re, mi…) to sight-sing simple melodic phrases.",
+              "caps_term": "G7",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Tonic sol-fa\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Tonic sol-fa gives each note of the scale a name (doh re mi fa soh la ti doh) to help you sing it.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.MUE",
+          "title": "Music · Listening & elements",
+          "description": "CAPS G7 Music — Listening & elements.",
+          "atomic_skills": [
+            {
+              "id": "CA.G7.MUE.A1",
+              "bank_skill_id": "CA.G7.MUE.A1",
+              "title": "Describing music",
+              "description": "Listening and describing a piece by its tempo (fast/slow), dynamics (soft/loud), metre and the mood or story it tells.",
+              "caps_term": "G7",
+              "caps_strand": "Music",
+              "caps_topic": "Listening & elements",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Describing music\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "When you describe music, listen for how fast (tempo), how loud (dynamics), the beat grouping and the mood.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G7.MUE.A2",
+              "bank_skill_id": "CA.G7.MUE.A2",
+              "title": "Instruments in a performance",
+              "description": "Recognising and naming common instruments heard in a performance.",
+              "caps_term": "G7",
+              "caps_strand": "Music",
+              "caps_topic": "Listening & elements",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Instruments in a performance\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Each instrument has its own sound; with practice you can pick out a drum, guitar or flute by ear.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.MUP",
+          "title": "Music · Performing & creating",
+          "description": "CAPS G7 Music — Performing & creating.",
+          "atomic_skills": [
+            {
+              "id": "CA.G7.MUP.A1",
+              "bank_skill_id": "CA.G7.MUP.A1",
+              "title": "Creating music",
+              "description": "The building blocks of creating music — ostinato, riff, question-and-answer, melodic and rhythmic repetition, and graphic scores.",
+              "caps_term": "G7",
+              "caps_strand": "Music",
+              "caps_topic": "Performing & creating",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Creating music\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "An ostinato or riff is a short pattern repeated; question-and-answer is one phrase 'answered' by another.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G7.MUP.A2",
+              "bank_skill_id": "CA.G7.MUP.A2",
+              "title": "Singing and song types",
+              "description": "Knowing the song types learners sing — the National Anthem, folk songs, rounds and part-songs — and accompanying with body percussion.",
+              "caps_term": "G7",
+              "caps_strand": "Music",
+              "caps_topic": "Performing & creating",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Singing and song types\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A round is a song where groups start at different times; body percussion is clapping, clicking or stamping a beat.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.VAE",
+          "title": "Visual Arts · Art elements & design",
+          "description": "CAPS G7 Visual Arts — Art elements & design.",
+          "atomic_skills": [
+            {
+              "id": "CA.G7.VAE.A1",
+              "bank_skill_id": "CA.G7.VAE.A1",
+              "title": "Art elements",
+              "description": "The art elements — line, shape, tone, texture and colour — and recognising them in artworks.",
+              "caps_term": "G7",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Art elements & design",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Art elements\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The art elements are the basic 'ingredients' of any artwork: line, shape, tone, texture and colour.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G7.VAE.A2",
+              "bank_skill_id": "CA.G7.VAE.A2",
+              "title": "Colour theory",
+              "description": "Mixing colour and using complementary colours (opposites) and monochromatic colour (shades of one colour).",
+              "caps_term": "G7",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Art elements & design",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Colour theory\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Complementary colours sit opposite on the colour wheel; monochromatic means tints and shades of one colour.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G7.VAE.A3",
+              "bank_skill_id": "CA.G7.VAE.A3",
+              "title": "Design principles",
+              "description": "The design principles — balance, contrast, pattern, proportion and emphasis — used to arrange an artwork.",
+              "caps_term": "G7",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Art elements & design",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Design principles\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Design principles are the 'rules' for arranging elements: balance, contrast, pattern, proportion and emphasis.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.VAM",
+          "title": "Visual Arts · Making in 2D & 3D",
+          "description": "CAPS G7 Visual Arts — Making in 2D & 3D.",
+          "atomic_skills": [
+            {
+              "id": "CA.G7.VAM.A1",
+              "bank_skill_id": "CA.G7.VAM.A1",
+              "title": "Drawing and 2D media",
+              "description": "Knowledge behind 2D making — drawing (line, tone, texture, mark-making), painting (colour-mixing, brushwork), simple etching, lettering and pattern-making.",
+              "caps_term": "G7",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Making in 2D & 3D",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Drawing and 2D media\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Different media make different marks; mark-making, brushwork and etching are ways to create texture and tone.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G7.VAM.A2",
+              "bank_skill_id": "CA.G7.VAM.A2",
+              "title": "Making in 3D",
+              "description": "Knowledge behind 3D making — construction and modelling, plane/depth/perspective, materials and tools, good craftsmanship, safety and using recyclable materials.",
+              "caps_term": "G7",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Making in 2D & 3D",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Making in 3D\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "3D work uses depth and space; good craftsmanship means working neatly, safely and caring for the environment.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L7.VAL",
+          "title": "Visual Arts · Visual literacy",
+          "description": "CAPS G7 Visual Arts — Visual literacy.",
+          "atomic_skills": [
+            {
+              "id": "CA.G7.VAL.A1",
+              "bank_skill_id": "CA.G7.VAL.A1",
+              "title": "Looking and analysing",
+              "description": "Looking at and talking about artworks — buildings, still life, masks and groups of figures — and reading their symbolic language.",
+              "caps_term": "G7",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Visual literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Looking and analysing\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Analysing art means describing what you see using the art elements, and asking what its symbols might mean.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G7.VAL.A2",
+              "bank_skill_id": "CA.G7.VAL.A2",
+              "title": "The artist and research",
+              "description": "The role of the artist in their own society as contributor and observer, and beginning to research art.",
+              "caps_term": "G7",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Visual literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The artist and research\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Artists contribute to and observe society; researching means gathering information and images about art.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "grade": 8,
+      "title": "Grade 8 — Creative Arts",
+      "description": "Grade 8 Creative Arts (CAPS Senior Phase). Two art forms — Music and Visual Arts — taught across the year. Dance and Drama are excluded (movement/performance-based, cannot be tapped).",
+      "tiers": [
+        {
+          "id": "L8.MUL",
+          "title": "Music · Music literacy",
+          "description": "CAPS G8 Music — Music literacy.",
+          "atomic_skills": [
+            {
+              "id": "CA.G8.MUL.A1",
+              "bank_skill_id": "CA.G8.MUL.A1",
+              "title": "Duration and metre",
+              "description": "Reading rhythm in 2/4, 3/4, 4/4 and compound duple 6/8 time.",
+              "caps_term": "G8",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Duration and metre\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The top number of a time signature counts beats in a bar; 6/8 groups six quavers into two main beats.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G8.MUL.A2",
+              "bank_skill_id": "CA.G8.MUL.A2",
+              "title": "Major scales",
+              "description": "Building the major scales of C, G, D and F major using tones and semitones.",
+              "caps_term": "G8",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Major scales\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A major scale follows the pattern tone-tone-semitone-tone-tone-tone-semitone from its starting note.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G8.MUL.A3",
+              "bank_skill_id": "CA.G8.MUL.A3",
+              "title": "Reading in keys",
+              "description": "Reading (singing or playing) music in the keys of C, G, D and F major.",
+              "caps_term": "G8",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Reading in keys\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The key tells you which sharps or flats to use throughout the piece.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.MUE",
+          "title": "Music · Listening & elements",
+          "description": "CAPS G8 Music — Listening & elements.",
+          "atomic_skills": [
+            {
+              "id": "CA.G8.MUE.A1",
+              "bank_skill_id": "CA.G8.MUE.A1",
+              "title": "Music terminology",
+              "description": "Musical terms for tempo (moderato, presto, ritardando, a tempo) and articulation (legato, staccato).",
+              "caps_term": "G8",
+              "caps_strand": "Music",
+              "caps_topic": "Listening & elements",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Music terminology\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Tempo terms tell you the speed (presto = fast); articulation tells you how to play notes (staccato = short, detached).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G8.MUE.A2",
+              "bank_skill_id": "CA.G8.MUE.A2",
+              "title": "Elements across styles",
+              "description": "Identifying the elements and principles of music — metre, dynamics, repetition, contrast — across Western classical, African, Indian and popular styles.",
+              "caps_term": "G8",
+              "caps_strand": "Music",
+              "caps_topic": "Listening & elements",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Elements across styles\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Every style uses the same elements — metre, dynamics, repetition, contrast — but in its own way.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G8.MUE.A3",
+              "bank_skill_id": "CA.G8.MUE.A3",
+              "title": "Instrument families",
+              "description": "Grouping instruments by how they make sound — chordophones (strings), idiophones, membranophones (drums) and aerophones (wind).",
+              "caps_term": "G8",
+              "caps_strand": "Music",
+              "caps_topic": "Listening & elements",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Instrument families\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Instruments group by how sound is made: chordophones (strings), membranophones (skins), idiophones (the body itself), aerophones (air).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.MUP",
+          "title": "Music · Performing & creating",
+          "description": "CAPS G8 Music — Performing & creating.",
+          "atomic_skills": [
+            {
+              "id": "CA.G8.MUP.A1",
+              "bank_skill_id": "CA.G8.MUP.A1",
+              "title": "Creating and composing",
+              "description": "Knowledge behind composing — building a piece with structure and combining music with another art form.",
+              "caps_term": "G8",
+              "caps_strand": "Music",
+              "caps_topic": "Performing & creating",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Creating and composing\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Composing means making your own music with a clear structure; it can be combined with dance, drama or art.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.VAE",
+          "title": "Visual Arts · Art elements & design",
+          "description": "CAPS G8 Visual Arts — Art elements & design.",
+          "atomic_skills": [
+            {
+              "id": "CA.G8.VAE.A1",
+              "bank_skill_id": "CA.G8.VAE.A1",
+              "title": "Art elements and analogous colour",
+              "description": "The art elements again, now adding analogous (related, neighbouring) colour.",
+              "caps_term": "G8",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Art elements & design",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Art elements and analogous colour\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Analogous colours sit next to each other on the colour wheel, like blue, blue-green and green.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G8.VAE.A2",
+              "bank_skill_id": "CA.G8.VAE.A2",
+              "title": "Design principles",
+              "description": "Using the design principles with greater control to plan and arrange artworks.",
+              "caps_term": "G8",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Art elements & design",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Design principles\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Design principles — balance, contrast, pattern, proportion, emphasis — guide how you arrange an artwork.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.VAM",
+          "title": "Visual Arts · Making in 2D & 3D",
+          "description": "CAPS G8 Visual Arts — Making in 2D & 3D.",
+          "atomic_skills": [
+            {
+              "id": "CA.G8.VAM.A1",
+              "bank_skill_id": "CA.G8.VAM.A1",
+              "title": "Drawing, painting and media",
+              "description": "Knowledge behind extended 2D making — drawing and painting with a wider range of media and techniques, lettering, pattern and paper size/format.",
+              "caps_term": "G8",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Making in 2D & 3D",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Drawing, painting and media\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Trying different media, scales and formats widens what your drawing and painting can express.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G8.VAM.A2",
+              "bank_skill_id": "CA.G8.VAM.A2",
+              "title": "Making in 3D",
+              "description": "Knowledge behind more complex 3D making — construction and modelling, manipulating materials and tools with good craftsmanship and safety, recyclable materials, and themes from the social world.",
+              "caps_term": "G8",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Making in 2D & 3D",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Making in 3D\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "More complex 3D work deepens spatial awareness; good craftsmanship, safety and recycling still matter.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L8.VAL",
+          "title": "Visual Arts · Visual literacy",
+          "description": "CAPS G8 Visual Arts — Visual literacy.",
+          "atomic_skills": [
+            {
+              "id": "CA.G8.VAL.A1",
+              "bank_skill_id": "CA.G8.VAL.A1",
+              "title": "Looking and analysing",
+              "description": "Analysing artworks and design — creative lettering and functional containers — and exploring careers in fashion design.",
+              "caps_term": "G8",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Visual literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Looking and analysing\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Reading design means asking how something looks AND how it works; many careers, like fashion, blend both.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G8.VAL.A2",
+              "bank_skill_id": "CA.G8.VAL.A2",
+              "title": "The artist, research and planning",
+              "description": "The role of the artist in the wider society and arts careers, developing research skills, and planning and preparing for a project.",
+              "caps_term": "G8",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Visual literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The artist, research and planning\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Planning a project means collecting resources, references and rough sketches before the final work.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "grade": 9,
+      "title": "Grade 9 — Creative Arts",
+      "description": "Grade 9 Creative Arts (CAPS Senior Phase). Two art forms — Music and Visual Arts — taught across the year. Dance and Drama are excluded (movement/performance-based, cannot be tapped).",
+      "tiers": [
+        {
+          "id": "L9.MUL",
+          "title": "Music · Music literacy",
+          "description": "CAPS G9 Music — Music literacy.",
+          "atomic_skills": [
+            {
+              "id": "CA.G9.MUL.A1",
+              "bank_skill_id": "CA.G9.MUL.A1",
+              "title": "Scales in treble and bass clef",
+              "description": "Writing the scales of C, G, D and F major in both the treble and bass clefs.",
+              "caps_term": "G9",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Scales in treble and bass clef\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The same scale can be written in either clef — the note names are the same, the staff position differs.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G9.MUL.A2",
+              "bank_skill_id": "CA.G9.MUL.A2",
+              "title": "Key signatures",
+              "description": "The key signatures of C, G, D and F major and the sharps they use.",
+              "caps_term": "G9",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Key signatures\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A key signature lists the sharps or flats for a key: C has none, G has F#, D has F# and C#, F has B flat.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G9.MUL.A3",
+              "bank_skill_id": "CA.G9.MUL.A3",
+              "title": "Ledger lines",
+              "description": "Reading notes on ledger lines — the short lines above and below the staff.",
+              "caps_term": "G9",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Ledger lines\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Ledger lines extend the staff so you can write notes that are too high or too low to fit on it.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G9.MUL.A4",
+              "bank_skill_id": "CA.G9.MUL.A4",
+              "title": "Intervals",
+              "description": "Naming the distance between two notes — the interval — by counting note names.",
+              "caps_term": "G9",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Intervals\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "An interval is counted by including both notes: C up to G is a 5th (C-D-E-F-G).",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G9.MUL.A5",
+              "bank_skill_id": "CA.G9.MUL.A5",
+              "title": "Triads",
+              "description": "Building a triad — a three-note chord of a root, third and fifth.",
+              "caps_term": "G9",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Triads\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A triad stacks three notes a third apart: the root, the note two letters up, and the note four letters up.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G9.MUL.A6",
+              "bank_skill_id": "CA.G9.MUL.A6",
+              "title": "Writing scales rhythmically",
+              "description": "Writing the C, G, D and F major scales using the note values learnt.",
+              "caps_term": "G9",
+              "caps_strand": "Music",
+              "caps_topic": "Music literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Writing scales rhythmically\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Writing a scale rhythmically combines the right pitches with chosen note values in a bar.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.MUE",
+          "title": "Music · Listening & elements",
+          "description": "CAPS G9 Music — Listening & elements.",
+          "atomic_skills": [
+            {
+              "id": "CA.G9.MUE.A1",
+              "bank_skill_id": "CA.G9.MUE.A1",
+              "title": "Orchestral families",
+              "description": "The four families of the orchestra — strings, woodwind, brass and percussion — and how each produces sound.",
+              "caps_term": "G9",
+              "caps_strand": "Music",
+              "caps_topic": "Listening & elements",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Orchestral families\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "The orchestra groups instruments into strings, woodwind, brass and percussion by how they make their sound.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G9.MUE.A2",
+              "bank_skill_id": "CA.G9.MUE.A2",
+              "title": "Music styles",
+              "description": "The features of popular styles — reggae, kwaito, R&B and African jazz — including rhythm, tempo, instruments and voices.",
+              "caps_term": "G9",
+              "caps_strand": "Music",
+              "caps_topic": "Listening & elements",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Music styles\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Each style has signature features; kwaito is slow South African house, reggae has its off-beat rhythm.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G9.MUE.A3",
+              "bank_skill_id": "CA.G9.MUE.A3",
+              "title": "Musicals, opera and the anthem",
+              "description": "Listening to a musical or opera (such as West Side Story or The Magic Flute), following its storyline, and discussing the National Anthem.",
+              "caps_term": "G9",
+              "caps_strand": "Music",
+              "caps_topic": "Listening & elements",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Musicals, opera and the anthem\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A musical or opera tells a story through song; the South African anthem joins five languages and two melodies.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.MUP",
+          "title": "Music · Performing & creating",
+          "description": "CAPS G9 Music — Performing & creating.",
+          "atomic_skills": [
+            {
+              "id": "CA.G9.MUP.A1",
+              "bank_skill_id": "CA.G9.MUP.A1",
+              "title": "Composing",
+              "description": "Knowledge behind Grade 9 composing — completing a four-bar phrase, adding music to words, and creating an advertisement jingle.",
+              "caps_term": "G9",
+              "caps_strand": "Music",
+              "caps_topic": "Performing & creating",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Composing\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Completing a phrase means writing an 'answer' that balances the opening; a jingle is a short, catchy advert tune.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.VAE",
+          "title": "Visual Arts · Art elements & design",
+          "description": "CAPS G9 Visual Arts — Art elements & design.",
+          "atomic_skills": [
+            {
+              "id": "CA.G9.VAE.A1",
+              "bank_skill_id": "CA.G9.VAE.A1",
+              "title": "Art elements and analogous colour",
+              "description": "The art elements with a global focus, using analogous and related colour with control.",
+              "caps_term": "G9",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Art elements & design",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Art elements and analogous colour\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Analogous colours (neighbours on the wheel) create harmony; the elements stay the building blocks of art.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G9.VAE.A2",
+              "bank_skill_id": "CA.G9.VAE.A2",
+              "title": "Design principles",
+              "description": "Applying the design principles independently to plan and judge artworks.",
+              "caps_term": "G9",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Art elements & design",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Design principles\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "By Grade 9 you use balance, contrast, pattern, proportion and emphasis to plan and critique work yourself.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.VAM",
+          "title": "Visual Arts · Making in 2D & 3D",
+          "description": "CAPS G9 Visual Arts — Making in 2D & 3D.",
+          "atomic_skills": [
+            {
+              "id": "CA.G9.VAM.A1",
+              "bank_skill_id": "CA.G9.VAM.A1",
+              "title": "Making in 2D and 3D",
+              "description": "Knowledge behind global-themed making — drawing, painting and etching, and personalised 3D construction and modelling with complex materials, craftsmanship and safety.",
+              "caps_term": "G9",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Making in 2D & 3D",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Making in 2D and 3D\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Personalised making lets you choose materials and techniques to express your own idea, made well and safely.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "L9.VAL",
+          "title": "Visual Arts · Visual literacy",
+          "description": "CAPS G9 Visual Arts — Visual literacy.",
+          "atomic_skills": [
+            {
+              "id": "CA.G9.VAL.A1",
+              "bank_skill_id": "CA.G9.VAL.A1",
+              "title": "Looking and analysing",
+              "description": "Analysing portraits, social commentary, popular culture and design in public spaces.",
+              "caps_term": "G9",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Visual literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"Looking and analysing\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "Art can comment on society; a portrait, poster or mural can carry a message as well as a likeness.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            },
+            {
+              "id": "CA.G9.VAL.A2",
+              "bank_skill_id": "CA.G9.VAL.A2",
+              "title": "The artist as social commentator",
+              "description": "The role of the artist as contributor, observer and social commentator in global society, working independently to research and plan.",
+              "caps_term": "G9",
+              "caps_strand": "Visual Arts",
+              "caps_topic": "Visual literacy",
+              "prerequisites": [],
+              "templates": [
+                "choice",
+                "true-false",
+                "cloze",
+                "sequence",
+                "sort-buckets"
+              ],
+              "error_signatures": [
+                {
+                  "type": "misconception",
+                  "description": "A common misunderstanding when learning \"The artist as social commentator\".",
+                  "example": "Authoring note: replace with the specific misconception once items are written."
+                }
+              ],
+              "recovery_strategy": "A social commentator uses art to raise issues; by Grade 9 you research and plan your projects on your own.",
+              "mastery_criteria": {
+                "correct_required": 15,
+                "formats_required": 2,
+                "allow_scaffolding": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

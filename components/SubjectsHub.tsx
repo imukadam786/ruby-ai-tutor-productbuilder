@@ -84,6 +84,10 @@ import {
   hydrateLifeOrientationSpProfileFromSupabase,
 } from "@/lib/life-orientation-sp-student-model";
 import {
+  loadCreativeArtsSpProfile,
+  hydrateCreativeArtsSpProfileFromSupabase,
+} from "@/lib/creative-arts-sp-student-model";
+import {
   loadAfrikaansProfile,
   hydrateAfrikaansProfileFromSupabase,
 } from "@/lib/afrikaans-student-model";
@@ -100,6 +104,7 @@ import type { AccountingStudentProfile } from "@/types/accounting";
 import type { EconomicsStudentProfile } from "@/types/economics";
 import type { TechnologySpStudentProfile } from "@/types/technology-sp";
 import type { LifeOrientationSpStudentProfile } from "@/types/life-orientation-sp";
+import type { CreativeArtsSpStudentProfile } from "@/types/creative-arts-sp";
 
 const SkillTreeView           = dynamic(() => import("@/components/ruby/SkillTreeView"),                       { ssr: false });
 const ReadingSkillTreeView    = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),             { ssr: false });
@@ -121,6 +126,7 @@ const AccountingSkillTreeView = dynamic(() => import("@/components/accounting/Ac
 const EconomicsSkillTreeView = dynamic(() => import("@/components/economics/EconomicsSkillTreeView"), { ssr: false });
 const TechnologySpSkillTreeView = dynamic(() => import("@/components/technology-sp/TechnologySpSkillTreeView"), { ssr: false });
 const LifeOrientationSpSkillTreeView = dynamic(() => import("@/components/life-orientation-sp/LifeOrientationSpSkillTreeView"), { ssr: false });
+const CreativeArtsSpSkillTreeView = dynamic(() => import("@/components/creative-arts-sp/CreativeArtsSpSkillTreeView"), { ssr: false });
 
 type SubjectId =
   | "discover"
@@ -145,7 +151,8 @@ type SubjectId =
   | "accounting"
   | "economics"
   | "technology-sp"
-  | "life-orientation-sp";
+  | "life-orientation-sp"
+  | "creative-arts-sp";
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -234,6 +241,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [economicsProfile, setEconomicsProfile] = useState<EconomicsStudentProfile | null>(() => loadEconomicsProfile());
   const [technologySpProfile, setTechnologySpProfile] = useState<TechnologySpStudentProfile | null>(() => loadTechnologySpProfile());
   const [lifeOrientationSpProfile, setLifeOrientationSpProfile] = useState<LifeOrientationSpStudentProfile | null>(() => loadLifeOrientationSpProfile());
+  const [creativeArtsSpProfile, setCreativeArtsSpProfile] = useState<CreativeArtsSpStudentProfile | null>(() => loadCreativeArtsSpProfile());
   const [afrikaansProfile, setAfrikaansProfile] = useState<AfrikaansStudentProfile | null>(() => loadAfrikaansProfile());
   const [grade, setGrade] = useState<number | null>(() => readCachedGrade());
   // null = no saved selection → show all (fail open). Only ever filters Gr 10–12.
@@ -279,7 +287,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [bs, ls, hi, to, ge, ns, ss, em, ac, ec, ts, lo, af] = await Promise.all([
+      const [bs, ls, hi, to, ge, ns, ss, em, ac, ec, ts, lo, ca, af] = await Promise.all([
         hydrateBusinessStudiesProfileFromSupabase(),
         hydrateLifeSciencesProfileFromSupabase(),
         hydrateHistoryProfileFromSupabase(),
@@ -292,6 +300,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         hydrateEconomicsProfileFromSupabase(),
         hydrateTechnologySpProfileFromSupabase(),
         hydrateLifeOrientationSpProfileFromSupabase(),
+        hydrateCreativeArtsSpProfileFromSupabase(),
         hydrateAfrikaansProfileFromSupabase(),
       ]);
       if (cancelled) return;
@@ -307,6 +316,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       if (ec) setEconomicsProfile(ec);
       if (ts) setTechnologySpProfile(ts);
       if (lo) setLifeOrientationSpProfile(lo);
+      if (ca) setCreativeArtsSpProfile(ca);
       if (af) setAfrikaansProfile(af);
     })();
     return () => {
@@ -371,6 +381,8 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const showTechnologySp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
   // Life Orientation is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
   const showLifeOrientationSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
+  // Creative Arts (Music + Visual Arts) is a Senior-Phase subject (Gr 7–9 only). Free for all plans.
+  const showCreativeArtsSp = !gradeKnown || (learnerGrade >= 7 && learnerGrade <= 9);
 
   const mathsLiteracyMastered = mathsLiteracyProfile
     ? Object.values(mathsLiteracyProfile.skill_mastery ?? {}).filter(
@@ -713,6 +725,20 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
         navigateTo: "life-orientation-sp",
       });
     }
+    if (showCreativeArtsSp) {
+      all.push({
+        id: "creative-arts-sp",
+        thumbnail: "/thumbnails/creative-arts-sp.webp",
+        placeholderEmoji: "🎨",
+        label: "Creative Arts",
+        caption: "Music & Visual Arts · Grades 7–9",
+        badge: "Senior Phase",
+        badgeColor: "bg-pink-100 text-pink-700",
+        accentFrom: "from-pink-500",
+        accentTo: "to-rose-600",
+        navigateTo: "creative-arts-sp",
+      });
+    }
     // FET learners (Gr 10–12) who saved a subject selection during onboarding
     // see only the subjects they picked. Cards with no FET picker key (Discover)
     // always remain. Grades 1–9 and any account with no saved selection fail
@@ -751,6 +777,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     showEmsSp,
     showTechnologySp,
     showLifeOrientationSp,
+    showCreativeArtsSp,
   ]);
 
   // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
@@ -964,6 +991,14 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           <LifeOrientationSpSkillTreeView
             onPickSkill={startContentSkill("life-orientation-sp", "ruby_life_orientation_sp_target_skill")}
             profile={lifeOrientationSpProfile}
+            compact
+          />
+        );
+      case "creative-arts-sp":
+        return (
+          <CreativeArtsSpSkillTreeView
+            onPickSkill={startContentSkill("creative-arts-sp", "ruby_creative_arts_sp_target_skill")}
+            profile={creativeArtsSpProfile}
             compact
           />
         );
