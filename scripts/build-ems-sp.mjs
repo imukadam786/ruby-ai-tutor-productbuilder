@@ -156,18 +156,18 @@ const G8 = [
   ]},
   { code: "F4", term: 2, title: "Cash Receipts Journal (service)", skills: [
     ["Concept and columns of the CRJ", "What the Cash Receipts Journal is, and the format and use of its columns.", "The CRJ lists all the money the business receives."],
-    ["Entering receipts in the CRJ", "Entering cash transactions into the CRJ from source documents.", "Each receipt becomes one line in the CRJ.", { defer: true }],
-    ["Closing off the CRJ", "Closing off the CRJ and the effect of these transactions on the accounting equation.", "Totalling the CRJ feeds the ledger and keeps the equation balanced.", { defer: true }],
+    ["Entering receipts in the CRJ", "Entering cash transactions into the CRJ from source documents.", "Each receipt becomes one line in the CRJ."],
+    ["Closing off the CRJ", "Closing off the CRJ and the effect of these transactions on the accounting equation.", "Totalling the CRJ feeds the ledger and keeps the equation balanced."],
   ]},
   { code: "F5", term: 3, title: "Cash Payments Journal (service)", skills: [
     ["Concept and columns of the CPJ", "What the Cash Payments Journal is, and the format and use of its columns.", "The CPJ lists all the money the business pays out."],
-    ["Entering and closing the CPJ", "Entering cash payments and closing off the CPJ.", "Each payment becomes one line in the CPJ.", { defer: true }],
-    ["Combined CRJ and CPJ", "Entering combined transactions in the CRJ and CPJ and their effect on the accounting equation.", "Together the two journals capture all the business's cash.", { defer: true }],
+    ["Entering and closing the CPJ", "Entering cash payments and closing off the CPJ.", "Each payment becomes one line in the CPJ."],
+    ["Combined CRJ and CPJ", "Entering combined transactions in the CRJ and CPJ and their effect on the accounting equation.", "Together the two journals capture all the business's cash."],
   ]},
   { code: "F6", term: 4, title: "General Ledger and Trial Balance (service)", skills: [
     ["Double-entry and T-accounts", "The double-entry principle and the layout of T-accounts in the General Ledger.", "Every entry has a debit side and a credit side — that's double entry."],
-    ["Posting to the General Ledger", "Posting transactions from the CRJ and CPJ to the General Ledger.", "Posting copies the journal totals into the ledger accounts.", { defer: true }],
-    ["Balancing and the Trial Balance", "Balancing the General Ledger and preparing a Trial Balance of a service business.", "A Trial Balance checks that total debits equal total credits.", { defer: true }],
+    ["Posting to the General Ledger", "Posting transactions from the CRJ and CPJ to the General Ledger.", "Posting copies the journal totals into the ledger accounts."],
+    ["Balancing and the Trial Balance", "Balancing the General Ledger and preparing a Trial Balance of a service business.", "A Trial Balance checks that total debits equal total credits."],
   ]},
   // ── Entrepreneurship ──
   { code: "B1", term: 2, title: "Factors of production", skills: [
@@ -209,26 +209,26 @@ const G9 = [
   ]},
   // ── Financial Literacy ──
   { code: "F1", term: 1, title: "Cash journals (sole trader)", skills: [
-    ["Cash transactions of a trading business", "Recording cash transactions of a trading (sole trader) business in the CRJ and CPJ.", "A trading business buys and sells stock — recorded in the cash journals.", { defer: true }],
+    ["Cash transactions of a trading business", "Recording cash transactions of a trading (sole trader) business in the CRJ and CPJ.", "A trading business buys and sells stock — recorded in the cash journals."],
     ["Effect on the accounting equation", "The effect of a trading business's cash transactions on the accounting equation.", "Even for a trader, every transaction keeps A = OE + L balanced."],
   ]},
   { code: "F2", term: 1, title: "General Ledger and Trial Balance (sole trader)", skills: [
-    ["Posting to the General Ledger", "Posting the cash transactions of a trading business from the CRJ and CPJ to the General Ledger.", "Posting moves the journal totals into ledger accounts.", { defer: true }],
-    ["Preparing the Trial Balance", "Preparing a Trial Balance of a trading business.", "The Trial Balance lists every account to check debits = credits.", { defer: true }],
+    ["Posting to the General Ledger", "Posting the cash transactions of a trading business from the CRJ and CPJ to the General Ledger.", "Posting moves the journal totals into ledger accounts."],
+    ["Preparing the Trial Balance", "Preparing a Trial Balance of a trading business.", "The Trial Balance lists every account to check debits = credits."],
   ]},
   { code: "F3", term: 2, title: "Credit transactions — debtors", skills: [
     ["Credit sales, debtors and the NCA", "Credit sales, debtors, and the National Credit Act.", "A debtor owes you money; the NCA protects people who buy on credit."],
-    ["Debtors Journal and Allowance Journal", "Recording transactions in the Debtors Journal (DJ) and Debtors Allowance Journal (DAJ).", "The DJ records credit sales; the DAJ records goods returned.", { defer: true }],
-    ["Posting to the Debtors and General Ledger", "Posting to the Debtors Ledger and General Ledger and the effect on the accounting equation.", "Each debtor has an account; postings keep the equation balanced.", { defer: true }],
+    ["Debtors Journal and Allowance Journal", "Recording transactions in the Debtors Journal (DJ) and Debtors Allowance Journal (DAJ).", "The DJ records credit sales; the DAJ records goods returned."],
+    ["Posting to the Debtors and General Ledger", "Posting to the Debtors Ledger and General Ledger and the effect on the accounting equation.", "Each debtor has an account; postings keep the equation balanced."],
   ]},
   { code: "F4", term: 3, title: "Credit transactions — creditors", skills: [
     ["Creditors and creditors allowance", "Creditors and creditors allowance, and where they fit in the accounting cycle.", "A creditor is someone you owe; an allowance is goods you returned to them."],
-    ["Creditors Journal and Allowance Journal", "Recording transactions in the Creditors Journal (CJ) and Creditors Allowance Journal (CAJ).", "The CJ records credit purchases; the CAJ records returns to suppliers.", { defer: true }],
-    ["Payments and posting to creditors", "Recording payments to creditors in the CPJ, posting to the Creditors and General Ledger, and the effect on the equation.", "Paying a creditor reduces both cash and what you owe.", { defer: true }],
+    ["Creditors Journal and Allowance Journal", "Recording transactions in the Creditors Journal (CJ) and Creditors Allowance Journal (CAJ).", "The CJ records credit purchases; the CAJ records returns to suppliers."],
+    ["Payments and posting to creditors", "Recording payments to creditors in the CPJ, posting to the Creditors and General Ledger, and the effect on the equation.", "Paying a creditor reduces both cash and what you owe."],
   ]},
   { code: "F5", term: 4, title: "Cash and credit transactions combined", skills: [
-    ["Recording in all subsidiary journals", "Recording cash and credit transactions of a sole trader across all the subsidiary journals.", "Pull it together: every journal plays its part for one business.", { defer: true }],
-    ["Posting and the Trial Balance", "Posting to the ledgers and preparing a Trial Balance.", "The final check: a balanced Trial Balance from all the journals.", { defer: true }],
+    ["Recording in all subsidiary journals", "Recording cash and credit transactions of a sole trader across all the subsidiary journals.", "Pull it together: every journal plays its part for one business."],
+    ["Posting and the Trial Balance", "Posting to the ledgers and preparing a Trial Balance.", "The final check: a balanced Trial Balance from all the journals."],
   ]},
   // ── Entrepreneurship ──
   { code: "B1", term: 2, title: "Sectors of the economy", skills: [
