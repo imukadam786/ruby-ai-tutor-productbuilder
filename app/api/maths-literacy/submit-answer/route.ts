@@ -2,121 +2,17 @@ import { withRubies } from "@/lib/with-rubies";
 import { NextRequest, NextResponse } from "next/server";
 import { getMathsLiteracySkillById } from "@/lib/maths-literacy-student-model";
 import type {
-  MathsLiteracyAnswerMode,
   MathsLiteracyDiagnosticResult,
   MathsLiteracySkillAttempt,
   MathsLiteracySubmitRequest,
   MathsLiteracySubmitResponse,
 } from "@/types/maths-literacy";
+import {
+  parseAnswerKey,
+  scoreMathsLiteracy,
+  formatExpectedAnswer,
+} from "@/lib/maths-literacy-scoring";
 import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
-
-// ─── Number parsing (SA decimal-comma aware) ────────────────────────────────
-// "R5 400"    → 5400
-// "5,4"       → 5.4
-// "59,5%"     → 59.5
-// "R1 234,56" → 1234.56
-// "1,234.56"  → 1234.56   (US: comma = thousands when a point is also present)
-// "4 200 000" → 4200000   (SA thousands grouping with spaces)
-// "4,200,000" → 4200000   (US thousands grouping — multiple commas, no point)
-function parseNumber(raw: string | number | null | undefined): number | null {
-  if (raw == null) return null;
-  if (typeof raw === "number") return Number.isFinite(raw) ? raw : null;
-  let s = String(raw).trim();
-  if (!s) return null;
-  // Normalise unicode minus / dashes to ASCII "-".
-  s = s.replace(/[−‒–—－]/g, "-");
-  // Strip common unit/currency markers and whitespace (incl. NBSP and SA thousands space)
-  s = s.replace(/[Rr$€£%]/g, "").replace(/\s+/g, "").replace(/[a-zA-Zµ°]+$/g, "");
-  if (!s) return null;
-  const hasDot = s.includes(".");
-  const hasComma = s.includes(",");
-  if (hasDot && hasComma) {
-    // Both present — the LAST separator is the decimal point; the other groups
-    // thousands. ("1,234.56" → 1234.56  and  "1.234,56" → 1234.56)
-    if (s.lastIndexOf(",") > s.lastIndexOf(".")) {
-      s = s.replace(/\./g, "").replace(",", ".");
-    } else {
-      s = s.replace(/,/g, "");
-    }
-  } else if (hasComma) {
-    // Only commas. A single comma followed by anything other than exactly three
-    // digits is a decimal comma (SA: "5,4", "8699,00"). Multiple commas, or one
-    // comma + a 3-digit group ("4,200,000", "4,200"), is thousands grouping.
-    const parts = s.split(",");
-    if (parts.length === 2 && parts[1].length !== 3) {
-      s = s.replace(",", ".");
-    } else {
-      s = s.replace(/,/g, "");
-    }
-  }
-  const n = parseFloat(s);
-  return Number.isFinite(n) ? n : null;
-}
-
-// ─── Scoring ────────────────────────────────────────────────────────────────
-interface AnswerKey {
-  mode: MathsLiteracyAnswerMode;
-  expectedAnswer?: string | number;
-  tolerance?: number;
-  unit?: string;
-  options?: string[];
-  fields?: { label: string; expectedAnswer: string | number; tolerance?: number }[];
-}
-
-function checkNumeric(studentRaw: string, expected: number, tolerance: number): boolean {
-  const student = parseNumber(studentRaw);
-  if (student === null) return false;
-  // Floor the tolerance with a tiny epsilon so exact-match answers aren't
-  // rejected by floating-point rounding (e.g. 0.1 + 0.2).
-  return Math.abs(student - expected) <= Math.max(tolerance, 1e-9);
-}
-
-function normaliseChoice(s: string): string {
-  return s.toLowerCase().replace(/[^a-z0-9]/g, "");
-}
-
-function checkMultiChoice(
-  studentRaw: string,
-  expected: string,
-  options?: string[]
-): boolean {
-  const a = normaliseChoice(studentRaw);
-  const e = normaliseChoice(expected);
-  if (!a) return false;
-  if (a === e) return true;
-  // Accept a letter (A/B/C/D) indexing the matching option.
-  if (options && a.length === 1) {
-    const idx = "abcdefghij".indexOf(a);
-    if (idx >= 0 && idx < options.length) {
-      return normaliseChoice(options[idx]) === e;
-    }
-  }
-  return false;
-}
-
-function checkField(
-  studentRaw: string,
-  field: { expectedAnswer: string | number; tolerance?: number }
-): boolean {
-  if (typeof field.expectedAnswer === "number") {
-    return checkNumeric(studentRaw, field.expectedAnswer, field.tolerance ?? 0);
-  }
-  // String field (e.g. "P"/"L" or "Short"/"Tall")
-  return normaliseChoice(studentRaw) === normaliseChoice(String(field.expectedAnswer));
-}
-
-function formatExpectedForFeedback(key: AnswerKey): string {
-  if (key.mode === "numeric") {
-    const unit = key.unit ? ` ${key.unit}` : "";
-    return `${key.expectedAnswer}${unit}`;
-  }
-  if (key.mode === "multiChoice") {
-    return `"${key.expectedAnswer}"`;
-  }
-  return (key.fields ?? [])
-    .map((f) => `${f.label}: ${f.expectedAnswer}`)
-    .join("; ");
-}
 
 async function handler(req: NextRequest) {
   try {
@@ -139,46 +35,27 @@ async function handler(req: NextRequest) {
       return NextResponse.json({ error: "Skill not found" }, { status: 404 });
     }
 
-    let key: AnswerKey;
-    try {
-      key = JSON.parse(submission.expected_answer_key) as AnswerKey;
-    } catch {
+    const key = parseAnswerKey(submission.expected_answer_key);
+    if (!key) {
       return NextResponse.json({ error: "Bad answer key" }, { status: 400 });
     }
 
-    let isCorrect = false;
-    let partialCredit: { correct: number; total: number } | undefined;
-    const errorSignals: string[] = [];
+    const { isCorrect, partialCredit } = scoreMathsLiteracy(
+      key,
+      submission.student_answer,
+      submission.student_fields
+    );
 
-    if (key.mode === "numeric" && typeof key.expectedAnswer === "number") {
-      isCorrect = checkNumeric(
-        submission.student_answer,
-        key.expectedAnswer,
-        key.tolerance ?? 0
-      );
-    } else if (key.mode === "multiChoice" && typeof key.expectedAnswer === "string") {
-      isCorrect = checkMultiChoice(
-        submission.student_answer,
-        key.expectedAnswer,
-        key.options
-      );
-    } else if (key.mode === "multiField" && key.fields) {
-      const fieldResults = key.fields.map((spec) => {
-        const provided = submission.student_fields?.find((f) => f.label === spec.label);
-        const value = provided?.value ?? "";
-        return checkField(value, spec);
-      });
-      const correctCount = fieldResults.filter(Boolean).length;
-      partialCredit = { correct: correctCount, total: fieldResults.length };
-      isCorrect = correctCount === fieldResults.length;
-    }
+    // Surface error signals from the bank item on miss. We don't re-load the bank
+    // server-side — the client passes the question's real codes through for
+    // per-signal feedback; fall back to a generic marker if absent.
+    const errorSignals: string[] = isCorrect
+      ? []
+      : submission.error_signals && submission.error_signals.length > 0
+      ? submission.error_signals
+      : ["INCORRECT_ANSWER"];
 
-    // Surface up to three error signals from the bank item on miss. We don't
-    // re-load the bank server-side — the client can pass them through if it
-    // wants per-signal feedback in a later iteration.
-    if (!isCorrect) errorSignals.push("INCORRECT_ANSWER");
-
-    const expectedText = formatExpectedForFeedback(key);
+    const expectedText = formatExpectedAnswer(key);
     const feedback = isCorrect
       ? "Correct."
       : partialCredit

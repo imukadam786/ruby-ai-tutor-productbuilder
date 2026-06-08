@@ -13,6 +13,12 @@ import {
   updateMathsLiteracySkillMastery,
 } from "@/lib/maths-literacy-student-model";
 import { ACCURACY_TARGET, requiredCoverageCount } from "@/lib/content-mastery";
+import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import {
+  parseAnswerKey,
+  scoreMathsLiteracy,
+  formatExpectedAnswer,
+} from "@/lib/maths-literacy-scoring";
 import type {
   MathsLiteracyDiagnosticResult,
   MathsLiteracyGenerateResponse,
@@ -39,10 +45,15 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
   const [studentAnswer, setStudentAnswer] = useState("");
   const [studentFields, setStudentFields] = useState<Record<string, string>>({});
   const [feedback, setFeedback] = useState<MathsLiteracyDiagnosticResult | null>(null);
-  const [submitting, setSubmitting] = useState(false);
+  const [submittedAnswer, setSubmittedAnswer] = useState("");
+  // Feedback is scored client-side and shown instantly, so there is no
+  // "Checking…" wait; kept false for the QuestionView button's disabled state.
+  const [submitting] = useState(false);
 
   // Track served items per skill so we don't repeat within a session.
   const usedRefsRef = useRef<Record<string, string[]>>({});
+  // Holds the in-flight background submit so "continue" can await it before advancing.
+  const submitInFlightRef = useRef<Promise<void> | null>(null);
 
   // Rubies effort floor: pay out once on exit if the learner answered anything.
   const answeredRef = useRef(false);
@@ -119,68 +130,93 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
   }, [currentSkillId, fetchQuestion]);
 
   // ── Submit ───────────────────────────────────────────────────────────────
+  // Score client-side for instant feedback (the answer key ships with the
+  // question, and the same scoring lib runs on the server), then reconcile
+  // mastery/rubies/usage with the server in the background.
   const onSubmit = async () => {
-    if (!question || submitting) return;
-    setSubmitting(true);
-    try {
-      const fieldsPayload = question.fields
-        ? question.fields.map((f) => ({ label: f.label, value: studentFields[f.label] ?? "" }))
-        : undefined;
-      const res = await apiFetch("/api/maths-literacy/submit-answer", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          skill_id: currentSkillId,
-          question_id: question.question_id,
-          question: question.question,
-          student_answer: question.answerMode === "multiField" ? "" : studentAnswer.trim(),
-          student_fields: fieldsPayload,
-          expected_answer_key: question.expected_answer_key,
-          working_steps: question.working_steps,
-        }),
-      });
-      // Shared daily limit reached — apiFetch surfaced the upgrade modal.
-      if (res.status === 429) return;
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error ?? `HTTP ${res.status}`);
-      }
-      const data = (await res.json()) as MathsLiteracySubmitResponse;
-      setFeedback(data.result);
-      setPhase("feedback");
-      answeredRef.current = true;
+    if (!question || submitInFlightRef.current) return;
+    const key = parseAnswerKey(question.expected_answer_key);
+    if (!key) return;
 
-      // Update local profile with the attempt. Coverage denominator is the
-      // skill's authored bank size, returned with the question.
-      if (profile) {
-        const poolSize = question.pool_size;
-        const { profile: updated, mastered } = updateMathsLiteracySkillMastery(
-          profile,
-          data.attempt,
-          poolSize,
-        );
-        const withCurrent = { ...updated, current_skill_id: currentSkillId };
-        setProfile(withCurrent);
-        saveMathsLiteracyProfile(withCurrent);
-        if (mastered) {
-          // Hint to next call: feedback now shows a "mastered" badge.
-          data.result.mastery_update.new_status = "mastered";
-          // Rubies: first-time mastery bonus.
-          rewardSkillMastered("maths-literacy", currentSkillId, profile.id);
+    const fieldsPayload = question.fields
+      ? question.fields.map((f) => ({ label: f.label, value: studentFields[f.label] ?? "" }))
+      : undefined;
+    const singleAnswer = question.answerMode === "multiField" ? "" : studentAnswer.trim();
+    const { isCorrect, partialCredit } = scoreMathsLiteracy(key, singleAnswer, fieldsPayload);
+
+    // Instant feedback from the client score.
+    setSubmittedAnswer(
+      question.answerMode === "multiField"
+        ? (fieldsPayload ?? []).map((f) => `${f.label}: ${f.value}`).join("; ")
+        : singleAnswer,
+    );
+    setFeedback({
+      is_correct: isCorrect,
+      partial_credit: partialCredit,
+      error_signals: isCorrect ? [] : question.error_signals,
+      feedback: isCorrect ? "Correct." : `Not quite — the answer was ${formatExpectedAnswer(key)}.`,
+      working_steps: question.working_steps,
+      mastery_update: {
+        skill_id: currentSkillId,
+        new_status: "in_progress",
+        correct_count: isCorrect ? 1 : 0,
+        attempt_count: 1,
+      },
+      next_action: "continue_skill",
+    });
+    setPhase("feedback");
+    answeredRef.current = true;
+
+    // Background: authoritative submit for mastery, rubies and usage metering.
+    const work = (async () => {
+      try {
+        const res = await apiFetch("/api/maths-literacy/submit-answer", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            skill_id: currentSkillId,
+            question_id: question.question_id,
+            question: question.question,
+            student_answer: singleAnswer,
+            student_fields: fieldsPayload,
+            expected_answer_key: question.expected_answer_key,
+            working_steps: question.working_steps,
+            error_signals: question.error_signals,
+          }),
+        });
+        if (res.status === 429 || !res.ok) return;
+        const data = (await res.json()) as MathsLiteracySubmitResponse;
+        if (profile) {
+          const { profile: updated, mastered } = updateMathsLiteracySkillMastery(
+            profile,
+            data.attempt,
+            question.pool_size,
+          );
+          const withCurrent = { ...updated, current_skill_id: currentSkillId };
+          setProfile(withCurrent);
+          saveMathsLiteracyProfile(withCurrent);
+          if (mastered) {
+            setFeedback((f) =>
+              f ? { ...f, mastery_update: { ...f.mastery_update, new_status: "mastered" } } : f,
+            );
+            rewardSkillMastered("maths-literacy", currentSkillId, profile.id);
+          }
         }
+      } catch {
+        // Non-blocking: the student already has correct feedback; mastery will
+        // reconcile on the next attempt if this write failed.
       }
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : "Failed to submit answer";
-      setError(msg);
-      setPhase("error");
-    } finally {
-      setSubmitting(false);
-    }
+    })();
+    submitInFlightRef.current = work;
+    await work;
+    submitInFlightRef.current = null;
   };
 
   // ── Continue (next question or advance skill) ────────────────────────────
-  const onContinue = () => {
+  const onContinue = async () => {
     if (!question) return;
+    // Wait for the background mastery write so advancement uses settled state.
+    if (submitInFlightRef.current) await submitInFlightRef.current;
     const mastered =
       profile?.skill_mastery[currentSkillId]?.status === "mastered" &&
       feedback?.is_correct;
@@ -296,16 +332,27 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
           )}
 
           {phase === "feedback" && feedback && question && (
-            <FeedbackView
-              result={feedback}
+            <FeedbackExplanation
+              isCorrect={feedback.is_correct}
+              studentAnswer={submittedAnswer}
+              correctAnswer={(() => {
+                const k = parseAnswerKey(question.expected_answer_key);
+                return k ? formatExpectedAnswer(k) : undefined;
+              })()}
+              errorSignals={question.error_signals}
               workingSteps={question.working_steps}
-              onContinue={onContinue}
-              advanceLabel={
-                profile?.skill_mastery[currentSkillId]?.status === "mastered" &&
-                feedback.is_correct &&
-                !replayMode
-                  ? "Next skill →"
-                  : "Next question →"
+              partialCredit={feedback.partial_credit}
+              footer={
+                <button
+                  onClick={onContinue}
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors"
+                >
+                  {profile?.skill_mastery[currentSkillId]?.status === "mastered" &&
+                  feedback.is_correct &&
+                  !replayMode
+                    ? "Next skill →"
+                    : "Next question →"}
+                </button>
               }
             />
           )}
@@ -411,70 +458,3 @@ function QuestionView({
   );
 }
 
-// ─── Feedback render ─────────────────────────────────────────────────────────
-function FeedbackView({
-  result,
-  workingSteps,
-  onContinue,
-  advanceLabel,
-}: {
-  result: MathsLiteracyDiagnosticResult;
-  workingSteps: string[];
-  onContinue: () => void;
-  advanceLabel: string;
-}) {
-  const correct = result.is_correct;
-  // Show the redundant "Correct." string only if the engine gave something more
-  // useful than the word itself.
-  const extraFeedback =
-    result.feedback && result.feedback.trim().toLowerCase() !== "correct."
-      ? result.feedback
-      : "";
-  return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 sm:p-6 space-y-4">
-      <div className="flex items-center gap-3">
-        <div
-          className={`w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold ${
-            correct ? "bg-green-100 text-green-600" : "bg-amber-100 text-amber-600"
-          }`}
-          aria-hidden
-        >
-          {correct ? "✓" : "✕"}
-        </div>
-        <div>
-          <p className={`text-lg font-bold ${correct ? "text-green-700" : "text-amber-700"}`}>
-            {correct
-              ? "Correct!"
-              : result.partial_credit
-              ? `Partial credit (${result.partial_credit.correct}/${result.partial_credit.total})`
-              : "Not quite"}
-          </p>
-          <p className="text-sm text-gray-500">
-            {correct ? "Nice work — here's the method." : "Have a look at the working below."}
-          </p>
-        </div>
-      </div>
-      {extraFeedback && (
-        <div className="text-sm text-gray-800 leading-relaxed">{extraFeedback}</div>
-      )}
-      {workingSteps.length > 0 && (
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
-          <div className="text-xs font-semibold text-gray-700 mb-2">
-            {correct ? "How it's done" : "Working"}
-          </div>
-          <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
-            {workingSteps.map((s, i) => (
-              <li key={i}>{s}</li>
-            ))}
-          </ol>
-        </div>
-      )}
-      <button
-        onClick={onContinue}
-        className="w-full px-4 py-2.5 rounded-xl bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors"
-      >
-        {advanceLabel}
-      </button>
-    </div>
-  );
-}

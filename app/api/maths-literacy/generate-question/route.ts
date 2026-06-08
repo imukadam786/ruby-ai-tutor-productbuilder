@@ -101,6 +101,7 @@ export async function POST(req: NextRequest) {
       unit: item.unit,
       expected_answer_key: buildAnswerKey(item),
       working_steps: item.workingSteps,
+      error_signals: item.errorSignals ?? [],
       pool_size: bank.items.length,
     };
 

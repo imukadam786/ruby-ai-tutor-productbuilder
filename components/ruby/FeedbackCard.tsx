@@ -6,6 +6,7 @@ import { useT } from "@/lib/i18n";
 import { useTTS } from "@/lib/tts";
 import { apiFetch } from "@/lib/fetch";
 import { resolveErrorExplanation } from "@/lib/error-explanations";
+import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
 
 interface QuestionContext {
   skill_id: string;
@@ -242,121 +243,75 @@ export default function FeedbackCard({
     );
   }
 
-  // ── Wrong answer — five-part explanation (What / Why / How / Example / Where)
-  // why / how / example come from the authored error-code map (zero AI cost).
-  // The repeated-wrong LLM re-teaching, when present, enriches the "How" section.
+  // ── Wrong answer — render via the shared FeedbackExplanation card ───────────
+  // Content (What / Why / How / Example) is shared with every subject. Ruby keeps
+  // its two extras via props: the audio button (headerAction) and the LLM
+  // re-teaching text (howOverride). why/how/example come from the error-code map.
   const explanation = resolveErrorExplanation(errorSignals);
-  const studentAnswer = questionContext?.student_answer?.trim();
-  const expectedAnswer = questionContext?.expected_answer?.trim();
-  const showWhat =
-    !!studentAnswer && !!expectedAnswer && studentAnswer !== expectedAnswer;
+  const spokenText = [explanation?.why || result.feedback, reteachingText, explanation?.example]
+    .filter(Boolean)
+    .join(". ");
 
-  const headerLabel = explanation?.label ?? errorInfo.label;
-  const whyText = explanation?.why || result.feedback;
-  const howText = reteachingText || explanation?.how || result.recovery_explanation;
-  const exampleText = explanation?.example;
-
-  const feedbackText = [whyText, howText, exampleText].filter(Boolean).join(". ");
+  const audioButton = (
+    <button
+      onClick={() => (playing ? stop() : speak(spokenText))}
+      className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 hover:bg-orange-200 text-orange-700 text-xs font-medium transition-colors"
+      aria-label={playing ? "Stop audio" : "Play explanation"}
+    >
+      {playing ? (
+        <>
+          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" />
+          </svg>
+          Stop
+        </>
+      ) : (
+        <>
+          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          Play
+        </>
+      )}
+    </button>
+  );
 
   return (
-    <div className="rounded-2xl border-2 border-orange-200 bg-orange-50 overflow-hidden">
-      {/* Header */}
-      <div className="px-6 py-4 flex items-center justify-between bg-orange-100">
-        <div className="flex items-center gap-3">
-          <span className="text-2xl">{errorInfo.icon}</span>
-          <div>
-            <p className="font-bold text-lg text-orange-800">Not quite</p>
-            <p className="text-sm text-orange-700">{headerLabel}</p>
-          </div>
-        </div>
-        <button
-          onClick={() => playing ? stop() : speak(feedbackText)}
-          className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 hover:bg-orange-200 text-orange-700 text-xs font-medium transition-colors"
-          aria-label={playing ? "Stop audio" : "Play explanation"}
-        >
-          {playing ? (
-            <>
-              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" />
-              </svg>
-              Stop
-            </>
-          ) : (
-            <>
-              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-              Play
-            </>
+    <FeedbackExplanation
+      isCorrect={false}
+      studentAnswer={questionContext?.student_answer}
+      correctAnswer={questionContext?.expected_answer}
+      errorSignals={errorSignals}
+      serverFeedback={result.feedback}
+      howOverride={reteachingText}
+      headerAction={audioButton}
+      footer={
+        <div className="space-y-4">
+          {result.next_action === "review_prerequisite" && (
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+              <p className="text-blue-800 text-sm font-medium">
+                This is a tricky one! Let&apos;s revisit an earlier skill to build a stronger foundation.
+              </p>
+            </div>
           )}
-        </button>
-      </div>
-
-      {/* Five-part explanation */}
-      <div className="px-6 py-5 space-y-4">
-        {/* WHAT — their answer vs the correct one */}
-        {showWhat && (
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
-            <span className="text-gray-700">
-              You answered <span className="font-semibold text-orange-700">{studentAnswer}</span>
-            </span>
-            <span className="text-gray-700">
-              The answer is <span className="font-semibold text-green-700">{expectedAnswer}</span>
-            </span>
+          <div
+            className="flex flex-col items-center gap-1 cursor-pointer select-none"
+            onClick={onNext}
+            onTouchStart={(e) => { touchStartY.current = e.touches[0].clientY; }}
+            onTouchEnd={(e) => {
+              if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
+            }}
+          >
+            <p className="text-xs text-gray-400 md:hidden">Swipe up for next question</p>
+            <p className="text-xs text-gray-400 hidden md:block">Click for next question</p>
+            <div className="animate-bounce text-blue-500">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+              </svg>
+            </div>
           </div>
-        )}
-
-        {/* WHY — the misconception */}
-        {whyText && (
-          <div>
-            <p className="text-sm font-medium text-gray-600 mb-1">Why this happens</p>
-            <p className="text-gray-800 leading-relaxed">{whyText}</p>
-          </div>
-        )}
-
-        {/* HOW — the fix */}
-        {howText && (
-          <div className={`bg-white border border-${errorInfo.color}-200 rounded-xl p-4`}>
-            <p className="text-sm font-medium text-gray-600 mb-1">How to fix it</p>
-            <p className="text-gray-800 text-sm leading-relaxed">{howText}</p>
-          </div>
-        )}
-
-        {/* EXAMPLE — the layman's example */}
-        {exampleText && (
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-            <p className="text-sm font-medium text-amber-700 mb-1">💡 Think of it like this</p>
-            <p className="text-gray-800 text-sm leading-relaxed">{exampleText}</p>
-          </div>
-        )}
-
-        {/* WHERE — what to do next */}
-        {result.next_action === "review_prerequisite" && (
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-            <p className="text-blue-800 text-sm font-medium">
-              This is a tricky one! Let's revisit an earlier skill to build a stronger foundation.
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* Next */}
-      <div
-        className="px-6 pb-6 pt-2 flex flex-col items-center gap-1 cursor-pointer select-none"
-        onClick={onNext}
-        onTouchStart={(e) => { touchStartY.current = e.touches[0].clientY; }}
-        onTouchEnd={(e) => {
-          if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
-        }}
-      >
-        <p className="text-xs text-gray-400 md:hidden">Swipe up for next question</p>
-        <p className="text-xs text-gray-400 hidden md:block">Click for next question</p>
-        <div className="animate-bounce text-blue-500">
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-          </svg>
         </div>
-      </div>
-    </div>
+      }
+    />
   );
 }
