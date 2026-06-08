@@ -153,6 +153,9 @@ export interface MathsLiteracyGenerateResponse {
   // The question's misconception codes, used to drive per-signal feedback
   // (why / how / example) on the client. Passed back to submit-answer.
   error_signals: string[];
+  // Authored plain-language description of the primary misconception, taken
+  // from the bank's _error_signal_vocabulary — used as the "why" on a miss.
+  error_explanation?: string;
   // Total distinct questions authored for this skill's bank — the coverage
   // denominator used by the content-mastery rule (lib/content-mastery.ts).
   pool_size: number;

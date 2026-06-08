@@ -89,6 +89,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "No items available" }, { status: 404 });
     }
 
+    // Authored "why" for the primary misconception, from the bank's vocabulary.
+    const vocab = bank._error_signal_vocabulary ?? {};
+    const primaryCode = (item.errorSignals ?? []).find((c) => vocab[c]);
+
     const response: MathsLiteracyGenerateResponse = {
       id: `mlq_${Date.now()}`,
       skill_id,
@@ -102,6 +106,7 @@ export async function POST(req: NextRequest) {
       expected_answer_key: buildAnswerKey(item),
       working_steps: item.workingSteps,
       error_signals: item.errorSignals ?? [],
+      error_explanation: primaryCode ? vocab[primaryCode] : undefined,
       pool_size: bank.items.length,
     };
 

@@ -340,6 +340,7 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
                 return k ? formatExpectedAnswer(k) : undefined;
               })()}
               errorSignals={question.error_signals}
+              whyOverride={question.error_explanation}
               workingSteps={question.working_steps}
               partialCredit={feedback.partial_credit}
               footer={

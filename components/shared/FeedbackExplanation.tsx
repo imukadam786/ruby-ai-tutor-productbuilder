@@ -30,6 +30,14 @@ export interface FeedbackExplanationProps {
   partialCredit?: { correct: number; total: number };
   /** Heading shown on a correct answer. */
   correctLabel?: string;
+  /**
+   * A subject-authored "why this happens" (e.g. Maths Literacy's per-code
+   * vocabulary). When set, it is authoritative: the generic error-code map's
+   * label and example are skipped, since they may not fit this subject.
+   */
+  whyOverride?: string;
+  /** Optional misconception label under the heading (paired with whyOverride). */
+  labelOverride?: string;
   /** Overrides the map's "how to fix it" text (e.g. ruby's LLM re-teaching). */
   howOverride?: string;
   /** Optional control rendered in the card header (e.g. a play-audio button). */
@@ -47,6 +55,8 @@ export default function FeedbackExplanation({
   serverFeedback,
   partialCredit,
   correctLabel = "Correct!",
+  whyOverride,
+  labelOverride,
   howOverride,
   headerAction,
   footer,
@@ -75,12 +85,14 @@ export default function FeedbackExplanation({
   }
 
   // ── Wrong — five-part explanation ───────────────────────────────────────────
-  const explanation = resolveErrorExplanation(errorSignals);
+  // A subject-supplied whyOverride is authoritative — skip the generic map's
+  // label/example so we never show, say, a multiplication example on a VAT error.
+  const explanation = whyOverride ? null : resolveErrorExplanation(errorSignals);
   const student = studentAnswer?.trim();
   const correct = correctAnswer?.trim();
   const showWhat = !!student && !!correct && student !== correct;
-  const headerLabel = explanation?.label ?? "Not quite";
-  const whyText = explanation?.why || serverFeedback;
+  const headerLabel = labelOverride ?? explanation?.label;
+  const whyText = whyOverride || explanation?.why || serverFeedback;
   const hasWorking = !!workingSteps && workingSteps.length > 0;
   const howText = hasWorking ? undefined : howOverride || explanation?.how;
   const exampleText = explanation?.example;
@@ -92,7 +104,7 @@ export default function FeedbackExplanation({
           <span className="text-2xl">🤔</span>
           <div>
             <p className="font-bold text-lg text-orange-800">Not quite</p>
-            <p className="text-sm text-orange-700">{headerLabel}</p>
+            {headerLabel && <p className="text-sm text-orange-700">{headerLabel}</p>}
           </div>
         </div>
         {headerAction}
