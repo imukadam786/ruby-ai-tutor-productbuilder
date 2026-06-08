@@ -319,6 +319,8 @@ export interface BusinessStudiesGeneratedQuestion {
   source_a?: BusinessStudiesComparisonSource;
   source_b?: BusinessStudiesComparisonSource;
   statements?: BusinessStudiesComparisonStatement[];
+  /** highlight-source selected ids — shipped so the client can score it. */
+  correct_selection?: string[];
 }
 
 export interface BusinessStudiesGenerateQuestionRequest {

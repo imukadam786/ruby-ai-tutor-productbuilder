@@ -319,6 +319,8 @@ export interface HistoryGeneratedQuestion {
   source_a?: HistoryComparisonSource;
   source_b?: HistoryComparisonSource;
   statements?: HistoryComparisonStatement[];
+  /** highlight-source selected ids — shipped so the client can score it. */
+  correct_selection?: string[];
 }
 
 export interface HistoryGenerateQuestionRequest {
