@@ -28,6 +28,8 @@ import {
 import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
 import { MathsPlacementResult } from "@/types/ruby";
 import { updateSkillMastery, initSkillMastery, scanMasteryForReview, pickNeedsReviewSkill, stampMathsReviewedAt } from "@/lib/mastery-engine";
+import { checkAnswerCorrectness } from "@/lib/diagnostic-engine";
+import { diagnoseError } from "@/lib/error-diagnosis";
 import { getDomainForSkill, friendlyMathsDomainName, getUsedRefs, markQuestionUsed, selectQuestion, bankQuestionToGenerated } from "@/lib/question-selector";
 import { abilityLevel } from "@/lib/bkt";
 import { simplifyQuestion } from "@/lib/question-simplifier";
@@ -154,6 +156,8 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
   const [loadErrorCount, setLoadErrorCount] = useState(0);
   const retryFnRef = useRef<(() => void) | null>(null);
   const lastStudentAnswerRef = useRef<string>("");
+  // Holds the in-flight submit reconciliation so "next" can await it before advancing.
+  const submitInFlightRef = useRef<Promise<void> | null>(null);
 
   // Report state — shown after placement before learning begins
   const [pendingPlacementResult, setPendingPlacementResult] = useState<MathsPlacementResult | null>(null);
@@ -349,6 +353,35 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
     if (!currentQuestion || !profile) return;
     lastStudentAnswerRef.current = answer;
 
+    // ── Optimistic instant-correct ──────────────────────────────────────────
+    // The correctness check is deterministic and the expected answer is already
+    // in the browser, so a correct answer can show its success card immediately
+    // while mastery/progression reconcile in the background. (Replay and wrong
+    // answers still wait for the server, where re-teaching lives.) Client and
+    // server run identical logic on identical inputs, so they cannot disagree.
+    const optimisticCorrect =
+      !replaySkillId && checkAnswerCorrectness(answer, currentQuestion.expected_answer);
+    if (optimisticCorrect) {
+      // Show the success card now; the background work below updates the session
+      // counters, mastery and (if reached) the mastery celebration a moment later.
+      setCurrentResult({
+        is_correct: true,
+        error_type: "correct",
+        feedback: "Correct!",
+        recovery_explanation: "",
+        mastery_update: {
+          skill_id: currentQuestion.skill_id,
+          new_status: "in_progress",
+          correct_count: 0,
+          attempt_count: 0,
+          formats_used: [],
+        },
+        next_action: "continue_skill",
+      });
+      setPhase("feedback");
+    }
+
+    const work = (async () => {
     try {
       const res = await apiFetch("/api/ruby/submit-answer", {
         method: "POST",
@@ -486,11 +519,19 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
       setStatusMessage("Something went wrong, please try submitting again.");
       setPhase("question");
     }
+    })();
+    submitInFlightRef.current = work;
+    await work;
+    submitInFlightRef.current = null;
   };
 
-  const handleNextAfterFeedback = () => {
-    if (!profile || !currentResult) return;
-
+  const handleNextAfterFeedback = async () => {
+    if (!profile) return;
+    // On an optimistically-shown correct answer the background reconciliation may
+    // still be in flight — wait for it so mastery/advancement is settled before
+    // we choose the next question. Usually already resolved (no perceived wait).
+    if (submitInFlightRef.current) await submitInFlightRef.current;
+    if (!currentResult) return;
     setPhase("loading_question");
   };
 
@@ -932,6 +973,16 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
                 student_answer: lastStudentAnswerRef.current,
                 expected_answer: currentQuestion.expected_answer,
               } : undefined}
+              errorSignals={(() => {
+                const codes = currentQuestion?.bank_question?.error_signals as string[] | undefined;
+                // Tier-1 precise diagnosis: if the student's wrong answer matches a
+                // known misconception's predicted answer, surface that code first.
+                if (currentResult?.is_correct === false && currentQuestion?.bank_question) {
+                  const matched = diagnoseError(lastStudentAnswerRef.current, currentQuestion.bank_question);
+                  if (matched) return [matched, ...(codes ?? []).filter((c) => c !== matched)];
+                }
+                return codes;
+              })()}
             />
           </div>
         </div>

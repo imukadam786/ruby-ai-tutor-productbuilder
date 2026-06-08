@@ -5,6 +5,7 @@ import { DiagnosticResult, ErrorType } from "@/types/ruby";
 import { useT } from "@/lib/i18n";
 import { useTTS } from "@/lib/tts";
 import { apiFetch } from "@/lib/fetch";
+import { resolveErrorExplanation } from "@/lib/error-explanations";
 
 interface QuestionContext {
   skill_id: string;
@@ -20,14 +21,19 @@ interface FeedbackCardProps {
   grade?: number;
   questionContext?: QuestionContext;
   wasReviewCorrect?: boolean;
+  /** Error codes on the question (e.g. ["ERR_MULT_ADD"]) — drive the why/how/example explanation */
+  errorSignals?: string[];
 }
 
+// Student-facing labels are deliberately plain and warm — no technical wording.
+// These only show as a fallback when the precise error-code explanation has no
+// authored entry yet; otherwise the explanation's own label is used.
 const errorLabels: Record<ErrorType, { label: string; color: string; icon: string }> = {
-  correct:                  { label: "Correct!",                  color: "green",  icon: "✅" },
-  conceptual_gap:           { label: "Conceptual Gap",            color: "red",    icon: "🧠" },
-  strategy_gap:             { label: "Strategy Gap",              color: "orange", icon: "🗺️" },
-  representation_confusion: { label: "Representation Confusion",  color: "purple", icon: "🔄" },
-  execution_slip:           { label: "Execution Slip",            color: "yellow", icon: "✏️" },
+  correct:                  { label: "Correct!",            color: "green",  icon: "✅" },
+  conceptual_gap:           { label: "Let's relearn this",  color: "red",    icon: "🧠" },
+  strategy_gap:             { label: "Let's try another way", color: "orange", icon: "🗺️" },
+  representation_confusion: { label: "A little mix-up",     color: "purple", icon: "🔄" },
+  execution_slip:           { label: "Just a small slip",   color: "yellow", icon: "✏️" },
 };
 
 const REFLECTION_OPTIONS = [
@@ -50,6 +56,7 @@ export default function FeedbackCard({
   questionContext,
   nextLabel: _nextLabel,
   wasReviewCorrect = false,
+  errorSignals,
 }: FeedbackCardProps) {
   const { language } = useT();
   const errorInfo = errorLabels[result.error_type];
@@ -207,7 +214,7 @@ export default function FeedbackCard({
           <span className="text-2xl">✏️</span>
           <div>
             <p className="font-bold text-lg text-yellow-800">Nearly there</p>
-            <p className="text-sm text-yellow-600">Execution Slip</p>
+            <p className="text-sm text-yellow-600">Just a small slip</p>
           </div>
         </div>
         <div className="px-6 py-5">
@@ -235,8 +242,21 @@ export default function FeedbackCard({
     );
   }
 
-  // ── Wrong answer — feedback + re-teaching shown ────────────────────────────
-  const feedbackText = [result.feedback, reteachingText].filter(Boolean).join(". ");
+  // ── Wrong answer — five-part explanation (What / Why / How / Example / Where)
+  // why / how / example come from the authored error-code map (zero AI cost).
+  // The repeated-wrong LLM re-teaching, when present, enriches the "How" section.
+  const explanation = resolveErrorExplanation(errorSignals);
+  const studentAnswer = questionContext?.student_answer?.trim();
+  const expectedAnswer = questionContext?.expected_answer?.trim();
+  const showWhat =
+    !!studentAnswer && !!expectedAnswer && studentAnswer !== expectedAnswer;
+
+  const headerLabel = explanation?.label ?? errorInfo.label;
+  const whyText = explanation?.why || result.feedback;
+  const howText = reteachingText || explanation?.how || result.recovery_explanation;
+  const exampleText = explanation?.example;
+
+  const feedbackText = [whyText, howText, exampleText].filter(Boolean).join(". ");
 
   return (
     <div className="rounded-2xl border-2 border-orange-200 bg-orange-50 overflow-hidden">
@@ -246,7 +266,7 @@ export default function FeedbackCard({
           <span className="text-2xl">{errorInfo.icon}</span>
           <div>
             <p className="font-bold text-lg text-orange-800">Not quite</p>
-            <p className={`text-sm text-${errorInfo.color}-700`}>{errorInfo.label}</p>
+            <p className="text-sm text-orange-700">{headerLabel}</p>
           </div>
         </div>
         <button
@@ -272,22 +292,45 @@ export default function FeedbackCard({
         </button>
       </div>
 
-      {/* Feedback + re-teaching */}
+      {/* Five-part explanation */}
       <div className="px-6 py-5 space-y-4">
-        {result.feedback && (
+        {/* WHAT — their answer vs the correct one */}
+        {showWhat && (
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+            <span className="text-gray-700">
+              You answered <span className="font-semibold text-orange-700">{studentAnswer}</span>
+            </span>
+            <span className="text-gray-700">
+              The answer is <span className="font-semibold text-green-700">{expectedAnswer}</span>
+            </span>
+          </div>
+        )}
+
+        {/* WHY — the misconception */}
+        {whyText && (
           <div>
-            <p className="text-sm font-medium text-gray-600 mb-1">Feedback</p>
-            <p className="text-gray-800 leading-relaxed">{result.feedback}</p>
+            <p className="text-sm font-medium text-gray-600 mb-1">Why this happens</p>
+            <p className="text-gray-800 leading-relaxed">{whyText}</p>
           </div>
         )}
 
-        {reteachingText && (
+        {/* HOW — the fix */}
+        {howText && (
           <div className={`bg-white border border-${errorInfo.color}-200 rounded-xl p-4`}>
-            <p className="text-sm font-medium text-gray-600 mb-1">Let's learn from this</p>
-            <p className="text-gray-800 text-sm leading-relaxed">{reteachingText}</p>
+            <p className="text-sm font-medium text-gray-600 mb-1">How to fix it</p>
+            <p className="text-gray-800 text-sm leading-relaxed">{howText}</p>
           </div>
         )}
 
+        {/* EXAMPLE — the layman's example */}
+        {exampleText && (
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+            <p className="text-sm font-medium text-amber-700 mb-1">💡 Think of it like this</p>
+            <p className="text-gray-800 text-sm leading-relaxed">{exampleText}</p>
+          </div>
+        )}
+
+        {/* WHERE — what to do next */}
         {result.next_action === "review_prerequisite" && (
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
             <p className="text-blue-800 text-sm font-medium">
