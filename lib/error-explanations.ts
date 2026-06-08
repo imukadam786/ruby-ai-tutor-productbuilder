@@ -329,21 +329,234 @@ export const ERROR_EXPLANATIONS: Record<string, ErrorExplanation> = {
   },
 };
 
+// ─── Family fallback layer ───────────────────────────────────────────────────
+//
+// The maths bank uses ~290 distinct error codes — far too many (and too finely
+// split) for a bespoke entry each. Most are variants of the same misconception
+// (every ERR_*_CARRY / ERR_*_REGROUP is "watch your carrying"; every ERR_DIV_*
+// is a division mistake). So beyond the sharp entries above, every code is
+// classified into a misconception FAMILY that gives accurate plain-language
+// why/how. This guarantees 100% coverage — including any future codes — while
+// the specific entries add extra precision and a tailored example for the common
+// ones. All zero AI cost.
+
+type FamilyKey =
+  | "fraction" | "percent" | "ratio" | "decimals"
+  | "addition" | "subtraction" | "multiplication" | "division"
+  | "regroup" | "placevalue" | "signs" | "order"
+  | "algebra" | "graphs" | "powers" | "logexp" | "trig"
+  | "sequence" | "counting" | "geometry" | "units" | "stats"
+  | "strategy" | "slip" | "wrongop" | "generic";
+
+const ERROR_FAMILIES: Record<FamilyKey, ErrorExplanation> = {
+  fraction: {
+    label: "Fraction mix-up",
+    why: "Something about the parts went wrong — which number is on top, which is on the bottom, or the size of the pieces.",
+    how: "The bottom number is how many equal pieces the whole is cut into; the top is how many you have. Keep the pieces the same size before adding or subtracting.",
+    example: "A pizza cut into 4 slices where you eat 1 is 1/4 — one piece out of four. The bottom counts the slices, the top counts what you took.",
+  },
+  percent: {
+    label: "Percentage mix-up",
+    why: "Per cent means \"out of 100\", and that wasn't applied to the amount correctly.",
+    how: "Find 10% first by dividing by 10, then build up from there.",
+    example: "30% of 40: 10% of 40 is 4, so 30% is three lots of that — 4 + 4 + 4 = 12.",
+  },
+  ratio: {
+    label: "Ratio or rate mix-up",
+    why: "A ratio compares parts; the parts were added, scaled unevenly, or written the wrong way round.",
+    how: "Keep the order the question gives, and multiply both sides by the same number to scale it.",
+    example: "Squash mixed 1:3 means 1 part syrup to 3 parts water — 1 out of every 4 cups is syrup, not 1 cup in total.",
+  },
+  decimals: {
+    label: "Decimal slip",
+    why: "The digits were right but the decimal point or place wasn't.",
+    how: "Line up the decimal points, and check how many decimal places the answer should have.",
+    example: "0.5 is the same as a half. 0.05 is a tenth of that — the point's position changes the whole value.",
+  },
+  addition: {
+    label: "Addition slip",
+    why: "The adding didn't come out right — usually a column or a small step.",
+    how: "Add the ones first, then the tens; bridging through the nearest ten makes it easier.",
+    example: "28 + 7 is easier as 28 + 2 = 30, then add the other 5 = 35.",
+  },
+  subtraction: {
+    label: "Subtraction slip",
+    why: "The take-away didn't come out right — often the order or a borrow.",
+    how: "Start from the bigger number, and borrow from the next column when the top digit is too small.",
+    example: "62 − 7: you can't take 7 from 2, so borrow a ten — 12 − 7 = 5, giving 55.",
+  },
+  multiplication: {
+    label: "Multiplication mix-up",
+    why: "Either the wrong operation was used for equal groups, or a times-table fact slipped.",
+    how: "For equal groups, multiply the number of groups by how many are in each; double-check the table fact on its own.",
+    example: "3 bags of 4 apples is 4 + 4 + 4 = 12, not 3 + 4 = 7. \"Of\" usually means multiply.",
+  },
+  division: {
+    label: "Division mix-up",
+    why: "The sharing went wrong — the wrong way round, unequal parts, or a forgotten remainder.",
+    how: "Share the total into equal groups, biggest number first, and check by multiplying back.",
+    example: "12 sweets shared among 4 is 12 ÷ 4 = 3 each. Check: 3 × 4 = 12.",
+  },
+  regroup: {
+    label: "Carrying or borrowing slipped",
+    why: "When a column went over ten (or needed to borrow), the regrouping wasn't carried across.",
+    how: "When a column reaches ten, carry one into the next column; when it's too small, borrow ten from the next.",
+    example: "27 + 5: the ones make 12, so write 2 and carry the ten — the answer is 32, not 22.",
+  },
+  placevalue: {
+    label: "Place value mix-up",
+    why: "A digit's value depends on its column, and the columns got read or lined up wrongly.",
+    how: "Name each column — ones, tens, hundreds — and keep the digits lined up underneath each other.",
+    example: "In 73 the 7 isn't \"seven\", it's 7 tens — 70. So 73 is 70 + 3.",
+  },
+  signs: {
+    label: "Sign slip",
+    why: "A positive/negative sign was dropped or flipped.",
+    how: "Track each sign carefully: two negatives multiply to a positive, and subtracting a negative adds.",
+    example: "On a number line, −3 is three steps below zero. Taking away a debt of 3 (−(−3)) actually adds 3.",
+  },
+  order: {
+    label: "Worked it out in the wrong order",
+    why: "The operations were done left to right instead of in the proper order.",
+    how: "Do brackets first, then multiply and divide, and only then add and subtract.",
+    example: "2 + 3 × 4 is 2 + 12 = 14, not 5 × 4 = 20 — the times comes before the plus.",
+  },
+  algebra: {
+    label: "Algebra mix-up",
+    why: "Something in handling the letters went wrong — combining unlike terms, expanding a bracket, or factorising.",
+    how: "Only add terms that match (the x's with the x's), and multiply the bracket by everything outside it.",
+    example: "3(x + 2) means 3 times each part: 3x + 6, not 3x + 2. The 3 reaches both terms.",
+  },
+  graphs: {
+    label: "Graph or line mix-up",
+    why: "A feature of the line or graph — its slope, intercept, or a coordinate — was read or used wrongly.",
+    how: "Read coordinates as (across, up), and remember the slope is how steep the line is, the intercept where it crosses.",
+    example: "The point (3, 0) sits on the bottom axis, 3 across and 0 up — easy to swap the two numbers.",
+  },
+  powers: {
+    label: "Powers or roots mix-up",
+    why: "A power or root was treated like a multiplication, or the base and index got muddled.",
+    how: "A power means repeated multiplying; a square root asks \"what number times itself gives this?\".",
+    example: "5² is 5 × 5 = 25, not 5 × 2 = 10. And √25 = 5, because 5 × 5 = 25.",
+  },
+  logexp: {
+    label: "Log / exponent mix-up",
+    why: "The link between a power and its log was swapped.",
+    how: "A log asks \"what power do I raise the base to?\". Write the matching power form to check.",
+    example: "log₂8 = 3 because 2³ = 8 — the log just asks for the exponent.",
+  },
+  trig: {
+    label: "Trig ratio mix-up",
+    why: "The wrong ratio was used, or sides were paired with the wrong angle.",
+    how: "Match the ratio to the sides you have: SOH-CAH-TOA — sine uses opposite/hypotenuse, and so on.",
+    example: "For sine, pair the side opposite the angle with the longest side (the hypotenuse).",
+  },
+  sequence: {
+    label: "Pattern mix-up",
+    why: "The rule that turns one term into the next was misread, or applied the wrong way.",
+    how: "Work out the gap between two terms you can see, then keep applying that same gap.",
+    example: "2, 4, 6, … each step adds 2, so the next is 8 — find the gap first, then repeat it.",
+  },
+  counting: {
+    label: "Counting slip",
+    why: "The count drifted by one — usually double-counting or skipping the start or end.",
+    how: "Touch each item once as you count, and decide whether the first one is \"one\" or \"zero\".",
+    example: "Fence posts and gaps: 5 posts in a row have only 4 gaps between them.",
+  },
+  geometry: {
+    label: "Shape or measure mix-up",
+    why: "The wrong formula was used, or a measurement (sides, angles, area vs perimeter) got mixed up.",
+    how: "Name what's asked — perimeter is the distance around, area is the space inside — then pick the matching formula.",
+    example: "A 3×4 rectangle has area 3 × 4 = 12 (squares inside) but perimeter 3 + 4 + 3 + 4 = 14 (the fence around).",
+  },
+  units: {
+    label: "Units mix-up",
+    why: "A measurement wasn't converted, or the wrong unit was used.",
+    how: "Convert to the same unit before calculating, and check the answer's unit makes sense.",
+    example: "1 metre is 100 cm, so 2 m + 50 cm is 250 cm — you can't add 2 and 50 directly.",
+  },
+  stats: {
+    label: "Data or chance mix-up",
+    why: "An average, a chart reading, or a probability was worked out wrongly.",
+    how: "For the mean, add all the values then divide by how many there are; for chance, count the wanted outcomes out of the total.",
+    example: "The mean of 2, 4, 6 is (2 + 4 + 6) ÷ 3 = 4 — add them up, then share by how many.",
+  },
+  strategy: {
+    label: "Let's plan the steps",
+    why: "The question needed a plan or an equation set up first, and a step was missed or set up wrongly.",
+    how: "Re-read the question, note what it's really asking, then write the steps before calculating.",
+    example: "Word problems are like a recipe — list what you have and what you need before you start cooking.",
+  },
+  slip: {
+    label: "Just a small slip",
+    why: "The method was right — a number came out wrong along the way.",
+    how: "Re-do the working one line at a time and check each step against the one before.",
+    example: "Like re-counting your change at the shop — the method's fine, just check each step.",
+  },
+  wrongop: {
+    label: "Wrong operation",
+    why: "The numbers were right, but the wrong operation (+ − × ÷) was chosen.",
+    how: "Match the words to the operation: \"altogether\" tends to add, \"left\" to subtract, \"each\" to multiply or divide.",
+    example: "\"How many altogether?\" means add; \"how many left?\" means subtract — the words point to the operation.",
+  },
+  generic: {
+    label: "Let's check this together",
+    why: "This one didn't come out right.",
+    how: "Re-read the question, work through it one step at a time, and check each step against what's being asked.",
+    example: "",
+  },
+};
+
+// Classify any error code into its misconception family. Order matters — more
+// specific topics are checked before broader operation names (e.g. a fraction
+// addition is "fraction", not "addition"; division before multiplication).
+function familyOf(code: string): FamilyKey {
+  const c = code.toUpperCase();
+  const has = (...ks: string[]) => ks.some((k) => c.includes(k));
+  if (has("FRAC", "DENOM", "NUMER", "EQUIV", "RECIPROCAL", "UNLIKE", "MIXED_NUM", "SIMPLIFY")) return "fraction";
+  if (has("PERCENT", "PCT", "DISCOUNT", "INTEREST", "PROFIT")) return "percent";
+  if (has("RATIO", "PROPORT", "UNITARY", "SPEED_DIST", "SCALE_FACTOR")) return "ratio";
+  if (has("DECIMAL", "ROUND")) return "decimals";
+  if (has("TRIG", "SINE", "COSINE", "HYPOT", "SOH", "CAH", "TOA")) return "trig";
+  if (has("LOG", "EXPON", "_LN", "BASE")) return "logexp";
+  if (has("POWER", "INDEX", "SQRT", "ROOT", "SQUARE", "CUBE")) return "powers";
+  if (has("SLOPE", "GRADIENT", "INTERCEPT", "GRAPH", "COORD", "FUNCTION", "STRAIGHT_LINE", "DOMAIN", "VERTEX", "PARABOLA")) return "graphs";
+  if (has("FACTOR", "DISTRIBUT", "DIST_FORGET", "BRACKET", "EXPAND", "LIKE", "COEFF", "SUBST", "TERM", "QUAD", "HCF", "BOTH_SIDES", "ALGEBRA", "FORM_EQUATION", "WORD_EQ", "EQUAL")) return "algebra";
+  if (has("BODMAS", "ORDER")) return "order";
+  if (has("AREA", "PERI", "VOLUME", "ANGLE", "FACES", "GEOMETR", "SURFACE", "CIRCUMFERENCE", "DIAMETER", "RADIUS", "PI", "POLYGON", "PERPENDICULAR", "PARALLEL", "SUPPLEMENTARY", "THREE_DIMS", "FORMULA", "PYTHAG")) return "geometry";
+  if (has("UNIT")) return "units";
+  if (has("MEAN", "MEDIAN", "MODE", "RANGE", "AVERAGE", "CHART", "STAT", "DATA", "PROB", "PIE")) return "stats";
+  if (has("SIGN", "NEG", "INTEGER", "INT_CONF", "NUM_LINE", "NUMBER_LINE")) return "signs";
+  if (has("CARRY", "BORROW", "REGROUP", "RENAME", "ALIGN")) return "regroup";
+  if (has("PLACE", "DIGIT", "FACE", "COMPARE")) return "placevalue";
+  if (has("SEQ", "PATTERN", "CONST_DIFF", "NTH", "DIRECTION")) return "sequence";
+  if (has("COUNT", "SKIP", "OFF_BY_ONE", "CARDINAL")) return "counting";
+  if (has("DIV", "SHARE", "REMAINDER", "QUOTIENT")) return "division";
+  if (has("TIMES", "MULT", "COMMUTATIVE")) return "multiplication";
+  if (has("SUB")) return "subtraction";
+  if (has("ADD", "SUM", "DOUBLE", "MAKE_TEN", "COMPENSATION", "SPLIT", "HALF")) return "addition";
+  if (has("WORD_PROBLEM", "PLAN", "FORM", "INCOMPLETE", "FORGET", "STEP", "MULTI_")) return "strategy";
+  if (has("OFF", "NEAR", "ARITH", "CALC", "SLIP", "FLUENCY", "RIGID", "REVERSAL")) return "slip";
+  if (has("WRONG", "OP")) return "wrongop";
+  return "generic";
+}
+
 /**
- * Resolve the most relevant explanation for a question's error codes.
- * Returns the first code that has an authored entry, or null if none match.
- *
- * The codes are listed on the question in priority order (primary misconception
- * first), so first-match is a reasonable default. A future layer could use the
- * student's actual answer to pick the precise code.
+ * Resolve the best plain-language explanation for a question's error codes.
+ * Two layers: a sharp authored entry for the code if one exists, otherwise the
+ * misconception family the code belongs to. Always returns something when codes
+ * are present, so every wrong answer gets clear feedback. Codes are listed in
+ * priority order (primary misconception first), so the first usable one wins.
  */
 export function resolveErrorExplanation(
   codes?: string[] | null
 ): ErrorExplanation | null {
   if (!codes || codes.length === 0) return null;
+  // Prefer a sharp, code-specific entry from any of the listed codes.
   for (const code of codes) {
     const hit = ERROR_EXPLANATIONS[code];
     if (hit) return hit;
   }
-  return null;
+  // Otherwise fall back to the first code's misconception family.
+  return ERROR_FAMILIES[familyOf(codes[0])];
 }

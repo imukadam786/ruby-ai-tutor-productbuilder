@@ -79,6 +79,34 @@ function expectedNum(q: BankQuestion): number | null {
   return isNaN(n) ? null : n;
 }
 
+// Evaluate a bracket-free, non-negative expression strictly left-to-right
+// (ignoring × ÷ precedence) — what a BODMAS-order mistake produces. Returns null
+// if the expression has brackets, negatives, or fewer than two operators.
+function evalLeftToRight(q: BankQuestion): number | null {
+  const src = str(q, "expression") ?? str(q, "question") ?? "";
+  const cleaned = normaliseOps(src).replace(/^[^0-9(]*/, "").trim();
+  if (/[()]/.test(cleaned)) return null;
+  const toks = cleaned.match(/\d+(?:\.\d+)?|[+\-*/]/g);
+  if (!toks || toks.length < 5 || toks.length % 2 === 0) return null;
+  const nums: number[] = [];
+  const ops: string[] = [];
+  for (let i = 0; i < toks.length; i++) {
+    if (i % 2 === 0) {
+      if (!/^\d/.test(toks[i])) return null;
+      nums.push(parseFloat(toks[i]));
+    } else {
+      if (!/^[+\-*/]$/.test(toks[i])) return null;
+      ops.push(toks[i]);
+    }
+  }
+  let acc = nums[0];
+  for (let i = 0; i < ops.length; i++) {
+    const b = nums[i + 1];
+    acc = ops[i] === "+" ? acc + b : ops[i] === "-" ? acc - b : ops[i] === "*" ? acc * b : acc / b;
+  }
+  return acc;
+}
+
 // ── Predictors ───────────────────────────────────────────────────────────────
 // Each returns the wrong answer(s) its misconception would produce, as strings
 // ready to compare with checkAnswerCorrectness, or null if not computable here.
@@ -165,6 +193,12 @@ const PREDICTORS: Record<string, Predictor> = {
     if (!s) return null;
     const last = s.terms[s.terms.length - 1];
     return [last - s.step];
+  },
+
+  // Worked left-to-right instead of doing × ÷ before + −.
+  ERR_BODMAS_ORDER: (q) => {
+    const ltr = evalLeftToRight(q);
+    return ltr == null ? null : [ltr];
   },
 
   // — Two-digit addition: dropped the carry from the ones column —
