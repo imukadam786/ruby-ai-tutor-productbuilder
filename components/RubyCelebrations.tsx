@@ -79,24 +79,23 @@ export default function RubyCelebrations() {
 
   if (!active) return null;
 
-  // Daily login = a top toast (it fires on load, not from an action).
+  // Daily login = a centered card (same prominent treatment as the other
+  // celebrations), sized to match the tutorial card. Fires on load, auto-dismisses.
   if (active.kind === "daily_login") {
     return (
-      <div className="fixed top-4 inset-x-0 z-[120] flex justify-center px-4 pointer-events-none">
-        <div className="flex items-center gap-3 bg-white rounded-2xl shadow-lg border border-gray-200 px-4 py-3">
-          <DotLottieReact src="/lottie/streak-fire.json" autoplay loop className="w-10 h-10 flex-shrink-0" />
-          <div className="text-left">
-            <p className="text-sm font-bold text-[#1a2744]">Welcome back!</p>
-            <p className="text-xs text-gray-600 flex items-center gap-1">
-              <span>{active.streak && active.streak > 1 ? `${active.streak}-day streak` : "Day 1"}</span>
-              {active.rubies ? (
-                <span className="flex items-center gap-0.5 font-semibold text-[#BE1832]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  · <img src="/rubytransparent.png" alt="" className="w-3.5 h-3.5 object-contain" /> +{active.rubies}
-                </span>
-              ) : null}
-            </p>
-          </div>
+      <div className="fixed inset-0 z-[120] flex items-center justify-center pointer-events-none p-4 bg-black/40 backdrop-blur-sm ruby-celebrate-pop">
+        <div className="relative bg-white rounded-[2rem] shadow-2xl border border-gray-100 px-10 py-9 flex flex-col items-center text-center w-[min(26rem,92vw)]">
+          <DotLottieReact src="/lottie/streak-fire.json" autoplay loop className="w-32 h-32 flex-shrink-0" />
+          <p className="text-2xl font-bold text-[#1a2744] mt-2">Welcome back!</p>
+          <p className="text-lg text-gray-600 flex items-center gap-1.5 mt-1">
+            <span>{active.streak && active.streak > 1 ? `${active.streak}-day streak` : "Day 1"}</span>
+            {active.rubies ? (
+              <span className="flex items-center gap-1 font-semibold text-[#BE1832]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                · <img src="/rubytransparent.png" alt="" className="w-5 h-5 object-contain" /> +{active.rubies}
+              </span>
+            ) : null}
+          </p>
         </div>
       </div>
     );
