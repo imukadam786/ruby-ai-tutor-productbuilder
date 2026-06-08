@@ -128,7 +128,8 @@ export interface MatricPhysSciGeneratedQuestion {
   question: string;
   options?: string[];
   fields?: MatricPhysSciMultiField[];
-  items?: MatricPhysSciSequenceItem[];         // for sequence (expected_order withheld)
+  items?: MatricPhysSciSequenceItem[];         // for sequence
+  expected_order?: string[];                   // sequence answer, for instant client scoring
   expected_answer?: string | number;
   tolerance?: number;
   unit?: string;

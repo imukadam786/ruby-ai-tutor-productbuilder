@@ -8,6 +8,8 @@ import { supabase } from "@/lib/supabase";
 import lifeSciencesTreeData from "@/data/life-sciences-skill-tree.json";
 import lifeSciencesBankData from "@/data/life-sciences-question-bank.json";
 import EduBackground from "@/components/EduBackground";
+import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { scoreLifeSciences, isDeterministicLifeSciencesType } from "@/lib/life-sciences-scoring";
 import LifeSciencesSkillTreeView from "./LifeSciencesSkillTreeView";
 import { DataInterpretBlock } from "./DataInterpretBlock";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
@@ -237,120 +239,149 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
     if (findSkill(target)) handlePickTopic(target);
   }, [profile, phase, handlePickTopic]);
 
+  // Apply a graded result: record the attempt, update mastery/coverage, and
+  // move to feedback (or the mastered screen). Used by both the instant
+  // client-scored path and the server (LLM) path.
+  const finalizeAttempt = useCallback(
+    (data: LifeSciencesSubmitAnswerResponse, q: LifeSciencesGeneratedQuestion, sId: string) => {
+      setResult(data);
+
+      const workingProfile = profile
+        ? markLifeSciencesQuestionUsed(profile, sId, q.question_ref)
+        : null;
+      if (workingProfile) setProfile(workingProfile);
+
+      const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
+      const nextAttempts = attemptCount + 1;
+      const nextConsecutiveWrong = data.is_correct ? 0 : consecutiveWrong + 1;
+      setCorrectCount(nextCorrect);
+      setAttemptCount(nextAttempts);
+      setConsecutiveWrong(nextConsecutiveWrong);
+
+      trackQuestionAnswered({
+        subject: "life-sciences",
+        skill_id: sId,
+        template: q.input_type,
+        is_correct: data.is_correct,
+        used_hint: false,
+        attempt_number: nextAttempts,
+        decision: data.is_correct ? "practice" : "reteach",
+      });
+
+      // ── Cumulative mastery check (across all sittings) ──────────────────────
+      const prior = profile?.skill_mastery[sId];
+      const cumulativeCorrect = (prior?.correct_count ?? 0) + nextCorrect;
+      const cumulativeAttempts = (prior?.attempt_count ?? 0) + nextAttempts;
+      const distinctAnswered = workingProfile
+        ? new Set(getLifeSciencesUsedRefs(workingProfile, sId)).size
+        : nextAttempts;
+      const size = poolSize(sId);
+      const required = requiredCount(sId);
+
+      const didMaster = isContentMastered(distinctAnswered, size, cumulativeCorrect, cumulativeAttempts);
+      const runOver = didMaster || nextAttempts >= required || distinctAnswered >= size;
+
+      if (runOver) {
+        if (profile) {
+          const finalProfile = recordLifeSciencesSkillResult(profile, sId, {
+            correct: nextCorrect,
+            attempts: nextAttempts,
+            mastered: didMaster,
+          });
+          setProfile(finalProfile);
+        }
+        setDidMasterTopic(didMaster);
+        if (didMaster) {
+          trackSkillMastered({
+            subject: "life-sciences",
+            skill_id: sId,
+            level: findSkill(sId)?.level.id ?? 10,
+            session_attempt_count: nextAttempts,
+            session_correct: nextCorrect,
+          });
+        }
+        trackSessionEnded({
+          subject: "life-sciences",
+          questions_answered: nextAttempts,
+          correct: nextCorrect,
+          accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
+        });
+        rewardEffortFloor("life-sciences", sId);
+        if (didMaster) rewardSkillMastered("life-sciences", sId, profile?.id);
+        void persistReport(sId, nextCorrect, nextAttempts, didMaster);
+        setPhase("mastered");
+      } else {
+        setPhase("feedback");
+      }
+    },
+    [attemptCount, consecutiveWrong, correctCount, persistReport, profile],
+  );
+
   const handleSubmit = useCallback(
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer.trim()) return;
+
+      // ── Instant path: deterministic types are scored client-side (the answer
+      // ships with the question), so feedback shows immediately. The server call
+      // still runs in the background for usage metering. short-response needs the
+      // LLM judge, so it stays on the awaited server path with a "Checking…" wait.
+      const deterministic = isDeterministicLifeSciencesType(question.input_type);
+      const payload: LifeSciencesSubmitAnswerRequest = {
+        student_id: profile?.id ?? "local",
+        question_id: question.id,
+        skill_id: skillId,
+        question_ref: question.question_ref,
+        input_type: question.input_type,
+        question: question.question,
+        student_answer: rawAnswer,
+        expected_answer: question.expected_answer,
+        attempt_number: attemptCount + 1,
+        used_hint: false,
+        rubric: question.rubric,
+      };
+
+      if (deterministic) {
+        const isCorrect = scoreLifeSciences(question.input_type, rawAnswer, question.expected_answer);
+        finalizeAttempt(
+          {
+            is_correct: isCorrect,
+            error_signals: [],
+            feedback: isCorrect ? "Correct." : "Not quite — let's look at this.",
+            memo: question.memo ?? "",
+            mastery_update: {
+              skill_id: skillId,
+              new_status: "in_progress",
+              correct_count: isCorrect ? 1 : 0,
+              attempt_count: 1,
+            },
+            next_action: "continue_skill",
+          },
+          question,
+          skillId,
+        );
+        // Background: record against the daily usage cap (may 429 → upgrade modal).
+        void apiFetch("/api/life-sciences/submit-answer", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }).catch(() => { /* non-blocking; feedback already shown */ });
+        return;
+      }
+
+      // short-response → server LLM judge.
       setSubmitting(true);
       try {
-        const payload: LifeSciencesSubmitAnswerRequest = {
-          student_id: profile?.id ?? "local",
-          question_id: question.id,
-          skill_id: skillId,
-          question_ref: question.question_ref,
-          input_type: question.input_type,
-          question: question.question,
-          student_answer: rawAnswer,
-          expected_answer: question.expected_answer,
-          attempt_number: attemptCount + 1,
-          used_hint: false,
-          rubric: question.rubric,
-        };
         const res = await apiFetch("/api/life-sciences/submit-answer", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
         if (!res.ok) {
-          // 429 = shared daily limit reached; apiFetch already surfaced the
-          // upgrade modal, so don't also flash an inline error.
           if (res.status !== 429) setError("Could not check your answer. Please try again.");
           return;
         }
         const data = (await res.json()) as LifeSciencesSubmitAnswerResponse;
-        setResult(data);
-
-        // Mark this question used and work from the updated profile so the
-        // coverage count includes the answer we just took.
-        const workingProfile = profile
-          ? markLifeSciencesQuestionUsed(profile, skillId, question.question_ref)
-          : null;
-        if (workingProfile) setProfile(workingProfile);
-
-        const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
-        const nextAttempts = attemptCount + 1;
-        const nextConsecutiveWrong = data.is_correct ? 0 : consecutiveWrong + 1;
-        setCorrectCount(nextCorrect);
-        setAttemptCount(nextAttempts);
-        setConsecutiveWrong(nextConsecutiveWrong);
-
-        trackQuestionAnswered({
-          subject: "life-sciences",
-          skill_id: skillId,
-          template: question.input_type,
-          is_correct: data.is_correct,
-          used_hint: false,
-          attempt_number: nextAttempts,
-          decision: data.is_correct ? "practice" : "reteach",
-        });
-
-        // ── Cumulative mastery check ────────────────────────────────────────
-        // Coverage + accuracy are measured across all sittings, not just this
-        // run. Prior totals live in skill_mastery; this run's deltas are the
-        // session counters. Distinct coverage is deduped from used_questions.
-        const prior = profile?.skill_mastery[skillId];
-        const cumulativeCorrect = (prior?.correct_count ?? 0) + nextCorrect;
-        const cumulativeAttempts = (prior?.attempt_count ?? 0) + nextAttempts;
-        const distinctAnswered = workingProfile
-          ? new Set(getLifeSciencesUsedRefs(workingProfile, skillId)).size
-          : nextAttempts;
-        const size = poolSize(skillId);
-        const required = requiredCount(skillId);
-
-        const didMaster = isContentMastered(
-          distinctAnswered,
-          size,
-          cumulativeCorrect,
-          cumulativeAttempts,
-        );
-
-        // End the run when the topic is mastered, when this sitting has covered
-        // a full batch, or when the pool is exhausted — otherwise keep going.
-        const runOver =
-          didMaster || nextAttempts >= required || distinctAnswered >= size;
-
-        if (runOver) {
-          if (profile) {
-            const finalProfile = recordLifeSciencesSkillResult(profile, skillId, {
-              correct: nextCorrect,
-              attempts: nextAttempts,
-              mastered: didMaster,
-            });
-            setProfile(finalProfile);
-          }
-          setDidMasterTopic(didMaster);
-          if (didMaster) {
-            trackSkillMastered({
-              subject: "life-sciences",
-              skill_id: skillId,
-              level: findSkill(skillId)?.level.id ?? 10,
-              session_attempt_count: nextAttempts,
-              session_correct: nextCorrect,
-            });
-          }
-          trackSessionEnded({
-            subject: "life-sciences",
-            questions_answered: nextAttempts,
-            correct: nextCorrect,
-            accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
-          });
-          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
-          rewardEffortFloor("life-sciences", skillId);
-          if (didMaster) rewardSkillMastered("life-sciences", skillId, profile?.id);
-          void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
-          setPhase("mastered");
-        } else {
-          setPhase("feedback");
-        }
+        finalizeAttempt(data, question, skillId);
       } catch (err) {
         console.error("[LifeSciencesSession] submit-answer failed:", err);
         setError("Could not check your answer. Please try again.");
@@ -358,7 +389,7 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
         setSubmitting(false);
       }
     },
-    [attemptCount, consecutiveWrong, correctCount, persistReport, profile, question, skillId],
+    [attemptCount, finalizeAttempt, profile, question, skillId],
   );
 
   // ─── Render: tree ──────────────────────────────────────────────────────────
@@ -425,8 +456,6 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
   }
 
   // ─── Render: question / feedback ───────────────────────────────────────────
-  const showRecoveryHint = consecutiveWrong >= 2 && skillId !== null;
-  const recoveryHint = showRecoveryHint ? findSkill(skillId!)?.skill.recovery_strategy ?? null : null;
 
   return (
     <div className="relative flex flex-col h-full bg-[#F4F4F5]">
@@ -526,40 +555,21 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
               )}
 
               {phase === "feedback" && result && (
-                <div
-                  className={`rounded-2xl p-5 ${
-                    result.is_correct
-                      ? "bg-green-50 border border-green-200"
-                      : "bg-rose-50 border border-rose-200"
-                  }`}
-                >
-                  <p
-                    className={`text-lg font-bold ${
-                      result.is_correct ? "text-green-700" : "text-rose-700"
-                    }`}
-                  >
-                    {result.is_correct ? "✓ " : "✗ "}
-                    {result.feedback}
-                  </p>
-                  {result.memo && (
-                    <p className="text-sm text-gray-700 mt-2 leading-relaxed">{result.memo}</p>
-                  )}
-                  {recoveryHint && !result.is_correct && (
-                    <p className="text-sm text-amber-700 mt-3 bg-amber-100 rounded-xl px-3 py-2">
-                      💡 {recoveryHint}
-                    </p>
-                  )}
-                </div>
-              )}
-
-              {phase === "feedback" && (
-                <button
-                  onClick={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
-                  disabled={submitting}
-                  className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                >
-                  Next question →
-                </button>
+                <FeedbackExplanation
+                  isCorrect={result.is_correct}
+                  studentAnswer={answer}
+                  correctAnswer={String(question.expected_answer)}
+                  note={result.is_correct ? result.memo : undefined}
+                  whyOverride={result.is_correct ? undefined : result.memo}
+                  footer={
+                    <button
+                      onClick={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
+                      className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
+                    >
+                      Next question →
+                    </button>
+                  }
+                />
               )}
 
               {error && (

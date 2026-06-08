@@ -30,6 +30,8 @@ export interface FeedbackExplanationProps {
   partialCredit?: { correct: number; total: number };
   /** Heading shown on a correct answer. */
   correctLabel?: string;
+  /** Explanation paragraph shown on a correct answer (e.g. why the answer is right). */
+  note?: string;
   /**
    * A subject-authored "why this happens" (e.g. Maths Literacy's per-code
    * vocabulary). When set, it is authoritative: the generic error-code map's
@@ -55,6 +57,7 @@ export default function FeedbackExplanation({
   serverFeedback,
   partialCredit,
   correctLabel = "Correct!",
+  note,
   whyOverride,
   labelOverride,
   howOverride,
@@ -69,14 +72,19 @@ export default function FeedbackExplanation({
           <span className="text-2xl">✅</span>
           <p className="font-bold text-lg text-green-800">{correctLabel}</p>
         </div>
-        {workingSteps && workingSteps.length > 0 && (
-          <div className="px-6 py-5">
-            <p className="text-sm font-medium text-gray-600 mb-1">How it's done</p>
-            <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
-              {workingSteps.map((s, i) => (
-                <li key={i}>{s}</li>
-              ))}
-            </ol>
+        {(note || (workingSteps && workingSteps.length > 0)) && (
+          <div className="px-6 py-5 space-y-2">
+            {note && <p className="text-sm text-gray-700 leading-relaxed">{note}</p>}
+            {workingSteps && workingSteps.length > 0 && (
+              <div>
+                <p className="text-sm font-medium text-gray-600 mb-1">How it's done</p>
+                <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
+                  {workingSteps.map((s, i) => (
+                    <li key={i}>{s}</li>
+                  ))}
+                </ol>
+              </div>
+            )}
           </div>
         )}
         {footer && <div className="px-6 pb-6 pt-2">{footer}</div>}
