@@ -10,6 +10,8 @@ import { prefetchTTS, useTTS } from "@/lib/tts";
 import socialSciencesTreeData from "@/data/social-sciences-skill-tree.json";
 import socialSciencesBankData from "@/data/social-sciences-question-bank.json";
 import EduBackground from "@/components/EduBackground";
+import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { scoreSocialSciences } from "@/lib/social-sciences-scoring";
 import SocialSciencesSkillTreeView from "./SocialSciencesSkillTreeView";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import {
@@ -85,7 +87,7 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
   const [result, setResult] = useState<SocialSciencesSubmitAnswerResponse | null>(null);
   const [answer, setAnswer] = useState<string>("");
   const [sequenceOrder, setSequenceOrder] = useState<string[]>([]);
-  const [submitting, setSubmitting] = useState(false);
+  const [submitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const [correctCount, setCorrectCount] = useState(0);
@@ -244,130 +246,157 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
     if (findSkill(target)) handlePickTopic(target);
   }, [phase, handlePickTopic]);
 
+  // Apply a graded result: record the attempt, update mastery/coverage, and
+  // move to feedback (or the mastered screen). All Social Sciences types are
+  // deterministic, so this is only ever driven by the instant client-scored path.
+  const finalizeAttempt = useCallback(
+    (
+      data: SocialSciencesSubmitAnswerResponse,
+      q: SocialSciencesGeneratedQuestion,
+      sId: string,
+    ) => {
+      setResult(data);
+
+      // Mark this question used (recordSocialSciencesAnswer appends to
+      // used_questions and persists), so the coverage count below includes
+      // the answer we just took — the analogue of History's
+      // markHistoryQuestionUsed.
+      recordSocialSciencesAnswer(sId, q.question_ref, data.is_correct);
+
+      const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
+      const nextAttempts = attemptCount + 1;
+      const nextConsecutiveWrong = data.is_correct ? 0 : consecutiveWrong + 1;
+      setCorrectCount(nextCorrect);
+      setAttemptCount(nextAttempts);
+      setConsecutiveWrong(nextConsecutiveWrong);
+
+      trackQuestionAnswered({
+        subject: "social-sciences",
+        skill_id: sId,
+        template: q.input_type,
+        is_correct: data.is_correct,
+        used_hint: false,
+        attempt_number: nextAttempts,
+        decision: data.is_correct ? "practice" : "reteach",
+      });
+
+      if (mastery[sId] !== "mastered" && mastery[sId] !== "in_progress") {
+        const next = { ...mastery, [sId]: "in_progress" as TopicMastery };
+        setMastery(next);
+        setSocialSciencesMastery(sId, "in_progress");
+      }
+
+      // ── Cumulative mastery check ────────────────────────────────────────
+      // Coverage + accuracy are measured across all sittings, not just this
+      // run. Prior per-topic totals live in skill_counts; this run's deltas
+      // are the session counters. Distinct coverage is deduped from the
+      // freshly-saved used_questions for this topic.
+      const prior = getSocialSciencesSkillCounts(sId);
+      const cumulativeCorrect = prior.correct_count + nextCorrect;
+      const cumulativeAttempts = prior.attempt_count + nextAttempts;
+      const distinctAnswered = new Set(getSocialSciencesUsedRefs(sId)).size;
+      const size = poolSize(sId);
+      const required = requiredCount(sId);
+
+      const didMaster = isContentMastered(
+        distinctAnswered,
+        size,
+        cumulativeCorrect,
+        cumulativeAttempts,
+      );
+
+      // End the run when the topic is mastered, when this sitting has covered
+      // a full batch, or when the pool is exhausted — otherwise keep going.
+      const runOver =
+        didMaster || nextAttempts >= required || distinctAnswered >= size;
+
+      if (runOver) {
+        // Accumulate this run's per-topic counts (not overwrite), then set
+        // the topic status via the inline persistence mechanism.
+        addSocialSciencesSkillCounts(sId, nextCorrect, nextAttempts);
+        const nextStatus: TopicMastery = didMaster ? "mastered" : "in_progress";
+        const next = { ...mastery, [sId]: nextStatus };
+        setMastery(next);
+        setSocialSciencesMastery(sId, nextStatus);
+        setDidMasterTopic(didMaster);
+        if (didMaster) {
+          trackSkillMastered({
+            subject: "social-sciences",
+            skill_id: sId,
+            level: findSkill(sId)?.level.id ?? 4,
+            session_attempt_count: nextAttempts,
+            session_correct: nextCorrect,
+          });
+        }
+        trackSessionEnded({
+          subject: "social-sciences",
+          questions_answered: nextAttempts,
+          correct: nextCorrect,
+          accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
+        });
+        // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+        rewardEffortFloor("social-sciences", sId);
+        if (didMaster) rewardSkillMastered("social-sciences", sId);
+        void persistReport(sId, nextCorrect, nextAttempts, didMaster);
+        setPhase("mastered");
+      } else {
+        setPhase("feedback");
+      }
+    },
+    [attemptCount, consecutiveWrong, correctCount, mastery, persistReport],
+  );
+
   const handleSubmit = useCallback(
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer) return;
-      setSubmitting(true);
-      try {
-        const payload: SocialSciencesSubmitAnswerRequest = {
-          student_id: "local",
-          question_id: question.id,
-          skill_id: skillId,
-          question_ref: question.question_ref,
-          input_type: question.input_type,
-          question: question.question,
-          student_answer: rawAnswer,
-          expected_answer: question.expected_answer,
-          attempt_number: attemptCount + 1,
-          used_hint: false,
-        };
-        const res = await apiFetch("/api/social-sciences/submit-answer", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        if (!res.ok) {
-          // 429 = shared daily limit reached; apiFetch already surfaced the
-          // upgrade modal, so don't also flash an inline error.
-          if (res.status !== 429) setError("Could not check your answer. Please try again.");
-          return;
-        }
-        const data = (await res.json()) as SocialSciencesSubmitAnswerResponse;
-        setResult(data);
 
-        // Mark this question used (recordSocialSciencesAnswer appends to
-        // used_questions and persists), so the coverage count below includes
-        // the answer we just took — the analogue of History's
-        // markHistoryQuestionUsed.
-        recordSocialSciencesAnswer(skillId, question.question_ref, data.is_correct);
+      // ── Instant path: every Social Sciences type is deterministic, so the
+      // answer is scored client-side (the expected answer ships with the
+      // question) and feedback shows immediately. The server call still runs in
+      // the background for usage metering.
+      const isCorrect = scoreSocialSciences(
+        question.input_type,
+        rawAnswer,
+        question.expected_answer,
+      );
+      finalizeAttempt(
+        {
+          is_correct: isCorrect,
+          error_signals: [],
+          feedback: isCorrect ? "Correct." : "Not quite — let's look at this.",
+          memo: question.memo ?? "",
+          mastery_update: {
+            skill_id: skillId,
+            new_status: "in_progress",
+            correct_count: isCorrect ? 1 : 0,
+            attempt_count: 1,
+          },
+          next_action: "continue_skill",
+        },
+        question,
+        skillId,
+      );
 
-        const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
-        const nextAttempts = attemptCount + 1;
-        const nextConsecutiveWrong = data.is_correct ? 0 : consecutiveWrong + 1;
-        setCorrectCount(nextCorrect);
-        setAttemptCount(nextAttempts);
-        setConsecutiveWrong(nextConsecutiveWrong);
-
-        trackQuestionAnswered({
-          subject: "social-sciences",
-          skill_id: skillId,
-          template: question.input_type,
-          is_correct: data.is_correct,
-          used_hint: false,
-          attempt_number: nextAttempts,
-          decision: data.is_correct ? "practice" : "reteach",
-        });
-
-        if (mastery[skillId] !== "mastered" && mastery[skillId] !== "in_progress") {
-          const next = { ...mastery, [skillId]: "in_progress" as TopicMastery };
-          setMastery(next);
-          setSocialSciencesMastery(skillId, "in_progress");
-        }
-
-        // ── Cumulative mastery check ────────────────────────────────────────
-        // Coverage + accuracy are measured across all sittings, not just this
-        // run. Prior per-topic totals live in skill_counts; this run's deltas
-        // are the session counters. Distinct coverage is deduped from the
-        // freshly-saved used_questions for this topic.
-        const prior = getSocialSciencesSkillCounts(skillId);
-        const cumulativeCorrect = prior.correct_count + nextCorrect;
-        const cumulativeAttempts = prior.attempt_count + nextAttempts;
-        const distinctAnswered = new Set(getSocialSciencesUsedRefs(skillId)).size;
-        const size = poolSize(skillId);
-        const required = requiredCount(skillId);
-
-        const didMaster = isContentMastered(
-          distinctAnswered,
-          size,
-          cumulativeCorrect,
-          cumulativeAttempts,
-        );
-
-        // End the run when the topic is mastered, when this sitting has covered
-        // a full batch, or when the pool is exhausted — otherwise keep going.
-        const runOver =
-          didMaster || nextAttempts >= required || distinctAnswered >= size;
-
-        if (runOver) {
-          // Accumulate this run's per-topic counts (not overwrite), then set
-          // the topic status via the inline persistence mechanism.
-          addSocialSciencesSkillCounts(skillId, nextCorrect, nextAttempts);
-          const nextStatus: TopicMastery = didMaster ? "mastered" : "in_progress";
-          const next = { ...mastery, [skillId]: nextStatus };
-          setMastery(next);
-          setSocialSciencesMastery(skillId, nextStatus);
-          setDidMasterTopic(didMaster);
-          if (didMaster) {
-            trackSkillMastered({
-              subject: "social-sciences",
-              skill_id: skillId,
-              level: findSkill(skillId)?.level.id ?? 4,
-              session_attempt_count: nextAttempts,
-              session_correct: nextCorrect,
-            });
-          }
-          trackSessionEnded({
-            subject: "social-sciences",
-            questions_answered: nextAttempts,
-            correct: nextCorrect,
-            accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
-          });
-          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
-          rewardEffortFloor("social-sciences", skillId);
-          if (didMaster) rewardSkillMastered("social-sciences", skillId);
-          void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
-          setPhase("mastered");
-        } else {
-          setPhase("feedback");
-        }
-      } catch (err) {
-        console.error("[SocialSciencesSession] submit-answer failed:", err);
-        setError("Could not check your answer. Please try again.");
-      } finally {
-        setSubmitting(false);
-      }
+      // Background: record against the daily usage cap (may 429 → upgrade modal).
+      const payload: SocialSciencesSubmitAnswerRequest = {
+        student_id: "local",
+        question_id: question.id,
+        skill_id: skillId,
+        question_ref: question.question_ref,
+        input_type: question.input_type,
+        question: question.question,
+        student_answer: rawAnswer,
+        expected_answer: question.expected_answer,
+        attempt_number: attemptCount + 1,
+        used_hint: false,
+      };
+      void apiFetch("/api/social-sciences/submit-answer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch(() => { /* non-blocking; feedback already shown */ });
     },
-    [attemptCount, consecutiveWrong, correctCount, mastery, persistReport, question, skillId],
+    [attemptCount, finalizeAttempt, question, skillId],
   );
 
   // ─── Render: tree (default) ────────────────────────────────────────────────
@@ -425,8 +454,6 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
   }
 
   // ─── Render: question / feedback ───────────────────────────────────────────
-  const showRecoveryHint = consecutiveWrong >= 2 && skillId !== null;
-  const recoveryHint = showRecoveryHint ? findSkill(skillId!)?.skill.recovery_strategy ?? null : null;
 
   return (
     <div className="relative flex flex-col h-full bg-[#F4F4F5]">
@@ -513,36 +540,20 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
             )}
 
             {phase === "feedback" && result && (
-              <div
-                className={`rounded-2xl p-5 ${
-                  result.is_correct
-                    ? "bg-green-50 border border-green-200"
-                    : "bg-rose-50 border border-rose-200"
-                }`}
-              >
-                <p className={`text-lg font-bold ${result.is_correct ? "text-green-700" : "text-rose-700"}`}>
-                  {result.is_correct ? "✓ " : "✗ "}
-                  {result.feedback}
-                </p>
-                {result.memo && (
-                  <p className="text-sm text-gray-700 mt-2 leading-relaxed">{result.memo}</p>
-                )}
-                {recoveryHint && !result.is_correct && (
-                  <p className="text-sm text-violet-700 mt-3 bg-violet-100 rounded-xl px-3 py-2">
-                    💡 {recoveryHint}
-                  </p>
-                )}
-              </div>
-            )}
-
-            {phase === "feedback" && (
-              <button
-                onClick={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
-                disabled={submitting}
-                className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-              >
-                Next question →
-              </button>
+              <FeedbackExplanation
+                isCorrect={result.is_correct}
+                note={result.is_correct ? result.memo : undefined}
+                whyOverride={result.is_correct ? undefined : result.memo}
+                footer={
+                  <button
+                    onClick={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
+                    disabled={submitting}
+                    className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
+                  >
+                    Next question →
+                  </button>
+                }
+              />
             )}
 
             {error && (

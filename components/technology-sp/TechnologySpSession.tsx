@@ -28,6 +28,8 @@ import { supabase } from "@/lib/supabase";
 import technologySpTreeData from "@/data/technology-sp-skill-tree.json";
 import technologySpBankData from "@/data/technology-sp-question-bank.json";
 import EduBackground from "@/components/EduBackground";
+import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { scoreTechnologySpAnswer } from "@/lib/technology-sp-scoring";
 import TechnologySpSkillTreeView from "./TechnologySpSkillTreeView";
 import { DataInterpretBlock } from "@/components/geography/DataInterpretBlock";
 import SortBucketsQuestion from "@/components/geography/SortBucketsQuestion";
@@ -59,6 +61,7 @@ import {
 } from "@/lib/content-mastery";
 import type {
   TechnologySpBank,
+  TechnologySpBankQuestion,
   TechnologySpGeneratedQuestion,
   TechnologySpGenerateQuestionResponse,
   TechnologySpSkillTree,
@@ -102,7 +105,8 @@ export default function TechnologySpSession({ onBack }: { onBack?: () => void } 
   const [skillId, setSkillId] = useState<string | null>(null);
   const [question, setQuestion] = useState<TechnologySpGeneratedQuestion | null>(null);
   const [result, setResult] = useState<TechnologySpSubmitAnswerResponse | null>(null);
-  const [submitting, setSubmitting] = useState(false);
+  // Feedback is scored client-side and shown instantly — no "Checking…" wait.
+  const [submitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [profile, setProfile] = useState<TechnologySpStudentProfile | null>(null);
 
@@ -260,12 +264,134 @@ export default function TechnologySpSession({ onBack }: { onBack?: () => void } 
     if (findSkill(target)) handlePickTopic(target);
   }, [profile, phase, handlePickTopic]);
 
+  // Apply a graded result: record the attempt, update mastery/coverage, and move
+  // to feedback (or the mastered screen).
+  const finalizeAttempt = useCallback(
+    (data: TechnologySpSubmitAnswerResponse, q: TechnologySpGeneratedQuestion, sId: string) => {
+      setResult(data);
+
+      // Mark this question used and work from the updated profile so the
+      // coverage count includes the answer we just took.
+      const workingProfile = profile
+        ? markTechnologySpQuestionUsed(profile, sId, q.question_ref)
+        : null;
+      if (workingProfile) setProfile(workingProfile);
+
+      const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
+      const nextAttempts = attemptCount + 1;
+      const nextConsecutiveWrong = data.is_correct ? 0 : consecutiveWrong + 1;
+      setCorrectCount(nextCorrect);
+      setAttemptCount(nextAttempts);
+      setConsecutiveWrong(nextConsecutiveWrong);
+
+      trackQuestionAnswered({
+        subject: "technology-sp",
+        skill_id: sId,
+        template: q.input_type,
+        is_correct: data.is_correct,
+        used_hint: false,
+        attempt_number: nextAttempts,
+        decision: data.is_correct ? "practice" : "reteach",
+      });
+
+      // ── Cumulative mastery check ────────────────────────────────────────
+      // Coverage + accuracy are measured across all sittings, not just this
+      // run. Prior totals live in skill_mastery; this run's deltas are the
+      // session counters. Distinct coverage is deduped from used_questions.
+      const prior = profile?.skill_mastery[sId];
+      const cumulativeCorrect = (prior?.correct_count ?? 0) + nextCorrect;
+      const cumulativeAttempts = (prior?.attempt_count ?? 0) + nextAttempts;
+      const distinctAnswered = workingProfile
+        ? new Set(getTechnologySpUsedRefs(workingProfile, sId)).size
+        : nextAttempts;
+      const size = poolSize(sId);
+      const required = requiredCount(sId);
+
+      const didMaster = isContentMastered(
+        distinctAnswered,
+        size,
+        cumulativeCorrect,
+        cumulativeAttempts,
+      );
+
+      // End the run when the topic is mastered, when this sitting has covered
+      // a full batch, or when the pool is exhausted — otherwise keep going.
+      const runOver =
+        didMaster || nextAttempts >= required || distinctAnswered >= size;
+
+      if (runOver) {
+        if (profile) {
+          const finalProfile = recordTechnologySpSkillResult(profile, sId, {
+            correct: nextCorrect,
+            attempts: nextAttempts,
+            mastered: didMaster,
+          });
+          setProfile(finalProfile);
+        }
+        setDidMasterTopic(didMaster);
+        if (didMaster) {
+          trackSkillMastered({
+            subject: "technology-sp",
+            skill_id: sId,
+            level: findSkill(sId)?.level.id ?? DEFAULT_GRADE,
+            session_attempt_count: nextAttempts,
+            session_correct: nextCorrect,
+          });
+        }
+        trackSessionEnded({
+          subject: "technology-sp",
+          questions_answered: nextAttempts,
+          correct: nextCorrect,
+          accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
+        });
+        // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+        rewardEffortFloor("technology-sp", sId);
+        if (didMaster) rewardSkillMastered("technology-sp", sId, profile?.id);
+        void persistReport(sId, nextCorrect, nextAttempts, didMaster);
+        setPhase("mastered");
+      } else {
+        setPhase("feedback");
+      }
+    },
+    [attemptCount, consecutiveWrong, correctCount, persistReport, profile],
+  );
+
   const handleSubmit = useCallback(
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer.trim()) return;
-      setSubmitting(true);
-      try {
-        const payload: TechnologySpSubmitAnswerRequest = {
+
+      // Instant: score client-side (deterministic; the scorer's fields all ship
+      // with the question). The server call runs in the background for usage
+      // metering. The bank scorer reads `expected`, the client question carries
+      // `expected_answer` — bridge that one field name.
+      const { correct, score } = scoreTechnologySpAnswer(
+        question.input_type,
+        rawAnswer,
+        { ...question, expected: question.expected_answer } as unknown as TechnologySpBankQuestion,
+      );
+      finalizeAttempt(
+        {
+          is_correct: correct,
+          score,
+          error_signals: [],
+          feedback: correct ? "Correct." : "Not quite — let's look at this.",
+          memo: question.memo ?? "",
+          mastery_update: {
+            skill_id: skillId,
+            new_status: "in_progress",
+            correct_count: correct ? 1 : 0,
+            attempt_count: 1,
+          },
+          next_action: "continue_skill",
+        },
+        question,
+        skillId,
+      );
+      // Background: record against the daily usage cap (may 429 → upgrade modal).
+      void apiFetch("/api/technology-sp/submit-answer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           student_id: profile?.id ?? "local",
           question_id: question.id,
           skill_id: skillId,
@@ -276,111 +402,10 @@ export default function TechnologySpSession({ onBack }: { onBack?: () => void } 
           expected_answer: question.expected_answer,
           attempt_number: attemptCount + 1,
           used_hint: false,
-        };
-        const res = await apiFetch("/api/technology-sp/submit-answer", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        if (!res.ok) {
-          // 429 = shared daily limit reached; apiFetch already surfaced the
-          // upgrade modal, so don't also flash an inline error.
-          if (res.status !== 429) setError("Could not check your answer. Please try again.");
-          return;
-        }
-        const data = (await res.json()) as TechnologySpSubmitAnswerResponse;
-        setResult(data);
-
-        // Mark this question used and work from the updated profile so the
-        // coverage count includes the answer we just took.
-        const workingProfile = profile
-          ? markTechnologySpQuestionUsed(profile, skillId, question.question_ref)
-          : null;
-        if (workingProfile) setProfile(workingProfile);
-
-        const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
-        const nextAttempts = attemptCount + 1;
-        const nextConsecutiveWrong = data.is_correct ? 0 : consecutiveWrong + 1;
-        setCorrectCount(nextCorrect);
-        setAttemptCount(nextAttempts);
-        setConsecutiveWrong(nextConsecutiveWrong);
-
-        trackQuestionAnswered({
-          subject: "technology-sp",
-          skill_id: skillId,
-          template: question.input_type,
-          is_correct: data.is_correct,
-          used_hint: false,
-          attempt_number: nextAttempts,
-          decision: data.is_correct ? "practice" : "reteach",
-        });
-
-        // ── Cumulative mastery check ────────────────────────────────────────
-        // Coverage + accuracy are measured across all sittings, not just this
-        // run. Prior totals live in skill_mastery; this run's deltas are the
-        // session counters. Distinct coverage is deduped from used_questions.
-        const prior = profile?.skill_mastery[skillId];
-        const cumulativeCorrect = (prior?.correct_count ?? 0) + nextCorrect;
-        const cumulativeAttempts = (prior?.attempt_count ?? 0) + nextAttempts;
-        const distinctAnswered = workingProfile
-          ? new Set(getTechnologySpUsedRefs(workingProfile, skillId)).size
-          : nextAttempts;
-        const size = poolSize(skillId);
-        const required = requiredCount(skillId);
-
-        const didMaster = isContentMastered(
-          distinctAnswered,
-          size,
-          cumulativeCorrect,
-          cumulativeAttempts,
-        );
-
-        // End the run when the topic is mastered, when this sitting has covered
-        // a full batch, or when the pool is exhausted — otherwise keep going.
-        const runOver =
-          didMaster || nextAttempts >= required || distinctAnswered >= size;
-
-        if (runOver) {
-          if (profile) {
-            const finalProfile = recordTechnologySpSkillResult(profile, skillId, {
-              correct: nextCorrect,
-              attempts: nextAttempts,
-              mastered: didMaster,
-            });
-            setProfile(finalProfile);
-          }
-          setDidMasterTopic(didMaster);
-          if (didMaster) {
-            trackSkillMastered({
-              subject: "technology-sp",
-              skill_id: skillId,
-              level: findSkill(skillId)?.level.id ?? DEFAULT_GRADE,
-              session_attempt_count: nextAttempts,
-              session_correct: nextCorrect,
-            });
-          }
-          trackSessionEnded({
-            subject: "technology-sp",
-            questions_answered: nextAttempts,
-            correct: nextCorrect,
-            accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
-          });
-          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
-          rewardEffortFloor("technology-sp", skillId);
-          if (didMaster) rewardSkillMastered("technology-sp", skillId, profile?.id);
-          void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
-          setPhase("mastered");
-        } else {
-          setPhase("feedback");
-        }
-      } catch (err) {
-        console.error("[TechnologySpSession] submit-answer failed:", err);
-        setError("Could not check your answer. Please try again.");
-      } finally {
-        setSubmitting(false);
-      }
+        } as TechnologySpSubmitAnswerRequest),
+      }).catch(() => { /* non-blocking; feedback already shown */ });
     },
-    [attemptCount, consecutiveWrong, correctCount, persistReport, profile, question, skillId],
+    [attemptCount, finalizeAttempt, profile, question, skillId],
   );
 
   // ─── Render: tree ──────────────────────────────────────────────────────────
@@ -447,8 +472,6 @@ export default function TechnologySpSession({ onBack }: { onBack?: () => void } 
   }
 
   // ─── Render: question / feedback ───────────────────────────────────────────
-  const showRecoveryHint = consecutiveWrong >= 2 && skillId !== null;
-  const recoveryHint = showRecoveryHint ? findSkill(skillId!)?.skill.recovery_strategy ?? null : null;
 
   return (
     <div className="relative flex flex-col h-full bg-[#F4F4F5]">
@@ -547,45 +570,19 @@ export default function TechnologySpSession({ onBack }: { onBack?: () => void } 
               )}
 
               {phase === "feedback" && result && (
-                <div
-                  className={`rounded-2xl p-5 ${
-                    result.is_correct
-                      ? "bg-green-50 border border-green-200"
-                      : "bg-slate-50 border border-slate-200"
-                  }`}
-                >
-                  <p
-                    className={`text-lg font-bold ${
-                      result.is_correct ? "text-green-700" : "text-slate-700"
-                    }`}
-                  >
-                    {result.is_correct ? "✓ " : "✗ "}
-                    {result.feedback}
-                  </p>
-                  {!result.is_correct && result.score > 0 && (
-                    <p className="text-xs text-slate-700 mt-1">
-                      Partial credit: {Math.round(result.score * 100)}%
-                    </p>
-                  )}
-                  {result.memo && (
-                    <p className="text-sm text-gray-700 mt-2 leading-relaxed">{result.memo}</p>
-                  )}
-                  {recoveryHint && !result.is_correct && (
-                    <p className="text-sm text-slate-700 mt-3 bg-slate-100 rounded-xl px-3 py-2">
-                      💡 {recoveryHint}
-                    </p>
-                  )}
-                </div>
-              )}
-
-              {phase === "feedback" && (
-                <button
-                  onClick={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
-                  disabled={submitting}
-                  className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                >
-                  Next question →
-                </button>
+                <FeedbackExplanation
+                  isCorrect={result.is_correct}
+                  note={result.is_correct ? result.memo : undefined}
+                  whyOverride={result.is_correct ? undefined : result.memo}
+                  footer={
+                    <button
+                      onClick={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
+                      className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
+                    >
+                      Next question →
+                    </button>
+                  }
+                />
               )}
 
               {error && (
