@@ -319,7 +319,7 @@ export default function TourismSession({ onBack }: { onBack?: () => void } = {})
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
         rewardEffortFloor("tourism", sId);
-        if (didMaster) rewardSkillMastered("tourism", sId, profile?.id);
+        if (didMaster) rewardSkillMastered("tourism", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("mastered");
       } else {

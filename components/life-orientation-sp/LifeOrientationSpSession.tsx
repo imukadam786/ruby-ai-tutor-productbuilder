@@ -346,7 +346,7 @@ export default function LifeOrientationSpSession({ onBack }: { onBack?: () => vo
         });
         // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
         rewardEffortFloor("life-orientation-sp", sId);
-        if (didMaster) rewardSkillMastered("life-orientation-sp", sId, profile?.id);
+        if (didMaster) rewardSkillMastered("life-orientation-sp", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("mastered");
       } else {

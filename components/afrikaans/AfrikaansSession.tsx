@@ -356,7 +356,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
         });
         // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
         rewardEffortFloor("afrikaans-fal", sId);
-        if (didMaster) rewardSkillMastered("afrikaans-fal", sId, profile?.id);
+        if (didMaster) rewardSkillMastered("afrikaans-fal", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("mastered");
       } else {

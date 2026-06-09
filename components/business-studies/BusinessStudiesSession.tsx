@@ -319,7 +319,7 @@ export default function BusinessStudiesSession({ onBack }: { onBack?: () => void
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
         rewardEffortFloor("business-studies", sId);
-        if (didMaster) rewardSkillMastered("business-studies", sId, profile?.id);
+        if (didMaster) rewardSkillMastered("business-studies", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("mastered");
       } else {

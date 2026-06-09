@@ -307,7 +307,7 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
         rewardEffortFloor("life-sciences", sId);
-        if (didMaster) rewardSkillMastered("life-sciences", sId, profile?.id);
+        if (didMaster) rewardSkillMastered("life-sciences", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("mastered");
       } else {

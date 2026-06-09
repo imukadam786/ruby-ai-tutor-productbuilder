@@ -317,7 +317,7 @@ export default function EconomicsSession({ onBack }: { onBack?: () => void } = {
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
         rewardEffortFloor("economics", sId);
-        if (didMaster) rewardSkillMastered("economics", sId, profile?.id);
+        if (didMaster) rewardSkillMastered("economics", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("mastered");
       } else {

@@ -321,7 +321,7 @@ export default function AccountingSession({ onBack }: { onBack?: () => void } = 
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
         rewardEffortFloor("accounting", sId);
-        if (didMaster) rewardSkillMastered("accounting", sId, profile?.id);
+        if (didMaster) rewardSkillMastered("accounting", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("mastered");
       } else {

@@ -319,7 +319,7 @@ export default function HistorySession({ onBack }: { onBack?: () => void } = {})
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
         rewardEffortFloor("history", sId);
-        if (didMaster) rewardSkillMastered("history", sId, profile?.id);
+        if (didMaster) rewardSkillMastered("history", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("mastered");
       } else {

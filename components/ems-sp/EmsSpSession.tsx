@@ -346,7 +346,7 @@ export default function EmsSpSession({ onBack }: { onBack?: () => void } = {}) {
         });
         // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
         rewardEffortFloor("ems-sp", sId);
-        if (didMaster) rewardSkillMastered("ems-sp", sId, profile?.id);
+        if (didMaster) rewardSkillMastered("ems-sp", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("mastered");
       } else {

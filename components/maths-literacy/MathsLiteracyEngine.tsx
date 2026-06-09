@@ -199,7 +199,7 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
             setFeedback((f) =>
               f ? { ...f, mastery_update: { ...f.mastery_update, new_status: "mastered" } } : f,
             );
-            rewardSkillMastered("maths-literacy", currentSkillId, profile.id);
+            rewardSkillMastered("maths-literacy", currentSkillId);
           }
         }
       } catch {

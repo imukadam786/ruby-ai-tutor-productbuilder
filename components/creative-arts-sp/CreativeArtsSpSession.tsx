@@ -346,7 +346,7 @@ export default function CreativeArtsSpSession({ onBack }: { onBack?: () => void 
         });
         // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
         rewardEffortFloor("creative-arts-sp", sId);
-        if (didMaster) rewardSkillMastered("creative-arts-sp", sId, profile?.id);
+        if (didMaster) rewardSkillMastered("creative-arts-sp", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("mastered");
       } else {

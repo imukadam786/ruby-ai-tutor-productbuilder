@@ -346,7 +346,7 @@ export default function TechnologySpSession({ onBack }: { onBack?: () => void } 
         });
         // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
         rewardEffortFloor("technology-sp", sId);
-        if (didMaster) rewardSkillMastered("technology-sp", sId, profile?.id);
+        if (didMaster) rewardSkillMastered("technology-sp", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("mastered");
       } else {

@@ -346,7 +346,7 @@ export default function SocialSciencesSpSession({ onBack }: { onBack?: () => voi
         });
         // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
         rewardEffortFloor("social-sciences-sp", sId);
-        if (didMaster) rewardSkillMastered("social-sciences-sp", sId, profile?.id);
+        if (didMaster) rewardSkillMastered("social-sciences-sp", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("mastered");
       } else {
