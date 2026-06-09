@@ -1,4 +1,5 @@
 "use client";
+import RubyBalance from "@/components/RubyBalance";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
 
@@ -461,6 +462,7 @@ export default function EconomicsSession({ onBack }: { onBack?: () => void } = {
             >
               ← Topics
             </button>
+            <span className="hidden md:inline-flex flex-shrink-0"><RubyBalance theme="light" size="lg" /></span>
           </div>
 
           {skillId && (

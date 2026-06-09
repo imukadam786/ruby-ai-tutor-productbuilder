@@ -14,6 +14,7 @@ import {
 } from "@/lib/maths-literacy-student-model";
 import { ACCURACY_TARGET, requiredCoverageCount } from "@/lib/content-mastery";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import RubyBalance from "@/components/RubyBalance";
 import {
   parseAnswerKey,
   scoreMathsLiteracy,
@@ -282,6 +283,11 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
             {skill?.title ?? "Loading…"}
           </div>
         </div>
+        {/* Prominent rubies counter on the header line (desktop — mobile shows
+            it in the global top bar). */}
+        <span className="hidden md:inline-flex flex-shrink-0">
+          <RubyBalance theme="light" size="lg" />
+        </span>
         {mastery && (
           <span
             className={`text-[11px] font-semibold px-2 py-0.5 rounded-full ${

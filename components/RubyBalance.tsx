@@ -20,10 +20,12 @@ let dailyLoginFired = false;
 
 interface RubyBalanceProps {
   theme?: "dark" | "light";
+  /** "sm" = compact sidebar/top-bar pill; "lg" = prominent header badge. */
+  size?: "sm" | "lg";
   className?: string;
 }
 
-export default function RubyBalance({ theme = "dark", className = "" }: RubyBalanceProps) {
+export default function RubyBalance({ theme = "dark", size = "sm", className = "" }: RubyBalanceProps) {
   const [balance, setBalance] = useState<number | null>(null);
   const [display, setDisplay] = useState<number>(0); // animated count-up value
   const [pop, setPop] = useState<number | null>(null);
@@ -130,21 +132,27 @@ export default function RubyBalance({ theme = "dark", className = "" }: RubyBala
       ? "bg-rose-50 text-rose-700 border-rose-200"
       : "bg-white/15 text-white border-white/20";
 
+  const lg = size === "lg";
+  const sizing = lg
+    ? "gap-1.5 px-3 py-1 text-base"
+    : "gap-1 px-2 py-0.5 text-[11px]";
+  const icon = lg ? "w-5 h-5" : "w-4 h-4";
+
   return (
     <span
       title={`${balance} rubies earned`}
-      className={`relative inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold leading-none border ${palette} ${className}`}
+      className={`relative inline-flex items-center rounded-full font-semibold leading-none border ${sizing} ${palette} ${className}`}
     >
-      <span className="relative w-4 h-4 flex-shrink-0">
+      <span className={`relative flex-shrink-0 ${icon}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/rubytransparent.webp" alt="rubies" className="w-4 h-4 object-contain" />
+        <img src="/rubytransparent.webp" alt="rubies" className={`${icon} object-contain`} />
         {glint > 0 && (
           <DotLottieReact
             key={glint}
             src="/lottie/ruby-gem.json"
             autoplay
             loop={false}
-            className="absolute inset-0 w-4 h-4 pointer-events-none"
+            className={`absolute inset-0 pointer-events-none ${icon}`}
           />
         )}
       </span>

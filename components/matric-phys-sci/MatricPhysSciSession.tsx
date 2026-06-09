@@ -1,5 +1,6 @@
 "use client";
 
+import RubyBalance from "@/components/RubyBalance";
 import { useCallback, useEffect, useRef, useState } from "react";
 import RubyLoader from "@/components/RubyLoader";
 import { apiFetch } from "@/lib/fetch";
@@ -382,6 +383,7 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
             >
               ← Skills
             </button>
+            <span className="hidden md:inline-flex flex-shrink-0"><RubyBalance theme="light" size="lg" /></span>
           </div>
 
           {skillId && (

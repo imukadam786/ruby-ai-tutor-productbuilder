@@ -532,20 +532,14 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       {showLangPicker && <LanguagePickerModal onClose={() => setShowLangPicker(false)} />}
 
       <main className="flex-1 overflow-hidden h-full flex flex-col min-h-0">
-        {/* Top strip pinned above every skill-question view (desktop). The Ruby
-            balance shows for everyone so the counter is always visible — not
-            only in the sidebar. Freebie users also get their daily-usage meter
-            here; paid plans are unlimited so the meter renders nothing. Mobile
-            already carries both in its own top bar. */}
-        {SESSION_VIEWS.includes(activeView) && (
-          <div className="hidden md:flex flex-shrink-0 items-center justify-center gap-3 bg-white border-b border-gray-200 px-4 py-2">
-            <RubyBalance theme="light" />
-            {isFreebie && (
-              <>
-                <span className="text-xs font-medium text-gray-500">Today&apos;s usage:</span>
-                <UsageMeter variant="compact" theme="light" />
-              </>
-            )}
+        {/* Daily usage counters pinned to the top of skill-question views for
+            freebie users (desktop). Mobile already shows them in the top bar;
+            paid plans are unlimited, so nothing renders for them. The Ruby
+            counter lives in each subject's own header row, not here. */}
+        {isFreebie && SESSION_VIEWS.includes(activeView) && (
+          <div className="hidden md:flex flex-shrink-0 items-center justify-center gap-2 bg-white border-b border-gray-200 px-4 py-2">
+            <span className="text-xs font-medium text-gray-500">Today&apos;s usage:</span>
+            <UsageMeter variant="compact" theme="light" />
           </div>
         )}
         <div className="flex-1 min-h-0 overflow-hidden">

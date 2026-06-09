@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import RubyLoader from "@/components/RubyLoader";
+import RubyBalance from "@/components/RubyBalance";
 import { apiFetch } from "@/lib/fetch";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import { useT } from "@/lib/i18n";
@@ -1148,6 +1149,7 @@ function ReadingSessionHeader({
         )}
       </div>
       <div className="flex items-center gap-3 flex-shrink-0">
+        <RubyBalance theme="light" size="lg" />
         {sessionAttempts > 0 && (
           <div className="text-right">
             <p className={`text-base font-semibold ${accuracy >= 70 ? "text-green-600" : "text-orange-500"}`}>
