@@ -75,18 +75,38 @@ export async function apiFetch(
         .json()
         .then((body) => {
           const award = body?.rubies;
+          const isCorrect = body?.result?.is_correct ?? body?.is_correct;
+
           if (award && award.awarded > 0) {
             document.dispatchEvent(
               new CustomEvent("ruby-earned", { detail: award }),
             );
-            // A streak milestone (5/8/10 in a row) was hit → combo celebration.
-            if (award.milestone_bonus > 0) {
-              document.dispatchEvent(
-                new CustomEvent("ruby-celebrate", {
-                  detail: { kind: "combo", rubies: award.milestone_bonus, streak: award.combo },
-                }),
-              );
-            }
+          }
+
+          // Live combo indicator: reflect the server's running combo. A correct
+          // answer reports its new combo length; a wrong answer breaks it (0).
+          if (typeof isCorrect === "boolean") {
+            const combo = isCorrect ? (award?.combo ?? 0) : 0;
+            document.dispatchEvent(
+              new CustomEvent("ruby-combo", { detail: { combo } }),
+            );
+          }
+
+          // Streak milestone celebration — re-pops every time the combo lands on
+          // a milestone (5/8/10 in a row), even on a repeat the same day. The
+          // bonus rubies are capped once-per-day server-side, so the "+N" only
+          // shows when one was actually paid. Skip duplicate (double-click) submits.
+          const MILESTONES = [5, 8, 10];
+          if (award && !award.duplicate && MILESTONES.includes(award.combo)) {
+            document.dispatchEvent(
+              new CustomEvent("ruby-celebrate", {
+                detail: {
+                  kind: "combo",
+                  rubies: award.milestone_bonus > 0 ? award.milestone_bonus : undefined,
+                  streak: award.combo,
+                },
+              }),
+            );
           }
         })
         .catch(() => {

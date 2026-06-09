@@ -8,6 +8,7 @@ import MobileBottomNav from "@/components/MobileBottomNav";
 import UsageMeter from "@/components/UsageMeter";
 import RubyBalance from "@/components/RubyBalance";
 import RubyCelebrations from "@/components/RubyCelebrations";
+import ComboIndicator from "@/components/ComboIndicator";
 import HomeScreen from "@/components/HomeScreen";
 import OnboardingFlow, { OnboardingData } from "@/components/onboarding/OnboardingFlow";
 import HomeworkTutorial   from "@/components/tutorial/HomeworkTutorial";
@@ -473,6 +474,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
 
       {/* Global ruby celebration overlay — plays milestone Lotties on events */}
       <RubyCelebrations />
+
+      {/* Live "🔥 N in a row" combo pill — driven by the server combo */}
+      <ComboIndicator />
 
       {/* Mobile top bar — in normal flow so banner shows above it */}
       <header className="md:hidden flex-shrink-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm z-30">
