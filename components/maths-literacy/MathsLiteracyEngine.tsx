@@ -230,6 +230,22 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
     fetchQuestion(currentSkillId);
   };
 
+  // ── Retry (re-attempt the same question) ─────────────────────────────────
+  // Reopens the current question with the input cleared. The next submit runs
+  // normally, so the re-attempt counts as a fresh attempt (and draws from the
+  // daily usage pool) just like a first try.
+  const onRetry = async () => {
+    if (!question) return;
+    // Let the prior background submit settle so its mastery write doesn't race
+    // the next attempt.
+    if (submitInFlightRef.current) await submitInFlightRef.current;
+    setFeedback(null);
+    setSubmittedAnswer("");
+    setStudentAnswer("");
+    setStudentFields({});
+    setPhase("question");
+  };
+
   const onExitReplayClick = () => {
     if (typeof window !== "undefined") window.sessionStorage.removeItem(REPLAY_KEY);
     onExitReplay?.();
@@ -343,18 +359,37 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
               whyOverride={question.error_explanation}
               workingSteps={question.working_steps}
               partialCredit={feedback.partial_credit}
-              footer={
-                <button
-                  onClick={onContinue}
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors"
-                >
-                  {profile?.skill_mastery[currentSkillId]?.status === "mastered" &&
+              footer={(() => {
+                const nextLabel =
+                  profile?.skill_mastery[currentSkillId]?.status === "mastered" &&
                   feedback.is_correct &&
                   !replayMode
                     ? "Next skill →"
-                    : "Next question →"}
-                </button>
-              }
+                    : "Next question →";
+                const nextBtn = (
+                  <button
+                    onClick={onContinue}
+                    className="flex-1 px-4 py-2.5 rounded-xl bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors"
+                  >
+                    {nextLabel}
+                  </button>
+                );
+                // On a wrong answer, offer a Retry of the same question next to
+                // the advance button; a correct answer just advances full-width.
+                return (
+                  <div className="flex gap-3">
+                    {!feedback.is_correct && (
+                      <button
+                        onClick={onRetry}
+                        className="flex-1 px-4 py-2.5 rounded-xl border-2 border-[#BE1832] text-[#BE1832] hover:bg-[#BE1832]/5 font-semibold text-sm transition-colors"
+                      >
+                        ↻ Retry
+                      </button>
+                    )}
+                    {nextBtn}
+                  </div>
+                );
+              })()}
             />
           )}
         </div>
