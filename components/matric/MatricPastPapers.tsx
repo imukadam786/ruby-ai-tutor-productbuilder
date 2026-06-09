@@ -10,6 +10,7 @@ import { Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown }
 import { PAPER_INDEX, PaperMeta, loadPaperById } from "@/lib/matric/paper-index";
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
+import MatricFeedbackCard from "./MatricFeedbackCard";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -2274,29 +2275,15 @@ function SessionView({
                         <MathMarkdown content={msg.content} />
                       </div>
                     ) : (
-                      <div className="bg-rose-50 border border-rose-100 rounded-2xl px-4 py-4 space-y-3">
-                        <div className="text-sm text-gray-700 leading-relaxed">
-                          <MathMarkdown content={msg.content} />
-                        </div>
-                        {msg.marksEarned !== undefined && msg.totalMarks !== undefined && (
-                          <div className="flex items-center gap-2 pt-1 border-t border-rose-100">
-                            <div
-                              className={`text-xs font-bold px-2.5 py-1 rounded-full ${
-                                msg.marksEarned === msg.totalMarks
-                                  ? "bg-green-100 text-green-700"
-                                  : msg.marksEarned > 0
-                                  ? "bg-amber-100 text-amber-700"
-                                  : "bg-red-100 text-red-600"
-                              }`}
-                            >
-                              {msg.marksEarned}/{msg.totalMarks} marks
-                            </div>
-                            {msg.marksEarned === msg.totalMarks && (
-                              <span className="text-xs text-green-600 font-medium">Full marks!</span>
-                            )}
-                          </div>
-                        )}
-                      </div>
+                      <MatricFeedbackCard
+                        content={msg.content}
+                        marksEarned={msg.marksEarned}
+                        totalMarks={msg.totalMarks}
+                        modelAnswerImageUrl={
+                          i === currentAttempt.coachMessages.length - 1 ? currentSQ.memoImageUrl : undefined
+                        }
+                        onExpandImage={setExpandedDiagramUrl}
+                      />
                     )}
                   </div>
                 ))}

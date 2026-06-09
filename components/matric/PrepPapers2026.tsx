@@ -10,6 +10,7 @@ import { Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown }
 import { PAPER_INDEX, PaperMeta, loadPaperById } from "@/lib/matric/paper-index";
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
+import MatricFeedbackCard from "./MatricFeedbackCard";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -1132,28 +1133,15 @@ function SessionView({
                   {msg.type === "system" ? (
                     <div className="text-sm text-gray-500 bg-gray-50 rounded-xl px-4 py-3"><MathMarkdown content={msg.content} /></div>
                   ) : (
-                    <div className="bg-rose-50 border border-rose-100 rounded-2xl px-4 py-4 space-y-3">
-                      <div className="text-sm text-gray-700 leading-relaxed"><MathMarkdown content={msg.content} /></div>
-                      {currentSQ.memoImageUrl && i === currentAttempt.coachMessages.length - 1 && (
-                        <div className="pt-2 space-y-1">
-                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Answer</p>
-                          <button onClick={() => setExpandedDiagramUrl(currentSQ.memoImageUrl!)} className="relative group block rounded-xl overflow-hidden border border-rose-200 bg-white max-w-[220px]" title="Tap to expand">
-                            <img src={currentSQ.memoImageUrl} alt="Model answer sketch" className="w-full object-contain max-h-28" />
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                              <span className="opacity-0 group-hover:opacity-100 text-white text-xs font-medium bg-black/50 px-2 py-1 rounded-full transition-opacity">Expand</span>
-                            </div>
-                          </button>
-                        </div>
-                      )}
-                      {msg.marksEarned !== undefined && msg.totalMarks !== undefined && (
-                        <div className="flex items-center gap-2 pt-1 border-t border-rose-100">
-                          <div className={`text-xs font-bold px-2.5 py-1 rounded-full ${msg.marksEarned === msg.totalMarks ? "bg-green-100 text-green-700" : msg.marksEarned > 0 ? "bg-amber-100 text-amber-700" : "bg-red-100 text-red-600"}`}>
-                            {msg.marksEarned}/{msg.totalMarks} marks
-                          </div>
-                          {msg.marksEarned === msg.totalMarks && <span className="text-xs text-green-600 font-medium">Full marks!</span>}
-                        </div>
-                      )}
-                    </div>
+                    <MatricFeedbackCard
+                      content={msg.content}
+                      marksEarned={msg.marksEarned}
+                      totalMarks={msg.totalMarks}
+                      modelAnswerImageUrl={
+                        i === currentAttempt.coachMessages.length - 1 ? currentSQ.memoImageUrl : undefined
+                      }
+                      onExpandImage={setExpandedDiagramUrl}
+                    />
                   )}
                 </div>
               ))}
