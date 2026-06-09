@@ -37,6 +37,7 @@ import { getReadingProfile } from "@/lib/reading-student-model";
 import { supabase } from "@/lib/supabase";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
+import { buildWorkedSteps } from "@/lib/worked-steps";
 import EduBackground from "@/components/EduBackground";
 import { selectMathsTemplate } from "@/lib/template-selector";
 import { detectStuck } from "@/lib/stuck-detector";
@@ -983,6 +984,7 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
                 }
                 return codes;
               })()}
+              workedSteps={buildWorkedSteps(currentQuestion) ?? undefined}
             />
           </div>
         </div>

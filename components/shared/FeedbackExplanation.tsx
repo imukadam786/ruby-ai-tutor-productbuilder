@@ -3,6 +3,18 @@
 import { ReactNode } from "react";
 import { resolveErrorExplanation } from "@/lib/error-explanations";
 
+// A free, deterministic read on a numeric wrong answer: how far off, and which
+// way. Turns the bare "you answered 8 / the answer is 7" into a closer "8 —
+// that's 1 too high". Returns null when either side isn't a plain number, so
+// word answers, expressions and multi-part answers fall back to the two facts.
+function numericRelation(student: string, correct: string): string | null {
+  const s = Number(student.replace(/[\s,]/g, ""));
+  const c = Number(correct.replace(/[\s,]/g, ""));
+  if (!Number.isFinite(s) || !Number.isFinite(c) || s === c) return null;
+  const gap = Math.round(Math.abs(s - c) * 1000) / 1000;
+  return s > c ? `that's ${gap} too high` : `that's ${gap} too low`;
+}
+
 // ─── Shared feedback card ────────────────────────────────────────────────────
 //
 // One feedback card for every subject. It renders the deep wrong-answer card —
@@ -26,6 +38,13 @@ export interface FeedbackExplanationProps {
   workingSteps?: string[];
   /** Optional extra text from the server (e.g. partial-credit note). */
   serverFeedback?: string;
+  /**
+   * A personalised per-answer diagnosis ("I can see you added 5 and 2…").
+   * Shown as a warm intro above the structured why/how/example. Only pass this
+   * when it is genuinely tailored to the student's answer — never a canned
+   * placeholder — otherwise the intro adds noise.
+   */
+  diagnosis?: string;
   /** Partial-credit summary for multi-part answers. */
   partialCredit?: { correct: number; total: number };
   /** Heading shown on a correct answer. */
@@ -55,6 +74,7 @@ export default function FeedbackExplanation({
   errorSignals,
   workingSteps,
   serverFeedback,
+  diagnosis,
   partialCredit,
   correctLabel = "Correct!",
   note,
@@ -99,8 +119,12 @@ export default function FeedbackExplanation({
   const student = studentAnswer?.trim();
   const correct = correctAnswer?.trim();
   const showWhat = !!student && !!correct && student !== correct;
+  const relation = showWhat ? numericRelation(student!, correct!) : null;
+  const diagnosisText = diagnosis?.trim();
   const headerLabel = labelOverride ?? explanation?.label;
-  const whyText = whyOverride || explanation?.why || serverFeedback;
+  // A personalised diagnosis already speaks to this answer, so don't also fall
+  // back to serverFeedback for the generic "why" — it would just repeat it.
+  const whyText = whyOverride || explanation?.why || (diagnosisText ? undefined : serverFeedback);
   const hasWorking = !!workingSteps && workingSteps.length > 0;
   const howText = hasWorking ? undefined : howOverride || explanation?.how;
   const exampleText = explanation?.example;
@@ -119,16 +143,18 @@ export default function FeedbackExplanation({
       </div>
 
       <div className="px-6 py-5 space-y-4">
-        {/* WHAT */}
+        {/* DIAGNOSIS — a warm, tailored read of what happened (when personalised) */}
+        {diagnosisText && (
+          <p className="text-gray-800 leading-relaxed">{diagnosisText}</p>
+        )}
+
+        {/* WHAT — the two facts, sharpened with how far off when both are numbers */}
         {showWhat && (
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
-            <span className="text-gray-700">
-              You answered <span className="font-semibold text-orange-700">{student}</span>
-            </span>
-            <span className="text-gray-700">
-              The answer is <span className="font-semibold text-green-700">{correct}</span>
-            </span>
-          </div>
+          <p className="text-sm text-gray-700">
+            You answered <span className="font-semibold text-orange-700">{student}</span>
+            {relation && <> — {relation}</>}. The answer is{" "}
+            <span className="font-semibold text-green-700">{correct}</span>.
+          </p>
         )}
 
         {partialCredit && (

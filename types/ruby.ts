@@ -167,6 +167,14 @@ export interface GeneratedQuestion {
   hints?: GraduatedHint;
   expected_answer: string;
   scaffolding_notes: string;
+  /**
+   * A deterministic, numbers-in worked walkthrough computed from this question's
+   * own operands (Path B) — e.g. ["Start with the bigger number, 5.", "Count on
+   * 2 more: 6, 7.", "So 5 + 2 = 7."]. Present only for the young-grade arithmetic
+   * the generator covers; absent otherwise, so the feedback card falls back to
+   * the reused-hint walkthrough (Path A).
+   */
+  working_steps?: string[];
   bank_question?: Record<string, unknown>;
   /** Difficulty level 1–5 assigned by tagging script; used for ability-matched selection */
   difficulty?: number;
@@ -195,6 +203,13 @@ export interface DiagnosticResult {
   is_correct: boolean;
   error_type: ErrorType;
   feedback: string;
+  /**
+   * True only when `feedback` is a genuine per-answer AI diagnosis (Tier 3,
+   * repeat wrong answer) rather than the canned first-try placeholder. The
+   * feedback card uses this to decide whether to surface `feedback` as a
+   * personalised "here's what I noticed" intro — never the placeholder.
+   */
+  feedback_personalised?: boolean;
   recovery_explanation: string;
   mastery_update: {
     skill_id: string;

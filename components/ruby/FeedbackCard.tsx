@@ -24,6 +24,12 @@ interface FeedbackCardProps {
   wasReviewCorrect?: boolean;
   /** Error codes on the question (e.g. ["ERR_MULT_ADD"]) — drive the why/how/example explanation */
   errorSignals?: string[];
+  /**
+   * A worked walkthrough reused from the question's own hint text (Path A).
+   * Shown as "How to fix it" on the free path; superseded by a personalised AI
+   * re-teach when one exists, since that is richer.
+   */
+  workedSteps?: string[];
 }
 
 // Student-facing labels are deliberately plain and warm — no technical wording.
@@ -58,6 +64,7 @@ export default function FeedbackCard({
   nextLabel: _nextLabel,
   wasReviewCorrect = false,
   errorSignals,
+  workedSteps,
 }: FeedbackCardProps) {
   const { language } = useT();
   const errorInfo = errorLabels[result.error_type];
@@ -78,6 +85,12 @@ export default function FeedbackCard({
 
   const [reteachingText, setReteachingText] = useState<string>(
     result.recovery_explanation
+  );
+  // Whether reteachingText is a genuine per-answer AI re-teach (Tier 3 at mount,
+  // or a successful reflection call) rather than the generic recovery tip. When
+  // true, the reused worked steps stand down in favour of the richer AI text.
+  const [reteachPersonalised, setReteachPersonalised] = useState<boolean>(
+    result.feedback_personalised ?? false
   );
   const [, setReflectionLoading] = useState(false);
 
@@ -105,7 +118,12 @@ export default function FeedbackCard({
         }),
       });
       const data = await res.json();
-      setReteachingText(data.reteaching ?? result.recovery_explanation);
+      if (data.reteaching) {
+        setReteachingText(data.reteaching);
+        setReteachPersonalised(true);
+      } else {
+        setReteachingText(result.recovery_explanation);
+      }
     } catch {
       // Fallback to pre-authored recovery strategy
       setReteachingText(result.recovery_explanation);
@@ -248,6 +266,9 @@ export default function FeedbackCard({
   // its two extras via props: the audio button (headerAction) and the LLM
   // re-teaching text (howOverride). why/how/example come from the error-code map.
   const explanation = resolveErrorExplanation(errorSignals);
+  // Reused worked steps show only on the free path — a personalised AI re-teach,
+  // when present, is richer and takes the "How to fix it" slot instead.
+  const showWorked = !reteachPersonalised && !!workedSteps && workedSteps.length > 0;
   const spokenText = [explanation?.why || result.feedback, reteachingText, explanation?.example]
     .filter(Boolean)
     .join(". ");
@@ -283,7 +304,9 @@ export default function FeedbackCard({
       correctAnswer={questionContext?.expected_answer}
       errorSignals={errorSignals}
       serverFeedback={result.feedback}
+      diagnosis={result.feedback_personalised ? result.feedback : undefined}
       howOverride={reteachingText}
+      workingSteps={showWorked ? workedSteps : undefined}
       headerAction={audioButton}
       footer={
         <div className="space-y-4">

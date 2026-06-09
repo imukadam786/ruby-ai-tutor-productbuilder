@@ -77,6 +77,11 @@ async function handler(req: NextRequest) {
       recovery_explanation: string;
     };
 
+    // Set only when `feedback` is a real per-answer AI diagnosis (Tier 3 success),
+    // so the card can surface it as a personalised intro without ever showing the
+    // canned first-try / parse-fallback placeholder text.
+    let feedbackPersonalised = false;
+
     if (isCorrect) {
       // Tier 1 — pre-translated praise lookup, NO LLM call in any language.
       const praise = selectPraise(submission.grade ?? 5, submission.difficulty ?? 2, submission.language);
@@ -140,6 +145,8 @@ async function handler(req: NextRequest) {
             ? parsed.error_type
             : preClassifiedError,
         };
+        // The AI returned a usable, parsed diagnosis — `feedback` is personalised.
+        feedbackPersonalised = !!aiDiagnosis.feedback;
       } catch {
         aiDiagnosis = {
           is_correct: false,
@@ -189,6 +196,7 @@ async function handler(req: NextRequest) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       error_type: (aiDiagnosis.error_type as any) || preClassifiedError,
       feedback: aiDiagnosis.feedback,
+      feedback_personalised: feedbackPersonalised,
       recovery_explanation: aiDiagnosis.recovery_explanation,
       mastery_update: {
         skill_id: submission.skill_id,
