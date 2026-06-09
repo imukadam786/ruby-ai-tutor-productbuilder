@@ -12,6 +12,7 @@ import nstTreeData from "@/data/nst-skill-tree.json";
 import nstBankData from "@/data/nst-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreNst } from "@/lib/nst-scoring";
 import NstSkillTreeView from "./NstSkillTreeView";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
@@ -542,13 +543,12 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
                 note={result.is_correct ? result.memo : undefined}
                 whyOverride={result.is_correct ? undefined : result.memo}
                 footer={
-                  <button
-                    onClick={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
-                    className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                  >
-                    Next question →
-                  </button>
-                }
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
+                  onRetry={() => { setAnswer(""); setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
               />
             )}
 

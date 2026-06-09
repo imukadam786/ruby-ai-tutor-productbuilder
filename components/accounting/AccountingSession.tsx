@@ -21,6 +21,7 @@ import historyTreeData from "@/data/accounting-skill-tree.json";
 import accountingBankData from "@/data/accounting-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreAccountingAnswer } from "@/lib/accounting-scoring";
 import AccountingSkillTreeView from "./AccountingSkillTreeView";
 import SourceBlock from "./questions/SourceBlock";
@@ -550,13 +551,12 @@ export default function AccountingSession({ onBack }: { onBack?: () => void } = 
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}
                   footer={
-                    <button
-                      onClick={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
-                      className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                    >
-                      Next question →
-                    </button>
-                  }
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
+                  onRetry={() => { setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
                 />
               )}
 

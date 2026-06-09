@@ -10,6 +10,7 @@ import lifeSciencesTreeData from "@/data/life-sciences-skill-tree.json";
 import lifeSciencesBankData from "@/data/life-sciences-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreLifeSciences, isDeterministicLifeSciencesType } from "@/lib/life-sciences-scoring";
 import LifeSciencesSkillTreeView from "./LifeSciencesSkillTreeView";
 import { DataInterpretBlock } from "./DataInterpretBlock";
@@ -564,13 +565,12 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}
                   footer={
-                    <button
-                      onClick={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
-                      className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                    >
-                      Next question →
-                    </button>
-                  }
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
+                  onRetry={() => { setAnswer(""); setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
                 />
               )}
 

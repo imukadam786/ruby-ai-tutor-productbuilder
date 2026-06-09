@@ -8,6 +8,7 @@ import EduBackground from "@/components/EduBackground";
 import MatricPhysSciSkillTreeView from "./MatricPhysSciSkillTreeView";
 import SequenceQuestion from "./SequenceQuestion";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scorePhysSci } from "@/lib/matric-phys-sci-scoring";
 import { physSciConfig, type PhysSciGrade } from "@/lib/phys-sci-grade";
 import { supabase } from "@/lib/supabase";
@@ -455,13 +456,12 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
                       note={result.is_correct ? result.explanation : undefined}
                       whyOverride={result.is_correct ? undefined : result.explanation}
                       footer={
-                        <button
-                          onClick={() => skillId && loadNextQuestion(skillId)}
-                          className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                        >
-                          Next question →
-                        </button>
-                      }
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId)}
+                  onRetry={() => { setAnswer(""); setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
                     />
                   );
                 })()

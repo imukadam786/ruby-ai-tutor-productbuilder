@@ -24,6 +24,7 @@ import geographyTreeData from "@/data/geography-skill-tree.json";
 import geographyBankData from "@/data/geography-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreGeographyAnswer } from "@/lib/geography-scoring";
 import GeographySkillTreeView from "./GeographySkillTreeView";
 import { DataInterpretBlock } from "./DataInterpretBlock";
@@ -569,13 +570,12 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}
                   footer={
-                    <button
-                      onClick={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
-                      className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                    >
-                      Next question →
-                    </button>
-                  }
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
+                  onRetry={() => { setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
                 />
               )}
 

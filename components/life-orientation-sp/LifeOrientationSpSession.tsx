@@ -30,6 +30,7 @@ import lifeOrientationSpTreeData from "@/data/life-orientation-sp-skill-tree.jso
 import lifeOrientationSpBankData from "@/data/life-orientation-sp-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreLifeOrientationSpAnswer } from "@/lib/life-orientation-sp-scoring";
 import LifeOrientationSpSkillTreeView from "./LifeOrientationSpSkillTreeView";
 import { DataInterpretBlock } from "@/components/geography/DataInterpretBlock";
@@ -577,13 +578,12 @@ export default function LifeOrientationSpSession({ onBack }: { onBack?: () => vo
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}
                   footer={
-                    <button
-                      onClick={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
-                      className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                    >
-                      Next question →
-                    </button>
-                  }
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
+                  onRetry={() => { setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
                 />
               )}
 

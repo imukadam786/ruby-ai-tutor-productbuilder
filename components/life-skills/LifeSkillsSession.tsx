@@ -12,6 +12,7 @@ import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
 import lifeSkillsBankData from "@/data/life-skills-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreLifeSkills } from "@/lib/life-skills-scoring";
 import LifeSkillsSkillTreeView from "./LifeSkillsSkillTreeView";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
@@ -614,14 +615,12 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
                 note={result.is_correct ? result.memo : undefined}
                 whyOverride={result.is_correct ? undefined : result.memo}
                 footer={
-                  <button
-                    onClick={() => skillId && loadNextQuestion(skillId)}
-                    disabled={submitting}
-                    className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                  >
-                    Next question →
-                  </button>
-                }
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId)}
+                  onRetry={() => { setAnswer(""); setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
               />
             )}
 

@@ -21,6 +21,7 @@ import tourismTreeData from "@/data/tourism-skill-tree.json";
 import tourismBankData from "@/data/tourism-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreTourismAnswer } from "@/lib/tourism-scoring";
 import TourismSkillTreeView from "./TourismSkillTreeView";
 import SourceBlock from "./questions/SourceBlock";
@@ -548,13 +549,12 @@ export default function TourismSession({ onBack }: { onBack?: () => void } = {})
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}
                   footer={
-                    <button
-                      onClick={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
-                      className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                    >
-                      Next question →
-                    </button>
-                  }
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
+                  onRetry={() => { setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
                 />
               )}
 

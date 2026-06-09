@@ -14,6 +14,8 @@ import {
 } from "@/lib/maths-literacy-student-model";
 import { ACCURACY_TARGET, requiredCoverageCount } from "@/lib/content-mastery";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
+import EduBackground from "@/components/EduBackground";
 import RubyBalance from "@/components/RubyBalance";
 import {
   parseAnswerKey,
@@ -265,76 +267,88 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
     profile?.used_questions?.[currentSkillId] ?? [],
   ).size;
 
-  return (
-    <div className="flex flex-col h-full bg-[#F4F4F5]">
-      <header className="bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3">
-        {onBack && (
-          <button
-            onClick={onBack}
-            className="text-sm text-gray-600 hover:text-gray-900"
-            aria-label="Back to subjects"
-          >
-            ← Subjects
-          </button>
-        )}
-        <div className="flex-1 min-w-0">
-          <div className="text-xs text-gray-500 truncate">Maths Literacy · {currentSkillId}</div>
-          <div className="text-sm font-semibold text-gray-900 truncate">
-            {skill?.title ?? "Loading…"}
-          </div>
-        </div>
-        {/* Prominent rubies counter on the header line (desktop — mobile shows
-            it in the global top bar). */}
-        <span className="hidden md:inline-flex flex-shrink-0">
-          <RubyBalance theme="light" size="lg" />
-        </span>
-        {mastery && (
-          <span
-            className={`text-[11px] font-semibold px-2 py-0.5 rounded-full ${
-              mastery.status === "mastered"
-                ? "bg-green-100 text-green-700"
-                : "bg-amber-100 text-amber-700"
-            }`}
-          >
-            {mastery.status === "mastered"
-              ? "Mastered"
-              : requiredCount > 0
-              ? `${Math.min(distinctAnswered, requiredCount)}/${requiredCount}`
-              : `${mastery.correct_count}`}
-          </span>
-        )}
-        {mastery && mastery.status !== "mastered" && requiredCount > 0 && (
-          <span
-            className="hidden sm:inline text-[10px] text-gray-500"
-            title={`Master this skill: answer ${requiredCount} different questions at ${Math.round(
-              ACCURACY_TARGET * 100,
-            )}% correct`}
-          >
-            {requiredCount} at {Math.round(ACCURACY_TARGET * 100)}%
-          </span>
-        )}
-        {replayMode && (
-          <button
-            onClick={onExitReplayClick}
-            className="text-xs text-blue-600 hover:underline"
-          >
-            Exit replay
-          </button>
-        )}
-      </header>
+  const showProgress = (phase === "question" || phase === "feedback") && !!question;
+  const coveragePct =
+    requiredCount > 0
+      ? Math.round((Math.min(distinctAnswered, requiredCount) / requiredCount) * 100)
+      : 0;
 
-      <div className="flex-1 overflow-y-auto p-4 sm:p-6">
-        <div className="max-w-2xl mx-auto">
+  return (
+    <div className="relative flex flex-col h-full bg-[#F4F4F5]">
+      <EduBackground />
+      <div className="relative flex-1 overflow-y-auto">
+        <div className="max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
+          {/* Top row: back to subjects + rubies (+ replay exit) */}
+          <div className="flex items-center justify-between gap-3">
+            {onBack ? (
+              <button
+                onClick={onBack}
+                className="text-sm text-[#1a2744] font-semibold underline decoration-2 underline-offset-4"
+                aria-label="Back to subjects"
+              >
+                ← Subjects
+              </button>
+            ) : (
+              <span />
+            )}
+            <div className="flex items-center gap-3">
+              {replayMode && (
+                <button
+                  onClick={onExitReplayClick}
+                  className="text-xs text-blue-600 hover:underline"
+                >
+                  Exit replay
+                </button>
+              )}
+              <span className="hidden md:inline-flex flex-shrink-0">
+                <RubyBalance theme="light" size="lg" />
+              </span>
+            </div>
+          </div>
+
+          {/* Coverage / mastery progress card (teal — Maths Literacy's accent) */}
+          {showProgress && (
+            <div className="bg-teal-50 border border-teal-200 rounded-2xl px-4 py-3">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs font-bold uppercase tracking-wide text-teal-800 truncate pr-2">
+                  {skill?.title ?? "Maths Literacy"}
+                </span>
+                <span className="text-sm font-semibold text-teal-700 flex-shrink-0">
+                  {mastery?.status === "mastered"
+                    ? "Mastered ⭐"
+                    : requiredCount > 0
+                    ? `${Math.min(distinctAnswered, requiredCount)} of ${requiredCount}`
+                    : `${mastery?.correct_count ?? 0} correct`}
+                </span>
+              </div>
+              <div className="h-2 bg-teal-100 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-teal-500 rounded-full transition-all"
+                  style={{ width: `${mastery?.status === "mastered" ? 100 : coveragePct}%` }}
+                />
+              </div>
+              {mastery?.status !== "mastered" && requiredCount > 0 && (
+                <p className="text-[11px] text-teal-700 mt-1.5">
+                  Master: {requiredCount} questions at {Math.round(ACCURACY_TARGET * 100)}%
+                </p>
+              )}
+            </div>
+          )}
+
           {phase === "loading" && (
-            <div className="text-center text-gray-500 py-12">Loading question…</div>
+            <div className="bg-white rounded-3xl shadow-md p-8 text-center text-gray-500">
+              Loading question…
+            </div>
           )}
 
           {phase === "error" && (
-            <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700">
-              {error ?? "Something went wrong."}
+            <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-4">
+              <p className="text-sm text-rose-700 bg-rose-50 rounded-xl px-3 py-2">
+                {error ?? "Something went wrong."}
+              </p>
               <button
                 onClick={() => fetchQuestion(currentSkillId)}
-                className="block mt-3 px-3 py-1.5 bg-red-600 text-white rounded-md text-xs"
+                className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
               >
                 Try again
               </button>
@@ -365,37 +379,20 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
               whyOverride={question.error_explanation}
               workingSteps={question.working_steps}
               partialCredit={feedback.partial_credit}
-              footer={(() => {
-                const nextLabel =
-                  profile?.skill_mastery[currentSkillId]?.status === "mastered" &&
-                  feedback.is_correct &&
-                  !replayMode
-                    ? "Next skill →"
-                    : "Next question →";
-                const nextBtn = (
-                  <button
-                    onClick={onContinue}
-                    className="flex-1 px-4 py-2.5 rounded-xl bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors"
-                  >
-                    {nextLabel}
-                  </button>
-                );
-                // On a wrong answer, offer a Retry of the same question next to
-                // the advance button; a correct answer just advances full-width.
-                return (
-                  <div className="flex gap-3">
-                    {!feedback.is_correct && (
-                      <button
-                        onClick={onRetry}
-                        className="flex-1 px-4 py-2.5 rounded-xl border-2 border-[#BE1832] text-[#BE1832] hover:bg-[#BE1832]/5 font-semibold text-sm transition-colors"
-                      >
-                        ↻ Retry
-                      </button>
-                    )}
-                    {nextBtn}
-                  </div>
-                );
-              })()}
+              footer={
+                <FeedbackFooter
+                  isCorrect={feedback.is_correct}
+                  onNext={onContinue}
+                  onRetry={onRetry}
+                  nextLabel={
+                    profile?.skill_mastery[currentSkillId]?.status === "mastered" &&
+                    feedback.is_correct &&
+                    !replayMode
+                      ? "Next skill →"
+                      : "Next question →"
+                  }
+                />
+              }
             />
           )}
         </div>
@@ -427,46 +424,45 @@ function QuestionView({
       ? (question.fields ?? []).every((f) => (studentFields[f.label] ?? "").trim() !== "")
       : studentAnswer.trim() !== "";
 
+  const wide = (question.options ?? []).some((o) => o.length > 40);
+
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 sm:p-6 space-y-4">
+    <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-5">
       {question.stimulus && (
         <MathsLiteracyMarkdown className="text-sm text-gray-700 leading-relaxed">
           {question.stimulus}
         </MathsLiteracyMarkdown>
       )}
-      <MathsLiteracyMarkdown className="text-base font-semibold text-gray-900">
+      <MathsLiteracyMarkdown className="text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">
         {question.question}
       </MathsLiteracyMarkdown>
 
       {question.answerMode === "numeric" && (
-        <div>
-          <input
-            type="text"
-            inputMode="decimal"
-            value={studentAnswer}
-            onChange={(e) => setStudentAnswer(e.target.value)}
-            onKeyDown={(e) => { if (e.key === "Enter" && canSubmit && !submitting) onSubmit(); }}
-            placeholder={question.unit ? `Answer in ${question.unit}` : "Your answer"}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
-            autoFocus
-          />
-        </div>
+        <input
+          type="text"
+          inputMode="decimal"
+          value={studentAnswer}
+          onChange={(e) => setStudentAnswer(e.target.value)}
+          onKeyDown={(e) => { if (e.key === "Enter" && canSubmit && !submitting) onSubmit(); }}
+          placeholder={question.unit ? `Answer in ${question.unit}` : "Your answer"}
+          className="w-full px-5 py-4 text-lg font-semibold border-2 border-teal-200 focus:border-teal-400 focus:outline-none rounded-2xl bg-teal-50/40 text-[#1a2744]"
+          autoFocus
+        />
       )}
 
       {question.answerMode === "multiChoice" && question.options && (
-        <div className="space-y-2">
+        <div className={`grid ${wide ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2"} gap-3`}>
           {question.options.map((opt, i) => (
             <button
               key={i}
               onClick={() => setStudentAnswer(opt)}
-              className={`w-full text-left px-3 py-2 rounded-lg border transition-colors ${
+              className={`rounded-2xl px-5 py-5 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all whitespace-pre-line border-2 ${
                 studentAnswer === opt
-                  ? "border-[#BE1832] bg-rose-50 ring-2 ring-[#BE1832]/20"
-                  : "border-gray-300 bg-white hover:border-gray-400"
+                  ? "bg-teal-100 border-teal-400 ring-2 ring-teal-300"
+                  : "bg-teal-50 hover:bg-teal-100 border-teal-200 hover:border-teal-300"
               }`}
             >
-              <span className="text-xs text-gray-500 mr-2">{String.fromCharCode(65 + i)})</span>
-              <span className="text-sm">{opt}</span>
+              {opt}
             </button>
           ))}
         </div>
@@ -476,7 +472,7 @@ function QuestionView({
         <div className="space-y-3">
           {question.fields.map((f) => (
             <label key={f.label} className="block">
-              <span className="text-sm text-gray-700">{f.label}</span>
+              <span className="text-sm font-medium text-gray-700">{f.label}</span>
               <input
                 type="text"
                 value={studentFields[f.label] ?? ""}
@@ -484,7 +480,7 @@ function QuestionView({
                   setStudentFields({ ...studentFields, [f.label]: e.target.value })
                 }
                 onKeyDown={(e) => { if (e.key === "Enter" && canSubmit && !submitting) onSubmit(); }}
-                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
+                className="mt-1 w-full px-5 py-3 text-base border-2 border-teal-200 focus:border-teal-400 focus:outline-none rounded-2xl bg-teal-50/40 text-[#1a2744]"
               />
             </label>
           ))}
@@ -494,7 +490,7 @@ function QuestionView({
       <button
         onClick={onSubmit}
         disabled={!canSubmit || submitting}
-        className="w-full px-4 py-2.5 rounded-xl bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-semibold text-sm transition-colors"
+        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg transition-colors"
       >
         {submitting ? "Checking…" : "Submit"}
       </button>

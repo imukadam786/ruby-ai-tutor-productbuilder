@@ -3,6 +3,7 @@ import RubyBalance from "@/components/RubyBalance";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreAfrikaans } from "@/lib/afrikaans-scoring";
 
 // Cloned from components/life-skills/LifeSkillsSession.tsx — the learner taps /
@@ -590,14 +591,12 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
                 note={result.is_correct ? result.memo : undefined}
                 whyOverride={result.is_correct ? undefined : result.memo}
                 footer={
-                  <button
-                    onClick={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
-                    disabled={submitting}
-                    className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                  >
-                    Next question →
-                  </button>
-                }
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
+                  onRetry={() => { setAnswer(""); setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
               />
             )}
 
