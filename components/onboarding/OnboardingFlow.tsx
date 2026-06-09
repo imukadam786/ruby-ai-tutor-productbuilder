@@ -355,7 +355,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
               {!loginMode && (
                 <div className="flex justify-center mb-1">
                   <img
-                    src="/ruby-heroes.png"
+                    src="/ruby-heroes.webp"
                     alt="Ruby superheroes"
                     className="h-24 sm:h-36 w-auto object-contain"
                   />

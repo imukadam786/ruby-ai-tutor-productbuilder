@@ -137,7 +137,7 @@ export default function RubyBalance({ theme = "dark", className = "" }: RubyBala
     >
       <span className="relative w-4 h-4 flex-shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/rubytransparent.png" alt="rubies" className="w-4 h-4 object-contain" />
+        <img src="/rubytransparent.webp" alt="rubies" className="w-4 h-4 object-contain" />
         {glint > 0 && (
           <DotLottieReact
             key={glint}

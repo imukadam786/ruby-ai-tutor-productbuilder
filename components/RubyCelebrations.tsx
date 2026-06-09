@@ -92,7 +92,7 @@ export default function RubyCelebrations() {
             {active.rubies ? (
               <span className="flex items-center gap-1 font-semibold text-[#BE1832]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                · <img src="/rubytransparent.png" alt="" className="w-5 h-5 object-contain" /> +{active.rubies}
+                · <img src="/rubytransparent.webp" alt="" className="w-5 h-5 object-contain" /> +{active.rubies}
               </span>
             ) : null}
           </p>
@@ -124,7 +124,7 @@ export default function RubyCelebrations() {
         {active.rubies ? (
           <div className="mt-4 inline-flex items-center gap-2 bg-rose-50 text-[#BE1832] font-bold text-lg px-4 py-1.5 rounded-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/rubytransparent.png" alt="" className="w-5 h-5 object-contain" /> +{active.rubies}
+            <img src="/rubytransparent.webp" alt="" className="w-5 h-5 object-contain" /> +{active.rubies}
           </div>
         ) : null}
       </div>
