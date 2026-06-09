@@ -404,6 +404,7 @@ function QuestionView({
             inputMode="decimal"
             value={studentAnswer}
             onChange={(e) => setStudentAnswer(e.target.value)}
+            onKeyDown={(e) => { if (e.key === "Enter" && canSubmit && !submitting) onSubmit(); }}
             placeholder={question.unit ? `Answer in ${question.unit}` : "Your answer"}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
             autoFocus
@@ -441,6 +442,7 @@ function QuestionView({
                 onChange={(e) =>
                   setStudentFields({ ...studentFields, [f.label]: e.target.value })
                 }
+                onKeyDown={(e) => { if (e.key === "Enter" && canSubmit && !submitting) onSubmit(); }}
                 className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
               />
             </label>
