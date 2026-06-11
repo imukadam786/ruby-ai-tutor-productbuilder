@@ -10,7 +10,7 @@ import { Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown }
 import { PAPER_INDEX, PaperMeta, loadPaperById } from "@/lib/matric/paper-index";
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
-import MatricFeedbackCard from "./MatricFeedbackCard";
+import MatricFeedbackCard, { RubricPoint } from "./MatricFeedbackCard";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -22,6 +22,7 @@ interface CoachMessage {
   content: string;
   marksEarned?: number;
   totalMarks?: number;
+  breakdown?: RubricPoint[];
 }
 
 interface QuestionState {
@@ -723,8 +724,8 @@ function SessionView({
       console.error("[evaluate] HTTP", res.status, body);
       throw new Error(`HTTP ${res.status}`);
     }
-    const data = await res.json() as { marksEarned?: number; totalMarks?: number; allCorrect?: boolean; feedback?: string };
-    return { marksEarned: data.marksEarned ?? 0, totalMarks: data.totalMarks ?? sq.marks, allCorrect: data.allCorrect ?? false, feedback: data.feedback ?? "Evaluation complete." };
+    const data = await res.json() as { marksEarned?: number; totalMarks?: number; allCorrect?: boolean; feedback?: string; breakdown?: RubricPoint[] };
+    return { marksEarned: data.marksEarned ?? 0, totalMarks: data.totalMarks ?? sq.marks, allCorrect: data.allCorrect ?? false, feedback: data.feedback ?? "Evaluation complete.", breakdown: data.breakdown };
   }, [language, mode]);
 
   const handleSubmitWorking = async () => {
@@ -735,7 +736,7 @@ function SessionView({
       const result = await evaluateQuestion(currentSQ, currentAttempt);
       updateAttempt(currentSQ.id, {
         submitted: true, marksEarned: result.marksEarned, attemptCount: currentAttempt.attemptCount + 1,
-        coachMessages: [...currentAttempt.coachMessages, { type: "ai", content: result.feedback, marksEarned: result.marksEarned, totalMarks: result.totalMarks }],
+        coachMessages: [...currentAttempt.coachMessages, { type: "ai", content: result.feedback, marksEarned: result.marksEarned, totalMarks: result.totalMarks, breakdown: result.breakdown }],
         imageData: currentAttempt.imageFile ? await fileToBase64(currentAttempt.imageFile) : undefined,
         imageMimeType: currentAttempt.imageFile?.type,
       });
@@ -763,7 +764,7 @@ function SessionView({
       if (!hasAnswer) { setSubmitProgress(i + 1); continue; }
       try {
         const result = await evaluateQuestion(sq, attempt, "practice");
-        updatedAttempts[sq.id] = { ...attempt, submitted: true, marksEarned: result.marksEarned, coachMessages: [{ type: "ai", content: result.feedback, marksEarned: result.marksEarned, totalMarks: result.totalMarks }] };
+        updatedAttempts[sq.id] = { ...attempt, submitted: true, marksEarned: result.marksEarned, coachMessages: [{ type: "ai", content: result.feedback, marksEarned: result.marksEarned, totalMarks: result.totalMarks, breakdown: result.breakdown }] };
       } catch { updatedAttempts[sq.id] = { ...attempt, submitted: true, marksEarned: 0 }; }
       setSubmitProgress(i + 1);
       setAttempts({ ...updatedAttempts });
@@ -1137,6 +1138,7 @@ function SessionView({
                       content={msg.content}
                       marksEarned={msg.marksEarned}
                       totalMarks={msg.totalMarks}
+                      breakdown={msg.breakdown}
                       modelAnswerImageUrl={
                         i === currentAttempt.coachMessages.length - 1 ? currentSQ.memoImageUrl : undefined
                       }

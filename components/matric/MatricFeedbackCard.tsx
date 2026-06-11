@@ -11,6 +11,22 @@ import rehypeKatex from "rehype-katex";
 
 type FeedbackTier = "full" | "partial" | "zero";
 
+// One scored line from the mark scheme — the model itemises the memo into these
+// so the student sees exactly which marks they earned and lost, not just a total.
+export interface RubricPoint {
+  point: string;
+  maxMarks: number;
+  awarded: number;
+  status: "correct" | "partial" | "missed";
+  note?: string;
+}
+
+const ROW: Record<RubricPoint["status"], { icon: string; color: string }> = {
+  correct: { icon: "✓", color: "text-green-600" },
+  partial: { icon: "◐", color: "text-amber-600" },
+  missed: { icon: "✗", color: "text-rose-500" },
+};
+
 // total > 0 guard: a 0-mark question must not register as "full marks".
 function tierOf(earned: number | undefined, total: number | undefined): FeedbackTier | null {
   if (earned === undefined || total === undefined) return null;
@@ -64,6 +80,8 @@ export interface MatricFeedbackCardProps {
   content: string;
   marksEarned?: number;
   totalMarks?: number;
+  /** Per-mark breakdown of the scheme — renders a checklist when present. */
+  breakdown?: RubricPoint[];
   /** Model-answer sketch — pass only on the latest message; omitted = no image. */
   modelAnswerImageUrl?: string;
   /** Called with the image URL when the model answer is tapped (opens the expand modal). */
@@ -74,6 +92,7 @@ export default function MatricFeedbackCard({
   content,
   marksEarned,
   totalMarks,
+  breakdown,
   modelAnswerImageUrl,
   onExpandImage,
 }: MatricFeedbackCardProps) {
@@ -93,6 +112,29 @@ export default function MatricFeedbackCard({
       <div className="text-sm text-gray-700 leading-relaxed">
         <MathMarkdown content={content} />
       </div>
+
+      {breakdown && breakdown.length > 0 && (
+        <div className={`pt-2 space-y-1.5 border-t ${DIVIDER[t]}`}>
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide pt-1">Mark breakdown</p>
+          <ul className="space-y-1.5">
+            {breakdown.map((b, i) => {
+              const row = ROW[b.status];
+              return (
+                <li key={i} className="flex items-start gap-2 text-sm">
+                  <span className={`font-bold leading-5 ${row.color}`} aria-hidden>{row.icon}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <span className="text-gray-700">{b.point}</span>
+                      <span className={`shrink-0 text-xs font-semibold ${row.color}`}>{b.awarded}/{b.maxMarks}</span>
+                    </div>
+                    {b.note && <p className="text-xs text-gray-500 leading-snug mt-0.5">{b.note}</p>}
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
 
       {modelAnswerImageUrl && (
         <div className="pt-2 space-y-1">

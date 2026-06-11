@@ -10,7 +10,7 @@ import { Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown }
 import { PAPER_INDEX, PaperMeta, loadPaperById } from "@/lib/matric/paper-index";
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
-import MatricFeedbackCard from "./MatricFeedbackCard";
+import MatricFeedbackCard, { RubricPoint } from "./MatricFeedbackCard";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -22,6 +22,7 @@ interface CoachMessage {
   content: string;
   marksEarned?: number;
   totalMarks?: number;
+  breakdown?: RubricPoint[];
 }
 
 interface QuestionState {
@@ -1121,6 +1122,7 @@ function SessionView({
         totalMarks?: number;
         allCorrect?: boolean;
         feedback?: string;
+        breakdown?: RubricPoint[];
       };
 
       return {
@@ -1128,6 +1130,7 @@ function SessionView({
         totalMarks: data.totalMarks ?? sq.marks,
         allCorrect: data.allCorrect ?? false,
         feedback: data.feedback ?? "Evaluation complete.",
+        breakdown: data.breakdown,
       };
     },
     [language, mode]
@@ -1161,6 +1164,7 @@ function SessionView({
         content: result.feedback,
         marksEarned: result.marksEarned,
         totalMarks: result.totalMarks,
+        breakdown: result.breakdown,
       };
 
       updateAttempt(currentSQ.id, {
@@ -2279,6 +2283,7 @@ function SessionView({
                         content={msg.content}
                         marksEarned={msg.marksEarned}
                         totalMarks={msg.totalMarks}
+                        breakdown={msg.breakdown}
                         modelAnswerImageUrl={
                           i === currentAttempt.coachMessages.length - 1 ? currentSQ.memoImageUrl : undefined
                         }
