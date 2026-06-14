@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import RubyLoader from "@/components/RubyLoader";
 import RubyBalance from "@/components/RubyBalance";
+import RubyIcon from "@/components/ui/RubyIcon";
+import Button from "@/components/ui/Button";
 import { apiFetch } from "@/lib/fetch";
 import {
   StudentProfile,
@@ -897,12 +899,14 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
               </p>
               <p className="text-gray-500 text-sm">Check your connection and try again.</p>
               {loadErrorCount < 3 ? (
-                <button
+                <Button
+                  variant="primary"
+                  size="lg"
+                  fullWidth
                   onClick={() => retryFnRef.current?.()}
-                  className="w-full bg-blue-500 text-white py-3 rounded-2xl font-semibold hover:bg-blue-600 transition-colors"
                 >
                   Try again
-                </button>
+                </Button>
               ) : (
                 <button
                   onClick={handleSkipOnLoadError}
@@ -1002,7 +1006,7 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
             <div className="text-6xl mb-1">🎉</div>
-            <div className="flex justify-center gap-2 text-2xl">⭐⭐⭐</div>
+            <div className="flex justify-center gap-2"><RubyIcon className="w-7 h-7" /><RubyIcon className="w-7 h-7" /><RubyIcon className="w-7 h-7" /></div>
             <h3 className="text-2xl font-bold text-green-800">{t("session.skill_complete")}</h3>
             <p className="text-green-700 text-lg">
               You mastered <strong>{skill?.title || "this skill"}</strong>!
@@ -1036,12 +1040,14 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
             <p className="text-blue-700 text-lg">
               You finished <strong>{tier?.title ?? "this topic"}</strong>!
             </p>
-            <button
+            <Button
+              variant="primary"
+              size="lg"
+              fullWidth
               onClick={handleAdvanceAfterCelebration}
-              className="w-full bg-blue-500 hover:bg-blue-600 active:scale-95 text-white py-3 rounded-xl font-semibold text-lg transition-all shadow-md"
             >
               Next topic →
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -1103,12 +1109,15 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
             <p className="text-gray-600">
               You&apos;ve completed the entire Ruby Math Skill Tree. That&apos;s a remarkable achievement!
             </p>
-            <button
+            <Button
+              variant="primary"
+              size="lg"
+              fullWidth
               onClick={resetToPlacement}
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-medium mt-2"
+              className="mt-2"
             >
               Start Again
-            </button>
+            </Button>
           </div>
         </div>
       </div>

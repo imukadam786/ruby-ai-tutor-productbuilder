@@ -103,12 +103,16 @@ export default function CharacterPicker({ onPick }: CharacterPickerProps) {
                       <button
                         key={tutor.name}
                         onClick={() => onPick(tutor.name)}
-                        className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
+                        className="w-full max-w-[260px] mx-auto bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
                       >
+                        {/* Source art is 267×400; capping the card near that width
+                            keeps it from upscaling into a blur on a full-width
+                            phone. aspect-[2/3]+object-cover frames every tutor
+                            flush. Truly sharp at large sizes needs ~2× art. */}
                         <img
                           src={tutor.img}
                           alt={tutor.name}
-                          className="w-full block"
+                          className="w-full aspect-[2/3] object-cover object-top block"
                           draggable={false}
                         />
                         <div className="px-3 py-2.5 text-center">

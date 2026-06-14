@@ -15,6 +15,7 @@
 
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import EduBackground from "@/components/EduBackground";
+import RubyIcon from "@/components/ui/RubyIcon";
 
 // When a tree renders inside the Subjects hub, it opts into a more compact
 // presentation: the header reads a plain "Skill Tree" (the subject name is
@@ -354,6 +355,7 @@ const ACCENT_LABEL: Record<"active" | "current", string> = {
 };
 
 function SkillTile({ skill, accent }: { skill: TreeSkill; accent: typeof ACCENTS[SkillTreeAccent] }) {
+  const [showHint, setShowHint] = useState(false);
   const isAccentStatus = skill.status === "active" || skill.status === "current";
   const tile = isAccentStatus
     ? null
@@ -381,7 +383,7 @@ function SkillTile({ skill, accent }: { skill: TreeSkill; accent: typeof ACCENTS
       {skill.title}
       {skill.replay && <span className="ml-1 text-current opacity-70" aria-hidden>🔁</span>}
       {skill.autoComplete && <span className="ml-1.5 text-green-500" title="Auto-completed via placement" aria-hidden>✦</span>}
-      {skill.entry && <span className="ml-1.5 text-blue-500" title="Placement entry point" aria-hidden>★</span>}
+      {skill.entry && <span className="ml-1.5 inline-flex" title="Placement entry point"><RubyIcon className="w-3.5 h-3.5" /></span>}
       {skill.hardGateNote && (
         <span className="block text-amber-600 text-[10px] leading-tight mt-0.5">{skill.hardGateNote}</span>
       )}
@@ -390,11 +392,43 @@ function SkillTile({ skill, accent }: { skill: TreeSkill; accent: typeof ACCENTS
 
   const title = `${skill.title} — ${label}`;
 
-  return clickable ? (
-    <button type="button" onClick={skill.onClick} className={className} title={title} aria-label={title}>
-      {inner}
-    </button>
-  ) : (
+  // A locked skill the learner can't open yet. Instead of a dead tile with only
+  // a hover tooltip (invisible on touch), let them tap it to reveal — in plain
+  // words — what unlocks it. This is the signpost that was missing when learners
+  // tapped a locked skill and nothing happened.
+  const isLocked = skill.status === "locked";
+
+  if (clickable) {
+    return (
+      <button type="button" onClick={skill.onClick} className={className} title={title} aria-label={title}>
+        {inner}
+      </button>
+    );
+  }
+
+  if (isLocked) {
+    return (
+      <span className="inline-flex flex-col items-start align-top">
+        <button
+          type="button"
+          onClick={() => setShowHint((v) => !v)}
+          className={`${className} cursor-pointer`}
+          title={title}
+          aria-label={title}
+          aria-expanded={showHint}
+        >
+          {inner}
+        </button>
+        {showHint && (
+          <span className="mt-1 max-w-[13rem] text-gray-500 text-[10px] leading-tight">
+            🔒 Master the skill before this one to unlock it.
+          </span>
+        )}
+      </span>
+    );
+  }
+
+  return (
     <div className={className} title={title} aria-label={title}>
       {inner}
     </div>

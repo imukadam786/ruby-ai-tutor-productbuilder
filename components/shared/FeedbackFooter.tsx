@@ -7,6 +7,8 @@
 // alongside the advance button. Centralising it here keeps the retry experience
 // identical across all subjects — change it once, it lands everywhere.
 
+import Button from "@/components/ui/Button";
+
 interface FeedbackFooterProps {
   /** Whether the just-submitted answer was correct. */
   isCorrect: boolean;
@@ -28,28 +30,23 @@ export default function FeedbackFooter({
   nextLabel = "Next question →",
 }: FeedbackFooterProps) {
   const next = (
-    <button
-      onClick={onNext}
-      className="flex-1 py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg transition-colors"
-    >
+    <Button variant="primary" size="lg" fullWidth onClick={onNext}>
       {nextLabel}
-    </button>
+    </Button>
   );
 
   // Correct (or no retry handler) → a single full-width advance button.
   if (isCorrect || !onRetry) {
-    return <div className="flex">{next}</div>;
+    return next;
   }
 
   // Wrong → Retry the same question (outlined) beside the advance button.
+  // Stack on narrow screens so neither button is squeezed thin enough to wrap.
   return (
-    <div className="flex gap-3">
-      <button
-        onClick={onRetry}
-        className="flex-1 py-4 rounded-full border-2 border-[#BE1832] text-[#BE1832] hover:bg-[#BE1832]/5 font-bold text-lg transition-colors"
-      >
+    <div className="flex flex-col sm:flex-row gap-3">
+      <Button variant="outline" size="lg" fullWidth onClick={onRetry}>
         ↻ Retry
-      </button>
+      </Button>
       {next}
     </div>
   );

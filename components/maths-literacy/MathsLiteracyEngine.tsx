@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { apiFetch } from "@/lib/fetch";
 import MathsLiteracyMarkdown from "@/components/maths-literacy/MathsLiteracyMarkdown";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
+import Button from "@/components/ui/Button";
 import { seedForGrade } from "@/lib/maths-literacy-grade-map";
 import {
   getMathsLiteracyProfile,
@@ -12,7 +13,8 @@ import {
   saveMathsLiteracyProfile,
   updateMathsLiteracySkillMastery,
 } from "@/lib/maths-literacy-student-model";
-import { ACCURACY_TARGET, requiredCoverageCount } from "@/lib/content-mastery";
+import { requiredCoverageCount } from "@/lib/content-mastery";
+import MasteryHeader from "@/components/shared/MasteryHeader";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import EduBackground from "@/components/EduBackground";
@@ -268,10 +270,6 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
   ).size;
 
   const showProgress = (phase === "question" || phase === "feedback") && !!question;
-  const coveragePct =
-    requiredCount > 0
-      ? Math.round((Math.min(distinctAnswered, requiredCount) / requiredCount) * 100)
-      : 0;
 
   return (
     <div className="relative flex flex-col h-full bg-[#F4F4F5]">
@@ -306,33 +304,16 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
             </div>
           </div>
 
-          {/* Coverage / mastery progress card (teal — Maths Literacy's accent) */}
+          {/* Coverage / mastery progress card — shared across all subjects. */}
           {showProgress && (
-            <div className="bg-teal-50 border border-teal-200 rounded-2xl px-4 py-3">
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-xs font-bold uppercase tracking-wide text-teal-800 truncate pr-2">
-                  {skill?.title ?? "Maths Literacy"}
-                </span>
-                <span className="text-sm font-semibold text-teal-700 flex-shrink-0">
-                  {mastery?.status === "mastered"
-                    ? "Mastered ⭐"
-                    : requiredCount > 0
-                    ? `${Math.min(distinctAnswered, requiredCount)} of ${requiredCount}`
-                    : `${mastery?.correct_count ?? 0} correct`}
-                </span>
-              </div>
-              <div className="h-2 bg-teal-100 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-teal-500 rounded-full transition-all"
-                  style={{ width: `${mastery?.status === "mastered" ? 100 : coveragePct}%` }}
-                />
-              </div>
-              {mastery?.status !== "mastered" && requiredCount > 0 && (
-                <p className="text-[11px] text-teal-700 mt-1.5">
-                  Master: {requiredCount} questions at {Math.round(ACCURACY_TARGET * 100)}%
-                </p>
-              )}
-            </div>
+            <MasteryHeader
+              title={skill?.title ?? "Maths Literacy"}
+              distinctAnswered={distinctAnswered}
+              requiredCount={requiredCount}
+              correctCount={mastery?.correct_count ?? 0}
+              attemptCount={mastery?.attempt_count ?? 0}
+              mastered={mastery?.status === "mastered"}
+            />
           )}
 
           {phase === "loading" && (
@@ -346,12 +327,9 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
               <p className="text-sm text-rose-700 bg-rose-50 rounded-xl px-3 py-2">
                 {error ?? "Something went wrong."}
               </p>
-              <button
-                onClick={() => fetchQuestion(currentSkillId)}
-                className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-              >
+              <Button variant="primary" size="lg" fullWidth onClick={() => fetchQuestion(currentSkillId)}>
                 Try again
-              </button>
+              </Button>
             </div>
           )}
 
@@ -487,13 +465,9 @@ function QuestionView({
         </div>
       )}
 
-      <button
-        onClick={onSubmit}
-        disabled={!canSubmit || submitting}
-        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg transition-colors"
-      >
+      <Button variant="primary" size="lg" fullWidth onClick={onSubmit} disabled={!canSubmit || submitting}>
         {submitting ? "Checking…" : "Submit"}
-      </button>
+      </Button>
     </div>
   );
 }

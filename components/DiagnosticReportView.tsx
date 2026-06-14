@@ -9,6 +9,7 @@ import { buildDeterministicReportContent, } from "@/lib/report-content-builder";
 import { describeError } from "@/lib/report-generator";
 import type { DiagnosticReportInput } from "@/lib/report-generator";
 import EduBackground from "@/components/EduBackground";
+import Button from "@/components/ui/Button";
 
 // ─── Colour helpers ───────────────────────────────────────────────────────────
 
@@ -268,12 +269,14 @@ export default function DiagnosticReportView({
       {/* ── Bottom bar — constrained to match report content width ── */}
       <div className="relative bg-white border-t border-gray-200 py-3 flex-shrink-0">
         <div className="max-w-xl mx-auto px-4">
-          <button
+          <Button
+            variant="success"
+            size="lg"
+            fullWidth
             onClick={onStartLearning}
-            className="w-full bg-green-600 text-white py-4 rounded-xl font-bold text-base transition-all hover:bg-green-700 shadow-md"
           >
             {ctaLabel}
-          </button>
+          </Button>
         </div>
       </div>
     </div>

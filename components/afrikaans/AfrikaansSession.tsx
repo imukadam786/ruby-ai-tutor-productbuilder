@@ -1,10 +1,12 @@
 "use client";
 import RubyBalance from "@/components/RubyBalance";
+import MasteryHeader from "@/components/shared/MasteryHeader";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreAfrikaans } from "@/lib/afrikaans-scoring";
+import Button from "@/components/ui/Button";
 
 // Cloned from components/life-skills/LifeSkillsSession.tsx — the learner taps /
 // chooses / listens, and answers are graded deterministically by the
@@ -462,12 +464,9 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
             )}
           </p>
           <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct this round.</p>
-          <button
-            onClick={backToTree}
-            className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-base"
-          >
+          <Button variant="success" size="lg" fullWidth onClick={backToTree}>
             Pick another skill
-          </button>
+          </Button>
         </div>
       </div>
     );
@@ -501,31 +500,14 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
         </div>
 
         {skillId && (
-          <div className="bg-orange-50 border border-orange-200 rounded-2xl px-4 py-3">
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs font-bold uppercase tracking-wide text-orange-800">
-                Master this skill
-              </span>
-              <span className="text-sm font-semibold text-orange-700">
-                Q {Math.min(attemptCount + 1, requiredCount(skillId))} / {requiredCount(skillId)} · ⭐ {correctCount}
-              </span>
-            </div>
-            <div className="h-2 bg-orange-100 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-orange-500 rounded-full transition-all"
-                style={{
-                  width: `${Math.round(
-                    (Math.min(attemptCount, requiredCount(skillId)) /
-                      Math.max(requiredCount(skillId), 1)) *
-                      100,
-                  )}%`,
-                }}
-              />
-            </div>
-            <p className="text-[11px] text-orange-700 mt-1.5">
-              Master: {requiredCount(skillId)} questions at {Math.round(ACCURACY_TARGET * 100)}%
-            </p>
-          </div>
+          <MasteryHeader
+            title={findSkill(skillId)?.skill?.title ?? "Master this topic"}
+            distinctAnswered={profile ? new Set(getAfrikaansUsedRefs(profile, skillId)).size : 0}
+            requiredCount={requiredCount(skillId)}
+            correctCount={correctCount}
+            attemptCount={attemptCount}
+            mastered={profile?.skill_mastery[skillId]?.status === "mastered"}
+          />
         )}
 
         {/* Question card */}
@@ -727,13 +709,15 @@ function AnswerInput({
         placeholder="Type your answer"
         className="w-full px-5 py-4 text-lg font-semibold border-2 border-orange-200 focus:border-orange-400 focus:outline-none rounded-2xl bg-orange-50 text-[#1a2744]"
       />
-      <button
+      <Button
+        variant="primary"
+        size="lg"
+        fullWidth
         disabled={submitting || !value.trim()}
         onClick={() => onSubmit(value.trim())}
-        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg"
       >
         Check answer
-      </button>
+      </Button>
     </div>
   );
 }
@@ -844,13 +828,9 @@ function SequenceInput({ order, onChange, onSubmit, submitting, speak }: Sequenc
           );
         })}
       </ol>
-      <button
-        disabled={submitting}
-        onClick={onSubmit}
-        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-      >
+      <Button variant="primary" size="lg" fullWidth disabled={submitting} onClick={onSubmit}>
         Check answer
-      </button>
+      </Button>
     </div>
   );
 }

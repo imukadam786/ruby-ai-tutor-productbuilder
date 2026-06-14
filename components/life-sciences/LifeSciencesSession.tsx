@@ -1,7 +1,9 @@
 "use client";
 import RubyBalance from "@/components/RubyBalance";
+import MasteryHeader from "@/components/shared/MasteryHeader";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
+import Button from "@/components/ui/Button";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { apiFetch } from "@/lib/fetch";
@@ -431,17 +433,19 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
             )}
           </p>
           <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct this round.</p>
-          <button
+          <Button
+            variant="success"
+            size="lg"
+            fullWidth
             onClick={() => {
               setSkillId(null);
               setQuestion(null);
               setResult(null);
               setPhase("tree");
             }}
-            className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-base"
           >
             Pick another topic
-          </button>
+          </Button>
         </div>
       </div>
     );
@@ -480,31 +484,14 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
           </div>
 
           {skillId && (
-            <div className="bg-emerald-50 border border-emerald-200 rounded-2xl px-4 py-3">
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-xs font-bold uppercase tracking-wide text-emerald-800">
-                  Master this topic
-                </span>
-                <span className="text-sm font-semibold text-emerald-700">
-                  Q {Math.min(attemptCount + 1, requiredCount(skillId))} of {requiredCount(skillId)} · ⭐ {correctCount}
-                </span>
-              </div>
-              <div className="h-2 bg-emerald-100 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-emerald-500 rounded-full transition-all"
-                  style={{
-                    width: `${Math.round(
-                      (Math.min(attemptCount, requiredCount(skillId)) /
-                        Math.max(requiredCount(skillId), 1)) *
-                        100,
-                    )}%`,
-                  }}
-                />
-              </div>
-              <p className="text-[11px] text-emerald-700 mt-1.5">
-                Master: {requiredCount(skillId)} questions at {Math.round(ACCURACY_TARGET * 100)}%
-              </p>
-            </div>
+            <MasteryHeader
+              title={findSkill(skillId)?.skill?.title ?? "Master this topic"}
+              distinctAnswered={profile ? new Set(getLifeSciencesUsedRefs(profile, skillId)).size : 0}
+              requiredCount={requiredCount(skillId)}
+              correctCount={correctCount}
+              attemptCount={attemptCount}
+              mastered={profile?.skill_mastery[skillId]?.status === "mastered"}
+            />
           )}
 
           {question && (
@@ -637,13 +624,15 @@ function AnswerInput({ question, value, onChange, onSubmit, submitting }: Answer
           rows={4}
           className="w-full px-4 py-3 text-base border-2 border-emerald-200 focus:border-emerald-400 focus:outline-none rounded-2xl bg-emerald-50/40 text-[#1a2744] resize-none"
         />
-        <button
+        <Button
+          variant="primary"
+          size="lg"
+          fullWidth
           disabled={submitting || !value.trim()}
           onClick={() => onSubmit(value.trim())}
-          className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg"
         >
           Check answer
-        </button>
+        </Button>
       </div>
     );
   }
@@ -710,13 +699,15 @@ function AnswerInput({ question, value, onChange, onSubmit, submitting }: Answer
         placeholder="Type your answer"
         className="w-full px-5 py-4 text-lg font-semibold border-2 border-emerald-200 focus:border-emerald-400 focus:outline-none rounded-2xl bg-emerald-50/40 text-[#1a2744]"
       />
-      <button
+      <Button
+        variant="primary"
+        size="lg"
+        fullWidth
         disabled={submitting || !value.trim()}
         onClick={() => onSubmit(value.trim())}
-        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg"
       >
         Check answer
-      </button>
+      </Button>
     </div>
   );
 }

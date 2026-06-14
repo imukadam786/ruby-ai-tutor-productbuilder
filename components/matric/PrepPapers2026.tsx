@@ -10,6 +10,7 @@ import { Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown }
 import { PAPER_INDEX, PaperMeta, loadPaperById } from "@/lib/matric/paper-index";
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
+import Button from "@/components/ui/Button";
 import MatricFeedbackCard, { RubricPoint } from "./MatricFeedbackCard";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -474,12 +475,14 @@ function ModeSelect({
           </select>
         </div>
 
-        <button
+        <Button
+          variant="primary"
+          size="lg"
+          fullWidth
           onClick={() => onStart(mode, language)}
-          className="w-full bg-[#BE1832] hover:bg-[#a31529] text-white font-semibold py-3.5 rounded-xl transition-colors text-base"
         >
           {mode === "practice" ? "Start Practice Exam" : "Start Guided Session"}
-        </button>
+        </Button>
       </div>
     </div>
   );
@@ -827,12 +830,12 @@ function SessionView({
             </span>
           )}
           {paper.infoSheet && (
-            <button onClick={() => setShowInfoSheet(true)} className={`${mode === "practice" && language !== "English" && language !== "Afrikaans" ? "" : "ml-auto"} flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0 bg-[#BE1832] text-white hover:bg-[#a31529]`}>
+            <Button variant="primary" size="sm" onClick={() => setShowInfoSheet(true)} className={`${mode === "practice" && language !== "English" && language !== "Afrikaans" ? "" : "ml-auto"} flex items-center gap-1 flex-shrink-0`}>
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               <span>Info</span>
-            </button>
+            </Button>
           )}
         </div>
         <div className="flex items-center gap-2 pb-2 sm:hidden">
@@ -1078,25 +1081,28 @@ function SessionView({
                     {currentSQ.type !== "mcq" && (
                       <button onClick={handleRetry} className="flex-1 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">Try again</button>
                     )}
-                    <button onClick={() => goTo(currentIdx + 1)} disabled={currentIdx === totalQuestions - 1} className="flex-1 py-2.5 rounded-xl bg-[#BE1832] text-white text-sm font-medium hover:bg-[#a31529] disabled:opacity-40 transition-colors">
+                    <Button variant="primary" size="md" className="flex-1" onClick={() => goTo(currentIdx + 1)} disabled={currentIdx === totalQuestions - 1}>
                       Next question →
-                    </button>
+                    </Button>
                   </div>
                 ) : (
-                  <button
+                  <Button
+                    variant="primary"
+                    size="md"
+                    fullWidth
                     onClick={handleSubmitWorking}
                     disabled={isEvaluating || (!currentAttempt.textWorking.trim() && !currentAttempt.imageFile)}
-                    className="flex-shrink-0 w-full py-2.5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                    className="flex-shrink-0 flex items-center justify-center gap-2"
                   >
                     {isEvaluating ? (
                       <><svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" /></svg>Evaluating…</>
                     ) : "Submit working"}
-                  </button>
+                  </Button>
                 )
               ) : (
                 <div className="flex justify-center gap-3 flex-shrink-0">
                   <button onClick={() => goTo(currentIdx - 1)} disabled={currentIdx === 0} className="py-2.5 px-4 rounded-xl border border-gray-200 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-30 transition-colors">← Prev</button>
-                  <button onClick={() => { if (currentAttempt.textWorking.trim() || currentAttempt.imageFile) updateAttempt(currentSQ.id, { submitted: false }); goTo(currentIdx + 1); }} disabled={currentIdx === totalQuestions - 1} className="py-2.5 px-5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] disabled:opacity-40 transition-colors">Save & Next →</button>
+                  <Button variant="primary" size="md" onClick={() => { if (currentAttempt.textWorking.trim() || currentAttempt.imageFile) updateAttempt(currentSQ.id, { submitted: false }); goTo(currentIdx + 1); }} disabled={currentIdx === totalQuestions - 1}>Save & Next →</Button>
                   <button onClick={() => goTo(currentIdx + 1)} disabled={currentIdx === totalQuestions - 1} className="py-2.5 px-4 rounded-xl border border-gray-200 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-30 transition-colors">Skip</button>
                 </div>
               )}
@@ -1106,7 +1112,7 @@ function SessionView({
           <div className="flex-shrink-0 border-t border-gray-100 bg-white px-4 py-2 space-y-1.5">
             {mode === "practice" && answeredCount > 0 && (
               <div className="flex justify-end">
-                <button onClick={handleSubmitPaper} className="text-xs font-semibold bg-[#BE1832] text-white px-3 py-1.5 rounded-lg hover:bg-[#a31529] transition-colors">Submit Paper</button>
+                <Button variant="primary" size="sm" onClick={handleSubmitPaper}>Submit Paper</Button>
               </div>
             )}
           </div>
@@ -1233,8 +1239,8 @@ function SummaryView({
         )}
 
         <div className="flex flex-col sm:flex-row gap-3">
-          <button onClick={onRetry} className="flex-1 py-3 rounded-xl border-2 border-[#BE1832] text-[#BE1832] font-semibold text-sm hover:bg-rose-50 transition-colors">Try this paper again</button>
-          <button onClick={onBack} className="flex-1 py-3 rounded-xl bg-[#BE1832] text-white font-semibold text-sm hover:bg-[#a31529] transition-colors">Choose another paper</button>
+          <Button variant="outline" size="lg" className="flex-1" onClick={onRetry}>Try this paper again</Button>
+          <Button variant="primary" size="lg" className="flex-1" onClick={onBack}>Choose another paper</Button>
         </div>
       </div>
     </div>

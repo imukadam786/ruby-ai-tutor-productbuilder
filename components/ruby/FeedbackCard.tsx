@@ -7,6 +7,7 @@ import { useTTS } from "@/lib/tts";
 import { apiFetch } from "@/lib/fetch";
 import { resolveErrorExplanation } from "@/lib/error-explanations";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import RubyIcon from "@/components/ui/RubyIcon";
 
 interface QuestionContext {
   skill_id: string;
@@ -146,10 +147,10 @@ export default function FeedbackCard({
             {[1, 2, 3].map((i) => (
               <span
                 key={i}
-                className="text-yellow-400 text-xl animate-bounce"
+                className="inline-flex animate-bounce"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                ⭐
+                <RubyIcon className="w-5 h-5" />
               </span>
             ))}
           </div>

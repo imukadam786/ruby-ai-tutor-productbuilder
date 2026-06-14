@@ -409,7 +409,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
       {/* Mobile: slim change-tutor strip (the desktop header is hidden on phones,
           and the picker is primarily a mobile flow, so learners need a way back). */}
       {tutor && onChangeTutor && (
-        <div className="md:hidden flex items-center gap-2 border-b border-gray-100 px-4 py-2 bg-white">
+        <div className="md:hidden flex items-center gap-2 border-b border-gray-100 px-4 py-1.5 bg-white">
           <button
             onClick={onChangeTutor}
             className="flex items-center gap-1 text-sm font-semibold text-[#BE1832]"
@@ -419,7 +419,9 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
             </svg>
             Change tutor
           </button>
-          <span className="text-xs text-[#BE1832]/80 truncate">{tutor.subjects.join(" · ")}</span>
+          {/* Just the tutor's name on mobile — the full subject list was noise
+              shown on every message. The subjects still appear in the picker. */}
+          <span className="ml-auto text-xs text-gray-500 truncate">with {tutor.name}</span>
         </div>
       )}
 
@@ -474,7 +476,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
       </div>
 
       {/* Messages */}
-      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto py-6 bg-white">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto py-4 sm:py-6 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-8 space-y-6">
         {messages.map((msg) => (
           <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
@@ -567,7 +569,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
       )}
 
       {/* Input area */}
-      <div className="px-4 pb-4 pt-2 sm:px-8 sm:pb-6 bg-white border-t border-gray-100">
+      <div className="px-4 pb-3 pt-2 sm:px-8 sm:pb-6 bg-white border-t border-gray-100">
         <div className="max-w-3xl mx-auto">
 
         {/* Quick-action prompts — visible until the first message is sent */}
@@ -706,7 +708,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
           </div>
         </div>
 
-        <p className="text-center text-sm text-gray-400 mt-2">Ruby can make mistakes. Double-check important info.</p>
+        <p className="text-center text-[11px] leading-tight text-gray-400 mt-1.5">Ruby can make mistakes — double-check important info.</p>
         </div>
       </div>
       </div>

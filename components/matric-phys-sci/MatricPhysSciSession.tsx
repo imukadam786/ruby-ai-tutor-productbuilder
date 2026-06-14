@@ -10,6 +10,7 @@ import SequenceQuestion from "./SequenceQuestion";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scorePhysSci } from "@/lib/matric-phys-sci-scoring";
+import Button from "@/components/ui/Button";
 import { physSciConfig, type PhysSciGrade } from "@/lib/phys-sci-grade";
 import { supabase } from "@/lib/supabase";
 import {
@@ -336,17 +337,19 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
             {correctCount} of {attemptCount} correct ({Math.round(accuracy * 100)}%).
             {" "}Pass threshold {Math.round(passThreshold(skillId, grade) * 100)}%.
           </p>
-          <button
+          <Button
+            variant="primary"
+            size="lg"
+            fullWidth
             onClick={() => {
               setSkillId(null);
               setQuestion(null);
               setResult(null);
               setPhase("tree");
             }}
-            className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-base"
           >
             Pick another skill
-          </button>
+          </Button>
         </div>
       </div>
     );
@@ -548,13 +551,15 @@ function MatricAnswerInput({
             />
           </div>
         ))}
-        <button
+        <Button
+          variant="primary"
+          size="lg"
+          fullWidth
           disabled={submitting || multiFieldAnswers.some((a) => !a.trim())}
           onClick={() => onSubmit(multiFieldAnswers.map((a) => a.trim()).join("|"))}
-          className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg"
         >
           Check answer
-        </button>
+        </Button>
       </div>
     );
   }
@@ -582,13 +587,15 @@ function MatricAnswerInput({
             </span>
           )}
         </div>
-        <button
+        <Button
+          variant="primary"
+          size="lg"
+          fullWidth
           disabled={submitting || !value.trim()}
           onClick={() => onSubmit(value.trim())}
-          className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg"
         >
           Check answer
-        </button>
+        </Button>
       </div>
     );
   }
@@ -604,13 +611,15 @@ function MatricAnswerInput({
         rows={4}
         className="w-full px-5 py-4 text-base border-2 border-amber-200 focus:border-amber-400 focus:outline-none rounded-2xl bg-amber-50 text-[#1a2744] resize-y"
       />
-      <button
+      <Button
+        variant="primary"
+        size="lg"
+        fullWidth
         disabled={submitting || !value.trim()}
         onClick={() => onSubmit(value.trim())}
-        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg"
       >
         Check answer
-      </button>
+      </Button>
     </div>
   );
 }

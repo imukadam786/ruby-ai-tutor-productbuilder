@@ -1,7 +1,9 @@
 "use client";
 import RubyBalance from "@/components/RubyBalance";
+import MasteryHeader from "@/components/shared/MasteryHeader";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
+import Button from "@/components/ui/Button";
 
 // TourismSession — clone of LifeSciencesSession with a wider answer
 // dispatcher. Key differences from LSC:
@@ -420,17 +422,19 @@ export default function TourismSession({ onBack }: { onBack?: () => void } = {})
             )}
           </p>
           <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct this round.</p>
-          <button
+          <Button
+            variant="success"
+            size="lg"
+            fullWidth
             onClick={() => {
               setSkillId(null);
               setQuestion(null);
               setResult(null);
               setPhase("tree");
             }}
-            className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-base"
           >
             Pick another topic
-          </button>
+          </Button>
         </div>
       </div>
     );
@@ -469,31 +473,14 @@ export default function TourismSession({ onBack }: { onBack?: () => void } = {})
           </div>
 
           {skillId && (
-            <div className="bg-cyan-50 border border-cyan-200 rounded-2xl px-4 py-3">
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-xs font-bold uppercase tracking-wide text-cyan-800">
-                  Master this topic
-                </span>
-                <span className="text-sm font-semibold text-cyan-700">
-                  Q {Math.min(attemptCount + 1, requiredCount(skillId))} of {requiredCount(skillId)} · ⭐ {correctCount}
-                </span>
-              </div>
-              <div className="h-2 bg-cyan-100 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-cyan-500 rounded-full transition-all"
-                  style={{
-                    width: `${Math.round(
-                      (Math.min(attemptCount, requiredCount(skillId)) /
-                        Math.max(requiredCount(skillId), 1)) *
-                        100,
-                    )}%`,
-                  }}
-                />
-              </div>
-              <p className="text-[11px] text-cyan-700 mt-1.5">
-                Master: {requiredCount(skillId)} questions at {Math.round(ACCURACY_TARGET * 100)}%
-              </p>
-            </div>
+            <MasteryHeader
+              title={findSkill(skillId)?.skill?.title ?? "Master this topic"}
+              distinctAnswered={profile ? new Set(getTourismUsedRefs(profile, skillId)).size : 0}
+              requiredCount={requiredCount(skillId)}
+              correctCount={correctCount}
+              attemptCount={attemptCount}
+              mastered={profile?.skill_mastery[skillId]?.status === "mastered"}
+            />
           )}
 
           {question && (

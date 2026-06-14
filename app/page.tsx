@@ -479,7 +479,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       <ComboIndicator />
 
       {/* Mobile top bar — in normal flow so banner shows above it */}
-      <header className="md:hidden flex-shrink-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm z-30">
+      <header className="md:hidden flex-shrink-0 bg-white border-b border-gray-200 px-4 py-2 flex items-center gap-3 shadow-sm z-30">
         {/* Hamburger retired on mobile — navigation now lives in the bottom bar
             (MobileBottomNav). The drawer Sidebar stays for md+ only. */}
         <span className="flex-1 min-w-0 truncate font-semibold text-gray-800 text-sm">{viewLabels[activeView]}</span>

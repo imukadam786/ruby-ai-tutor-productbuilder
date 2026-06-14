@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import EduBackground from "@/components/EduBackground";
+import Button from "@/components/ui/Button";
 import { supabase } from "@/lib/supabase";
 
 const FEATURES = [
@@ -124,13 +125,14 @@ export default function MatricComingSoon() {
             </div>
           ) : (
             <>
-              <button
+              <Button
+                variant="primary"
+                size="lg"
                 onClick={handleJoin}
                 disabled={submitting}
-                className="bg-[#BE1832] hover:bg-[#a31529] text-white font-semibold text-base px-8 py-3.5 rounded-xl transition-colors shadow-sm disabled:opacity-60"
               >
                 {submitting ? "Joining…" : "Join the Waitlist"}
-              </button>
+              </Button>
               {error && <p className="text-red-500 text-sm">{error}</p>}
               <p className="text-gray-400 text-sm">Be the first to know when this launches.</p>
             </>

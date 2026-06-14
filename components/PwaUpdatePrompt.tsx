@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Button from "@/components/ui/Button";
 
 /**
  * Shows a small "new version is ready" banner when a freshly deployed service
@@ -58,12 +59,14 @@ export default function PwaUpdatePrompt() {
           <p className="font-semibold text-sm leading-tight">A new version is ready</p>
           <p className="text-gray-300 text-xs leading-tight mt-0.5">Refresh to get the latest Ruby.</p>
         </div>
-        <button
+        <Button
+          variant="primary"
+          size="sm"
+          className="flex-shrink-0"
           onClick={() => window.location.reload()}
-          className="flex-shrink-0 bg-[#BE1832] hover:bg-[#a3142a] text-white text-sm font-semibold px-3.5 py-1.5 rounded-xl transition-colors"
         >
           Refresh
-        </button>
+        </Button>
       </div>
     </div>
   );

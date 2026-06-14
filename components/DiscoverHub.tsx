@@ -7,6 +7,7 @@ import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import SavedReportView from "@/components/SavedReportView";
+import Button from "@/components/ui/Button";
 import { supabase } from "@/lib/supabase";
 import { useT } from "@/lib/i18n";
 
@@ -66,12 +67,14 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
       <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
         Your Freebie plan includes 1 Discovery Activity. Upgrade to Scholar or Master to unlock both.
       </p>
-      <button
+      <Button
+        variant="primary"
+        size="lg"
+        fullWidth
         onClick={() => document.dispatchEvent(new CustomEvent("ruby-upgrade-needed", { detail: { reason: "Upgrade to unlock both Maths and Reading Discovery Activities." } }))}
-        className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm py-3 rounded-xl transition-colors"
       >
         Upgrade Plan 🔓
-      </button>
+      </Button>
     </div>
   );
 
@@ -112,12 +115,14 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
                   Ruby has found your starting Maths level. View your report or retake to update your placement.
                 </p>
                 <div className="flex gap-2">
-                  <button
+                  <Button
+                    variant="primary"
+                    size="md"
                     onClick={() => setViewReport("maths")}
-                    className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold text-sm py-2.5 rounded-xl transition-colors active:scale-[0.97]"
+                    className="flex-1"
                   >
                     View Report
-                  </button>
+                  </Button>
                   <button
                     onClick={() => {
                       // Force a fresh placement (mirror Reading) so Retake re-runs
@@ -136,13 +141,15 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
                 <p className="text-sm text-gray-500 mb-4">
                   A short adaptive quiz that finds your exact Maths level, no guessing, just the right fit.
                 </p>
-                <button
+                <Button
+                  variant="primary"
+                  size="lg"
+                  fullWidth
                   onClick={() => onNavigate("discover-maths")}
                   disabled={loading}
-                  className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold text-sm py-3 rounded-xl transition-colors active:scale-[0.97] disabled:opacity-50"
                 >
                   Start Maths Discovery
-                </button>
+                </Button>
               </>
             )}
           </div>
@@ -170,12 +177,14 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
                   Ruby has found your reading level. View your report or retake to update your placement.
                 </p>
                 <div className="flex gap-2">
-                  <button
+                  <Button
+                    variant="primary"
+                    size="md"
                     onClick={() => setViewReport("reading")}
-                    className="flex-1 bg-purple-500 hover:bg-purple-600 text-white font-semibold text-sm py-2.5 rounded-xl transition-colors active:scale-[0.97]"
+                    className="flex-1"
                   >
                     View Report
-                  </button>
+                  </Button>
                   <button
                     onClick={() => {
                       // Signal a full Discovery retake. ReadingSession reads this on
@@ -195,13 +204,15 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
                 <p className="text-sm text-gray-500 mb-4">
                   A short adaptive quiz that finds your exact Reading level, personalising your journey from the very first session.
                 </p>
-                <button
+                <Button
+                  variant="primary"
+                  size="lg"
+                  fullWidth
                   onClick={() => onNavigate("discover-reading")}
                   disabled={loading}
-                  className="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold text-sm py-3 rounded-xl transition-colors active:scale-[0.97] disabled:opacity-50"
                 >
                   Start Reading Discovery
-                </button>
+                </Button>
               </>
             )}
           </div>

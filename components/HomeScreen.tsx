@@ -146,6 +146,68 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
             </div>
           </div>
 
+          {/* ── Meet your Tutors (the AI tutors are the headline value, so they
+                greet the learner first — tap a card to start a chat). ─────── */}
+          <section className="mb-8">
+            <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Meet your Tutors</h2>
+
+            <div
+              className="overflow-hidden"
+              onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+              onTouchEnd={(e) => {
+                if (touchStartX.current === null) return;
+                const dx = e.changedTouches[0].clientX - touchStartX.current;
+                if (dx < -40) setTutorPage((p) => Math.min(p + 1, TUTOR_PAGES - 1));
+                else if (dx > 40) setTutorPage((p) => Math.max(p - 1, 0));
+                touchStartX.current = null;
+              }}
+            >
+              <div
+                className="flex transition-transform duration-300 ease-out"
+                style={{ transform: `translateX(-${tutorPage * 100}%)` }}
+              >
+                {Array.from({ length: TUTOR_PAGES }).map((_, page) => (
+                  <div key={page} className="w-full flex-shrink-0 grid grid-cols-3 gap-3 sm:gap-4">
+                    {TUTORS.slice(page * TUTORS_PER_PAGE, page * TUTORS_PER_PAGE + TUTORS_PER_PAGE).map((tutor) => (
+                      <button
+                        key={tutor.name}
+                        onClick={() => onOpenChatWithTutor?.(tutor.name)}
+                        className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
+                      >
+                        <img
+                          src={tutor.img}
+                          alt={tutor.name}
+                          className="w-full aspect-[2/3] object-cover object-top block"
+                          draggable={false}
+                        />
+                        <div className="px-2 py-2 text-center">
+                          <p className="font-semibold text-[#BE1832] text-sm sm:text-base">{tutor.name}</p>
+                          <p className="text-[#BE1832] text-[10px] sm:text-[11px] font-medium leading-tight mt-0.5">
+                            {tutor.subjects.join(" · ")}
+                          </p>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Swipe indicator dots */}
+            <div className="flex items-center justify-center gap-2 mt-4">
+              {Array.from({ length: TUTOR_PAGES }).map((_, page) => (
+                <button
+                  key={page}
+                  onClick={() => setTutorPage(page)}
+                  aria-label={`Go to tutor page ${page + 1}`}
+                  className={`h-2 rounded-full transition-all ${
+                    tutorPage === page ? "w-6 bg-[#BE1832]" : "w-2 bg-gray-300 hover:bg-gray-400"
+                  }`}
+                />
+              ))}
+            </div>
+          </section>
+
           {/* ── Quick actions (Language / Upgrade / FAQ) ─────────────────── */}
           <section className="mb-6">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -298,67 +360,6 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
                 <span className="text-white font-semibold text-sm self-end mt-auto">Start →</span>
               </button>
             )}
-          </section>
-
-          {/* ── Meet your Tutors ──────────────────────────────────────────── */}
-          <section>
-            <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Meet your Tutors</h2>
-
-            <div
-              className="overflow-hidden"
-              onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
-              onTouchEnd={(e) => {
-                if (touchStartX.current === null) return;
-                const dx = e.changedTouches[0].clientX - touchStartX.current;
-                if (dx < -40) setTutorPage((p) => Math.min(p + 1, TUTOR_PAGES - 1));
-                else if (dx > 40) setTutorPage((p) => Math.max(p - 1, 0));
-                touchStartX.current = null;
-              }}
-            >
-              <div
-                className="flex transition-transform duration-300 ease-out"
-                style={{ transform: `translateX(-${tutorPage * 100}%)` }}
-              >
-                {Array.from({ length: TUTOR_PAGES }).map((_, page) => (
-                  <div key={page} className="w-full flex-shrink-0 grid grid-cols-3 gap-3 sm:gap-4">
-                    {TUTORS.slice(page * TUTORS_PER_PAGE, page * TUTORS_PER_PAGE + TUTORS_PER_PAGE).map((tutor) => (
-                      <button
-                        key={tutor.name}
-                        onClick={() => onOpenChatWithTutor?.(tutor.name)}
-                        className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
-                      >
-                        <img
-                          src={tutor.img}
-                          alt={tutor.name}
-                          className="w-full block"
-                          draggable={false}
-                        />
-                        <div className="px-2 py-2 text-center">
-                          <p className="font-semibold text-[#BE1832] text-sm sm:text-base">{tutor.name}</p>
-                          <p className="text-[#BE1832] text-[10px] sm:text-[11px] font-medium leading-tight mt-0.5">
-                            {tutor.subjects.join(" · ")}
-                          </p>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Swipe indicator dots */}
-            <div className="flex items-center justify-center gap-2 mt-4">
-              {Array.from({ length: TUTOR_PAGES }).map((_, page) => (
-                <button
-                  key={page}
-                  onClick={() => setTutorPage(page)}
-                  aria-label={`Go to tutor page ${page + 1}`}
-                  className={`h-2 rounded-full transition-all ${
-                    tutorPage === page ? "w-6 bg-[#BE1832]" : "w-2 bg-gray-300 hover:bg-gray-400"
-                  }`}
-                />
-              ))}
-            </div>
           </section>
 
         </div>

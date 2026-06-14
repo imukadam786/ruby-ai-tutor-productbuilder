@@ -35,6 +35,7 @@ import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
 import { HubTreeContext } from "@/components/shared/SkillTreeShell";
+import Button from "@/components/ui/Button";
 import { useT } from "@/lib/i18n";
 import {
   loadBusinessStudiesProfile,
@@ -230,6 +231,10 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [mathsProfile, setMathsProfile] = useState<StudentProfile | null>(() => getStudentProfile());
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(() => getReadingProfile());
   const [mathsLiteracyProfile, setMathsLiteracyProfile] = useState<MathsLiteracyStudentProfile | null>(() => getMathsLiteracyProfile());
+  // Subjects hub navigation: null = the standalone subject-card grid; a subject
+  // id = that card tapped open, showing its condensed tree until the learner
+  // taps "Open full tree" to go to the subject's own page.
+  const [expandedId, setExpandedId] = useState<SubjectId | null>(null);
   const [businessStudiesProfile, setBusinessStudiesProfile] = useState<BusinessStudiesStudentProfile | null>(() => loadBusinessStudiesProfile());
   const [lifeSciencesProfile, setLifeSciencesProfile] = useState<LifeSciencesStudentProfile | null>(() => loadLifeSciencesProfile());
   const [historyProfile, setHistoryProfile] = useState<HistoryStudentProfile | null>(() => loadHistoryProfile());
@@ -1020,6 +1025,9 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   // gate prematurely. Grades 1–9 and learners with a saved selection skip both.
   const needsSubjectChoice = isFetGrade(grade) && !selectedSubjects;
   const waitingForGrade = loading && (!gradeKnown || needsSubjectChoice);
+  // The card tapped open (if any). Falls back to the grid when the id no longer
+  // matches a subject the learner takes (e.g. after a grade/subject change).
+  const expandedSubject = expandedId ? subjects.find((s) => s.id === expandedId) ?? null : null;
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
@@ -1061,22 +1069,58 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
                 onClose={() => { /* closes itself once the save fires SUBJECTS_UPDATED_EVENT */ }}
               />
             </>
+          ) : expandedSubject ? (
+            /* A card tapped open: its condensed tree (SkillTreeShell hub mode),
+               with a way back to the grid and a button into the subject's own
+               full-tree page. The thumbnail / emoji / accent are handed to the
+               tree via HubTreeContext, exactly as before. */
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <Button variant="ghost" size="sm" onClick={() => setExpandedId(null)}>
+                  ← All subjects
+                </Button>
+                {expandedSubject.id !== "discover" && (
+                  <Button variant="primary" size="sm" onClick={() => onNavigate(expandedSubject.navigateTo)}>
+                    Open full tree →
+                  </Button>
+                )}
+              </div>
+              <HubTreeContext.Provider
+                value={{ inHub: true, thumbnail: expandedSubject.thumbnail, emoji: expandedSubject.placeholderEmoji, label: expandedSubject.label, accentFrom: expandedSubject.accentFrom, accentTo: expandedSubject.accentTo }}
+              >
+                <section className="min-w-0">
+                  <LazyMount eager>{renderSubjectPanel(expandedSubject)}</LazyMount>
+                </section>
+              </HubTreeContext.Provider>
+            </div>
           ) : (
-            /* Each subject renders as a self-contained two-column unit (enlarged
-               thumbnail + stat-line on the left, skill-tree card on the right) —
-               that whole layout lives in SkillTreeShell's hub mode, so every
-               subject's tree looks identical. The thumbnail, emoji fallback and
-               subject name are handed down via HubTreeContext. */
-            <div className="max-w-4xl mx-auto space-y-6">
-              {subjects.map((s, i) => (
-                <HubTreeContext.Provider
+            /* Standalone subject cards. Tapping one opens its condensed tree
+               above (the "expandedSubject" branch). */
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {subjects.map((s) => (
+                <button
                   key={s.id}
-                  value={{ inHub: true, thumbnail: s.thumbnail, emoji: s.placeholderEmoji, label: s.label, accentFrom: s.accentFrom, accentTo: s.accentTo }}
+                  onClick={() => setExpandedId(s.id)}
+                  className="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.99] transition-all text-left overflow-hidden flex flex-col"
                 >
-                  <section className="min-w-0">
-                    <LazyMount eager={i < 2}>{renderSubjectPanel(s)}</LazyMount>
-                  </section>
-                </HubTreeContext.Provider>
+                  <div className={`relative aspect-[16/10] bg-gradient-to-br ${s.accentFrom} ${s.accentTo} flex items-center justify-center`}>
+                    {s.thumbnail ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={s.thumbnail} alt={s.label} className="w-full h-full object-cover" />
+                    ) : (
+                      <span className="text-4xl" aria-hidden>{s.placeholderEmoji ?? "📚"}</span>
+                    )}
+                    {s.badge && (
+                      <span className={`absolute top-2 left-2 text-[10px] font-semibold px-2 py-0.5 rounded-full ${s.badgeColor ?? "bg-white/90 text-gray-700"}`}>
+                        {s.badge}
+                      </span>
+                    )}
+                  </div>
+                  <div className="p-3 flex-1 flex flex-col gap-0.5">
+                    <p className="font-bold text-gray-900 text-sm leading-tight">{s.label}</p>
+                    <p className="text-gray-500 text-xs leading-snug line-clamp-2">{s.caption}</p>
+                  </div>
+                </button>
               ))}
             </div>
           )}

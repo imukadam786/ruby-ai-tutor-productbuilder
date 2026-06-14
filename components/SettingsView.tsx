@@ -7,6 +7,7 @@ import EduBackground from "@/components/EduBackground";
 import { supabase } from "@/lib/supabase";
 import SavedReportView from "@/components/SavedReportView";
 import EditSubjectsModal from "@/components/onboarding/EditSubjectsModal";
+import Button from "@/components/ui/Button";
 import { isFetGrade, readCachedSubjects, type FetSubjectKey } from "@/lib/fet-subjects";
 import { ActiveView } from "@/types";
 
@@ -681,10 +682,9 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogo
         <Modal title="Full name" onClose={close}>
           <div className="space-y-4">
             <EditField label="Full name" value={name} onChange={setName} placeholder="Your name" />
-            <button onClick={() => { saveProfile(); close(); }}
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
+            <Button variant="primary" size="md" fullWidth onClick={() => { saveProfile(); close(); }}>
               {t("settings.save")}
-            </button>
+            </Button>
           </div>
         </Modal>
       )}
@@ -693,10 +693,9 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogo
         <Modal title="Email address" onClose={close}>
           <div className="space-y-4">
             <EditField label="Email" value={email} onChange={setEmail} type="email" placeholder="you@example.com" />
-            <button onClick={() => { saveProfile(); close(); }}
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
+            <Button variant="primary" size="md" fullWidth onClick={() => { saveProfile(); close(); }}>
               {t("settings.save")}
-            </button>
+            </Button>
           </div>
         </Modal>
       )}
@@ -874,13 +873,15 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogo
                   </div>
                 )}
 
-                <button
+                <Button
+                  variant="primary"
+                  size="md"
+                  fullWidth
                   onClick={() => setCancelStep("followup")}
                   disabled={!reasonsValid}
-                  className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-40 text-white py-2.5 rounded-xl text-sm font-medium transition-colors"
                 >
                   Continue
-                </button>
+                </Button>
                 <button onClick={keepSubscription} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium transition-colors">
                   Keep subscription
                 </button>
@@ -924,13 +925,15 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogo
                   />
                 </div>
 
-                <button
+                <Button
+                  variant="primary"
+                  size="md"
+                  fullWidth
                   onClick={() => setCancelStep("confirm")}
                   disabled={!followupValid}
-                  className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-40 text-white py-2.5 rounded-xl text-sm font-medium transition-colors"
                 >
                   Continue
-                </button>
+                </Button>
                 <div className="flex gap-2">
                   <button onClick={() => setCancelStep("reasons")} className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium transition-colors">
                     Back
@@ -968,9 +971,9 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogo
         <Modal title="Download progress report" onClose={close}>
           <div className="space-y-4">
             <p className="text-sm text-gray-600">Your personalised progress report includes skill mastery, streaks, and session history.</p>
-            <button onClick={close} className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-2">
+            <Button variant="primary" size="md" fullWidth onClick={close}>
               {icons.download} Download PDF
-            </button>
+            </Button>
           </div>
         </Modal>
       )}
@@ -1012,9 +1015,9 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogo
               }
               className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent bg-gray-50 placeholder-gray-300"
             />
-            <button onClick={close} className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
+            <Button variant="primary" size="md" fullWidth onClick={close}>
               Send
-            </button>
+            </Button>
           </div>
         </Modal>
       )}
