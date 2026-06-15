@@ -23,9 +23,14 @@ function nextMilestone(combo: number): number | null {
   return null;
 }
 
+// How long the pill stays on screen after a correct answer before fading out.
+const VISIBLE_MS = 2000;
+
 export default function ComboIndicator() {
   const [combo, setCombo] = useState(0);
+  const [visible, setVisible] = useState(false);
   const reduce = useRef(false);
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     reduce.current =
@@ -34,13 +39,28 @@ export default function ComboIndicator() {
 
     const handler = (e: Event) => {
       const detail = (e as CustomEvent).detail as { combo?: number } | undefined;
-      setCombo(Math.max(0, detail?.combo ?? 0));
+      const next = Math.max(0, detail?.combo ?? 0);
+      setCombo(next);
+
+      if (hideTimer.current) clearTimeout(hideTimer.current);
+
+      if (next < 2) {
+        // Wrong answer / streak broken — hide right away.
+        setVisible(false);
+        return;
+      }
+      // Correct answer — flash the pill, then auto-dismiss after a moment.
+      setVisible(true);
+      hideTimer.current = setTimeout(() => setVisible(false), VISIBLE_MS);
     };
     document.addEventListener("ruby-combo", handler);
-    return () => document.removeEventListener("ruby-combo", handler);
+    return () => {
+      document.removeEventListener("ruby-combo", handler);
+      if (hideTimer.current) clearTimeout(hideTimer.current);
+    };
   }, []);
 
-  if (combo < 2) return null;
+  if (combo < 2 || !visible) return null;
 
   const next = nextMilestone(combo);
   const toGo = next ? next - combo : 0;

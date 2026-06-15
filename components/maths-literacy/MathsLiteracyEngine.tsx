@@ -5,6 +5,7 @@ import { apiFetch } from "@/lib/fetch";
 import MathsLiteracyMarkdown from "@/components/maths-literacy/MathsLiteracyMarkdown";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import Button from "@/components/ui/Button";
+import SignToggle from "@/components/ui/SignToggle";
 import { seedForGrade } from "@/lib/maths-literacy-grade-map";
 import {
   getMathsLiteracyProfile,
@@ -416,16 +417,24 @@ function QuestionView({
       </MathsLiteracyMarkdown>
 
       {question.answerMode === "numeric" && (
-        <input
-          type="text"
-          inputMode="decimal"
-          value={studentAnswer}
-          onChange={(e) => setStudentAnswer(e.target.value)}
-          onKeyDown={(e) => { if (e.key === "Enter" && canSubmit && !submitting) onSubmit(); }}
-          placeholder={question.unit ? `Answer in ${question.unit}` : "Your answer"}
-          className="w-full px-5 py-4 text-lg font-semibold border-2 border-teal-200 focus:border-teal-400 focus:outline-none rounded-2xl bg-teal-50/40 text-[#1a2744]"
-          autoFocus
-        />
+        <div className="flex items-stretch gap-2">
+          <SignToggle
+            value={studentAnswer}
+            onChange={setStudentAnswer}
+            disabled={submitting}
+            className="rounded-2xl px-5 text-xl"
+          />
+          <input
+            type="text"
+            inputMode="decimal"
+            value={studentAnswer}
+            onChange={(e) => setStudentAnswer(e.target.value)}
+            onKeyDown={(e) => { if (e.key === "Enter" && canSubmit && !submitting) onSubmit(); }}
+            placeholder={question.unit ? `Answer in ${question.unit}` : "Your answer"}
+            className="w-full px-5 py-4 text-lg font-semibold border-2 border-teal-200 focus:border-teal-400 focus:outline-none rounded-2xl bg-teal-50/40 text-[#1a2744]"
+            autoFocus
+          />
+        </div>
       )}
 
       {question.answerMode === "multiChoice" && question.options && (

@@ -11,6 +11,7 @@ import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scorePhysSci } from "@/lib/matric-phys-sci-scoring";
 import Button from "@/components/ui/Button";
+import SignToggle from "@/components/ui/SignToggle";
 import { physSciConfig, type PhysSciGrade } from "@/lib/phys-sci-grade";
 import { supabase } from "@/lib/supabase";
 import {
@@ -567,25 +568,32 @@ function MatricAnswerInput({
   if (answerMode === "numeric") {
     return (
       <div className="space-y-3">
-        <div className="relative">
-          <input
-            type="number"
-            step="any"
-            inputMode="decimal"
-            autoFocus
+        <div className="flex items-stretch gap-2">
+          <SignToggle
             value={value}
-            onChange={(e) => onChange(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && value.trim()) onSubmit(value.trim());
-            }}
-            placeholder="Numeric answer"
-            className="w-full px-5 py-4 pr-20 text-lg font-semibold border-2 border-amber-200 focus:border-amber-400 focus:outline-none rounded-2xl bg-amber-50 text-[#1a2744]"
+            onChange={onChange}
+            disabled={submitting}
+            className="rounded-2xl px-5 text-xl"
           />
-          {unit && (
-            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-500">
-              {unit}
-            </span>
-          )}
+          <div className="relative w-full">
+            <input
+              type="text"
+              inputMode="decimal"
+              autoFocus
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && value.trim()) onSubmit(value.trim());
+              }}
+              placeholder="Numeric answer"
+              className="w-full px-5 py-4 pr-20 text-lg font-semibold border-2 border-amber-200 focus:border-amber-400 focus:outline-none rounded-2xl bg-amber-50 text-[#1a2744]"
+            />
+            {unit && (
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-500">
+                {unit}
+              </span>
+            )}
+          </div>
         </div>
         <Button
           variant="primary"

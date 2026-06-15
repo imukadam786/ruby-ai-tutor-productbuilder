@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { GeneratedQuestion, GraduatedHint, QuestionTemplate } from "@/types/ruby";
 import { DotArray, parseDotArray } from "./DotArray";
+import SignToggle from "@/components/ui/SignToggle";
 
 interface QuestionCardProps {
   question: GeneratedQuestion;
@@ -159,19 +160,32 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
                   {label}
                 </label>
-                <input
-                  type="number"
-                  value={fieldValues[i] ?? ""}
-                  onChange={(e) => {
-                    const next = [...fieldValues];
-                    next[i] = e.target.value;
-                    setFieldValues(next);
-                  }}
-                  onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-                  placeholder="0"
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
-                  disabled={isSubmitting}
-                />
+                <div className="flex items-stretch gap-2">
+                  <SignToggle
+                    value={fieldValues[i] ?? ""}
+                    onChange={(v) => {
+                      const next = [...fieldValues];
+                      next[i] = v;
+                      setFieldValues(next);
+                    }}
+                    disabled={isSubmitting}
+                    className="rounded-xl px-3.5 text-base"
+                  />
+                  <input
+                    type="text"
+                    inputMode="decimal"
+                    value={fieldValues[i] ?? ""}
+                    onChange={(e) => {
+                      const next = [...fieldValues];
+                      next[i] = e.target.value;
+                      setFieldValues(next);
+                    }}
+                    onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+                    placeholder="0"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
+                    disabled={isSubmitting}
+                  />
+                </div>
               </div>
             ))}
           </div>
