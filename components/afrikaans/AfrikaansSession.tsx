@@ -1,6 +1,12 @@
 "use client";
+import RubyBalance from "@/components/RubyBalance";
+import MasteryHeader from "@/components/shared/MasteryHeader";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
+import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
+import { scoreAfrikaans } from "@/lib/afrikaans-scoring";
+import Button from "@/components/ui/Button";
 
 // Cloned from components/life-skills/LifeSkillsSession.tsx — the learner taps /
 // chooses / listens, and answers are graded deterministically by the
@@ -94,7 +100,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
   const [result, setResult] = useState<AfrikaansSubmitAnswerResponse | null>(null);
   const [answer, setAnswer] = useState<string>("");
   const [sequenceOrder, setSequenceOrder] = useState<string[]>([]);
-  const [submitting, setSubmitting] = useState(false);
+  const [submitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   // Per-skill session state — resets when the user picks a skill
@@ -272,127 +278,152 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profile]);
 
+  // Apply a graded result: record the attempt, update mastery/coverage, and
+  // move to feedback (or the mastered screen). Scoring is fully deterministic
+  // (tap / choose / listen — no LLM judge), so this always runs on the instant
+  // client-scored path.
+  const finalizeAttempt = useCallback(
+    (data: AfrikaansSubmitAnswerResponse, q: AfrikaansGeneratedQuestion, sId: string) => {
+      setResult(data);
+
+      // Mark this question used (localStorage source of truth).
+      const afterUsed = markAfrikaansQuestionUsed(
+        loadAfrikaansProfile() ?? profile!,
+        sId,
+        q.question_ref,
+      );
+
+      const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
+      const nextAttempts = attemptCount + 1;
+      const nextConsecutiveWrong = data.is_correct ? 0 : consecutiveWrong + 1;
+      setCorrectCount(nextCorrect);
+      setAttemptCount(nextAttempts);
+      setConsecutiveWrong(nextConsecutiveWrong);
+
+      trackQuestionAnswered({
+        subject: "afrikaans-fal",
+        skill_id: sId,
+        template: q.input_type,
+        is_correct: data.is_correct,
+        used_hint: false,
+        attempt_number: nextAttempts,
+        decision: data.is_correct ? "practice" : "reteach",
+      });
+
+      // ── Cumulative mastery check ────────────────────────────────────────
+      // Coverage + accuracy are measured across all sittings, not just this
+      // run. Prior totals live in skill_mastery; this run's deltas are the
+      // session counters. Distinct coverage is deduped from used_questions.
+      const prior = profile?.skill_mastery[sId];
+      const cumulativeCorrect = (prior?.correct_count ?? 0) + nextCorrect;
+      const cumulativeAttempts = (prior?.attempt_count ?? 0) + nextAttempts;
+      const distinctAnswered = new Set(getAfrikaansUsedRefs(afterUsed, sId)).size;
+      const size = poolSize(sId);
+      const required = requiredCount(sId);
+
+      const didMaster = isContentMastered(
+        distinctAnswered,
+        size,
+        cumulativeCorrect,
+        cumulativeAttempts,
+      );
+
+      // End the run when the skill is mastered, when this sitting has covered
+      // a full batch, or when the pool is exhausted — otherwise keep going.
+      const runOver =
+        didMaster || nextAttempts >= required || distinctAnswered >= size;
+
+      if (runOver) {
+        // Roll up the result into the profile — mastery unlocks dependants.
+        setProfile(
+          recordAfrikaansSkillResult(afterUsed, sId, {
+            correct: nextCorrect,
+            attempts: nextAttempts,
+            mastered: didMaster,
+          }),
+        );
+        setDidMasterTopic(didMaster);
+        if (didMaster) {
+          trackSkillMastered({
+            subject: "afrikaans-fal",
+            skill_id: sId,
+            level: findSkill(sId)?.level.id ?? 1,
+            session_attempt_count: nextAttempts,
+            session_correct: nextCorrect,
+          });
+        }
+        trackSessionEnded({
+          subject: "afrikaans-fal",
+          questions_answered: nextAttempts,
+          correct: nextCorrect,
+          accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
+        });
+        // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+        rewardEffortFloor("afrikaans-fal", sId);
+        if (didMaster) rewardSkillMastered("afrikaans-fal", sId);
+        void persistReport(sId, nextCorrect, nextAttempts, didMaster);
+        setPhase("mastered");
+      } else {
+        setProfile(afterUsed);
+        setPhase("feedback");
+      }
+    },
+    [attemptCount, consecutiveWrong, correctCount, persistReport, profile],
+  );
+
   // ─── Submit handler ────────────────────────────────────────────────────────
   const handleSubmit = useCallback(
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer) return;
-      setSubmitting(true);
-      try {
-        const payload: AfrikaansSubmitAnswerRequest = {
-          student_id: "local",
-          question_id: question.id,
-          skill_id: skillId,
-          question_ref: question.question_ref,
-          input_type: question.input_type,
-          question: question.question,
-          student_answer: rawAnswer,
-          expected_answer: question.expected_answer,
-          attempt_number: attemptCount + 1,
-          used_hint: false,
-        };
-        const res = await apiFetch("/api/afrikaans/submit-answer", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        if (!res.ok) {
-          // 429 = shared daily limit reached; apiFetch already surfaced the
-          // upgrade modal, so don't also flash an inline error.
-          if (res.status !== 429) setError("Could not check your answer. Please try again.");
-          return;
-        }
-        const data = (await res.json()) as AfrikaansSubmitAnswerResponse;
-        setResult(data);
 
-        // Mark this question used (localStorage source of truth).
-        const afterUsed = markAfrikaansQuestionUsed(
-          loadAfrikaansProfile() ?? profile!,
-          skillId,
-          question.question_ref,
-        );
+      // Instant path: every Afrikaans item is deterministic (tap / choose /
+      // listen), so it's scored client-side (the answer ships with the
+      // question) and feedback shows immediately. The server call still runs in
+      // the background for usage metering.
+      const isCorrect = scoreAfrikaans(
+        question.input_type,
+        rawAnswer,
+        question.expected_answer,
+      );
 
-        const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
-        const nextAttempts = attemptCount + 1;
-        const nextConsecutiveWrong = data.is_correct ? 0 : consecutiveWrong + 1;
-        setCorrectCount(nextCorrect);
-        setAttemptCount(nextAttempts);
-        setConsecutiveWrong(nextConsecutiveWrong);
+      finalizeAttempt(
+        {
+          is_correct: isCorrect,
+          error_signals: [],
+          feedback: isCorrect ? "Correct." : "Not quite — let's look at this.",
+          memo: question.memo ?? "",
+          mastery_update: {
+            skill_id: skillId,
+            new_status: "in_progress",
+            correct_count: isCorrect ? 1 : 0,
+            attempt_count: 1,
+          },
+          next_action: "continue_skill",
+        },
+        question,
+        skillId,
+      );
 
-        trackQuestionAnswered({
-          subject: "afrikaans-fal",
-          skill_id: skillId,
-          template: question.input_type,
-          is_correct: data.is_correct,
-          used_hint: false,
-          attempt_number: nextAttempts,
-          decision: data.is_correct ? "practice" : "reteach",
-        });
-
-        // ── Cumulative mastery check ────────────────────────────────────────
-        // Coverage + accuracy are measured across all sittings, not just this
-        // run. Prior totals live in skill_mastery; this run's deltas are the
-        // session counters. Distinct coverage is deduped from used_questions.
-        const prior = profile?.skill_mastery[skillId];
-        const cumulativeCorrect = (prior?.correct_count ?? 0) + nextCorrect;
-        const cumulativeAttempts = (prior?.attempt_count ?? 0) + nextAttempts;
-        const distinctAnswered = new Set(getAfrikaansUsedRefs(afterUsed, skillId)).size;
-        const size = poolSize(skillId);
-        const required = requiredCount(skillId);
-
-        const didMaster = isContentMastered(
-          distinctAnswered,
-          size,
-          cumulativeCorrect,
-          cumulativeAttempts,
-        );
-
-        // End the run when the skill is mastered, when this sitting has covered
-        // a full batch, or when the pool is exhausted — otherwise keep going.
-        const runOver =
-          didMaster || nextAttempts >= required || distinctAnswered >= size;
-
-        if (runOver) {
-          // Roll up the result into the profile — mastery unlocks dependants.
-          setProfile(
-            recordAfrikaansSkillResult(afterUsed, skillId, {
-              correct: nextCorrect,
-              attempts: nextAttempts,
-              mastered: didMaster,
-            }),
-          );
-          setDidMasterTopic(didMaster);
-          if (didMaster) {
-            trackSkillMastered({
-              subject: "afrikaans-fal",
-              skill_id: skillId,
-              level: findSkill(skillId)?.level.id ?? 1,
-              session_attempt_count: nextAttempts,
-              session_correct: nextCorrect,
-            });
-          }
-          trackSessionEnded({
-            subject: "afrikaans-fal",
-            questions_answered: nextAttempts,
-            correct: nextCorrect,
-            accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
-          });
-          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
-          rewardEffortFloor("afrikaans-fal", skillId);
-          if (didMaster) rewardSkillMastered("afrikaans-fal", skillId, profile?.id);
-          void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
-          setPhase("mastered");
-        } else {
-          setProfile(afterUsed);
-          setPhase("feedback");
-        }
-      } catch (err) {
-        console.error("[AfrikaansSession] submit-answer failed:", err);
-        setError("Could not check your answer. Please try again.");
-      } finally {
-        setSubmitting(false);
-      }
+      // Background: record against the daily usage cap (may 429 → upgrade modal).
+      const payload: AfrikaansSubmitAnswerRequest = {
+        student_id: "local",
+        question_id: question.id,
+        skill_id: skillId,
+        question_ref: question.question_ref,
+        input_type: question.input_type,
+        question: question.question,
+        student_answer: rawAnswer,
+        expected_answer: question.expected_answer,
+        attempt_number: attemptCount + 1,
+        used_hint: false,
+      };
+      void apiFetch("/api/afrikaans/submit-answer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch(() => { /* non-blocking; feedback already shown */ });
     },
-    [attemptCount, consecutiveWrong, correctCount, persistReport, profile, question, skillId],
+    [attemptCount, finalizeAttempt, question, skillId],
   );
 
   const backToTree = () => {
@@ -433,12 +464,9 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
             )}
           </p>
           <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct this round.</p>
-          <button
-            onClick={backToTree}
-            className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-base"
-          >
+          <Button variant="success" size="lg" fullWidth onClick={backToTree}>
             Pick another skill
-          </button>
+          </Button>
         </div>
       </div>
     );
@@ -455,9 +483,6 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
   }
 
   // ─── Render: question / feedback ───────────────────────────────────────────
-  const showRecoveryHint = consecutiveWrong >= 2 && skillId !== null;
-  const recoveryHint = showRecoveryHint ? findSkill(skillId!)?.skill.recovery_strategy ?? null : null;
-
   return (
     <div className="relative flex flex-col h-full bg-[#F4F4F5]">
       <EduBackground />
@@ -471,34 +496,18 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
           >
             ← Skills
           </button>
+            <span className="hidden md:inline-flex flex-shrink-0"><RubyBalance theme="light" size="lg" /></span>
         </div>
 
         {skillId && (
-          <div className="bg-orange-50 border border-orange-200 rounded-2xl px-4 py-3">
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs font-bold uppercase tracking-wide text-orange-800">
-                Master this skill
-              </span>
-              <span className="text-sm font-semibold text-orange-700">
-                Q {Math.min(attemptCount + 1, requiredCount(skillId))} / {requiredCount(skillId)} · ⭐ {correctCount}
-              </span>
-            </div>
-            <div className="h-2 bg-orange-100 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-orange-500 rounded-full transition-all"
-                style={{
-                  width: `${Math.round(
-                    (Math.min(attemptCount, requiredCount(skillId)) /
-                      Math.max(requiredCount(skillId), 1)) *
-                      100,
-                  )}%`,
-                }}
-              />
-            </div>
-            <p className="text-[11px] text-orange-700 mt-1.5">
-              Master: {requiredCount(skillId)} questions at {Math.round(ACCURACY_TARGET * 100)}%
-            </p>
-          </div>
+          <MasteryHeader
+            title={findSkill(skillId)?.skill?.title ?? "Master this topic"}
+            distinctAnswered={profile ? new Set(getAfrikaansUsedRefs(profile, skillId)).size : 0}
+            requiredCount={requiredCount(skillId)}
+            correctCount={correctCount}
+            attemptCount={attemptCount}
+            mastered={profile?.skill_mastery[skillId]?.status === "mastered"}
+          />
         )}
 
         {/* Question card */}
@@ -559,36 +568,18 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
 
             {/* Feedback after submission */}
             {phase === "feedback" && result && (
-              <div
-                className={`rounded-2xl p-5 ${
-                  result.is_correct
-                    ? "bg-green-50 border border-green-200"
-                    : "bg-rose-50 border border-rose-200"
-                }`}
-              >
-                <p className={`text-lg font-bold ${result.is_correct ? "text-green-700" : "text-rose-700"}`}>
-                  {result.is_correct ? "✓ " : "✗ "}
-                  {result.feedback}
-                </p>
-                {result.memo && (
-                  <p className="text-sm text-gray-700 mt-2 leading-relaxed">{result.memo}</p>
-                )}
-                {recoveryHint && !result.is_correct && (
-                  <p className="text-sm text-orange-700 mt-3 bg-orange-100 rounded-xl px-3 py-2">
-                    💡 {recoveryHint}
-                  </p>
-                )}
-              </div>
-            )}
-
-            {phase === "feedback" && (
-              <button
-                onClick={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
-                disabled={submitting}
-                className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-              >
-                Next question →
-              </button>
+              <FeedbackExplanation
+                isCorrect={result.is_correct}
+                note={result.is_correct ? result.memo : undefined}
+                whyOverride={result.is_correct ? undefined : result.memo}
+                footer={
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
+                  onRetry={() => { setAnswer(""); setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
+              />
             )}
 
             {error && (
@@ -718,13 +709,15 @@ function AnswerInput({
         placeholder="Type your answer"
         className="w-full px-5 py-4 text-lg font-semibold border-2 border-orange-200 focus:border-orange-400 focus:outline-none rounded-2xl bg-orange-50 text-[#1a2744]"
       />
-      <button
+      <Button
+        variant="primary"
+        size="lg"
+        fullWidth
         disabled={submitting || !value.trim()}
         onClick={() => onSubmit(value.trim())}
-        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg"
       >
         Check answer
-      </button>
+      </Button>
     </div>
   );
 }
@@ -835,13 +828,9 @@ function SequenceInput({ order, onChange, onSubmit, submitting, speak }: Sequenc
           );
         })}
       </ol>
-      <button
-        disabled={submitting}
-        onClick={onSubmit}
-        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-      >
+      <Button variant="primary" size="lg" fullWidth disabled={submitting} onClick={onSubmit}>
         Check answer
-      </button>
+      </Button>
     </div>
   );
 }

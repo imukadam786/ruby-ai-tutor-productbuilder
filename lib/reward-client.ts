@@ -24,17 +24,23 @@ export function rewardSkillMastered(subject: string, skillId: string, profileId?
     .then((r) => r.json())
     .then((b) => {
       emitEarned(b);
-      // Celebrate mastery on every subject — fires the Success Burst overlay.
+      // Celebrate the mastery itself — independent of the payout. The reward is
+      // legitimately 0 on repeat mastery (idempotent) or when the anti-cheat guard
+      // blocks it, so gating the celebration on it left learners with no feedback.
+      // The "+N" line only shows when rubies were actually awarded.
       const awarded = b?.rubies?.awarded ?? 0;
-      if (awarded > 0) {
-        document.dispatchEvent(
-          new CustomEvent("ruby-celebrate", {
-            detail: { kind: "skill_mastered", rubies: awarded },
-          }),
-        );
-      }
+      document.dispatchEvent(
+        new CustomEvent("ruby-celebrate", {
+          detail: { kind: "skill_mastered", rubies: awarded > 0 ? awarded : undefined },
+        }),
+      );
     })
-    .catch(() => { /* non-blocking */ });
+    .catch(() => {
+      // Even if the reward call fails, the learner still mastered the skill — celebrate.
+      document.dispatchEvent(
+        new CustomEvent("ruby-celebrate", { detail: { kind: "skill_mastered" } }),
+      );
+    });
 }
 
 /** Effort floor — finished a lesson/topic run, even with wrong answers. */

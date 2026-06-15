@@ -117,6 +117,7 @@ export function bankQuestionToGenerated(
     source_a: q.source_a,
     source_b: q.source_b,
     statements: q.statements,
+    correct_selection: q.correct_selection,
   };
 }
 

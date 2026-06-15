@@ -445,6 +445,7 @@ export function bankQuestionToGenerated(
   scaffolding_notes: string;
   difficulty?: number;
   labels?: string[];
+  working_steps?: string[];
   bank_question: BankQuestion;
 } {
   // Determine template from input_type
@@ -471,8 +472,120 @@ export function bankQuestionToGenerated(
     scaffolding_notes: `Error signals: ${q.error_signals.join(", ")}`,
     difficulty: q.difficulty,
     labels: q.labels,
+    working_steps: computeWorkedSteps(q, domainId) ?? undefined,
     bank_question: q,
   };
+}
+
+// ─── Path B: deterministic worked steps from the question's own numbers ───────
+//
+// For the young-grade arithmetic domains, the graduated-hint `worked` line is a
+// FIXED example (e.g. M004 always shows "7 + 5 → 8, 9…") rather than the
+// student's actual sum. Here we compute a real, numbers-in walkthrough from the
+// question's own operands — the "Start with 5, count on 2 more: 6, 7" form that
+// matches the old AI re-teach. Pure arithmetic + templated text, no AI call.
+//
+// Scope: domains where counting on/back or grouping IS the taught method. The
+// 2-digit column domains (M020–M023) are left out on purpose — their static
+// hints already demonstrate the column method, and a bare "add 35" would be a
+// step backwards. Returns null for anything uncovered, so the card falls back to
+// the reused-hint walkthrough (Path A).
+function computeWorkedSteps(q: BankQuestion, domainId: string): string[] | null {
+  switch (domainId) {
+    case "M001":
+      return countingWorkedSteps(q);
+    case "M006":
+      return groupsWorkedSteps(q);
+    case "M004":
+    case "M005":
+    case "M019":
+      return binaryWorkedSteps(q);
+    default:
+      return null;
+  }
+}
+
+/** Parse "a + b" / "5 - 2" / "3 × 4" from the expression or question text. */
+function parseBinary(q: BankQuestion): { a: number; b: number; op: "+" | "-" | "×" } | null {
+  const src = (q.expression || q.question || "").replace(/[x*]/gi, "×").replace(/[−–]/g, "-");
+  const m = src.match(/(-?\d+)\s*([+\-×])\s*(-?\d+)/);
+  if (!m) return null;
+  const a = Number(m[1]);
+  const b = Number(m[3]);
+  if (!Number.isFinite(a) || !Number.isFinite(b)) return null;
+  const op = m[2] === "+" ? "+" : m[2] === "-" ? "-" : "×";
+  return { a, b, op };
+}
+
+/** Enumerate a short run of counts, e.g. [6, 7] → "6, 7". */
+function countRun(from: number, count: number, step: 1 | -1): string {
+  const seq: number[] = [];
+  for (let i = 1; i <= count; i++) seq.push(from + step * i);
+  return seq.join(", ");
+}
+
+function binaryWorkedSteps(q: BankQuestion): string[] | null {
+  const parsed = parseBinary(q);
+  if (!parsed) return null;
+  const { a, b, op } = parsed;
+  const answer = q.expected?.trim() || String(op === "+" ? a + b : op === "-" ? a - b : a * b);
+
+  if (op === "+") {
+    const big = Math.max(a, b);
+    const small = Math.min(a, b);
+    const steps = [`Start with the bigger number, ${big}.`];
+    steps.push(
+      small > 0 && small <= 10
+        ? `Count on ${small} more: ${countRun(big, small, 1)}.`
+        : `Add ${small} to it.`
+    );
+    steps.push(`So ${a} + ${b} = ${answer}.`);
+    return steps;
+  }
+
+  if (op === "-") {
+    const steps = [`Start with ${a}.`];
+    steps.push(
+      b > 0 && b <= 10 && a - b >= 0
+        ? `Count back ${b}: ${countRun(a, b, -1)}.`
+        : `Take away ${b}.`
+    );
+    steps.push(`So ${a} − ${b} = ${answer}.`);
+    return steps;
+  }
+
+  // Multiplication as repeated groups.
+  const steps = [`This is ${a} groups of ${b}.`];
+  steps.push(
+    a > 0 && a <= 12
+      ? `Count ${b} a total of ${a} times: ${Array(a).fill(b).join(" + ")} = ${answer}.`
+      : `Multiply: ${a} × ${b} = ${answer}.`
+  );
+  return steps;
+}
+
+function countingWorkedSteps(q: BankQuestion): string[] | null {
+  const n = Number((q.expected ?? "").trim());
+  if (!Number.isFinite(n) || n <= 0 || n > 30) return null;
+  return [
+    `Point to each dot once as you count: ${countRun(0, n, 1)}.`,
+    `The last number you say is the total — there are ${n}.`,
+  ];
+}
+
+function groupsWorkedSteps(q: BankQuestion): string[] | null {
+  const g = Number(q.groups);
+  const e = Number(q.each);
+  const t = Number(q.total);
+  if (![g, e, t].every((v) => Number.isFinite(v))) return null;
+  const steps = [`There are ${g} groups, with ${e} in each group.`];
+  steps.push(
+    g > 0 && g <= 12
+      ? `Count ${e} a total of ${g} times: ${Array(g).fill(e).join(" + ")} = ${t}.`
+      : `Multiply the groups by the amount in each: ${g} × ${e} = ${t}.`
+  );
+  steps.push(`So the total is ${t}.`);
+  return steps;
 }
 
 function buildQuestionText(q: BankQuestion, domainId: string): string {

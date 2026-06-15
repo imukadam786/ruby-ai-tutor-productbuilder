@@ -10,6 +10,8 @@ import { Paper, SubQuestion, InfoSheet, getFlatSubQuestions, getTopicBreakdown }
 import { PAPER_INDEX, PaperMeta, loadPaperById } from "@/lib/matric/paper-index";
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
+import Button from "@/components/ui/Button";
+import MatricFeedbackCard, { RubricPoint } from "./MatricFeedbackCard";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -21,6 +23,7 @@ interface CoachMessage {
   content: string;
   marksEarned?: number;
   totalMarks?: number;
+  breakdown?: RubricPoint[];
 }
 
 interface QuestionState {
@@ -472,12 +475,14 @@ function ModeSelect({
           </select>
         </div>
 
-        <button
+        <Button
+          variant="primary"
+          size="lg"
+          fullWidth
           onClick={() => onStart(mode, language)}
-          className="w-full bg-[#BE1832] hover:bg-[#a31529] text-white font-semibold py-3.5 rounded-xl transition-colors text-base"
         >
           {mode === "practice" ? "Start Practice Exam" : "Start Guided Session"}
-        </button>
+        </Button>
       </div>
     </div>
   );
@@ -722,8 +727,8 @@ function SessionView({
       console.error("[evaluate] HTTP", res.status, body);
       throw new Error(`HTTP ${res.status}`);
     }
-    const data = await res.json() as { marksEarned?: number; totalMarks?: number; allCorrect?: boolean; feedback?: string };
-    return { marksEarned: data.marksEarned ?? 0, totalMarks: data.totalMarks ?? sq.marks, allCorrect: data.allCorrect ?? false, feedback: data.feedback ?? "Evaluation complete." };
+    const data = await res.json() as { marksEarned?: number; totalMarks?: number; allCorrect?: boolean; feedback?: string; breakdown?: RubricPoint[] };
+    return { marksEarned: data.marksEarned ?? 0, totalMarks: data.totalMarks ?? sq.marks, allCorrect: data.allCorrect ?? false, feedback: data.feedback ?? "Evaluation complete.", breakdown: data.breakdown };
   }, [language, mode]);
 
   const handleSubmitWorking = async () => {
@@ -734,7 +739,7 @@ function SessionView({
       const result = await evaluateQuestion(currentSQ, currentAttempt);
       updateAttempt(currentSQ.id, {
         submitted: true, marksEarned: result.marksEarned, attemptCount: currentAttempt.attemptCount + 1,
-        coachMessages: [...currentAttempt.coachMessages, { type: "ai", content: result.feedback, marksEarned: result.marksEarned, totalMarks: result.totalMarks }],
+        coachMessages: [...currentAttempt.coachMessages, { type: "ai", content: result.feedback, marksEarned: result.marksEarned, totalMarks: result.totalMarks, breakdown: result.breakdown }],
         imageData: currentAttempt.imageFile ? await fileToBase64(currentAttempt.imageFile) : undefined,
         imageMimeType: currentAttempt.imageFile?.type,
       });
@@ -762,7 +767,7 @@ function SessionView({
       if (!hasAnswer) { setSubmitProgress(i + 1); continue; }
       try {
         const result = await evaluateQuestion(sq, attempt, "practice");
-        updatedAttempts[sq.id] = { ...attempt, submitted: true, marksEarned: result.marksEarned, coachMessages: [{ type: "ai", content: result.feedback, marksEarned: result.marksEarned, totalMarks: result.totalMarks }] };
+        updatedAttempts[sq.id] = { ...attempt, submitted: true, marksEarned: result.marksEarned, coachMessages: [{ type: "ai", content: result.feedback, marksEarned: result.marksEarned, totalMarks: result.totalMarks, breakdown: result.breakdown }] };
       } catch { updatedAttempts[sq.id] = { ...attempt, submitted: true, marksEarned: 0 }; }
       setSubmitProgress(i + 1);
       setAttempts({ ...updatedAttempts });
@@ -825,12 +830,12 @@ function SessionView({
             </span>
           )}
           {paper.infoSheet && (
-            <button onClick={() => setShowInfoSheet(true)} className={`${mode === "practice" && language !== "English" && language !== "Afrikaans" ? "" : "ml-auto"} flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0 bg-[#BE1832] text-white hover:bg-[#a31529]`}>
+            <Button variant="primary" size="sm" onClick={() => setShowInfoSheet(true)} className={`${mode === "practice" && language !== "English" && language !== "Afrikaans" ? "" : "ml-auto"} flex items-center gap-1 flex-shrink-0`}>
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               <span>Info</span>
-            </button>
+            </Button>
           )}
         </div>
         <div className="flex items-center gap-2 pb-2 sm:hidden">
@@ -1076,25 +1081,28 @@ function SessionView({
                     {currentSQ.type !== "mcq" && (
                       <button onClick={handleRetry} className="flex-1 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">Try again</button>
                     )}
-                    <button onClick={() => goTo(currentIdx + 1)} disabled={currentIdx === totalQuestions - 1} className="flex-1 py-2.5 rounded-xl bg-[#BE1832] text-white text-sm font-medium hover:bg-[#a31529] disabled:opacity-40 transition-colors">
+                    <Button variant="primary" size="md" className="flex-1" onClick={() => goTo(currentIdx + 1)} disabled={currentIdx === totalQuestions - 1}>
                       Next question →
-                    </button>
+                    </Button>
                   </div>
                 ) : (
-                  <button
+                  <Button
+                    variant="primary"
+                    size="md"
+                    fullWidth
                     onClick={handleSubmitWorking}
                     disabled={isEvaluating || (!currentAttempt.textWorking.trim() && !currentAttempt.imageFile)}
-                    className="flex-shrink-0 w-full py-2.5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                    className="flex-shrink-0 flex items-center justify-center gap-2"
                   >
                     {isEvaluating ? (
                       <><svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" /></svg>Evaluating…</>
                     ) : "Submit working"}
-                  </button>
+                  </Button>
                 )
               ) : (
                 <div className="flex justify-center gap-3 flex-shrink-0">
                   <button onClick={() => goTo(currentIdx - 1)} disabled={currentIdx === 0} className="py-2.5 px-4 rounded-xl border border-gray-200 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-30 transition-colors">← Prev</button>
-                  <button onClick={() => { if (currentAttempt.textWorking.trim() || currentAttempt.imageFile) updateAttempt(currentSQ.id, { submitted: false }); goTo(currentIdx + 1); }} disabled={currentIdx === totalQuestions - 1} className="py-2.5 px-5 rounded-xl bg-[#BE1832] text-white text-sm font-semibold hover:bg-[#a31529] disabled:opacity-40 transition-colors">Save & Next →</button>
+                  <Button variant="primary" size="md" onClick={() => { if (currentAttempt.textWorking.trim() || currentAttempt.imageFile) updateAttempt(currentSQ.id, { submitted: false }); goTo(currentIdx + 1); }} disabled={currentIdx === totalQuestions - 1}>Save & Next →</Button>
                   <button onClick={() => goTo(currentIdx + 1)} disabled={currentIdx === totalQuestions - 1} className="py-2.5 px-4 rounded-xl border border-gray-200 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-30 transition-colors">Skip</button>
                 </div>
               )}
@@ -1104,7 +1112,7 @@ function SessionView({
           <div className="flex-shrink-0 border-t border-gray-100 bg-white px-4 py-2 space-y-1.5">
             {mode === "practice" && answeredCount > 0 && (
               <div className="flex justify-end">
-                <button onClick={handleSubmitPaper} className="text-xs font-semibold bg-[#BE1832] text-white px-3 py-1.5 rounded-lg hover:bg-[#a31529] transition-colors">Submit Paper</button>
+                <Button variant="primary" size="sm" onClick={handleSubmitPaper}>Submit Paper</Button>
               </div>
             )}
           </div>
@@ -1132,28 +1140,16 @@ function SessionView({
                   {msg.type === "system" ? (
                     <div className="text-sm text-gray-500 bg-gray-50 rounded-xl px-4 py-3"><MathMarkdown content={msg.content} /></div>
                   ) : (
-                    <div className="bg-rose-50 border border-rose-100 rounded-2xl px-4 py-4 space-y-3">
-                      <div className="text-sm text-gray-700 leading-relaxed"><MathMarkdown content={msg.content} /></div>
-                      {currentSQ.memoImageUrl && i === currentAttempt.coachMessages.length - 1 && (
-                        <div className="pt-2 space-y-1">
-                          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Answer</p>
-                          <button onClick={() => setExpandedDiagramUrl(currentSQ.memoImageUrl!)} className="relative group block rounded-xl overflow-hidden border border-rose-200 bg-white max-w-[220px]" title="Tap to expand">
-                            <img src={currentSQ.memoImageUrl} alt="Model answer sketch" className="w-full object-contain max-h-28" />
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                              <span className="opacity-0 group-hover:opacity-100 text-white text-xs font-medium bg-black/50 px-2 py-1 rounded-full transition-opacity">Expand</span>
-                            </div>
-                          </button>
-                        </div>
-                      )}
-                      {msg.marksEarned !== undefined && msg.totalMarks !== undefined && (
-                        <div className="flex items-center gap-2 pt-1 border-t border-rose-100">
-                          <div className={`text-xs font-bold px-2.5 py-1 rounded-full ${msg.marksEarned === msg.totalMarks ? "bg-green-100 text-green-700" : msg.marksEarned > 0 ? "bg-amber-100 text-amber-700" : "bg-red-100 text-red-600"}`}>
-                            {msg.marksEarned}/{msg.totalMarks} marks
-                          </div>
-                          {msg.marksEarned === msg.totalMarks && <span className="text-xs text-green-600 font-medium">Full marks!</span>}
-                        </div>
-                      )}
-                    </div>
+                    <MatricFeedbackCard
+                      content={msg.content}
+                      marksEarned={msg.marksEarned}
+                      totalMarks={msg.totalMarks}
+                      breakdown={msg.breakdown}
+                      modelAnswerImageUrl={
+                        i === currentAttempt.coachMessages.length - 1 ? currentSQ.memoImageUrl : undefined
+                      }
+                      onExpandImage={setExpandedDiagramUrl}
+                    />
                   )}
                 </div>
               ))}
@@ -1243,8 +1239,8 @@ function SummaryView({
         )}
 
         <div className="flex flex-col sm:flex-row gap-3">
-          <button onClick={onRetry} className="flex-1 py-3 rounded-xl border-2 border-[#BE1832] text-[#BE1832] font-semibold text-sm hover:bg-rose-50 transition-colors">Try this paper again</button>
-          <button onClick={onBack} className="flex-1 py-3 rounded-xl bg-[#BE1832] text-white font-semibold text-sm hover:bg-[#a31529] transition-colors">Choose another paper</button>
+          <Button variant="outline" size="lg" className="flex-1" onClick={onRetry}>Try this paper again</Button>
+          <Button variant="primary" size="lg" className="flex-1" onClick={onBack}>Choose another paper</Button>
         </div>
       </div>
     </div>

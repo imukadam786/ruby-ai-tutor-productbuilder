@@ -150,6 +150,12 @@ export interface MathsLiteracyGenerateResponse {
   // is fine because it's only sent back to the server.
   expected_answer_key: string; // JSON string of { mode, expectedAnswer?, tolerance?, options?, fields? }
   working_steps: string[];
+  // The question's misconception codes, used to drive per-signal feedback
+  // (why / how / example) on the client. Passed back to submit-answer.
+  error_signals: string[];
+  // Authored plain-language description of the primary misconception, taken
+  // from the bank's _error_signal_vocabulary — used as the "why" on a miss.
+  error_explanation?: string;
   // Total distinct questions authored for this skill's bank — the coverage
   // denominator used by the content-mastery rule (lib/content-mastery.ts).
   pool_size: number;
@@ -163,6 +169,7 @@ export interface MathsLiteracySubmitRequest {
   student_fields?: { label: string; value: string }[]; // multiField only
   expected_answer_key: string;       // JSON from generate-question
   working_steps: string[];           // shown on incorrect for canned feedback
+  error_signals?: string[];          // question's misconception codes (for per-signal feedback)
 }
 
 export interface MathsLiteracyDiagnosticResult {

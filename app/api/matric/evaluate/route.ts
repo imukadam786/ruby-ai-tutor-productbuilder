@@ -73,8 +73,18 @@ RESPONSE FORMAT — you must return valid JSON only, no markdown wrapper:
   "marksEarned": <number>,
   "totalMarks": <number>,
   "allCorrect": <boolean>,
-  "feedback": "<your feedback as a markdown string — use \\n for newlines, escape any quotes>"
+  "feedback": "<your feedback as a markdown string — use \\n for newlines, escape any quotes>",
+  "breakdown": [
+    { "point": "<short description of this mark from the scheme>", "maxMarks": <number>, "awarded": <number>, "status": "correct" | "partial" | "missed", "note": "<one short sentence on what the student did / why the mark was lost — empty string if fully correct>" }
+  ]
 }
+
+BREAKDOWN RULES:
+- Itemise the mark scheme into one entry per mark (or per logical mark-group, e.g. "numerator (2)"). Award marks point by point against the student's working.
+- "status" is "correct" when awarded === maxMarks, "partial" when 0 < awarded < maxMarks, "missed" when awarded === 0.
+- The awarded values across all breakdown entries MUST sum to "marksEarned", and the maxMarks values MUST sum to "totalMarks".
+- Keep each "note" to one short, plain-language sentence. Leave it as an empty string for fully-correct points.
+- For MCQ / match-group questions, a single breakdown entry covering the whole answer is fine.
 
 The feedback field must be a single-line JSON string (escape newlines as \\n).`;
 
@@ -111,6 +121,10 @@ Evaluate the student's working against the mark scheme. Award marks for each cor
     const response = await openai.chat.completions.create({
       model: "gpt-4o",
       max_tokens: 1500,
+      // Low temperature for consistent marking — the same answer should score the
+      // same on resubmit. The per-mark breakdown reinforces this by forcing the
+      // model to justify each mark rather than eyeball a total.
+      temperature: 0.2,
       response_format: { type: "json_object" },
       messages: [
         { role: "system", content: systemPrompt },
@@ -125,6 +139,13 @@ Evaluate the student's working against the mark scheme. Award marks for each cor
       totalMarks?: number;
       allCorrect?: boolean;
       feedback?: string;
+      breakdown?: {
+        point: string;
+        maxMarks: number;
+        awarded: number;
+        status: "correct" | "partial" | "missed";
+        note?: string;
+      }[];
     };
 
     try {
@@ -158,6 +179,53 @@ TRANSLATION RULES — follow these exactly:
       });
       const translated = translationResp.choices[0]?.message?.content?.trim();
       if (translated) parsed.feedback = translated;
+    }
+
+    // Translate the per-mark breakdown labels/notes too, so the whole card reads
+    // in-language. Kept as a separate best-effort call: if it fails or comes back
+    // malformed, the English breakdown still shows under the already-translated
+    // feedback rather than failing the whole grade.
+    if (language !== "English" && parsed.breakdown && parsed.breakdown.length > 0) {
+      // Flatten to [point, note, point, note, …] so order maps back deterministically.
+      const strings: string[] = [];
+      for (const b of parsed.breakdown) {
+        strings.push(b.point ?? "");
+        strings.push(b.note ?? "");
+      }
+      try {
+        const breakdownResp = await openai.chat.completions.create({
+          model: "gpt-4o",
+          max_tokens: 1500,
+          temperature: 0.2,
+          response_format: { type: "json_object" },
+          messages: [
+            {
+              role: "system",
+              content: `You are a faithful translator for South African educational content. Translate each English string in the "items" array into ${language}.
+
+TRANSLATION RULES — follow these exactly:
+1. Translate each string faithfully — do not paraphrase, shorten, omit, or merge entries.
+2. Keep ALL scientific, technical, financial and mathematical terms, numbers, currency amounts, units and notation in plain English / as-is (e.g. Numerator, Denominator, R450 000, 15 500 units, gradient, mitosis).
+3. Preserve the array length and order exactly — the Nth output corresponds to the Nth input. Translate an empty string to an empty string.
+4. Return ONLY valid JSON of the form {"items": ["<translated>", …]} with exactly the same number of items.`,
+            },
+            { role: "user", content: JSON.stringify({ items: strings }) },
+          ],
+        });
+        const breakdownRaw = breakdownResp.choices[0]?.message?.content ?? "{}";
+        const breakdownParsed = JSON.parse(breakdownRaw) as { items?: string[] };
+        const out = breakdownParsed.items;
+        if (Array.isArray(out) && out.length === strings.length) {
+          parsed.breakdown = parsed.breakdown.map((b, i) => ({
+            ...b,
+            point: out[i * 2]?.trim() || b.point,
+            note: out[i * 2 + 1]?.trim() || b.note,
+          }));
+        }
+      } catch (e) {
+        console.error("[matric/evaluate] breakdown translation failed:", e);
+        // Non-fatal — leave the English breakdown in place.
+      }
     }
 
     return NextResponse.json(parsed);

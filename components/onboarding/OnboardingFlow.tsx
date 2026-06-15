@@ -9,6 +9,7 @@ import {
   type FetSubjectKey,
 } from "@/lib/fet-subjects";
 import SubjectChecklist from "@/components/onboarding/SubjectChecklist";
+import Button from "@/components/ui/Button";
 
 export type OnboardingData = {
   language: string;
@@ -112,10 +113,13 @@ function BackButton({ onClick }: { onClick: () => void }) {
 
 function ContinueBtn({ label, onClick, disabled, loading }: { label: string; onClick: () => void; disabled?: boolean; loading?: boolean }) {
   return (
-    <button
+    <Button
+      variant="primary"
+      size="lg"
+      fullWidth
       onClick={onClick}
       disabled={disabled || loading}
-      className="w-full py-4 rounded-full bg-rose-600 text-white font-semibold text-lg disabled:opacity-40 hover:bg-rose-700 transition-colors flex-shrink-0 flex items-center justify-center gap-2"
+      className="flex-shrink-0 flex items-center justify-center gap-2"
     >
       {loading && (
         <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -124,7 +128,7 @@ function ContinueBtn({ label, onClick, disabled, loading }: { label: string; onC
         </svg>
       )}
       {label}
-    </button>
+    </Button>
   );
 }
 
@@ -355,7 +359,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
               {!loginMode && (
                 <div className="flex justify-center mb-1">
                   <img
-                    src="/ruby-heroes.png"
+                    src="/ruby-heroes.webp"
                     alt="Ruby superheroes"
                     className="h-24 sm:h-36 w-auto object-contain"
                   />
@@ -422,10 +426,13 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 {authError && (
                   <p className="text-red-500 text-sm text-center mb-2 px-2">{authError}</p>
                 )}
-                <button
+                <Button
+                  variant="primary"
+                  size="lg"
+                  fullWidth
                   onClick={loginMode ? handleLogin : handleSignUp}
                   disabled={loginMode ? (!email || !password || authLoading) : (!name || !email || !password || authLoading)}
-                  className="w-full py-3.5 rounded-full bg-rose-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-rose-700 transition-colors mb-2.5 flex items-center justify-center gap-2"
+                  className="mb-2.5 flex items-center justify-center gap-2"
                 >
                   {authLoading && (
                     <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -434,7 +441,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                     </svg>
                   )}
                   {loginMode ? "Log in" : "Go! 🚀"}
-                </button>
+                </Button>
                 {loginMode ? (
                   <>
                     <button onClick={() => { setLoginMode(false); setAuthError(""); }} className="w-full py-3 rounded-full border-2 border-[#1a2744] text-[#1a2744] font-bold text-base hover:bg-gray-50 transition-colors">
@@ -493,10 +500,13 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                     {authError && (
                       <p className="text-red-500 text-sm text-center mb-2 px-2">{authError}</p>
                     )}
-                    <button
+                    <Button
+                      variant="primary"
+                      size="lg"
+                      fullWidth
                       onClick={handleForgotPassword}
                       disabled={!email || authLoading}
-                      className="w-full py-3.5 rounded-full bg-rose-600 text-white font-semibold text-base disabled:opacity-40 hover:bg-rose-700 transition-colors mb-2.5 flex items-center justify-center gap-2"
+                      className="mb-2.5 flex items-center justify-center gap-2"
                     >
                       {authLoading && (
                         <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -505,7 +515,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                         </svg>
                       )}
                       Send reset link
-                    </button>
+                    </Button>
                     <p className="text-center text-sm text-gray-500 mt-1">
                       <button
                         onClick={() => { setForgotMode(false); setAuthError(""); }}
@@ -526,12 +536,14 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                     </p>
                   </div>
                   <div className="pt-4">
-                    <button
+                    <Button
+                      variant="primary"
+                      size="lg"
+                      fullWidth
                       onClick={() => { setForgotMode(false); setAuthError(""); }}
-                      className="w-full py-3.5 rounded-full bg-rose-600 text-white font-semibold text-base hover:bg-rose-700 transition-colors"
                     >
                       Back to login
-                    </button>
+                    </Button>
                   </div>
                 </>
               )}

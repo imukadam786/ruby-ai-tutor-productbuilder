@@ -96,7 +96,8 @@ export function itemToGenerated(
     question: item.question,
     options: item.options,
     fields: item.fields,
-    items: item.items, // sequence steps; expected_order is withheld (server-side grading)
+    items: item.items, // sequence steps
+    expected_order: item.expected_order, // shipped for instant client-side scoring
     expected_answer: item.expectedAnswer,
     tolerance: item.tolerance,
     unit: item.unit,

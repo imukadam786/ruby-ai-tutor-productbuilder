@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireApiSecret } from "@/lib/api-auth";
 import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
 import { getSkill } from "@/lib/afrikaans-selector";
+import { scoreAfrikaans } from "@/lib/afrikaans-scoring";
 import type {
   AfrikaansSubmitAnswerRequest,
   AfrikaansSubmitAnswerResponse,
@@ -18,47 +19,6 @@ const PRAISE = [
 ];
 
 const pick = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
-
-function norm(value: string | number): string {
-  return String(value).trim().toLowerCase().replace(/\s+/g, " ");
-}
-
-// Deterministic grading — no LLM rubric judge. The learner taps / chooses /
-// listens, so every answer is checked by exact (normalised) comparison.
-function scoreAnswer(
-  inputType: string,
-  studentAnswer: string,
-  expectedAnswer: string | number,
-): boolean {
-  const exp = norm(expectedAnswer);
-  const stu = norm(studentAnswer);
-  if (!stu) return false;
-
-  switch (inputType) {
-    case "sequence": {
-      // Stored as comma-separated order — compare item-by-item after trimming.
-      const expParts = exp.split(",").map((s) => s.trim());
-      const stuParts = stu.split(",").map((s) => s.trim());
-      if (expParts.length !== stuParts.length) return false;
-      return expParts.every((p, i) => p === stuParts[i]);
-    }
-    case "true-false": {
-      // Afrikaans true-false items use full-text options ("Yes, they rhyme"),
-      // so the client posts the chosen option text — exact match handles it.
-      const truthy = new Set(["true", "t", "yes", "y", "1", "ja"]);
-      const falsy = new Set(["false", "f", "no", "n", "0", "nee"]);
-      const expBool = truthy.has(exp) ? "true" : falsy.has(exp) ? "false" : exp;
-      const stuBool = truthy.has(stu) ? "true" : falsy.has(stu) ? "false" : stu;
-      return expBool === stuBool;
-    }
-    case "text":
-    case "choice":
-    case "image-match":
-    case "cloze":
-    default:
-      return exp === stu;
-  }
-}
 
 async function handler(req: NextRequest) {
   const authError = requireApiSecret(req);
@@ -96,7 +56,7 @@ async function handler(req: NextRequest) {
     const memo = question?.memo ?? "";
     const errorSignals = question?.error_signals ?? [];
 
-    const isCorrect = scoreAnswer(
+    const isCorrect = scoreAfrikaans(
       submission.input_type,
       submission.student_answer,
       expected,

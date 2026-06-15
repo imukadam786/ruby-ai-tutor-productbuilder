@@ -1,6 +1,9 @@
 "use client";
+import RubyBalance from "@/components/RubyBalance";
+import MasteryHeader from "@/components/shared/MasteryHeader";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
+import Button from "@/components/ui/Button";
 
 // GeographySession — clone of HistorySession with a dispatcher widened for the
 // Geography bank. Key points:
@@ -22,6 +25,9 @@ import { supabase } from "@/lib/supabase";
 import geographyTreeData from "@/data/geography-skill-tree.json";
 import geographyBankData from "@/data/geography-question-bank.json";
 import EduBackground from "@/components/EduBackground";
+import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
+import { scoreGeographyAnswer } from "@/lib/geography-scoring";
 import GeographySkillTreeView from "./GeographySkillTreeView";
 import { DataInterpretBlock } from "./DataInterpretBlock";
 import SortBucketsQuestion from "./SortBucketsQuestion";
@@ -55,6 +61,7 @@ import {
 } from "@/lib/content-mastery";
 import type {
   GeographyBank,
+  GeographyBankQuestion,
   GeographyGeneratedQuestion,
   GeographyGenerateQuestionResponse,
   GeographySkillTree,
@@ -94,7 +101,8 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
   const [skillId, setSkillId] = useState<string | null>(null);
   const [question, setQuestion] = useState<GeographyGeneratedQuestion | null>(null);
   const [result, setResult] = useState<GeographySubmitAnswerResponse | null>(null);
-  const [submitting, setSubmitting] = useState(false);
+  // Feedback is scored client-side and shown instantly — no "Checking…" wait.
+  const [submitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [profile, setProfile] = useState<GeographyStudentProfile | null>(null);
 
@@ -252,12 +260,134 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
     if (findSkill(target)) handlePickTopic(target);
   }, [profile, phase, handlePickTopic]);
 
+  // Apply a graded result: record the attempt, update mastery/coverage, and move
+  // to feedback (or the mastered screen).
+  const finalizeAttempt = useCallback(
+    (data: GeographySubmitAnswerResponse, q: GeographyGeneratedQuestion, sId: string) => {
+      setResult(data);
+
+      // Mark this question used and work from the updated profile so the
+      // coverage count includes the answer we just took.
+      const workingProfile = profile
+        ? markGeographyQuestionUsed(profile, sId, q.question_ref)
+        : null;
+      if (workingProfile) setProfile(workingProfile);
+
+      const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
+      const nextAttempts = attemptCount + 1;
+      const nextConsecutiveWrong = data.is_correct ? 0 : consecutiveWrong + 1;
+      setCorrectCount(nextCorrect);
+      setAttemptCount(nextAttempts);
+      setConsecutiveWrong(nextConsecutiveWrong);
+
+      trackQuestionAnswered({
+        subject: "geography",
+        skill_id: sId,
+        template: q.input_type,
+        is_correct: data.is_correct,
+        used_hint: false,
+        attempt_number: nextAttempts,
+        decision: data.is_correct ? "practice" : "reteach",
+      });
+
+      // ── Cumulative mastery check ────────────────────────────────────────
+      // Coverage + accuracy are measured across all sittings, not just this
+      // run. Prior totals live in skill_mastery; this run's deltas are the
+      // session counters. Distinct coverage is deduped from used_questions.
+      const prior = profile?.skill_mastery[sId];
+      const cumulativeCorrect = (prior?.correct_count ?? 0) + nextCorrect;
+      const cumulativeAttempts = (prior?.attempt_count ?? 0) + nextAttempts;
+      const distinctAnswered = workingProfile
+        ? new Set(getGeographyUsedRefs(workingProfile, sId)).size
+        : nextAttempts;
+      const size = poolSize(sId);
+      const required = requiredCount(sId);
+
+      const didMaster = isContentMastered(
+        distinctAnswered,
+        size,
+        cumulativeCorrect,
+        cumulativeAttempts,
+      );
+
+      // End the run when the topic is mastered, when this sitting has covered
+      // a full batch, or when the pool is exhausted — otherwise keep going.
+      const runOver =
+        didMaster || nextAttempts >= required || distinctAnswered >= size;
+
+      if (runOver) {
+        if (profile) {
+          const finalProfile = recordGeographySkillResult(profile, sId, {
+            correct: nextCorrect,
+            attempts: nextAttempts,
+            mastered: didMaster,
+          });
+          setProfile(finalProfile);
+        }
+        setDidMasterTopic(didMaster);
+        if (didMaster) {
+          trackSkillMastered({
+            subject: "geography",
+            skill_id: sId,
+            level: findSkill(sId)?.level.id ?? 10,
+            session_attempt_count: nextAttempts,
+            session_correct: nextCorrect,
+          });
+        }
+        trackSessionEnded({
+          subject: "geography",
+          questions_answered: nextAttempts,
+          correct: nextCorrect,
+          accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
+        });
+        // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
+        rewardEffortFloor("geography", sId);
+        if (didMaster) rewardSkillMastered("geography", sId);
+        void persistReport(sId, nextCorrect, nextAttempts, didMaster);
+        setPhase("mastered");
+      } else {
+        setPhase("feedback");
+      }
+    },
+    [attemptCount, consecutiveWrong, correctCount, persistReport, profile],
+  );
+
   const handleSubmit = useCallback(
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer.trim()) return;
-      setSubmitting(true);
-      try {
-        const payload: GeographySubmitAnswerRequest = {
+
+      // Instant: score client-side (deterministic; the scorer's fields all ship
+      // with the question). The server call runs in the background for usage
+      // metering. The bank scorer reads `expected`, the client question carries
+      // `expected_answer` — bridge that one field name.
+      const { correct, score } = scoreGeographyAnswer(
+        question.input_type,
+        rawAnswer,
+        { ...question, expected: question.expected_answer } as unknown as GeographyBankQuestion,
+      );
+      finalizeAttempt(
+        {
+          is_correct: correct,
+          score,
+          error_signals: [],
+          feedback: correct ? "Correct." : "Not quite — let's look at this.",
+          memo: question.memo ?? "",
+          mastery_update: {
+            skill_id: skillId,
+            new_status: "in_progress",
+            correct_count: correct ? 1 : 0,
+            attempt_count: 1,
+          },
+          next_action: "continue_skill",
+        },
+        question,
+        skillId,
+      );
+      // Background: record against the daily usage cap (may 429 → upgrade modal).
+      void apiFetch("/api/geography/submit-answer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           student_id: profile?.id ?? "local",
           question_id: question.id,
           skill_id: skillId,
@@ -268,111 +398,10 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
           expected_answer: question.expected_answer,
           attempt_number: attemptCount + 1,
           used_hint: false,
-        };
-        const res = await apiFetch("/api/geography/submit-answer", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        if (!res.ok) {
-          // 429 = shared daily limit reached; apiFetch already surfaced the
-          // upgrade modal, so don't also flash an inline error.
-          if (res.status !== 429) setError("Could not check your answer. Please try again.");
-          return;
-        }
-        const data = (await res.json()) as GeographySubmitAnswerResponse;
-        setResult(data);
-
-        // Mark this question used and work from the updated profile so the
-        // coverage count includes the answer we just took.
-        const workingProfile = profile
-          ? markGeographyQuestionUsed(profile, skillId, question.question_ref)
-          : null;
-        if (workingProfile) setProfile(workingProfile);
-
-        const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
-        const nextAttempts = attemptCount + 1;
-        const nextConsecutiveWrong = data.is_correct ? 0 : consecutiveWrong + 1;
-        setCorrectCount(nextCorrect);
-        setAttemptCount(nextAttempts);
-        setConsecutiveWrong(nextConsecutiveWrong);
-
-        trackQuestionAnswered({
-          subject: "geography",
-          skill_id: skillId,
-          template: question.input_type,
-          is_correct: data.is_correct,
-          used_hint: false,
-          attempt_number: nextAttempts,
-          decision: data.is_correct ? "practice" : "reteach",
-        });
-
-        // ── Cumulative mastery check ────────────────────────────────────────
-        // Coverage + accuracy are measured across all sittings, not just this
-        // run. Prior totals live in skill_mastery; this run's deltas are the
-        // session counters. Distinct coverage is deduped from used_questions.
-        const prior = profile?.skill_mastery[skillId];
-        const cumulativeCorrect = (prior?.correct_count ?? 0) + nextCorrect;
-        const cumulativeAttempts = (prior?.attempt_count ?? 0) + nextAttempts;
-        const distinctAnswered = workingProfile
-          ? new Set(getGeographyUsedRefs(workingProfile, skillId)).size
-          : nextAttempts;
-        const size = poolSize(skillId);
-        const required = requiredCount(skillId);
-
-        const didMaster = isContentMastered(
-          distinctAnswered,
-          size,
-          cumulativeCorrect,
-          cumulativeAttempts,
-        );
-
-        // End the run when the topic is mastered, when this sitting has covered
-        // a full batch, or when the pool is exhausted — otherwise keep going.
-        const runOver =
-          didMaster || nextAttempts >= required || distinctAnswered >= size;
-
-        if (runOver) {
-          if (profile) {
-            const finalProfile = recordGeographySkillResult(profile, skillId, {
-              correct: nextCorrect,
-              attempts: nextAttempts,
-              mastered: didMaster,
-            });
-            setProfile(finalProfile);
-          }
-          setDidMasterTopic(didMaster);
-          if (didMaster) {
-            trackSkillMastered({
-              subject: "geography",
-              skill_id: skillId,
-              level: findSkill(skillId)?.level.id ?? 10,
-              session_attempt_count: nextAttempts,
-              session_correct: nextCorrect,
-            });
-          }
-          trackSessionEnded({
-            subject: "geography",
-            questions_answered: nextAttempts,
-            correct: nextCorrect,
-            accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
-          });
-          // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
-          rewardEffortFloor("geography", skillId);
-          if (didMaster) rewardSkillMastered("geography", skillId, profile?.id);
-          void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
-          setPhase("mastered");
-        } else {
-          setPhase("feedback");
-        }
-      } catch (err) {
-        console.error("[GeographySession] submit-answer failed:", err);
-        setError("Could not check your answer. Please try again.");
-      } finally {
-        setSubmitting(false);
-      }
+        } as GeographySubmitAnswerRequest),
+      }).catch(() => { /* non-blocking; feedback already shown */ });
     },
-    [attemptCount, consecutiveWrong, correctCount, persistReport, profile, question, skillId],
+    [attemptCount, finalizeAttempt, profile, question, skillId],
   );
 
   // ─── Render: tree ──────────────────────────────────────────────────────────
@@ -412,17 +441,19 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
             )}
           </p>
           <p className="text-sm text-gray-500">{correctCount} of {attemptCount} correct this round.</p>
-          <button
+          <Button
+            variant="success"
+            size="lg"
+            fullWidth
             onClick={() => {
               setSkillId(null);
               setQuestion(null);
               setResult(null);
               setPhase("tree");
             }}
-            className="w-full py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold text-base"
           >
             Pick another topic
-          </button>
+          </Button>
         </div>
       </div>
     );
@@ -439,8 +470,6 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
   }
 
   // ─── Render: question / feedback ───────────────────────────────────────────
-  const showRecoveryHint = consecutiveWrong >= 2 && skillId !== null;
-  const recoveryHint = showRecoveryHint ? findSkill(skillId!)?.skill.recovery_strategy ?? null : null;
 
   return (
     <div className="relative flex flex-col h-full bg-[#F4F4F5]">
@@ -459,34 +488,18 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
             >
               ← Topics
             </button>
+            <span className="hidden md:inline-flex flex-shrink-0"><RubyBalance theme="light" size="lg" /></span>
           </div>
 
           {skillId && (
-            <div className="bg-sky-50 border border-sky-200 rounded-2xl px-4 py-3">
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-xs font-bold uppercase tracking-wide text-sky-800">
-                  Master this topic
-                </span>
-                <span className="text-sm font-semibold text-sky-700">
-                  Q {Math.min(attemptCount + 1, requiredCount(skillId))} of {requiredCount(skillId)} · ⭐ {correctCount}
-                </span>
-              </div>
-              <div className="h-2 bg-sky-100 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-sky-500 rounded-full transition-all"
-                  style={{
-                    width: `${Math.round(
-                      (Math.min(attemptCount, requiredCount(skillId)) /
-                        Math.max(requiredCount(skillId), 1)) *
-                        100,
-                    )}%`,
-                  }}
-                />
-              </div>
-              <p className="text-[11px] text-sky-700 mt-1.5">
-                Master: {requiredCount(skillId)} questions at {Math.round(ACCURACY_TARGET * 100)}%
-              </p>
-            </div>
+            <MasteryHeader
+              title={findSkill(skillId)?.skill?.title ?? "Master this topic"}
+              distinctAnswered={profile ? new Set(getGeographyUsedRefs(profile, skillId)).size : 0}
+              requiredCount={requiredCount(skillId)}
+              correctCount={correctCount}
+              attemptCount={attemptCount}
+              mastered={profile?.skill_mastery[skillId]?.status === "mastered"}
+            />
           )}
 
           {question && (
@@ -539,45 +552,18 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
               )}
 
               {phase === "feedback" && result && (
-                <div
-                  className={`rounded-2xl p-5 ${
-                    result.is_correct
-                      ? "bg-green-50 border border-green-200"
-                      : "bg-rose-50 border border-rose-200"
-                  }`}
-                >
-                  <p
-                    className={`text-lg font-bold ${
-                      result.is_correct ? "text-green-700" : "text-rose-700"
-                    }`}
-                  >
-                    {result.is_correct ? "✓ " : "✗ "}
-                    {result.feedback}
-                  </p>
-                  {!result.is_correct && result.score > 0 && (
-                    <p className="text-xs text-rose-700 mt-1">
-                      Partial credit: {Math.round(result.score * 100)}%
-                    </p>
-                  )}
-                  {result.memo && (
-                    <p className="text-sm text-gray-700 mt-2 leading-relaxed">{result.memo}</p>
-                  )}
-                  {recoveryHint && !result.is_correct && (
-                    <p className="text-sm text-sky-700 mt-3 bg-sky-100 rounded-xl px-3 py-2">
-                      💡 {recoveryHint}
-                    </p>
-                  )}
-                </div>
-              )}
-
-              {phase === "feedback" && (
-                <button
-                  onClick={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
-                  disabled={submitting}
-                  className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                >
-                  Next question →
-                </button>
+                <FeedbackExplanation
+                  isCorrect={result.is_correct}
+                  note={result.is_correct ? result.memo : undefined}
+                  whyOverride={result.is_correct ? undefined : result.memo}
+                  footer={
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
+                  onRetry={() => { setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
+                />
               )}
 
               {error && (

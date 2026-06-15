@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireApiSecret } from "@/lib/api-auth";
 import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
 import { getTopic } from "@/lib/life-sciences-selector";
+import { scoreLifeSciences } from "@/lib/life-sciences-scoring";
 import { openAIJudge } from "@/lib/reading-llm-judge";
 import { getOpenAI } from "@/lib/anthropic";
 import type {
@@ -20,41 +21,6 @@ const PRAISE = [
 ];
 
 const pick = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
-
-function norm(value: string | number): string {
-  return String(value).trim().toLowerCase().replace(/\s+/g, " ");
-}
-
-function scoreAnswer(
-  inputType: string,
-  studentAnswer: string,
-  expectedAnswer: string | number,
-): boolean {
-  const exp = norm(expectedAnswer);
-  const stu = norm(studentAnswer);
-  if (!stu) return false;
-
-  switch (inputType) {
-    case "true-false": {
-      const truthy = new Set(["true", "t", "yes", "y", "1"]);
-      const falsy = new Set(["false", "f", "no", "n", "0"]);
-      const expBool = truthy.has(exp) ? "true" : falsy.has(exp) ? "false" : exp;
-      const stuBool = truthy.has(stu) ? "true" : falsy.has(stu) ? "false" : stu;
-      return expBool === stuBool;
-    }
-    // sequence in Life Sciences is rendered as MCQ (the option IS the full
-    // ordering string), so a plain equality check is correct here.
-    case "sequence":
-    case "choice":
-    case "cloze":
-    case "match":
-    case "scenario":
-    case "diagram-label":
-    case "data-interpret":
-    default:
-      return exp === stu;
-  }
-}
 
 async function handler(req: NextRequest) {
   const authError = requireApiSecret(req);
@@ -117,7 +83,7 @@ async function handler(req: NextRequest) {
         }
       }
     } else {
-      isCorrect = scoreAnswer(submission.input_type, submission.student_answer, expected);
+      isCorrect = scoreLifeSciences(submission.input_type, submission.student_answer, expected);
       feedback = isCorrect
         ? pick(PRAISE)
         : `Not quite — let's try again. ${topic.recovery_strategy}`;

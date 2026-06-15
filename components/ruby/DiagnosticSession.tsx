@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import RubyLoader from "@/components/RubyLoader";
+import RubyBalance from "@/components/RubyBalance";
+import RubyIcon from "@/components/ui/RubyIcon";
+import Button from "@/components/ui/Button";
 import { apiFetch } from "@/lib/fetch";
 import {
   StudentProfile,
@@ -28,6 +31,8 @@ import {
 import MathsDiagnosticPlacement from "./MathsDiagnosticPlacement";
 import { MathsPlacementResult } from "@/types/ruby";
 import { updateSkillMastery, initSkillMastery, scanMasteryForReview, pickNeedsReviewSkill, stampMathsReviewedAt } from "@/lib/mastery-engine";
+import { checkAnswerCorrectness } from "@/lib/diagnostic-engine";
+import { diagnoseError } from "@/lib/error-diagnosis";
 import { getDomainForSkill, friendlyMathsDomainName, getUsedRefs, markQuestionUsed, selectQuestion, bankQuestionToGenerated } from "@/lib/question-selector";
 import { abilityLevel } from "@/lib/bkt";
 import { simplifyQuestion } from "@/lib/question-simplifier";
@@ -35,6 +40,7 @@ import { getReadingProfile } from "@/lib/reading-student-model";
 import { supabase } from "@/lib/supabase";
 import QuestionCard from "./QuestionCard";
 import FeedbackCard from "./FeedbackCard";
+import { buildWorkedSteps } from "@/lib/worked-steps";
 import EduBackground from "@/components/EduBackground";
 import { selectMathsTemplate } from "@/lib/template-selector";
 import { detectStuck } from "@/lib/stuck-detector";
@@ -154,6 +160,8 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
   const [loadErrorCount, setLoadErrorCount] = useState(0);
   const retryFnRef = useRef<(() => void) | null>(null);
   const lastStudentAnswerRef = useRef<string>("");
+  // Holds the in-flight submit reconciliation so "next" can await it before advancing.
+  const submitInFlightRef = useRef<Promise<void> | null>(null);
 
   // Report state — shown after placement before learning begins
   const [pendingPlacementResult, setPendingPlacementResult] = useState<MathsPlacementResult | null>(null);
@@ -349,6 +357,35 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
     if (!currentQuestion || !profile) return;
     lastStudentAnswerRef.current = answer;
 
+    // ── Optimistic instant-correct ──────────────────────────────────────────
+    // The correctness check is deterministic and the expected answer is already
+    // in the browser, so a correct answer can show its success card immediately
+    // while mastery/progression reconcile in the background. (Replay and wrong
+    // answers still wait for the server, where re-teaching lives.) Client and
+    // server run identical logic on identical inputs, so they cannot disagree.
+    const optimisticCorrect =
+      !replaySkillId && checkAnswerCorrectness(answer, currentQuestion.expected_answer);
+    if (optimisticCorrect) {
+      // Show the success card now; the background work below updates the session
+      // counters, mastery and (if reached) the mastery celebration a moment later.
+      setCurrentResult({
+        is_correct: true,
+        error_type: "correct",
+        feedback: "Correct!",
+        recovery_explanation: "",
+        mastery_update: {
+          skill_id: currentQuestion.skill_id,
+          new_status: "in_progress",
+          correct_count: 0,
+          attempt_count: 0,
+          formats_used: [],
+        },
+        next_action: "continue_skill",
+      });
+      setPhase("feedback");
+    }
+
+    const work = (async () => {
     try {
       const res = await apiFetch("/api/ruby/submit-answer", {
         method: "POST",
@@ -486,11 +523,19 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
       setStatusMessage("Something went wrong, please try submitting again.");
       setPhase("question");
     }
+    })();
+    submitInFlightRef.current = work;
+    await work;
+    submitInFlightRef.current = null;
   };
 
-  const handleNextAfterFeedback = () => {
-    if (!profile || !currentResult) return;
-
+  const handleNextAfterFeedback = async () => {
+    if (!profile) return;
+    // On an optimistically-shown correct answer the background reconciliation may
+    // still be in flight — wait for it so mastery/advancement is settled before
+    // we choose the next question. Usually already resolved (no perceived wait).
+    if (submitInFlightRef.current) await submitInFlightRef.current;
+    if (!currentResult) return;
     setPhase("loading_question");
   };
 
@@ -854,12 +899,14 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
               </p>
               <p className="text-gray-500 text-sm">Check your connection and try again.</p>
               {loadErrorCount < 3 ? (
-                <button
+                <Button
+                  variant="primary"
+                  size="lg"
+                  fullWidth
                   onClick={() => retryFnRef.current?.()}
-                  className="w-full bg-blue-500 text-white py-3 rounded-2xl font-semibold hover:bg-blue-600 transition-colors"
                 >
                   Try again
-                </button>
+                </Button>
               ) : (
                 <button
                   onClick={handleSkipOnLoadError}
@@ -932,6 +979,17 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
                 student_answer: lastStudentAnswerRef.current,
                 expected_answer: currentQuestion.expected_answer,
               } : undefined}
+              errorSignals={(() => {
+                const codes = currentQuestion?.bank_question?.error_signals as string[] | undefined;
+                // Tier-1 precise diagnosis: if the student's wrong answer matches a
+                // known misconception's predicted answer, surface that code first.
+                if (currentResult?.is_correct === false && currentQuestion?.bank_question) {
+                  const matched = diagnoseError(lastStudentAnswerRef.current, currentQuestion.bank_question);
+                  if (matched) return [matched, ...(codes ?? []).filter((c) => c !== matched)];
+                }
+                return codes;
+              })()}
+              workedSteps={buildWorkedSteps(currentQuestion) ?? undefined}
             />
           </div>
         </div>
@@ -948,7 +1006,7 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="bg-white border-2 border-green-200 rounded-2xl p-8 shadow-lg max-w-md w-full text-center space-y-4">
             <div className="text-6xl mb-1">🎉</div>
-            <div className="flex justify-center gap-2 text-2xl">⭐⭐⭐</div>
+            <div className="flex justify-center gap-2"><RubyIcon className="w-7 h-7" /><RubyIcon className="w-7 h-7" /><RubyIcon className="w-7 h-7" /></div>
             <h3 className="text-2xl font-bold text-green-800">{t("session.skill_complete")}</h3>
             <p className="text-green-700 text-lg">
               You mastered <strong>{skill?.title || "this skill"}</strong>!
@@ -982,12 +1040,14 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
             <p className="text-blue-700 text-lg">
               You finished <strong>{tier?.title ?? "this topic"}</strong>!
             </p>
-            <button
+            <Button
+              variant="primary"
+              size="lg"
+              fullWidth
               onClick={handleAdvanceAfterCelebration}
-              className="w-full bg-blue-500 hover:bg-blue-600 active:scale-95 text-white py-3 rounded-xl font-semibold text-lg transition-all shadow-md"
             >
               Next topic →
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -1049,12 +1109,15 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
             <p className="text-gray-600">
               You&apos;ve completed the entire Ruby Math Skill Tree. That&apos;s a remarkable achievement!
             </p>
-            <button
+            <Button
+              variant="primary"
+              size="lg"
+              fullWidth
               onClick={resetToPlacement}
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-medium mt-2"
+              className="mt-2"
             >
               Start Again
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -1116,6 +1179,7 @@ function SessionHeader({
         )}
       </div>
       <div className="flex items-center gap-3 flex-shrink-0">
+        <RubyBalance theme="light" size="lg" />
         {sessionAttempts > 0 && (
           <div className="text-right">
             <p className={`text-sm font-semibold ${accuracy >= 70 ? "text-green-600" : "text-orange-500"}`}>

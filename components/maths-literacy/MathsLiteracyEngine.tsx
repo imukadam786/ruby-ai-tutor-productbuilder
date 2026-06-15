@@ -4,6 +4,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { apiFetch } from "@/lib/fetch";
 import MathsLiteracyMarkdown from "@/components/maths-literacy/MathsLiteracyMarkdown";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
+import Button from "@/components/ui/Button";
+import SignToggle from "@/components/ui/SignToggle";
 import { seedForGrade } from "@/lib/maths-literacy-grade-map";
 import {
   getMathsLiteracyProfile,
@@ -12,7 +14,17 @@ import {
   saveMathsLiteracyProfile,
   updateMathsLiteracySkillMastery,
 } from "@/lib/maths-literacy-student-model";
-import { ACCURACY_TARGET, requiredCoverageCount } from "@/lib/content-mastery";
+import { requiredCoverageCount } from "@/lib/content-mastery";
+import MasteryHeader from "@/components/shared/MasteryHeader";
+import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
+import EduBackground from "@/components/EduBackground";
+import RubyBalance from "@/components/RubyBalance";
+import {
+  parseAnswerKey,
+  scoreMathsLiteracy,
+  formatExpectedAnswer,
+} from "@/lib/maths-literacy-scoring";
 import type {
   MathsLiteracyDiagnosticResult,
   MathsLiteracyGenerateResponse,
@@ -39,10 +51,15 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
   const [studentAnswer, setStudentAnswer] = useState("");
   const [studentFields, setStudentFields] = useState<Record<string, string>>({});
   const [feedback, setFeedback] = useState<MathsLiteracyDiagnosticResult | null>(null);
-  const [submitting, setSubmitting] = useState(false);
+  const [submittedAnswer, setSubmittedAnswer] = useState("");
+  // Feedback is scored client-side and shown instantly, so there is no
+  // "Checking…" wait; kept false for the QuestionView button's disabled state.
+  const [submitting] = useState(false);
 
   // Track served items per skill so we don't repeat within a session.
   const usedRefsRef = useRef<Record<string, string[]>>({});
+  // Holds the in-flight background submit so "continue" can await it before advancing.
+  const submitInFlightRef = useRef<Promise<void> | null>(null);
 
   // Rubies effort floor: pay out once on exit if the learner answered anything.
   const answeredRef = useRef(false);
@@ -119,68 +136,93 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
   }, [currentSkillId, fetchQuestion]);
 
   // ── Submit ───────────────────────────────────────────────────────────────
+  // Score client-side for instant feedback (the answer key ships with the
+  // question, and the same scoring lib runs on the server), then reconcile
+  // mastery/rubies/usage with the server in the background.
   const onSubmit = async () => {
-    if (!question || submitting) return;
-    setSubmitting(true);
-    try {
-      const fieldsPayload = question.fields
-        ? question.fields.map((f) => ({ label: f.label, value: studentFields[f.label] ?? "" }))
-        : undefined;
-      const res = await apiFetch("/api/maths-literacy/submit-answer", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          skill_id: currentSkillId,
-          question_id: question.question_id,
-          question: question.question,
-          student_answer: question.answerMode === "multiField" ? "" : studentAnswer.trim(),
-          student_fields: fieldsPayload,
-          expected_answer_key: question.expected_answer_key,
-          working_steps: question.working_steps,
-        }),
-      });
-      // Shared daily limit reached — apiFetch surfaced the upgrade modal.
-      if (res.status === 429) return;
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error ?? `HTTP ${res.status}`);
-      }
-      const data = (await res.json()) as MathsLiteracySubmitResponse;
-      setFeedback(data.result);
-      setPhase("feedback");
-      answeredRef.current = true;
+    if (!question || submitInFlightRef.current) return;
+    const key = parseAnswerKey(question.expected_answer_key);
+    if (!key) return;
 
-      // Update local profile with the attempt. Coverage denominator is the
-      // skill's authored bank size, returned with the question.
-      if (profile) {
-        const poolSize = question.pool_size;
-        const { profile: updated, mastered } = updateMathsLiteracySkillMastery(
-          profile,
-          data.attempt,
-          poolSize,
-        );
-        const withCurrent = { ...updated, current_skill_id: currentSkillId };
-        setProfile(withCurrent);
-        saveMathsLiteracyProfile(withCurrent);
-        if (mastered) {
-          // Hint to next call: feedback now shows a "mastered" badge.
-          data.result.mastery_update.new_status = "mastered";
-          // Rubies: first-time mastery bonus.
-          rewardSkillMastered("maths-literacy", currentSkillId, profile.id);
+    const fieldsPayload = question.fields
+      ? question.fields.map((f) => ({ label: f.label, value: studentFields[f.label] ?? "" }))
+      : undefined;
+    const singleAnswer = question.answerMode === "multiField" ? "" : studentAnswer.trim();
+    const { isCorrect, partialCredit } = scoreMathsLiteracy(key, singleAnswer, fieldsPayload);
+
+    // Instant feedback from the client score.
+    setSubmittedAnswer(
+      question.answerMode === "multiField"
+        ? (fieldsPayload ?? []).map((f) => `${f.label}: ${f.value}`).join("; ")
+        : singleAnswer,
+    );
+    setFeedback({
+      is_correct: isCorrect,
+      partial_credit: partialCredit,
+      error_signals: isCorrect ? [] : question.error_signals,
+      feedback: isCorrect ? "Correct." : `Not quite — the answer was ${formatExpectedAnswer(key)}.`,
+      working_steps: question.working_steps,
+      mastery_update: {
+        skill_id: currentSkillId,
+        new_status: "in_progress",
+        correct_count: isCorrect ? 1 : 0,
+        attempt_count: 1,
+      },
+      next_action: "continue_skill",
+    });
+    setPhase("feedback");
+    answeredRef.current = true;
+
+    // Background: authoritative submit for mastery, rubies and usage metering.
+    const work = (async () => {
+      try {
+        const res = await apiFetch("/api/maths-literacy/submit-answer", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            skill_id: currentSkillId,
+            question_id: question.question_id,
+            question: question.question,
+            student_answer: singleAnswer,
+            student_fields: fieldsPayload,
+            expected_answer_key: question.expected_answer_key,
+            working_steps: question.working_steps,
+            error_signals: question.error_signals,
+          }),
+        });
+        if (res.status === 429 || !res.ok) return;
+        const data = (await res.json()) as MathsLiteracySubmitResponse;
+        if (profile) {
+          const { profile: updated, mastered } = updateMathsLiteracySkillMastery(
+            profile,
+            data.attempt,
+            question.pool_size,
+          );
+          const withCurrent = { ...updated, current_skill_id: currentSkillId };
+          setProfile(withCurrent);
+          saveMathsLiteracyProfile(withCurrent);
+          if (mastered) {
+            setFeedback((f) =>
+              f ? { ...f, mastery_update: { ...f.mastery_update, new_status: "mastered" } } : f,
+            );
+            rewardSkillMastered("maths-literacy", currentSkillId);
+          }
         }
+      } catch {
+        // Non-blocking: the student already has correct feedback; mastery will
+        // reconcile on the next attempt if this write failed.
       }
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : "Failed to submit answer";
-      setError(msg);
-      setPhase("error");
-    } finally {
-      setSubmitting(false);
-    }
+    })();
+    submitInFlightRef.current = work;
+    await work;
+    submitInFlightRef.current = null;
   };
 
   // ── Continue (next question or advance skill) ────────────────────────────
-  const onContinue = () => {
+  const onContinue = async () => {
     if (!question) return;
+    // Wait for the background mastery write so advancement uses settled state.
+    if (submitInFlightRef.current) await submitInFlightRef.current;
     const mastered =
       profile?.skill_mastery[currentSkillId]?.status === "mastered" &&
       feedback?.is_correct;
@@ -192,6 +234,22 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
       }
     }
     fetchQuestion(currentSkillId);
+  };
+
+  // ── Retry (re-attempt the same question) ─────────────────────────────────
+  // Reopens the current question with the input cleared. The next submit runs
+  // normally, so the re-attempt counts as a fresh attempt (and draws from the
+  // daily usage pool) just like a first try.
+  const onRetry = async () => {
+    if (!question) return;
+    // Let the prior background submit settle so its mastery write doesn't race
+    // the next attempt.
+    if (submitInFlightRef.current) await submitInFlightRef.current;
+    setFeedback(null);
+    setSubmittedAnswer("");
+    setStudentAnswer("");
+    setStudentFields({});
+    setPhase("question");
   };
 
   const onExitReplayClick = () => {
@@ -212,74 +270,67 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
     profile?.used_questions?.[currentSkillId] ?? [],
   ).size;
 
-  return (
-    <div className="flex flex-col h-full bg-[#F4F4F5]">
-      <header className="bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3">
-        {onBack && (
-          <button
-            onClick={onBack}
-            className="text-sm text-gray-600 hover:text-gray-900"
-            aria-label="Back to subjects"
-          >
-            ← Subjects
-          </button>
-        )}
-        <div className="flex-1 min-w-0">
-          <div className="text-xs text-gray-500 truncate">Maths Literacy · {currentSkillId}</div>
-          <div className="text-sm font-semibold text-gray-900 truncate">
-            {skill?.title ?? "Loading…"}
-          </div>
-        </div>
-        {mastery && (
-          <span
-            className={`text-[11px] font-semibold px-2 py-0.5 rounded-full ${
-              mastery.status === "mastered"
-                ? "bg-green-100 text-green-700"
-                : "bg-amber-100 text-amber-700"
-            }`}
-          >
-            {mastery.status === "mastered"
-              ? "Mastered"
-              : requiredCount > 0
-              ? `${Math.min(distinctAnswered, requiredCount)}/${requiredCount}`
-              : `${mastery.correct_count}`}
-          </span>
-        )}
-        {mastery && mastery.status !== "mastered" && requiredCount > 0 && (
-          <span
-            className="hidden sm:inline text-[10px] text-gray-500"
-            title={`Master this skill: answer ${requiredCount} different questions at ${Math.round(
-              ACCURACY_TARGET * 100,
-            )}% correct`}
-          >
-            {requiredCount} at {Math.round(ACCURACY_TARGET * 100)}%
-          </span>
-        )}
-        {replayMode && (
-          <button
-            onClick={onExitReplayClick}
-            className="text-xs text-blue-600 hover:underline"
-          >
-            Exit replay
-          </button>
-        )}
-      </header>
+  const showProgress = (phase === "question" || phase === "feedback") && !!question;
 
-      <div className="flex-1 overflow-y-auto p-4 sm:p-6">
-        <div className="max-w-2xl mx-auto">
+  return (
+    <div className="relative flex flex-col h-full bg-[#F4F4F5]">
+      <EduBackground />
+      <div className="relative flex-1 overflow-y-auto">
+        <div className="max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
+          {/* Top row: back to subjects + rubies (+ replay exit) */}
+          <div className="flex items-center justify-between gap-3">
+            {onBack ? (
+              <button
+                onClick={onBack}
+                className="text-sm text-[#1a2744] font-semibold underline decoration-2 underline-offset-4"
+                aria-label="Back to subjects"
+              >
+                ← Subjects
+              </button>
+            ) : (
+              <span />
+            )}
+            <div className="flex items-center gap-3">
+              {replayMode && (
+                <button
+                  onClick={onExitReplayClick}
+                  className="text-xs text-blue-600 hover:underline"
+                >
+                  Exit replay
+                </button>
+              )}
+              <span className="hidden md:inline-flex flex-shrink-0">
+                <RubyBalance theme="light" size="lg" />
+              </span>
+            </div>
+          </div>
+
+          {/* Coverage / mastery progress card — shared across all subjects. */}
+          {showProgress && (
+            <MasteryHeader
+              title={skill?.title ?? "Maths Literacy"}
+              distinctAnswered={distinctAnswered}
+              requiredCount={requiredCount}
+              correctCount={mastery?.correct_count ?? 0}
+              attemptCount={mastery?.attempt_count ?? 0}
+              mastered={mastery?.status === "mastered"}
+            />
+          )}
+
           {phase === "loading" && (
-            <div className="text-center text-gray-500 py-12">Loading question…</div>
+            <div className="bg-white rounded-3xl shadow-md p-8 text-center text-gray-500">
+              Loading question…
+            </div>
           )}
 
           {phase === "error" && (
-            <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700">
-              {error ?? "Something went wrong."}
-              <button
-                onClick={() => fetchQuestion(currentSkillId)}
-                className="block mt-3 px-3 py-1.5 bg-red-600 text-white rounded-md text-xs"
-              >
+            <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-4">
+              <p className="text-sm text-rose-700 bg-rose-50 rounded-xl px-3 py-2">
+                {error ?? "Something went wrong."}
+              </p>
+              <Button variant="primary" size="lg" fullWidth onClick={() => fetchQuestion(currentSkillId)}>
                 Try again
-              </button>
+              </Button>
             </div>
           )}
 
@@ -296,16 +347,30 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
           )}
 
           {phase === "feedback" && feedback && question && (
-            <FeedbackView
-              result={feedback}
+            <FeedbackExplanation
+              isCorrect={feedback.is_correct}
+              studentAnswer={submittedAnswer}
+              correctAnswer={(() => {
+                const k = parseAnswerKey(question.expected_answer_key);
+                return k ? formatExpectedAnswer(k) : undefined;
+              })()}
+              errorSignals={question.error_signals}
+              whyOverride={question.error_explanation}
               workingSteps={question.working_steps}
-              onContinue={onContinue}
-              advanceLabel={
-                profile?.skill_mastery[currentSkillId]?.status === "mastered" &&
-                feedback.is_correct &&
-                !replayMode
-                  ? "Next skill →"
-                  : "Next question →"
+              partialCredit={feedback.partial_credit}
+              footer={
+                <FeedbackFooter
+                  isCorrect={feedback.is_correct}
+                  onNext={onContinue}
+                  onRetry={onRetry}
+                  nextLabel={
+                    profile?.skill_mastery[currentSkillId]?.status === "mastered" &&
+                    feedback.is_correct &&
+                    !replayMode
+                      ? "Next skill →"
+                      : "Next question →"
+                  }
+                />
               }
             />
           )}
@@ -338,45 +403,53 @@ function QuestionView({
       ? (question.fields ?? []).every((f) => (studentFields[f.label] ?? "").trim() !== "")
       : studentAnswer.trim() !== "";
 
+  const wide = (question.options ?? []).some((o) => o.length > 40);
+
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 sm:p-6 space-y-4">
+    <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-5">
       {question.stimulus && (
         <MathsLiteracyMarkdown className="text-sm text-gray-700 leading-relaxed">
           {question.stimulus}
         </MathsLiteracyMarkdown>
       )}
-      <MathsLiteracyMarkdown className="text-base font-semibold text-gray-900">
+      <MathsLiteracyMarkdown className="text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">
         {question.question}
       </MathsLiteracyMarkdown>
 
       {question.answerMode === "numeric" && (
-        <div>
+        <div className="flex items-stretch gap-2">
+          <SignToggle
+            value={studentAnswer}
+            onChange={setStudentAnswer}
+            disabled={submitting}
+            className="rounded-2xl px-5 text-xl"
+          />
           <input
             type="text"
             inputMode="decimal"
             value={studentAnswer}
             onChange={(e) => setStudentAnswer(e.target.value)}
+            onKeyDown={(e) => { if (e.key === "Enter" && canSubmit && !submitting) onSubmit(); }}
             placeholder={question.unit ? `Answer in ${question.unit}` : "Your answer"}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
+            className="w-full px-5 py-4 text-lg font-semibold border-2 border-teal-200 focus:border-teal-400 focus:outline-none rounded-2xl bg-teal-50/40 text-[#1a2744]"
             autoFocus
           />
         </div>
       )}
 
       {question.answerMode === "multiChoice" && question.options && (
-        <div className="space-y-2">
+        <div className={`grid ${wide ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2"} gap-3`}>
           {question.options.map((opt, i) => (
             <button
               key={i}
               onClick={() => setStudentAnswer(opt)}
-              className={`w-full text-left px-3 py-2 rounded-lg border transition-colors ${
+              className={`rounded-2xl px-5 py-5 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all whitespace-pre-line border-2 ${
                 studentAnswer === opt
-                  ? "border-[#BE1832] bg-rose-50 ring-2 ring-[#BE1832]/20"
-                  : "border-gray-300 bg-white hover:border-gray-400"
+                  ? "bg-teal-100 border-teal-400 ring-2 ring-teal-300"
+                  : "bg-teal-50 hover:bg-teal-100 border-teal-200 hover:border-teal-300"
               }`}
             >
-              <span className="text-xs text-gray-500 mr-2">{String.fromCharCode(65 + i)})</span>
-              <span className="text-sm">{opt}</span>
+              {opt}
             </button>
           ))}
         </div>
@@ -386,95 +459,25 @@ function QuestionView({
         <div className="space-y-3">
           {question.fields.map((f) => (
             <label key={f.label} className="block">
-              <span className="text-sm text-gray-700">{f.label}</span>
+              <span className="text-sm font-medium text-gray-700">{f.label}</span>
               <input
                 type="text"
                 value={studentFields[f.label] ?? ""}
                 onChange={(e) =>
                   setStudentFields({ ...studentFields, [f.label]: e.target.value })
                 }
-                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#BE1832]"
+                onKeyDown={(e) => { if (e.key === "Enter" && canSubmit && !submitting) onSubmit(); }}
+                className="mt-1 w-full px-5 py-3 text-base border-2 border-teal-200 focus:border-teal-400 focus:outline-none rounded-2xl bg-teal-50/40 text-[#1a2744]"
               />
             </label>
           ))}
         </div>
       )}
 
-      <button
-        onClick={onSubmit}
-        disabled={!canSubmit || submitting}
-        className="w-full px-4 py-2.5 rounded-xl bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-semibold text-sm transition-colors"
-      >
+      <Button variant="primary" size="lg" fullWidth onClick={onSubmit} disabled={!canSubmit || submitting}>
         {submitting ? "Checking…" : "Submit"}
-      </button>
+      </Button>
     </div>
   );
 }
 
-// ─── Feedback render ─────────────────────────────────────────────────────────
-function FeedbackView({
-  result,
-  workingSteps,
-  onContinue,
-  advanceLabel,
-}: {
-  result: MathsLiteracyDiagnosticResult;
-  workingSteps: string[];
-  onContinue: () => void;
-  advanceLabel: string;
-}) {
-  const correct = result.is_correct;
-  // Show the redundant "Correct." string only if the engine gave something more
-  // useful than the word itself.
-  const extraFeedback =
-    result.feedback && result.feedback.trim().toLowerCase() !== "correct."
-      ? result.feedback
-      : "";
-  return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 sm:p-6 space-y-4">
-      <div className="flex items-center gap-3">
-        <div
-          className={`w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold ${
-            correct ? "bg-green-100 text-green-600" : "bg-amber-100 text-amber-600"
-          }`}
-          aria-hidden
-        >
-          {correct ? "✓" : "✕"}
-        </div>
-        <div>
-          <p className={`text-lg font-bold ${correct ? "text-green-700" : "text-amber-700"}`}>
-            {correct
-              ? "Correct!"
-              : result.partial_credit
-              ? `Partial credit (${result.partial_credit.correct}/${result.partial_credit.total})`
-              : "Not quite"}
-          </p>
-          <p className="text-sm text-gray-500">
-            {correct ? "Nice work — here's the method." : "Have a look at the working below."}
-          </p>
-        </div>
-      </div>
-      {extraFeedback && (
-        <div className="text-sm text-gray-800 leading-relaxed">{extraFeedback}</div>
-      )}
-      {workingSteps.length > 0 && (
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
-          <div className="text-xs font-semibold text-gray-700 mb-2">
-            {correct ? "How it's done" : "Working"}
-          </div>
-          <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
-            {workingSteps.map((s, i) => (
-              <li key={i}>{s}</li>
-            ))}
-          </ol>
-        </div>
-      )}
-      <button
-        onClick={onContinue}
-        className="w-full px-4 py-2.5 rounded-xl bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors"
-      >
-        {advanceLabel}
-      </button>
-    </div>
-  );
-}

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { PostHogProvider } from "@/components/PostHogProvider";
+import PwaUpdatePrompt from "@/components/PwaUpdatePrompt";
 
 export const metadata: Metadata = {
   title: "Ruby AI Tutor",
@@ -57,6 +58,7 @@ export default function RootLayout({
       </head>
       <body className="h-full overflow-hidden antialiased">
         <PostHogProvider>{children}</PostHogProvider>
+        <PwaUpdatePrompt />
       </body>
     </html>
   );

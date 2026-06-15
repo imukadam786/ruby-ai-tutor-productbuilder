@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireApiSecret } from "@/lib/api-auth";
 import { verifyToken, enforceSharedQuestionLimit } from "@/lib/server-usage";
 import { getTopic } from "@/lib/social-sciences-selector";
+import { scoreSocialSciences } from "@/lib/social-sciences-scoring";
 import type {
   SocialSciencesSubmitAnswerRequest,
   SocialSciencesSubmitAnswerResponse,
@@ -18,44 +19,6 @@ const PRAISE = [
 ];
 
 const pick = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
-
-function norm(value: string | number): string {
-  return String(value).trim().toLowerCase().replace(/\s+/g, " ");
-}
-
-function scoreAnswer(
-  inputType: string,
-  studentAnswer: string,
-  expectedAnswer: string | number,
-): boolean {
-  const exp = norm(expectedAnswer);
-  const stu = norm(studentAnswer);
-  if (!stu) return false;
-
-  switch (inputType) {
-    case "sequence": {
-      const expParts = exp.split(",").map((s) => s.trim());
-      const stuParts = stu.split(",").map((s) => s.trim());
-      if (expParts.length !== stuParts.length) return false;
-      return expParts.every((p, i) => p === stuParts[i]);
-    }
-    case "true-false": {
-      const truthy = new Set(["true", "t", "yes", "y", "1"]);
-      const falsy = new Set(["false", "f", "no", "n", "0"]);
-      const expBool = truthy.has(exp) ? "true" : falsy.has(exp) ? "false" : exp;
-      const stuBool = truthy.has(stu) ? "true" : falsy.has(stu) ? "false" : stu;
-      return expBool === stuBool;
-    }
-    case "text":
-    case "choice":
-    default:
-      // For text items, accept any non-empty answer as correct (the bank's
-      // expected is illustrative — many text questions have multiple valid
-      // answers). The memo always shows what good answers look like.
-      if (inputType === "text") return stu.length > 0;
-      return exp === stu;
-  }
-}
 
 async function handler(req: NextRequest) {
   const authError = requireApiSecret(req);
@@ -89,7 +52,7 @@ async function handler(req: NextRequest) {
     const memo = question?.memo ?? "";
     const errorSignals = question?.error_signals ?? [];
 
-    const isCorrect = scoreAnswer(
+    const isCorrect = scoreSocialSciences(
       submission.input_type,
       submission.student_answer,
       expected,

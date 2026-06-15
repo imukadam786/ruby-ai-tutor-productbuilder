@@ -7,6 +7,7 @@ import EduBackground from "@/components/EduBackground";
 import { supabase } from "@/lib/supabase";
 import SavedReportView from "@/components/SavedReportView";
 import EditSubjectsModal from "@/components/onboarding/EditSubjectsModal";
+import Button from "@/components/ui/Button";
 import { isFetGrade, readCachedSubjects, type FetSubjectKey } from "@/lib/fet-subjects";
 import { ActiveView } from "@/types";
 
@@ -15,6 +16,9 @@ interface SettingsViewProps {
   paymentReturn?: "success" | "cancelled" | null;
   /** Navigate elsewhere in the app (e.g. to the Discover hub to re-take). */
   onNavigate?: (view: ActiveView) => void;
+  /** Sign the user out. Surfaced here because the mobile bottom bar routes
+      logout through Settings rather than its own tab. */
+  onLogout?: () => void;
 }
 
 // ── Small reusable pieces ─────────────────────────────────────────────────────
@@ -123,6 +127,7 @@ const icons = {
   flag: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" /></svg>,
   lightbulb: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>,
   xCircle: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+  logout: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>,
 };
 
 // ── Toggle switch ─────────────────────────────────────────────────────────────
@@ -294,7 +299,7 @@ const CANCEL_DETAIL: Record<string, { prompt: string; options: { value: string; 
 
 // ── Main component ────────────────────────────────────────────────────────────
 
-export default function SettingsView({ onBack, paymentReturn, onNavigate }: SettingsViewProps) {
+export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogout }: SettingsViewProps) {
   const { t, setLanguage, isTranslating } = useT();
 
   // Profile state
@@ -656,6 +661,16 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
               </Card>
             </section>
 
+            {/* ── Account ───────────────────────────────────────────────── */}
+            {onLogout && (
+              <section>
+                <SectionHeader title="Account" subtitle={t("sidebar.logout_desc")} />
+                <Card>
+                  <Row icon={icons.logout} label={t("sidebar.logout")} danger onClick={onLogout} />
+                </Card>
+              </section>
+            )}
+
             <p className="text-center text-xs text-gray-300 pb-6">Ruby AI Tutor · Powered by Hula</p>
           </div>
         </div>
@@ -667,10 +682,9 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
         <Modal title="Full name" onClose={close}>
           <div className="space-y-4">
             <EditField label="Full name" value={name} onChange={setName} placeholder="Your name" />
-            <button onClick={() => { saveProfile(); close(); }}
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
+            <Button variant="primary" size="md" fullWidth onClick={() => { saveProfile(); close(); }}>
               {t("settings.save")}
-            </button>
+            </Button>
           </div>
         </Modal>
       )}
@@ -679,10 +693,9 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
         <Modal title="Email address" onClose={close}>
           <div className="space-y-4">
             <EditField label="Email" value={email} onChange={setEmail} type="email" placeholder="you@example.com" />
-            <button onClick={() => { saveProfile(); close(); }}
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
+            <Button variant="primary" size="md" fullWidth onClick={() => { saveProfile(); close(); }}>
               {t("settings.save")}
-            </button>
+            </Button>
           </div>
         </Modal>
       )}
@@ -860,13 +873,15 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
                   </div>
                 )}
 
-                <button
+                <Button
+                  variant="primary"
+                  size="md"
+                  fullWidth
                   onClick={() => setCancelStep("followup")}
                   disabled={!reasonsValid}
-                  className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-40 text-white py-2.5 rounded-xl text-sm font-medium transition-colors"
                 >
                   Continue
-                </button>
+                </Button>
                 <button onClick={keepSubscription} className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium transition-colors">
                   Keep subscription
                 </button>
@@ -910,13 +925,15 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
                   />
                 </div>
 
-                <button
+                <Button
+                  variant="primary"
+                  size="md"
+                  fullWidth
                   onClick={() => setCancelStep("confirm")}
                   disabled={!followupValid}
-                  className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-40 text-white py-2.5 rounded-xl text-sm font-medium transition-colors"
                 >
                   Continue
-                </button>
+                </Button>
                 <div className="flex gap-2">
                   <button onClick={() => setCancelStep("reasons")} className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium transition-colors">
                     Back
@@ -954,9 +971,9 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
         <Modal title="Download progress report" onClose={close}>
           <div className="space-y-4">
             <p className="text-sm text-gray-600">Your personalised progress report includes skill mastery, streaks, and session history.</p>
-            <button onClick={close} className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-2">
+            <Button variant="primary" size="md" fullWidth onClick={close}>
               {icons.download} Download PDF
-            </button>
+            </Button>
           </div>
         </Modal>
       )}
@@ -998,9 +1015,9 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate }: Sett
               }
               className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent bg-gray-50 placeholder-gray-300"
             />
-            <button onClick={close} className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-xl text-sm font-medium transition-colors">
+            <Button variant="primary" size="md" fullWidth onClick={close}>
               Send
-            </button>
+            </Button>
           </div>
         </Modal>
       )}

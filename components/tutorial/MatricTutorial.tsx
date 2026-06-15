@@ -11,7 +11,7 @@ function MockupPapers({ isMobile }: { isMobile: boolean }) {
         style={{ width: isMobile ? "100%" : 420, maxHeight: isMobile ? 240 : 280 }}
       >
         <img
-          src="/matric-subjects-preview.png"
+          src="/matric-subjects-preview.webp"
           alt="Choose a subject"
           className="w-full h-full object-contain"
         />

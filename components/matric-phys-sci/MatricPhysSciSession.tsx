@@ -1,11 +1,17 @@
 "use client";
 
+import RubyBalance from "@/components/RubyBalance";
 import { useCallback, useEffect, useRef, useState } from "react";
 import RubyLoader from "@/components/RubyLoader";
 import { apiFetch } from "@/lib/fetch";
 import EduBackground from "@/components/EduBackground";
 import MatricPhysSciSkillTreeView from "./MatricPhysSciSkillTreeView";
 import SequenceQuestion from "./SequenceQuestion";
+import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackFooter from "@/components/shared/FeedbackFooter";
+import { scorePhysSci } from "@/lib/matric-phys-sci-scoring";
+import Button from "@/components/ui/Button";
+import SignToggle from "@/components/ui/SignToggle";
 import { physSciConfig, type PhysSciGrade } from "@/lib/phys-sci-grade";
 import { supabase } from "@/lib/supabase";
 import {
@@ -69,7 +75,8 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
   const [result, setResult] = useState<MatricPhysSciSubmitAnswerResponse | null>(null);
   const [answer, setAnswer] = useState<string>("");
   const [multiFieldAnswers, setMultiFieldAnswers] = useState<string[]>([]);
-  const [submitting, setSubmitting] = useState(false);
+  // Feedback is scored client-side and shown instantly — no "Checking…" wait.
+  const [submitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const [correctCount, setCorrectCount] = useState(0);
@@ -191,12 +198,98 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
     [loadNextQuestion, grade, subject],
   );
 
+  // Apply a graded result: record the attempt, update mastery, and move to
+  // feedback (or the session-done screen).
+  const finalizeAttempt = useCallback(
+    (data: MatricPhysSciSubmitAnswerResponse, q: MatricPhysSciGeneratedQuestion, sId: string) => {
+      setResult(data);
+      recordMatricPhysSciAnswer(sId, q.question_ref, data.is_correct, grade);
+
+      const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
+      const nextAttempts = attemptCount + 1;
+      setCorrectCount(nextCorrect);
+      setAttemptCount(nextAttempts);
+
+      trackQuestionAnswered({
+        subject,
+        skill_id: sId,
+        template: q.answerMode,
+        is_correct: data.is_correct,
+        used_hint: false,
+        attempt_number: nextAttempts,
+        decision: data.is_correct ? "practice" : "reteach",
+      });
+
+      if (mastery[sId] !== "mastered" && mastery[sId] !== "in_progress") {
+        const next = { ...mastery, [sId]: "in_progress" as SkillStatus };
+        setMastery(next);
+        setMatricPhysSciMastery(sId, "in_progress", grade);
+      }
+
+      const allAnswered = nextAttempts >= targetItemCount(sId, grade);
+      if (allAnswered) {
+        const accuracy = nextAttempts > 0 ? nextCorrect / nextAttempts : 0;
+        const didMaster = accuracy >= passThreshold(sId, grade);
+        const nextStatus: SkillStatus = didMaster ? "mastered" : "in_progress";
+        const next = { ...mastery, [sId]: nextStatus };
+        setMastery(next);
+        setMatricPhysSciMastery(sId, nextStatus, grade);
+        if (didMaster) {
+          trackSkillMastered({
+            subject,
+            skill_id: sId,
+            level: findSkillMeta(sId, grade)?.level.id ?? 0,
+            session_attempt_count: nextAttempts,
+            session_correct: nextCorrect,
+          });
+        }
+        trackSessionEnded({ subject, questions_answered: nextAttempts, correct: nextCorrect, accuracy });
+        void persistReport(sId, nextCorrect, nextAttempts, didMaster);
+        setPhase("session_done");
+      } else {
+        setPhase("feedback");
+      }
+    },
+    [attemptCount, correctCount, mastery, persistReport, grade, subject],
+  );
+
   const handleSubmit = useCallback(
     async (serialisedAnswer: string) => {
       if (!question || !skillId || !serialisedAnswer) return;
-      setSubmitting(true);
-      try {
-        const payload: MatricPhysSciSubmitAnswerRequest = {
+
+      // Every Physical Sciences mode is deterministic and ships its answer with
+      // the question, so score client-side for instant feedback. The server call
+      // runs in the background only for usage metering.
+      const isCorrect = scorePhysSci({
+        answerMode: question.answerMode,
+        studentAnswer: serialisedAnswer,
+        expectedAnswer: question.expected_answer,
+        tolerance: question.tolerance,
+        fields: question.fields,
+        expectedOrder: question.expected_order,
+      });
+      finalizeAttempt(
+        {
+          is_correct: isCorrect,
+          error_signals: [],
+          feedback: isCorrect ? "Correct." : "Not quite.",
+          explanation: question.explanation,
+          mastery_update: {
+            skill_id: skillId,
+            new_status: "in_progress",
+            correct_count: isCorrect ? 1 : 0,
+            attempt_count: 1,
+          },
+          next_action: "continue_skill",
+        },
+        question,
+        skillId,
+      );
+      // Background: record against the daily usage cap (may 429 → upgrade modal).
+      void apiFetch("/api/matric-phys-sci/submit-answer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           skill_id: skillId,
           question_ref: question.question_ref,
           answerMode: question.answerMode,
@@ -204,81 +297,10 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
           expected_answer: question.expected_answer,
           tolerance: question.tolerance,
           grade,
-        };
-        const res = await apiFetch("/api/matric-phys-sci/submit-answer", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        if (!res.ok) {
-          // 429 = shared daily limit reached; apiFetch already surfaced the
-          // upgrade modal, so don't also flash an inline error.
-          if (res.status !== 429) setError("Could not check your answer. Please try again.");
-          setSubmitting(false);
-          return;
-        }
-        const data = (await res.json()) as MatricPhysSciSubmitAnswerResponse;
-        setResult(data);
-
-        recordMatricPhysSciAnswer(skillId, question.question_ref, data.is_correct, grade);
-
-        const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
-        const nextAttempts = attemptCount + 1;
-        setCorrectCount(nextCorrect);
-        setAttemptCount(nextAttempts);
-
-        trackQuestionAnswered({
-          subject,
-          skill_id: skillId,
-          template: question.answerMode,
-          is_correct: data.is_correct,
-          used_hint: false,
-          attempt_number: nextAttempts,
-          decision: data.is_correct ? "practice" : "reteach",
-        });
-
-        if (mastery[skillId] !== "mastered" && mastery[skillId] !== "in_progress") {
-          const next = { ...mastery, [skillId]: "in_progress" as SkillStatus };
-          setMastery(next);
-          setMatricPhysSciMastery(skillId, "in_progress", grade);
-        }
-
-        const allAnswered = nextAttempts >= targetItemCount(skillId, grade);
-        if (allAnswered) {
-          const accuracy = nextAttempts > 0 ? nextCorrect / nextAttempts : 0;
-          const didMaster = accuracy >= passThreshold(skillId, grade);
-          const nextStatus: SkillStatus = didMaster ? "mastered" : "in_progress";
-          const next = { ...mastery, [skillId]: nextStatus };
-          setMastery(next);
-          setMatricPhysSciMastery(skillId, nextStatus, grade);
-          if (didMaster) {
-            trackSkillMastered({
-              subject,
-              skill_id: skillId,
-              level: findSkillMeta(skillId, grade)?.level.id ?? 0,
-              session_attempt_count: nextAttempts,
-              session_correct: nextCorrect,
-            });
-          }
-          trackSessionEnded({
-            subject,
-            questions_answered: nextAttempts,
-            correct: nextCorrect,
-            accuracy,
-          });
-          void persistReport(skillId, nextCorrect, nextAttempts, didMaster);
-          setPhase("session_done");
-        } else {
-          setPhase("feedback");
-        }
-      } catch (err) {
-        console.error("[MatricPhysSciSession] submit-answer failed:", err);
-        setError("Could not check your answer. Please try again.");
-      } finally {
-        setSubmitting(false);
-      }
+        } as MatricPhysSciSubmitAnswerRequest),
+      }).catch(() => { /* non-blocking; feedback already shown */ });
     },
-    [attemptCount, correctCount, mastery, persistReport, question, skillId, grade, subject],
+    [finalizeAttempt, question, skillId, grade],
   );
 
   // ─── Render: tree (default) ─────────────────────────────────────────────────
@@ -316,17 +338,19 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
             {correctCount} of {attemptCount} correct ({Math.round(accuracy * 100)}%).
             {" "}Pass threshold {Math.round(passThreshold(skillId, grade) * 100)}%.
           </p>
-          <button
+          <Button
+            variant="primary"
+            size="lg"
+            fullWidth
             onClick={() => {
               setSkillId(null);
               setQuestion(null);
               setResult(null);
               setPhase("tree");
             }}
-            className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-base"
           >
             Pick another skill
-          </button>
+          </Button>
         </div>
       </div>
     );
@@ -364,6 +388,7 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
             >
               ← Skills
             </button>
+            <span className="hidden md:inline-flex flex-shrink-0"><RubyBalance theme="light" size="lg" /></span>
           </div>
 
           {skillId && (
@@ -416,37 +441,34 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
               )}
 
               {phase === "feedback" && result && (
-                <div
-                  className={`rounded-2xl p-5 ${
-                    result.is_correct
-                      ? "bg-green-50 border border-green-200"
-                      : "bg-rose-50 border border-rose-200"
-                  }`}
-                >
-                  <p className={`text-base font-bold ${result.is_correct ? "text-green-700" : "text-rose-700"}`}>
-                    {result.is_correct ? "✓ " : "✗ "}
-                    {result.feedback}
-                  </p>
-                  {!result.is_correct && question.expected_answer !== undefined && (
-                    <p className="text-sm text-gray-700 mt-2">
-                      <span className="font-semibold">Model answer:</span> {String(question.expected_answer)}
-                      {question.unit ? ` ${question.unit}` : ""}
-                    </p>
-                  )}
-                  {result.explanation && (
-                    <p className="text-sm text-gray-700 mt-2 leading-relaxed whitespace-pre-wrap">{result.explanation}</p>
-                  )}
-                </div>
-              )}
-
-              {phase === "feedback" && (
-                <button
-                  onClick={() => skillId && loadNextQuestion(skillId)}
-                  disabled={submitting}
-                  className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg"
-                >
-                  Next question →
-                </button>
+                (() => {
+                  // "What you put / answer" only reads clearly for single-value
+                  // modes; multiField/sequence answers are serialised, so skip them.
+                  const singleValue =
+                    question.answerMode === "choice" ||
+                    question.answerMode === "numeric" ||
+                    question.answerMode === "text";
+                  const modelAnswer =
+                    question.expected_answer !== undefined
+                      ? `${String(question.expected_answer)}${question.unit ? ` ${question.unit}` : ""}`
+                      : undefined;
+                  return (
+                    <FeedbackExplanation
+                      isCorrect={result.is_correct}
+                      studentAnswer={singleValue ? answer : undefined}
+                      correctAnswer={singleValue ? modelAnswer : undefined}
+                      note={result.is_correct ? result.explanation : undefined}
+                      whyOverride={result.is_correct ? undefined : result.explanation}
+                      footer={
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId)}
+                  onRetry={() => { setAnswer(""); setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
+                    />
+                  );
+                })()
               )}
 
               {error && (
@@ -530,13 +552,15 @@ function MatricAnswerInput({
             />
           </div>
         ))}
-        <button
+        <Button
+          variant="primary"
+          size="lg"
+          fullWidth
           disabled={submitting || multiFieldAnswers.some((a) => !a.trim())}
           onClick={() => onSubmit(multiFieldAnswers.map((a) => a.trim()).join("|"))}
-          className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg"
         >
           Check answer
-        </button>
+        </Button>
       </div>
     );
   }
@@ -544,33 +568,42 @@ function MatricAnswerInput({
   if (answerMode === "numeric") {
     return (
       <div className="space-y-3">
-        <div className="relative">
-          <input
-            type="number"
-            step="any"
-            inputMode="decimal"
-            autoFocus
+        <div className="flex items-stretch gap-2">
+          <SignToggle
             value={value}
-            onChange={(e) => onChange(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && value.trim()) onSubmit(value.trim());
-            }}
-            placeholder="Numeric answer"
-            className="w-full px-5 py-4 pr-20 text-lg font-semibold border-2 border-amber-200 focus:border-amber-400 focus:outline-none rounded-2xl bg-amber-50 text-[#1a2744]"
+            onChange={onChange}
+            disabled={submitting}
+            className="rounded-2xl px-5 text-xl"
           />
-          {unit && (
-            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-500">
-              {unit}
-            </span>
-          )}
+          <div className="relative w-full">
+            <input
+              type="text"
+              inputMode="decimal"
+              autoFocus
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && value.trim()) onSubmit(value.trim());
+              }}
+              placeholder="Numeric answer"
+              className="w-full px-5 py-4 pr-20 text-lg font-semibold border-2 border-amber-200 focus:border-amber-400 focus:outline-none rounded-2xl bg-amber-50 text-[#1a2744]"
+            />
+            {unit && (
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-500">
+                {unit}
+              </span>
+            )}
+          </div>
         </div>
-        <button
+        <Button
+          variant="primary"
+          size="lg"
+          fullWidth
           disabled={submitting || !value.trim()}
           onClick={() => onSubmit(value.trim())}
-          className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg"
         >
           Check answer
-        </button>
+        </Button>
       </div>
     );
   }
@@ -586,13 +619,15 @@ function MatricAnswerInput({
         rows={4}
         className="w-full px-5 py-4 text-base border-2 border-amber-200 focus:border-amber-400 focus:outline-none rounded-2xl bg-amber-50 text-[#1a2744] resize-y"
       />
-      <button
+      <Button
+        variant="primary"
+        size="lg"
+        fullWidth
         disabled={submitting || !value.trim()}
         onClick={() => onSubmit(value.trim())}
-        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-lg"
       >
         Check answer
-      </button>
+      </Button>
     </div>
   );
 }

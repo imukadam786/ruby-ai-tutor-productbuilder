@@ -5,6 +5,9 @@ import { DiagnosticResult, ErrorType } from "@/types/ruby";
 import { useT } from "@/lib/i18n";
 import { useTTS } from "@/lib/tts";
 import { apiFetch } from "@/lib/fetch";
+import { resolveErrorExplanation } from "@/lib/error-explanations";
+import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import RubyIcon from "@/components/ui/RubyIcon";
 
 interface QuestionContext {
   skill_id: string;
@@ -20,14 +23,25 @@ interface FeedbackCardProps {
   grade?: number;
   questionContext?: QuestionContext;
   wasReviewCorrect?: boolean;
+  /** Error codes on the question (e.g. ["ERR_MULT_ADD"]) — drive the why/how/example explanation */
+  errorSignals?: string[];
+  /**
+   * A worked walkthrough reused from the question's own hint text (Path A).
+   * Shown as "How to fix it" on the free path; superseded by a personalised AI
+   * re-teach when one exists, since that is richer.
+   */
+  workedSteps?: string[];
 }
 
+// Student-facing labels are deliberately plain and warm — no technical wording.
+// These only show as a fallback when the precise error-code explanation has no
+// authored entry yet; otherwise the explanation's own label is used.
 const errorLabels: Record<ErrorType, { label: string; color: string; icon: string }> = {
-  correct:                  { label: "Correct!",                  color: "green",  icon: "✅" },
-  conceptual_gap:           { label: "Conceptual Gap",            color: "red",    icon: "🧠" },
-  strategy_gap:             { label: "Strategy Gap",              color: "orange", icon: "🗺️" },
-  representation_confusion: { label: "Representation Confusion",  color: "purple", icon: "🔄" },
-  execution_slip:           { label: "Execution Slip",            color: "yellow", icon: "✏️" },
+  correct:                  { label: "Correct!",            color: "green",  icon: "✅" },
+  conceptual_gap:           { label: "Let's relearn this",  color: "red",    icon: "🧠" },
+  strategy_gap:             { label: "Let's try another way", color: "orange", icon: "🗺️" },
+  representation_confusion: { label: "A little mix-up",     color: "purple", icon: "🔄" },
+  execution_slip:           { label: "Just a small slip",   color: "yellow", icon: "✏️" },
 };
 
 const REFLECTION_OPTIONS = [
@@ -50,6 +64,8 @@ export default function FeedbackCard({
   questionContext,
   nextLabel: _nextLabel,
   wasReviewCorrect = false,
+  errorSignals,
+  workedSteps,
 }: FeedbackCardProps) {
   const { language } = useT();
   const errorInfo = errorLabels[result.error_type];
@@ -70,6 +86,12 @@ export default function FeedbackCard({
 
   const [reteachingText, setReteachingText] = useState<string>(
     result.recovery_explanation
+  );
+  // Whether reteachingText is a genuine per-answer AI re-teach (Tier 3 at mount,
+  // or a successful reflection call) rather than the generic recovery tip. When
+  // true, the reused worked steps stand down in favour of the richer AI text.
+  const [reteachPersonalised, setReteachPersonalised] = useState<boolean>(
+    result.feedback_personalised ?? false
   );
   const [, setReflectionLoading] = useState(false);
 
@@ -97,7 +119,12 @@ export default function FeedbackCard({
         }),
       });
       const data = await res.json();
-      setReteachingText(data.reteaching ?? result.recovery_explanation);
+      if (data.reteaching) {
+        setReteachingText(data.reteaching);
+        setReteachPersonalised(true);
+      } else {
+        setReteachingText(result.recovery_explanation);
+      }
     } catch {
       // Fallback to pre-authored recovery strategy
       setReteachingText(result.recovery_explanation);
@@ -120,10 +147,10 @@ export default function FeedbackCard({
             {[1, 2, 3].map((i) => (
               <span
                 key={i}
-                className="text-yellow-400 text-xl animate-bounce"
+                className="inline-flex animate-bounce"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                ⭐
+                <RubyIcon className="w-5 h-5" />
               </span>
             ))}
           </div>
@@ -207,7 +234,7 @@ export default function FeedbackCard({
           <span className="text-2xl">✏️</span>
           <div>
             <p className="font-bold text-lg text-yellow-800">Nearly there</p>
-            <p className="text-sm text-yellow-600">Execution Slip</p>
+            <p className="text-sm text-yellow-600">Just a small slip</p>
           </div>
         </div>
         <div className="px-6 py-5">
@@ -235,85 +262,80 @@ export default function FeedbackCard({
     );
   }
 
-  // ── Wrong answer — feedback + re-teaching shown ────────────────────────────
-  const feedbackText = [result.feedback, reteachingText].filter(Boolean).join(". ");
+  // ── Wrong answer — render via the shared FeedbackExplanation card ───────────
+  // Content (What / Why / How / Example) is shared with every subject. Ruby keeps
+  // its two extras via props: the audio button (headerAction) and the LLM
+  // re-teaching text (howOverride). why/how/example come from the error-code map.
+  const explanation = resolveErrorExplanation(errorSignals);
+  // Reused worked steps show only on the free path — a personalised AI re-teach,
+  // when present, is richer and takes the "How to fix it" slot instead.
+  const showWorked = !reteachPersonalised && !!workedSteps && workedSteps.length > 0;
+  const spokenText = [explanation?.why || result.feedback, reteachingText, explanation?.example]
+    .filter(Boolean)
+    .join(". ");
+
+  const audioButton = (
+    <button
+      onClick={() => (playing ? stop() : speak(spokenText))}
+      className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 hover:bg-orange-200 text-orange-700 text-xs font-medium transition-colors"
+      aria-label={playing ? "Stop audio" : "Play explanation"}
+    >
+      {playing ? (
+        <>
+          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" />
+          </svg>
+          Stop
+        </>
+      ) : (
+        <>
+          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          Play
+        </>
+      )}
+    </button>
+  );
 
   return (
-    <div className="rounded-2xl border-2 border-orange-200 bg-orange-50 overflow-hidden">
-      {/* Header */}
-      <div className="px-6 py-4 flex items-center justify-between bg-orange-100">
-        <div className="flex items-center gap-3">
-          <span className="text-2xl">{errorInfo.icon}</span>
-          <div>
-            <p className="font-bold text-lg text-orange-800">Not quite</p>
-            <p className={`text-sm text-${errorInfo.color}-700`}>{errorInfo.label}</p>
-          </div>
-        </div>
-        <button
-          onClick={() => playing ? stop() : speak(feedbackText)}
-          className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 hover:bg-orange-200 text-orange-700 text-xs font-medium transition-colors"
-          aria-label={playing ? "Stop audio" : "Play explanation"}
-        >
-          {playing ? (
-            <>
-              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" />
-              </svg>
-              Stop
-            </>
-          ) : (
-            <>
-              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-              Play
-            </>
+    <FeedbackExplanation
+      isCorrect={false}
+      studentAnswer={questionContext?.student_answer}
+      correctAnswer={questionContext?.expected_answer}
+      errorSignals={errorSignals}
+      serverFeedback={result.feedback}
+      diagnosis={result.feedback_personalised ? result.feedback : undefined}
+      howOverride={reteachingText}
+      workingSteps={showWorked ? workedSteps : undefined}
+      headerAction={audioButton}
+      footer={
+        <div className="space-y-4">
+          {result.next_action === "review_prerequisite" && (
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+              <p className="text-blue-800 text-sm font-medium">
+                This is a tricky one! Let&apos;s revisit an earlier skill to build a stronger foundation.
+              </p>
+            </div>
           )}
-        </button>
-      </div>
-
-      {/* Feedback + re-teaching */}
-      <div className="px-6 py-5 space-y-4">
-        {result.feedback && (
-          <div>
-            <p className="text-sm font-medium text-gray-600 mb-1">Feedback</p>
-            <p className="text-gray-800 leading-relaxed">{result.feedback}</p>
+          <div
+            className="flex flex-col items-center gap-1 cursor-pointer select-none"
+            onClick={onNext}
+            onTouchStart={(e) => { touchStartY.current = e.touches[0].clientY; }}
+            onTouchEnd={(e) => {
+              if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
+            }}
+          >
+            <p className="text-xs text-gray-400 md:hidden">Swipe up for next question</p>
+            <p className="text-xs text-gray-400 hidden md:block">Click for next question</p>
+            <div className="animate-bounce text-blue-500">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+              </svg>
+            </div>
           </div>
-        )}
-
-        {reteachingText && (
-          <div className={`bg-white border border-${errorInfo.color}-200 rounded-xl p-4`}>
-            <p className="text-sm font-medium text-gray-600 mb-1">Let's learn from this</p>
-            <p className="text-gray-800 text-sm leading-relaxed">{reteachingText}</p>
-          </div>
-        )}
-
-        {result.next_action === "review_prerequisite" && (
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-            <p className="text-blue-800 text-sm font-medium">
-              This is a tricky one! Let's revisit an earlier skill to build a stronger foundation.
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* Next */}
-      <div
-        className="px-6 pb-6 pt-2 flex flex-col items-center gap-1 cursor-pointer select-none"
-        onClick={onNext}
-        onTouchStart={(e) => { touchStartY.current = e.touches[0].clientY; }}
-        onTouchEnd={(e) => {
-          if (touchStartY.current - e.changedTouches[0].clientY > 40) onNext();
-        }}
-      >
-        <p className="text-xs text-gray-400 md:hidden">Swipe up for next question</p>
-        <p className="text-xs text-gray-400 hidden md:block">Click for next question</p>
-        <div className="animate-bounce text-blue-500">
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-          </svg>
         </div>
-      </div>
-    </div>
+      }
+    />
   );
 }
