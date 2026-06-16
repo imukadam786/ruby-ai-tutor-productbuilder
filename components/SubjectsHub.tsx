@@ -1103,7 +1103,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
                   onClick={() => setExpandedId(s.id)}
                   className="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.99] transition-all text-left overflow-hidden flex flex-col"
                 >
-                  <div className={`relative aspect-[16/10] bg-gradient-to-br ${s.accentFrom} ${s.accentTo} flex items-center justify-center`}>
+                  <div className={`relative aspect-square bg-gradient-to-br ${s.accentFrom} ${s.accentTo} flex items-center justify-center`}>
                     {s.thumbnail ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={s.thumbnail} alt={s.label} className="w-full h-full object-cover" />

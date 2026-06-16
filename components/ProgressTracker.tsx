@@ -15,6 +15,7 @@ import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
 import type { LifeSkillsSkillTree } from "@/types/life-skills";
 import { getLifeSkillsMasteryMap } from "@/lib/life-skills-student-model";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import { isFetGrade, readCachedSubjects, type FetSubjectKey } from "@/lib/fet-subjects";
 import afrikaansTreeData from "@/data/afrikaans-skill-tree.json";
 import type { AfrikaansSkillTree, AfrikaansStudentProfile } from "@/types/afrikaans";
 import { HIGHEST_AVAILABLE_LEVEL as AFRIKAANS_MAX_GRADE } from "@/lib/afrikaans-grade-map";
@@ -118,6 +119,24 @@ const SUBJECTS: SubjectConfig[] = [
   { id: "socialsciences", emoji: "🌍", label: "Social Sciences",   hex: "#0ea5e9", activeCard: "bg-sky-50",      activeBorder: "border-sky-400" },
   { id: "tourism",        emoji: "🧳", label: "Tourism",           hex: "#0d9488", activeCard: "bg-teal-50",     activeBorder: "border-teal-400" },
 ];
+
+// Maps a Progress-page subject tab to its FET picker key (the tab ids differ
+// from the Subjects-hub ids). Tabs with no entry here (Senior/Intermediate-Phase
+// subjects) are never part of the FET picker and are never filtered by a
+// selection — they're already gated out of Gr 10–12 by their grade range.
+const TAB_TO_FET_KEY: Partial<Record<SubjectTabId, FetSubjectKey>> = {
+  maths: "mathematics",
+  reading: "english",
+  mathsliteracy: "maths-literacy",
+  matricphyssci: "physical-sciences",
+  lifesciences: "life-sciences",
+  history: "history",
+  businessstudies: "business-studies",
+  tourism: "tourism",
+  geography: "geography",
+  accounting: "accounting",
+  economics: "economics",
+};
 
 type LifeSkillsTopicStatus = "mastered" | "in_progress" | "available";
 
@@ -316,6 +335,10 @@ export default function ProgressTracker({
   const [activeTab, setActiveTab] = useState<SubjectTabId>("maths");
   const [lifeSkillsMastery, setLifeSkillsMastery] = useState<Record<string, LifeSkillsTopicStatus>>({});
   const [grade, setGrade] = useState<number | null>(null);
+  // FET (Gr 10–12) subject picks. Seeded synchronously from the local cache so
+  // the tab strip paints the entitled subset on the first frame, then refreshed
+  // from Supabase below. null = no saved selection → show all (fail open).
+  const [selectedSubjects, setSelectedSubjects] = useState<FetSubjectKey[] | null>(() => readCachedSubjects());
   const [afrikaansProfile, setAfrikaansProfile] = useState<AfrikaansStudentProfile | null>(null);
   const [socialSciencesMastery, setSocialSciencesMastery] = useState<Record<string, SocialSciencesTopicStatus>>({});
   const [mathsLiteracyProfile, setMathsLiteracyProfile] = useState<MathsLiteracyStudentProfile | null>(null);
@@ -341,7 +364,10 @@ export default function ProgressTracker({
 
   useEffect(() => {
     setLifeSkillsMastery(readLifeSkillsMastery());
-    fetchAuthorisedGrade().then((data) => setGrade(data?.grade ?? 1));
+    fetchAuthorisedGrade().then((data) => {
+      setGrade(data?.grade ?? 1);
+      if (data) setSelectedSubjects(data.subjects);
+    });
     // Afrikaans persists primarily in localStorage; fall back to the Supabase
     // backup when this device has no local profile yet.
     const localAfrikaans = loadAfrikaansProfile();
@@ -411,7 +437,7 @@ export default function ProgressTracker({
   const showMatricPhysSci = learnerGrade === 12;
   const showMathsLiteracy =
     learnerGrade >= MATHS_LITERACY_MIN_GRADE && learnerGrade <= MATHS_LITERACY_MAX_GRADE;
-  const visibleSubjects = SUBJECTS.filter((s) => {
+  const gradeFiltered = SUBJECTS.filter((s) => {
     if (s.id === "lifeskills") return showLifeSkills;
     if (s.id === "afrikaans") return showAfrikaans;
     if (s.id === "socialsciences") return showSocialSciences;
@@ -439,6 +465,17 @@ export default function ProgressTracker({
     if (s.id === "technologysp") return learnerGrade >= 7 && learnerGrade <= 9;
     return true;
   });
+
+  // FET learners (Gr 10–12) who saved a subject selection during onboarding see
+  // only the subjects they picked — mirrors the Subjects hub. Tabs with no FET
+  // picker key always remain. Grades 1–9 and any account with no saved selection
+  // fail open: every grade-entitled subject shows, exactly as before.
+  const visibleSubjects = isFetGrade(grade) && selectedSubjects
+    ? gradeFiltered.filter((s) => {
+        const key = TAB_TO_FET_KEY[s.id];
+        return !key || selectedSubjects.includes(key);
+      })
+    : gradeFiltered;
 
   // Keep activeTab valid when the learner's grade range hides their current tab.
   useEffect(() => {
