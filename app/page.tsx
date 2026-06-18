@@ -855,6 +855,8 @@ export default function Home() {
   const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "discovery-prompt" | "post-discovery" | "tutorial-welcome" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
   const [welcomeGrade, setWelcomeGrade] = useState("");
+  const [initialOnboardingStep, setInitialOnboardingStep] = useState(1);
+  const [initialOnboardingData, setInitialOnboardingData] = useState<Partial<OnboardingData>>({});
   const [pendingDiscovery, setPendingDiscovery] = useState<"maths" | "reading" | null>(null);
   // Which subject's Discovery just finished, so the final post-onboarding mount
   // can land the learner in that skill tree instead of dumping them on Home.
@@ -891,7 +893,20 @@ export default function Home() {
           .from("users")
           .select("trial_expires_at")
           .eq("id", session.user.id)
-          .single();
+          .maybeSingle();
+
+        // No profile row = new OAuth (Google) user — route through onboarding steps 2-5
+        if (!userData) {
+          const googleName =
+            (session.user.user_metadata?.full_name as string | undefined) ||
+            (session.user.user_metadata?.name as string | undefined) ||
+            "";
+          const googleEmail = session.user.email || "";
+          setInitialOnboardingStep(2);
+          setInitialOnboardingData({ name: googleName, email: googleEmail, userId: session.user.id });
+          setAppState("onboarding");
+          return;
+        }
 
         const { data: subData } = await supabase
           .from("subscriptions")
@@ -949,7 +964,7 @@ export default function Home() {
   if (appState === "loading") return null;
 
   if (appState === "onboarding") {
-    return <OnboardingFlow onComplete={handleOnboardingComplete} />;
+    return <OnboardingFlow onComplete={handleOnboardingComplete} initialStep={initialOnboardingStep} initialData={initialOnboardingData} />;
   }
 
   if (appState === "discovery-prompt") {
