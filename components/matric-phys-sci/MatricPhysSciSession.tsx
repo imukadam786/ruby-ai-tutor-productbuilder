@@ -64,9 +64,21 @@ interface Props {
   onBack?: () => void;
   /** Which Physical Sciences grade to run. Defaults to 12 (matric). */
   grade?: PhysSciGrade;
+  /** Deep-link: open straight into this skill (e.g. routed from a paper report). */
+  initialSkillId?: string;
+  /** Context line shown while practising a deep-linked skill (e.g. the paper it came from). */
+  contextLabel?: string;
+  /** When set, the end-of-session screen offers a route back to where the learner came from. */
+  onReturnToPaper?: () => void;
 }
 
-export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
+export default function MatricPhysSciSession({
+  onBack,
+  grade = 12,
+  initialSkillId,
+  contextLabel,
+  onReturnToPaper,
+}: Props) {
   const config = physSciConfig(grade);
   const subject = config.subject;
   const [phase, setPhase] = useState<Phase>("tree");
@@ -197,6 +209,17 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
     },
     [loadNextQuestion, grade, subject],
   );
+
+  // Deep-link: when opened with an initialSkillId (e.g. from a paper report's
+  // "Practise this"), jump straight into that skill instead of the tree. Consume
+  // it once so returning to the tree afterwards doesn't re-trigger.
+  const deepLinkConsumed = useRef(false);
+  useEffect(() => {
+    if (initialSkillId && !deepLinkConsumed.current) {
+      deepLinkConsumed.current = true;
+      handlePickSkill(initialSkillId);
+    }
+  }, [initialSkillId, handlePickSkill]);
 
   // Apply a graded result: record the attempt, update mastery, and move to
   // feedback (or the session-done screen).
@@ -338,8 +361,20 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
             {correctCount} of {attemptCount} correct ({Math.round(accuracy * 100)}%).
             {" "}Pass threshold {Math.round(passThreshold(skillId, grade) * 100)}%.
           </p>
+          {onReturnToPaper && (
+            <div className="rounded-2xl bg-[#eef2ff] border border-[#c7d2fe] px-4 py-3 text-sm text-[#3730a3]">
+              {didMaster
+                ? "Nice — you've brushed this up. Head back and retry it on your paper."
+                : "Good progress. Head back to your paper when you're ready to retry it."}
+            </div>
+          )}
+          {onReturnToPaper && (
+            <Button variant="primary" size="lg" fullWidth onClick={onReturnToPaper}>
+              ← Back to your paper
+            </Button>
+          )}
           <Button
-            variant="primary"
+            variant={onReturnToPaper ? "outline" : "primary"}
             size="lg"
             fullWidth
             onClick={() => {
@@ -390,6 +425,13 @@ export default function MatricPhysSciSession({ onBack, grade = 12 }: Props) {
             </button>
             <span className="hidden md:inline-flex flex-shrink-0"><RubyBalance theme="light" size="lg" /></span>
           </div>
+
+          {contextLabel && (
+            <div className="flex items-center gap-2 rounded-2xl bg-[#eef2ff] border border-[#c7d2fe] px-4 py-2.5 text-sm text-[#3730a3]">
+              <span aria-hidden>📄</span>
+              <span>{contextLabel}</span>
+            </div>
+          )}
 
           {skillId && (
             <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
