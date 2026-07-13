@@ -12,6 +12,7 @@ import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
 import Button from "@/components/ui/Button";
 import MatricFeedbackCard, { RubricPoint } from "./MatricFeedbackCard";
+import { resolvePrimarySkill } from "@/lib/phys-sci-topic-map";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -2370,13 +2371,18 @@ function SummaryView({
   mode,
   onRetry,
   onBack,
+  onPractiseSkill,
 }: {
   paper: Paper;
   attempts: Record<string, QuestionState>;
   mode: SessionMode;
   onRetry: () => void;
   onBack: () => void;
+  onPractiseSkill?: (skillId: string, context: string) => void;
 }) {
+  // The topic→skill link only exists for Physical Sciences today. Gate on subject
+  // so other subjects' reports are unchanged.
+  const isPhysSci = /phys/i.test(paper.subject);
   const [showReview, setShowReview] = useState(false);
   const flatQuestions = getFlatSubQuestions(paper);
   const totalEarned = flatQuestions.reduce(
@@ -2428,6 +2434,9 @@ function SummaryView({
           <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-400">Topic Breakdown</h2>
           {sortedTopics.map(([topic, { earned, total }]) => {
             const topicPct = Math.round((earned / total) * 100);
+            // Offer remediation on weak topics that map to a skill (Phys Sci only).
+            const practiseSkill =
+              isPhysSci && onPractiseSkill && topicPct < 70 ? resolvePrimarySkill(topic) : null;
             return (
               <div key={topic} className="bg-white rounded-2xl border border-gray-100 shadow-sm px-5 py-4 space-y-2">
                 <div className="flex items-center justify-between">
@@ -2445,21 +2454,51 @@ function SummaryView({
                     style={{ width: `${topicPct}%` }}
                   />
                 </div>
+                {practiseSkill && (
+                  <button
+                    onClick={() =>
+                      onPractiseSkill!(
+                        practiseSkill,
+                        `Practising ${topic} — from your ${paper.subject} ${paper.paperCode} ${paper.session} ${paper.year} paper`,
+                      )
+                    }
+                    className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-[#BE1832] hover:underline"
+                  >
+                    Practise this →
+                  </button>
+                )}
               </div>
             );
           })}
         </div>
 
         {/* Weakest area callout */}
-        {sortedTopics.length > 0 && (
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-sm space-y-1">
-            <p className="font-semibold text-amber-800">Focus area</p>
-            <p className="text-amber-700">
-              Your weakest topic was <strong>{sortedTopics[0][0]}</strong> (
-              {Math.round((sortedTopics[0][1].earned / sortedTopics[0][1].total) * 100)}%). Practice atomic skills in this area to improve.
-            </p>
-          </div>
-        )}
+        {sortedTopics.length > 0 && (() => {
+          const [weakTopic, { earned, total }] = sortedTopics[0];
+          const weakSkill = isPhysSci && onPractiseSkill ? resolvePrimarySkill(weakTopic) : null;
+          return (
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-sm space-y-2">
+              <p className="font-semibold text-amber-800">Focus area</p>
+              <p className="text-amber-700">
+                Your weakest topic was <strong>{weakTopic}</strong> ({Math.round((earned / total) * 100)}%).
+                {weakSkill ? " Practise it to close the gap." : " Practice atomic skills in this area to improve."}
+              </p>
+              {weakSkill && (
+                <button
+                  onClick={() =>
+                    onPractiseSkill!(
+                      weakSkill,
+                      `Practising ${weakTopic} — from your ${paper.subject} ${paper.paperCode} ${paper.session} ${paper.year} paper`,
+                    )
+                  }
+                  className="inline-flex items-center gap-1.5 rounded-full bg-[#BE1832] px-4 py-2 text-sm font-semibold text-white hover:bg-[#a01528] transition-colors"
+                >
+                  Practise {weakTopic} →
+                </button>
+              )}
+            </div>
+          );
+        })()}
 
         {/* Answer review */}
         <div className="space-y-3">
@@ -2564,7 +2603,14 @@ function SummaryView({
 
 // ── Main Component ─────────────────────────────────────────────────────────────
 
-export default function MatricPastPapers({ onBack }: { onBack?: () => void }) {
+export default function MatricPastPapers({
+  onBack,
+  onPractiseSkill,
+}: {
+  onBack?: () => void;
+  /** Route to the skill tree to practise a topic's skill (from the report). */
+  onPractiseSkill?: (skillId: string, context: string) => void;
+}) {
   const [phase, setPhase] = useState<Phase>("subjects");
   const [selectedSubject, setSelectedSubject] = useState<SubjectId | null>(null);
   const [selectedPaper, setSelectedPaper] = useState<Paper | null>(null);
@@ -2667,6 +2713,7 @@ export default function MatricPastPapers({ onBack }: { onBack?: () => void }) {
         mode={sessionMode}
         onRetry={handleRetry}
         onBack={handleBackToPapers}
+        onPractiseSkill={onPractiseSkill}
       />
     );
   }

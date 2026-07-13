@@ -151,6 +151,8 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
   const { t } = useT();
 
   const [activeView, setActiveView] = useState<ActiveView>(initialView ?? "home");
+  // Deep-link target when a paper report routes the learner to a skill to practise.
+  const [physSciPractice, setPhysSciPractice] = useState<{ skillId: string; context: string } | null>(null);
   const postDiscoveryFiredRef = useRef(false);
   const [paymentReturn, setPaymentReturn] = useState<"success" | "cancelled" | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -407,6 +409,13 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     }
   };
 
+  // Deep-link from a past-paper report into the Physical Sciences skill tree:
+  // open straight into the mapped skill, carrying a context line for the banner.
+  const handlePractiseSkill = (skillId: string, context: string) => {
+    setPhysSciPractice({ skillId, context });
+    handleViewChange("matric-phys-sci");
+  };
+
   // ── Tap-to-replay (Maths / Reading) ───────────────────────────────────────
   // A completed/attained skill tapped in the tree opens the session in an
   // isolated "replay" mode: same questions, but no progression is written.
@@ -586,7 +595,12 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "social-sciences-skill-tree" && <SocialSciencesSkillTreeView onPickTopic={() => handleViewChange("social-sciences")} onBack={() => handleViewChange("subjects")} />}
         {activeView === "natural-sciences-tech" && <ErrorBoundary><NstSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "natural-sciences-tech-skill-tree" && <NstSkillTreeView onPickTopic={() => handleViewChange("natural-sciences-tech")} onBack={() => handleViewChange("subjects")} />}
-        {activeView === "matric-phys-sci" && <ErrorBoundary><MatricPhysSciSession onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
+        {activeView === "matric-phys-sci" && <ErrorBoundary><MatricPhysSciSession
+          onBack={() => { setPhysSciPractice(null); handleViewChange("subjects"); }}
+          initialSkillId={physSciPractice?.skillId}
+          contextLabel={physSciPractice?.context}
+          onReturnToPaper={physSciPractice ? () => { setPhysSciPractice(null); handleViewChange("matric"); } : undefined}
+        /></ErrorBoundary>}
         {activeView === "matric-phys-sci-skill-tree" && <MatricPhysSciSkillTreeView onPickSkill={() => handleViewChange("matric-phys-sci")} onBack={() => handleViewChange("subjects")} />}
         {activeView === "grade-10-phys-sci" && <ErrorBoundary><MatricPhysSciSession grade={10} onBack={() => handleViewChange("subjects")} /></ErrorBoundary>}
         {activeView === "grade-10-phys-sci-skill-tree" && <MatricPhysSciSkillTreeView grade={10} onPickSkill={() => handleViewChange("grade-10-phys-sci")} onBack={() => handleViewChange("subjects")} />}
@@ -644,7 +658,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
         {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}
         {activeView === "matrics" && <MatricsHub onNavigate={handleViewChange} />}
-        {activeView === "matric" && <MatricPastPapers onBack={() => handleViewChange("matrics")} />}
+        {activeView === "matric" && <MatricPastPapers onBack={() => handleViewChange("matrics")} onPractiseSkill={handlePractiseSkill} />}
         {activeView === "prep-papers-2026" && <PrepPapers2026 onBack={() => handleViewChange("matrics")} />}
         {activeView === "watch" && <WatchComingSoon />}
         {activeView === "study-guides" && <StudyGuides onBack={() => handleViewChange("matrics")} />}
