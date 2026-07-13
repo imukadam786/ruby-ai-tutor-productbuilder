@@ -16,6 +16,12 @@ import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreSocialSciences } from "@/lib/social-sciences-scoring";
+import {
+  getDomainForSkill,
+  selectQuestion,
+  bankQuestionToGenerated,
+} from "@/lib/social-sciences-selector";
+import { fetchQuestionOrLocal } from "@/lib/offline/fetchQuestionOrLocal";
 import SocialSciencesSkillTreeView from "./SocialSciencesSkillTreeView";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import {
@@ -46,7 +52,6 @@ import {
 import type {
   SocialSciencesBank,
   SocialSciencesGeneratedQuestion,
-  SocialSciencesGenerateQuestionResponse,
   SocialSciencesSkillTree,
   SocialSciencesSubmitAnswerRequest,
   SocialSciencesSubmitAnswerResponse,
@@ -188,25 +193,25 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
       prior.attempt_count + sessionAttempts,
     );
     try {
-      const res = await apiFetch("/api/social-sciences/generate-question", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ skill_id: topicId, used_refs: used, ability_level: abilityLevel }),
+      const question = await fetchQuestionOrLocal<SocialSciencesGeneratedQuestion>({
+        url: "/api/social-sciences/generate-question",
+        body: { skill_id: topicId, used_refs: used, ability_level: abilityLevel },
+        localSelect: () => {
+          const domainId = getDomainForSkill(topicId);
+          const bankQ = domainId
+            ? selectQuestion(domainId, used, false, topicId, abilityLevel)
+            : null;
+          return bankQ ? bankQuestionToGenerated(bankQ, topicId) : null;
+        },
       });
-      if (!res.ok) {
-        setError("Could not load a question. Please try again.");
-        setPhase("feedback");
-        return;
-      }
-      const data = (await res.json()) as SocialSciencesGenerateQuestionResponse;
-      if (!data.question) {
+      if (!question) {
         setError("No more questions on this topic right now.");
         setPhase("feedback");
         return;
       }
-      setQuestion(data.question);
-      if (data.question.input_type === "sequence" && data.question.options) {
-        setSequenceOrder([...data.question.options].sort(() => Math.random() - 0.5));
+      setQuestion(question);
+      if (question.input_type === "sequence" && question.options) {
+        setSequenceOrder([...question.options].sort(() => Math.random() - 0.5));
       }
       setResult(null);
       setPhase("question");

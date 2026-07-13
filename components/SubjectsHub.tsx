@@ -7,6 +7,8 @@ import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/stud
 import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
 import { getMathsLiteracyProfile } from "@/lib/maths-literacy-student-model";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import { useOfflineDownload } from "@/lib/offline/useOfflineDownload";
+import OfflineBadge from "@/components/OfflineBadge";
 import EditSubjectsModal from "@/components/onboarding/EditSubjectsModal";
 import {
   HUB_ID_TO_FET_KEY,
@@ -792,6 +794,10 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     showCreativeArtsSp,
   ]);
 
+  // Pre-cache the learner's own subjects for offline use (silent on wifi; a
+  // tap-to-save badge on metered/unknown connections). See lib/offline/.
+  const offline = useOfflineDownload(useMemo(() => subjects.map((s) => s.id), [subjects]));
+
   // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
   const startMathsReplay = (skillId: string) => {
     if (typeof window !== "undefined") sessionStorage.setItem("ruby_maths_replay_skill", skillId);
@@ -1114,6 +1120,12 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
                       <span className={`absolute top-2 left-2 text-[10px] font-semibold px-2 py-0.5 rounded-full ${s.badgeColor ?? "bg-white/90 text-gray-700"}`}>
                         {s.badge}
                       </span>
+                    )}
+                    {offline.isEligible(s.id) && (
+                      <OfflineBadge
+                        status={offline.status[s.id] ?? "idle"}
+                        onSave={() => offline.download(s.id)}
+                      />
                     )}
                   </div>
                   <div className="p-3 flex-1 flex flex-col gap-0.5">

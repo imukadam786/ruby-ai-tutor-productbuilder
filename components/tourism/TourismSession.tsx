@@ -45,6 +45,12 @@ import {
   saveTourismProfile,
 } from "@/lib/tourism-student-model";
 import {
+  getDomainForSkill,
+  selectQuestion,
+  bankQuestionToGenerated,
+} from "@/lib/tourism-selector";
+import { fetchQuestionOrLocal } from "@/lib/offline/fetchQuestionOrLocal";
+import {
   trackQuestionAnswered,
   trackSessionStarted,
   trackSessionEnded,
@@ -60,7 +66,6 @@ import type {
   TourismBank,
   TourismBankQuestion,
   TourismGeneratedQuestion,
-  TourismGenerateQuestionResponse,
   TourismSkillTree,
   TourismStudentProfile,
   TourismSubmitAnswerRequest,
@@ -189,27 +194,29 @@ export default function TourismSession({ onBack }: { onBack?: () => void } = {})
         (prior?.attempt_count ?? 0) + sessionAttempts,
       );
       try {
-        const res = await apiFetch("/api/tourism/generate-question", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
+        // Online → server as before; offline/failure → pick from the bundled
+        // bank on the device (same selection the route runs).
+        const question = await fetchQuestionOrLocal<TourismGeneratedQuestion>({
+          url: "/api/tourism/generate-question",
+          body: {
             skill_id: topicId,
             used_refs: used,
             ability_level: abilityLevel,
-          }),
+          },
+          localSelect: () => {
+            const domainId = getDomainForSkill(topicId);
+            const bankQ = domainId
+              ? selectQuestion(domainId, used, false, topicId, abilityLevel)
+              : null;
+            return bankQ ? bankQuestionToGenerated(bankQ, topicId) : null;
+          },
         });
-        if (!res.ok) {
-          setError("Could not load a question. Please try again.");
-          setPhase("feedback");
-          return;
-        }
-        const data = (await res.json()) as TourismGenerateQuestionResponse;
-        if (!data.question) {
+        if (!question) {
           setError("No more questions on this topic right now.");
           setPhase("feedback");
           return;
         }
-        setQuestion(data.question);
+        setQuestion(question);
         setResult(null);
         setPhase("question");
       } catch (err) {

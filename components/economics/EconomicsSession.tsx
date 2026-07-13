@@ -34,6 +34,12 @@ import ParagraphTemplateQuestion from "./questions/ParagraphTemplateQuestion";
 import SourceComparisonQuestion from "./questions/SourceComparisonQuestion";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import {
+  getDomainForSkill,
+  selectQuestion,
+  bankQuestionToGenerated,
+} from "@/lib/economics-selector";
+import { fetchQuestionOrLocal } from "@/lib/offline/fetchQuestionOrLocal";
+import {
   getEconomicsUsedRefs,
   getOrCreateEconomicsProfile,
   hydrateEconomicsProfileFromSupabase,
@@ -60,7 +66,6 @@ import type {
   EconomicsBank,
   EconomicsBankQuestion,
   EconomicsGeneratedQuestion,
-  EconomicsGenerateQuestionResponse,
   EconomicsSkillTree,
   EconomicsStudentProfile,
   EconomicsSubmitAnswerRequest,
@@ -187,27 +192,27 @@ export default function EconomicsSession({ onBack }: { onBack?: () => void } = {
         (prior?.attempt_count ?? 0) + sessionAttempts,
       );
       try {
-        const res = await apiFetch("/api/economics/generate-question", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
+        const question = await fetchQuestionOrLocal<EconomicsGeneratedQuestion>({
+          url: "/api/economics/generate-question",
+          body: {
             skill_id: topicId,
             used_refs: used,
             ability_level: abilityLevel,
-          }),
+          },
+          localSelect: () => {
+            const domainId = getDomainForSkill(topicId);
+            const bankQ = domainId
+              ? selectQuestion(domainId, used, false, topicId, abilityLevel)
+              : null;
+            return bankQ ? bankQuestionToGenerated(bankQ, topicId) : null;
+          },
         });
-        if (!res.ok) {
-          setError("Could not load a question. Please try again.");
-          setPhase("feedback");
-          return;
-        }
-        const data = (await res.json()) as EconomicsGenerateQuestionResponse;
-        if (!data.question) {
+        if (!question) {
           setError("No more questions on this topic right now.");
           setPhase("feedback");
           return;
         }
-        setQuestion(data.question);
+        setQuestion(question);
         setResult(null);
         setPhase("question");
       } catch (err) {

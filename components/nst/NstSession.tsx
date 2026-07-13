@@ -16,6 +16,12 @@ import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreNst } from "@/lib/nst-scoring";
+import {
+  getDomainForSkill,
+  selectQuestion,
+  bankQuestionToGenerated,
+} from "@/lib/nst-selector";
+import { fetchQuestionOrLocal } from "@/lib/offline/fetchQuestionOrLocal";
 import NstSkillTreeView from "./NstSkillTreeView";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import {
@@ -46,7 +52,6 @@ import {
 import type {
   NstBank,
   NstGeneratedQuestion,
-  NstGenerateQuestionResponse,
   NstSkillTree,
   NstSubmitAnswerRequest,
   NstSubmitAnswerResponse,
@@ -189,29 +194,29 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
       prior.attempt_count + sessionAttempts,
     );
     try {
-      const res = await apiFetch("/api/nst/generate-question", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const question = await fetchQuestionOrLocal<NstGeneratedQuestion>({
+        url: "/api/nst/generate-question",
+        body: {
           skill_id: topicId,
           used_refs: used,
           ability_level: abilityLevel,
-        }),
+        },
+        localSelect: () => {
+          const domainId = getDomainForSkill(topicId);
+          const bankQ = domainId
+            ? selectQuestion(domainId, used, false, topicId, abilityLevel)
+            : null;
+          return bankQ ? bankQuestionToGenerated(bankQ, topicId) : null;
+        },
       });
-      if (!res.ok) {
-        setError("Could not load a question. Please try again.");
-        setPhase("feedback");
-        return;
-      }
-      const data = (await res.json()) as NstGenerateQuestionResponse;
-      if (!data.question) {
+      if (!question) {
         setError("No more questions on this topic right now.");
         setPhase("feedback");
         return;
       }
-      setQuestion(data.question);
-      if (data.question.input_type === "sequence" && data.question.options) {
-        setSequenceOrder([...data.question.options].sort(() => Math.random() - 0.5));
+      setQuestion(question);
+      if (question.input_type === "sequence" && question.options) {
+        setSequenceOrder([...question.options].sort(() => Math.random() - 0.5));
       }
       setResult(null);
       setPhase("question");

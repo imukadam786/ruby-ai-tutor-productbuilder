@@ -18,6 +18,12 @@ import LifeSciencesSkillTreeView from "./LifeSciencesSkillTreeView";
 import { DataInterpretBlock } from "./DataInterpretBlock";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import {
+  getDomainForSkill,
+  selectQuestion,
+  bankQuestionToGenerated,
+} from "@/lib/life-sciences-selector";
+import { fetchQuestionOrLocal } from "@/lib/offline/fetchQuestionOrLocal";
+import {
   getLifeSciencesUsedRefs,
   getOrCreateLifeSciencesProfile,
   hydrateLifeSciencesProfileFromSupabase,
@@ -43,7 +49,6 @@ import {
 import type {
   LifeSciencesBank,
   LifeSciencesGeneratedQuestion,
-  LifeSciencesGenerateQuestionResponse,
   LifeSciencesSkillTree,
   LifeSciencesStudentProfile,
   LifeSciencesSubmitAnswerRequest,
@@ -174,27 +179,27 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
         (prior?.attempt_count ?? 0) + sessionAttempts,
       );
       try {
-        const res = await apiFetch("/api/life-sciences/generate-question", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
+        const question = await fetchQuestionOrLocal<LifeSciencesGeneratedQuestion>({
+          url: "/api/life-sciences/generate-question",
+          body: {
             skill_id: topicId,
             used_refs: used,
             ability_level: abilityLevel,
-          }),
+          },
+          localSelect: () => {
+            const domainId = getDomainForSkill(topicId);
+            const bankQ = domainId
+              ? selectQuestion(domainId, used, false, topicId, abilityLevel)
+              : null;
+            return bankQ ? bankQuestionToGenerated(bankQ, topicId) : null;
+          },
         });
-        if (!res.ok) {
-          setError("Could not load a question. Please try again.");
-          setPhase("feedback");
-          return;
-        }
-        const data = (await res.json()) as LifeSciencesGenerateQuestionResponse;
-        if (!data.question) {
+        if (!question) {
           setError("No more questions on this topic right now.");
           setPhase("feedback");
           return;
         }
-        setQuestion(data.question);
+        setQuestion(question);
         setResult(null);
         setPhase("question");
       } catch (err) {

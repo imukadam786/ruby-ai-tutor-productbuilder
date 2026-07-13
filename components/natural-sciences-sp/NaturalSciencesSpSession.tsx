@@ -34,6 +34,12 @@ import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreNaturalSciencesSpAnswer } from "@/lib/natural-sciences-sp-scoring";
+import {
+  getDomainForSkill,
+  selectQuestion,
+  bankQuestionToGenerated,
+} from "@/lib/natural-sciences-sp-selector";
+import { fetchQuestionOrLocal } from "@/lib/offline/fetchQuestionOrLocal";
 import NaturalSciencesSpSkillTreeView from "./NaturalSciencesSpSkillTreeView";
 import { DataInterpretBlock } from "@/components/geography/DataInterpretBlock";
 import SortBucketsQuestion from "@/components/geography/SortBucketsQuestion";
@@ -67,7 +73,6 @@ import type {
   NaturalSciencesSpBank,
   NaturalSciencesSpBankQuestion,
   NaturalSciencesSpGeneratedQuestion,
-  NaturalSciencesSpGenerateQuestionResponse,
   NaturalSciencesSpSkillTree,
   NaturalSciencesSpStudentProfile,
   NaturalSciencesSpSubmitAnswerRequest,
@@ -200,27 +205,27 @@ export default function NaturalSciencesSpSession({ onBack }: { onBack?: () => vo
         (prior?.attempt_count ?? 0) + sessionAttempts,
       );
       try {
-        const res = await apiFetch("/api/natural-sciences-sp/generate-question", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
+        const question = await fetchQuestionOrLocal<NaturalSciencesSpGeneratedQuestion>({
+          url: "/api/natural-sciences-sp/generate-question",
+          body: {
             skill_id: topicId,
             used_refs: used,
             ability_level: abilityLevel,
-          }),
+          },
+          localSelect: () => {
+            const domainId = getDomainForSkill(topicId);
+            const bankQ = domainId
+              ? selectQuestion(domainId, used, false, topicId, abilityLevel)
+              : null;
+            return bankQ ? bankQuestionToGenerated(bankQ, topicId) : null;
+          },
         });
-        if (!res.ok) {
-          setError("Could not load a question. Please try again.");
-          setPhase("feedback");
-          return;
-        }
-        const data = (await res.json()) as NaturalSciencesSpGenerateQuestionResponse;
-        if (!data.question) {
+        if (!question) {
           setError("No more questions on this topic right now.");
           setPhase("feedback");
           return;
         }
-        setQuestion(data.question);
+        setQuestion(question);
         setResult(null);
         setPhase("question");
       } catch (err) {

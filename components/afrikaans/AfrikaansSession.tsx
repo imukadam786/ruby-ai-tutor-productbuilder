@@ -44,6 +44,12 @@ import {
   saveAfrikaansProfile,
 } from "@/lib/afrikaans-student-model";
 import {
+  getDomainForSkill,
+  selectQuestion,
+  bankQuestionToGenerated,
+} from "@/lib/afrikaans-selector";
+import { fetchQuestionOrLocal } from "@/lib/offline/fetchQuestionOrLocal";
+import {
   trackQuestionAnswered,
   trackSessionStarted,
   trackSessionEnded,
@@ -57,7 +63,6 @@ import {
 } from "@/lib/content-mastery";
 import type {
   AfrikaansGeneratedQuestion,
-  AfrikaansGenerateQuestionResponse,
   AfrikaansSkillTree,
   AfrikaansStudentProfile,
   AfrikaansSubmitAnswerRequest,
@@ -208,25 +213,26 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
       (prior?.attempt_count ?? 0) + sessionAttempts,
     );
     try {
-      const res = await apiFetch("/api/afrikaans/generate-question", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ skill_id: sid, used_refs: used, ability_level: abilityLevel }),
+      // Online → server as before; offline/failure → pick from the bundled
+      // bank on the device (same selection the route runs).
+      const question = await fetchQuestionOrLocal<AfrikaansGeneratedQuestion>({
+        url: "/api/afrikaans/generate-question",
+        body: { skill_id: sid, used_refs: used, ability_level: abilityLevel },
+        localSelect: () => {
+          const domainId = getDomainForSkill(sid);
+          if (!domainId) return null;
+          const bankQ = selectQuestion(domainId, used, false, abilityLevel);
+          return bankQ ? bankQuestionToGenerated(bankQ, domainId) : null;
+        },
       });
-      if (!res.ok) {
-        setError("Could not load a question. Please try again.");
-        setPhase("feedback");
-        return;
-      }
-      const data = (await res.json()) as AfrikaansGenerateQuestionResponse;
-      if (!data.question) {
+      if (!question) {
         setError("No more questions on this skill right now.");
         setPhase("feedback");
         return;
       }
-      setQuestion(data.question);
-      if (data.question.input_type === "sequence" && data.question.options) {
-        setSequenceOrder([...data.question.options].sort(() => Math.random() - 0.5));
+      setQuestion(question);
+      if (question.input_type === "sequence" && question.options) {
+        setSequenceOrder([...question.options].sort(() => Math.random() - 0.5));
       }
       setResult(null);
       setPhase("question");

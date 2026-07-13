@@ -19,6 +19,12 @@ import { scoreLifeSkills } from "@/lib/life-skills-scoring";
 import LifeSkillsSkillTreeView from "./LifeSkillsSkillTreeView";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import {
+  getDomainForSkill,
+  selectQuestion,
+  bankQuestionToGenerated,
+} from "@/lib/life-skills-selector";
+import { fetchQuestionOrLocal } from "@/lib/offline/fetchQuestionOrLocal";
+import {
   getLifeSkillsMasteryMap,
   getLifeSkillsTopicTotals,
   getLifeSkillsUsedRefs,
@@ -45,7 +51,6 @@ import {
 import type {
   LifeSkillsBank,
   LifeSkillsGeneratedQuestion,
-  LifeSkillsGenerateQuestionResponse,
   LifeSkillsSkillTree,
   LifeSkillsSubmitAnswerRequest,
   LifeSkillsSubmitAnswerResponse,
@@ -207,30 +212,30 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
     const prior = getLifeSkillsTopicTotals(topicId);
     const abilityLevel = contentAbilityLevel(prior.correct, prior.attempts);
     try {
-      const res = await apiFetch("/api/life-skills/generate-question", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const question = await fetchQuestionOrLocal<LifeSkillsGeneratedQuestion>({
+        url: "/api/life-skills/generate-question",
+        body: {
           skill_id: topicId,
           used_refs: used,
           ability_level: abilityLevel,
-        }),
+        },
+        localSelect: () => {
+          const domainId = getDomainForSkill(topicId);
+          const bankQ = domainId
+            ? selectQuestion(domainId, used, false, topicId, abilityLevel)
+            : null;
+          return bankQ ? bankQuestionToGenerated(bankQ, topicId) : null;
+        },
       });
-      if (!res.ok) {
-        setError("Could not load a question. Please try again.");
-        setPhase("feedback");
-        return;
-      }
-      const data = (await res.json()) as LifeSkillsGenerateQuestionResponse;
-      if (!data.question) {
+      if (!question) {
         setError("No more questions on this topic right now.");
         setPhase("feedback");
         return;
       }
-      setQuestion(data.question);
+      setQuestion(question);
       // Initialise sequence ordering (shuffle of options) for sequence input
-      if (data.question.input_type === "sequence" && data.question.options) {
-        setSequenceOrder([...data.question.options].sort(() => Math.random() - 0.5));
+      if (question.input_type === "sequence" && question.options) {
+        setSequenceOrder([...question.options].sort(() => Math.random() - 0.5));
       }
       setResult(null);
       setPhase("question");
