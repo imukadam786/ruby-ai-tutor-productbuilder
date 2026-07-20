@@ -16,6 +16,7 @@
 // Use `variant` for intent and `size` for scale; pass `fullWidth` to stretch.
 
 import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
+import { CONCEPT_C } from "@/lib/flags";
 
 export type ButtonVariant = "primary" | "success" | "outline" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
@@ -39,8 +40,10 @@ const BASE =
   "active:scale-[0.98] disabled:cursor-not-allowed";
 
 const VARIANTS: Record<ButtonVariant, string> = {
-  primary:
-    "bg-[#BE1832] hover:bg-[#a01528] text-white disabled:bg-gray-300",
+  // Concept C: brighter ruby + the chunky pressable "lip" the team asked for.
+  primary: CONCEPT_C
+    ? "bg-ruby hover:bg-ruby-deep text-white disabled:bg-gray-300 shadow-lip active:translate-y-[3px] active:shadow-none"
+    : "bg-[#BE1832] hover:bg-[#a01528] text-white disabled:bg-gray-300",
   success:
     "bg-green-600 hover:bg-green-700 text-white disabled:bg-gray-300",
   outline:

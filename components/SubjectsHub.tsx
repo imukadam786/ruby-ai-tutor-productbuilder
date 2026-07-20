@@ -38,6 +38,7 @@ import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
 import { HubTreeContext } from "@/components/shared/SkillTreeShell";
 import Button from "@/components/ui/Button";
+import { CONCEPT_C } from "@/lib/flags";
 import { useT } from "@/lib/i18n";
 import {
   loadBusinessStudiesProfile,
@@ -1107,7 +1108,11 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
                 <button
                   key={s.id}
                   onClick={() => setExpandedId(s.id)}
-                  className="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.99] transition-all text-left overflow-hidden flex flex-col"
+                  className={`group bg-white rounded-2xl border border-gray-200 transition-all text-left overflow-hidden flex flex-col ${
+                    CONCEPT_C
+                      ? "shadow-lip active:translate-y-[3px] active:shadow-none"
+                      : "shadow-sm hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.99]"
+                  }`}
                 >
                   <div className={`relative aspect-square bg-gradient-to-br ${s.accentFrom} ${s.accentTo} flex items-center justify-center`}>
                     {s.thumbnail ? (
