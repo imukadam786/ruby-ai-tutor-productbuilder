@@ -1,6 +1,8 @@
 "use client";
 import RubyBalance from "@/components/RubyBalance";
 import Button from "@/components/ui/Button";
+import ChoiceGrid from "@/components/ui/ChoiceGrid";
+import { CONCEPT_C } from "@/lib/flags";
 import MasteryHeader from "@/components/shared/MasteryHeader";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
@@ -690,6 +692,7 @@ function AnswerDispatcher({ question, submitting, onSubmit }: AnswerDispatcherPr
 
   // ── Option grids (choice / cloze / sequence / diagram-label / image-match) ──
   if (options && options.length > 0) {
+    if (CONCEPT_C) return <ChoiceGrid options={options} submitting={submitting} onSubmit={onSubmit} />;
     const wide = options.some((o) => o.length > 40);
     const gridCols = wide ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2";
     return (
