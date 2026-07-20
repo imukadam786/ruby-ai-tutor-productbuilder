@@ -4,6 +4,8 @@ import MasteryHeader from "@/components/shared/MasteryHeader";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
 import Button from "@/components/ui/Button";
+import ChoiceGrid from "@/components/ui/ChoiceGrid";
+import { CONCEPT_C } from "@/lib/flags";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { apiFetch } from "@/lib/fetch";
@@ -671,6 +673,7 @@ function AnswerInput({ question, value, onChange, onSubmit, submitting }: Answer
   // diagram-label, data-interpret) — tappable button grid. Single-column on
   // narrow screens, double on wider so long option strings stay readable.
   if (options && options.length > 0) {
+    if (CONCEPT_C) return <ChoiceGrid options={options} submitting={submitting} onSubmit={onSubmit} />;
     const wide = options.some((o) => o.length > 40);
     const gridCols = wide ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2";
     return (
