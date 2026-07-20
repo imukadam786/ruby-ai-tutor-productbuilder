@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
+import { CONCEPT_C } from "@/lib/flags";
 import type { VoucherValidateResponse } from "@/app/api/vouchers/validate/route";
 
 const PLANS: {
@@ -232,9 +233,13 @@ export default function TrialExpiredScreen() {
                 <button
                   onClick={() => handleChoosePlan(plan.key)}
                   disabled={!!loading}
-                  className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-50 text-white py-2 rounded-xl text-sm font-semibold transition-colors mt-1"
+                  className={`w-full disabled:opacity-50 text-white py-2 rounded-xl text-sm font-semibold transition-all mt-1 ${
+                    CONCEPT_C
+                      ? "bg-ruby hover:bg-ruby-deep shadow-lip active:translate-y-[3px] active:shadow-none"
+                      : "bg-blue-500 hover:bg-blue-600"
+                  }`}
                 >
-                  {loading === plan.key ? "Redirecting…" : `Choose ${plan.label}`}
+                  {loading === plan.key ? "Redirecting…" : CONCEPT_C ? `Keep Collecting · ${plan.label}` : `Choose ${plan.label}`}
                 </button>
               </div>
             );

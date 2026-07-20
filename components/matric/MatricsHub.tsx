@@ -2,6 +2,7 @@
 
 import { ActiveView } from "@/types";
 import EduBackground from "@/components/EduBackground";
+import { CONCEPT_C } from "@/lib/flags";
 
 interface MatricsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -27,7 +28,11 @@ function MatricCard({
   return (
     <button
       onClick={onClick}
-      className="rounded-2xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col text-left transition-all active:opacity-80 hover:shadow-xl hover:-translate-y-1"
+      className={`rounded-2xl overflow-hidden bg-white border border-gray-100 flex flex-col text-left transition-all ${
+        CONCEPT_C
+          ? "shadow-lip active:translate-y-[3px] active:shadow-none"
+          : "shadow-md active:opacity-80 hover:shadow-xl hover:-translate-y-1"
+      }`}
     >
       {/* Square image header */}
       <div className="w-full flex-shrink-0" style={{ aspectRatio: "1 / 1" }}>

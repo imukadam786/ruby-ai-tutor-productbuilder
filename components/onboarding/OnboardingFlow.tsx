@@ -10,6 +10,7 @@ import {
 } from "@/lib/fet-subjects";
 import SubjectChecklist from "@/components/onboarding/SubjectChecklist";
 import Button from "@/components/ui/Button";
+import { CONCEPT_C } from "@/lib/flags";
 
 export type OnboardingData = {
   language: string;
@@ -701,7 +702,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 </div>
               </div>
               <div className="pt-4 flex-shrink-0">
-                <ContinueBtn label={t.continueBtn} onClick={handleComplete} disabled={!data.curriculum} />
+                <ContinueBtn label={CONCEPT_C ? "Start Collecting 💎" : t.continueBtn} onClick={handleComplete} disabled={!data.curriculum} />
               </div>
             </div>
           )}
