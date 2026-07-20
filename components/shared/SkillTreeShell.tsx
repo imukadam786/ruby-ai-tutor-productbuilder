@@ -16,6 +16,8 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import EduBackground from "@/components/EduBackground";
 import RubyIcon from "@/components/ui/RubyIcon";
+import SkillTreePath from "@/components/shared/SkillTreePath";
+import { CONCEPT_C } from "@/lib/flags";
 
 // When a tree renders inside the Subjects hub, it opts into a more compact
 // presentation: the header reads a plain "Skill Tree" (the subject name is
@@ -730,7 +732,13 @@ export default function SkillTreeShell({
           </div>
         )}
 
-        <div className="max-w-2xl mx-auto">{body}</div>
+        <div className="max-w-2xl mx-auto">
+          {CONCEPT_C && !compact && !emptyState ? (
+            <SkillTreePath levels={levels} accent={accentName} />
+          ) : (
+            body
+          )}
+        </div>
       </div>
     </div>
   );

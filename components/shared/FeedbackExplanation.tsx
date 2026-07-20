@@ -2,6 +2,9 @@
 
 import { ReactNode } from "react";
 import { resolveErrorExplanation } from "@/lib/error-explanations";
+import Gem from "@/components/ui/Gem";
+import { RUBY } from "@/lib/design/gemColors";
+import { CONCEPT_C } from "@/lib/flags";
 
 // A free, deterministic read on a numeric wrong answer: how far off, and which
 // way. Turns the bare "you answered 8 / the answer is 7" into a closer "8 —
@@ -91,6 +94,11 @@ export default function FeedbackExplanation({
         <div className="px-6 py-4 flex items-center gap-3 bg-green-100">
           <span className="text-2xl">✅</span>
           <p className="font-bold text-lg text-green-800">{correctLabel}</p>
+          {CONCEPT_C && (
+            <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-sm font-extrabold text-green-700 shadow-lip-sm whitespace-nowrap">
+              <Gem color={RUBY} state="polished" className="w-4 h-5" /> gem cut!
+            </span>
+          )}
         </div>
         {(note || (workingSteps && workingSteps.length > 0)) && (
           <div className="px-6 py-5 space-y-2">
@@ -130,13 +138,13 @@ export default function FeedbackExplanation({
   const exampleText = explanation?.example;
 
   return (
-    <div className="rounded-2xl border-2 border-orange-200 bg-orange-50 overflow-hidden">
-      <div className="px-6 py-4 flex items-center justify-between gap-3 bg-orange-100">
+    <div className={`rounded-2xl border-2 overflow-hidden ${CONCEPT_C ? "border-rose-200 bg-rose-50" : "border-orange-200 bg-orange-50"}`}>
+      <div className={`px-6 py-4 flex items-center justify-between gap-3 ${CONCEPT_C ? "bg-rose-100" : "bg-orange-100"}`}>
         <div className="flex items-center gap-3">
           <span className="text-2xl">🤔</span>
           <div>
-            <p className="font-bold text-lg text-orange-800">Not quite</p>
-            {headerLabel && <p className="text-sm text-orange-700">{headerLabel}</p>}
+            <p className={`font-bold text-lg ${CONCEPT_C ? "text-rose-900" : "text-orange-800"}`}>Not quite</p>
+            {headerLabel && <p className={`text-sm ${CONCEPT_C ? "text-rose-700" : "text-orange-700"}`}>{headerLabel}</p>}
           </div>
         </div>
         {headerAction}
@@ -151,7 +159,7 @@ export default function FeedbackExplanation({
         {/* WHAT — the two facts, sharpened with how far off when both are numbers */}
         {showWhat && (
           <p className="text-sm text-gray-700">
-            You answered <span className="font-semibold text-orange-700">{student}</span>
+            You answered <span className={`font-semibold ${CONCEPT_C ? "text-rose-700" : "text-orange-700"}`}>{student}</span>
             {relation && <> — {relation}</>}. The answer is{" "}
             <span className="font-semibold text-green-700">{correct}</span>.
           </p>
@@ -163,18 +171,25 @@ export default function FeedbackExplanation({
           </p>
         )}
 
-        {/* WHY */}
+        {/* WHY — violet block in Concept C */}
         {whyText && (
-          <div>
-            <p className="text-sm font-medium text-gray-600 mb-1">Why this happens</p>
-            <p className="text-gray-800 leading-relaxed">{whyText}</p>
-          </div>
+          CONCEPT_C ? (
+            <div className="bg-violet-50 border border-violet-200 rounded-xl p-4">
+              <p className="text-sm font-semibold text-violet-700 mb-1">🧠 Why this happens</p>
+              <p className="text-gray-800 leading-relaxed">{whyText}</p>
+            </div>
+          ) : (
+            <div>
+              <p className="text-sm font-medium text-gray-600 mb-1">Why this happens</p>
+              <p className="text-gray-800 leading-relaxed">{whyText}</p>
+            </div>
+          )
         )}
 
-        {/* HOW — worked steps if the subject authors them, else the map's fix */}
+        {/* HOW — worked steps if the subject authors them, else the map's fix (sky block in Concept C) */}
         {hasWorking && (
-          <div className="bg-white border border-orange-200 rounded-xl p-4">
-            <p className="text-sm font-medium text-gray-600 mb-1">How to fix it</p>
+          <div className={`rounded-xl p-4 ${CONCEPT_C ? "bg-sky-50 border border-sky-200" : "bg-white border border-orange-200"}`}>
+            <p className={`text-sm mb-1 ${CONCEPT_C ? "font-semibold text-sky-700" : "font-medium text-gray-600"}`}>{CONCEPT_C ? "🔧 How to fix it" : "How to fix it"}</p>
             <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
               {workingSteps!.map((s, i) => (
                 <li key={i}>{s}</li>
@@ -183,13 +198,13 @@ export default function FeedbackExplanation({
           </div>
         )}
         {howText && (
-          <div className="bg-white border border-orange-200 rounded-xl p-4">
-            <p className="text-sm font-medium text-gray-600 mb-1">How to fix it</p>
+          <div className={`rounded-xl p-4 ${CONCEPT_C ? "bg-sky-50 border border-sky-200" : "bg-white border border-orange-200"}`}>
+            <p className={`text-sm mb-1 ${CONCEPT_C ? "font-semibold text-sky-700" : "font-medium text-gray-600"}`}>{CONCEPT_C ? "🔧 How to fix it" : "How to fix it"}</p>
             <p className="text-gray-800 text-sm leading-relaxed">{howText}</p>
           </div>
         )}
 
-        {/* EXAMPLE */}
+        {/* EXAMPLE — amber in both looks */}
         {exampleText && (
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
             <p className="text-sm font-medium text-amber-700 mb-1">💡 Think of it like this</p>
