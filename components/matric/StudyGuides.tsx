@@ -3,6 +3,7 @@
 import { useState } from "react";
 import EduBackground from "@/components/EduBackground";
 import PdfViewerModal from "@/components/matric/PdfViewerModal";
+import { CONCEPT_C } from "@/lib/flags";
 import { supabase } from "@/lib/supabase";
 
 function getGuideUrl(filename: string) {
@@ -467,7 +468,11 @@ export default function StudyGuides({ onBack }: StudyGuidesProps) {
                 <button
                   key={s.label}
                   onClick={() => setSelectedSubject(s)}
-                  className="relative rounded-2xl transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
+                  className={`relative rounded-2xl transition-all group overflow-hidden bg-white border-2 border-gray-200 cursor-pointer ${
+                    CONCEPT_C
+                      ? "shadow-lip active:translate-y-[3px] active:shadow-none"
+                      : "shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-gray-300"
+                  }`}
                 >
                   <div className="w-full aspect-square overflow-hidden">
                     <img
@@ -495,7 +500,11 @@ export default function StudyGuides({ onBack }: StudyGuidesProps) {
             <button
               key={guide.filename}
               onClick={() => handleGuideClick(guide, selectedSubject.label)}
-              className="w-full text-left bg-white rounded-2xl border border-gray-200 p-5 flex items-center gap-4 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.99] transition-all"
+              className={`w-full text-left bg-white rounded-2xl border border-gray-200 p-5 flex items-center gap-4 transition-all ${
+                CONCEPT_C
+                  ? "shadow-lip active:translate-y-[3px] active:shadow-none"
+                  : "hover:shadow-md hover:-translate-y-0.5 active:scale-[0.99]"
+              }`}
             >
               <div className="shrink-0 w-12 h-12 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center">
                 <svg className="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
