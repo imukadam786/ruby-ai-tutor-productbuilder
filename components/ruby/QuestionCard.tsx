@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { GeneratedQuestion, GraduatedHint, QuestionTemplate } from "@/types/ruby";
 import { DotArray, parseDotArray } from "./DotArray";
 import SignToggle from "@/components/ui/SignToggle";
+import { CONCEPT_C } from "@/lib/flags";
 
 interface QuestionCardProps {
   question: GeneratedQuestion;
@@ -89,14 +90,14 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-xl shadow-blue-500/10 overflow-hidden">
+    <div className={`bg-white rounded-2xl border border-gray-200 overflow-hidden ${CONCEPT_C ? "" : "shadow-xl shadow-blue-500/10"}`}>
       {/* Ruby brand accent strip — gives the card a clear "top" edge so it
           lifts off the patterned background. */}
       <div className="h-1.5 bg-gradient-to-r from-[#B7182E] via-[#D6562E] to-[#E8B341]" />
 
       {/* Topic badge — same blue pill style as the Discovery activity */}
       <div className="px-5 py-3 border-b border-gray-100 flex items-center justify-between gap-3">
-        <span className="inline-block bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1 rounded-full">
+        <span className={`inline-block text-sm font-semibold px-3 py-1 rounded-full ${CONCEPT_C ? "bg-ruby-soft text-ruby" : "bg-blue-100 text-blue-700"}`}>
           {topicLabel ?? templateInfo.label}
         </span>
         {badgeRight}
@@ -260,7 +261,11 @@ export default function QuestionCard({ question, onSubmit, isSubmitting, forceHi
         <button
           onClick={handleSubmit}
           disabled={(isMultiField ? !fieldValues.every((v) => v.trim()) : !answer.trim()) || isSubmitting}
-          className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-200 disabled:cursor-not-allowed text-white py-3 rounded-xl font-medium transition-all shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 flex items-center justify-center gap-2"
+          className={`w-full text-white py-3 rounded-xl transition-all flex items-center justify-center gap-2 disabled:bg-gray-200 disabled:cursor-not-allowed ${
+            CONCEPT_C
+              ? "bg-ruby hover:bg-ruby-deep font-bold shadow-lip active:translate-y-[3px] active:shadow-none"
+              : "bg-blue-500 hover:bg-blue-600 font-medium shadow-md shadow-blue-500/20 hover:shadow-blue-500/40"
+          }`}
         >
           {isSubmitting ? (
             <>

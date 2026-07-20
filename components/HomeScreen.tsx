@@ -10,6 +10,9 @@ import EduBackground from "@/components/EduBackground";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import SavedReportView from "@/components/SavedReportView";
 import { TUTORS } from "@/lib/tutors";
+import Gem from "@/components/ui/Gem";
+import { RUBY } from "@/lib/design/gemColors";
+import { CONCEPT_C } from "@/lib/flags";
 
 interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
@@ -207,6 +210,31 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
               ))}
             </div>
           </section>
+
+          {/* ── Today's goal (Concept C) — gold card below the tutors ────── */}
+          {CONCEPT_C && (
+            <section className="mb-8">
+              <div
+                className="rounded-2xl px-5 py-4 shadow-lip"
+                style={{ background: "linear-gradient(135deg,#FFB323,#ff9e3d)" }}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Gem color={RUBY} state="polished" className="w-8 h-10" />
+                    <div>
+                      <p className="font-extrabold text-lg leading-tight" style={{ color: "#5a3600" }}>
+                        Today&apos;s goal
+                      </p>
+                      <p className="text-sm font-semibold" style={{ color: "#7a4a10" }}>
+                        Collect gems as you learn
+                      </p>
+                    </div>
+                  </div>
+                  <span className="text-2xl" aria-hidden>🔥</span>
+                </div>
+              </div>
+            </section>
+          )}
 
           {/* ── Quick actions (Language / Upgrade / FAQ) ─────────────────── */}
           <section className="mb-6">
