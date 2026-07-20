@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
+import { CONCEPT_C } from "@/lib/flags";
 import type { VoucherValidateResponse } from "@/app/api/vouchers/validate/route";
 
 interface Feature {
@@ -516,7 +517,9 @@ export default function PricingPlans({
                 <button
                   onClick={() => { scrollToCard(index); handlePlanCTA(plan); }}
                   disabled={!!loadingPlan}
-                  className={`w-full py-2.5 rounded-xl text-sm font-bold transition-colors disabled:opacity-50 ${plan.ctaClass}`}
+                  className={`w-full py-2.5 rounded-xl text-sm font-bold transition-colors disabled:opacity-50 ${plan.ctaClass} ${
+                    CONCEPT_C ? "shadow-lip active:translate-y-[3px] active:shadow-none" : ""
+                  }`}
                 >
                   {isLoading ? "Redirecting…" : plan.ctaLabel}
                 </button>

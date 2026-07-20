@@ -10,6 +10,12 @@ import SavedReportView from "@/components/SavedReportView";
 import Button from "@/components/ui/Button";
 import { supabase } from "@/lib/supabase";
 import { useT } from "@/lib/i18n";
+import { CONCEPT_C } from "@/lib/flags";
+
+// Chunky pressable card shell when Concept C is on; the current soft card otherwise.
+const CARD_SHELL = CONCEPT_C
+  ? "shadow-lip border-2 border-gray-100"
+  : "shadow-sm border border-gray-100";
 
 interface DiscoverHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -94,7 +100,7 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
         </div>
 
         {/* Maths card */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-4">
+        <div className={`bg-white rounded-2xl overflow-hidden mb-4 ${CARD_SHELL}`}>
           <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-5 py-4 flex items-center gap-3">
             <span className="text-2xl">🧮</span>
             <div>
@@ -156,7 +162,7 @@ export default function DiscoverHub({ onNavigate }: DiscoverHubProps) {
         </div>
 
         {/* Reading card */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className={`bg-white rounded-2xl overflow-hidden ${CARD_SHELL}`}>
           <div className="bg-gradient-to-r from-purple-500 to-purple-600 px-5 py-4 flex items-center gap-3">
             <span className="text-2xl">📖</span>
             <div>
