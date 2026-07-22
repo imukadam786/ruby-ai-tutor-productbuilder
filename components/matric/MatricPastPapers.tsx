@@ -191,7 +191,7 @@ const SUBJECTS = [
     id: "mathematics",
     name: "Mathematics",
     thumbnail: "/thumbnails/mathematics.webp",
-    color: "from-[#BE1832] to-rose-700",
+    color: "from-brand to-rose-700",
     available: true,
   },
   {
@@ -462,7 +462,7 @@ function PaperList({
                                   {paper.session} {year}
                                 </span>
                                 {isLatest && (
-                                  <span className="text-xs font-semibold bg-[#BE1832] text-white px-2.5 py-0.5 rounded-full">
+                                  <span className="text-xs font-semibold bg-brand text-white px-2.5 py-0.5 rounded-full">
                                     Latest
                                   </span>
                                 )}
@@ -505,7 +505,7 @@ function PaperList({
                                 {progress.status === "not_started" && (
                                   <>
                                     <div className="flex-1 max-w-[120px] h-1.5 bg-gray-100 rounded-full" />
-                                    <span className="text-xs font-semibold text-[#BE1832]">Get Started 🚀 · 0%</span>
+                                    <span className="text-xs font-semibold text-brand">Get Started 🚀 · 0%</span>
                                   </>
                                 )}
                                 {progress.status === "in_progress" && (
@@ -534,7 +534,7 @@ function PaperList({
 
                             {/* Red chevron */}
                             <svg
-                              className="w-5 h-5 text-[#BE1832] flex-shrink-0 group-hover:translate-x-0.5 transition-transform"
+                              className="w-5 h-5 text-brand flex-shrink-0 group-hover:translate-x-0.5 transition-transform"
                               fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             >
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -623,7 +623,7 @@ function ModeSelect({
                 title: "Guided Mode",
                 subtitle: "Learn with AI coaching",
                 recommendation: "Best for learning",
-                recommendationColor: "text-[#BE1832] bg-rose-50",
+                recommendationColor: "text-brand bg-rose-50",
                 bullets: [
                   "AI evaluates after each question",
                   "Step-by-step hints available",
@@ -631,7 +631,7 @@ function ModeSelect({
                   "No time pressure",
                 ],
                 color: "border-rose-200 bg-rose-50",
-                activeColor: "border-[#BE1832] bg-rose-50 ring-2 ring-[#BE1832]",
+                activeColor: "border-brand bg-rose-50 ring-2 ring-brand",
               },
             ] as const
           ).map((m) => (
@@ -654,7 +654,7 @@ function ModeSelect({
                   <p className="text-xs text-gray-500">{m.subtitle}</p>
                 </div>
                 {mode === m.id && (
-                  <div className="ml-auto w-5 h-5 rounded-full bg-[#BE1832] flex items-center justify-center flex-shrink-0">
+                  <div className="ml-auto w-5 h-5 rounded-full bg-brand flex items-center justify-center flex-shrink-0">
                     <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
@@ -674,7 +674,7 @@ function ModeSelect({
         </div>
 
         {/* Language selector — elevated prominence */}
-        <div className="bg-white rounded-2xl border-2 border-[#BE1832]/20 p-5 space-y-3 shadow-sm">
+        <div className="bg-white rounded-2xl border-2 border-brand/20 p-5 space-y-3 shadow-sm">
           <div className="flex items-center gap-2">
             <span className="text-lg">🌍</span>
             <div>
@@ -685,7 +685,7 @@ function ModeSelect({
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
-            className="w-full border-2 border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] focus:border-[#BE1832]"
+            className="w-full border-2 border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand"
           >
             {SA_LANGUAGES.map((l) => (
               <option key={l} value={l}>
@@ -732,7 +732,7 @@ function InfoSheetModal({ sheet, onClose }: { sheet: InfoSheet; onClose: () => v
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0">
           <div className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-[#BE1832]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-4 h-4 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             <h2 className="font-bold text-gray-800 text-sm">{sheet.title}</h2>
@@ -743,7 +743,7 @@ function InfoSheetModal({ sheet, onClose }: { sheet: InfoSheet; onClose: () => v
                 href={sheet.pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-[#BE1832] font-medium hover:underline px-2 py-1"
+                className="text-xs text-brand font-medium hover:underline px-2 py-1"
               >
                 Open in new tab
               </a>
@@ -1284,7 +1284,7 @@ function SessionView({
     return (
       <div className="h-full flex flex-col items-center justify-center bg-[#F4F4F5] gap-6 px-6 text-center">
         <div className="w-16 h-16 rounded-full bg-rose-50 flex items-center justify-center animate-pulse">
-          <svg className="w-8 h-8 text-[#BE1832]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-8 h-8 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
@@ -1296,7 +1296,7 @@ function SessionView({
         </div>
         <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
           <div
-            className="h-full bg-[#BE1832] rounded-full transition-all duration-300"
+            className="h-full bg-brand rounded-full transition-all duration-300"
             style={{ width: `${(submitProgress / totalQuestions) * 100}%` }}
           />
         </div>
@@ -1313,7 +1313,7 @@ function SessionView({
         <div className="flex items-center gap-2 py-2">
           <button
             onClick={onBack}
-            className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-[#BE1832] bg-gray-100 hover:bg-rose-50 px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0"
+            className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-brand bg-gray-100 hover:bg-rose-50 px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -1324,7 +1324,7 @@ function SessionView({
           <div className="flex-1 min-w-0">
             <p className="text-sm font-bold text-gray-800 leading-tight">
               {currentSQ.label}
-              <span className="ml-1.5 text-xs font-semibold text-[#BE1832]">
+              <span className="ml-1.5 text-xs font-semibold text-brand">
                 · {currentSQ.marks} {currentSQ.marks === 1 ? "mk" : "mks"}
               </span>
             </p>
@@ -1385,9 +1385,9 @@ function SessionView({
                           onClick={() => setCurrentIdx(flatIdx)}
                           title={`${sq.label} · ${sq.marks} ${sq.marks === 1 ? "mk" : "mks"}`}
                           className={`flex-shrink-0 rounded-full transition-all duration-150 ${
-                            isActive ? "w-5 h-5 ring-2 ring-[#BE1832] ring-offset-1" : "w-4 h-4 hover:scale-110"
+                            isActive ? "w-5 h-5 ring-2 ring-brand ring-offset-1" : "w-4 h-4 hover:scale-110"
                           } ${
-                            isSubmitted ? "bg-[#BE1832]" : isAnswered ? "bg-amber-400" : "bg-gray-200"
+                            isSubmitted ? "bg-brand" : isAnswered ? "bg-amber-400" : "bg-gray-200"
                           }`}
                         />
                       );
@@ -1445,7 +1445,7 @@ function SessionView({
           <button
             onClick={() => setMobileTab("question")}
             className={`flex-1 py-2.5 text-xs font-semibold transition-colors border-b-2 ${
-              mobileTab === "question" ? "text-[#BE1832] border-[#BE1832]" : "text-gray-400 border-transparent"
+              mobileTab === "question" ? "text-brand border-brand" : "text-gray-400 border-transparent"
             }`}
           >
             Question
@@ -1453,7 +1453,7 @@ function SessionView({
           <button
             onClick={() => setMobileTab("feedback")}
             className={`flex-1 py-2.5 text-xs font-semibold transition-colors border-b-2 ${
-              mobileTab === "feedback" ? "text-[#BE1832] border-[#BE1832]" : "text-gray-400 border-transparent"
+              mobileTab === "feedback" ? "text-brand border-brand" : "text-gray-400 border-transparent"
             }`}
           >
             Ruby Feedback
@@ -1482,7 +1482,7 @@ function SessionView({
             >
               {/* "QUESTION" badge — clear visual separator from answer area */}
               <div className="sticky top-0 z-10 flex items-center gap-2 px-3 sm:px-5 pt-2 pb-1 bg-rose-50/90 backdrop-blur-sm border-b border-rose-100/60">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#BE1832]/70">Question</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-brand/70">Question</span>
                 <span className="text-[10px] text-gray-400">·</span>
                 <span className="text-[10px] font-semibold text-gray-500">{currentSQ.label}</span>
               </div>
@@ -1615,12 +1615,12 @@ function SessionView({
                         disabled={currentAttempt.submitted}
                         className={`w-full text-left flex items-start gap-3 p-3.5 rounded-xl border-2 transition-all ${
                           isSelected
-                            ? "border-[#BE1832] bg-rose-50"
+                            ? "border-brand bg-rose-50"
                             : "border-gray-200 hover:border-gray-300 bg-white"
                         } ${currentAttempt.submitted ? "cursor-default" : "cursor-pointer"}`}
                       >
                         <span className={`flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-sm font-bold ${
-                          isSelected ? "bg-[#BE1832] text-white" : "bg-gray-100 text-gray-500"
+                          isSelected ? "bg-brand text-white" : "bg-gray-100 text-gray-500"
                         }`}>
                           {letter}
                         </span>
@@ -1639,7 +1639,7 @@ function SessionView({
                       onChange={(e) => updateAttempt(currentSQ.id, { textWorking: e.target.value })}
                       placeholder="Show all your working steps here…"
                       disabled={currentAttempt.submitted}
-                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono disabled:opacity-60"
+                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand resize-none font-mono disabled:opacity-60"
                     />
                   </div>
                   <div className="flex-shrink-0">
@@ -1650,7 +1650,7 @@ function SessionView({
                       onChange={(e) => updateAttempt(currentSQ.id, { calcAnswer: e.target.value })}
                       placeholder="e.g. R 1 234 500"
                       disabled={currentAttempt.submitted}
-                      className="w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm font-semibold text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] disabled:opacity-60"
+                      className="w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm font-semibold text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand disabled:opacity-60"
                     />
                   </div>
                 </div>
@@ -1666,7 +1666,7 @@ function SessionView({
                       onChange={(e) => updateAttempt(currentSQ.id, { textWorking: e.target.value })}
                       placeholder={`Enter ${currentSQ.col1Label ?? "column 1"} here…`}
                       disabled={currentAttempt.submitted}
-                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none disabled:opacity-60"
+                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand resize-none disabled:opacity-60"
                     />
                   </div>
                   <div className="flex-1 flex flex-col min-h-0">
@@ -1678,7 +1678,7 @@ function SessionView({
                       onChange={(e) => updateAttempt(currentSQ.id, { col2Working: e.target.value })}
                       placeholder={`Enter ${currentSQ.col2Label ?? "column 2"} here…`}
                       disabled={currentAttempt.submitted}
-                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none disabled:opacity-60"
+                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand resize-none disabled:opacity-60"
                     />
                   </div>
                 </div>
@@ -1749,7 +1749,7 @@ function SessionView({
                         {!currentAttempt.submitted && (
                           <button
                             onClick={() => updateRows([...statementRows, { desc: "", amount: "" }])}
-                            className="flex-shrink-0 w-full py-2 text-xs text-gray-400 hover:text-[#BE1832] hover:bg-rose-50 transition-colors border-t border-gray-100 flex items-center justify-center gap-1"
+                            className="flex-shrink-0 w-full py-2 text-xs text-gray-400 hover:text-brand hover:bg-rose-50 transition-colors border-t border-gray-100 flex items-center justify-center gap-1"
                           >
                             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -1800,7 +1800,7 @@ function SessionView({
                                   }}
                                   className={`w-8 h-8 rounded-lg text-sm font-bold border-2 transition-all ${
                                     isChosen
-                                      ? "bg-[#BE1832] border-[#BE1832] text-white"
+                                      ? "bg-brand border-brand text-white"
                                       : "bg-white border-gray-200 text-gray-500 hover:border-gray-400"
                                   } disabled:cursor-default`}
                                 >
@@ -1824,7 +1824,7 @@ function SessionView({
                         <button
                           key={label}
                           onMouseDown={(e) => { e.preventDefault(); insertMathSymbol(insert); }}
-                          className="flex-shrink-0 h-8 min-w-[2rem] px-2 rounded-lg border border-gray-200 bg-white text-gray-700 text-sm font-mono hover:border-[#BE1832] hover:text-[#BE1832] hover:bg-rose-50 active:scale-95 transition-all"
+                          className="flex-shrink-0 h-8 min-w-[2rem] px-2 rounded-lg border border-gray-200 bg-white text-gray-700 text-sm font-mono hover:border-brand hover:text-brand hover:bg-rose-50 active:scale-95 transition-all"
                         >
                           {label}
                         </button>
@@ -1856,7 +1856,7 @@ function SessionView({
                             }}
                             placeholder={i < 4 ? `Working for ${label.toLowerCase()}…` : "Final answer…"}
                             rows={2}
-                            className="flex-1 border border-gray-200 rounded-lg px-2.5 py-1.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono disabled:opacity-60"
+                            className="flex-1 border border-gray-200 rounded-lg px-2.5 py-1.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand resize-none font-mono disabled:opacity-60"
                             style={{ minHeight: "clamp(2.5rem, 8vh, 4.5rem)" }}
                             onInput={(e) => {
                               const t = e.target as HTMLTextAreaElement;
@@ -1962,7 +1962,7 @@ function SessionView({
                             }
                             className={`px-3 py-1.5 rounded-lg border-2 text-sm font-medium transition-all ${
                               isSelected
-                                ? "border-[#BE1832] bg-rose-50 text-[#BE1832]"
+                                ? "border-brand bg-rose-50 text-brand"
                                 : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
                             } disabled:cursor-default`}
                           >
@@ -2021,7 +2021,7 @@ function SessionView({
                       updateAttempt(currentSQ.id, { textWorking: e.target.value })
                     }
                     placeholder="Show your working here"
-                    className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono"
+                    className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand resize-none font-mono"
                   />
 
                   {/* Below textarea: camera + hint — centred */}
@@ -2240,7 +2240,7 @@ function SessionView({
                           onClick={() => setCurrentIdx(flatIdx)}
                           className={`px-2.5 h-7 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
                             isCurrent
-                              ? "bg-[#BE1832] text-white shadow"
+                              ? "bg-brand text-white shadow"
                               : isDone
                               ? "bg-green-100 text-green-700 border border-green-200"
                               : hasContent
@@ -2307,7 +2307,7 @@ function SessionView({
 
                 {isEvaluating && (
                   <div className="flex items-center gap-2 text-sm text-gray-400 py-2">
-                    <svg className="w-4 h-4 animate-spin text-[#BE1832]" fill="none" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 animate-spin text-brand" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
                     </svg>
@@ -2375,7 +2375,7 @@ function SummaryView({
       <div className="max-w-2xl mx-auto px-5 py-10 space-y-8">
         {/* Score hero */}
         <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 text-center space-y-4">
-          <div className="text-5xl font-black text-[#BE1832]">{pct}%</div>
+          <div className="text-5xl font-black text-brand">{pct}%</div>
           <div>
             <p className={`font-bold text-lg ${grade.color}`}>{grade.label}</p>
             <p className="text-gray-400 text-sm mt-1">
@@ -2384,7 +2384,7 @@ function SummaryView({
           </div>
           <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
             <div
-              className="h-full bg-[#BE1832] rounded-full transition-all"
+              className="h-full bg-brand rounded-full transition-all"
               style={{ width: `${pct}%` }}
             />
           </div>
@@ -2423,7 +2423,7 @@ function SummaryView({
                         `Practising ${topic} — from your ${paper.subject} ${paper.paperCode} ${paper.session} ${paper.year} paper`,
                       )
                     }
-                    className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-[#BE1832] hover:underline"
+                    className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-brand hover:underline"
                   >
                     Practise this →
                   </button>
@@ -2452,7 +2452,7 @@ function SummaryView({
                       `Practising ${weakTopic} — from your ${paper.subject} ${paper.paperCode} ${paper.session} ${paper.year} paper`,
                     )
                   }
-                  className="inline-flex items-center gap-1.5 rounded-full bg-[#BE1832] px-4 py-2 text-sm font-semibold text-white hover:bg-[#a01528] transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-hover transition-colors"
                 >
                   Practise {weakTopic} →
                 </button>

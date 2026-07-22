@@ -70,7 +70,7 @@ export default function MobileBottomNav({
           aria-label={label}
           aria-current={active ? "page" : undefined}
           className={`flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 py-1.5 transition-colors ${
-            active ? (CONCEPT_C ? "text-ruby" : "text-[#BE1832]") : "text-gray-400 hover:text-gray-600"
+            active ? (CONCEPT_C ? "text-ruby" : "text-brand") : "text-gray-400 hover:text-gray-600"
           }`}
         >
           <span className={`text-xl leading-none ${active ? "" : "opacity-80"}`}>{emoji}</span>

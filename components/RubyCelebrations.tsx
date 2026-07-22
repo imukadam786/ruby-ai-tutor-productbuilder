@@ -90,7 +90,7 @@ export default function RubyCelebrations() {
           <p className="text-lg text-gray-600 flex items-center gap-1.5 mt-1">
             <span>{active.streak && active.streak > 1 ? `${active.streak}-day streak` : "Day 1"}</span>
             {active.rubies ? (
-              <span className="flex items-center gap-1 font-semibold text-[#BE1832]">
+              <span className="flex items-center gap-1 font-semibold text-brand">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 · <img src="/rubytransparent.webp" alt="" className="w-5 h-5 object-contain" /> +{active.rubies}
               </span>
@@ -122,7 +122,7 @@ export default function RubyCelebrations() {
         <h3 className="text-3xl font-extrabold text-[#1a2744]">{meta.title(active.streak)}</h3>
         <p className="text-base text-gray-500 mt-1">{meta.subtitle}</p>
         {active.rubies ? (
-          <div className="mt-4 inline-flex items-center gap-2 bg-rose-50 text-[#BE1832] font-bold text-lg px-4 py-1.5 rounded-full">
+          <div className="mt-4 inline-flex items-center gap-2 bg-rose-50 text-brand font-bold text-lg px-4 py-1.5 rounded-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/rubytransparent.webp" alt="" className="w-5 h-5 object-contain" /> +{active.rubies}
           </div>

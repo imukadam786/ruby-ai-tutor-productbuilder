@@ -28,7 +28,7 @@ export default function PrepPapers2026ComingSoon() {
         <div className="bg-white border border-gray-100 rounded-2xl px-6 py-5 shadow-sm max-w-sm w-full space-y-2">
           <p className="text-sm font-semibold text-gray-700">In the meantime, try:</p>
           <p className="text-sm text-gray-500">
-            <span className="font-medium text-[#BE1832]">Past Papers</span>, work through real NSC exam papers from previous years with step-by-step AI coaching.
+            <span className="font-medium text-brand">Past Papers</span>, work through real NSC exam papers from previous years with step-by-step AI coaching.
           </p>
         </div>
 

@@ -139,7 +139,7 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
                   return (
                     <>
                       {before}
-                      <span style={{ color: "#BE1832" }}>{firstName}</span>
+                      <span style={{ color: "rgb(var(--brand))" }}>{firstName}</span>
                       {after}
                     </>
                   );
@@ -175,7 +175,7 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
                       <button
                         key={tutor.name}
                         onClick={() => onOpenChatWithTutor?.(tutor.name)}
-                        className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
+                        className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
                       >
                         <img
                           src={tutor.img}
@@ -184,8 +184,8 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
                           draggable={false}
                         />
                         <div className="px-2 py-2 text-center">
-                          <p className="font-semibold text-[#BE1832] text-sm sm:text-base">{tutor.name}</p>
-                          <p className="text-[#BE1832] text-[10px] sm:text-[11px] font-medium leading-tight mt-0.5">
+                          <p className="font-semibold text-brand text-sm sm:text-base">{tutor.name}</p>
+                          <p className="text-brand text-[10px] sm:text-[11px] font-medium leading-tight mt-0.5">
                             {tutor.subjects.join(" · ")}
                           </p>
                         </div>
@@ -204,7 +204,7 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
                   onClick={() => setTutorPage(page)}
                   aria-label={`Go to tutor page ${page + 1}`}
                   className={`h-2 rounded-full transition-all ${
-                    tutorPage === page ? "w-6 bg-[#BE1832]" : "w-2 bg-gray-300 hover:bg-gray-400"
+                    tutorPage === page ? "w-6 bg-brand" : "w-2 bg-gray-300 hover:bg-gray-400"
                   }`}
                 />
               ))}

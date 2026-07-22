@@ -20,6 +20,16 @@ const config: Config = {
           700: "#c2410c",
           900: "#7c2d12",
         },
+        // ── Brand red, as a token ────────────────────────────────────────────
+        // Backed by CSS vars so one switch repaints every brand-red surface:
+        // default = the current red, and .concept-c (set on <html> when the
+        // flag is on, see app/layout.tsx) swaps it to ruby. Channels are
+        // space-separated RGB so opacity modifiers (bg-brand/10) still work.
+        brand: {
+          DEFAULT: "rgb(var(--brand) / <alpha-value>)",
+          alt: "rgb(var(--brand-alt) / <alpha-value>)",
+          hover: "rgb(var(--brand-hover) / <alpha-value>)",
+        },
         // ── Concept C gem tokens (see lib/design/gemColors.ts) ──
         ruby: {
           DEFAULT: "#E11D48",

@@ -658,7 +658,7 @@ export default function ProgressTracker({
                     <button
                       type="button"
                       onClick={() => setShowAllLifeSkills((v) => !v)}
-                      className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+                      className="w-full text-sm font-semibold text-[#1a2744] hover:text-brand py-2"
                     >
                       {showAllLifeSkills ? "Show only current grade ▲" : "View other grades ▼"}
                     </button>
@@ -763,7 +763,7 @@ export default function ProgressTracker({
                     <button
                       type="button"
                       onClick={() => setShowAllAfrikaans((v) => !v)}
-                      className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+                      className="w-full text-sm font-semibold text-[#1a2744] hover:text-brand py-2"
                     >
                       {showAllAfrikaans ? "Show only current grade ▲" : "View other grades ▼"}
                     </button>
@@ -860,7 +860,7 @@ export default function ProgressTracker({
                     <button
                       type="button"
                       onClick={() => setShowAllSocialSciences((v) => !v)}
-                      className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+                      className="w-full text-sm font-semibold text-[#1a2744] hover:text-brand py-2"
                     >
                       {showAllSocialSciences ? "Show only current grade ▲" : "View other grades ▼"}
                     </button>

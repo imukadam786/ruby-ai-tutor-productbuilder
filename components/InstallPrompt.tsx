@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { CONCEPT_C } from "@/lib/flags";
 
 // Concept C swaps the old brand red for ruby and gives the CTAs the chunky lip.
-const BRAND_BG = CONCEPT_C ? "bg-ruby" : "bg-[#B7182E]";
+const BRAND_BG = CONCEPT_C ? "bg-ruby" : "bg-brand-alt";
 const CTA = CONCEPT_C
   ? "bg-ruby hover:bg-ruby-deep shadow-lip active:translate-y-[3px] active:shadow-none"
-  : "bg-[#B7182E] shadow-md";
+  : "bg-brand-alt shadow-md";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -150,7 +150,7 @@ export default function InstallPrompt({ onDismiss }: { onDismiss: () => void }) 
           <button
             onClick={handleInstall}
             className={`w-full py-3.5 rounded-xl text-white font-bold text-base transition-colors ${
-              CONCEPT_C ? CTA : "bg-[#B7182E] shadow-md hover:bg-[#9e1427]"
+              CONCEPT_C ? CTA : "bg-brand-alt shadow-md hover:bg-brand-hover"
             }`}
           >
             Install Ruby

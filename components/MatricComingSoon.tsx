@@ -84,7 +84,7 @@ export default function MatricComingSoon() {
 
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
-              Matric <span className="text-[#BE1832]">Preparation</span>
+              Matric <span className="text-brand">Preparation</span>
             </h1>
             <p className="text-gray-500 text-lg leading-relaxed max-w-xl mx-auto">
               Ruby will soon help matric students work through real past exam papers with step-by-step guidance designed to strengthen understanding and build exam confidence.
@@ -101,7 +101,7 @@ export default function MatricComingSoon() {
                 key={i}
                 className="bg-white rounded-2xl border border-gray-100 p-5 flex gap-4 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="w-10 h-10 flex-shrink-0 rounded-xl bg-rose-50 text-[#BE1832] flex items-center justify-center">
+                <div className="w-10 h-10 flex-shrink-0 rounded-xl bg-rose-50 text-brand flex items-center justify-center">
                   {f.icon}
                 </div>
                 <div className="min-w-0">

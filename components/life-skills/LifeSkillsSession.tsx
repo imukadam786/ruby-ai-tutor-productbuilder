@@ -593,7 +593,7 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
                 {submitting && (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="flex items-center gap-2 bg-white/90 rounded-full px-4 py-2 shadow text-[#1a2744] font-semibold text-sm">
-                      <span className="w-4 h-4 border-2 border-[#BE1832] border-t-transparent rounded-full animate-spin" />
+                      <span className="w-4 h-4 border-2 border-brand border-t-transparent rounded-full animate-spin" />
                       Checking…
                     </span>
                   </div>
@@ -664,7 +664,7 @@ function PlayIcon({ text, speak, dark }: { text: string; speak: (t: string) => v
       className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors ${
         dark
           ? "bg-white/20 hover:bg-white/30 text-white"
-          : "bg-white border border-pink-300 hover:bg-pink-100 text-[#BE1832]"
+          : "bg-white border border-pink-300 hover:bg-pink-100 text-brand"
       }`}
     >
       🔊
@@ -878,14 +878,14 @@ function SequenceInput({ order, onChange, onSubmit, submitting, speak }: Sequenc
                 disabled={submitting}
                 className={`w-full flex items-center gap-3 rounded-2xl px-4 py-4 text-left transition-all active:scale-[0.99] ${
                   isSelected
-                    ? "bg-[#BE1832] border-2 border-[#BE1832] text-white shadow-md"
+                    ? "bg-brand border-2 border-brand text-white shadow-md"
                     : "bg-pink-50 border-2 border-pink-200 text-[#1a2744] hover:bg-pink-100"
                 }`}
                 aria-pressed={isSelected}
               >
                 <span
                   className={`flex-shrink-0 w-8 h-8 rounded-full font-bold text-sm flex items-center justify-center ${
-                    isSelected ? "bg-white text-[#BE1832]" : "bg-[#BE1832] text-white"
+                    isSelected ? "bg-white text-brand" : "bg-brand text-white"
                   }`}
                 >
                   {idx + 1}

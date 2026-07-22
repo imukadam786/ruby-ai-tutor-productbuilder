@@ -633,7 +633,7 @@ function PlayIcon({ text, speak }: { text: string; speak: (t: string) => void })
           speak(text);
         }
       }}
-      className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors bg-white border border-orange-300 hover:bg-orange-100 text-[#BE1832]"
+      className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors bg-white border border-orange-300 hover:bg-orange-100 text-brand"
     >
       🔊
     </span>
@@ -817,14 +817,14 @@ function SequenceInput({ order, onChange, onSubmit, submitting, speak }: Sequenc
                 disabled={submitting}
                 className={`w-full flex items-center gap-3 rounded-2xl px-4 py-4 text-left transition-all active:scale-[0.99] ${
                   isSelected
-                    ? "bg-[#BE1832] border-2 border-[#BE1832] text-white shadow-md"
+                    ? "bg-brand border-2 border-brand text-white shadow-md"
                     : "bg-orange-50 border-2 border-orange-200 text-[#1a2744] hover:bg-orange-100"
                 }`}
                 aria-pressed={isSelected}
               >
                 <span
                   className={`flex-shrink-0 w-8 h-8 rounded-full font-bold text-sm flex items-center justify-center ${
-                    isSelected ? "bg-white text-[#BE1832]" : "bg-[#BE1832] text-white"
+                    isSelected ? "bg-white text-brand" : "bg-brand text-white"
                   }`}
                 >
                   {idx + 1}

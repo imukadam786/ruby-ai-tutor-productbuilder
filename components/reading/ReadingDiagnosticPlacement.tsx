@@ -980,7 +980,7 @@ export default function ReadingDiagnosticPlacement({
             className={`w-full text-white py-5 rounded-3xl font-bold text-xl transition-all ${
               CONCEPT_C
                 ? "bg-ruby hover:bg-ruby-deep shadow-lip active:translate-y-[3px] active:shadow-none"
-                : "bg-[#B7182E] shadow-lg hover:shadow-xl hover:scale-105 active:scale-100"
+                : "bg-brand-alt shadow-lg hover:shadow-xl hover:scale-105 active:scale-100"
             }`}
           >
             View Report 📋

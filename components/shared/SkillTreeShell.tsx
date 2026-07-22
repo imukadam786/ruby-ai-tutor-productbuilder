@@ -662,7 +662,7 @@ export default function SkillTreeShell({
         <button
           type="button"
           onClick={footerToggle.onClick}
-          className="w-full text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] py-2"
+          className="w-full text-sm font-semibold text-[#1a2744] hover:text-brand py-2"
         >
           {footerToggle.label}
         </button>
@@ -725,7 +725,7 @@ export default function SkillTreeShell({
           <div className="max-w-2xl mx-auto mb-4">
             <button
               onClick={onBack}
-              className="text-sm font-semibold text-[#1a2744] hover:text-[#BE1832] flex items-center gap-1"
+              className="text-sm font-semibold text-[#1a2744] hover:text-brand flex items-center gap-1"
             >
               ← Subjects
             </button>

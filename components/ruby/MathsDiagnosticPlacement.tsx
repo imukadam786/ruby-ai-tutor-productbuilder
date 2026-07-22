@@ -506,7 +506,7 @@ export default function MathsDiagnosticPlacement({
             className={`w-full text-white py-3 rounded-2xl font-semibold transition-all ${
               CONCEPT_C
                 ? "bg-ruby hover:bg-ruby-deep shadow-lip active:translate-y-[3px] active:shadow-none"
-                : "bg-[#B7182E] hover:opacity-90"
+                : "bg-brand-alt hover:opacity-90"
             }`}
           >
             Try again
@@ -572,7 +572,7 @@ export default function MathsDiagnosticPlacement({
             className={`w-full text-white py-5 rounded-3xl font-bold text-xl transition-all ${
               CONCEPT_C
                 ? "bg-ruby hover:bg-ruby-deep shadow-lip active:translate-y-[3px] active:shadow-none"
-                : "bg-[#B7182E] shadow-lg hover:shadow-xl hover:scale-105 active:scale-100"
+                : "bg-brand-alt shadow-lg hover:shadow-xl hover:scale-105 active:scale-100"
             }`}
           >
             View Report 📋

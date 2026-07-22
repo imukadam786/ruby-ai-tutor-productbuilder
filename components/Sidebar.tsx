@@ -88,7 +88,7 @@ export default function Sidebar({
         className={`
           fixed inset-y-0 left-0 z-50
           md:static md:z-auto md:translate-x-0
-          ${CONCEPT_C ? "bg-gradient-to-b from-ruby-deep to-ruby-bright" : "bg-gradient-to-b from-[#BE1832] to-[#E8305A]"}
+          ${CONCEPT_C ? "bg-gradient-to-b from-ruby-deep to-ruby-bright" : "bg-gradient-to-b from-brand to-[#E8305A]"}
           flex flex-col h-full shadow-xl
           transition-all duration-300 ease-in-out
           overflow-x-hidden

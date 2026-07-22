@@ -100,8 +100,8 @@ function MockupUnlock({ isMobile }: { isMobile: boolean }) {
             </div>
           </div>
           <div className="flex items-center gap-1">
-            <div className="w-2 h-2 rounded-full bg-[#B7182E]" />
-            <span className="text-[10px] text-[#B7182E] font-medium">Master L2 to unlock L3 automatically</span>
+            <div className="w-2 h-2 rounded-full bg-brand-alt" />
+            <span className="text-[10px] text-brand-alt font-medium">Master L2 to unlock L3 automatically</span>
           </div>
         </div>
       </div>

@@ -111,7 +111,7 @@ function PlacementGuardScreen({
         </p>
         <button
           onClick={onGoToDiscover}
-          className="w-full py-3 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-base transition-colors"
+          className="w-full py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-semibold text-base transition-colors"
         >
           Start Discovery Activity
         </button>
@@ -820,7 +820,7 @@ function PostDiscoveryScreen({ onContinue }: { onContinue: () => void }) {
         </p>
         <button
           onClick={onContinue}
-          className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg transition-colors shadow-md"
+          className="w-full py-4 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-lg transition-colors shadow-md"
         >
           Choose a Plan
         </button>

@@ -65,7 +65,7 @@ export default function MasteryHeader({
         <span className="text-xs font-bold uppercase tracking-wide text-gray-700 truncate">
           {title}
         </span>
-        <span className={`text-sm font-semibold flex-shrink-0 inline-flex items-center gap-1 ${CONCEPT_C ? "text-ruby" : "text-[#BE1832]"}`}>
+        <span className={`text-sm font-semibold flex-shrink-0 inline-flex items-center gap-1 ${CONCEPT_C ? "text-ruby" : "text-brand"}`}>
           {mastered ? (
             <>
               <RubyIcon className="w-4 h-4" /> Mastered
@@ -77,7 +77,7 @@ export default function MasteryHeader({
       </div>
       <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
         <div
-          className={`h-full rounded-full transition-all ${CONCEPT_C ? "bg-ruby" : "bg-[#BE1832]"}`}
+          className={`h-full rounded-full transition-all ${CONCEPT_C ? "bg-ruby" : "bg-brand"}`}
           style={{ width: `${mastered ? 100 : coveragePct}%` }}
         />
       </div>

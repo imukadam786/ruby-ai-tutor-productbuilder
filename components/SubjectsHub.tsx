@@ -847,7 +847,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
             </p>
             <button
               onClick={() => onNavigate("discover")}
-              className="px-4 py-2 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-sm transition-colors shadow-sm"
+              className="px-4 py-2 rounded-full bg-brand hover:bg-brand-hover text-white font-semibold text-sm transition-colors shadow-sm"
             >
               {mathsDone && readingDone ? "View placement results →" : "Open Discover →"}
             </button>

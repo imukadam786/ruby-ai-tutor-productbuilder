@@ -59,7 +59,7 @@ export default function CharacterPicker({ onPick }: CharacterPickerProps) {
                   onClick={() => go(page - 1)}
                   disabled={page === 0}
                   aria-label="Previous tutors"
-                  className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-[#BE1832] disabled:opacity-30 disabled:cursor-default transition-all"
+                  className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-brand disabled:opacity-30 disabled:cursor-default transition-all"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -69,7 +69,7 @@ export default function CharacterPicker({ onPick }: CharacterPickerProps) {
                   onClick={() => go(page + 1)}
                   disabled={page === pages - 1}
                   aria-label="Next tutors"
-                  className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-[#BE1832] disabled:opacity-30 disabled:cursor-default transition-all"
+                  className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-brand disabled:opacity-30 disabled:cursor-default transition-all"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -103,7 +103,7 @@ export default function CharacterPicker({ onPick }: CharacterPickerProps) {
                       <button
                         key={tutor.name}
                         onClick={() => onPick(tutor.name)}
-                        className="w-full max-w-[260px] mx-auto bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
+                        className="w-full max-w-[260px] mx-auto bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
                       >
                         {/* Source art is 267×400; capping the card near that width
                             keeps it from upscaling into a blur on a full-width
@@ -116,8 +116,8 @@ export default function CharacterPicker({ onPick }: CharacterPickerProps) {
                           draggable={false}
                         />
                         <div className="px-3 py-2.5 text-center">
-                          <p className="font-semibold text-[#BE1832] text-base sm:text-lg">{tutor.name}</p>
-                          <p className="text-[#BE1832] text-xs sm:text-sm font-medium leading-tight mt-0.5">
+                          <p className="font-semibold text-brand text-base sm:text-lg">{tutor.name}</p>
+                          <p className="text-brand text-xs sm:text-sm font-medium leading-tight mt-0.5">
                             {tutor.subjects.join(" · ")}
                           </p>
                         </div>
@@ -138,7 +138,7 @@ export default function CharacterPicker({ onPick }: CharacterPickerProps) {
                   onClick={() => go(p)}
                   aria-label={`Go to page ${p + 1}`}
                   className={`h-2 rounded-full transition-all ${
-                    page === p ? "w-6 bg-[#BE1832]" : "w-2 bg-gray-300 hover:bg-gray-400"
+                    page === p ? "w-6 bg-brand" : "w-2 bg-gray-300 hover:bg-gray-400"
                   }`}
                 />
               ))}

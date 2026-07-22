@@ -14,7 +14,7 @@ function MockupDiscovery({ isMobile }: { isMobile: boolean }) {
         <div className="px-5 py-3 flex items-center gap-2 border-b border-gray-100 bg-purple-50 flex-shrink-0">
           <span>📖</span>
           <span className="text-purple-700 text-sm font-medium">Word Problem</span>
-          <span className="ml-auto text-xs text-[#B7182E] bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200 font-semibold">Discovery Activity</span>
+          <span className="ml-auto text-xs text-brand-alt bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200 font-semibold">Discovery Activity</span>
         </div>
         <div className="flex-1 px-5 py-4 flex flex-col justify-between">
           <p className="text-gray-800 text-sm leading-relaxed font-medium">
@@ -26,15 +26,15 @@ function MockupDiscovery({ isMobile }: { isMobile: boolean }) {
                 Your answer…
               </div>
               <div
-                className="px-4 py-2 rounded-xl bg-[#B7182E] text-white text-sm font-semibold flex-shrink-0"
+                className="px-4 py-2 rounded-xl bg-brand-alt text-white text-sm font-semibold flex-shrink-0"
                 style={{ boxShadow: "0 0 0 3px rgba(183,24,46,0.15)" }}
               >
                 Submit
               </div>
             </div>
             <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-[#B7182E]" />
-              <span className="text-[10px] text-[#B7182E] font-medium">Ruby uses your answers to find the right level</span>
+              <div className="w-2 h-2 rounded-full bg-brand-alt" />
+              <span className="text-[10px] text-brand-alt font-medium">Ruby uses your answers to find the right level</span>
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@ function MockupReport({ isMobile }: { isMobile: boolean }) {
         style={{ width: isMobile ? "100%" : 420, height: isMobile ? 240 : 280 }}
       >
         {/* Red header — matches DiagnosticReportView */}
-        <div className="bg-[#B7182E] px-4 py-3 flex-shrink-0">
+        <div className="bg-brand-alt px-4 py-3 flex-shrink-0">
           <p className="text-[#F9A8B4] text-[9px] font-bold uppercase tracking-widest">ruby</p>
           <h1 className="text-white text-sm font-bold leading-tight">Discovery Report</h1>
           <p className="text-[#FDA4AF] text-[10px] mt-0.5">Maths · Diagnostic Placement</p>
@@ -118,8 +118,8 @@ const SLIDES: readonly SlideData[] = [
 ];
 
 const ICON = (
-  <div className="w-8 h-8 rounded-xl bg-[#B7182E]/10 flex items-center justify-center flex-shrink-0">
-    <svg className="w-4 h-4 text-[#B7182E]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <div className="w-8 h-8 rounded-xl bg-brand-alt/10 flex items-center justify-center flex-shrink-0">
+    <svg className="w-4 h-4 text-brand-alt" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
     </svg>
   </div>
