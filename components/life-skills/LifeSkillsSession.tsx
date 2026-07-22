@@ -14,6 +14,7 @@ import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
 import lifeSkillsBankData from "@/data/life-skills-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreLifeSkills } from "@/lib/life-skills-scoring";
 import LifeSkillsSkillTreeView from "./LifeSkillsSkillTreeView";
@@ -603,6 +604,7 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
             {/* Feedback after submission */}
             {phase === "feedback" && result && (
               <FeedbackExplanation
+                gemColor={GEM_HEX.pink}
                 isCorrect={result.is_correct}
                 note={result.is_correct ? result.memo : undefined}
                 whyOverride={result.is_correct ? undefined : result.memo}

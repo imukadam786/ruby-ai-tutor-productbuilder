@@ -34,6 +34,7 @@ import lifeOrientationSpTreeData from "@/data/life-orientation-sp-skill-tree.jso
 import lifeOrientationSpBankData from "@/data/life-orientation-sp-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreLifeOrientationSpAnswer } from "@/lib/life-orientation-sp-scoring";
 import LifeOrientationSpSkillTreeView from "./LifeOrientationSpSkillTreeView";
@@ -570,6 +571,7 @@ export default function LifeOrientationSpSession({ onBack }: { onBack?: () => vo
 
               {phase === "feedback" && result && (
                 <FeedbackExplanation
+                  gemColor={GEM_HEX.lime}
                   isCorrect={result.is_correct}
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}

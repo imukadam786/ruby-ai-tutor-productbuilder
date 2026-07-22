@@ -34,6 +34,7 @@ import technologySpTreeData from "@/data/technology-sp-skill-tree.json";
 import technologySpBankData from "@/data/technology-sp-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreTechnologySpAnswer } from "@/lib/technology-sp-scoring";
 import TechnologySpSkillTreeView from "./TechnologySpSkillTreeView";
@@ -570,6 +571,7 @@ export default function TechnologySpSession({ onBack }: { onBack?: () => void } 
 
               {phase === "feedback" && result && (
                 <FeedbackExplanation
+                  gemColor={GEM_HEX.slate}
                   isCorrect={result.is_correct}
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}

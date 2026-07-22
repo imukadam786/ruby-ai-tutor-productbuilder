@@ -25,6 +25,7 @@ import tourismTreeData from "@/data/tourism-skill-tree.json";
 import tourismBankData from "@/data/tourism-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreTourismAnswer } from "@/lib/tourism-scoring";
 import TourismSkillTreeView from "./TourismSkillTreeView";
@@ -541,6 +542,7 @@ export default function TourismSession({ onBack }: { onBack?: () => void } = {})
 
               {phase === "feedback" && result && (
                 <FeedbackExplanation
+                  gemColor={GEM_HEX.cyan}
                   isCorrect={result.is_correct}
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}

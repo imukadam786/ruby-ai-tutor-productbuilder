@@ -28,6 +28,7 @@ import geographyTreeData from "@/data/geography-skill-tree.json";
 import geographyBankData from "@/data/geography-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreGeographyAnswer } from "@/lib/geography-scoring";
 import GeographySkillTreeView from "./GeographySkillTreeView";
@@ -560,6 +561,7 @@ export default function GeographySession({ onBack }: { onBack?: () => void } = {
 
               {phase === "feedback" && result && (
                 <FeedbackExplanation
+                  gemColor={GEM_HEX.sky}
                   isCorrect={result.is_correct}
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}

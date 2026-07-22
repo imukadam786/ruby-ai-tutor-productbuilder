@@ -25,6 +25,7 @@ import historyTreeData from "@/data/accounting-skill-tree.json";
 import accountingBankData from "@/data/accounting-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreAccountingAnswer } from "@/lib/accounting-scoring";
 import AccountingSkillTreeView from "./AccountingSkillTreeView";
@@ -543,6 +544,7 @@ export default function AccountingSession({ onBack }: { onBack?: () => void } = 
 
               {phase === "feedback" && result && (
                 <FeedbackExplanation
+                  gemColor={GEM_HEX.emerald}
                   isCorrect={result.is_correct}
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}

@@ -14,6 +14,7 @@ import socialSciencesTreeData from "@/data/social-sciences-skill-tree.json";
 import socialSciencesBankData from "@/data/social-sciences-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreSocialSciences } from "@/lib/social-sciences-scoring";
 import {
@@ -536,6 +537,7 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
 
             {phase === "feedback" && result && (
               <FeedbackExplanation
+                gemColor={GEM_HEX.violet}
                 isCorrect={result.is_correct}
                 note={result.is_correct ? result.memo : undefined}
                 whyOverride={result.is_correct ? undefined : result.memo}

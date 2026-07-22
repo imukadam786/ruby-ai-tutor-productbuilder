@@ -14,6 +14,7 @@ import lifeSciencesTreeData from "@/data/life-sciences-skill-tree.json";
 import lifeSciencesBankData from "@/data/life-sciences-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreLifeSciences, isDeterministicLifeSciencesType } from "@/lib/life-sciences-scoring";
 import LifeSciencesSkillTreeView from "./LifeSciencesSkillTreeView";
@@ -553,6 +554,7 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
 
               {phase === "feedback" && result && (
                 <FeedbackExplanation
+                  gemColor={GEM_HEX.emerald}
                   isCorrect={result.is_correct}
                   studentAnswer={answer}
                   correctAnswer={String(question.expected_answer)}

@@ -25,6 +25,7 @@ import historyTreeData from "@/data/history-skill-tree.json";
 import historyBankData from "@/data/history-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreHistoryAnswer } from "@/lib/history-scoring";
 import HistorySkillTreeView from "./HistorySkillTreeView";
@@ -537,6 +538,7 @@ export default function HistorySession({ onBack }: { onBack?: () => void } = {})
 
               {phase === "feedback" && result && (
                 <FeedbackExplanation
+                  gemColor={GEM_HEX.amber}
                   isCorrect={result.is_correct}
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}

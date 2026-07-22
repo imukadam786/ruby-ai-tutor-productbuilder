@@ -14,6 +14,7 @@ import nstTreeData from "@/data/nst-skill-tree.json";
 import nstBankData from "@/data/nst-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreNst } from "@/lib/nst-scoring";
 import {
@@ -531,6 +532,7 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
 
             {phase === "feedback" && result && (
               <FeedbackExplanation
+                gemColor={GEM_HEX.lime}
                 isCorrect={result.is_correct}
                 note={result.is_correct ? result.memo : undefined}
                 whyOverride={result.is_correct ? undefined : result.memo}

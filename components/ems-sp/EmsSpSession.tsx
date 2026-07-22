@@ -34,6 +34,7 @@ import emsSpTreeData from "@/data/ems-sp-skill-tree.json";
 import emsSpBankData from "@/data/ems-sp-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreEmsSpAnswer } from "@/lib/ems-sp-scoring";
 import EmsSpSkillTreeView from "./EmsSpSkillTreeView";
@@ -570,6 +571,7 @@ export default function EmsSpSession({ onBack }: { onBack?: () => void } = {}) {
 
               {phase === "feedback" && result && (
                 <FeedbackExplanation
+                  gemColor={GEM_HEX.violet}
                   isCorrect={result.is_correct}
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}

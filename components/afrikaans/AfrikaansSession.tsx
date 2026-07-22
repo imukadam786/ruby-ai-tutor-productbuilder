@@ -4,6 +4,7 @@ import MasteryHeader from "@/components/shared/MasteryHeader";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreAfrikaans } from "@/lib/afrikaans-scoring";
 import Button from "@/components/ui/Button";
@@ -575,6 +576,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
             {/* Feedback after submission */}
             {phase === "feedback" && result && (
               <FeedbackExplanation
+                gemColor={GEM_HEX.orange}
                 isCorrect={result.is_correct}
                 note={result.is_correct ? result.memo : undefined}
                 whyOverride={result.is_correct ? undefined : result.memo}

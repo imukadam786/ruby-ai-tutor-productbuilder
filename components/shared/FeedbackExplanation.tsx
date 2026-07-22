@@ -68,6 +68,12 @@ export interface FeedbackExplanationProps {
   headerAction?: ReactNode;
   /** The next/continue control, supplied by the subject. */
   footer?: ReactNode;
+  /**
+   * Hex of the gem the learner just cut — pass the subject's own accent (see
+   * GEM_HEX) so the reward matches the gem they're collecting in that subject.
+   * Defaults to the brand ruby for surfaces with no single subject.
+   */
+  gemColor?: string;
 }
 
 export default function FeedbackExplanation({
@@ -86,6 +92,7 @@ export default function FeedbackExplanation({
   howOverride,
   headerAction,
   footer,
+  gemColor = RUBY,
 }: FeedbackExplanationProps) {
   // ── Correct ────────────────────────────────────────────────────────────────
   if (isCorrect) {
@@ -96,7 +103,7 @@ export default function FeedbackExplanation({
           <p className="font-bold text-lg text-green-800">{correctLabel}</p>
           {CONCEPT_C && (
             <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-sm font-extrabold text-green-700 shadow-lip-sm whitespace-nowrap">
-              <Gem color={RUBY} state="polished" className="w-4 h-5" /> gem cut!
+              <Gem color={gemColor} state="polished" className="w-4 h-5" /> gem cut!
             </span>
           )}
         </div>

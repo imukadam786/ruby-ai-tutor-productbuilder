@@ -34,6 +34,7 @@ import naturalSciencesSpTreeData from "@/data/natural-sciences-sp-skill-tree.jso
 import naturalSciencesSpBankData from "@/data/natural-sciences-sp-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreNaturalSciencesSpAnswer } from "@/lib/natural-sciences-sp-scoring";
 import {
@@ -568,6 +569,7 @@ export default function NaturalSciencesSpSession({ onBack }: { onBack?: () => vo
 
               {phase === "feedback" && result && (
                 <FeedbackExplanation
+                  gemColor={GEM_HEX.rose}
                   isCorrect={result.is_correct}
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}

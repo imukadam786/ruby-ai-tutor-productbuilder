@@ -25,6 +25,7 @@ import economicsTreeData from "@/data/economics-skill-tree.json";
 import economicsBankData from "@/data/economics-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreEconomicsAnswer } from "@/lib/economics-scoring";
 import EconomicsSkillTreeView from "./EconomicsSkillTreeView";
@@ -537,6 +538,7 @@ export default function EconomicsSession({ onBack }: { onBack?: () => void } = {
 
               {phase === "feedback" && result && (
                 <FeedbackExplanation
+                  gemColor={GEM_HEX.indigo}
                   isCorrect={result.is_correct}
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}

@@ -8,6 +8,7 @@ import EduBackground from "@/components/EduBackground";
 import MatricPhysSciSkillTreeView from "./MatricPhysSciSkillTreeView";
 import SequenceQuestion from "./SequenceQuestion";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scorePhysSci } from "@/lib/matric-phys-sci-scoring";
 import Button from "@/components/ui/Button";
@@ -496,6 +497,7 @@ export default function MatricPhysSciSession({
                       : undefined;
                   return (
                     <FeedbackExplanation
+                      gemColor={GEM_HEX.rose}
                       isCorrect={result.is_correct}
                       studentAnswer={singleValue ? answer : undefined}
                       correctAnswer={singleValue ? modelAnswer : undefined}

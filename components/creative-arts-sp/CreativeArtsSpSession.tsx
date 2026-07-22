@@ -34,6 +34,7 @@ import creativeArtsSpTreeData from "@/data/creative-arts-sp-skill-tree.json";
 import creativeArtsSpBankData from "@/data/creative-arts-sp-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreCreativeArtsSpAnswer } from "@/lib/creative-arts-sp-scoring";
 import CreativeArtsSpSkillTreeView from "./CreativeArtsSpSkillTreeView";
@@ -570,6 +571,7 @@ export default function CreativeArtsSpSession({ onBack }: { onBack?: () => void 
 
               {phase === "feedback" && result && (
                 <FeedbackExplanation
+                  gemColor={GEM_HEX.pink}
                   isCorrect={result.is_correct}
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}

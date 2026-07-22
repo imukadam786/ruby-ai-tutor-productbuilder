@@ -17,6 +17,7 @@ import {
 import { requiredCoverageCount } from "@/lib/content-mastery";
 import MasteryHeader from "@/components/shared/MasteryHeader";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import EduBackground from "@/components/EduBackground";
 import RubyBalance from "@/components/RubyBalance";
@@ -348,6 +349,7 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
 
           {phase === "feedback" && feedback && question && (
             <FeedbackExplanation
+              gemColor={GEM_HEX.teal}
               isCorrect={feedback.is_correct}
               studentAnswer={submittedAnswer}
               correctAnswer={(() => {
