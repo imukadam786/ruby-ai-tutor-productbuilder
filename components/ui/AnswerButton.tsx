@@ -18,6 +18,10 @@ interface AnswerButtonProps {
   disabled?: boolean;
   /** Post-submit reveal. Leave null while the learner is still choosing. */
   result?: "correct" | "wrong" | null;
+  /** The learner picked this one (before the result is known) — renders pressed-in. */
+  selected?: boolean;
+  /** A different option was picked — fade this one back. */
+  dimmed?: boolean;
   children: ReactNode;
 }
 
@@ -26,16 +30,25 @@ export default function AnswerButton({
   onClick,
   disabled,
   result = null,
+  selected = false,
+  dimmed = false,
   children,
 }: AnswerButtonProps) {
   const c = ANSWER_COLORS[index % ANSWER_COLORS.length];
+  // Pressed-in (down, no lip) is the "I picked this" signal; the others fade back.
+  const opacity = dimmed ? 0.4 : result === "wrong" ? 0.5 : 1;
   return (
     <button
       type="button"
       onClick={onClick}
       disabled={disabled}
       className="flex items-center gap-3 w-full rounded-2xl px-4 py-3.5 text-white font-extrabold text-left transition-transform active:translate-y-[3px] active:shadow-none disabled:cursor-not-allowed"
-      style={{ background: c.bg, boxShadow: `0 5px 0 0 ${c.lip}`, opacity: result === "wrong" ? 0.5 : 1 }}
+      style={{
+        background: c.bg,
+        boxShadow: selected ? "none" : `0 5px 0 0 ${c.lip}`,
+        transform: selected ? "translateY(3px)" : undefined,
+        opacity,
+      }}
     >
       <span className="w-6 h-6 rounded-lg bg-white/25 flex items-center justify-center text-sm">{c.key}</span>
       <span className="flex-1">{children}</span>
