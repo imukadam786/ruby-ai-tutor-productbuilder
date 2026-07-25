@@ -1,0 +1,582 @@
+{
+  "id": "math-p2-nov-2022",
+  "subject": "Mathematics",
+  "paperCode": "P2",
+  "year": 2022,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Statistics: Regression & Correlation",
+      "totalMarks": 12,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q1.png",
+      "subQuestions": [
+        {
+          "id": "1-1-1",
+          "label": "1.1.1",
+          "questionText": "The matric class of a certain high school had to vote for the chairperson of the RCL (representative council of learners). The scatter plot shows the IQ (intelligence quotient) of the 10 learners who received the most votes and the number of votes that they received.\n\nBefore the election, the popularity of each of these ten learners was established and a popularity score (out of a 100) was assigned to each. The popularity scores and the number of votes of the same 10 learners who received the most votes are shown in the table below.\n\n| Popularity score $(x)$ | 32 | 89 | 35 | 82 | 50 | 59 | 81 | 40 | 79 | 65 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| Number of votes $(y)$ | 9 | 22 | 10 | 21 | 11 | 15 | 20 | 12 | 19 | 16 |\n\nCalculate the mean number of votes that these $10$ learners received.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Sum of votes — $\\sum y = 155$\nMark 2: Answer — $\\bar{y} = \\dfrac{155}{10} = 15{,}5$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-1-2",
+          "label": "1.1.2",
+          "questionText": "Calculate the standard deviation of the number of votes that these $10$ learners received.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Answer — $\\text{SD} = 4{,}59$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-2",
+          "label": "1.2",
+          "questionText": "The learners who received fewer votes than one standard deviation below the mean were not invited for an interview. How many learners were invited?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Value of $\\bar{y} - \\text{SD} = 15{,}5 - 4{,}59 = 10{,}91$\nMark 2: Answer — two learners fall below $10{,}91$, so $10 - 2 = 8$ learners were invited",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-3",
+          "label": "1.3",
+          "questionText": "Determine the equation of the least squares regression line for the data given in the table.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $a = 1{,}7709\\ldots$\nMark 2: $b = 0{,}2243\\ldots$\nMark 3: Equation — $\\hat{y} = 1{,}77 + 0{,}22x$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-4",
+          "label": "1.4",
+          "questionText": "Predict the number of votes that a learner with a popularity score of $72$ will receive.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution — $\\hat{y} = 1{,}77 + 0{,}22(72) = 17{,}61$\nMark 2: Answer — $\\approx 18$ votes\n(OR using unrounded coefficients: $\\hat{y} = 17{,}92 \\approx 18$ votes.)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-5-1",
+          "label": "1.5.1",
+          "questionText": "Using the scatter plot and table above, provide a reason why IQ is not a good indicator of the number of votes that a learner could receive.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Reason — the points are all scattered, therefore there is a low correlation and an unrealistic prediction",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-5-2",
+          "label": "1.5.2",
+          "questionText": "Using the scatter plot and table above, provide a reason why the prediction in QUESTION 1.4 is reliable.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Reason — $r = 0{,}98$ / the correlation is very strong, therefore it is a reliable prediction",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Statistics: Ogive",
+      "totalMarks": 8,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q2.png",
+      "subQuestions": [
+        {
+          "id": "2-1",
+          "label": "2.1",
+          "questionText": "A company conducted research among all its employees on what percentage of their monthly salary was spent on fuel in a particular month. The data is represented in the ogive (cumulative frequency graph) above.\n\nHow many people are employed at this company?",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Answer — $60$ employees",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-2",
+          "label": "2.2",
+          "questionText": "Write down the modal class of the data.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Answer — $20 < x \\leq 25$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-3",
+          "label": "2.3",
+          "questionText": "How many employees spent more than $22{,}5\\%$ of their monthly salary on fuel?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Reading $34$ from the ogive at $22{,}5\\%$\nMark 2: Answer — $60 - 34 = 26$ employees",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-4",
+          "label": "2.4",
+          "questionText": "An employee spent $R2\\,400$ of his salary on fuel in that particular month. Determine the monthly salary of this employee if he spends $7\\%$ of his salary on fuel.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Method — $\\text{Salary} = \\dfrac{100}{7} \\times 2\\,400$\nMark 2: Answer — $\\text{Salary} = R34\\,285{,}71$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-5",
+          "label": "2.5",
+          "questionText": "The monthly salaries of these employees remains constant and the number of litres of fuel used in each month also remains constant. If the fuel price increases from $R21{,}43$ per litre to $R22{,}79$ per litre at the beginning of the next month, how will the above ogive change?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): The ogive / cumulative frequency graph will shift to the right / will become steeper (since a larger percentage of salary is now spent on fuel)",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Analytical Geometry",
+      "totalMarks": 20,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q3.png",
+      "subQuestions": [
+        {
+          "id": "3-1-1",
+          "label": "3.1.1",
+          "questionText": "In the diagram, $A(4\\,;\\,2)$, $B(6\\,;\\,-4)$ and $C(-2\\,;\\,-3)$ are vertices of $\\triangle ABC$. T is the midpoint of CB. The equation of line AC is $5x - 6y = 8$. The angle of inclination of AB is $\\alpha$. $\\triangle DCT$ is drawn such that $CD \\parallel BA$. The lines AC and DT intersect at S, the $y$-intercept of AC. P, F and R are the $x$-intercepts of DC, AC and AB respectively.\n\nCalculate the gradient of AB.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution — $m_{AB} = \\dfrac{2 - (-4)}{4 - 6}$\nMark 2: Answer — $m_{AB} = -3$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-1-2",
+          "label": "3.1.2",
+          "questionText": "Calculate the size of $\\alpha$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $\\tan\\alpha = m_{AB} = -3$\nMark 2: Answer — $\\alpha = 108{,}43^\\circ$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-1-3",
+          "label": "3.1.3",
+          "questionText": "Calculate the coordinates of T.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — T is the midpoint of CB):\nMark 1: $x_T = \\dfrac{-2 + 6}{2} = 2$\nMark 2: $y_T = \\dfrac{-3 - 4}{2} = -\\dfrac{7}{2}$, so $T\\left(2\\,;\\,-\\dfrac{7}{2}\\right)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-1-4",
+          "label": "3.1.4",
+          "questionText": "Calculate the coordinates of S.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — S is the $y$-intercept of AC, so $x_S = 0$):\nMark 1: $x_S = 0$\nMark 2: $5(0) - 6y = 8 \\Rightarrow y_S = -\\dfrac{4}{3}$, so $S\\left(0\\,;\\,-\\dfrac{4}{3}\\right)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-2",
+          "label": "3.2",
+          "questionText": "Determine the equation of CD in the form $y = mx + c$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Gradient — $m_{CD} = m_{AB} = -3$ (since $CD \\parallel BA$)\nMark 2: Substitution of $C(-2\\,;\\,-3)$ — $-3 = -3(-2) + c \\Rightarrow c = -9$\nMark 3: Equation — $y = -3x - 9$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-3-1",
+          "label": "3.3.1",
+          "questionText": "Calculate the size of $D\\hat{C}A$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $\\tan\\theta = m_{AC} = \\dfrac{5}{6}$ (from $5x - 6y = 8 \\Rightarrow y = \\tfrac{5}{6}x - \\tfrac{8}{6}$)\nMark 2: $\\theta = 39{,}81^\\circ$\nMark 3: $\\hat{A} = 108{,}43^\\circ - 39{,}81^\\circ = 68{,}62^\\circ$\nMark 4: Answer — $D\\hat{C}A = 68{,}62^\\circ$ [alt $\\angle$s; $DC \\parallel AB$]",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-3-2",
+          "label": "3.3.2",
+          "questionText": "Calculate the area of POSC.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks — $P(-3\\,;\\,0)$ is the $x$-intercept of CD, $F(1{,}6\\,;\\,0)$ the $x$-intercept of AC):\nMark 1: $P(-3\\,;\\,0)$\nMark 2: Method — Area POSC $=$ Area $\\triangle FPC -$ Area $\\triangle OFS$\nMark 3: $\\dfrac{1}{2}(4{,}6)(3)$\nMark 4: $\\dfrac{1}{2}(1{,}6)\\left(\\dfrac{4}{3}\\right)$\nMark 5: Answer — $= 6{,}9 - 1{,}07 = 5{,}83$ units$^2$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Analytical Geometry: Circle",
+      "totalMarks": 20,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q4.png",
+      "subQuestions": [
+        {
+          "id": "4-1",
+          "label": "4.1",
+          "questionText": "In the diagram, $M(3\\,;\\,-5)$ is the centre of the circle having PN as its diameter. KL is a tangent to the circle at $N(7\\,;\\,-2)$.\n\nCalculate the coordinates of P.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — M is the midpoint of the diameter PN):\nMark 1: $\\dfrac{x + 7}{2} = 3 \\Rightarrow x_P = -1$\nMark 2: $\\dfrac{y - 2}{2} = -5 \\Rightarrow y_P = -8$, so $P(-1\\,;\\,-8)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-2-1",
+          "label": "4.2.1",
+          "questionText": "Determine the equation of the circle in the form $(x - a)^2 + (y - b)^2 = r^2$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Substitution into the distance formula — $r^2 = (7 - 3)^2 + (-2 - (-5))^2$ (or using P)\nMark 2: $r^2 = 25$\nMark 3: Equation — $(x - 3)^2 + (y + 5)^2 = 25$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-2-2",
+          "label": "4.2.2",
+          "questionText": "Determine the equation of KL in the form $y = mx + c$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Substitution — $m_{\\text{radius}} = \\dfrac{-5 - (-2)}{3 - 7}$\nMark 2: $m_{\\text{radius}} = \\dfrac{-3}{-4} = \\dfrac{3}{4}$\nMark 3: $m_{\\text{tangent}} = -\\dfrac{4}{3}$ [radius $\\perp$ tangent]\nMark 4: Substitution of $m$ and $N(7\\,;\\,-2)$ — $-2 = -\\dfrac{4}{3}(7) + c \\Rightarrow c = \\dfrac{22}{3}$\nMark 5: Equation — $y = -\\dfrac{4}{3}x + \\dfrac{22}{3}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-3",
+          "label": "4.3",
+          "questionText": "For which values of $k$ will $y = -\\dfrac{4}{3}x + k$ be a secant to the circle?",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks — this line is parallel to the tangent KL; it is a secant when its $y$-intercept lies between the two parallel tangents, one through N and one through P):\nMark 1: Substitution of $m$ and $P(-1\\,;\\,-8)$ — $-8 = -\\dfrac{4}{3}(-1) + c$\nMark 2: Value of $c$ — $c = -\\dfrac{28}{3}$ (tangent through P)\nMarks 3–4 (double mark): Answer — $-\\dfrac{28}{3} < k < \\dfrac{22}{3}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-4-1",
+          "label": "4.4.1",
+          "questionText": "Points $A(t\\,;\\,t)$ and B are not shown on the diagram. From point A, another tangent is drawn to touch the circle with centre M at B.\n\nShow that the length of tangent AB is given by $\\sqrt{2t^2 + 4t + 9}$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution into Pythagoras — $AB^2 = AM^2 - MB^2 = \\left[(t - 3)^2 + (t + 5)^2\\right] - 5^2$\nMark 2: Simplification — $= t^2 - 6t + 9 + t^2 + 10t + 25 - 25$, so $AB = \\sqrt{2t^2 + 4t + 9}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-4-2",
+          "label": "4.4.2",
+          "questionText": "Determine the minimum length of AB.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Substitution into the correct formula — $t = \\dfrac{-4}{2(2)}$\nMark 2: $t = -1$ (minimum)\nMark 3: Substitution — $AB = \\sqrt{2(-1)^2 + 4(-1) + 9}$\nMark 4: Answer — $AB = \\sqrt{7}$\n(Alternatively via completing the square: $AB = \\sqrt{2(t + 1)^2 + 7}$, minimum at $t = -1$ gives $AB = \\sqrt{7}$.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Trigonometry: Identities & Equations",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "5-1-1",
+          "label": "5.1.1",
+          "questionText": "Given that $\\sqrt{13}\\sin x + 3 = 0$, where $x \\in (90^\\circ\\,;\\,270^\\circ)$.\n\n**Without using a calculator**, determine the value of $\\sin(360^\\circ + x)$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Reduction — $\\sin(360^\\circ + x) = \\sin x$\nMark 2: Answer — $\\sin x = -\\dfrac{3}{\\sqrt{13}}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-1-2",
+          "label": "5.1.2",
+          "questionText": "**Without using a calculator**, determine the value of $\\tan x$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks — $x$ is in the third quadrant):\nMarks 1–2 (double mark): $x$-coordinate $= \\sqrt{(\\sqrt{13})^2 - (-3)^2} = -2$ (negative in the third quadrant)\nMark 3: Method — $\\tan x = \\dfrac{-3}{-2} = \\dfrac{3}{2}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-1-3",
+          "label": "5.1.3",
+          "questionText": "**Without using a calculator**, determine the value of $\\cos(180^\\circ + x)$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Reduction — $\\cos(180^\\circ + x) = -\\cos x$\nMark 2: Answer — $-\\cos x = -\\left(\\dfrac{-2}{\\sqrt{13}}\\right) = \\dfrac{2}{\\sqrt{13}}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-2",
+          "label": "5.2",
+          "questionText": "Determine the value of the following expression, **without using a calculator**:\n\n$$\\frac{\\cos(90^\\circ + \\theta)}{\\sin(\\theta - 180^\\circ) + 3\\sin(-\\theta)}$$",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Numerator — $\\cos(90^\\circ + \\theta) = -\\sin\\theta$\nMark 2: $\\sin(\\theta - 180^\\circ) = \\sin(-(180^\\circ - \\theta)) = -\\sin\\theta$\nMark 3: $3\\sin(-\\theta) = -3\\sin\\theta$\nMark 4: Simplification — $\\dfrac{-\\sin\\theta}{-\\sin\\theta - 3\\sin\\theta} = \\dfrac{-\\sin\\theta}{-4\\sin\\theta}$\nMark 5: Answer — $= \\dfrac{1}{4}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-3",
+          "label": "5.3",
+          "questionText": "Determine the general solution of the following equation:\n\n$$(\\cos x + 2\\sin x)(3\\sin 2x - 1) = 0$$",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: Both equations — $\\cos x + 2\\sin x = 0$ or $3\\sin 2x - 1 = 0$\nMark 2: $\\tan x = -\\dfrac{1}{2}$\nMark 3: $\\sin 2x = \\dfrac{1}{3}$\nMark 4: $x = 153{,}43^\\circ + k \\cdot 180^\\circ$\nMark 5: $x = 9{,}74^\\circ + k \\cdot 180^\\circ$ or $x = 80{,}26^\\circ + k \\cdot 180^\\circ$\nMark 6: $k \\in \\mathbb{Z}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-4-1",
+          "label": "5.4.1",
+          "questionText": "Given the identity: $\\cos(x + y) \\cdot \\cos(x - y) = 1 - \\sin^2 x - \\sin^2 y$\n\nProve the identity.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Expansion — $\\text{LHS} = [\\cos x\\cos y - \\sin x\\sin y][\\cos x\\cos y + \\sin x\\sin y]$\nMark 2: Simplification — $= \\cos^2 x\\cos^2 y - \\sin^2 x\\sin^2 y$\nMark 3: Square identity — $= (1 - \\sin^2 x)(1 - \\sin^2 y) - \\sin^2 x\\sin^2 y$\nMark 4: Product/simplify — $= 1 + \\sin^2 x\\sin^2 y - \\sin^2 x - \\sin^2 y - \\sin^2 x\\sin^2 y = 1 - \\sin^2 x - \\sin^2 y = \\text{RHS}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-4-2",
+          "label": "5.4.2",
+          "questionText": "Hence, determine the value of $1 - \\sin^2 45^\\circ - \\sin^2 15^\\circ$, **without using a calculator**.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks — using the identity with $x = 45^\\circ$, $y = 15^\\circ$):\nMark 1: Identifying $x$ and $y$ — $1 - \\sin^2 45^\\circ - \\sin^2 15^\\circ = \\cos(45^\\circ + 15^\\circ)\\cos(45^\\circ - 15^\\circ) = \\cos 60^\\circ\\cos 30^\\circ$\nMark 2: Substitution — $= \\left(\\dfrac{1}{2}\\right)\\left(\\dfrac{\\sqrt{3}}{2}\\right)$\nMark 3: Answer — $= \\dfrac{\\sqrt{3}}{4}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-5-1",
+          "label": "5.5.1",
+          "questionText": "Consider the trigonometric expression: $16\\sin x \\cdot \\cos^3 x - 8\\sin x \\cdot \\cos x$\n\nRewrite the expression as a single trigonometric ratio.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Factorisation — $= 8\\sin x\\cos x(2\\cos^2 x - 1)$\nMark 2: $4\\sin 2x$\nMark 3: $\\cos 2x$, so $= 4\\sin 2x(\\cos 2x)$\nMark 4: Double angle — $= 2\\sin 4x$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-5-2",
+          "label": "5.5.2",
+          "questionText": "For which value of $x$ in the interval $x \\in [0^\\circ\\,;\\,90^\\circ]$ will $16\\sin x \\cdot \\cos^3 x - 8\\sin x \\cdot \\cos x$ have its minimum value?",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark — $2\\sin 4x$ is minimum when $\\sin 4x = -1$, i.e. $4x = 270^\\circ$):\nMark 1: Answer — minimum at $x = 67{,}5^\\circ$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Trigonometric Graphs",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q6.png",
+      "subQuestions": [
+        {
+          "id": "6-1",
+          "label": "6.1",
+          "questionText": "In the diagram, the graphs of $f(x) = \\tan x$ and $g(x) = 2\\sin 2x$ are drawn for the interval $x \\in [-180^\\circ\\,;\\,180^\\circ]$. $A(60^\\circ\\,;\\,k)$ and B are two points of intersection of $f$ and $g$.\n\nWrite down the period of $g$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Answer — $180^\\circ$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "6-2-1",
+          "label": "6.2.1",
+          "questionText": "Calculate the value of $k$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Answer — $k = 2\\sin 2(60^\\circ) = \\sqrt{3} = 1{,}73$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "6-2-2",
+          "label": "6.2.2",
+          "questionText": "Calculate the coordinates of B.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark — by symmetry, B is at $x = -120^\\circ$):\nMark 1: Answer — $B(-120^\\circ\\,;\\,\\sqrt{3})$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "6-3",
+          "label": "6.3",
+          "questionText": "Write down the range of $2g(x)$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Range of $g$ — $y \\in [-2\\,;\\,2]$\nMark 2: Answer — Range of $2g(x)$ is $y \\in [-4\\,;\\,4]$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "6-4",
+          "label": "6.4",
+          "questionText": "For which values of $x$ will $g(x + 5^\\circ) - f(x + 5^\\circ) \\leq 0$ in the interval $x \\in [-90^\\circ\\,;\\,0^\\circ]$?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): $x \\in [-65^\\circ\\,;\\,-5^\\circ]$ (i.e. $-65^\\circ \\leq x \\leq -5^\\circ$)",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "6-5",
+          "label": "6.5",
+          "questionText": "Determine the values of $p$ for which $\\sin x \\cdot \\cos x = p$ will have exactly two real roots in the interval $x \\in [-180^\\circ\\,;\\,180^\\circ]$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $\\sin x\\cos x = p \\Rightarrow 2\\sin 2x = 4p$\nMark 2: $4p = \\pm 2$\nMark 3: Answer — $p = -\\dfrac{1}{2}$ or $p = \\dfrac{1}{2}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Trigonometry in 3-D",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q7.png",
+      "subQuestions": [
+        {
+          "id": "7-1",
+          "label": "7.1",
+          "questionText": "AB is a vertical flagpole that is $\\sqrt{5}p$ metres long. AC and AD are two cables anchoring the flagpole. B, C and D are in the same horizontal plane. $BD = 2p$ metres, $A\\hat{C}D = x$ and $A\\hat{D}C = 45^\\circ$.\n\nDetermine the length of AD in terms of $p$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — $\\triangle ABD$ is right-angled at B):\nMark 1: Substitution in Pythagoras — $AD^2 = AB^2 + BD^2 = (\\sqrt{5}p)^2 + (2p)^2 = 9p^2$\nMark 2: Answer — $AD = 3p$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "7-2",
+          "label": "7.2",
+          "questionText": "Show that the length of $CD = \\dfrac{3p(\\sin x + \\cos x)}{\\sqrt{2}\\sin x}$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks — in $\\triangle ACD$, $A\\hat{C}D = x$, $A\\hat{D}C = 45^\\circ$, so $D\\hat{A}C = 135^\\circ - x$, $AD = 3p$):\nMark 1: Correct use of the sine rule — $\\dfrac{CD}{\\sin(135^\\circ - x)} = \\dfrac{3p}{\\sin x}$\nMark 2: $135^\\circ - x$ used\nMark 3: Compound angle — $CD = \\dfrac{3p(\\sin 135^\\circ\\cos x - \\cos 135^\\circ\\sin x)}{\\sin x}$\nMark 4: Special values — $= \\dfrac{3p\\left(\\frac{\\sqrt{2}}{2}\\cos x + \\frac{\\sqrt{2}}{2}\\sin x\\right)}{\\sin x}$\nMark 5: Factorisation — $CD = \\dfrac{3p(\\sin x + \\cos x)}{\\sqrt{2}\\sin x}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "7-3",
+          "label": "7.3",
+          "questionText": "If it is further given that $p = 10$ and $x = 110^\\circ$, calculate the area of $\\triangle ADC$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Correct use of the area rule — Area $\\triangle ADC = \\dfrac{1}{2}(AD)(CD)\\sin A\\hat{D}C$\nMark 2: Substitution — $= \\dfrac{1}{2}(30)\\left(\\dfrac{30(\\sin 110^\\circ + \\cos 110^\\circ)}{\\sqrt{2}\\sin 110^\\circ}\\right)\\sin 45^\\circ$\nMark 3: Answer — $= 143{,}11$ m$^2$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Euclidean Geometry: Circles & Proportionality",
+      "totalMarks": 13,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q8.png",
+      "subQuestions": [
+        {
+          "id": "8-1-1",
+          "label": "8.1.1",
+          "questionText": "In the diagram, O is the centre of the circle. MNPR is a cyclic quadrilateral and SN is a diameter of the circle. Chord MS and radius OR are drawn. $\\hat{M}_2 = 64^\\circ$.\n\nDetermine, giving reasons, the size of $\\hat{P}$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Statement — $\\hat{P} = 116^\\circ$\nMark 2: Reason — opp $\\angle$s of a cyclic quad (so $\\hat{P} = 180^\\circ - \\hat{M} = 180^\\circ - 64^\\circ$)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "8-1-2",
+          "label": "8.1.2",
+          "questionText": "Determine, giving reasons, the size of $\\hat{M}_1$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Reason — $\\angle$ in a semi-circle: $\\hat{M}_1 + 64^\\circ = 90^\\circ$ (SN is a diameter, so $S\\hat{M}N = 90^\\circ$)\nMark 2: Statement — $\\hat{M}_1 = 26^\\circ$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "8-1-3",
+          "label": "8.1.3",
+          "questionText": "Determine, giving reasons, the size of $\\hat{O}_1$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Statement — $\\hat{O}_1 = 52^\\circ$\nMark 2: Reason — $\\angle$ at centre $= 2 \\times \\angle$ at circumference (so $\\hat{O}_1 = 2\\hat{M}_1 = 2(26^\\circ)$)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "8-2-1",
+          "label": "8.2.1",
+          "questionText": "In the diagram, $\\triangle ABG$ is drawn. D and E are midpoints of AB and AG respectively. AG and BG are produced to C and H respectively. F is a point on BC such that $FG \\parallel CH$.\n\nGive a reason why $DE \\parallel BH$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Reason — Midpoint theorem (OR converse of the proportionality/intercept theorem)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "8-2-2",
+          "label": "8.2.2",
+          "questionText": "If it is further given that $\\dfrac{FC}{BF} = \\dfrac{1}{4}$, $DE = 3x - 1$ and $GH = x + 1$, calculate, giving reasons, the value of $x$.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: Statement — $BG = 2DE = 6x - 2$\nMark 2: Reason — Midpoint theorem\nMark 3: $\\dfrac{GH}{BG} = \\dfrac{FC}{BF}$ [line $\\parallel$ one side of $\\triangle$ / prop theorem; $FG \\parallel CH$]\nMark 4: Substitution — $\\dfrac{x + 1}{6x - 2} = \\dfrac{1}{4}$\nMark 5: Equation into $x$ — $4x + 4 = 6x - 2$\nMark 6: Answer — $2x = 6 \\Rightarrow x = 3$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Euclidean Geometry: Circle Theorems",
+      "totalMarks": 14,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q9.png",
+      "subQuestions": [
+        {
+          "id": "9-1",
+          "label": "9.1",
+          "questionText": "In the diagram, O is the centre of a circle. OD bisects chord AB.\n\nProve the theorem that states that the line from the centre of a circle that bisects a chord is perpendicular to the chord, i.e. $OD \\perp AB$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Construction — draw OA and OB\nMark 2: First pair of sides — $OA = OB$ [radii]\nMark 3: Other 2 pairs — $OD = OD$ [common], $AD = DB$ [given]\nMark 4: $\\triangle ADO \\equiv \\triangle BDO$ [S;S;S]\nMark 5: $\\hat{D}_1 = \\hat{D}_2$ and ADB is a straight line, so $OD \\perp AB$ [$\\angle$s on a straight line]",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "9-2-1",
+          "label": "9.2.1",
+          "questionText": "In the diagram, E, B, F, S and P are points on the circle centred at O. GB is a tangent to the circle at B. FE is produced to meet the tangent at G. OT is drawn such that T is the midpoint of EF. GO and BO are drawn. BS is drawn through T. $PS \\parallel GF$.\n\nProve, giving reasons, that OTBG is a cyclic quadrilateral.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Statement — $O\\hat{T}G = 90^\\circ$\nMark 2: Reason — line from centre to midpoint of chord (T is the midpoint of chord EF)\nMark 3: Statement — $O\\hat{B}G = 90^\\circ$\nMark 4: Reason — tangent $\\perp$ radius (GB is a tangent at B)\nMark 5: $\\therefore O\\hat{T}G = O\\hat{B}G = 90^\\circ$, so OTBG is a cyclic quadrilateral [line subtends equal $\\angle$s / converse $\\angle$s in the same segment]",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "9-2-2",
+          "label": "9.2.2",
+          "questionText": "Prove, giving reasons, that $G\\hat{O}B = \\hat{S}$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Statement — $\\hat{S} = B\\hat{T}G$\nMark 2: Reason — corresponding $\\angle$s; $GF \\parallel PS$\nMark 3: Statement — $B\\hat{T}G = G\\hat{O}B$\nMark 4: Reason — $\\angle$s in the same segment (of cyclic quad OTBG), $\\therefore G\\hat{O}B = \\hat{S}$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Euclidean Geometry: Tangents & Similar Triangles",
+      "totalMarks": 13,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q10.png",
+      "subQuestions": [
+        {
+          "id": "10-1",
+          "label": "10.1",
+          "questionText": "In the diagram, PQRS is a cyclic quadrilateral. KP is a tangent to the circle at P. C and D are points on chords PQ and PS respectively and CD produced meets RS produced at A. $CA \\parallel QS$. RC is drawn. $\\hat{P}_1 = \\hat{R}_2$.\n\nProve, giving reasons, that $\\hat{S}_1 = \\hat{T}_2$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $\\hat{P}_1 = \\hat{Q}_1$ [tan-chord theorem]\nMark 2: $\\hat{S}_1 = \\hat{Q}_1 + \\hat{Q}_2$ [ext $\\angle$ of cyclic quad], so $\\hat{S}_1 = \\hat{P}_1 + \\hat{Q}_2$\nMark 3: $\\hat{T}_2 = \\hat{R}_2 + \\hat{Q}_2$ [ext $\\angle$ of $\\triangle$]\nMark 4: But $\\hat{P}_1 = \\hat{R}_2$ [given], so $\\hat{T}_2 = \\hat{P}_1 + \\hat{Q}_2$, therefore $\\hat{S}_1 = \\hat{T}_2$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "10-2",
+          "label": "10.2",
+          "questionText": "Prove, giving reasons, that $\\dfrac{AD}{AR} = \\dfrac{AS}{AC}$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks — in $\\triangle ASD$ and $\\triangle ACR$):\nMark 1: Identifying the triangles — $\\triangle ASD$ and $\\triangle ACR$\nMark 2: $\\hat{A} = \\hat{A}$ [common]\nMark 3: $\\hat{S}_1 = \\hat{T}_2$ [proven] and $\\hat{T}_2 = \\hat{C}_2$ [alt $\\angle$s; $QS \\parallel CA$], so $\\hat{S}_1 = \\hat{C}_2$\nMark 4: $\\hat{D}_1 = \\hat{R}_1$ [sum of $\\angle$s in $\\triangle$]\nMark 5: $\\triangle ASD \\;|||\\; \\triangle ACR$, so $\\dfrac{AD}{AR} = \\dfrac{AS}{AC}$ [corresponding sides in proportion]",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "10-3",
+          "label": "10.3",
+          "questionText": "Prove, giving reasons, that $AC \\times SD = AR \\times TC$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $\\dfrac{AS}{AC} = \\dfrac{SD}{CR}$ [$\\triangle ASD \\;|||\\; \\triangle ACR$], so $AS = \\dfrac{AC \\times SD}{CR}$\nMark 2: $\\dfrac{AS}{AR} = \\dfrac{CT}{CR}$ [line $\\parallel$ one side of $\\triangle$ / prop theorem; $TS \\parallel CA$]\nMark 3: So $AS = \\dfrac{AR \\times CT}{CR}$\nMark 4: Equating — $\\dfrac{AC \\times SD}{CR} = \\dfrac{AR \\times CT}{CR}$, therefore $AC \\times SD = AR \\times TC$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

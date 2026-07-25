@@ -1,0 +1,572 @@
+{
+  "id": "math-p1-nov-2021",
+  "subject": "Mathematics",
+  "paperCode": "P1",
+  "year": 2021,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Algebra & Equations",
+      "totalMarks": 24,
+      "subQuestions": [
+        {
+          "id": "1-1-1",
+          "label": "1.1.1",
+          "questionText": "Solve for $x$:\n\n$$x^2 - 2x - 24 = 0$$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Factors — $(x - 6)(x + 4) = 0$\nMark 2: $x = 6$\nMark 3: $x = -4$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-2",
+          "label": "1.1.2",
+          "questionText": "Solve for $x$ (correct to TWO decimal places):\n\n$$2x^2 - 3x - 3 = 0$$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Substitution into the correct formula — $x = \\dfrac{3 \\pm \\sqrt{(-3)^2 - 4(2)(-3)}}{2(2)} = \\dfrac{3 \\pm \\sqrt{33}}{4}$\nMark 2: $x = 2{,}19$\nMark 3: $x = -0{,}69$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-3",
+          "label": "1.1.3",
+          "questionText": "Solve for $x$:\n\n$$x^2 + 5x \\leq -4$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Standard form — $x^2 + 5x + 4 \\leq 0$\nMark 2: Critical values — $(x + 4)(x + 1) \\leq 0$, so $x = -4$ or $x = -1$\nMarks 3–4 (double mark): $-4 \\leq x \\leq -1$ (i.e. $x \\in [-4\\,;\\,-1]$)",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-4",
+          "label": "1.1.4",
+          "questionText": "Solve for $x$:\n\n$$\\sqrt{x + 28} = 2 - x$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Squaring both sides — $x + 28 = 4 - 4x + x^2$\nMark 2: Standard form — $x^2 - 5x - 24 = 0$\nMark 3: Factors — $(x - 8)(x + 3) = 0$\nMark 4: Answer with selection — $x = -3$ ($x \\neq 8$, rejected)",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-2",
+          "label": "1.2",
+          "questionText": "Solve simultaneously for $x$ and $y$ in:\n\n$$2y = 3 + x \\quad \\text{and} \\quad 2xy + 7 = x^2 + 4y^2$$",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: $x = 2y - 3$\nMark 2: Substitution — $2y(2y - 3) + 7 = (2y - 3)^2 + 4y^2$\nMark 3: Simplification — $4y^2 - 6y + 7 = 4y^2 - 12y + 9 + 4y^2$\nMark 4: Standard form — $2y^2 - 3y + 1 = 0 \\Rightarrow (2y - 1)(y - 1) = 0$\nMark 5: $y$-values — $y = \\tfrac{1}{2}$ or $y = 1$\nMark 6: $x$-values — $x = -2$ or $x = -1$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-3",
+          "label": "1.3",
+          "questionText": "The roots of an equation are $x = \\dfrac{-n \\pm \\sqrt{n^2 - 4mp}}{2m}$ where $m$, $n$ and $p$ are positive real numbers. The numbers $m$, $n$ and $p$, in that order, form a geometric sequence. Prove that $x$ is a non-real number.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Geometric ratio — $\\dfrac{n}{m} = \\dfrac{p}{n}$\nMark 2: $n^2 = mp$\nMark 3: Discriminant — $\\Delta = n^2 - 4mp = n^2 - 4n^2 = -3n^2$ (or $\\Delta = mp - 4mp = -3mp$)\nMark 4: Since $n^2 > 0$, $\\Delta = -3n^2 < 0$, so $x$ is a non-real number",
+          "topic": "Algebra",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Geometric Series",
+      "totalMarks": 6,
+      "subQuestions": [
+        {
+          "id": "2-1",
+          "label": "2.1",
+          "questionText": "Given the geometric series: $x + 90 + 81 + \\ldots$\n\nCalculate the value of $x$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $\\dfrac{90}{x} = \\dfrac{81}{90}$\nMark 2: $81x = 8\\,100 \\Rightarrow x = 100$ (OR $x = 90 \\times \\tfrac{10}{9} = 100$)",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "2-2",
+          "label": "2.2",
+          "questionText": "Show that the sum of the first $n$ terms is $S_n = 1\\,000\\left(1 - (0{,}9)^n\\right)$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $r = 0{,}9$\nMark 2: Substitution into the correct formula — $S_n = \\dfrac{100\\left(1 - (0{,}9)^n\\right)}{1 - 0{,}9} = \\dfrac{100\\left(1 - (0{,}9)^n\\right)}{0{,}1}$, so $S_n = 1\\,000\\left(1 - (0{,}9)^n\\right)$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "2-3",
+          "label": "2.3",
+          "questionText": "Hence, or otherwise, calculate the sum to infinity.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution — $S_\\infty = \\dfrac{a}{1 - r} = \\dfrac{100}{1 - \\tfrac{9}{10}}$\nMark 2: $S_\\infty = 1\\,000$",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Quadratic Number Patterns",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "3-1",
+          "label": "3.1",
+          "questionText": "Consider the quadratic number pattern: $-145\\,;\\,-122\\,;\\,-101\\,;\\,\\ldots$\n\nWrite down the value of $T_4$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $T_4 = -82$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "3-2",
+          "label": "3.2",
+          "questionText": "Show that the general term of this number pattern is $T_n = -n^2 + 26n - 170$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks — for $T_n = an^2 + bn + c$; first differences $23\\,;\\,21$, second difference $-2$):\nMark 1: $2a = -2 \\Rightarrow a = -1$\nMark 2: $3a + b = 23 \\Rightarrow 3(-1) + b = 23 \\Rightarrow b = 26$\nMark 3: $a + b + c = -145 \\Rightarrow -1 + 26 + c = -145 \\Rightarrow c = -170$, so $T_n = -n^2 + 26n - 170$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "3-3",
+          "label": "3.3",
+          "questionText": "Between which TWO terms of the quadratic number pattern will there be a difference of $-121$?",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks — the first differences $23\\,;\\,21\\,;\\,\\ldots$ form an arithmetic sequence):\nMark 1: Difference term — $T_n = -2n + 25$\nMark 2: Set equal — $-2n + 25 = -121$\nMark 3: $n = 73$\nMark 4: Answer — the difference of $-121$ occurs between $T_{73}$ and $T_{74}$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "3-4",
+          "label": "3.4",
+          "questionText": "What value must be added to each term in the number pattern so that the value of the maximum term in the new number pattern formed will be $1$?",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Position of the maximum — $n = \\dfrac{-b}{2a} = \\dfrac{-26}{2(-1)} = 13$\nMark 2: Maximum term — $T_{13} = -(13)^2 + 26(13) - 170 = -1$\nMark 3: Answer — must add $2$ (so that the new maximum becomes $1$)",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Arithmetic Series & Sigma Notation",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "4-1",
+          "label": "4.1",
+          "questionText": "Consider the linear pattern: $5\\,;\\,7\\,;\\,9\\,;\\,\\ldots$\n\nDetermine $T_{51}$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $a = 5$ and $d = 2$\nMark 2: Substitution — $T_{51} = 5 + (51 - 1)(2)$\nMark 3: $T_{51} = 105$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "4-2",
+          "label": "4.2",
+          "questionText": "Calculate the sum of the first $51$ terms.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution into the correct formula — $S_{51} = \\dfrac{51}{2}\\big[2(5) + (51 - 1)2\\big]$ (or $\\dfrac{51}{2}[5 + 105]$)\nMark 2: $S_{51} = 2\\,805$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "4-3",
+          "label": "4.3",
+          "questionText": "Write down the expansion of $\\displaystyle\\sum_{n=1}^{5000}(2n + 3)$. Show only the first $3$ terms and the last term of the expansion.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $\\displaystyle\\sum_{n=1}^{5000}(2n + 3) = 5 + 7 + 9 + \\ldots + 10\\,003$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "4-4",
+          "label": "4.4",
+          "questionText": "Hence, or otherwise, calculate $\\displaystyle\\sum_{n=1}^{5000}(2n + 3) + \\sum_{n=1}^{4999}(-2n - 1)$. ALL working details must be shown.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $T_1 = -3$ (first term of the second series $-2n - 1$)\nMark 2: $T_{4999} = -2(4\\,999) - 1 = -9\\,999$\nMark 3: Both expansions — $(5 + 7 + \\ldots + 9\\,999 + 10\\,001 + 10\\,003) + (-3 - 5 - 7 - \\ldots - 9\\,999)$\nMark 4: Answer — $= 10\\,001 + 10\\,003 - 3 = 20\\,001$",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Functions: Hyperbola",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "5-1",
+          "label": "5.1",
+          "questionText": "Given: $f(x) = \\dfrac{-1}{x - 3} + 2$\n\nWrite down the equations of the asymptotes of $f$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x = 3$\nMark 2: $y = 2$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-2",
+          "label": "5.2",
+          "questionText": "Write down the domain of $f$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $x \\in \\mathbb{R},\\; x \\neq 3$ (i.e. $x \\in (-\\infty\\,;\\,3) \\cup (3\\,;\\,\\infty)$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-3",
+          "label": "5.3",
+          "questionText": "Determine the coordinates of the $x$-intercept of $f$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $0 = \\dfrac{-1}{x - 3} + 2 \\Rightarrow -2x + 6 = -1$\nMark 2: $x = \\tfrac{7}{2}$, so the $x$-intercept is $\\left(\\tfrac{7}{2}\\,;\\,0\\right)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-4",
+          "label": "5.4",
+          "questionText": "Write down the coordinates of the $y$-intercept of $f$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x = 0$\nMark 2: $y = \\tfrac{7}{3}$, so the $y$-intercept is $\\left(0\\,;\\,\\tfrac{7}{3}\\right)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-5",
+          "label": "5.5",
+          "questionText": "Draw the graph of $f$. Clearly show ALL the asymptotes and intercepts with the axes.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Asymptotes $x = 3$ and $y = 2$\nMark 2: Intercepts with the axes — $\\left(\\tfrac{7}{2}\\,;\\,0\\right)$ and $\\left(0\\,;\\,\\tfrac{7}{3}\\right)$\nMark 3: Correct shape (hyperbola)",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Functions: Logarithms & Inverse",
+      "totalMarks": 8,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2021_q6.png",
+      "subQuestions": [
+        {
+          "id": "6-1",
+          "label": "6.1",
+          "questionText": "The graph of $f(x) = \\log_4 x$ is drawn. $B(k\\,;\\,2)$ is a point on $f$.\n\nCalculate the value of $k$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution of $(k\\,;\\,2)$ — $2 = \\log_4 k$\nMark 2: $4^2 = k$, so $k = 16$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-2",
+          "label": "6.2",
+          "questionText": "Determine the values of $x$ for which $-1 \\leq f(x) \\leq 2$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $-1 = \\log_4 x \\Rightarrow x = \\tfrac{1}{4}$\nMark 2: Answer — $\\tfrac{1}{4} \\leq x \\leq 16$ (i.e. $x \\in \\left[\\tfrac{1}{4}\\,;\\,16\\right]$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-3",
+          "label": "6.3",
+          "questionText": "Write down the equation of $f^{-1}$, the inverse of $f$, in the form $y = \\ldots$",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Swopping $x$ and $y$ — $x = \\log_4 y$\nMark 2: $y = 4^{x}$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-4",
+          "label": "6.4",
+          "questionText": "For which values of $x$ will $x \\cdot f^{-1}(x) < 0$?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): $x < 0$ (i.e. $x \\in (-\\infty\\,;\\,0)$)",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Functions: Parabola & Line",
+      "totalMarks": 17,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2021_q7.png",
+      "subQuestions": [
+        {
+          "id": "7-1",
+          "label": "7.1",
+          "questionText": "The graph of $f(x) = (x + 4)(x - 6)$ is drawn. The parabola cuts the $x$-axis at B and D and the $y$-axis at G. C is the turning point of $f$. Line AE has an angle of inclination of $\\theta$ and cuts the $x$-axis and $y$-axis at A and E respectively. T is a point on $f$ between B and G.\n\nWrite down the coordinates of B and D.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $B(-4\\,;\\,0)$\nMark 2: $D(6\\,;\\,0)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-2",
+          "label": "7.2",
+          "questionText": "Calculate the coordinates of C.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x_{tp} = 1$ (from $f(x) = x^2 - 2x - 24$, $x = \\dfrac{-(-2)}{2(1)} = 1$)\nMark 2: $y_{tp} = (1)^2 - 2(1) - 24 = -25$, so $C(1\\,;\\,-25)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-3",
+          "label": "7.3",
+          "questionText": "Write down the range of $f$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $y \\geq -25$ (i.e. $y \\in [-25\\,;\\,\\infty)$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-4-1",
+          "label": "7.4.1",
+          "questionText": "Given that $\\theta = 14{,}04^\\circ$ and the tangent to $f$ at T is perpendicular to AE.\n\nCalculate the gradient of AE, correct to TWO decimal places.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $m_{AE} = \\tan 14{,}04^\\circ = 0{,}25 = \\tfrac{1}{4}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "7-4-2",
+          "label": "7.4.2",
+          "questionText": "Calculate the coordinates of T.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: $m_{\\text{tang}} = -4$ (perpendicular to AE)\nMark 2: $f'(x) = 2x - 2$\nMark 3: Equating — $2x - 2 = -4$\nMark 4: $x_T = -1$\nMark 5: $y_T = (-1)^2 - 2(-1) - 24 = -21$, so $T(-1\\,;\\,-21)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-5",
+          "label": "7.5",
+          "questionText": "A straight line, $g$, parallel to AE, cuts $f$ at $K(-3\\,;\\,-9)$ and R. Calculate the $x$-coordinate of R.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: $m_{\\text{line}} = \\tfrac{1}{4}$ (parallel to AE)\nMark 2: Substitution of $m$ and $K(-3\\,;\\,-9)$ — $y + 9 = \\tfrac{1}{4}(x + 3)$\nMark 3: Equation of $g$ — $y = \\tfrac{1}{4}x - \\tfrac{33}{4}$\nMark 4: Equating — $x^2 - 2x - 24 = \\tfrac{1}{4}x - \\tfrac{33}{4}$\nMark 5: Standard form — $4x^2 - 9x - 63 = 0 \\Rightarrow (4x - 21)(x + 3) = 0$\nMark 6: Answer with selection — $x = \\tfrac{21}{4} = 5{,}25$ ($x \\neq -3$)",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Financial Mathematics",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "8-1",
+          "label": "8.1",
+          "questionText": "A farmer bought a tractor for $R980\\,000$. The value of the tractor depreciates annually at a rate of $9{,}2\\%$ p.a. on the reducing-balance method. Calculate the book value of the tractor after $7$ years.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Correct formula — $A = P(1 - i)^n$\nMark 2: Substitution — $A = 980\\,000(1 - 0{,}092)^7$\nMark 3: $A = R498\\,685{,}82$",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "8-2",
+          "label": "8.2",
+          "questionText": "How many years will it take for an amount of $R75\\,000$ to accrue to $R116\\,253{,}50$ in an account earning interest of $6{,}8\\%$ p.a., compounded quarterly?",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $i = \\dfrac{0{,}068}{4}$\nMark 2: Substitution into the correct formula — $116\\,253{,}50 = 75\\,000\\left(1 + \\tfrac{0{,}068}{4}\\right)^{4n}$\nMark 3: Correct use of logs — $4n = \\dfrac{\\log(1{,}550046667)}{\\log(1{,}017)} = 25{,}99\\ldots$\nMark 4: $n = 6{,}50$ years",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "8-3-1",
+          "label": "8.3.1",
+          "questionText": "Thabo wanted to save $R450\\,000$ as a deposit to buy a house on 30 June 2018.\n\nHe deposited a fixed amount of money at the end of every month into an account earning interest of $8{,}35\\%$ p.a., compounded monthly. His first deposit was made on 31 July 2013 and his 60th deposit on 30 June 2018. Calculate the amount he deposited monthly.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $i = \\dfrac{0{,}0835}{12}$\nMark 2: Substitution into the correct formula — $450\\,000 = \\dfrac{x\\left[\\left(1 + \\tfrac{0{,}0835}{12}\\right)^{60} - 1\\right]}{\\tfrac{0{,}0835}{12}}$\nMark 3: $x = R6\\,068{,}69$",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "8-3-2-a",
+          "label": "8.3.2 (a)",
+          "questionText": "Thabo bought a house costing $R1\\,500\\,000$ and used his savings as the deposit. He obtained a home loan for the balance of the purchase price at an interest of $12\\%$ p.a., compounded monthly over $25$ years. He made his first monthly instalment of $R11\\,058{,}85$ towards the loan on 31 July 2018.\n\nWhat will the balance outstanding on the loan be on 30 June 2039, $21$ years after the loan was granted?",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks — loan amount $= 1\\,500\\,000 - 450\\,000 = 1\\,050\\,000$):\nMark 1: $n = 48$ in the $P$-formula (payments still outstanding after $21$ years of a $25$-year loan)\nMark 2: Substitution into the correct formula — $P = \\dfrac{11\\,058{,}85\\left[1 - \\left(1 + \\tfrac{0{,}12}{12}\\right)^{-4 \\times 12}\\right]}{\\tfrac{0{,}12}{12}}$\nMark 3: $P = R419\\,948{,}32$ (balance outstanding on 30 June 2039)",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "8-3-2-b",
+          "label": "8.3.2 (b)",
+          "questionText": "Calculate the interest Thabo will have paid over the first $21$ years of the loan.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Total paid — $11\\,058{,}85 \\times 21 \\times 12 = 2\\,786\\,830{,}20$\nMark 2: Loan paid off — $1\\,050\\,000 - 419\\,948{,}32 = 630\\,051{,}68$ (loan amount minus balance outstanding)\nMark 3: Interest paid — $2\\,786\\,830{,}20 - 630\\,051{,}68 = R2\\,156\\,778{,}52$",
+          "topic": "Finance",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Calculus: Differentiation",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "9-1",
+          "label": "9.1",
+          "questionText": "Determine $f'(x)$ from first principles if it is given that $f(x) = 2x^2 - 3x$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Substitution — $f'(x) = \\displaystyle\\lim_{h \\to 0} \\dfrac{2(x + h)^2 - 3(x + h) - (2x^2 - 3x)}{h}$\nMark 2: Expansion — numerator $= 2x^2 + 4xh + 2h^2 - 3x - 3h$\nMark 3: Simplification — $\\dfrac{4xh + 2h^2 - 3h}{h}$\nMark 4: Factorisation — $\\dfrac{h(4x + 2h - 3)}{h} = \\displaystyle\\lim_{h \\to 0}(4x + 2h - 3)$\nMark 5: Answer — $f'(x) = 4x - 3$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "9-2-1",
+          "label": "9.2.1",
+          "questionText": "Determine $\\dfrac{dy}{dx}$ if $y = 4x^5 - 6x^4 + 3x$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $20x^4$\nMark 2: $-24x^3$\nMark 3: $+3$, so $\\dfrac{dy}{dx} = 20x^4 - 24x^3 + 3$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "9-2-2",
+          "label": "9.2.2",
+          "questionText": "Determine $D_x\\left[-\\dfrac{\\sqrt[3]{x}}{2} + \\left(\\dfrac{1}{3x}\\right)^2\\right]$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks — rewrite as $-\\tfrac{1}{2}x^{\\frac{1}{3}} + \\tfrac{1}{9}x^{-2}$):\nMark 1: $-\\dfrac{x^{\\frac{1}{3}}}{2}$ (first term rewritten)\nMark 2: $\\dfrac{x^{-2}}{9}$ (second term rewritten)\nMark 3: $-\\dfrac{1}{6}x^{-\\frac{2}{3}}$ (derivative of first term)\nMark 4: $-\\dfrac{2x^{-3}}{9}$ (derivative of second term), so $D_x = -\\dfrac{1}{6x^{\\frac{2}{3}}} - \\dfrac{2}{9x^3}$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Calculus: Cubic Functions",
+      "totalMarks": 15,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2021_q10.png",
+      "subQuestions": [
+        {
+          "id": "10-1",
+          "label": "10.1",
+          "questionText": "The graph of $h(x) = ax^3 + bx^2$ is drawn. The graph has turning points at the origin, $O(0\\,;\\,0)$ and $B(4\\,;\\,32)$. A is an $x$-intercept of $h$.\n\nShow that $a = -1$ and $b = 6$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: $h'(x) = 3ax^2 + 2bx$\nMark 2: $h'(4) = 0$\nMark 3: $48a + 8b = 0$ (i.e. $6a + b = 0$)\nMark 4: $h(4) = 32$\nMark 5: $64a + 16b = 32$ (i.e. $4a + b = 2$); solving gives $a = -1$ and $b = 6$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "10-2",
+          "label": "10.2",
+          "questionText": "Calculate the coordinates of A.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $-x^3 + 6x^2 = 0$\nMark 2: Factors — $x^2(-x + 6) = 0 \\Rightarrow x = 0$ or $x = 6$\nMark 3: $A(6\\,;\\,0)$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "10-3-1",
+          "label": "10.3.1",
+          "questionText": "Write down the values of $x$ for which $h$ is increasing.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Critical values — $0$ and $4$\nMark 2: Notation — $0 < x < 4$ (i.e. $x \\in (0\\,;\\,4)$; accept $0 \\leq x \\leq 4$)",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "10-3-2",
+          "label": "10.3.2",
+          "questionText": "Write down the values of $x$ for which $h$ is concave down.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Point of inflection at $x = 2$\nMark 2: Notation — $x > 2$ (i.e. $x \\in (2\\,;\\,\\infty)$)",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "10-4",
+          "label": "10.4",
+          "questionText": "For which values of $k$ will $-(x - 1)^3 + 6(x - 1)^2 - k = 0$ have one negative and two distinct positive roots?",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks — $f(x) = h(x - 1) = -(x - 1)^3 + 6(x - 1)^2$ is $h$ shifted $1$ unit right):\nMark 1: $k < 32$ (the maximum value of $h$)\nMark 2: New $y$-intercept — $f(0) = 7$\nMark 3: Answer — $7 < k < 32$ (i.e. $k \\in (7\\,;\\,32)$)",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Calculus: Optimisation",
+      "totalMarks": 7,
+      "subQuestions": [
+        {
+          "id": "11",
+          "label": "11",
+          "questionText": "After travelling a distance of $20$ km from home, a person suddenly remembers that he did not close a tap in his garden. He decides to turn around immediately and return home to close the tap.\n\nThe cost of the water, at the rate at which water is flowing out of the tap, is $R1{,}60$ per hour.\n\nThe cost of petrol is $\\left(1{,}2 + \\dfrac{x}{4000}\\right)$ rands per km, where $x$ is the average speed in km/h.\n\nCalculate the average speed at which the person must travel home to keep his cost as low as possible.",
+          "marks": 7,
+          "memoText": "Mark scheme (7 marks):\nMark 1: Time — $\\dfrac{20}{x}$\nMark 2: Water cost — $1{,}6 \\times \\left(\\dfrac{20}{x}\\right)$\nMark 3: Petrol cost — $20\\left(1{,}2 + \\dfrac{x}{4000}\\right)$\nMark 4: Cost function — $C(x) = \\dfrac{32}{x} + 24 + \\dfrac{x}{200}$\nMark 5: Derivative — $C'(x) = -\\dfrac{32}{x^2} + \\dfrac{1}{200}$\nMark 6: Set $C'(x) = 0$\nMark 7: Answer — $x^2 = 6\\,400 \\Rightarrow x = 80$ km/h",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Probability & Counting Principles",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "12-1-1",
+          "label": "12.1.1",
+          "questionText": "A and B are independent events. It is further given that:\n\n$P(\\text{A and B}) = 0{,}3$ and $P(\\text{only B}) = 0{,}2$\n\nAre A and B mutually exclusive? Motivate your answer.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: No, because $P(\\text{A and B}) = 0{,}3 \\neq 0$ (mutually exclusive events have $P(\\text{A and B}) = 0$)",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "12-1-2-a",
+          "label": "12.1.2 (a)",
+          "questionText": "Determine $P(\\text{only A})$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $P(\\text{A and B}) = P(\\text{A}) \\times P(\\text{B})$\nMark 2: $P(\\text{B}) = 0{,}5$ (since $P(\\text{only B}) = 0{,}2$ gives $P(\\text{B}) = 0{,}2 + 0{,}3$)\nMark 3: $0{,}3 = P(\\text{A}) \\times 0{,}5 \\Rightarrow P(\\text{A}) = 0{,}6$\nMark 4: $P(\\text{only A}) = 0{,}6 - 0{,}3 = 0{,}3$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "12-1-2-b",
+          "label": "12.1.2 (b)",
+          "questionText": "Determine $P(\\text{not A or not B})$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Method — $P(\\text{not A or not B}) = 1 - P(\\text{A and B})$ (or $0{,}2 + 0{,}2 + 0{,}3$ from the Venn diagram)\nMark 2: $= 1 - 0{,}3 = 0{,}7$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "12-2-1",
+          "label": "12.2.1",
+          "questionText": "A teacher has $5$ different poetry books, $4$ different dramas and $3$ different novels. She must arrange these $12$ books from left to right on a shelf.\n\nWrite down the probability that a novel will be the first book placed on the shelf.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $P(\\text{novel}) = \\dfrac{3}{12} = \\dfrac{1}{4}$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "12-2-2",
+          "label": "12.2.2",
+          "questionText": "Calculate the number of different ways these $12$ books can be placed on the shelf if any book can be placed in any position.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): $12! = 479\\,001\\,600$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "12-2-3",
+          "label": "12.2.3",
+          "questionText": "Calculate the probability that a poetry book is placed in the first position, the three novels are placed next to each other and a drama is placed in the last position.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $5 \\times 4$ (poetry first and drama last)\nMark 2: $3! = 6$ (the three novels together as a unit)\nMark 3: $8!$ (arrangements of the rest of the books, including the novel-unit)\nMark 4: $P = \\dfrac{5 \\times 3! \\times 8! \\times 4}{12!} = \\dfrac{1}{99}$",
+          "topic": "Probability",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

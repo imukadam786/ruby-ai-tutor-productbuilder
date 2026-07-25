@@ -1,0 +1,571 @@
+{
+  "id": "math-p2-nov-2023",
+  "subject": "Mathematics",
+  "paperCode": "P2",
+  "year": 2023,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Statistics — Regression & Standard Deviation",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "1-1",
+          "label": "1.1",
+          "questionText": "Truck drivers travel a certain distance and have a rest before travelling further. A driver kept record of the distance he travelled (in km) on 8 trips and the amount of time he rested (in minutes) before he continued his journey. The information is given in the table below.\n\n| Distance travelled (in km) $x$ | 180 | 200 | 400 | 600 | 170 | 350 | 270 | 300 |\n|---|---|---|---|---|---|---|---|---|\n| Amount of rest time (in minutes) $y$ | 20 | 25 | 55 | 120 | 15 | 50 | 40 | 45 |\n\nDetermine the equation of the least squares regression line for the data.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $a = -23{,}846\\ldots$\nMark 2: $b = 0{,}227\\ldots$\nMark 3: Equation — $\\hat{y} = -23{,}85 + 0{,}23x$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-2",
+          "label": "1.2",
+          "questionText": "If a truck driver travelled $550$ km, predict the amount of time (in minutes) that he should rest before continuing his journey.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution of 550 — $\\hat{y} = -23{,}85 + 0{,}23(550)$\nMark 2: Answer — $y = 102{,}65$ (or $y = 101{,}02$ using the calculator's unrounded coefficients)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-3",
+          "label": "1.3",
+          "questionText": "Write down the correlation coefficient for the data.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $r = 0{,}98$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-4",
+          "label": "1.4",
+          "questionText": "Interpret your answer to QUESTION 1.3.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: (Very) strong positive correlation",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-5-1",
+          "label": "1.5.1",
+          "questionText": "At each stop, the truck driver spent money buying food and other refreshments. The amount spent (in rands) is given in the table below.\n\n| 100 | 150 | 130 | 200 | 50 | 180 | 200 | 190 |\n|---|---|---|---|---|---|---|---|\n\nCalculate the mean amount of money he spent at each stop.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $\\bar{x} = \\dfrac{1200}{8}$\nMark 2: $\\bar{x} = 150$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-5-2",
+          "label": "1.5.2",
+          "questionText": "Calculate the standard deviation for the data.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $\\sigma = 50{,}50$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-5-3",
+          "label": "1.5.3",
+          "questionText": "At how many stops did the driver spend an amount that was less than one standard deviation below the mean?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Calculation of $\\bar{x} - \\sigma = 150 - 50{,}50 = 99{,}50$\nMark 2: Answer — 1 stop (only R50 is below R99,50)",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Statistics — Grouped Data & Estimated Mean",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "2-1",
+          "label": "2.1",
+          "questionText": "At a certain school, the staff committee wanted to determine how many glasses of water the staff members drank during a school day. All teachers present on a specific day were interviewed. The information is shown in the table below.\n\n| Number of glasses of water drank per day | Number of staff members |\n|---|---|\n| $0 \\leq x < 2$ | 5 |\n| $2 \\leq x < 4$ | 15 |\n| $4 \\leq x < 6$ | 13 |\n| $6 \\leq x < 8$ | 5 |\n| $8 \\leq x < 10$ | 2 |\n\nComplete the cumulative frequency column provided in the table in the ANSWER BOOK.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Cumulative frequencies 5; 20; 33 — $5\\,;\\,20\\,;\\,33$\nMark 2: 38; 40 — final cumulative frequency $40$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-2",
+          "label": "2.2",
+          "questionText": "How many staff members were interviewed?",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: 40 staff members",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-3",
+          "label": "2.3",
+          "questionText": "How many staff members drank fewer than 6 glasses of water during a school day?",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: 33 staff members",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-4",
+          "label": "2.4",
+          "questionText": "The staff committee observed that $k$ teachers were absent on the day of the interviews. It was found that half of these $k$ teachers drank from 0 to fewer than 2 (that is $0 \\leq x < 2$) glasses of water per day, while the remainder of them drank from 4 to fewer than 6 (that is $4 \\leq x < 6$) glasses of water per day. When these $k$ teachers are included in the data, the estimated mean is 4 glasses of water per staff member per day.\n\nHow many teachers were absent on the day of the interviews?",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Set up estimated mean with the extra teachers — $\\bar{x} = \\dfrac{\\left(1\\times\\left(5+\\tfrac{k}{2}\\right)\\right) + (3\\times 15) + \\left(5\\times\\left(13+\\tfrac{k}{2}\\right)\\right) + (7\\times 5) + (9\\times 2)}{40+k} = 4$\nMark 2: Midpoint term $\\left(1\\times\\left(5+\\tfrac{k}{2}\\right)\\right)$\nMark 3: Midpoint term $\\left(5\\times\\left(13+\\tfrac{k}{2}\\right)\\right)$\nMark 4: Solve — $5+\\tfrac{k}{2}+45+65+\\tfrac{5k}{2}+35+18 = 160+4k \\Rightarrow 3k+168 = 160+4k \\Rightarrow k = 8$ teachers\n(Alternatively, original estimated mean $= 4{,}2$; $\\bar{x}_{\\text{old}} - 4 = 0{,}2$; $0{,}2 \\times 40 = 8$ teachers.)",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Analytical Geometry",
+      "totalMarks": 20,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q3.png",
+      "subQuestions": [
+        {
+          "id": "3-1",
+          "label": "3.1",
+          "questionText": "In the figure, $L(-4\\,;\\,1)$, $S(4\\,;\\,5)$ and $N(-2\\,;\\,-3)$ are the vertices of a triangle having $S\\hat{L}N = 90^\\circ$. $LN$ intersects the $x$-axis at $K$.\n\nCalculate the length of $SL$. Leave your answer in surd form.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution of S and L into the distance formula — $SL = \\sqrt{(4-(-4))^2 + (5-1)^2}$\nMark 2: Answer — $SL = \\sqrt{80} = 4\\sqrt{5} \\; (= 8{,}94)$ units",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-2",
+          "label": "3.2",
+          "questionText": "Calculate the gradient of $SN$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution of S and N into the gradient formula — $m_{SN} = \\dfrac{5-(-3)}{4-(-2)}$\nMark 2: Answer — $m_{SN} = \\dfrac{4}{3}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-3",
+          "label": "3.3",
+          "questionText": "Calculate the size of $\\theta$, the angle of inclination of $SN$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $\\tan\\theta = m_{SN} = \\dfrac{4}{3}$\nMark 2: $\\theta = 53{,}13^\\circ$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-4",
+          "label": "3.4",
+          "questionText": "Calculate the size of $L\\hat{N}S$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $m_{LN} = \\dfrac{1-(-3)}{-4-(-2)} = -2$\nMark 2: Angle of inclination — $L\\hat{K}O = 116{,}565\\ldots^\\circ$\nMark 3: $L\\hat{N}S = 116{,}565\\ldots^\\circ - 53{,}13^\\circ = 63{,}44^\\circ$\n(Alternatively, using $SN = 10$, $LN = 2\\sqrt{5}$: $\\tan L\\hat{N}S = \\dfrac{4\\sqrt{5}}{2\\sqrt{5}} \\Rightarrow L\\hat{N}S = 63{,}44^\\circ$.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-5",
+          "label": "3.5",
+          "questionText": "Determine the equation of the line which passes through $L$ and is parallel to $SN$. Write your answer in the form $y = mx + c$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $m = m_{SN} = \\dfrac{4}{3}$\nMark 2: Substitution of $m$ and $L(-4\\,;\\,1)$ — $1 = \\dfrac{4}{3}(-4) + c \\Rightarrow c = \\dfrac{19}{3}$\nMark 3: Equation — $y = \\dfrac{4}{3}x + \\dfrac{19}{3}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-6",
+          "label": "3.6",
+          "questionText": "Calculate the area of $\\triangle LSN$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $LN = \\sqrt{(-4-(-2))^2 + (1-(-3))^2} = \\sqrt{20} = 2\\sqrt{5}$\nMark 2: Substitution into the area formula — Area $\\triangle LSN = \\dfrac{1}{2}(4\\sqrt{5})(2\\sqrt{5})$\nMark 3: Answer — $= 20$ units$^2$\n(Alternatively, Area $= \\dfrac{1}{2}(10)(2\\sqrt{5})\\sin 63{,}44^\\circ = 20$ units$^2$.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-7",
+          "label": "3.7",
+          "questionText": "Calculate the coordinates of point $P$, which is equidistant from $L$, $S$ and $N$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $\\hat{L} = 90^\\circ$, so $SN$ is a diameter of circle $S, L, N$ and $P$ is the midpoint of $SN$ [chord subtends $90^\\circ$ / converse $\\angle$ in semi-circle]\nMark 2: $x$-value of $P$ — $\\dfrac{4+(-2)}{2} = 1$\nMark 3: $y$-value of $P$ — $\\dfrac{5+(-3)}{2} = 1$, so $P(1\\,;\\,1)$\n(Alternatively, let $P(a\\,;\\,b)$: $PL = PN$ and $PS = PN$ give two linear equations solving to $a = 1$, $b = 1$.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-8",
+          "label": "3.8",
+          "questionText": "Calculate the size of $L\\hat{P}S$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $L\\hat{P}N = \\theta = 53{,}13^\\circ$ [alt $\\angle$s; $LP \\parallel x$-axis]\nMark 2: $L\\hat{P}S = 126{,}87^\\circ$\n(Alternatively, $\\angle$ at centre $= 2\\times\\angle$ at circumference: $L\\hat{P}S = 2 \\times L\\hat{N}S = 126{,}88^\\circ$.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Analytical Geometry — Circles & Tangent",
+      "totalMarks": 20,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q4.png",
+      "subQuestions": [
+        {
+          "id": "4-1",
+          "label": "4.1",
+          "questionText": "In the diagram, the circle with centre $O$ has the equation $x^2 + y^2 = 20$. $G(t\\,;\\,0)$ is the centre of the larger circle. A common tangent touches the circles at $D$ and $F$ respectively, such that $D(p\\,;\\,-2)$ lies in the 4th quadrant.\n\nGiven that $D(p\\,;\\,-2)$ lies on the smaller circle, show that $p = 4$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution of $D(p\\,;\\,-2)$ into $x^2 + y^2 = 20$ — $p^2 + (-2)^2 = 20$\nMark 2: $p^2 = 16 \\Rightarrow p = \\pm 4$; $p = 4$ (in the 4th quadrant)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-2",
+          "label": "4.2",
+          "questionText": "$E(6\\,;\\,2)$ is the midpoint of $DF$. Determine the coordinates of $F$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Method — $\\dfrac{4+x_F}{2} = 6$ and $\\dfrac{-2+y_F}{2} = 2$\nMark 2: $x$-value — $x_F = 8$\nMark 3: $y$-value — $y_F = 6$, so $F(8\\,;\\,6)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-3",
+          "label": "4.3",
+          "questionText": "Determine the equation of the common tangent, $DF$, in the form $y = mx + c$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Correct substitution — $m_{DE} = \\dfrac{-2-2}{4-6}$\nMark 2: Gradient of $DE$, $DF$ or $EF$ — $m = 2$\nMark 3: Substitution of point $D(4\\,;\\,-2)$ or $E(6\\,;\\,2)$ or $F(8\\,;\\,6)$ — $-2 = 2(4) + c \\Rightarrow c = -10$\nMark 4: Answer — $y = 2x - 10$\n(Alternatively, $m_{OD} = -\\tfrac{1}{2}$, so $m_{DE} = 2$ [tan $\\perp$ radius].)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-4",
+          "label": "4.4",
+          "questionText": "Calculate the value of $t$. Show ALL working.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Correct gradient of $GF$ — $m_{GF} = -\\dfrac{1}{2}$ [tan $\\perp$ radius]\nMark 2: Substitution of $F$ — $\\dfrac{0-6}{t-8} = -\\dfrac{1}{2} \\Rightarrow -(t-8) = 2(-6)$\nMark 3: Answer — $t = 20$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-5",
+          "label": "4.5",
+          "questionText": "Determine the equation of the larger circle in the form $ax^2 + by^2 + cx + dy + e = 0$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Substitution of $F$ and $G$ — $(8-20)^2 + (6-0)^2 = r^2$\nMark 2: Value of $r^2$ — $r^2 = 180$\nMark 3: Equation of circle — $(x-20)^2 + y^2 = 180$\nMark 4: Answer — $x^2 + y^2 - 40x + 220 = 0$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-6",
+          "label": "4.6",
+          "questionText": "The smaller circle must be translated by $k$ units along the $x$-axis to touch the larger circle internally. Calculate the possible values of $k$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Radii — smaller circle $r = 2\\sqrt{5}$, larger circle $r = 6\\sqrt{5}$\nMark 2: Method — with $G(20\\,;\\,0)$: $k = 20 - (6\\sqrt{5} - 2\\sqrt{5})$ or $k = 20 + (6\\sqrt{5} - 2\\sqrt{5})$\nMarks 3–4 (double mark): $k = 20 - 4\\sqrt{5} = 11{,}06$ units or $k = 20 + 4\\sqrt{5} = 28{,}94$ units",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Trigonometry — Identities & Equations",
+      "totalMarks": 31,
+      "subQuestions": [
+        {
+          "id": "5-1-1",
+          "label": "5.1.1",
+          "questionText": "Given: $\\sin\\beta = \\dfrac{1}{3}$, where $\\beta \\in (90^\\circ\\,;\\,270^\\circ)$.\n\n**Without using a calculator**, determine each of the following:\n\n$\\cos\\beta$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Use $x^2 + y^2 = r^2$ (with $y = 1$, $r = 3$)\nMark 2: $x = -\\sqrt{8} = -2\\sqrt{2}$ (negative in the given interval)\nMark 3: Answer — $\\cos\\beta = \\dfrac{-2\\sqrt{2}}{3}$\n(Alternatively, $\\cos^2\\beta = 1 - \\sin^2\\beta = \\tfrac{8}{9} \\Rightarrow \\cos\\beta = \\dfrac{-2\\sqrt{2}}{3}$.)",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-1-2",
+          "label": "5.1.2",
+          "questionText": "$\\sin 2\\beta$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Double angle — $\\sin 2\\beta = 2\\sin\\beta\\cos\\beta$\nMark 2: Substitution — $= 2\\left(\\dfrac{1}{3}\\right)\\left(\\dfrac{-\\sqrt{8}}{3}\\right)$\nMark 3: Answer — $= \\dfrac{-2\\sqrt{8}}{9} = \\dfrac{-4\\sqrt{2}}{9}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-1-3",
+          "label": "5.1.3",
+          "questionText": "$\\cos(450^\\circ - \\beta)$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $\\cos(450^\\circ - \\beta) = \\cos(90^\\circ - \\beta)$\nMark 2: Co-ratio — $= \\sin\\beta$\nMark 3: Answer — $= \\dfrac{1}{3}$\n(Alternatively, expand $\\cos 450^\\circ\\cos\\beta + \\sin 450^\\circ\\sin\\beta = \\cos 90^\\circ\\cos\\beta + \\sin 90^\\circ\\sin\\beta = \\sin\\beta = \\tfrac{1}{3}$.)",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-2-1",
+          "label": "5.2.1",
+          "questionText": "Given: $\\dfrac{\\cos^4 x + \\sin^2 x\\cdot\\cos^2 x}{1 + \\sin x}$\n\nProve that $\\dfrac{\\cos^4 x + \\sin^2 x\\cdot\\cos^2 x}{1 + \\sin x} = 1 - \\sin x$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Common factor — $\\text{LHS} = \\dfrac{\\cos^2 x(\\cos^2 x + \\sin^2 x)}{1 + \\sin x}$\nMark 2: $\\sin^2 x + \\cos^2 x = 1$ — $= \\dfrac{\\cos^2 x}{1 + \\sin x}$\nMark 3: $\\cos^2 x = 1 - \\sin^2 x$ — $= \\dfrac{1 - \\sin^2 x}{1 + \\sin x}$\nMark 4: Factorise and simplify — $= \\dfrac{(1-\\sin x)(1+\\sin x)}{1 + \\sin x} = 1 - \\sin x = \\text{RHS}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-2-2",
+          "label": "5.2.2",
+          "questionText": "For what value(s) of $x$ in the interval $x \\in [0^\\circ\\,;\\,360^\\circ]$ is $\\dfrac{\\cos^4 x + \\sin^2 x\\cdot\\cos^2 x}{1 + \\sin x}$ undefined?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $\\sin x + 1 = 0 \\Rightarrow \\sin x = -1$ (ref. $\\angle = 90^\\circ$)\nMark 2: $x = 270^\\circ$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-2-3",
+          "label": "5.2.3",
+          "questionText": "Write down the minimum value of the function defined by $y = \\dfrac{\\cos^4 x + \\sin^2 x\\cdot\\cos^2 x}{1 + \\sin x}$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): $y = 1 - \\sin x$, so minimum $= 0$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-3-1",
+          "label": "5.3.1",
+          "questionText": "Given: $\\cos(A - B) = \\cos A\\cos B + \\sin A\\sin B$\n\nUse the above identity to deduce that $\\sin(A - B) = \\sin A\\cos B - \\cos A\\sin B$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Co-ratio — $\\sin(A-B) = \\cos[90^\\circ - (A-B)] = \\cos[(90^\\circ - A) - (-B)]$\nMark 2: Compound angle — $= \\cos(90^\\circ - A)\\cos(-B) + \\sin(90^\\circ - A)\\sin(-B)$\nMark 3: Reduction — $= \\sin A\\cos B + \\cos A(-\\sin B) = \\sin A\\cos B - \\cos A\\sin B$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-3-2",
+          "label": "5.3.2",
+          "questionText": "Hence, or otherwise, determine the general solution of the equation $\\sin 48^\\circ\\cos x - \\cos 48^\\circ\\sin x = \\cos 2x$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Compound angle — $\\sin(48^\\circ - x) = \\cos 2x$\nMark 2: Co-ratio — $\\sin(48^\\circ - x) = \\sin(90^\\circ - 2x)$\nMark 3: Both equations — $48^\\circ - x = 90^\\circ - 2x + k\\cdot 360^\\circ$ or $48^\\circ - x = 180^\\circ - (90^\\circ - 2x) + k\\cdot 360^\\circ$\nMark 4: General solution — $x = 42^\\circ + k\\cdot 360^\\circ$\nMark 5: General solution — $x = -14^\\circ - k\\cdot 120^\\circ$, $k \\in \\mathbb{Z}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-4",
+          "label": "5.4",
+          "questionText": "Simplify $\\dfrac{\\sin 3x + \\sin x}{\\cos 2x + 1}$ to a single trigonometric ratio.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: Write $3x = (2x + x)$ — $\\dfrac{\\sin(2x+x) + \\sin(2x-x)}{\\cos 2x + 1}$\nMark 2: Expansion — $\\dfrac{\\sin 2x\\cos x + \\cos 2x\\sin x + \\sin 2x\\cos x - \\cos 2x\\sin x}{2\\cos^2 x - 1 + 1}$\nMark 3: Double angle of $\\cos 2x$ — denominator $= 2\\cos^2 x$\nMark 4: Simplification — $= \\dfrac{2\\sin 2x\\cos x}{2\\cos^2 x}$\nMark 5: $\\sin 2x = 2\\sin x\\cos x$ — $= \\dfrac{4\\sin x\\cos^2 x}{2\\cos^2 x}$\nMark 6: Answer — $= 2\\sin x$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Trigonometric Graphs",
+      "totalMarks": 12,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q6.png",
+      "subQuestions": [
+        {
+          "id": "6-1",
+          "label": "6.1",
+          "questionText": "In the diagram, the graphs of $f(x) = 2\\sin 2x$ and $g(x) = -\\cos(x + 45^\\circ)$ are drawn for the interval $x \\in [0^\\circ\\,;\\,180^\\circ]$. $A(105^\\circ\\,;\\,-1)$ lies on $f$.\n\nWrite down the period of $f$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Period $= 180^\\circ$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-2",
+          "label": "6.2",
+          "questionText": "Determine the range of $g$ in the interval $x \\in [0^\\circ\\,;\\,180^\\circ]$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Lower bound $-\\dfrac{\\sqrt{2}}{2}$\nMark 2: Range — $y \\in \\left[-\\dfrac{\\sqrt{2}}{2}\\,;\\,1\\right]$ (i.e. $-0{,}71 \\leq y \\leq 1$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-3-1",
+          "label": "6.3.1",
+          "questionText": "Determine the values of $x$, in the interval $x \\in [0^\\circ\\,;\\,180^\\circ]$, for which $f(x)\\cdot g(x) > 0$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): $x \\in (45^\\circ\\,;\\,90^\\circ)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-3-2",
+          "label": "6.3.2",
+          "questionText": "Determine the values of $x$, in the interval $x \\in [0^\\circ\\,;\\,180^\\circ]$, for which $f(x) + 1 \\leq 0$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): $f(x) \\leq -1$, so $x \\in [105^\\circ\\,;\\,165^\\circ]$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-4",
+          "label": "6.4",
+          "questionText": "Another graph $p$ is defined as $p(x) = -f(x)$. $D(k\\,;\\,-1)$ lies on $p$. Determine the value(s) of $k$ in the interval $x \\in [0^\\circ\\,;\\,180^\\circ]$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Reading off — $p(x) = -2\\sin 2x$, so $-2\\sin 2x = -1$ (i.e. $2\\sin 2x = 1$)\nMark 2: $k = 15^\\circ$\nMark 3: $k = 75^\\circ$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-5",
+          "label": "6.5",
+          "questionText": "Graph $h$ is obtained when $g$ is translated $45^\\circ$ to the left. Determine the equation of $h$. Write your answer in its simplest form.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $h(x) = -\\cos(x + 90^\\circ)$\nMark 2: Answer — $h(x) = \\sin x$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Trigonometry — 3-D Application",
+      "totalMarks": 7,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q7.png",
+      "subQuestions": [
+        {
+          "id": "7-1",
+          "label": "7.1",
+          "questionText": "In the diagram, $S$, $T$ and $K$ lie in the same horizontal plane. $RS$ is a vertical tower. The angle of depression from $R$ to $K$ is $\\beta$. $T\\hat{S}K = \\alpha$, $TS = p$ metres and the area of $\\triangle STK$ is $q$ m$^2$.\n\nDetermine the length of $SK$ in terms of $p$, $q$ and $\\alpha$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution into the area formula — $q = \\dfrac{1}{2}p(SK)\\sin\\alpha$\nMark 2: Answer — $SK = \\dfrac{2q}{p\\sin\\alpha}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "7-2",
+          "label": "7.2",
+          "questionText": "Show that $RS = \\dfrac{2q\\tan\\beta}{p\\sin\\alpha}$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $R\\hat{K}S = \\beta$ (angle of depression = alternate angle)\nMark 2: Correct trig ratio — $\\dfrac{RS}{SK} = \\tan\\beta \\Rightarrow RS = SK\\tan\\beta = \\dfrac{2q\\tan\\beta}{p\\sin\\alpha}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "7-3",
+          "label": "7.3",
+          "questionText": "Calculate the size of $\\alpha$ if $\\alpha < 90^\\circ$ and $RS = 70$ m, $p = 80$ m, $q = 2\\,500$ m$^2$ and $\\beta = 42^\\circ$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Correct substitution into $RS$ — $70 = \\dfrac{2(2500)\\tan 42^\\circ}{80\\sin\\alpha}$\nMark 2: Value of $\\sin\\alpha$ — $\\sin\\alpha = \\dfrac{25}{28}\\tan 42^\\circ = 0{,}80\\ldots$\nMark 3: Answer — $\\alpha = 53{,}51^\\circ$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Euclidean Geometry — Circles",
+      "totalMarks": 16,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q8.png",
+      "subQuestions": [
+        {
+          "id": "8-1",
+          "label": "8.1",
+          "questionText": "In the diagram, $O$ is the centre of the circle, with $K$, $T$ and $P$ on the circumference. Use the diagram to prove the theorem which states that the angle subtended by a chord at the centre of the circle is equal to twice the angle subtended by the same chord at the circumference, that is, prove that $T\\hat{O}P = 2T\\hat{K}P$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Construction — draw $KO$ produced\nMark 2: $\\hat{O}_1 = \\hat{K}_1 + \\hat{T}$ [ext $\\angle$ of $\\triangle$]; but $\\hat{K}_1 = \\hat{T}$ [$\\angle$s opp equal sides] so $\\hat{O}_1 = 2\\hat{K}_1$\nMark 3: $\\hat{O}_2 = \\hat{K}_2 + \\hat{P}$ [ext $\\angle$ of $\\triangle$]; but $\\hat{K}_2 = \\hat{P}$ [$\\angle$s opp equal sides] so $\\hat{O}_2 = 2\\hat{K}_2$\nMark 4: $\\hat{O}_1 + \\hat{O}_2 = 2\\hat{K}_1 + 2\\hat{K}_2 = 2(\\hat{K}_1 + \\hat{K}_2)$\nMark 5: $\\therefore T\\hat{O}P = 2T\\hat{K}P$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "8-2",
+          "label": "8.2",
+          "questionText": "In the diagram, $O$ is the centre of the circle and $ABCD$ is a cyclic quadrilateral. $OB$ and $OD$ are drawn. If $\\hat{O}_1 = 4x + 100^\\circ$ and $\\hat{C} = x + 34^\\circ$, calculate, giving reasons, the size of $x$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1 (S): $\\hat{A} = 2x + 50^\\circ$\nMark 2 (R): [$\\angle$ at centre $= 2\\times\\angle$ at circumference]\nMark 3 (S): $x + 34^\\circ + 2x + 50^\\circ = 180^\\circ$\nMark 4 (R): [opp $\\angle$s of cyclic quad]\nMark 5: $3x = 96^\\circ \\Rightarrow x = 32^\\circ$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "8-3-1",
+          "label": "8.3.1",
+          "questionText": "In the diagram, $O$ is the centre of the larger circle. $OB$ is a diameter of the smaller circle. Chord $AB$ of the larger circle intersects the smaller circle at $M$ and $B$.\n\nWrite down the size of $O\\hat{M}B$. Provide a reason.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1 (S): $O\\hat{M}B = 90^\\circ$\nMark 2 (R): [$\\angle$ in semi-circle]",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "8-3-2",
+          "label": "8.3.2",
+          "questionText": "If $AB = \\sqrt{300}$ units and $OM = 5$ units, calculate, giving reasons, the length of $OB$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1 (S): $AB = \\sqrt{300} = 10\\sqrt{3}$, so $MB = 5\\sqrt{3}$\nMark 2 (R): [line from centre $\\perp$ to chord]\nMark 3 (S): $OB^2 = OM^2 + MB^2 = 5^2 + (5\\sqrt{3})^2$ [Pythagoras]\nMark 4: Answer — $OB = 10$ units",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Euclidean Geometry — Proportionality & Similarity",
+      "totalMarks": 9,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q9.png",
+      "subQuestions": [
+        {
+          "id": "9-1",
+          "label": "9.1",
+          "questionText": "In the diagram, $ABCD$ is a parallelogram with $AB = 14$ units. $AD$ is produced to $E$ such that $AD:DE = 4:3$. $EB$ intersects $DC$ in $F$. $EB = 21$ units.\n\nCalculate, with reasons, the length of $FB$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1 (S): $\\dfrac{FB}{EB} = \\dfrac{DA}{EA}$\nMark 2 (R): [prop theorem; $DC \\parallel AB$ / line $\\parallel$ one side of $\\triangle$]\nMark 3: $FB = \\dfrac{4p \\times 21}{7p} = 12$ units",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "9-2",
+          "label": "9.2",
+          "questionText": "Prove, with reasons, that $\\triangle EDF \\;|||\\; \\triangle EAB$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1 (S): In $\\triangle EDF$ and $\\triangle EAB$: $\\hat{E}$ is common\nMark 2 (S/R): $E\\hat{D}F = \\hat{A}$ [corresp $\\angle$s; $EA \\parallel CB$]\nMark 3 (S or R): $E\\hat{F}D = E\\hat{B}A$ [corresp $\\angle$s; $DC \\parallel AB$], $\\therefore \\triangle EDF \\;|||\\; \\triangle EAB$ [$\\angle;\\angle;\\angle$]",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "9-3",
+          "label": "9.3",
+          "questionText": "Calculate, with reasons, the length of $FC$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1 (S): $\\dfrac{DF}{AB} = \\dfrac{ED}{EA}$ [$||| \\triangle$s]\nMark 2: $DF = \\dfrac{3p \\times 14}{7p} = 6$ units\nMark 3: $FC = 14 - DF = 8$ units [$DC = AB = 14$ units; opp sides of $\\parallel^m$]",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Euclidean Geometry — Cyclic Quadrilateral & Tangents",
+      "totalMarks": 15,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q10.png",
+      "subQuestions": [
+        {
+          "id": "10-1",
+          "label": "10.1",
+          "questionText": "In the diagram, $PQRS$ is a cyclic quadrilateral such that $PQ = PR$. The tangents to the circle through $P$ and $R$ meet $QS$ produced at $A$. $RS$ is produced to meet tangent $AP$ at $B$. $PS$ is produced to meet tangent $AR$ at $C$. $PR$ and $QS$ intersect at $M$.\n\nProve, giving reasons, that $\\hat{S}_3 = \\hat{S}_4$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1 (S): $\\hat{S}_3 = P\\hat{Q}R$ [ext $\\angle$ of cyclic quad]\nMark 2 (R): reason as above\nMark 3 (S/R): $\\hat{R}_3 = P\\hat{Q}R$ [$\\angle$s opp equal sides], so $\\hat{S}_3 = \\hat{R}_3$\nMark 4 (S): But $\\hat{S}_4 = \\hat{R}_3$ [$\\angle$s in the same seg]\nMark 5 (R): $\\therefore \\hat{S}_3 = \\hat{S}_4$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "10-2",
+          "label": "10.2",
+          "questionText": "Prove, giving reasons, that $SMRC$ is a cyclic quadrilateral.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1 (S): $\\hat{R}_1 + \\hat{R}_2 = P\\hat{Q}R$ [tan chord theorem]\nMark 2 (R): reason as above\nMark 3 (S): $\\hat{S}_4 = P\\hat{Q}R$ [proved in 10.1], so $\\hat{S}_4 = \\hat{R}_1 + \\hat{R}_2$\nMark 4 (R): $\\therefore SMRC$ is a cyclic quad [converse ext $\\angle$ of cyclic quad]",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "10-3",
+          "label": "10.3",
+          "questionText": "Prove, giving reasons, that $RP$ is a tangent to the circle passing through $P$, $S$ and $A$ at $P$.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1 (S/R): $\\hat{S}_3 = \\hat{R}_2 + \\hat{P}_2$ [ext $\\angle$ of $\\triangle$]\nMark 2 (S): $\\hat{S}_4 = \\hat{P}_1 + \\hat{A}_2$ [ext $\\angle$ of $\\triangle$], so $\\hat{R}_2 + \\hat{P}_2 = \\hat{A}_2 + \\hat{P}_1$\nMark 3 (S/R): But $\\hat{P}_1 = \\hat{R}_2$ [tan chord theorem]\nMark 4: $\\therefore \\hat{P}_2 = \\hat{A}_2$\nMark 5 (R): $\\therefore RP$ is a tangent to the circle passing through $P$, $S$ and $A$ [converse tan chord theorem / converse alt seg theorem]\nMark 6: consistency mark\n(Alternatively, in $\\triangle MSP$ and $\\triangle MPA$ using $AR = AP$ [tans from same point] and sum of $\\angle$s in $\\triangle$.)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

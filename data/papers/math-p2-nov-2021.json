@@ -1,0 +1,570 @@
+{
+  "id": "math-p2-nov-2021",
+  "subject": "Mathematics",
+  "paperCode": "P2",
+  "year": 2021,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Statistics",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2021_q1.png",
+      "subQuestions": [
+        {
+          "id": "1-1-1",
+          "label": "1.1.1",
+          "questionText": "A bakery kept a record of the number of loaves of bread a tuck-shop ordered daily over the last 18 days. The information is shown in the table below.\n\n| 10 | 11 | 13 | 14 | 14 | 15 | 16 | 18 | 18 |\n|----|----|----|----|----|----|----|----|----|\n| 19 | 19 | 20 | 21 | 35 | 35 | 37 | 40 | 41 |\n\nCalculate the mean number of loaves of bread ordered daily.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Sum $= 396$\nMark 2: $\\bar{x} = \\dfrac{396}{18} = 22$\n(Answer only: full marks.)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-1-2",
+          "label": "1.1.2",
+          "questionText": "Calculate the standard deviation of the data.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $\\sigma = 10{,}1707 \\approx 10{,}17$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-1-3",
+          "label": "1.1.3",
+          "questionText": "Calculate the number of days on which the number of loaves of bread ordered was more than one standard deviation above the mean.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $\\bar{x} + \\sigma = 32{,}17$\nMark 2: $\\therefore 5$ days",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-2",
+          "label": "1.2",
+          "questionText": "The tuck-shop owner was not able to sell all the loaves of bread delivered daily. He calculated the mean number of loaves sold over the 18 days to be 20. Calculate the number of loaves of bread which were NOT sold over the 18 days.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $22 \\times 18 = 396$ ordered; $20 \\times 18 = 360$ sold\nMark 2: Total not sold $= 36$\n(OR: $22 - 20 = 2$; $2 \\times 18 = 36$.)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-3-1",
+          "label": "1.3.1",
+          "questionText": "One of the two box and whisker diagrams drawn (Graph A and Graph B, shown in the figure) represents the data given in the table above.\n\nWhich ONE of the two box and whisker diagrams correctly represents the data? Write down a reason for your answer.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Graph B\nMark 2: Reason — any one of: Median $= 18{,}5$; $Q_1 = 14$; IQR $= 21$; Mean > Median, therefore the data is skewed to the right",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-3-2",
+          "label": "1.3.2",
+          "questionText": "Describe the skewness of the data.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Data is positively skewed / skewed to the right",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Regression & Correlation",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "2-1",
+          "label": "2.1",
+          "questionText": "A farm stall sells milk in 5-litre containers to the local community. The price varies according to the availability of milk at the farm stall. The price of milk, in rands per 5-litre container, and the number of 5-litre containers of milk sold, are recorded in the table below.\n\n| Price of milk in rands per 5-litre container ($x$) | 26 | 32 | 36 | 28 | 40 | 33 | 29 | 34 | 27 | 30 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| Number of 5-litre containers of milk sold ($y$) | 48 | 30 | 26 | 44 | 23 | 32 | 39 | 29 | 42 | 33 |\n\nOn the grid provided in the ANSWER BOOK, draw the scatter plot to represent the data.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMarks 1–3: Scatter plot drawn on the grid — 1 mark for 3 to 5 points plotted correctly, 2 marks for 6 to 9 points plotted correctly, 3 marks for all 10 points plotted correctly.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-2",
+          "label": "2.2",
+          "questionText": "Determine the equation of the least squares regression line for the data.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $a = 90{,}478... \\approx 90{,}48$\nMark 2: $b = -1{,}773... \\approx -1{,}77$\nMark 3: $\\hat{y} = 90{,}48 - 1{,}77x$\n(Answer only: full marks.)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-3",
+          "label": "2.3",
+          "questionText": "If the farmer sells a 5-litre container of milk for R38, predict the number of 5-litre containers of milk he will sell.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): $y = 23{,}069... \\approx 23{,}07$ units (calculator)\n(OR: $y = 90{,}48 - 1{,}77(38) = 23{,}22$ units.)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-4",
+          "label": "2.4",
+          "questionText": "Refer to the correlation between the price of 5-litre containers of milk and the number of 5-litre containers of milk sold, and comment on the accuracy of your answer to QUESTION 2.3.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $r = -0{,}94$ — the value of $r$ indicates a strong relationship between the cost per 5 litre and the number of units sold\nMark 2: $\\therefore$ there is a good chance of the prediction being accurate",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Analytical Geometry",
+      "totalMarks": 24,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2021_q3.png",
+      "subQuestions": [
+        {
+          "id": "3-1-1",
+          "label": "3.1.1",
+          "questionText": "In the diagram, $A(-2\\,;\\,10)$, $B(k\\,;\\,k)$ and $C(4\\,;\\,-2)$ are the vertices of $\\triangle ABC$. Line BC is produced to H and cuts the $x$-axis at $E(12\\,;\\,0)$. AB and AC intersect the $x$-axis at F and G respectively. The angle of inclination of line AB is $81{,}87°$.\n\nCalculate the gradient of BE.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution of C & E — $m_{BE} = m_{CE} = \\dfrac{0-(-2)}{12-4}$\nMark 2: $= \\dfrac{1}{4}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-1-2",
+          "label": "3.1.2",
+          "questionText": "Calculate the gradient of AB.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $m_{AB} = \\tan 81{,}87°$\nMark 2: $m_{AB} = 7$\n(Answer only: full marks.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-2",
+          "label": "3.2",
+          "questionText": "Determine the equation of BE in the form $y = mx + c$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution of E — $0 = \\dfrac{1}{4}(12) + c \\Rightarrow c = -3$\nMark 2: $y = \\dfrac{1}{4}x - 3$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-3-1",
+          "label": "3.3.1",
+          "questionText": "Calculate the coordinates of B, where $k < 0$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution — $k = \\dfrac{1}{4}k - 3 \\Rightarrow \\dfrac{3}{4}k = -3$\nMark 2: $k = -4$, $\\therefore B(-4\\,;\\,-4)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-3-2",
+          "label": "3.3.2",
+          "questionText": "Calculate the size of $\\hat{A}$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $m_{AC} = \\dfrac{10-(-2)}{-2-4} = -2$\nMark 2: $\\tan\\theta = m_{AC} = -2$\nMark 3: $\\theta = 180° - 63{,}43... = 116{,}57°$\nMark 4: $\\hat{A} = 116{,}57° - 81{,}87° = 34{,}70°$ [ext $\\angle$ of $\\triangle$]\n(OR: cosine rule in $\\triangle ABC$ with $a = 2\\sqrt{17}$, $b = 6\\sqrt{5}$, $c = 10\\sqrt{2}$ gives $\\cos A = 0{,}822...$, $\\therefore A = 34{,}7°$.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-3-3",
+          "label": "3.3.3",
+          "questionText": "Calculate the coordinates of the point of intersection of the diagonals of parallelogram ACES, where S is a point in the first quadrant.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x$-value\nMark 2: $y$-value — $M\\left(\\dfrac{12+(-2)}{2}\\,;\\,\\dfrac{10+0}{2}\\right)$; diagonals intersect at $(5\\,;\\,5)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-4-1",
+          "label": "3.4.1",
+          "questionText": "Another point $T(p\\,;\\,p)$, where $p > 0$, is plotted such that $ET = BE = 4\\sqrt{17}$ units. Calculate the coordinates of T.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Substitution of E & T — $4\\sqrt{17} = \\sqrt{(12-p)^2 + (0-p)^2}$\nMark 2: Equating (squaring) — $272 = 144 - 24p + p^2 + p^2$\nMark 3: Standard form — $p^2 - 12p - 64 = 0$\nMark 4: Factors — $(p-16)(p+4) = 0$\nMark 5: $p = 16$ (reject $p = -4$), $\\therefore T(16\\,;\\,16)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-4-2-a",
+          "label": "3.4.2 (a)",
+          "questionText": "Determine the equation of the circle with centre at E and passing through B and T in the form $(x-a)^2 + (y-b)^2 = r^2$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: LHS\nMark 2: RHS — $(x-12)^2 + y^2 = (4\\sqrt{17})^2 = 272$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-4-2-b",
+          "label": "3.4.2 (b)",
+          "questionText": "Determine the equation of the tangent to the circle at point $B(k\\,;\\,k)$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $m_{tangent} = -4$ (since $m_{radius} = \\dfrac{1}{4}$)\nMark 2: Substitution of B — $-4 = -4(-4) + c \\Rightarrow c = -20$\nMark 3: $y = -4x - 20$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Analytical Geometry (Circle)",
+      "totalMarks": 15,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2021_q4.png",
+      "subQuestions": [
+        {
+          "id": "4-1",
+          "label": "4.1",
+          "questionText": "In the diagram, the circle centred at $N(-1\\,;\\,3)$ passes through $A(-1\\,;\\,-1)$ and C. $B(-4\\,;\\,2)$, C, D and E are joined to form a parallelogram such that BE is parallel to the $x$-axis. CD is a tangent to the circle at C and $CD = 6$ units.\n\nWrite down the length of the radius of the circle.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Radius $= 4$ units",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-2-1",
+          "label": "4.2.1",
+          "questionText": "Calculate the coordinates of C.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x$-value\nMark 2: $y$-value — $CD \\perp CN$, $\\therefore C(-1\\,;\\,7)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-2-2",
+          "label": "4.2.2",
+          "questionText": "Calculate the coordinates of D.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x$-value\nMark 2: $y$-value — $CD = 6$ units, $\\therefore D(5\\,;\\,7)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-2-3",
+          "label": "4.2.3",
+          "questionText": "Calculate the area of $\\triangle BCD$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $\\perp h = 5$ units\nMark 2: Substitution into the area formula — Area $\\triangle BCD = \\dfrac{1}{2}(6)(5)$\nMark 3: $= 15$ units$^2$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-3-1",
+          "label": "4.3.1",
+          "questionText": "The circle, centred at N, is reflected about the line $y = x$. M is the centre of the new circle which is formed. The two circles intersect at A and F.\n\nCalculate the length of NM.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Coordinates of M — $M(3\\,;\\,-1)$ (reflection of $N(-1\\,;\\,3)$ about $y = x$)\nMark 2: Substitution of M & N — $MN = \\sqrt{(3-(-1))^2 + (-1-3)^2}$\nMark 3: $MN = \\sqrt{32} = 4\\sqrt{2} = 5{,}66$ units",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-3-2",
+          "label": "4.3.2",
+          "questionText": "Calculate the midpoint of AF.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Equation of MN — $y = -x + 2$ (using $m_{MN} = -1$)\nMark 2: Equating AF & MN — $x = -x + 2$\nMark 3: $x$-value $= 1$\nMark 4: $y$-value $= 1$, midpoint $(1\\,;\\,1)$\n(OR: NAMF is a square, so midpoint of NM $= (1\\,;\\,1) = $ midpoint of AF.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Trigonometry",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "5-1",
+          "label": "5.1",
+          "questionText": "**Without using a calculator**, simplify the following expression to ONE trigonometric ratio:\n\n$$\\dfrac{\\sin 140°\\cdot\\sin(360° - x)}{\\cos 50°\\cdot\\tan(-x)}$$",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: $\\sin 140° = \\sin 40°$\nMark 2: $\\sin(360° - x) = -\\sin x$\nMark 3: co-ratio $\\cos 50° = \\sin 40°$\nMark 4: $\\tan(-x) = -\\tan x$\nMark 5: $\\tan x = \\dfrac{\\sin x}{\\cos x}$\nMark 6: $= \\cos x$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-2",
+          "label": "5.2",
+          "questionText": "Prove the identity:\n\n$$\\dfrac{-2\\sin^2 x + \\cos x + 1}{1 - \\cos(540° - x)} = 2\\cos x - 1$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Identity i.t.o. $\\cos x$ — $-2\\sin^2 x = -2(1 - \\cos^2 x)$\nMark 2: $\\cos(540° - x) = -\\cos x$\nMark 3: Standard form — LHS $= \\dfrac{2\\cos^2 x + \\cos x - 1}{1 + \\cos x}$\nMark 4: Factors — $\\dfrac{(2\\cos x - 1)(\\cos x + 1)}{1 + \\cos x} = 2\\cos x - 1 = $ RHS",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-3-1",
+          "label": "5.3.1",
+          "questionText": "Given: $\\sin 36° = \\sqrt{1 - p^2}$\n\n**Without using a calculator**, determine $\\tan 36°$ in terms of $p$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Method (right-angled triangle: opposite $= \\sqrt{1-p^2}$, hypotenuse $= 1$, adjacent $= p$)\nMark 2: value of $p$ ($\\cos 36° = p$)\nMark 3: $\\tan 36° = \\dfrac{\\sqrt{1 - p^2}}{p}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-3-2",
+          "label": "5.3.2",
+          "questionText": "**Without using a calculator**, determine $\\cos 108°$ in terms of $p$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Reduction — $\\cos 108° = -\\cos 72°$\nMark 2: Double angle — $= -\\cos(2 \\times 36°)$\nMark 3: Expansion — $= -(2\\cos^2 36° - 1)$\nMark 4: $= -2p^2 + 1$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Trigonometry (Identities & Equations)",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "6-1-1",
+          "label": "6.1.1",
+          "questionText": "Given: $\\cos(\\alpha - \\beta) = \\cos\\alpha\\cos\\beta + \\sin\\alpha\\sin\\beta$\n\nUse the given identity to derive a formula for $\\cos(\\alpha + \\beta)$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $\\cos(\\alpha + \\beta) = \\cos(\\alpha - (-\\beta))$\nMark 2: Expansion — $= \\cos\\alpha\\cos(-\\beta) + \\sin\\alpha\\sin(-\\beta)$\nMark 3: Reduction — $= \\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "6-1-2",
+          "label": "6.1.2",
+          "questionText": "Simplify completely: $2\\cos 6x\\cos 4x - \\cos 10x + 2\\sin^2 x$",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: $\\cos 10x = \\cos(6x + 4x)$\nMark 2: Expansion of $\\cos(6x + 4x)$\nMark 3: $= \\cos 6x\\cos 4x + \\sin 6x\\sin 4x + 2\\sin^2 x = \\cos 2x + 2\\sin^2 x$; ($\\cos 2x$)\nMark 4: $= 1 - 2\\sin^2 x + 2\\sin^2 x$\nMark 5: $= 1$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "6-2",
+          "label": "6.2",
+          "questionText": "Determine the general solution of $\\tan x = 2\\sin 2x$ where $\\cos x < 0$.",
+          "marks": 7,
+          "memoText": "Mark scheme (7 marks):\nMark 1: Quotient identity — $\\dfrac{\\sin x}{\\cos x} = 2(2\\sin x\\cos x)$\nMark 2: Double angle identity — $\\sin x = 4\\sin x\\cos^2 x$\nMark 3: Factors — $\\sin x(4\\cos^2 x - 1) = 0$\nMark 4: Both equations — $\\sin x = 0$ or $\\cos^2 x = \\dfrac{1}{4} \\Rightarrow \\cos x = -\\dfrac{1}{2}$ (since $\\cos x < 0$)\nMark 5: $x = 180° + k\\cdot 360°$, $k \\in \\mathbb{Z}$\nMark 6: $x = 120°$ & $240°$ (i.e. $\\pm 120°$)\nMark 7: $+ k\\cdot 360°$, $k \\in \\mathbb{Z}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Trigonometric Graphs",
+      "totalMarks": 8,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2021_q7.png",
+      "subQuestions": [
+        {
+          "id": "7-1",
+          "label": "7.1",
+          "questionText": "In the diagram, the graph of $f(x) = -2\\sin x$ is drawn for the interval $x \\in [-180°\\,;\\,180°]$.\n\nOn the grid provided in the ANSWER BOOK, draw the graph of $g(x) = \\cos(x - 60°)$ for $x \\in [-180°\\,;\\,180°]$. Clearly show ALL intercepts with the axes and turning points of the graph.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Both turning points\nMark 2: Both $x$-intercepts ($-30°$ & $150°$)\nMark 3: Shape of $g(x) = \\cos(x - 60°)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-2",
+          "label": "7.2",
+          "questionText": "Write down the period of $f(3x)$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): Period $= 120°$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-3",
+          "label": "7.3",
+          "questionText": "**Use the graphs** to determine the value of $x$ in the interval $x \\in [-180°\\,;\\,180°]$ for which $f(x) - g(x) = 1$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $x = -30°$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-4",
+          "label": "7.4",
+          "questionText": "Write down the range of $k$, if $k(x) = \\dfrac{1}{2}g(x) + 1$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Critical values\nMark 2: Correct notation — $y \\in \\left[\\dfrac{1}{2}\\,;\\,\\dfrac{3}{2}\\right]$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Trigonometry (2D/3D)",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2021_q8.png",
+      "subQuestions": [
+        {
+          "id": "8-1",
+          "label": "8.1",
+          "questionText": "In the diagram, T is a hook on the ceiling of an art gallery. Points Q, S and R are on the same horizontal plane from where three people are observing the hook T. The angle of elevation from Q to T is $x$.\n\n$Q\\hat{S}R = 90° + x$, $Q\\hat{R}S = x$, $QR = 5$ units and $TS = SQ$.\n\nProve that $QS = 5\\tan x$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Correct use of the sine rule in $\\triangle SQR$ — $\\dfrac{QS}{\\sin x} = \\dfrac{QR}{\\sin(90° + x)}$\nMark 2: $\\sin(90° + x) = \\cos x$\nMark 3: $QS = \\dfrac{5\\sin x}{\\cos x} = 5\\tan x$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "8-2",
+          "label": "8.2",
+          "questionText": "Prove that the length of $QT = 10\\sin x$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Correct use of the sine rule — $\\dfrac{QT}{\\sin(180° - 2x)} = \\dfrac{TS}{\\sin x}$\nMark 2: $TS = QS = 5\\tan x$\nMark 3: $QT = \\dfrac{5\\tan x\\sin 2x}{\\sin x}$\nMark 4: $\\tan x = \\dfrac{\\sin x}{\\cos x}$\nMark 5: $\\sin 2x = 2\\sin x\\cos x$, $\\therefore QT = 10\\sin x$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "8-3",
+          "label": "8.3",
+          "questionText": "Calculate the area of $\\triangle TQR$ if $T\\hat{Q}R = 70°$ and $x = 25°$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Correct substitution into the area rule — Area $\\triangle TQR = \\dfrac{1}{2}(10\\sin 25°)(5)(\\sin 70°)$\nMark 2: $= 9{,}93$ units$^2$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Euclidean Geometry (Circles)",
+      "totalMarks": 5,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2021_q9.png",
+      "subQuestions": [
+        {
+          "id": "9-1",
+          "label": "9.1",
+          "questionText": "In the diagram, PQRS is a cyclic quadrilateral. PS is produced to W. TR and TS are tangents to the circle at R and S respectively. $\\hat{T} = 78°$ and $\\hat{Q} = 93°$.\n\nGive a reason why $ST = TR$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Tangents from the same (common) point",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "9-2-1",
+          "label": "9.2.1",
+          "questionText": "Calculate, giving reasons, the size of $\\hat{S}_2$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Reason — $\\hat{S}_2 = S\\hat{R}T$ [$\\angle$s opp equal sides]\nMark 2: $\\hat{S}_2 = 51°$ [sum of $\\angle$s in $\\triangle$]",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "9-2-2",
+          "label": "9.2.2",
+          "questionText": "Calculate, giving reasons, the size of $\\hat{S}_3$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Reason — $\\hat{S}_2 + \\hat{S}_3 = 93°$ [ext $\\angle$ of cyclic quad]\nMark 2: $\\hat{S}_3 = 42°$\n(OR: $\\hat{S}_1 = 87°$ [opp $\\angle$s of cyclic quad], $\\hat{S}_3 = 180° - (87° + 51°) = 42°$ [$\\angle$s on a str line].)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Euclidean Geometry (Circles)",
+      "totalMarks": 13,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2021_q10.png",
+      "subQuestions": [
+        {
+          "id": "10-1",
+          "label": "10.1",
+          "questionText": "In the diagram, BE and CD are diameters of a circle having M as centre. Chord AE is drawn to cut CD at F. $AE \\perp CD$. Let $\\hat{C} = x$.\n\nGive a reason why $AF = FE$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Line from centre $\\perp$ to chord",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "10-2",
+          "label": "10.2",
+          "questionText": "Determine, giving reasons, the size of $\\hat{M}_1$ in terms of $x$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $\\hat{A}_1 = 90° - x$ [sum of $\\angle$s in $\\triangle$]\nMarks 2–3: $\\hat{M}_1 = 180° - 2x$ [$\\angle$ at centre $= 2\\times\\angle$ at circumference]",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "10-3",
+          "label": "10.3",
+          "questionText": "Prove, giving reasons, that AD is a tangent to the circle passing through A, C and F.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $C\\hat{A}D = 90°$ [$\\angle$ in semi-circle]\nMark 2: $\\hat{A}_2 = 90° - (90° - x) = x$\nMark 3: $\\therefore \\hat{A}_2 = \\hat{C} = x$\nMark 4: $\\therefore AD$ is a tangent [converse tan-chord theorem]",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "10-4",
+          "label": "10.4",
+          "questionText": "Given that $CF = 6$ units and $AB = 24$ units, calculate, giving reasons, the length of AE.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: $FM = \\dfrac{1}{2}AB = 12$ units [Midpt Theorem]\nMark 2: Reason\nMark 3: $EM = MB = CM = 18$ units [radii], $\\therefore EB = 36$ units\nMark 4: Using Pythagoras — $AE^2 = (36)^2 - (24)^2$\nMark 5: $AE = 12\\sqrt{5} \\approx 26{,}83$ units",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Euclidean Geometry (Tangents & Similarity)",
+      "totalMarks": 23,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2021_q11.png",
+      "subQuestions": [
+        {
+          "id": "11-1",
+          "label": "11.1",
+          "questionText": "In the diagram, chords DE, EF and DF are drawn in the circle with centre O. KFC is a tangent to the circle at F.\n\nProve the theorem which states that $D\\hat{F}K = \\hat{E}$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Construction — draw diameter BF and draw BE\nMarks 2–3: $B\\hat{F}K = 90°$ (or $D\\hat{F}K = 90° - B\\hat{F}D$) [radius $\\perp$ tangent]\nMark 4: $B\\hat{E}F = 90°$ [$\\angle$ in semi-circle], $\\therefore D\\hat{E}F = 90° - B\\hat{E}D = 90° - B\\hat{F}D$ [$\\angle$s same segment]\nMark 5: $\\therefore D\\hat{F}K = D\\hat{E}F$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-2-1-a",
+          "label": "11.2.1 (a)",
+          "questionText": "In the diagram, PK is a tangent to the circle at K. Chord LS is produced to P. N and M are points on KP and SP respectively such that $MN \\parallel SK$. Chord KS and LN intersect at T.\n\nProve, giving reasons, that $\\hat{K}_4 = N\\hat{M}L$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMarks 1–2: $\\hat{K}_4 = \\hat{S}_1$ [tan-chord theorem]\nMarks 3–4: $\\hat{M}_2 + \\hat{M}_3 = \\hat{S}_1$ [corresp $\\angle$s; MN $\\parallel$ KS], $\\therefore \\hat{K}_4 = \\hat{M}_2 + \\hat{M}_3 = N\\hat{M}L$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-2-1-b",
+          "label": "11.2.1 (b)",
+          "questionText": "Prove, giving reasons, that KLMN is a cyclic quadrilateral.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Reason — $\\hat{K}_4 = N\\hat{M}L$, $\\therefore$ KLMN is a cyclic quad [ext $\\angle$ of quad $=$ opp int $\\angle$]",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-2-2",
+          "label": "11.2.2",
+          "questionText": "Prove, giving reasons, that $\\triangle LKN \\;|||\\; \\triangle KSM$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: $\\hat{N}_3 = \\hat{M}_3$ [$\\angle$s in the same segment]\nMark 2: $\\hat{L}_1 = \\hat{M}_2$ [$\\angle$s in the same segment]\nMark 3: $= \\hat{K}_2$ [alt $\\angle$s; MN $\\parallel$ KS]\nMark 4: $N\\hat{L}K = M\\hat{S}K$ [$\\angle$s of $\\triangle$]\nMark 5: $\\therefore \\triangle LKN \\;|||\\; \\triangle KSM$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-2-3",
+          "label": "11.2.3",
+          "questionText": "If $LK = 12$ units and $3KN = 4SM$, determine the length of KS.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMarks 1–2: $\\dfrac{LK}{KS} = \\dfrac{KN}{SM}$ [$\\triangle LKN \\;|||\\; \\triangle KSM$]\nMark 3: Substitution — $\\dfrac{12}{KS} = \\dfrac{4}{3}$ (since $\\dfrac{KN}{SM} = \\dfrac{4}{3}$)\nMark 4: $KS = 9$ units",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-2-4",
+          "label": "11.2.4",
+          "questionText": "If it is further given that $NL = 16$ units, $LS = 13$ units and $KN = 8$ units, determine, with reasons, the length of LT.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $SM = 6$ (from $4SM = 3KN = 3(8)$)\nMarks 2–3: $\\dfrac{LT}{NL} = \\dfrac{LS}{ML}$ [line $\\parallel$ one side of $\\triangle$]\nMark 4: $\\dfrac{LT}{16} = \\dfrac{13}{19}$, $\\therefore LT = \\dfrac{208}{19} = 10{,}95$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Past Papers — Source of Truth
 
-> Last updated: 2026-05-15
+> Last updated: 2026-07-25
 > ✅ Complete · ⚠️ Partial · ❌ Not started · ➖ Text-only · 🚫 File missing
 
 | Subject | P | Year | Session | Wired | Missing | Status |
@@ -52,6 +52,16 @@
 | Economics | P2 | 2024 | May/Jun | 5 | 0 | ✅ |
 | Economics | P2 | 2025 | May/Jun | 6 | 0 | ✅ |
 | Economics | P2 | 2026 | Predictive | 7 | 8 | ⚠️ |
+| Economics | P1 | 2021 | November | 59 | 2 | ⚠️ |
+| Economics | P1 | 2022 | November | 59 | 6 | ⚠️ |
+| Economics | P1 | 2023 | November | 59 | 6 | ⚠️ |
+| Economics | P1 | 2024 | November | 59 | 6 | ⚠️ |
+| Economics | P1 | 2025 | November | 59 | 6 | ⚠️ |
+| Economics | P2 | 2021 | November | 66 | 8 | ⚠️ |
+| Economics | P2 | 2022 | November | 59 | 7 | ⚠️ |
+| Economics | P2 | 2023 | November | 59 | 7 | ⚠️ |
+| Economics | P2 | 2024 | November | 59 | 5 | ⚠️ |
+| Economics | P2 | 2025 | November | 59 | 4 | ⚠️ |
 | English HL | P1 | 2021 | May/Jun | 2 | 0 | ✅ |
 | English HL | P1 | 2022 | May/Jun | 5 | 0 | ✅ |
 | English HL | P1 | 2023 | May/Jun | 2 | 0 | ✅ |
@@ -98,7 +108,22 @@
 | Life Sciences | P2 | 2024 | May/Jun | 39 | 0 | ✅ |
 | Life Sciences | P2 | 2025 | May/Jun | 34 | 0 | ✅ |
 | Life Sciences | P2 | 2026 | Predictive | 0 | 9 | ❌ |
+| Life Sciences | P1 | 2021 | November | 67 | 7 | ⚠️ |
+| Life Sciences | P1 | 2022 | November | 72 | 10 | ⚠️ |
+| Life Sciences | P1 | 2023 | November | 65 | 8 | ⚠️ |
+| Life Sciences | P1 | 2024 | November | 67 | 8 | ⚠️ |
+| Life Sciences | P1 | 2025 | November | 63 | 9 | ⚠️ |
+| Life Sciences | P2 | 2021 | November | 62 | 9 | ⚠️ |
+| Life Sciences | P2 | 2022 | November | 71 | 7 | ⚠️ |
+| Life Sciences | P2 | 2023 | November | 74 | 7 | ⚠️ |
+| Life Sciences | P2 | 2024 | November | 68 | 7 | ⚠️ |
+| Life Sciences | P2 | 2025 | November | 70 | 9 | ⚠️ |
 | Mathematics | P1 | 2021–2025 | May/Jun | 0 | 0 | ➖ |
+| Mathematics | P1 | 2021 | November | 52 | 3 | ⚠️ |
+| Mathematics | P1 | 2022 | November | 49 | 4 | ⚠️ |
+| Mathematics | P1 | 2023 | November | 51 | 3 | ⚠️ |
+| Mathematics | P1 | 2024 | November | 49 | 3 | ⚠️ |
+| Mathematics | P1 | 2025 | November | 49 | 5 | ⚠️ |
 | Mathematics | P1 | 2026 | Prep A | 3 | 0 | ✅ |
 | Mathematics | P1 | 2026 | Prep B | 3 | 0 | ✅ |
 | Mathematics | P2 | 2021 | May/Jun | 5 | 0 | ✅ |
@@ -106,6 +131,11 @@
 | Mathematics | P2 | 2023 | May/Jun | 0 | 0 | ➖ |
 | Mathematics | P2 | 2024 | May/Jun | 0 | 0 | ➖ |
 | Mathematics | P2 | 2025 | May/Jun | 12 | 0 | ✅ |
+| Mathematics | P2 | 2021 | November | 52 | 8 | ⚠️ |
+| Mathematics | P2 | 2022 | November | 54 | 9 | ⚠️ |
+| Mathematics | P2 | 2023 | November | 53 | 7 | ⚠️ |
+| Mathematics | P2 | 2024 | November | 50 | 7 | ⚠️ |
+| Mathematics | P2 | 2025 | November | 54 | 7 | ⚠️ |
 | Mathematics | P2 | 2026 | Predictive | 0 | 7 | ❌ |
 | Maths Literacy | P1 | 2021 | May/Jun | 61 | 0 | ✅ |
 | Maths Literacy | P1 | 2022 | May/Jun | 41 | 4 | ⚠️ |
@@ -156,8 +186,11 @@
 | 🟡 | Life Sciences | P1/P2 | 2026 | 16 | Upload diagrams to bucket |
 | 🟡 | Afrikaans FAL | P1 | 2023/2024/2025 | 18 | Upload diagrams to bucket |
 | 🟡 | Economics | P1/P2 | 2026 | 13 | Upload diagrams to bucket |
+| 🟡 | Economics | P1/P2 | 2021–2025 Nov | 57 | Crop + upload (see ECON_NOV_CROP_LIST.md) |
 | 🟡 | English HL | P1/P2/P3 | 2026 | 10 | Upload diagrams to bucket |
 | 🟡 | Mathematics | P2 | 2026 | 7 | Upload diagrams to bucket |
+| 🟡 | Mathematics | P1 | 2021–2025 Nov | 18 | Crop + upload (see MATHS_NOV_CROP_LIST.md) |
+| 🟡 | Mathematics | P2 | 2021–2025 Nov | 38 | Crop + upload (see MATHS_NOV_CROP_LIST.md) |
 | 🟢 | Agric Sciences | P1/P2 | 2024/2021/2025 | 13 | Upload diagrams to bucket |
 | 🟢 | Maths Literacy | P1/P2 | various | 24 | Upload diagrams to bucket |
 | 🟢 | Physical Sciences | P1 | 2026 | 3 | Upload diagrams to bucket |

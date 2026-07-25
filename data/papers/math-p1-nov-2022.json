@@ -1,0 +1,532 @@
+{
+  "id": "math-p1-nov-2022",
+  "subject": "Mathematics",
+  "paperCode": "P1",
+  "year": 2022,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Algebra & Equations",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "1-1-1",
+          "label": "1.1.1",
+          "questionText": "Solve for $x$:\n\n$$(3x - 6)(x + 2) = 0$$",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x = 2$\nMark 2: $x = -2$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-2",
+          "label": "1.1.2",
+          "questionText": "Solve for $x$ (correct to TWO decimal places):\n\n$$2x^2 - 6x + 1 = 0$$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Correct substitution into the correct formula — $x = \\dfrac{6 \\pm \\sqrt{(-6)^2 - 4(2)(1)}}{2(2)}$\nMark 2: $x = 2{,}82$\nMark 3: $x = 0{,}18$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-3",
+          "label": "1.1.3",
+          "questionText": "Solve for $x$:\n\n$$x^2 - 90 > x$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Standard form — $x^2 - x - 90 > 0$\nMark 2: Critical values — $(x + 9)(x - 10) > 0$, so CV: $x = -9$ or $x = 10$\nMarks 3–4 (double mark): $x < -9$ or $x > 10$ (i.e. $(-\\infty\\,;\\,-9)$ or $(10\\,;\\,\\infty)$)",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-4",
+          "label": "1.1.4",
+          "questionText": "Solve for $x$:\n\n$$x - 7\\sqrt{x} = -12$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Isolating the root — $x + 12 = 7\\sqrt{x}$\nMark 2: Squaring both sides — $(x + 12)^2 = (7\\sqrt{x})^2 \\Rightarrow x^2 + 24x + 144 = 49x$\nMark 3: Standard form — $x^2 - 25x + 144 = 0 \\Rightarrow (x - 16)(x - 9) = 0$\nMark 4: Both answers — $x = 16$ or $x = 9$\n(Alternatively let $\\sqrt{x} = k$: $(\\sqrt{x} - 3)(\\sqrt{x} - 4) = 0 \\Rightarrow \\sqrt{x} = 3$ or $\\sqrt{x} = 4 \\Rightarrow x = 9$ or $x = 16$.)",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-2",
+          "label": "1.2",
+          "questionText": "Solve for $x$ and $y$ simultaneously:\n\n$$2x - y = 2$$\n$$xy = 4$$",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: From eq 1 — $y = 2x - 2$\nMark 2: Substitution — $x(2x - 2) = 4$\nMark 3: Standard form — $2x^2 - 2x - 4 = 0 \\Rightarrow x^2 - x - 2 = 0 \\Rightarrow (x - 2)(x + 1) = 0$\nMark 4: $x$-values — $x = 2$ or $x = -1$\nMark 5: $y$-values — $y = 2$ or $y = -4$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-3",
+          "label": "1.3",
+          "questionText": "Show that $2 \\cdot 5^n - 5^{n+1} + 5^{n+2}$ is even for all positive integer values of $n$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Exponent law — $2 \\cdot 5^n - 5^n \\cdot 5^1 + 5^n \\cdot 5^2$\nMark 2: Common factor — $= 5^n(2 - 5 + 25) = 5^n(22)$\nMark 3: Answer/explanation — $= 2\\big(5^n(11)\\big)$, which is even (OR: any integer multiplied by an even number is even)",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-4",
+          "label": "1.4",
+          "questionText": "Determine the values of $x$ and $y$ if:\n\n$$\\dfrac{3^{y+1}}{32} = \\sqrt{96^x}$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $\\dfrac{3^{y+1}}{2^5} = (96)^{\\frac{x}{2}}$\nMark 2: $3^{y+1} \\cdot 2^{-5} = 2^{\\frac{5x}{2}} \\cdot 3^{\\frac{x}{2}}$\nMark 3: Equating powers of $2$ — $-5 = \\dfrac{5x}{2} \\Rightarrow x = -2$\nMark 4: Equating powers of $3$ — $y + 1 = \\dfrac{x}{2} = -1 \\Rightarrow y = -2$",
+          "topic": "Algebra",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Number Patterns & Series",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "2-1-1",
+          "label": "2.1.1",
+          "questionText": "The first term of a geometric series is $14$ and the $6^{\\text{th}}$ term is $448$.\n\nCalculate the value of the constant ratio, $r$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $T_6 = 14r^5 = 448$, so $r^5 = 32$\nMark 2: $r = 2$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "2-1-2",
+          "label": "2.1.2",
+          "questionText": "Determine the number of consecutive terms that must be added to the first $6$ terms of the series in order to obtain a sum of $114\\,674$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Substitution into the correct formula — $S_6 = \\dfrac{14(2^6 - 1)}{2 - 1}$\nMark 2: $S_6 = 882$\nMark 3: $114\\,674 - 882 = 113\\,792 = 896(2^n - 1) \\Rightarrow 128 = 2^n$\nMark 4: $n = 7$, so $7$ more terms must be added to the first $6$ terms\n(Alternatively $114\\,674 = \\dfrac{14(2^n - 1)}{2 - 1} \\Rightarrow 2^n = 8\\,192 \\Rightarrow n = 13$; $13 - 6 = 7$ more terms.)",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "2-1-3",
+          "label": "2.1.3",
+          "questionText": "If the first term of another series is $448$ and the $6^{\\text{th}}$ term is $14$, calculate the sum to infinity of the new series.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $r = \\dfrac{1}{2}$ (from $448r^5 = 14$)\nMark 2: Substitution — $S_\\infty = \\dfrac{a}{1 - r} = \\dfrac{448}{1 - \\frac{1}{2}}$\nMark 3: Answer — $S_\\infty = 896$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "2-2",
+          "label": "2.2",
+          "questionText": "If $\\displaystyle\\sum_{p=0}^{k}\\left(\\dfrac{1}{3}p + \\dfrac{1}{6}\\right) = 20\\dfrac{1}{6}$, determine the value of $k$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: $T_1 = \\dfrac{1}{6}$\nMark 2: $d = \\dfrac{3}{6} - \\dfrac{1}{6} = \\dfrac{1}{3}$\nMark 3: Substitution — $\\dfrac{121}{6} = \\dfrac{n}{2}\\left[2\\left(\\tfrac{1}{6}\\right) + (n - 1)\\left(\\tfrac{1}{3}\\right)\\right]$\nMark 4: $121 = n^2 \\Rightarrow n = 11$\nMark 5: $k = 10$ (since $n = k + 1$)",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Quadratic Number Patterns",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "3-1",
+          "label": "3.1",
+          "questionText": "It is given that the general term of a quadratic number pattern is $T_n = n^2 + bn + 9$ and the first term of the first differences is $7$.\n\nShow that $b = 4$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $3a + b = 7$ (with $a = 1$), so $3 + b = 7$\nMark 2: $b = 4$\n(Alternatively $T_2 - T_1 = 7 \\Rightarrow (4 + 2b + 9) - (1 + b + 9) = 7 \\Rightarrow b = 4$.)",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "3-2",
+          "label": "3.2",
+          "questionText": "Determine the value of the $60^{\\text{th}}$ term of this number pattern.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution — $T_{60} = (60)^2 + 4(60) + 9$\nMark 2: Answer — $T_{60} = 3\\,849$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "3-3",
+          "label": "3.3",
+          "questionText": "Determine the general term for the sequence of first differences of the quadratic number pattern. Write your answer in the form $T_p = mp + q$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks — the pattern is $14 \\,;\\, 21 \\,;\\, 30 \\,;\\, 41 \\,;\\, \\ldots$):\nMark 1: First differences $7 \\,;\\, 9 \\,;\\, 11 \\,;\\, \\ldots$\nMark 2: Common second difference $2$\nMark 3: Answer — $T_p = 2p + 5$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "3-4",
+          "label": "3.4",
+          "questionText": "Which TWO consecutive terms in the quadratic number pattern have a first difference of $157$?",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $157 = 2p + 5$\nMark 2: $p = 76$\nMark 3: The terms are $T_{76}$ and $T_{77}$",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Functions: Hyperbola, Parabola & Exponential",
+      "totalMarks": 20,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2022_q4.png",
+      "subQuestions": [
+        {
+          "id": "4-1-1",
+          "label": "4.1.1",
+          "questionText": "Sketched is the graph of $h(x) = \\dfrac{1}{x + p} + q$. The asymptotes of $h$ intersect at $(1\\,;\\,2)$.\n\nWrite down the values of $p$ and $q$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $p = -1$\nMark 2: $q = 2$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-1-2",
+          "label": "4.1.2",
+          "questionText": "Calculate the coordinates of the $x$-intercept of $h$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $\\dfrac{1}{x - 1} + 2 = 0 \\Rightarrow -2x + 2 = 1 \\Rightarrow x = \\dfrac{1}{2}$\nMark 2: Answer — $\\left(\\dfrac{1}{2}\\,;\\,0\\right)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-1-3",
+          "label": "4.1.3",
+          "questionText": "Write down the $x$-coordinate of the $x$-intercept of $g$ if $g(x) = h(x + 3)$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x = \\dfrac{1}{2} - 3$\nMark 2: $x = -\\dfrac{5}{2}$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-1-4",
+          "label": "4.1.4",
+          "questionText": "The equation of an axis of symmetry of $h$ is $y = x + t$. Determine the value of $t$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution of $(1\\,;\\,2)$ — $2 = 1 + t$\nMark 2: $t = 1$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-1-5",
+          "label": "4.1.5",
+          "questionText": "Determine the values of $x$ for which $-2 \\leq \\dfrac{1}{x - 1}$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $\\dfrac{1}{x - 1} + 2 \\geq 0$\nMark 2: $x \\leq \\dfrac{1}{2}$\nMark 3: $x > 1$\n(i.e. $x \\in \\left(-\\infty\\,;\\,\\dfrac{1}{2}\\right]$ or $(1\\,;\\,\\infty)$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-2-1",
+          "label": "4.2.1",
+          "questionText": "The graphs of $f(x) = x^2 - 4x - 5$ and $g(x) = a \\cdot 2^x + q$ are sketched.\n\n- E and H are the $x$-intercepts of $f$.\n- C is the $y$-intercept of $f$ and lies on the asymptote of $g$.\n- The two graphs intersect at D, the turning point of $f$.\n\nWrite down the $y$-coordinate of C.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $y = -5$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-2-2",
+          "label": "4.2.2",
+          "questionText": "Determine the coordinates of D.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x = \\dfrac{-b}{2a} = \\dfrac{-(-4)}{2(1)} = 2$\nMark 2: $f(2) = 2^2 - 4(2) - 5 = -9$, so $D(2\\,;\\,-9)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-2-3",
+          "label": "4.2.3",
+          "questionText": "Determine the values of $a$ and $q$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $q = -5$\nMark 2: Substitution of $(2\\,;\\,-9)$ — $-9 = a(2)^2 - 5 \\Rightarrow -4 = 4a$\nMark 3: $a = -1$, so $g(x) = -2^x - 5$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-2-4",
+          "label": "4.2.4",
+          "questionText": "Write down the range of $g$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $y \\in (-\\infty\\,;\\,-5)$ (i.e. $y < -5$, $y \\in \\mathbb{R}$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-2-5",
+          "label": "4.2.5",
+          "questionText": "Determine the values of $k$ for which the value of $f(x) - k$ will always be positive.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: The minimum value of $f$ is $-9$\nMark 2: $k < -9$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Functions: Linear & Inverse",
+      "totalMarks": 13,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2022_q5.png",
+      "subQuestions": [
+        {
+          "id": "5-1",
+          "label": "5.1",
+          "questionText": "The graphs of $g(x) = 2x + 6$ and $g^{-1}$, the inverse of $g$, are shown in the diagram.\n\n- D and B are the $x$- and $y$-intercepts respectively of $g$.\n- C is the $x$-intercept of $g^{-1}$.\n- The graphs of $g$ and $g^{-1}$ intersect at A.\n\nWrite down the $y$-coordinate of B.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $y = 6$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-2",
+          "label": "5.2",
+          "questionText": "Determine the equation of $g^{-1}$ in the form $g^{-1}(x) = mx + n$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Swop $x$ and $y$ — $x = 2y + 6$\nMark 2: $y = \\dfrac{1}{2}x - 3$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-3",
+          "label": "5.3",
+          "questionText": "Determine the coordinates of A.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Equating — $\\dfrac{1}{2}x - 3 = 2x + 6$\nMark 2: $x = -6$\nMark 3: $y = -6$, so $A(-6\\,;\\,-6)$\n(Alternatively equate $g$ with $y = x$: $2x + 6 = x \\Rightarrow x = -6$, $y = -6$.)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-4",
+          "label": "5.4",
+          "questionText": "Calculate the length of AB.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution — $AB = \\sqrt{(6)^2 + (12)^2}$\nMark 2: $AB = \\sqrt{180} = 6\\sqrt{5} = 13{,}42$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-5",
+          "label": "5.5",
+          "questionText": "Calculate the area of $\\triangle ABC$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: $BC = \\sqrt{6^2 + 6^2} = \\sqrt{72} = 6\\sqrt{2}$\nMark 2: $AB = AC = \\sqrt{180}$ (by symmetry of $g$ and $g^{-1}$, midpoint $(3\\,;\\,3)$)\nMark 3: Perpendicular height $h = \\sqrt{(\\sqrt{180})^2 - \\left(\\dfrac{\\sqrt{72}}{2}\\right)^2} = \\sqrt{162} = 9\\sqrt{2}$\nMark 4: Substitution — area $\\triangle ABC = \\dfrac{1}{2} \\times BC \\times h$\nMark 5: Answer — $= \\dfrac{1}{2} \\times \\sqrt{72} \\times \\sqrt{162} = 54$ units$^2$\n(Alternatively $= \\dfrac{1}{2}(\\sqrt{180})(\\sqrt{180})\\sin 36{,}86^\\circ = 53{,}99$ units$^2$.)",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Financial Mathematics",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "6-1",
+          "label": "6.1",
+          "questionText": "$R12\\,000$ was invested in a fund that paid interest at $m\\%$ p.a., compounded quarterly. After $24$ months, the value of the investment was $R13\\,459$.\n\nDetermine the value of $m$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $n = 8$ (quarters)\nMark 2: Substitution into the correct formula — $13\\,459 = 12\\,000\\left(1 + \\dfrac{m}{400}\\right)^8$\nMark 3: $1 + \\dfrac{m}{400} = \\sqrt[8]{1{,}121\\ldots}$\nMark 4: $m = 5{,}78\\%$",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "6-2",
+          "label": "6.2",
+          "questionText": "On 31 January 2022, Tino deposited $R1\\,000$ in an account that paid interest at $7{,}5\\%$ p.a., compounded monthly. He continued depositing $R1\\,000$ on the last day of every month. He will make the last deposit on 31 December 2022.\n\nWill Tino have sufficient funds in the account on 1 January 2023 to buy a computer that costs $R13\\,000$? Justify your answer by means of an appropriate calculation.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $i = \\dfrac{0{,}075}{12}$\nMark 2: $n = 12$ (deposits)\nMark 3: $F = \\dfrac{1\\,000\\left[\\left(1 + \\frac{0{,}075}{12}\\right)^{12} - 1\\right]}{\\frac{0{,}075}{12}} = R12\\,421{,}22$\nMark 4: Conclusion — No, he won't be able to buy the computer since $R12\\,421{,}22 < R13\\,000$ (short by $R578{,}78$)",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "6-3-1",
+          "label": "6.3.1",
+          "questionText": "Thabo plans to buy a car that costs $R250\\,000$. He will pay a deposit of $15\\%$ and take out a loan for the balance. The interest on the loan is $13\\%$ p.a., compounded monthly.\n\nCalculate the value of the loan.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Loan $= 85\\% \\times R250\\,000 = R212\\,500$",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "6-3-2",
+          "label": "6.3.2",
+          "questionText": "The first repayment will be made 6 months after the loan has been granted. The loan will be repaid over a period of 6 years after it has been granted. Calculate the MONTHLY instalment.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Grow the loan for 5 months — $A = 212\\,500\\left(1 + \\dfrac{0{,}13}{12}\\right)^5$\nMark 2: $A = R224\\,262{,}53$\nMark 3: Substitution into the correct formula — $224\\,262{,}53 = \\dfrac{x\\left[1 - \\left(1 + \\frac{0{,}13}{12}\\right)^{-n}\\right]}{\\frac{0{,}13}{12}}$\nMark 4: $n = 67$ (payments)\nMark 5: Answer — $x = R4\\,724{,}96$",
+          "topic": "Finance",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Calculus: Differentiation",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "7-1",
+          "label": "7.1",
+          "questionText": "Determine $f'(x)$ from first principles if $f(x) = x^2 + x$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Substitution into the formula — $f'(x) = \\displaystyle\\lim_{h \\to 0}\\dfrac{(x + h)^2 + (x + h) - (x^2 + x)}{h}$\nMark 2: Expansion — $x^2 + 2xh + h^2 + x + h$\nMark 3: Simplification — $\\displaystyle\\lim_{h \\to 0}\\dfrac{2xh + h^2 + h}{h}$\nMark 4: Common factor — $\\displaystyle\\lim_{h \\to 0}\\dfrac{h(2x + h + 1)}{h}$\nMark 5: Answer — $f'(x) = 2x + 1$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "7-2",
+          "label": "7.2",
+          "questionText": "Determine $f'(x)$ if $f(x) = 2x^5 - 3x^4 + 8x$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $10x^4$\nMark 2: $-12x^3$\nMark 3: $+8$, so $f'(x) = 10x^4 - 12x^3 + 8$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "7-3",
+          "label": "7.3",
+          "questionText": "The tangent to $g(x) = ax^3 + 3x^2 + bx + c$ has a minimum gradient at the point $(-1\\,;\\,-7)$. For which values of $x$ will $g$ be concave up?",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $g'(x) = 3ax^2 + 6x + b$\nMark 2: $g''(x) = 6ax + 6$\nMark 3: $g''(-1) = 6a(-1) + 6 = 0 \\Rightarrow a = 1$\nMark 4: Concave up where $g''(x) > 0 \\Rightarrow 6x + 6 > 0 \\Rightarrow x > -1$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Calculus: Cubic Graphs",
+      "totalMarks": 17,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2022_q8.png",
+      "subQuestions": [
+        {
+          "id": "8-1",
+          "label": "8.1",
+          "questionText": "The graph of $y = f'(x) = mx^2 + nx + k$ is drawn. The graph passes through the points $P\\left(-\\dfrac{1}{3}\\,;\\,0\\right)$, $Q(1\\,;\\,0)$ and $R(0\\,;\\,1)$.\n\nDetermine the values of $m$, $n$ and $k$.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: Substitution of $\\left(-\\dfrac{1}{3}\\,;\\,0\\right)$ and $(1\\,;\\,0)$ — $f'(x) = m\\left(x + \\dfrac{1}{3}\\right)(x - 1)$\nMark 2: Substitution of $(0\\,;\\,1)$ — $1 = m\\left(0 + \\dfrac{1}{3}\\right)(0 - 1)$\nMark 3: $m = -3$\nMark 4: $f'(x) = -3\\left(x^2 - \\dfrac{2}{3}x - \\dfrac{1}{3}\\right) = -3x^2 + 2x + 1$\nMark 5: $n = 2$\nMark 6: $k = 1$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "8-2-1",
+          "label": "8.2.1",
+          "questionText": "If it is further given that $f(x) = -x^3 + x^2 + x + 2$:\n\nDetermine the coordinates of the turning points of $f$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $x$-coordinates of the turning points — $x = -\\dfrac{1}{3}$ and $x = 1$ (roots of $f'$)\nMark 2: $f\\left(-\\dfrac{1}{3}\\right) = \\dfrac{49}{27} = 1{,}81$, so $\\text{T.P}\\left(-\\dfrac{1}{3}\\,;\\,\\dfrac{49}{27}\\right)$\nMark 3: $f(1) = 3$, so $\\text{T.P}(1\\,;\\,3)$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "8-2-2",
+          "label": "8.2.2",
+          "questionText": "Draw the graph of $f$. Indicate on your graph the coordinates of the turning points and the intercepts with the axes.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: One $x$-intercept — $x = 2$ (from $(x - 2)(-x^2 - x - 1) = 0$, the quadratic factor has no real roots)\nMark 2: Two turning points indicated — $\\left(-\\dfrac{1}{3}\\,;\\,1{,}81\\right)$ and $(1\\,;\\,3)$\nMark 3: $y$-intercept $(0\\,;\\,2)$\nMark 4: Shape: negative (decreasing) cubic\nMark 5: All features correctly placed",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "8-3-1",
+          "label": "8.3.1",
+          "questionText": "Points E and W are two variable points on $f'$ and are on the same horizontal line.\n\n- $h$ is a tangent to $f'$ at E.\n- $g$ is a tangent to $f'$ at W.\n- $h$ and $g$ intersect at $D(a\\,;\\,b)$.\n\nWrite down the value of $a$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $a = \\dfrac{-\\frac{1}{3} + 1}{2} = \\dfrac{1}{3}$ (the axis of symmetry of the parabola $f'$)\n(Alternatively $f''(x) = -6x + 2 = 0 \\Rightarrow x = \\dfrac{1}{3}$.)",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "8-3-2",
+          "label": "8.3.2",
+          "questionText": "Determine the value(s) of $b$ for which $h$ and $g$ will no longer be tangents to $f'$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: The turning point value of $f'$ is $\\dfrac{4}{3}$\nMark 2: $b < \\dfrac{4}{3}$ units",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Calculus: Minimum Distance",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "9",
+          "label": "9",
+          "questionText": "Given $f(x) = x^2$.\n\nDetermine the minimum distance between the point $(10\\,;\\,2)$ and a point on $f$.",
+          "marks": 8,
+          "memoText": "Mark scheme (8 marks):\nMark 1: Any point on $f$ is $(x\\,;\\,x^2)$\nMark 2: Substitution — distance $= \\sqrt{(x - 10)^2 + (x^2 - 2)^2}$\nMark 3: Simplification — $= \\sqrt{x^4 - 3x^2 - 20x + 104}$\nMark 4: Answer (distance expression)\nMark 5: For minimum distance — $\\dfrac{d}{dx}\\big(x^4 - 3x^2 - 20x + 104\\big) = 4x^3 - 6x - 20$\nMark 6: Derivative $= 0$ — $(x - 2)(4x^2 + 8x + 10) = 0$ (the quadratic factor has $\\Delta = -96$, no real roots)\nMark 7: $x = 2$\nMark 8: Answer — $d = \\sqrt{2^4 - 3(2)^2 - 20(2) + 104} = 2\\sqrt{17} = 8{,}25$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Probability & Counting Principles",
+      "totalMarks": 17,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2022_q10.png",
+      "subQuestions": [
+        {
+          "id": "10-1-1-a",
+          "label": "10.1.1(a)",
+          "questionText": "A, B and C are three events. The probabilities of these events (or any combination of them) occurring is given in the Venn diagram. The regions are: A only $= 0{,}05$; A and C only $= 0{,}15$; C only $= 0{,}05$; A and B only $= 0{,}1$; A and B and C $= x$; B and C only $= 0{,}2$; B only $= 0{,}183$; and outside all three events $= y$.\n\nIf it is given that the probability that at least one of the events will occur is $0{,}893$, calculate the value of $y$, the probability that none of the events will occur.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $y = 1 - 0{,}893 = 0{,}107$ (i.e. $0{,}11$)",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "10-1-1-b",
+          "label": "10.1.1(b)",
+          "questionText": "Calculate the value of $x$, the probability that all three events will occur.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $x = 0{,}893 - 0{,}733 = 0{,}16$ (subtracting the sum of the known regions)",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "10-1-2",
+          "label": "10.1.2",
+          "questionText": "Determine the probability that at least two of the events will take place.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Values — $P(\\text{at least 2 events}) = 0{,}1 + 0{,}15 + 0{,}16 + 0{,}2$\nMark 2: Answer — $= 0{,}61$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "10-1-3",
+          "label": "10.1.3",
+          "questionText": "Are events B and C independent? Justify your answer.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: $P(B) = 0{,}643$\nMark 2: $P(C) = 0{,}56$\nMark 3: $P(B \\text{ and } C) = 0{,}36$\nMark 4: $P(B) \\times P(C) = 0{,}643 \\times 0{,}56 = 0{,}36$\nMark 5: Since $P(B \\text{ and } C) = P(B) \\times P(C)$, events B and C ARE independent",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "10-2-1",
+          "label": "10.2.1",
+          "questionText": "A four-digit code is required to open a combination lock. The code must be even-numbered and may not contain the digits $0$ or $1$. Digits may not be repeated.\n\nHow many possible 4-digit combinations are there to open the lock?",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $4$ (choices for the even last digit, from $\\{2\\,;\\,4\\,;\\,6\\,;\\,8\\}$)\nMark 2: $7$ (choices for the first of the remaining positions)\nMark 3: $7 \\times 6 \\times 5 \\times 4 = 840$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "10-2-2",
+          "label": "10.2.2",
+          "questionText": "Calculate the probability that you will open the lock at the first attempt if it is given that the code is greater than $5\\,000$ and the third digit is $2$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks — first digit $> 5$, third digit $= 2$, code even, no repeats):\nMark 1: Start with $5$, $7$ or $9$ — $(3 \\times 5 \\times 1 \\times 3) = 45$\nMark 2: Start with $6$ — $(1 \\times 5 \\times 1 \\times 2) = 10$\nMark 3: Start with $8$ — $(1 \\times 5 \\times 1 \\times 2) = 10$\nMark 4: Total favourable $= 45 + 10 + 10 = 65$\nMark 5: Answer — $P = \\dfrac{65}{840} = \\dfrac{13}{168} = 0{,}08$",
+          "topic": "Probability",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}
