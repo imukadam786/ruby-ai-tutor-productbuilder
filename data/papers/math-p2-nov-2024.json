@@ -1,0 +1,551 @@
+{
+  "id": "math-p2-nov-2024",
+  "subject": "Mathematics",
+  "paperCode": "P2",
+  "year": 2024,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Statistics — Regression & Correlation",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "1-1",
+          "label": "1.1",
+          "questionText": "At the beginning of a season, the coach of a junior boys' rugby team recorded the weight (in kg) of the 15 players in his team and the number of push-ups that each player was able to do in one minute. The data is represented in the table and scatter plot below. The least squares regression line for the data is drawn.\n\n| Weight (in kg) $(x)$ | 34 | 32 | 40 | 27 | 33 | 28 | 27 | 55 | 39 | 44 | 30 | 57 | 28 | 32 | 31 |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| Number of push-ups per minute $(y)$ | 26 | 21 | 6 | 20 | 16 | 26 | 23 | 7 | 18 | 14 | 17 | 8 | 28 | 25 | 20 |\n\nDetermine the equation of the least squares regression line for the data.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $a = 39{,}456001\\ldots \\approx 39{,}46$\nMark 2: $b = -0{,}590018\\ldots \\approx -0{,}59$\nMark 3: Equation — $\\hat{y} = 39{,}46 - 0{,}59x$\n(Correct answer only: full marks.)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-2",
+          "label": "1.2",
+          "questionText": "Write down the correlation coefficient.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $r = -0{,}8$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-3",
+          "label": "1.3",
+          "questionText": "The coach uses the least squares regression line to set the target for the minimum number of push-ups by each team member according to their weight. Predict the number of push-ups that a member of the team, who weighs 29 kg, should do to meet the target.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution — $y = 39{,}46 - 0{,}59(29)$\nMark 2: Answer — $y = 22{,}35$ (also accepted directly from calculator)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-4",
+          "label": "1.4",
+          "questionText": "Write down the mean number of push-ups for the given data.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $\\bar{y} = 18{,}33$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-5",
+          "label": "1.5",
+          "questionText": "The players trained hard during the season. At the end of the season, the coach reported that each player was able to do 5 more push-ups per minute than they did at the beginning of the season. How does the increase in the number of push-ups influence the standard deviation of the data?",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: The increase will have no influence — the standard deviation stays the same.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-6",
+          "label": "1.6",
+          "questionText": "At the beginning of the season, the coach used the least squares regression line as the minimum target for a player to aim for. Determine the maximum possible increase in the number of push-ups that a team member must obtain to reach the minimum target.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: The point $6$ is the furthest $y$-value below the least squares regression line — an increase of 10 push-ups will get that team member (weighing 40 kg) to $(40\\,;\\,16)$, the minimum number of push-ups for a player weighing 40 kg.\nMark 2: The difference (maximum increase) is $10$.",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Statistics — Ogive & Box Plot",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2024_q2.png",
+      "subQuestions": [
+        {
+          "id": "2-1",
+          "label": "2.1",
+          "questionText": "The cumulative frequency graph (ogive) shown alongside represents the time taken (in minutes) for 60 employees to travel to work each morning.\n\nEstimate the median travel time.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Median $= 65$ minutes",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-2",
+          "label": "2.2",
+          "questionText": "Estimate the lower quartile.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $Q_1 = 44$ minutes",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-3",
+          "label": "2.3",
+          "questionText": "Estimate the interquartile range.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $Q_3 = 84$\nMark 2: $\\text{IQR} = 84 - 44 = 40$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-4",
+          "label": "2.4",
+          "questionText": "The minimum and maximum times taken for an employee to travel to work are 5 and 120 minutes respectively. On the scaled line in the ANSWER BOOK, draw a box and whisker diagram to indicate the distribution of the data as represented in the ogive above.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Box drawn with $Q_1 = 44$, median $= 65$, $Q_3 = 84$\nMark 2: Whiskers ending at $5$ and $120$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-5",
+          "label": "2.5",
+          "questionText": "The company manager decided that all employees who travel for an hour or more will be allowed to work from home for part of the day. What percentage of the employees will be allowed to work from home for part of the day?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Number of employees who qualify $= 34$ (from the ogive at 60 min)\nMark 2: $\\dfrac{34}{60} \\times 100 = 56{,}67\\%$\n(Alternatively 35 employees $\\Rightarrow \\dfrac{35}{60}\\times 100 = 58{,}33\\%$.)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-6",
+          "label": "2.6",
+          "questionText": "Employees work 8 hours in a normal working day. The manager decided on the following rule for time to work from home:\n\n- An employee is allowed to work half an hour from home for each time interval of 20 minutes, or part thereof, above an hour taken to travel to work.\n\nOn a certain day, an employee takes 110 minutes to travel to work. Calculate the number of minutes that this employee will be allowed to work from home on this day.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Number of 20-minute intervals above 60 min $= 3$ (since $110 - 60 = 50$ min $\\Rightarrow$ 3 intervals, part thereof)\nMark 2: Time allowed $= 3 \\times 30 = 90$ minutes (i.e. $1{,}5$ hours)",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Analytical Geometry",
+      "totalMarks": 19,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2024_q3.png",
+      "subQuestions": [
+        {
+          "id": "3-1",
+          "label": "3.1",
+          "questionText": "In the diagram, $\\triangle ACD$ has vertices $A$, $D(3\\,;\\,-9)$ and $C(-9\\,;\\,0)$, where $A$ is a point in the second quadrant. $B(-1\\,;\\,k)$ lies on side $DC$.\n\nCalculate the gradient of $DC$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution of $D(3\\,;\\,-9)$ and $C(-9\\,;\\,0)$ — $m_{DC} = \\dfrac{-9 - 0}{3 - (-9)}$\nMark 2: $m_{DC} = -\\dfrac{3}{4}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-2",
+          "label": "3.2",
+          "questionText": "Determine the equation of $DC$ in the form $y = mx + c$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution of $C(-9\\,;\\,0)$ or $D(3\\,;\\,-9)$ into $y = -\\tfrac{3}{4}x + c$ — $0 = -\\tfrac{3}{4}(-9) + c \\Rightarrow c = -\\tfrac{27}{4}$\nMark 2: $y = -\\dfrac{3}{4}x - \\dfrac{27}{4}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-3",
+          "label": "3.3",
+          "questionText": "Show that $k = -6$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Substitution of $B(-1\\,;\\,k)$ into the line — $k = -\\tfrac{3}{4}(-1) - \\tfrac{27}{4} = \\tfrac{3}{4} - \\tfrac{27}{4} = -6$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-4",
+          "label": "3.4",
+          "questionText": "Calculate the length of $DC$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution of $D(3\\,;\\,-9)$ and $C(-9\\,;\\,0)$ into the distance formula — $DC = \\sqrt{(3+9)^2 + (-9-0)^2}$\nMark 2: $DC = 15$ units",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-5",
+          "label": "3.5",
+          "questionText": "Calculate the ratio of $\\dfrac{DB}{DC}$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $DB = \\sqrt{(3-(-1))^2 + (-9-(-6))^2} = 5$\nMark 2: $\\dfrac{DB}{DC} = \\dfrac{5}{15} = \\dfrac{1}{3}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-6",
+          "label": "3.6",
+          "questionText": "If $M$ is a point on $AD$ such that $AC \\parallel MB$, calculate the ratio of $\\dfrac{\\text{Area } \\triangle MBD}{\\text{Area } \\triangle ACD}$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Since $AC \\parallel MB$, $\\dfrac{DM}{DA} = \\dfrac{DB}{DC} = \\dfrac{1}{3}$\nMark 2: Correct use of the area rule — $\\dfrac{\\text{Area }\\triangle MBD}{\\text{Area }\\triangle ACD} = \\dfrac{\\tfrac{1}{2}(DM)(DB)\\sin\\hat{D}}{\\tfrac{1}{2}(DA)(DC)\\sin\\hat{D}}$\nMark 3: Substitution of $\\dfrac{BD}{DC}$ and $\\dfrac{DM}{DA}$ — $= \\dfrac{1}{3} \\times \\dfrac{1}{3}$\nMark 4: $= \\dfrac{1}{9}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-7",
+          "label": "3.7",
+          "questionText": "If it is further given that the gradient of $AD$ is $-4$ and the length of $AD$ is $\\sqrt{612}$ units, calculate the coordinates of $A$.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: Correct substitution of $m_{AD} = -4$ and $D(3\\,;\\,-9)$ — $-9 = -4(3) + c \\Rightarrow c = 3$, so $y = -4x + 3$\nMark 2: $(x-3)^2 + (y+9)^2 = 612$\nMark 3: Substitution of line $AD$ into the distance formula — $(x-3)^2 + (-4x+3+9)^2 = 612$\nMark 4: Standard form — $x^2 - 6x + 9 + 16x^2 - 96x + 144 = 612 \\Rightarrow 17x^2 - 102x - 459 = 0 \\Rightarrow x^2 - 6x - 27 = 0$\nMark 5: $x$-values with rejection — $(x-9)(x+3)=0 \\Rightarrow x = 9$ or $x = -3$; reject $x = 9$ (not 2nd quadrant), so $x = -3$\nMark 6: $y = -4(-3) + 3 = 15$, so $A(-3\\,;\\,15)$\n(Alternatively, since $N(0\\,;\\,3)$ is the $y$-intercept of $AD$ and $ND = 3\\sqrt{17}$ with $AD = 6\\sqrt{17}$, $N$ is the midpoint of $AD$, giving $A(-3\\,;\\,15)$.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Analytical Geometry — Circle",
+      "totalMarks": 20,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2024_q4.png",
+      "subQuestions": [
+        {
+          "id": "4-1",
+          "label": "4.1",
+          "questionText": "In the diagram, $M(1\\,;\\,3)$ is the centre of the circle. The circle cuts the $x$-axis at $N$. $ST$ is a tangent to the circle at $P(3\\,;\\,9)$. $R(d\\,;\\,1)$, with $d > 0$, and $L$ lie on the circle. $O$ and $V$ are the $x$-intercepts of $PL$ and $RL$ respectively.\n\nWrite down the coordinates of $L$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x = -1$\nMark 2: $y = -3$, so $L(-1\\,;\\,-3)$ (reflection of $P(3\\,;\\,9)$ through centre $M(1\\,;\\,3)$)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-2",
+          "label": "4.2",
+          "questionText": "Determine the equation of tangent $ST$ to the circle at $P$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $m_{MP} = \\dfrac{9-3}{3-1} = 3$\nMark 2: $m_{ST} = -\\dfrac{1}{m_{MP}} = -\\dfrac{1}{3}$\nMark 3: Substitution of $m_{ST}$ and $P(3\\,;\\,9)$ into the equation of a line — $9 = -\\tfrac{1}{3}(3) + c \\Rightarrow c = 10$\nMark 4: $y = -\\dfrac{1}{3}x + 10$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-3",
+          "label": "4.3",
+          "questionText": "Show that the equation of the circle with centre $M$ is $x^2 + y^2 - 2x - 6y - 30 = 0$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $(3-1)^2 + (9-3)^2 = r^2$\nMark 2: $r^2 = 40$\nMark 3: LHS of equation of circle — $(x-1)^2 + (y-3)^2 = 40$\nMark 4: Expanding — $x^2 - 2x + 1 + y^2 - 6y + 9 = 40 \\Rightarrow x^2 + y^2 - 2x - 6y - 30 = 0$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-4",
+          "label": "4.4",
+          "questionText": "Show that $d = 7$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitute $R(d\\,;\\,1)$ — $d^2 + (1)^2 - 2d - 6(1) - 30 = 0$\nMark 2: Standard form — $d^2 - 2d - 35 = 0 \\Rightarrow (d-7)(d+5) = 0 \\Rightarrow d = 7$ or $d = -5$; since $d > 0$, $d = 7$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-5",
+          "label": "4.5",
+          "questionText": "Calculate the size of $\\hat{L}$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: $m_{PO} = 3$, so $\\tan P\\hat{O}V = m_{PO}$\nMark 2: $P\\hat{O}V = 71{,}565\\ldots^\\circ$\nMark 3: $m_{RL} = \\dfrac{1-(-3)}{7-(-1)} = \\dfrac{1}{2}$ (using $R(7\\,;\\,1)$ and $L$)\nMark 4: $\\tan R\\hat{V}N = \\tfrac{1}{2} \\Rightarrow R\\hat{V}N = 26{,}565\\ldots^\\circ$\nMark 5: $\\hat{L} = 71{,}565\\ldots^\\circ - 26{,}565\\ldots^\\circ = 45^\\circ$ (exterior angle of $\\triangle$)\n(Alternatively $\\hat{R} = 90^\\circ$ (angle in semi-circle); $PR = \\sqrt{80} = 4\\sqrt{5}$, $PL = \\sqrt{160} = 4\\sqrt{10}$, giving $\\sin\\hat{L} = \\dfrac{4\\sqrt{5}}{4\\sqrt{10}} \\Rightarrow \\hat{L} = 45^\\circ$.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-6",
+          "label": "4.6",
+          "questionText": "$TR$ is a tangent to the circle at $R$. Prove that $PT \\perp RT$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $m_{RM} = \\dfrac{1-3}{7-1} = -\\dfrac{1}{3}$\nMark 2: $m_{RT} = 3$ (tangent $\\perp$ radius) and $m_{PT} = -\\dfrac{1}{3}$ (from 4.2)\nMark 3: $m_{RT} \\times m_{PT} = 3 \\times (-\\tfrac{1}{3}) = -1$, therefore $PT \\perp RT$\n(Alternatively via $PT \\parallel MR$ and $M\\hat{R}T = 90^\\circ$, or via the tan-chord theorem: $T\\hat{P}R = \\hat{L} = 45^\\circ$, $TP = TR \\Rightarrow T\\hat{P}R = T\\hat{R}P = 45^\\circ \\Rightarrow P\\hat{T}R = 90^\\circ$.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Trigonometry — Identities & Compound Angles",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "5-1-1",
+          "label": "5.1.1",
+          "questionText": "In the diagram, line $OP$ is given with $P(-3\\,;\\,-4)$ and $K\\hat{O}P = A$.\n\nDetermine, **without using a calculator**, the value of $\\cos A$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $r = \\sqrt{(-3)^2 + (-4)^2} = 5$\nMark 2: $\\cos A = -\\dfrac{3}{5}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-1-2",
+          "label": "5.1.2",
+          "questionText": "Determine, **without using a calculator**, the value of $\\cos 2A$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution of $\\cos A$ into the double angle formula — $\\cos 2A = 2\\cos^2 A - 1 = 2\\left(-\\tfrac{3}{5}\\right)^2 - 1$\nMark 2: $\\cos 2A = -\\dfrac{7}{25}$\n(Alternatively $\\cos 2A = \\cos^2 A - \\sin^2 A = \\left(-\\tfrac{3}{5}\\right)^2 - \\left(-\\tfrac{4}{5}\\right)^2 = -\\tfrac{7}{25}$, or $1 - 2\\sin^2 A$.)",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-1-3",
+          "label": "5.1.3",
+          "questionText": "Determine, **without using a calculator**, the value of $\\sin(A - B)$, if it is further given that $\\sin B = \\dfrac{4}{5}$ and $90^\\circ < B < 360^\\circ$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: With $\\sin B = \\tfrac{4}{5}$ and $B$ in the second quadrant, $x = -3$, so $\\cos B = -\\tfrac{3}{5}$\nMarks 2–3 (double mark): Substitution into $\\sin(A-B) = \\sin A\\cos B - \\cos A\\sin B = \\left(-\\tfrac{4}{5}\\right)\\left(-\\tfrac{3}{5}\\right) - \\left(-\\tfrac{3}{5}\\right)\\left(\\tfrac{4}{5}\\right)$\nMark 4: $= \\dfrac{12}{25} + \\dfrac{12}{25} = \\dfrac{24}{25}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-2",
+          "label": "5.2",
+          "questionText": "If $\\cos\\alpha = p$, express the following expression in terms of $p$:\n\n$$\\frac{\\cos\\left(\\dfrac{\\alpha}{2} - 45^\\circ\\right)\\sin\\left(\\dfrac{\\alpha}{2} - 45^\\circ\\right)}{2}$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Multiply by $\\tfrac{2}{2}$ — $\\dfrac{2\\cos\\left(\\tfrac{\\alpha}{2}-45^\\circ\\right)\\sin\\left(\\tfrac{\\alpha}{2}-45^\\circ\\right)}{2\\cdot 2}$\nMark 2: Double angle — $= \\dfrac{\\sin(\\alpha - 90^\\circ)}{4}$\nMark 3: Co-function — $= \\dfrac{-\\cos\\alpha}{4}$\nMark 4: Answer — $= \\dfrac{-p}{4}$ (i.e. $-\\tfrac{1}{4}p$)",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Trigonometry — Identities, Equations & Functions",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "6-1-1",
+          "label": "6.1.1",
+          "questionText": "Given the identity: $\\cos(x - y) = \\cos x\\cos y + \\sin x\\sin y$\n\nUse the compound angle identity given above to derive a formula for $\\cos(x + y)$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $\\cos(x+y) = \\cos(x - (-y)) = \\cos x\\cos(-y) + \\sin x\\sin(-y)$\nMark 2: $= \\cos x\\cos y - \\sin x\\sin y$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "6-1-2",
+          "label": "6.1.2",
+          "questionText": "Hence, or otherwise, show that:\n\n$$\\frac{\\cos(90^\\circ - x)\\cos y + \\sin(-y)\\cos(180^\\circ + x)}{\\cos x\\cos(360^\\circ + y) + \\sin(360^\\circ - x)\\sin y} = \\tan(x + y)$$",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: $\\cos(90^\\circ - x) = \\sin x$\nMark 2: $\\sin(-y) = -\\sin y$\nMark 3: $\\cos(180^\\circ + x) = -\\cos x$\nMark 4: $\\cos(360^\\circ + y) = \\cos y$; $\\sin(360^\\circ - x) = -\\sin x$\nMark 5: LHS $= \\dfrac{\\sin x\\cos y + \\cos x\\sin y}{\\cos x\\cos y - \\sin x\\sin y} = \\dfrac{\\sin(x+y)}{\\cos(x+y)}$ (compound angle formulae)\nMark 6: $= \\tan(x+y) = $ RHS",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "6-2",
+          "label": "6.2",
+          "questionText": "Given: $f(x) = \\sqrt{6\\sin^2 x - 11\\cos(90^\\circ + x) + 7}$\n\nSolve for $x$ in the interval $x \\in (0^\\circ\\,;\\,360^\\circ)$ if $f(x) = 2$.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: Squaring both sides — $6\\sin^2 x - 11\\cos(90^\\circ + x) + 7 = 4$\nMark 2: $\\cos(90^\\circ + x) = -\\sin x$, so $6\\sin^2 x - 11(-\\sin x) + 7 = 4$\nMark 3: $6\\sin^2 x + 11\\sin x + 3 = 0$\nMark 4: Factors — $(3\\sin x + 1)(2\\sin x + 3) = 0$\nMark 5: Both equations — $\\sin x = -\\tfrac{1}{3}$ or $\\sin x = -\\tfrac{3}{2}$ (no solution); ref angle $= 19{,}47^\\circ$\nMark 6: $x = 199{,}47^\\circ$ or $x = 340{,}53^\\circ$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "6-3-1",
+          "label": "6.3.1",
+          "questionText": "Consider the function: $g(x) = \\dfrac{4 - 8\\sin^2 x}{3}$\n\nCalculate the maximum value of $g$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Factors — $g(x) = \\dfrac{4(1 - 2\\sin^2 x)}{3}$\nMark 2: $= \\dfrac{4\\cos 2x}{3}$\nMark 3: Maximum value of $\\cos 2x$ is $1$, so maximum value of $g(x) = \\dfrac{4}{3}$\n(Alternatively, $4 - 8\\sin^2 x$ is maximum when $\\sin^2 x$ is minimum $= 0$, giving $g(x) = \\dfrac{4 - 8(0)}{3} = \\dfrac{4}{3}$.)",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "6-3-2",
+          "label": "6.3.2",
+          "questionText": "Write down the smallest possible value of $x$ for which $g$ will have a maximum value in the interval $x \\in (0^\\circ\\,;\\,360^\\circ]$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $x = 180^\\circ$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Trigonometry — Graphs",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "7-1",
+          "label": "7.1",
+          "questionText": "The graph of $f(x) = \\tan x$ is drawn for the interval $x \\in [-180^\\circ\\,;\\,180^\\circ]$.\n\nWrite down the equation of the asymptote of $f$ in the interval $x \\in [0^\\circ\\,;\\,180^\\circ]$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $x = 90^\\circ$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-2",
+          "label": "7.2",
+          "questionText": "Write down the values of $x$ in the interval $x \\in [-180^\\circ\\,;\\,0^\\circ]$ for which $f(x) \\leq 0$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): $x = -180^\\circ$ or $x \\in (-90^\\circ\\,;\\,0^\\circ]$ (i.e. $x = -180^\\circ$ or $-90^\\circ < x \\leq 0^\\circ$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-3-1",
+          "label": "7.3.1",
+          "questionText": "Given: $g(x) = \\cos 2x + 1$\n\nWrite down the period of $g$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $180^\\circ$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-3-2",
+          "label": "7.3.2",
+          "questionText": "On the grid given in the ANSWER BOOK, draw the graph of $g(x) = \\cos 2x + 1$ for the interval $x \\in [-180^\\circ\\,;\\,180^\\circ]$. Clearly show the intercepts with the axes as well as the coordinates of the turning points.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Turning points on the $x$-axis at $x = -90^\\circ$ and $x = 90^\\circ$ (i.e. minima $(\\pm 90^\\circ\\,;\\,0)$)\nMark 2: Correct shape (cosine curve, amplitude 1, shifted up by 1)\nMark 3: Turning point (maximum) on the $y$-axis at $(0\\,;\\,2)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-4",
+          "label": "7.4",
+          "questionText": "Use the graphs to determine the general solution of $2\\cos^3 x - \\sin x = 0$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $2\\cos^3 x = \\sin x \\Rightarrow 2\\cos^2 x = \\dfrac{\\sin x}{\\cos x} = \\tan x$\nMark 2: $2\\cos^2 x - 1 = \\tan x - 1$\nMark 3: $\\cos 2x + 1 = \\tan x$ (i.e. $g(x) = f(x)$)\nMark 4: From the graphs, $x = 45^\\circ + k\\cdot 180^\\circ$, $k \\in \\mathbb{Z}$\n(Alternatively factorise $\\cos x(2\\cos^2 x - \\tan x) = 0$; $\\cos x = 0$ not valid, leading to the same solution.)",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Trigonometry — 3-D Application",
+      "totalMarks": 9,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2024_q8.png",
+      "subQuestions": [
+        {
+          "id": "8-1",
+          "label": "8.1",
+          "questionText": "In the diagram, $C$ is the foot of a vertical building and $D$ is the top of the same building. The height of the building, $CD$, is 16 m. Two observers are standing 19 m apart at points $A$ and $B$, where $A$, $B$ and $C$ lie in the same horizontal plane. A painter is working at point $E$ on the building. The angle of elevation of $D$ from $A$ is $46{,}85^\\circ$. $D\\hat{E}B = 122^\\circ$ and $B\\hat{C}A = 105{,}61^\\circ$.\n\nCalculate the length of $AC$, the distance between the observer at $A$ and the foot of the building.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Correct substitution into the trig ratio — $\\tan D\\hat{A}C = \\dfrac{DC}{AC} \\Rightarrow AC = \\dfrac{16}{\\tan 46{,}85^\\circ}$\nMark 2: $AC = 15$ m",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "8-2",
+          "label": "8.2",
+          "questionText": "Calculate how far the painter at $E$ is from the top of the building.",
+          "marks": 7,
+          "memoText": "Mark scheme (7 marks):\nMark 1: Correct substitution into the cosine rule — $(AB)^2 = (BC)^2 + (AC)^2 - 2(BC)(AC)\\cos B\\hat{C}A$, i.e. $(19)^2 = x^2 + (15)^2 - 2x(15)\\cos 105{,}61^\\circ$\nMark 2: Quadratic in standard form — $x^2 + 8{,}07x - 136 = 0$\nMark 3: Substitution into the quadratic formula — $x = \\dfrac{-8{,}07 \\pm \\sqrt{(8{,}07)^2 - 4(1)(-136)}}{2(1)}$\nMark 4: Length of $BC$ — $x = 8{,}30$ m (reject $x = -16{,}38$)\nMark 5: Size of $B\\hat{E}C = 58^\\circ$ (or $E\\hat{B}C = 32^\\circ$)\nMark 6: Length of $EC$ — $\\tan B\\hat{E}C = \\dfrac{BC}{EC} \\Rightarrow EC = \\dfrac{8{,}3}{\\tan 58^\\circ} = 5{,}19$ m\nMark 7: $DE = 16 - 5{,}19 = 10{,}81$ m\n(Alternatively $BC = 8{,}3$ m via the sine rule with $C\\hat{B}A = 49{,}5^\\circ$ and $B\\hat{A}C = 24{,}89^\\circ$.)",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Euclidean Geometry — Cyclic Quadrilateral",
+      "totalMarks": 6,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2024_q9.png",
+      "subQuestions": [
+        {
+          "id": "9-1",
+          "label": "9.1",
+          "questionText": "In the diagram, $ABCD$ is a cyclic quadrilateral. $BC$ is produced to $E$. $AC$ is drawn. $\\hat{A}_1 = \\dfrac{1}{2}\\hat{B}$, $\\hat{A}_2 = 46^\\circ$ and $\\hat{C}_1 = 86^\\circ$.\n\n(Provide reasons for your statements.)\n\nCalculate, with a reason, the value of $\\hat{A}_1$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1 (S): $\\hat{A}_1 = 40^\\circ$\nMark 2 (R): exterior angle of a cyclic quadrilateral (so $\\hat{A}_1 = \\hat{C}_1 - \\hat{A}_2$... using $\\hat{A}_1 = 40^\\circ$)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "9-2",
+          "label": "9.2",
+          "questionText": "Hence, prove that $AD = DC$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1 (S): Since $\\hat{A}_1 = \\tfrac{1}{2}\\hat{B}$ and $\\hat{A}_1 = 40^\\circ$, $\\hat{B} = 80^\\circ$\nMark 2 (S/R): $\\hat{D} = 100^\\circ$ (opposite angles of cyclic quadrilateral)\nMark 3 (S): $\\hat{C}_2 = 40^\\circ$ (sum of angles in $\\triangle ADC$), so $\\hat{C}_2 = \\hat{A}_1 = 40^\\circ$\nMark 4 (R): $AD = DC$ (sides opposite equal angles)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Euclidean Geometry — Proportionality & Circle",
+      "totalMarks": 15,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2024_q10.png",
+      "subQuestions": [
+        {
+          "id": "10-1",
+          "label": "10.1",
+          "questionText": "In the diagram, $\\triangle RST$ is drawn. Line $AB$ intersects $RS$ and $RT$ at $A$ and $B$ respectively such that $AB \\parallel ST$.\n\n(Provide reasons for your statements.)\n\nProve the theorem which states that a line drawn parallel to one side of a triangle divides the other two sides proportionally, i.e. $\\dfrac{RA}{AS} = \\dfrac{RB}{BT}$.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: Construction — join $SB$ and $TA$; draw $h_1$ from $B \\perp AR$ and $h_2$ from $A \\perp RB$\nMark 2: $\\dfrac{\\text{area }\\triangle RAB}{\\text{area }\\triangle ASB} = \\dfrac{\\tfrac{1}{2}RA\\cdot h_1}{\\tfrac{1}{2}AS\\cdot h_1}$\nMark 3: $= \\dfrac{RA}{AS}$\nMark 4: $\\dfrac{\\text{area }\\triangle RAB}{\\text{area }\\triangle ABT} = \\dfrac{\\tfrac{1}{2}RB\\cdot h_2}{\\tfrac{1}{2}BT\\cdot h_2} = \\dfrac{RB}{BT}$\nMark 5 (S): area $\\triangle ASB =$ area $\\triangle ABT$ (same base $AB$ and equal height; $AB \\parallel ST$)\nMark 6 (R): therefore $\\dfrac{\\text{area }\\triangle RAB}{\\text{area }\\triangle ASB} = \\dfrac{\\text{area }\\triangle RAB}{\\text{area }\\triangle ABT}$, giving $\\dfrac{RA}{AS} = \\dfrac{RB}{BT}$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "10-2-1",
+          "label": "10.2.1",
+          "questionText": "In the diagram, $O$ is the centre of the circle. $\\triangle PWS$ is drawn with $P$, $W$ and $S$ on the circle. $OR \\perp PS$. $PRS$ is produced to $T$. $SW$ and $OT$ intersect at $V$. $OV : OT = 1 : 4$.\n\nProve, with reasons, that $OR : WS = 1 : 2$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1 (S): $PR = RS$\nMark 1 (R): line from centre $\\perp$ to chord\nMark 2 (S): $PO = OW$ (radii)\nMark 3 (S): $OR = \\tfrac{1}{2}WS$ (midpoint theorem)\nMark 4 (R): $\\therefore OR : WS = 1 : 2$\n(Alternatively $P\\hat{S}W = 90^\\circ$ (angle in semi-circle) $= P\\hat{R}O$ (given) $\\Rightarrow RO \\parallel SW$; then $\\tfrac{PO}{OW} = \\tfrac{PR}{RS}$ with $PO = OW$ gives $PR = RS$ and $OR : WS = 1 : 2$; or via $\\triangle PRO \\;|||\\; \\triangle PSW$ with $PW = 2PO$.)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "10-2-2",
+          "label": "10.2.2",
+          "questionText": "Calculate the length of $PT$ if $ST = 15$ units.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1 (S/R): $\\dfrac{OV}{VT} = \\dfrac{RS}{ST} = \\dfrac{1}{3}$ (proportion theorem; $RO \\parallel SW$)\nMark 2 (S): $\\dfrac{RS}{15} = \\dfrac{1}{3} \\Rightarrow RS = 5$ units\nMark 3 (S): $PR = RS = 5$ units (line from centre $\\perp$ to chord)\nMark 4: $PT = PR + RS + ST = 5 + 5 + 15 = 25$ units",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Euclidean Geometry — Two Circles & Tangents",
+      "totalMarks": 20,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2024_q11.png",
+      "subQuestions": [
+        {
+          "id": "11-1",
+          "label": "11.1",
+          "questionText": "In the diagram, $A$, $B$, $G$ and $F$ lie on the larger circle. A smaller circle is drawn to touch the larger circle internally at $A$. $EA$ is a common tangent to both circles. $EBCF$ is a tangent to the smaller circle at $C$. $AC$ is produced to $G$. $AF$ cuts the smaller circle at $D$. $AB$, $CD$ and $GF$ are drawn.\n\n(Provide reasons for your statements.)\n\nIf $E\\hat{A}G = x$, determine with reasons, FOUR other angles that are equal to $x$.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1 (S/R): $\\hat{D}_1 = E\\hat{A}G = x$ (tan-chord theorem, smaller circle)\nMark 2 (S/R): $\\hat{C}_1 = \\hat{D}_1 = x$ (tan-chord theorem, smaller circle)\nMark 3 (S/R): $\\hat{C}_4 = \\hat{C}_1 = x$ (vertically opposite angles)\nMark 4 (S): $A\\hat{F}G = E\\hat{A}G = x$ (tan-chord theorem, larger circle)\n(The four angles equal to $x$: $\\hat{D}_1$, $\\hat{C}_1$, $\\hat{C}_4$ and $A\\hat{F}G$. Alternatively $EA = EC$ (tangents from common point) $\\Rightarrow \\hat{C}_1 = E\\hat{A}G = x$, etc.)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-2",
+          "label": "11.2",
+          "questionText": "Prove that $AG\\cdot AD = AC\\cdot AF$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1 (S): $\\hat{D}_1 = A\\hat{F}G = x$\nMark 2 (S/R): $\\therefore DC \\parallel FG$ (corresponding angles equal)\nMark 3 (S): $\\dfrac{AG}{AC} = \\dfrac{AF}{AD}$ (proportion theorem; $DC \\parallel FG$)\nMark 4 (R): $\\therefore AG\\cdot AD = AC\\cdot AF$\n(Alternatively $\\triangle ACD \\;|||\\; \\triangle AGF$ with $\\hat{A}_3$ common, $A\\hat{F}G = \\hat{D}_1$ and $\\hat{C}_2 = A\\hat{G}F \\Rightarrow \\dfrac{AC}{AG} = \\dfrac{AD}{AF}$.)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-3",
+          "label": "11.3",
+          "questionText": "Prove that $\\triangle AGF \\;|||\\; \\triangle ABC$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1 (S/R): $\\hat{G} = \\hat{B}_2$ (angles in the same segment)\nMark 2 (S): $A\\hat{F}G = \\hat{C}_1 = x$ (proved in 11.1)\nMark 3 (S): $\\hat{A}_3 = \\hat{A}_2$ (sum of angles in $\\triangle$)\nMark 4 (R): $\\therefore \\triangle AGF \\;|||\\; \\triangle ABC$ (equiangular, $\\angle\\angle\\angle$)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-4",
+          "label": "11.4",
+          "questionText": "Prove that $GF^2 = \\dfrac{BC\\cdot FC\\cdot AF}{AD}$.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1 (S/R): $\\dfrac{GF}{BC} = \\dfrac{AF}{AC}$ ($\\triangle AGF \\;|||\\; \\triangle ABC$), so $GF = \\dfrac{BC\\cdot AF}{AC}$\nMark 2 (S): $\\triangle ACD \\;|||\\; \\triangle FGC$ ($\\angle\\angle\\angle$)\nMark 3 (S): $\\dfrac{AC}{GF} = \\dfrac{AD}{FC}$, so $AC = \\dfrac{AD\\cdot FG}{FC}$\nMark 4 (S): $GF = BC\\cdot AF \\div \\dfrac{AD\\cdot FG}{FC} = BC\\cdot AF \\times \\dfrac{FC}{AD\\cdot FG}$\nMark 5 (S): $\\therefore GF^2 = \\dfrac{BC\\cdot FC\\cdot AF}{AD}$\nMark 6 (S): (conclusion)\n(Alternatively via $\\triangle AGF \\;|||\\; \\triangle ABC$ giving $GF = \\tfrac{AF\\cdot BC}{AC}$, $\\triangle ACD \\;|||\\; \\triangle AGF$ giving $GF = \\tfrac{AF\\cdot CD}{AD}$, and $\\triangle FCD \\;|||\\; \\triangle FAC$ giving $FC = \\tfrac{CD\\cdot AF}{AC}$, so $GF^2 = \\dfrac{AF\\cdot FC\\cdot BC}{AD}$.)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

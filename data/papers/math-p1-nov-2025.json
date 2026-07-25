@@ -1,0 +1,540 @@
+{
+  "id": "math-p1-nov-2025",
+  "subject": "Mathematics",
+  "paperCode": "P1",
+  "year": 2025,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Algebra & Equations",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "1-1-1",
+          "label": "1.1.1",
+          "questionText": "Solve for $x$:\n\n$$(x + 5)(x - 2) = 0$$",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x = -5$\nMark 2: $x = 2$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-2",
+          "label": "1.1.2",
+          "questionText": "Solve for $x$ (correct to TWO decimal places):\n\n$$5x^2 + 2 = -9x$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Standard form — $5x^2 + 9x + 2 = 0$\nMark 2: Substitution into the correct formula — $x = \\dfrac{-9 \\pm \\sqrt{(9)^2 - 4(5)(2)}}{2(5)} = \\dfrac{-9 \\pm \\sqrt{41}}{10}$\nMark 3: $x = -0{,}26$\nMark 4: $x = -1{,}54$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-3",
+          "label": "1.1.3",
+          "questionText": "Solve for $x$:\n\n$$8x^2 > 2x$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Standard form — $8x^2 - 2x > 0$\nMark 2: Critical values / factors — $2x(4x - 1) > 0$, so CV: $0$ and $\\tfrac{1}{4}$\nMarks 3–4 (double mark): $x < 0$ or $x > \\tfrac{1}{4}$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-4",
+          "label": "1.1.4",
+          "questionText": "Solve for $x$:\n\n$$2 \\cdot 2^{2x} - 9 \\cdot 2^{x} + 4 = 0$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Factors — $(2 \\cdot 2^{x} - 1)(2^{x} - 4) = 0$ (or let $k = 2^x$: $2k^2 - 9k + 4 = 0$, $(2k-1)(k-4)=0$)\nMark 2: Both equations — $2^{x} = \\tfrac{1}{2}$ or $2^{x} = 4$\nMark 3: $x = -1$\nMark 4: $x = 2$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-5",
+          "label": "1.1.5",
+          "questionText": "Solve for $x$:\n\n$$\\sqrt{\\sqrt{\\tfrac{1}{x}} + 2} = \\frac{1}{\\sqrt{x}}$$",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Squaring both sides — $\\sqrt{\\tfrac{1}{x}} + 2 = \\tfrac{1}{x}$\nMark 2: Isolation of the surd — $\\sqrt{\\tfrac{1}{x}} = \\tfrac{1}{x} - 2$\nMark 3: Squaring both sides only after isolation — $\\tfrac{1}{x} = \\tfrac{1}{x^2} - \\tfrac{4}{x} + 4$\nMark 4: Standard form — $4x^2 - 5x + 1 = 0$, so $(4x - 1)(x - 1) = 0$\nMark 5: Answer with selection — $x = \\tfrac{1}{4}$ ($x \\neq 1$, rejected)\n(Alternatively, let $\\tfrac{1}{\\sqrt{x}} = k$: $\\sqrt{k+2}=k \\Rightarrow k^2-k-2=0 \\Rightarrow (k-2)(k+1)=0 \\Rightarrow k=2$ (reject $k=-1$) $\\Rightarrow \\tfrac{1}{\\sqrt{x}}=2 \\Rightarrow x=\\tfrac{1}{4}$.)",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-2",
+          "label": "1.2",
+          "questionText": "Calculate the values of $x$ and $y$ if:\n\n- $x$ is the sum of $2$ and $y$\n- Five times the product of $x$ and $y$ is $6$ more than the square of $x$",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: $x = y + 2$\nMark 2: $5xy = x^2 + 6$\nMark 3: Substitution — $5(y+2)y = (y+2)^2 + 6$\nMark 4: Standard form — $5y^2 + 10y = y^2 + 4y + 4 + 6 \\Rightarrow 4y^2 + 6y - 10 = 0 \\Rightarrow 2y^2 + 3y - 5 = 0 \\Rightarrow (2y+5)(y-1)=0$\nMark 5: $y$-values — $y = -\\tfrac{5}{2}$ or $y = 1$\nMark 6: $x$-values — $x = -\\tfrac{1}{2}$ or $x = 3$",
+          "topic": "Algebra",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Number Patterns & Series",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "2-1-1",
+          "label": "2.1.1",
+          "questionText": "Given the infinite geometric series: $(t + 10) + (t - 2) + (t + 4) + \\ldots$\n\nShow that $t = -2$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Equating the ratios — $\\dfrac{t-2}{t+10} = \\dfrac{t+4}{t-2}$\nMark 2: Cross multiplication — $(t-2)^2 = (t+4)(t+10)$\nMark 3: Expansion and solve — $t^2 - 4t + 4 = t^2 + 14t + 40 \\Rightarrow -18t = 36 \\Rightarrow t = -2$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "2-1-2",
+          "label": "2.1.2",
+          "questionText": "Calculate the value of $T_{25}$. Write your answer in the form $T_n = b^{x}$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: With $t = -2$ the series is $8 \\,;\\, -4 \\,;\\, 2 \\,;\\, \\ldots$\nMark 2: $r = \\dfrac{-4}{8} = -\\tfrac{1}{2}$\nMark 3: Answer in exponential form — $T_{25} = 8\\left(-\\tfrac{1}{2}\\right)^{24} = \\left(\\tfrac{1}{2}\\right)^{21}$ (equivalently $2^{-21}$, $8^{-7}$, $128^{-3}$ or $(2\\,097\\,152)^{-1}$)",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "2-1-3",
+          "label": "2.1.3",
+          "questionText": "Calculate the sum of the infinite series.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution — $S_\\infty = \\dfrac{a}{1-r} = \\dfrac{8}{1 - (-\\tfrac{1}{2})}$\nMark 2: Answer — $S_\\infty = \\dfrac{16}{3} = 5{,}33$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "2-2-1",
+          "label": "2.2.1",
+          "questionText": "Given $\\displaystyle\\sum_{p=k}^{117}(4p - 1) = 26\\,675$\n\nWrite down the difference between $T_6$ and $T_{14}$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — the terms $4p-1$ form an arithmetic sequence with $d = 4$):\nMarks 1–2 (double mark): $T_{14} - T_6 = 4 \\times 8 = 32$\n(Alternatively $T_{14} - T_6 = (4(14)-1) - (4(6)-1) = 55 - 23 = 32$.)",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "2-2-2",
+          "label": "2.2.2",
+          "questionText": "Calculate the value of $k$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Number of terms — $n = 118 - k$\nMark 2: Last term — $T_{117} = 4(117) - 1 = 467$\nMark 3: Substitution — $S_{118-k} = \\dfrac{118-k}{2}\\big[4k - 1 + 467\\big]$, so $26\\,675 = (118-k)(2k + 233)$\nMark 4: Standard form — $26\\,675 = 236k + 27\\,494 - 2k^2 - 233k \\Rightarrow 2k^2 - 3k - 819 = 0 \\Rightarrow (k - 21)(2k + 39) = 0$\nMark 5: Answer with selection — $k = 21$ ($k \\neq -\\tfrac{39}{2}$)",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Quadratic Number Patterns",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "3-1",
+          "label": "3.1",
+          "questionText": "The depth of a torpedo below sea level forms a quadratic pattern, where $0$ metres is at sea level. A submarine tracked a torpedo in one-second intervals. The depth (in metres) that the torpedo reached is given in the table below.\n\n| | Depth (in metres) |\n|---|---|\n| At the end of the first second | 36 |\n| At the end of the first 2 seconds | 71 |\n| At the end of the first 3 seconds | 104 |\n\nCalculate the depth of the torpedo at the end of the first $5$ seconds.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: First differences $35 \\,;\\, 33 \\,;\\, 31 \\,;\\, 29$ (constant second difference $-2$), giving the sequence $36 \\,;\\, 71 \\,;\\, 104 \\,;\\, 135 \\,;\\, 164$\nMark 2: Answer — $T_5 = 164$ m",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "3-2",
+          "label": "3.2",
+          "questionText": "Show that the depth of the torpedo at the end of $n$ seconds was $T_n = -n^2 + 38n - 1$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks — for $T_n = an^2 + bn + c$):\nMark 1: $2a = -2 \\Rightarrow a = -1$\nMark 2: $3a + b = 35 \\Rightarrow 3(-1) + b = 35 \\Rightarrow b = 38$\nMark 3: $a + b + c = 36 \\Rightarrow -1 + 38 + c = 36 \\Rightarrow c = -1$, so $T_n = -n^2 + 38n - 1$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "3-3",
+          "label": "3.3",
+          "questionText": "Calculate the maximum depth that the torpedo reached.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Method — $n = \\dfrac{-b}{2a} = \\dfrac{-38}{2(-1)}$ (or $T_n' = -2n + 38 = 0$)\nMark 2: $n = 19$\nMark 3: Answer — $T_{19} = -(19)^2 + 38(19) - 1 = 360$ m",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "3-4",
+          "label": "3.4",
+          "questionText": "After how many seconds was the torpedo at $104$ m below sea level for the second time?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Method — using symmetry about $n = 19$: $\\dfrac{n + 3}{2} = 19$ (the depth $104$ first occurs at $n = 3$)\nMark 2: Answer — $n = 35$ seconds\n(Alternatively solve $-n^2 + 38n - 1 = 104 \\Rightarrow n^2 - 38n + 105 = 0 \\Rightarrow (n - 35)(n - 3) = 0 \\Rightarrow n = 35$.)",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Functions: Logarithms & Inverse",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2025_q4.png",
+      "subQuestions": [
+        {
+          "id": "4-1",
+          "label": "4.1",
+          "questionText": "The graph of $f(x) = \\log_{\\frac{1}{3}} x$ is drawn. Point A is the $x$-intercept of $f$ and $(3\\,;\\,t)$ lies on $f$.\n\nCalculate the value of $t$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $t = \\log_{\\frac{1}{3}} 3 = -1$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-2",
+          "label": "4.2",
+          "questionText": "Write down the coordinates of A.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $A(1\\,;\\,0)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-3",
+          "label": "4.3",
+          "questionText": "Determine the equation of $f^{-1}$, the inverse of $f$, in the form $y = \\ldots$",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Swopping $x$ and $y$ — $x = \\log_{\\frac{1}{3}} y$\nMark 2: Answer — $y = \\left(\\tfrac{1}{3}\\right)^{x} = 3^{-x}$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-4",
+          "label": "4.4",
+          "questionText": "Write down the equation of the asymptote of $f^{-1}$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $y = 0$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-5",
+          "label": "4.5",
+          "questionText": "Draw the graph of $f^{-1}$ on the set of axes provided in the ANSWER BOOK. Clearly indicate the intercepts with the axes, the coordinates of ONE other point and the asymptotes.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Decreasing exponential shape with asymptote $y = 0$\nMark 2: $y$-intercept $(0\\,;\\,1)$\nMark 3: Any other correct point, e.g. $(-1\\,;\\,3)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-6",
+          "label": "4.6",
+          "questionText": "The graph of $h$ is obtained when $f^{-1}$ is translated $5$ units to the right. Determine the $y$-values of $h$ where $x > 4$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\n$h(x) = 3^{-(x-5)}$, with $(4\\,;\\,3)$ a point on $h$; for $x > 4$ the graph decreases towards the asymptote $y = 0$.\nMarks 1–2 (double mark): $0 < y < 3$ (i.e. $y \\in (0\\,;\\,3)$)",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Functions: Parabola & Hyperbola",
+      "totalMarks": 18,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2025_q5.png",
+      "subQuestions": [
+        {
+          "id": "5-1",
+          "label": "5.1",
+          "questionText": "The graphs of $f(x) = ax^2 + bx + c$ and $g(x) = \\dfrac{-4}{x - 3} + 8$ are drawn. P is the turning point of $f$ and the point of intersection of the asymptotes of $g$. The graphs intersect at $D(5\\,;\\,6)$. M and T are the $x$-intercepts of $f$ and $g$ respectively.\n\nWrite down the domain of $g$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $x \\in \\mathbb{R},\\; x \\neq 3$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-2",
+          "label": "5.2",
+          "questionText": "Write down the range of $f$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $y \\leq 8$ (P is the turning point of $f$ at $y = 8$, the horizontal asymptote of $g$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-3-1",
+          "label": "5.3.1",
+          "questionText": "Determine the values of $x$ for which $g(x) \\leq f(x)$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): $3 < x \\leq 5$ (i.e. $x \\in (3\\,;\\,5]$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-3-2",
+          "label": "5.3.2",
+          "questionText": "Determine the values of $x$ for which $f(x) < 6$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x < 1$\nMark 2: $x > 5$\n(i.e. $x \\in (-\\infty\\,;\\,1)$ or $x \\in (5\\,;\\,\\infty)$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-4",
+          "label": "5.4",
+          "questionText": "Show that the equation of the parabola is $f(x) = -\\dfrac{1}{2}x^2 + 3x + \\dfrac{7}{2}$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $p$ and $q$ values — P is the intersection of the asymptotes of $g$, so P$(3\\,;\\,8)$ and $y = a(x - 3)^2 + 8$\nMark 2: Substitution of $(5\\,;\\,6)$ — $6 = a(5 - 3)^2 + 8 \\Rightarrow -2 = 4a \\Rightarrow a = -\\tfrac{1}{2}$\nMark 3: Simplification — $y = -\\tfrac{1}{2}(x - 3)^2 + 8 = -\\tfrac{1}{2}(x^2 - 6x + 9) + 8 = -\\tfrac{1}{2}x^2 + 3x + \\tfrac{7}{2}$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-5",
+          "label": "5.5",
+          "questionText": "Calculate the length of MT.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: Solve for $x$ (M) — $-\\tfrac{1}{2}x^2 + 3x + \\tfrac{7}{2} = 0 \\Rightarrow x^2 - 6x - 7 = 0 \\Rightarrow (x - 7)(x + 1) = 0$\nMark 2: $x = 7$ or $x = -1$\nMark 3: Coordinates of M — $M(-1\\,;\\,0)$\nMark 4: Solve for $x$ (T) — $0 = \\dfrac{-4}{x - 3} + 8 \\Rightarrow -8x + 24 = -4$\nMark 5: $x = \\tfrac{7}{2}$, so $T\\left(\\tfrac{7}{2}\\,;\\,0\\right)$\nMark 6: $MT = \\tfrac{7}{2} + 1 = \\tfrac{9}{2} = 4{,}5$ units",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-6",
+          "label": "5.6",
+          "questionText": "Determine the equation of the tangent to $f$ at D.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $f'(x) = -x + 3$\nMark 2: $m = f'(5) = -5 + 3 = -2$\nMark 3: Answer — $6 = -2(5) + c \\Rightarrow c = 16$, so $y = -2x + 16$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Functions: Hyperbola & Line",
+      "totalMarks": 8,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2025_q6.png",
+      "subQuestions": [
+        {
+          "id": "6-1",
+          "label": "6.1",
+          "questionText": "The graphs of $g(x) = x + c$ and $f(x) = \\dfrac{a}{x + p} + q$ are drawn. Graph $g$ and the vertical asymptote of $f$ intersect at the $x$-axis.\n\nWrite down the coordinates of the $x$-intercept of $g$ in terms of $p$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $(-p\\,;\\,0)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-2",
+          "label": "6.2",
+          "questionText": "Graph $g$ intersects the horizontal asymptote of graph $f$ at $x = 1$ and the graph $f$ at $x = 3$. Graphs $f$ and $g$ also intersect on the $y$-axis. Determine the equation of $f$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Horizontal asymptote — $q = 1 + c$ (since $g(1) = 1 + c$ equals the value of the horizontal asymptote)\nMark 2: $f(x) = \\dfrac{a}{x + c} + 1 + c$ (the $x$-intercept of $g$ gives the vertical asymptote, so $p = c$)\nMark 3: Substitute the point at $x = 3$: $3 + c = \\dfrac{a}{3 + c} + 1 + c$\nMark 4: Using the $y$-axis intersection to get $a = -c$, then solve — $3c = -6 \\Rightarrow c = -2 \\Rightarrow a = 2$\nMark 5: $q = -1$, so $f(x) = \\dfrac{2}{x - 2} - 1$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-3",
+          "label": "6.3",
+          "questionText": "Describe the transformation that $g$ must undergo to become an axis of symmetry of $f$ that cuts $f$ at two points.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): Translation of $1$ unit down (OR translation of $1$ unit to the right)",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Financial Mathematics",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "7-1",
+          "label": "7.1",
+          "questionText": "A travel company informs Robert that a holiday to a certain destination costs $R40\\,000$ now. The company predicts that the cost of this holiday will increase by $7{,}8\\%$ per annum. What will this holiday cost in $5$ years' time?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution into the correct formula — $A = 40\\,000(1 + 0{,}078)^5$\nMark 2: Answer — $A = R58\\,230{,}94$",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "7-2",
+          "label": "7.2",
+          "questionText": "Sarah opened a savings account that paid interest at a rate of $5{,}8\\%$ p.a., compounded quarterly. She deposited $R2\\,300$ into the account on 1 January 2020 and continued to make deposits of $R2\\,300$ at the beginning of each quarter thereafter. She made her last deposit on 1 October 2025. Calculate the accumulated amount in the account on 1 January 2026.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $i = \\dfrac{0{,}058}{4}$\nMark 2: Substitution into the correct formula — $F = \\dfrac{2\\,300\\left[(1 + \\tfrac{0{,}058}{4})^{24} - 1\\right]}{\\tfrac{0{,}058}{4}}$ (there are $24$ quarterly deposits)\nMark 3: Future value $\\times (1 + i)^1$ (the accumulated amount is one quarter after the last deposit)\nMark 4: Answer — $F = R66\\,411{,}60$",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "7-3-1",
+          "label": "7.3.1",
+          "questionText": "The bank granted Rajesh a loan of $R900\\,000$ on 28 February 2024 at an interest rate of $6{,}8\\%$ p.a., compounded monthly.\n\nRajesh was unable to make the first three payments. He made his first repayment of $R10\\,000$ on 30 June 2024. He continued to make monthly repayments of $R10\\,000$ at the end of each month thereafter. How long, in completed months, will it take Rajesh to repay the loan from the time the loan was granted?",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Outstanding balance after 3 months — $A = 900\\,000\\left(1 + \\tfrac{0{,}068}{12}\\right)^3 = R915\\,386{,}86$\nMark 2: Substitution into the correct formula — $915\\,386{,}86 = \\dfrac{10\\,000\\left[1 - (1 + \\tfrac{0{,}068}{12})^{-n}\\right]}{\\tfrac{0{,}068}{12}}$\nMark 3: Correct use of logs — $(1 + \\tfrac{0{,}068}{12})^{-n} = 0{,}4812\\ldots$\nMark 4: $n = 129{,}419\\ldots$ months (of repayments)\nMark 5: Final answer — $132{,}419\\ldots$, so $133$ months since the loan was granted (adding the first 3 months)",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "7-3-2",
+          "label": "7.3.2",
+          "questionText": "Calculate the value of the final payment.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Substitution — $P = \\dfrac{10\\,000\\left[1 - (1 + \\tfrac{0{,}068}{12})^{-0{,}419\\ldots}\\right]}{\\tfrac{0{,}068}{12}}$ using the fractional part $n = 0{,}419\\ldots$\nMark 2: $n$ (fractional part) used correctly\nMark 3: Balance $= R4\\,173{,}55\\ldots$\nMark 4: Final payment $= 4\\,173{,}55\\ldots\\left(1 + \\tfrac{0{,}068}{12}\\right)^1 = R4\\,197{,}21$",
+          "topic": "Finance",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Calculus: Differentiation",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "8-1",
+          "label": "8.1",
+          "questionText": "Determine $f'(x)$ from first principles if it is given that $f(x) = -2x + 3$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $f(x + h) = -2(x + h) + 3$\nMark 2: Substitution — $f'(x) = \\displaystyle\\lim_{h \\to 0} \\dfrac{-2(x+h) + 3 - (-2x + 3)}{h}$\nMark 3: Simplification — $= \\displaystyle\\lim_{h \\to 0} \\dfrac{-2h}{h} = \\displaystyle\\lim_{h \\to 0}(-2)$\nMark 4: Answer — $f'(x) = -2$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "8-2-1",
+          "label": "8.2.1",
+          "questionText": "Determine $g'(x)$ if $g(x) = -3x^4 + 2x$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $-12x^3$\nMark 2: $+2$, so $g'(x) = -12x^3 + 2$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "8-2-2",
+          "label": "8.2.2",
+          "questionText": "Determine $\\dfrac{dy}{dx}$ if $y = \\dfrac{2x^4 + 1}{x^2}$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $2x^2$ (first term of $y$)\nMark 2: $x^{-2}$ (second term of $y$), so $y = 2x^2 + x^{-2}$\nMark 3: Derivative of first term — $4x$\nMark 4: Derivative of second term — $-2x^{-3}$, so $\\dfrac{dy}{dx} = 4x - 2x^{-3}$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Calculus: Cubic Functions",
+      "totalMarks": 17,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2025_q9.png",
+      "subQuestions": [
+        {
+          "id": "9-1",
+          "label": "9.1",
+          "questionText": "Sketched is the graph of $f(x) = x^3 - 8x^2 + 5x + 14$. A, B and C are the $x$-intercepts of $f$. D and E are the turning points of $f$.\n\nCalculate the coordinates of E.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $f'(x) = 3x^2 - 16x + 5$\nMark 2: $f'(x) = 0 \\Rightarrow (3x - 1)(x - 5) = 0$\nMark 3: $x$-value — $x = 5$ (E is the lower turning point; $x = \\tfrac{1}{3}$ gives D)\nMark 4: $y$-value — $E(5\\,;\\,-36)$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "9-2",
+          "label": "9.2",
+          "questionText": "For which values of $x$ is $f$ concave down?",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $f''(x) = 6x - 16$\nMark 2: $f''(x) < 0$\nMark 3: Answer — $x < \\tfrac{8}{3}$\n(Alternatively: the point of inflection is the midpoint of the turning points, $x = \\dfrac{\\tfrac{1}{3} + 5}{2} = \\tfrac{8}{3}$; concave down for $x < \\tfrac{8}{3}$.)",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "9-3",
+          "label": "9.3",
+          "questionText": "The coordinates of B are $(2\\,;\\,0)$. Use the graph to determine the values of $x$ for which $f(x) \\cdot f''(x) < 0$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMarks 1–2 (double mark): $x$-intercepts of $f$ are $(-1\\,;\\,0)$ and $(7\\,;\\,0)$ (with B $(2\\,;\\,0)$)\nMark 3: First interval — $-1 < x < 2$\nMark 4: Second interval — $\\tfrac{8}{3} < x < 7$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "9-4",
+          "label": "9.4",
+          "questionText": "For which values of $t$ will $y = -11x + t$ intersect $f$ at $3$ distinct points?",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nMark 1: Equating — $3x^2 - 16x + 5 = -11$ (the line is a tangent to $f$ when its gradient equals $f'(x) = -11$)\nMark 2: $3x^2 - 16x + 16 = 0 \\Rightarrow (x - 4)(3x - 4) = 0$\nMark 3: $x$-values — $x = 4$ or $x = \\tfrac{4}{3}$\nMark 4: At $x = 4$: $(4)^3 - 8(4)^2 + 5(4) + 14 = -11(4) + t \\Rightarrow t = 14$\nMark 5: At $x = \\tfrac{4}{3}$: $t = \\tfrac{634}{27} = 23\\tfrac{13}{27} = 23{,}48$\nMark 6: Answer — $14 < t < \\tfrac{634}{27}$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Calculus: Optimisation",
+      "totalMarks": 6,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2025_q10.png",
+      "subQuestions": [
+        {
+          "id": "10-1",
+          "label": "10.1",
+          "questionText": "A rectangular metal sheet has dimensions $x$ and $h$ units, with $x > h$, and a perimeter of $50$ units. The metal sheet is rolled into a cylinder with two open ends (top and bottom) and height $h$ units.\n\nShow that the volume of the cylinder is given by $V = \\dfrac{25x^2}{4\\pi} - \\dfrac{x^3}{4\\pi}$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Perimeter — $2x + 2h = 50 \\Rightarrow h = 25 - x$\nMark 2: The side $x$ becomes the circumference — $2\\pi r = x \\Rightarrow r = \\dfrac{x}{2\\pi}$\nMark 3: Substitution — $V = \\pi r^2 h = \\pi\\left(\\dfrac{x}{2\\pi}\\right)^2(25 - x) = \\dfrac{x^2}{4\\pi}(25 - x) = \\dfrac{25x^2}{4\\pi} - \\dfrac{x^3}{4\\pi}$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "10-2",
+          "label": "10.2",
+          "questionText": "Calculate the value of $x$ that will maximise the volume of the cylinder.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $V'(x) = \\dfrac{50x}{4\\pi} - \\dfrac{3x^2}{4\\pi}$\nMark 2: $V'(x) = 0 \\Rightarrow 50x - 3x^2 = 0 \\Rightarrow x(50 - 3x) = 0$\nMark 3: Answer with selection — $x \\neq 0$, so $x = \\dfrac{50}{3} = 16{,}67$ units",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Probability & Counting Principles",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "11-1-1",
+          "label": "11.1.1",
+          "questionText": "A survey was conducted among female and male learners at a school about which type of cold drink they preferred. The data is presented in the table below.\n\n| | JUICE | ENERGY DRINKS | TOTAL |\n|---|---|---|---|\n| Female | $a$ | $b$ | $c$ |\n| Male | 36 | 54 | $f$ |\n| Total | $e$ | $d$ | 210 |\n\nThe events *male* and *preferring juice* are independent. Show that $e = 84$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $P(\\text{Male and Prefer juice}) = P(\\text{Male}) \\times P(\\text{Prefer juice})$\nMark 2: $\\dfrac{36}{210}$ (as $P(\\text{Male and Juice})$; note $f = 36 + 54 = 90$)\nMark 3: $\\dfrac{36}{210} = \\dfrac{90}{210} \\times \\dfrac{e}{210} \\Rightarrow e = 84$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "11-1-2",
+          "label": "11.1.2",
+          "questionText": "Calculate the probability that a female learner, chosen at random from the group, will like energy drinks.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $d$-value — $d = 210 - 84 = 126$\nMark 2: $b$-value — $b = 126 - 54 = 72$\nMark 3: Answer — $P(\\text{Female and like energy drink}) = \\dfrac{72}{210} = \\dfrac{12}{35} = 0{,}34$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "11-2",
+          "label": "11.2",
+          "questionText": "At a kiosk, $120$ people buy either a cup of coffee or a bottle of water. The chance of rain on any given day is $75\\%$. The chance of a person buying a cup of coffee on a rainy day is three times the chance of the person buying coffee on a non-rainy day. The probability of a person buying coffee on any given day is $\\dfrac{7}{12}$.\n\nCalculate the number of cups of coffee that will be sold on a non-rainy day.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks — let $x$ be the number of cups of coffee sold on a non-rainy day, so $3x$ on a rainy day):\nMark 1: $\\dfrac{75}{100} \\times \\left(\\dfrac{3x}{120}\\right)$ (rainy-day branch)\nMark 2: $\\dfrac{25}{100}\\left(\\dfrac{x}{120}\\right)$ (non-rainy-day branch)\nMark 3: $\\dfrac{75}{100}\\left(\\dfrac{3x}{120}\\right) + \\dfrac{25}{100}\\left(\\dfrac{x}{120}\\right) = \\dfrac{7}{12}$\nMark 4: Answer — $10x = 280 \\Rightarrow x = 28$ cups of coffee",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "11-3-1",
+          "label": "11.3.1",
+          "questionText": "Eight runners compete in a race where there are no tied finishes. Bongi and Andrew are two of the competitors.\n\nCalculate the total number of possible ways in which the $8$ runners can finish the race if Bongi finishes in a position immediately after Andrew.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — treat Andrew-then-Bongi as a single unit, giving $7$ items to arrange):\nMarks 1–2 (double mark): $7 \\cdot 6! = 7! = 5\\,040$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "11-3-2",
+          "label": "11.3.2",
+          "questionText": "Calculate the probability that TWO OR MORE runners finish the race after Andrew and before Bongi.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nFavourable arrangements (Andrew … 2, 3, 4 or 5 runners between … Bongi):\n$5 \\cdot 6! + 4 \\cdot 6! + 3 \\cdot 6! + 2 \\cdot 6! + 1 \\cdot 6! = 6!(5 + 4 + 3 + 2 + 1) = 6!(15)$\nMarks 1–2 (double mark): $6!(15)$ in the numerator\nMark 3: $8!$ in the denominator\nMark 4: $P(\\text{two or more between}) = \\dfrac{6!(15)}{8!} = \\dfrac{15}{56} = 0{,}27$",
+          "topic": "Probability",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

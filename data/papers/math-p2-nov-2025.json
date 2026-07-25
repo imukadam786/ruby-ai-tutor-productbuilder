@@ -1,0 +1,587 @@
+{
+  "id": "math-p2-nov-2025",
+  "subject": "Mathematics",
+  "paperCode": "P2",
+  "year": 2025,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Statistics — Regression",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "1-1",
+          "label": "1.1",
+          "questionText": "There were 11 cars of the same model for sale at a car dealership. The age (in years) of each car and its corresponding selling price (in rands) is provided in the table below.\n\n| Age of car (in years) | Selling price of car (in rand) |\n| --- | --- |\n| 2 | 293 000 |\n| 3 | 265 000 |\n| 3 | 256 000 |\n| 4 | 219 000 |\n| 4 | 241 000 |\n| 4 | 246 000 |\n| 6 | 226 000 |\n| 6 | 176 000 |\n| 7 | 154 000 |\n| 7 | 180 000 |\n| 8 | 148 000 |\n\nDetermine the equation of the least squares regression line.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $a = 331\\,397{,}20$\nMark 2: $b = -22\\,988{,}32$\nMark 3: Equation — $\\hat{y} = 331\\,397{,}20 - 22\\,988{,}32x$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-2",
+          "label": "1.2",
+          "questionText": "Predict the selling price of a similar car at this car dealership that is 5 years old.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution — $\\hat{y} = 331\\,397{,}20 - 22\\,988{,}32(5)$\nMark 2: Answer — $\\hat{y} = 216\\,455{,}60$ (or $216\\,455{,}61$ by calculator)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-3",
+          "label": "1.3",
+          "questionText": "Use the correlation coefficient to show whether the prediction made in QUESTION 1.2 is valid or not.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Strong correlation ($r = -0{,}95$)\nMark 2: The strong correlation suggests the data points lie close to the regression line, therefore the prediction will be valid.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "1-4",
+          "label": "1.4",
+          "questionText": "Use the answer to QUESTION 1.1 to write down the estimated average yearly decrease in the selling price of these 11 cars.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: The average decrease per year is $R22\\,988{,}32$.",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Statistics — Cumulative Frequency & Standard Deviation",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "2-1-1",
+          "label": "2.1.1",
+          "questionText": "The cumulative frequency table below shows the amount of time that people spent on a particular website on a certain day.\n\n| Time, $t$ (in minutes) | Cumulative frequency |\n| --- | --- |\n| $0 < t \\leq 20$ | 16 |\n| $0 < t \\leq 40$ | 40 |\n| $0 < t \\leq 60$ | 59 |\n| $0 < t \\leq 80$ | 67 |\n| $0 < t \\leq 100$ | 70 |\n\nHow many people visited this website on that day?",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $70$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-1-2",
+          "label": "2.1.2",
+          "questionText": "How many people spent more than 40 and up to 80 minutes on the website?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: No. of people $= 67 - 40$\nMark 2: $= 27$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-1-3",
+          "label": "2.1.3",
+          "questionText": "Draw a histogram to represent the information provided in the cumulative frequency table.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks — frequencies per interval: $16 \\,;\\, 24 \\,;\\, 19 \\,;\\, 8 \\,;\\, 3$):\nMark 1: Two frequencies correct\nMark 2: All frequencies correct\nMark 3: No gaps between the bars",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-1-4",
+          "label": "2.1.4",
+          "questionText": "Comment on the skewness of the data.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: Skewed to the right (positively skewed)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "2-2",
+          "label": "2.2",
+          "questionText": "There are 9 players in a basketball team. The coach calculated that on average, each player scored 12 points during a game. The points scored by 8 of the 9 players from the team is given below:\n\n| 11 | 14 | 19 | 20 | 8 | 10 | 2 | 14 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n\nHow many players' points score was outside ONE standard deviation of the mean points score?",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Equating using the mean — $\\dfrac{11+14+19+20+8+10+2+14+x}{9} = 12$\nMark 2: The 9th player scored $x = 10$ points\nMark 3: Standard deviation — $\\sigma = 5{,}23$ ($5{,}22812$)\nMark 4: Interval — $(\\bar{x}-\\sigma \\,;\\, \\bar{x}+\\sigma) = (12-5{,}23 \\,;\\, 12+5{,}23) = (6{,}77 \\,;\\, 17{,}23)$\nMark 5: Answer — 3 players' points were outside one standard deviation of the mean.",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Analytical Geometry",
+      "totalMarks": 18,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2025_q3.png",
+      "subQuestions": [
+        {
+          "id": "3-1",
+          "label": "3.1",
+          "questionText": "In the diagram, $P(-1\\,;\\,8)$, $Q(-4\\,;\\,-6)$ and $R(12\\,;\\,2)$ are the vertices of $\\triangle PQR$. The angle of inclination of QR is $\\theta$.\n\nCalculate the length of QR. Leave your answer in simplified surd form.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $QR = \\sqrt{(-4-12)^2 + (-6-2)^2}$\nMark 2: $= \\sqrt{320} = 8\\sqrt{5}$ units",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-2",
+          "label": "3.2",
+          "questionText": "Calculate the gradient of QR.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Correct substitution — $m_{QR} = \\dfrac{-6-2}{-4-12}$ (or $\\dfrac{2-(-6)}{12-(-4)}$)\nMark 2: $m_{QR} = \\dfrac{1}{2}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-3",
+          "label": "3.3",
+          "questionText": "Calculate the size of $\\theta$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $\\tan\\theta = m_{QR} = \\dfrac{1}{2}$\nMark 2: $\\theta = 26{,}57^\\circ$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-4",
+          "label": "3.4",
+          "questionText": "Determine the equation of QR.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Correct substitution of gradient and point $Q(-4\\,;\\,-6)$ or $R(12\\,;\\,2)$ — $-6 = \\tfrac{1}{2}(-4) + c$\nMark 2: $y = \\tfrac{1}{2}x - 4$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-5",
+          "label": "3.5",
+          "questionText": "PQRS, in that order, is a parallelogram. Write down the coordinates of S.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x_S = 15$\nMark 2: $y_S = 16$\n(Via $Q \\to R : (x\\,;\\,y) \\to (x+16\\,;\\,y+8)$, so $S(15\\,;\\,16)$.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-6",
+          "label": "3.6",
+          "questionText": "T is a point on QR such that $PT \\perp QR$. Calculate the coordinates of T.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: $m_{PT} = -2$\nMark 2: Equation of PT — $y = -2x + 6$\nMark 3: Equation QR = equation PT — $-2x + 6 = \\tfrac{1}{2}x - 4$\nMark 4: Simplification — $-4x + 12 = x - 8 \\Rightarrow 5x = 20 \\Rightarrow x = 4$\nMark 5: $T(4\\,;\\,-2)$\n(Alternatively: $PQ = \\sqrt{205} = PR$, so $\\triangle PQR$ is isosceles, the perpendicular height bisects base QR, so T is the midpoint of QR $\\Rightarrow T(4\\,;\\,-2)$.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "3-7",
+          "label": "3.7",
+          "questionText": "Calculate the area of parallelogram PQRS.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Length of PT — $PT = \\sqrt{(4-(-1))^2 + (-2-8)^2} = \\sqrt{125} = 5\\sqrt{5}$ units\nMark 2: Substitution of QR and PT — Area of PQRS $= QR \\cdot PT = (8\\sqrt{5})(5\\sqrt{5})$\nMark 3: $= 200$ units$^2$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Analytical Geometry — Circle & Tangents",
+      "totalMarks": 21,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2025_q4.png",
+      "subQuestions": [
+        {
+          "id": "4-1",
+          "label": "4.1",
+          "questionText": "In the diagram, $M(p\\,;\\,q)$ is the centre of the circle that intersects the $x$-axis at A and B. C is a point such that the line drawn from M to C is parallel to the $y$-axis and intersects the $x$-axis at D. MC intersects the circle at $E(-6\\,;\\,-1)$. Tangents drawn from C touch the circle at A and B. $AD = (q-1)$ units.\n\nWrite down the value of $p$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $p = -6$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-2",
+          "label": "4.2",
+          "questionText": "Show that $q = 4$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $AM = ME = q + 1$ (radii)\nMark 2: $MD = q$\nMark 3: Substitution into Pythagoras — $AM^2 = AD^2 + MD^2 \\Rightarrow (q+1)^2 = (q-1)^2 + q^2$\nMark 4: Standard form — $q^2 + 2q + 1 = q^2 - 2q + 1 + q^2 \\Rightarrow q^2 - 4q = 0 \\Rightarrow q(q-4) = 0$, so $q \\neq 0$ or $q = 4$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-3",
+          "label": "4.3",
+          "questionText": "Determine the equation of the circle in the form $(x-a)^2 + (y-b)^2 = r^2$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: LHS — $AM = 5$ units, $(x+6)^2 + (y-4)^2$\nMark 2: RHS — $= 25$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-4",
+          "label": "4.4",
+          "questionText": "If the circle is translated 2 units to the left, determine the minimum distance between the circle and the $y$-axis.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $3$ units",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-5",
+          "label": "4.5",
+          "questionText": "Calculate the coordinates of A and B.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Substituting $y = 0$ into the equation of the circle — $(x+6)^2 + (0-4)^2 = 25 \\Rightarrow (x+6)^2 = 9$\nMark 2: Coordinates of A — $A(-9\\,;\\,0)$\nMark 3: Coordinates of B — $B(-3\\,;\\,0)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-6",
+          "label": "4.6",
+          "questionText": "Determine the equation of tangent BC.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $m_{MB} = \\dfrac{4-0}{-6-(-3)} = -\\dfrac{4}{3}$\nMark 2: $m_{BC} = \\dfrac{3}{4}$\nMark 3: Substitution of gradient BC and coordinates of B — $0 = \\tfrac{3}{4}(-3) + c$\nMark 4: Answer — $y = \\tfrac{3}{4}x + \\tfrac{9}{4}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-7",
+          "label": "4.7",
+          "questionText": "Write down the coordinates of C.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x_C = -6$\nMark 2: $y_C = -\\dfrac{9}{4}$, so $C\\left(-6\\,;\\,-\\dfrac{9}{4}\\right)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "4-8",
+          "label": "4.8",
+          "questionText": "Calculate the size of $A\\hat{C}B$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $\\tan\\alpha = \\tfrac{3}{4} \\Rightarrow \\alpha = 36{,}87^\\circ$\nMark 2: $\\tan\\beta = m_{AC} = -\\tfrac{3}{4}$\nMark 3: $\\beta = 180^\\circ - 36{,}87^\\circ = 143{,}13^\\circ$\nMark 4: $A\\hat{C}B = 106{,}26^\\circ$\n(Alternatively via the kite/cosine rule: $AC = BC = \\tfrac{15}{4}$, $\\cos A\\hat{C}B = -0{,}28 \\Rightarrow A\\hat{C}B = 106{,}26^\\circ$.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Trigonometry — Identities & Reduction",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "5-1-1",
+          "label": "5.1.1",
+          "questionText": "It is given that $\\tan 50^\\circ = k$. Express EACH of the following in terms of $k$:\n\n$\\cos 40^\\circ$",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — with $\\tan 50^\\circ = k$, third side $= \\sqrt{k^2+1}$; $\\cos 40^\\circ = \\sin 50^\\circ$):\nMark 1: Third side $= \\sqrt{k^2+1}$\nMark 2: $\\cos 40^\\circ = \\dfrac{k}{\\sqrt{k^2+1}}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-1-2",
+          "label": "5.1.2",
+          "questionText": "$\\dfrac{2\\sin 25^\\circ \\cdot \\cos 25^\\circ}{-2 + 4\\sin^2 25^\\circ}$",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Numerator $\\sin 50^\\circ$\nMark 2: Denominator $-2(1 - 2\\sin^2 25^\\circ)$\nMark 3: Double angle — $= \\dfrac{\\sin 50^\\circ}{-2\\cos 50^\\circ}$\nMark 4: Substitution OR quotient identity — $= -\\tfrac{1}{2}\\tan 50^\\circ$ (or $\\left(\\dfrac{k}{\\sqrt{k^2+1}}\\right) \\div \\left(\\dfrac{-2}{\\sqrt{k^2+1}}\\right)$)\nMark 5: Answer — $= -\\tfrac{1}{2}k$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-1-3",
+          "label": "5.1.3",
+          "questionText": "$\\sin 10^\\circ$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $\\sin 10^\\circ = \\sin(50^\\circ - 40^\\circ)$\nMark 2: Correct expansion — $= \\sin 50^\\circ \\cos 40^\\circ - \\cos 50^\\circ \\sin 40^\\circ$\nMark 3: First term — $\\left(\\dfrac{k}{\\sqrt{k^2+1}}\\right)\\left(\\dfrac{k}{\\sqrt{k^2+1}}\\right)$\nMark 4: Second term — $\\left(\\dfrac{1}{\\sqrt{k^2+1}}\\right)\\left(\\dfrac{1}{\\sqrt{k^2+1}}\\right)$, giving $\\dfrac{k^2-1}{k^2+1}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-2-1",
+          "label": "5.2.1",
+          "questionText": "Given: $\\dfrac{\\sin(540^\\circ + x) \\cdot \\cos(90^\\circ + x)}{\\sin(-x)}$\n\nSimplify the expression above fully to a single trigonometric ratio.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $\\sin(540^\\circ + x) = -\\sin x$\nMark 2: $\\cos(90^\\circ + x) = -\\sin x$\nMark 3: $\\sin(-x) = -\\sin x$\nMark 4: Answer — $\\dfrac{(-\\sin x)(-\\sin x)}{-\\sin x} = -\\sin x$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "5-2-2",
+          "label": "5.2.2",
+          "questionText": "Hence, determine the values of $x$ in the interval $x \\in [0^\\circ\\,;\\,360^\\circ]$ for which $\\sqrt{\\dfrac{\\sin(540^\\circ + x) \\cdot \\cos(90^\\circ + x)}{\\sin(-x)}}$ will be real.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): $x \\in (180^\\circ\\,;\\,360^\\circ)$ (i.e. $180^\\circ < x < 360^\\circ$)",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Trigonometry — Proof & General Solution",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "6-1",
+          "label": "6.1",
+          "questionText": "Prove that: $\\left[\\tan(180^\\circ - x)\\right](1 - \\cos^2 x) + \\cos^2 x = \\dfrac{(\\sin x - \\cos x)(1 + \\sin x \\cdot \\cos x)}{-\\cos x}$",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks — working from the LHS):\nMark 1: $\\tan(180^\\circ - x) = -\\tan x$\nMark 2: $1 - \\cos^2 x = \\sin^2 x$\nMark 3: Quotient identity — $\\left(-\\dfrac{\\sin x}{\\cos x}\\right)(\\sin^2 x) + \\cos^2 x$\nMark 4: Simplification to a single fraction — $\\dfrac{\\sin^3 x - \\cos^3 x}{-\\cos x}$\nMark 5: Factors for a difference of cubes — $\\dfrac{(\\sin x - \\cos x)(\\sin^2 x + \\sin x \\cos x + \\cos^2 x)}{-\\cos x}$\nMark 6: $\\sin^2 x + \\cos^2 x = 1$, giving $\\dfrac{(\\sin x - \\cos x)(1 + \\sin x \\cos x)}{-\\cos x} = \\text{RHS}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "6-2",
+          "label": "6.2",
+          "questionText": "It is given that $\\sin^2 x$; $\\cos^2 x$ and $\\dfrac{1}{2}\\sin 2x$ are the first three terms of an arithmetic sequence. The constant difference of the arithmetic sequence is NOT zero. Determine the general solution for $x$.",
+          "marks": 7,
+          "memoText": "Mark scheme (7 marks):\nMark 1: $\\cos^2 x - \\sin^2 x = \\tfrac{1}{2}\\sin 2x - \\cos^2 x$\nMark 2: $\\sin 2x = 2\\sin x \\cos x$\nMark 3: Standard form — $2\\cos^2 x - \\sin x \\cos x - \\sin^2 x = 0$\nMark 4: Factors — $(2\\cos x + \\sin x)(\\cos x - \\sin x) = 0$\nMark 5: Both equations — $\\tan x = -2$ or $\\tan x = 1$ (ref angles $63{,}43^\\circ$ and $45^\\circ$)\nMark 6: $x = 116{,}57^\\circ$ (the $\\tan x = 1$ root is rejected: $x \\neq 45^\\circ + k \\cdot 180^\\circ$, since the constant difference is not zero)\nMark 7: General solution — $x = 116{,}57^\\circ + k \\cdot 180^\\circ$, $k \\in \\mathbb{Z}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Trigonometric Graphs",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2025_q7.png",
+      "subQuestions": [
+        {
+          "id": "7-1",
+          "label": "7.1",
+          "questionText": "In the diagram, the graph of $f(x) = \\cos 2x$ is drawn for $x \\in [-135^\\circ\\,;\\,135^\\circ]$.\n\nWrite down the period of $f$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $180^\\circ$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-2",
+          "label": "7.2",
+          "questionText": "On the set of axes provided in the ANSWER BOOK, draw the graph of $g(x) = \\tan 2x - 1$ for $x \\in [-135^\\circ\\,;\\,135^\\circ]$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks — $g$ has asymptotes at $x = -135^\\circ, -45^\\circ, 45^\\circ, 135^\\circ$):\nMark 1: Asymptotes\nMark 2: Shape\nMark 3: Intercepts with axes",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-3",
+          "label": "7.3",
+          "questionText": "Graph $f$ is translated $45^\\circ$ to the left to form graph $h$. Determine the equation of $h$ in its simplest form.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $h(x) = \\cos 2(x + 45^\\circ) = \\cos(2x + 90^\\circ) = -\\sin 2x$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-4",
+          "label": "7.4",
+          "questionText": "Write down the range of $h$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $y \\in [-1\\,;\\,1]$ (i.e. $-1 \\leq y \\leq 1$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "7-5",
+          "label": "7.5",
+          "questionText": "Determine the values of $x$ for which $(1 - \\tan 2x)(\\cos 2x) \\geq 0$ in the interval $x \\in [0^\\circ\\,;\\,135^\\circ]$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $\\tan 2x = 1 \\Rightarrow 2x = 45^\\circ \\Rightarrow x = 22{,}5^\\circ$\nMark 2: $(1 - \\tan 2x)(\\cos 2x) \\geq 0 \\Rightarrow (\\tan 2x - 1)(\\cos 2x) \\leq 0$\nMark 3: First interval — $[0^\\circ\\,;\\,22{,}5^\\circ]$\nMark 4: Second interval — $[112{,}5^\\circ\\,;\\,135^\\circ)$; so $x \\in [0^\\circ\\,;\\,22{,}5^\\circ] \\cup [112{,}5^\\circ\\,;\\,135^\\circ)$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Trigonometry — 2D & 3D Applications",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2025_q8.png",
+      "subQuestions": [
+        {
+          "id": "8-1",
+          "label": "8.1",
+          "questionText": "As part of a school project, learners are required to design a portable stage for a puppet show, as shown in the diagram. The design must fulfil the following requirements:\n\n- BKLC is a horizontal base having $K\\hat{B}C = 104^\\circ$ and $B\\hat{K}C = 52{,}6^\\circ$.\n- The rectangular backdrop, ABCD, is vertical to the horizontal base and must have an area of $648$ cm$^2$.\n- The sides of ABCD must be in the ratio $AB : BC = 1 : 2$.\n- The stage must be partly enclosed with triangular sides ABK and DCL.\n\nShow that $AB = 18$ cm.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $BC = 2AB$, substitution into area of rectangle — Area of ABCD $= BC \\times AB \\Rightarrow 648 = 2AB \\times AB$\nMark 2: $AB^2 = 324 \\Rightarrow AB = 18$ cm",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "8-2",
+          "label": "8.2",
+          "questionText": "Calculate the length of AC.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $AC^2 = AB^2 + BC^2 = 18^2 + 36^2$ (Pythagoras)\nMark 2: $AC = \\sqrt{1620} = 18\\sqrt{5} = 40{,}25$ cm",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "8-3",
+          "label": "8.3",
+          "questionText": "Calculate the length of diagonal KC.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution into the sine rule — $\\dfrac{KC}{\\sin K\\hat{B}C} = \\dfrac{BC}{\\sin B\\hat{K}C} \\Rightarrow \\dfrac{KC}{\\sin 104^\\circ} = \\dfrac{36}{\\sin 52{,}6^\\circ}$\nMark 2: $KC = \\dfrac{36\\sin 104^\\circ}{\\sin 52{,}6^\\circ} = 43{,}97$ cm",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "8-4",
+          "label": "8.4",
+          "questionText": "If $AB = BK$, calculate the size of $K\\hat{A}C$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Length of AK — $AK^2 = AB^2 + BK^2 = 18^2 + 18^2$, so $AK = \\sqrt{648} = 18\\sqrt{2} = 25{,}46$ cm\nMark 2: Substitution into cosine rule — $KC^2 = AK^2 + AC^2 - 2 \\cdot AK \\cdot AC \\cos K\\hat{A}C$, i.e. $(43{,}97)^2 = (18\\sqrt{2})^2 + (18\\sqrt{5})^2 - 2(18\\sqrt{2})(18\\sqrt{5})\\cos K\\hat{A}C$\nMark 3: Simplification — $\\cos K\\hat{A}C = 0{,}16\\ldots$\nMark 4: $K\\hat{A}C = 80{,}60^\\circ$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Euclidean Geometry — Circle Theorems",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2025_q9.png",
+      "subQuestions": [
+        {
+          "id": "9-1",
+          "label": "9.1",
+          "questionText": "Provide reasons for your statements in QUESTIONS 9, 10 and 11.\n\nIn the diagram, O is the centre of the circle. K, T and P lie on the circle. Use the diagram to prove the theorem which states that the angle subtended by a chord (or arc) at the centre of the circle is equal to twice the angle subtended by the same chord (or arc) at the circumference, that is prove that $T\\hat{O}P = 2\\,T\\hat{K}P$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Construction — draw KO produced (to a point, call it the far point on the diameter)\nMark 2: $\\hat{O}_1 = \\hat{K}_1 + \\hat{T}$ (ext $\\angle$ of $\\triangle$); but $\\hat{K}_1 = \\hat{T}$ ($\\angle$s opp equal sides / radii)\nMark 3: $\\therefore \\hat{O}_1 = 2\\hat{K}_1$\nMark 4: $\\hat{O}_2 = \\hat{K}_2 + \\hat{P}$ (ext $\\angle$ of $\\triangle$); but $\\hat{K}_2 = \\hat{P}$ ($\\angle$s opp equal sides), so $\\hat{O}_2 = 2\\hat{K}_2$\nMark 5: $\\therefore \\hat{O}_1 + \\hat{O}_2 = 2\\hat{K}_1 + 2\\hat{K}_2 = 2(\\hat{K}_1 + \\hat{K}_2)$, i.e. $T\\hat{O}P = 2\\,T\\hat{K}P$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "9-2-1",
+          "label": "9.2.1",
+          "questionText": "In the diagram, O is the centre of the circle. POF is the diameter of the circle and MF is a tangent to the circle at F. OM cuts the circle at L. $\\hat{P} = 32^\\circ$.\n\nCalculate, with reasons, the size of $\\hat{O}_2$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1 (S): $\\hat{O}_2 = 64^\\circ$\nMark 2 (R): $\\angle$ at centre $= 2 \\times \\angle$ at circumference (alternatively $P\\hat{L}O = \\hat{P} = 32^\\circ$, $\\angle$s opp equal radii; then $\\hat{O}_2 = 64^\\circ$, ext $\\angle$ of $\\triangle$)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "9-2-2",
+          "label": "9.2.2",
+          "questionText": "Calculate, with reasons, the size of $\\hat{M}$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1 (S): $P\\hat{F}M = 90^\\circ$\nMark 2 (R): tangent $\\perp$ diameter\nMark 3 (S): $\\hat{M} = 26^\\circ$ (sum of $\\angle$s of $\\triangle$)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Euclidean Geometry — Cyclic Quadrilateral",
+      "totalMarks": 8,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2025_q10.png",
+      "subQuestions": [
+        {
+          "id": "10-1",
+          "label": "10.1",
+          "questionText": "In the diagram, PQRS is a cyclic quadrilateral. T is a point on the circle such that QT is perpendicular to SR at V. PT and ST are drawn. $\\hat{Q}_2 = 35^\\circ$ and $\\hat{R} = \\hat{S}_1$.\n\nCalculate, with reasons, the size of $Q\\hat{T}S$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1 (S): $\\hat{R} = 55^\\circ$ (sum of $\\angle$s in $\\triangle$)\nMark 2 (S): $Q\\hat{T}S = 55^\\circ$\nMark 3 (R): $\\angle$s in the same segment\n(Alternatively: $\\hat{S}_2 = 35^\\circ$, $\\angle$s in the same segment; then $Q\\hat{T}S = 55^\\circ$, sum of $\\angle$s in $\\triangle$.)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "10-2",
+          "label": "10.2",
+          "questionText": "Prove that $PQ \\parallel SR$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1 (S): $S\\hat{P}Q = 125^\\circ$\nMark 2 (R): opp $\\angle$s of cyclic quad\nMark 3 (R): $\\hat{S}_1 = \\hat{R} = 55^\\circ$ (given); $S\\hat{P}Q + \\hat{S}_1 = 180^\\circ$, so $PQ \\parallel SR$ (co-int $\\angle$s supp)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "10-3",
+          "label": "10.3",
+          "questionText": "Prove that PT is a diameter of the circle.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1 (S): $\\hat{Q}_1 = 90^\\circ$ (co-int $\\angle$s; $PQ \\parallel SR$)\nMark 2 (R): $\\therefore PT$ is a diameter (converse $\\angle$ in semi-circle / chord subtends $90^\\circ$)\n(Alternatively: $\\hat{S}_2 = 35^\\circ$ (ext $\\angle$ of $\\triangle SVT$), $P\\hat{S}T = 90^\\circ$, so PT is a diameter.)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Euclidean Geometry — Proportionality & Similarity",
+      "totalMarks": 23,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2025_q11.png",
+      "subQuestions": [
+        {
+          "id": "11-1-1",
+          "label": "11.1.1",
+          "questionText": "In the diagram, $\\triangle ABC$ is drawn. BA is produced to E. F and D are points on BC such that $AD \\parallel EF$. AC and EF intersect at G. $\\dfrac{CF}{FB} = \\dfrac{2}{5}$ and $\\dfrac{CG}{GA} = \\dfrac{3}{2}$.\n\nCalculate, with reasons, the value of $\\dfrac{FD}{CF}$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1 (S): $\\dfrac{FD}{CF} = \\dfrac{GA}{CG}$ (prop theorem; $AD \\parallel EF$)\nMark 2: Answer — $\\dfrac{FD}{CF} = \\dfrac{2}{3}$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-1-2",
+          "label": "11.1.2",
+          "questionText": "Calculate, with reasons, the value of $\\dfrac{BA}{EA}$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks — let $CF = 2x$ so $FB = 5x$):\nMark 1: $FD = \\tfrac{2}{3}CF = \\tfrac{2}{3}(2x) = \\tfrac{4}{3}x$\nMark 2 (S): $\\dfrac{BA}{EA} = \\dfrac{BD}{FD}$ (prop theorem; $AD \\parallel EF$)\nMark 3: Substitution — $\\dfrac{BA}{EA} = \\dfrac{5x - \\tfrac{4}{3}x}{\\tfrac{4}{3}x} = \\dfrac{11}{3} \\times \\dfrac{3}{4}$\nMark 4: Answer — $= \\dfrac{11}{4}$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-1-3",
+          "label": "11.1.3",
+          "questionText": "Calculate, with reasons, the value of $\\dfrac{\\text{Area of } \\triangle GCF}{\\text{Area of } GFDA}$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks — using $CG:GA = 3:2$ i.e. $CG = 3k, CA = 5k$ and $CF = 3p, CD = 5p$):\nMark 1: $\\text{Area } GFDA = \\triangle CDA - \\triangle CGF$\nMark 2: Numerator — $\\text{Area } \\triangle GCF = \\tfrac{1}{2}(GC)(FC)\\sin\\hat{C}$\nMark 3: Denominator — $\\tfrac{1}{2}AC \\cdot CD\\sin\\hat{C} - \\tfrac{1}{2}GC \\cdot CF\\sin\\hat{C}$; so $\\dfrac{\\tfrac{1}{2}(3k)(3p)\\sin\\hat{C}}{\\tfrac{1}{2}\\sin\\hat{C}(25kp - 9kp)} = \\dfrac{\\tfrac{1}{2}(9kp)}{\\tfrac{1}{2}(16kp)}$\nMark 4: Answer — $= \\dfrac{9}{16}$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-2-1",
+          "label": "11.2.1",
+          "questionText": "In the diagram, WVZR is a cyclic quadrilateral. RZ is produced to Q. A tangent is drawn from Q to touch the circle at S. WV is produced to E, a point on ZQ. RW produced meets ZV produced in P. $PQ \\parallel WE$. RS and ZS are drawn.\n\nProve, with reasons, that $PR = \\dfrac{PW \\cdot QR}{QE}$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1 (S): $\\dfrac{QE}{QR} = \\dfrac{PW}{PR}$ (prop theorem; $PQ \\parallel WE$)\nMark 2 (R): $\\therefore PR = \\dfrac{PW \\cdot QR}{QE}$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-2-2",
+          "label": "11.2.2",
+          "questionText": "If $\\triangle PQZ \\;|||\\; \\triangle RQP$, then $PQ^2 = RQ \\cdot QZ$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $\\dfrac{PQ}{RQ} = \\dfrac{QZ}{QP}$ ($\\triangle PQZ \\;|||\\; \\triangle RQP$), so $\\therefore PQ^2 = RQ \\cdot QZ$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-2-3",
+          "label": "11.2.3",
+          "questionText": "$\\triangle QSZ \\;|||\\; \\triangle QRS$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks — in $\\triangle QSZ$ and $\\triangle QRS$):\nMark 1 (S): $\\hat{Q}_2 = \\hat{Q}_2$ (common $\\angle$)\nMark 2 (S/R): $\\hat{S}_1 = \\hat{R}_2$ (tan chord theorem)\nMark 3 (S or R): $\\hat{Z}_1 = Q\\hat{S}R$ (3rd $\\angle$ of $\\triangle$), $\\therefore \\triangle QSZ \\;|||\\; \\triangle QRS$ ($\\angle\\angle\\angle$)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-2-4",
+          "label": "11.2.4",
+          "questionText": "$PQ = QS$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1 (S/R): $\\dfrac{QS}{QR} = \\dfrac{QZ}{QS}$ ($\\triangle QSZ \\;|||\\; \\triangle QRS$)\nMark 2 (S): $\\therefore QS^2 = QZ \\cdot QR$\nMark 3 (S): But $PQ^2 = RQ \\cdot QZ$ (proved in 11.2.2), $\\therefore PQ = QS$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "11-2-5",
+          "label": "11.2.5",
+          "questionText": "$PW = \\dfrac{QE \\cdot PZ}{\\sqrt{QR \\cdot QZ}}$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $\\dfrac{PQ}{RQ} = \\dfrac{PZ}{PR}$ ($\\triangle PQZ \\;|||\\; \\triangle RQP$), so $PR = \\dfrac{QR \\cdot PZ}{PQ}$\nMark 2 (S): $PR = \\dfrac{PW \\cdot QR}{QE}$ (proved in 11.2.1), so $\\dfrac{PW \\cdot QR}{QE} = \\dfrac{QR \\cdot PZ}{PQ}$\nMark 3: $PW = \\dfrac{QE \\cdot PZ}{PQ}$\nMark 4: But $PQ^2 = RQ \\cdot QZ$ (proved in 11.2.2), so $PQ = \\sqrt{RQ \\cdot QZ}$, giving $\\therefore PW = \\dfrac{QE \\cdot PZ}{\\sqrt{QR \\cdot QZ}}$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

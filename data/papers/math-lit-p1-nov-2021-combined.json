@@ -1,0 +1,548 @@
+{
+  "id": "math-lit-p1-nov-2021-combined",
+  "subject": "Maths Literacy",
+  "subjectCode": "math-lit",
+  "paperCode": "P1",
+  "year": 2021,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Info Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Fuel prices, energy sources for cooking and data collection",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "math-lit-p1-nov-2021-1-1-1",
+          "label": "1.1.1",
+          "questionText": "TABLE 1 shows the fuel price (in US dollars) in six African countries on 05/06/2019 and 01/03/2021.\n\n| Country | Fuel price 05/06/2019 (US$) | Fuel price 01/03/2021 (US$) |\n|---|---|---|\n| South Africa | 1,04 | 1,061 |\n| Angola | 0,47 | 0,254 |\n| Zimbabwe | 0,80 | 1,258 |\n| Namibia | 0,88 | 0,796 |\n| Swaziland | 0,86 | 0,87 |\n| Botswana | 0,84 | 0,732 |\n\nCalculate the fuel price increase for Zimbabwe from 05/06/2019 to 01/03/2021.",
+          "marks": 2,
+          "memoText": "Mark 1: $\\$1{,}258 - \\$0{,}80$ (1MA subtracting the two different prices)\nMark 2: $= \\$0{,}458$ (1CA simplification)",
+          "topic": "Finance – Prices and increase",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-1-2",
+          "label": "1.1.2",
+          "questionText": "On 01/03/2021 the exchange rate for Botswana was 11,14 Botswana pulas to US$1.\n\nWrite down the current exchange rate of the Botswana pula to the US dollar in the following format:\n\n1 Botswana pula = … US dollars",
+          "marks": 2,
+          "memoText": "Mark 1: $1 \\text{ Botswana pula} = \\dfrac{1}{11{,}14}$ (1MA dividing by the exchange rate)\nMark 2: $= 0{,}089767 \\text{ US dollar}$ (1A simplification)",
+          "topic": "Finance – Exchange rates",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-1-3",
+          "label": "1.1.3",
+          "questionText": "Use the fuel prices below.\n\n| Country | 05/06/2019 (US$) | 01/03/2021 (US$) |\n|---|---|---|\n| South Africa | 1,04 | 1,061 |\n| Angola | 0,47 | 0,254 |\n| Zimbabwe | 0,80 | 1,258 |\n| Namibia | 0,88 | 0,796 |\n| Swaziland | 0,86 | 0,87 |\n| Botswana | 0,84 | 0,732 |\n\nIdentify the countries which showed a decrease in the fuel price from 05/06/2019 to 01/03/2021.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Angola; Namibia; Botswana (1RT each for two correct countries; no penalty for correct rounding)\nTeaching point: A decrease means the second price is lower than the first. Angola $0{,}47\\to0{,}254$, Namibia $0{,}88\\to0{,}796$ and Botswana $0{,}84\\to0{,}732$ all dropped; the other three rose.",
+          "topic": "Data handling – Interpreting a table",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-1-4",
+          "label": "1.1.4",
+          "questionText": "The fuel prices (in US$) on 01/03/2021 were: South Africa 1,061; Angola 0,254; Zimbabwe 1,258; Namibia 0,796; Swaziland 0,87; Botswana 0,732.\n\nArrange, in descending order, the fuel price in US$ for 01/03/2021.",
+          "marks": 2,
+          "memoText": "Mark 1: reading all correct values (1RT)\nMark 2: 1,258; 1,061; 0,87; 0,796; 0,732; 0,254 (1A correct descending order)",
+          "topic": "Number sense – Ordering",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-1-5",
+          "label": "1.1.5",
+          "questionText": "There are six countries in the table. The probability of randomly selecting a country that is not South Africa is $\\dfrac{5}{6}$.\n\nWrite this probability in decimal form rounded to THREE decimal places.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: $\\dfrac{5}{6} = 0{,}833$ (2A correct value rounded to three decimal places)",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-2-1",
+          "label": "1.2.1",
+          "questionText": "The stacked bar graph titled 'DIFFERENT ENERGY SOURCES USED FOR COOKING' shows the percentage of each energy source (Electricity, Gas, Paraffin, Wood and Other) used for cooking in the nine provinces. In every province the Electricity band fills most of the bar (roughly 70%–90% of each bar), while Gas, Paraffin, Wood and Other make up small bands at the top.\n\nIdentify the source of energy that is mostly used for cooking.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Electricity (2A correct source)",
+          "topic": "Data handling – Reading a bar graph",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-2-2",
+          "label": "1.2.2",
+          "questionText": "The stacked bar graph 'DIFFERENT ENERGY SOURCES USED FOR COOKING' shows, per province, the percentage using each source. Limpopo has by far the largest 'Wood' band — its wood section stretches from about 58% to almost 100% of the bar, much larger than any other province.\n\nName the province that uses the most wood for cooking.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Limpopo (2A correct province)",
+          "topic": "Data handling – Reading a bar graph",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-2-3a",
+          "label": "1.2.3 (a)",
+          "questionText": "The price of paraffin fluctuates. On 3 February 2021 the price was 764,59 c/ℓ (cents per litre).\n\nWrite down (in rand) the cost of ONE litre of paraffin.",
+          "marks": 2,
+          "memoText": "Mark 1: $764{,}59 \\div 100$ (1MA dividing by 100 to convert cents to rand)\nMark 2: $= \\text{R}7{,}6459 \\approx \\text{R}7{,}65$ (1A simplification)",
+          "topic": "Conversions – Cents to rand",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-2-3b",
+          "label": "1.2.3 (b)",
+          "questionText": "One litre of paraffin costs R7,65.\n\nDetermine, to the nearest rand, the cost of 12,5 ℓ of paraffin.",
+          "marks": 2,
+          "memoText": "Mark 1: $\\text{R}7{,}65 \\times 12{,}5$ (1MCA multiplying by 12,5 — CA from 1.2.3(a))\nMark 2: $= \\text{R}95{,}625 \\approx \\text{R}96{,}00$ (1R correct rounding to the nearest rand)",
+          "topic": "Finance – Cost calculation",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-2-4",
+          "label": "1.2.4",
+          "questionText": "On the energy graph, the sources shown are Electricity, Gas, Paraffin, Wood and 'Other'.\n\nName another form of energy that could be used for cooking which could fall under the 'Other' category.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Any ONE of — Solar power; Coal; Charcoal; Wind turbines; Hydropower; Generator; Gel; Paper; Straw; Leaves; Animal manure (dung); Spirits; Corn stalk (2A correct answer, any one)",
+          "topic": "Data handling – Interpretation",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-3-1",
+          "label": "1.3.1",
+          "questionText": "The following questions were taken from a company's information sheet:\n\nA. How many hours per day do you spend reading?\nB. How many books have you read in the last 16 weeks?\nC. How many books have you bought in the last 3 months?\nD. Were the books you bought hard copies or soft copies?\nE. Do you believe that we should pay 15% VAT on book prices?\n\nIdentify the data collection instrument that was used to collect the above information.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Survey / Questionnaire / Interview / Google forms (2A correct instrument, any one)",
+          "topic": "Data handling – Data collection",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-3-2",
+          "label": "1.3.2",
+          "questionText": "A company uses an information sheet (a questionnaire) to gather data from readers.\n\nName the next step in the data cycle after the instrument has been completed and collected.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Classifying / preparation / organising / sorting the data (2A correct step, any one word describing the step)",
+          "topic": "Data handling – Data cycle",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-3-3",
+          "label": "1.3.3",
+          "questionText": "Question D on the information sheet was: 'Were the books you bought hard copies or soft copies?'\n\nState whether the choices given for question D represent categorical or numerical data.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Categorical data (2A correct answer)\nTeaching point: 'Hard copy' and 'soft copy' are categories/labels, not numbers, so the data is categorical.",
+          "topic": "Data handling – Types of data",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-3-4",
+          "label": "1.3.4",
+          "questionText": "Question E on the information sheet refers to 15% VAT on book prices.\n\nWrite the acronym VAT in full.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Value Added Tax (2A correct answer)",
+          "topic": "Finance – VAT",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-1-3-5",
+          "label": "1.3.5",
+          "questionText": "The information sheet collected data about how many books people read and buy.\n\nGive an example of a business that will find the above data useful.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Any ONE of — a company that sells books; a publisher; a library; a book club; the name of a book store; the name of a publisher (2A correct answer)",
+          "topic": "Data handling – Application",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Car payment options, compound interest and a cellphone invoice",
+      "totalMarks": 32,
+      "subQuestions": [
+        {
+          "id": "math-lit-p1-nov-2021-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Mrs Smith would like to buy a car but does not have the full cash amount. She downloaded TWO payment options for TWO different cars, shown in TABLE 2.\n\n| Item | Ford Figo | VW Polo |\n|---|---|---|\n| Retail/Cash price (incl. VAT) | R215 100 | R220 300 |\n| Deposit | 5% | 0% |\n| Monthly instalment | R2 999,00 | R3 345,00 |\n| Residual value | 30% | R116 759 |\n| Monthly admin fee (not in instalment) | R69,00 | 2,08% of the monthly instalment |\n| Term agreement | 72 months | 48 months |\n| VAT | 15% | 15% |\n\n(*Residual value is the last month's payment.)\n\nState what type of payment option is shown in TABLE 2.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Hire purchase agreement / instalment payment / loan agreement with monthly instalment / credit option / balloon (residual) payment option (2A correct definition, any one)",
+          "topic": "Finance – Payment options",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-2-1-2",
+          "label": "2.1.2",
+          "questionText": "For the Ford Figo the retail/cash price is R215 100 and the deposit is 5%.\n\nCalculate the deposit amount for the Ford Figo.",
+          "marks": 2,
+          "memoText": "Mark 1: $\\text{R}215\\,100 \\times 5\\%$ (1MA multiplying correct values)\nMark 2: $= \\text{R}10\\,755$ (1A simplification)",
+          "topic": "Finance – Percentage of an amount",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-2-1-3",
+          "label": "2.1.3",
+          "questionText": "The term agreement of the Ford Figo is 72 months and the VW Polo is 48 months.\n\nWrite down (in simplified form) the ratio of the term agreement of the Ford Figo to the VW Polo.",
+          "marks": 2,
+          "memoText": "Mark 1: $72 \\text{ months} : 48 \\text{ months}$ (1RT correct values)\nMark 2: $= 3 : 2$ (1A simplification of the ratio)",
+          "topic": "Ratio",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-2-1-4",
+          "label": "2.1.4",
+          "questionText": "The Ford Figo monthly instalment is R2 999,00 and the VW Polo monthly instalment is R3 345,00.\n\nWhich ONE of the two vehicles will be more cost effective in terms of monthly budget?",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Ford Figo (2A correct vehicle)\nTeaching point: The Ford Figo's monthly instalment (R2 999) is lower than the VW Polo's (R3 345), so it is easier on a monthly budget.",
+          "topic": "Finance – Budget comparison",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-2-1-5",
+          "label": "2.1.5",
+          "questionText": "For the VW Polo: monthly instalment = R3 345,00; term = 48 months; monthly admin fee = 2,08% of the monthly instalment; residual value = R116 759.\n\nCalculate the total cost of the VW Polo if the monthly instalment remained the same throughout the contract period, except for the final payment. (The final month is paid as the residual value, so there are 47 monthly instalments.)\n\nYou may use the following formula:\n\nTotal cost = Total value of monthly instalments + admin fees + residual value",
+          "marks": 6,
+          "memoText": "Admin fee: $\\text{R}3\\,345 \\times 2{,}08\\% = \\text{R}69{,}58$ (1MA calculating 2,08%)\nTotal cost $= (\\text{R}3\\,345{,}00 \\times 47) + (\\text{R}69{,}58 \\times 47) + \\text{R}116\\,759$\n(1MA instalments × 47; 1MA admin × 47; 1RT residual value)\n$= \\text{R}157\\,215 + \\text{R}3\\,270{,}26 + \\text{R}116\\,759$ (1M adding the values)\n$= \\text{R}277\\,244{,}26$ (1CA simplification)",
+          "topic": "Finance – Total cost of credit",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-2-1-6",
+          "label": "2.1.6",
+          "questionText": "Mrs Smith invested R60 000 at a bank for two years with compound interest. In the first year she received an interest rate of 4,3% per annum, and in the second year the interest rate was 5,1% per annum.\n\nMrs Smith stated that she would have enough money at the end of the second year to pay the residual value of the Ford Figo. (The Ford Figo cash price is R215 100 and its residual value is 30%.)\n\nVerify, showing ALL calculations, whether her statement is CORRECT.",
+          "marks": 8,
+          "memoText": "Interest for year 1: $\\text{R}60\\,000 \\times \\dfrac{4{,}3}{100} = \\text{R}2\\,580{,}00$ (1MA; 1A)\nAmount end of year 1: $\\text{R}60\\,000 + \\text{R}2\\,580 = \\text{R}62\\,580{,}00$ (1CA adding interest)\nInterest for year 2: $\\text{R}62\\,580 \\times \\dfrac{5{,}1}{100} = \\text{R}3\\,191{,}58$ (1MCA calculating percentage)\nAmount end of year 2: $\\text{R}62\\,580 + \\text{R}3\\,191{,}58 = \\text{R}65\\,771{,}58$ (1CA simplification)\nResidual value of Ford Figo: $\\text{R}215\\,100 \\times 30\\% = \\text{R}64\\,530$ (1M; 1CA)\nSince $\\text{R}65\\,771{,}58 > \\text{R}64\\,530$, she is CORRECT (1O conclusion)",
+          "topic": "Finance – Compound interest",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-2-2-1",
+          "label": "2.2.1",
+          "questionText": "ANNEXURE A shows the cellphone contract invoice for Mr SJ Fortune (Account BA4536782C, invoice date 17-01-2021).\n\n| Contract | Line item | Amount excl. VAT |\n|---|---|---|\n| ABC Made For You S | Device | R260,87 |\n|  | ABC made for You S | R94,78 |\n|  | **Subtotal** | **R355,65** |\n| ABC made for You XS | Device | R173,91 |\n|  | ABC made for You XS | R86,09 |\n|  | **Subtotal** | **R260,00** |\n| Your ABC Choice 5GB | Device | R165,22 |\n|  | Your ABC Choice 5GB | R172,13 |\n|  | **Subtotal** | **R337,35** |\n|  | VAT total (15%) | R142,95 |\n|  | **Total amount due (VAT incl.)** | **A** |\n\nState the number of cellphone contracts shown on this invoice.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: 3 / Three (2A correct number)",
+          "topic": "Data handling – Reading a document",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-2-2-2",
+          "label": "2.2.2",
+          "questionText": "On the ANNEXURE A invoice, the three 'Device' amounts (excl. VAT) are: ABC Made For You S — R260,87; ABC made for You XS — R173,91; Your ABC Choice 5GB — R165,22.\n\nName the cellphone contract which shows the most expensive device.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: ABC Made For You S (2A correct contract)\nTeaching point: Compare the device amounts — R260,87 (Made For You S) is the highest, so that contract has the most expensive device.",
+          "topic": "Data handling – Reading a document",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-2-2-3",
+          "label": "2.2.3",
+          "questionText": "On the invoice the three device amounts (excluding VAT) are R355,65, R260,00 and R337,35, and VAT is charged at 15%.\n\nShow how the VAT amount of R142,95 was calculated.",
+          "marks": 2,
+          "memoText": "Mark 1: $(\\text{R}355{,}65 + \\text{R}260 + \\text{R}337{,}35) \\times 15\\%$ (1M adding correct values)\nMark 2: $= \\text{R}953{,}00 \\times 15\\% = \\text{R}142{,}95$ (1A multiplying by 15%)\nAccept individual calculations: R53,3475; R39,00; R50,60.",
+          "topic": "Finance – VAT",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-2-2-4",
+          "label": "2.2.4",
+          "questionText": "On the invoice the subtotal (excluding VAT) is R953,00 and the VAT is R142,95. The total including VAT is shown as the missing value A.\n\nCalculate the missing value A.",
+          "marks": 2,
+          "memoText": "Mark 1: $A = \\text{R}953 + \\text{R}142{,}95$ (1MA adding correct values)\nMark 2: $= \\text{R}1\\,095{,}95$ (1CA simplification)\nOR $A = \\text{R}953 \\times 1{,}15 = \\text{R}1\\,095{,}95$",
+          "topic": "Finance – VAT-inclusive total",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-2-2-5",
+          "label": "2.2.5",
+          "questionText": "All three cellphone contracts on Mr Fortune's invoice are ABC contracts.\n\nState, in words, the probability of randomly selecting a cellphone contract that is not from ABC.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Impossible / not possible / no chance / zero percent / zero / zero out of three (2A correct term)\nTeaching point: If every contract is an ABC contract, the chance of picking one that is not ABC is 0.",
+          "topic": "Probability",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Dam levels and water/energy use when showering",
+      "totalMarks": 26,
+      "subQuestions": [
+        {
+          "id": "math-lit-p1-nov-2021-3-1-1",
+          "label": "3.1.1",
+          "questionText": "TABLE 3 shows the net full storage capacity (Net FSC) and dam levels as a percentage of full storage capacity in different provinces on 5 April 2021. The readings are taken on the same day each week.\n\n| Province | Net FSC (million m³) | This week (%) | Last week (%) | Last year (%) |\n|---|---|---|---|---|\n| Eastern Cape | 1 823 | 55 | D | 56 |\n| Free State | 15 657 | 100 | 99 | 77 |\n| Gauteng | 128 | 100 | 101 | 101 |\n| KwaZulu-Natal | 4 784 | 73 | 73 | 61 |\n| Limpopo | 1 480 | 88 | 88 | 70 |\n| Mpumalanga | 2 539 | 89 | 89 | 75 |\n| North West | 867 | 82 | 82 | 71 |\n| Northern Cape | 147 | 102 | 105 | 95 |\n| Western Cape | 1 866 | 52 | D | 40 |\n\nThe 'this week' reading was taken on 5 April 2021. Determine the date on which the reading of the dam level was taken last week.",
+          "marks": 2,
+          "memoText": "Mark 1: 29 (1A correct day)\nMark 2: March 2021 (1A correct month and year) → 29 March 2021 OR 29/03/2021\nTeaching point: 'Last week' is exactly 7 days before 5 April, which is 29 March.",
+          "topic": "Measurement – Time and dates",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-3-1-2",
+          "label": "3.1.2",
+          "questionText": "In TABLE 3 the net FSC for Gauteng is 128 million m³.\n\nWrite down, in words, the actual value of the net FSC for Gauteng.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: One hundred and twenty eight million cubic metres (2A number in words; no penalty for units)",
+          "topic": "Number sense – Numbers in words",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-3-1-3",
+          "label": "3.1.3",
+          "questionText": "The 'last year' dam level percentages were: Eastern Cape 56; Free State 77; Gauteng 101; KwaZulu-Natal 61; Limpopo 70; Mpumalanga 75; North West 71; Northern Cape 95; Western Cape 40.\n\nIdentify the province with the third lowest dam level percentage for last year.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: KwaZulu-Natal / KZN (2A correct province)\nTeaching point: In ascending order the lowest are Western Cape (40), Eastern Cape (56), then KwaZulu-Natal (61) — the third lowest.",
+          "topic": "Data handling – Ordering values",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-3-1-4",
+          "label": "3.1.4",
+          "questionText": "Use the 'last year' and 'this week' dam level percentages:\n\n| Province | Last year (%) | This week (%) |\n|---|---|---|\n| Eastern Cape | 56 | 55 |\n| Free State | 77 | 100 |\n| Gauteng | 101 | 100 |\n| KwaZulu-Natal | 61 | 73 |\n| Limpopo | 70 | 88 |\n| Mpumalanga | 75 | 89 |\n| North West | 71 | 82 |\n| Northern Cape | 95 | 102 |\n| Western Cape | 40 | 52 |\n\nDetermine which province had the highest percentage increase in dam levels from last year to this week.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Free State (2A correct province)\nTeaching point: Free State rose from 77% to 100%, an increase of 23 percentage points — the largest jump of any province.",
+          "topic": "Data handling – Comparing change",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-3-1-5",
+          "label": "3.1.5",
+          "questionText": "For 'last week', the dam level percentages were: Eastern Cape D; Free State 99; Gauteng 101; KwaZulu-Natal 73; Limpopo 88; Mpumalanga 89; North West 82; Northern Cape 105; Western Cape D. (Both the Eastern Cape and Western Cape values equal D.)\n\nCalculate the missing value D if the mean percentage storage capacity for last week was 83%.",
+          "marks": 5,
+          "memoText": "Mean: $\\dfrac{D + 99 + 101 + 73 + 88 + 89 + 82 + 105 + D}{9} = 83$ (1SF correct substitution; 1MA dividing by 9)\n$\\dfrac{2D + 637}{9} = 83$ (1CA simplification)\n$2D + 637 = 747$\n$2D = 110$ (1MA)\n$D = 55$ (1CA)",
+          "topic": "Data handling – Mean (average)",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-3-1-6",
+          "label": "3.1.6",
+          "questionText": "Dam levels (%) for this week and last week:\n\n| Province | This week (%) | Last week (%) |\n|---|---|---|\n| Eastern Cape | 55 | 55 |\n| Free State | 100 | 99 |\n| Gauteng | 100 | 101 |\n| KwaZulu-Natal | 73 | 73 |\n| Limpopo | 88 | 88 |\n| Mpumalanga | 89 | 89 |\n| North West | 82 | 82 |\n| Northern Cape | 102 | 105 |\n| Western Cape | 52 | 55 |\n\nDetermine, as a fraction, the probability of randomly selecting a province with dam levels exceeding 100% for BOTH this week and last week.",
+          "marks": 2,
+          "memoText": "Mark 1: numerator 1 (1A) — only Northern Cape exceeds 100% in both weeks (102% and 105%)\nMark 2: denominator 9 (1A) → probability $= \\dfrac{1}{9}$\nTeaching point: Gauteng is exactly 100% this week, which does not 'exceed' 100%, so it does not count.",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-3-1-7",
+          "label": "3.1.7",
+          "questionText": "The Free State has a net FSC of 15 657 million m³, and last week its dam level was at 99% of full storage capacity.\n\nCalculate (in m³) the actual net FSC of the Free State for last week.",
+          "marks": 3,
+          "memoText": "Mark 1: $15\\,657\\,000\\,000 \\text{ m}^3 \\times \\dfrac{99}{100}$ (1A correct value in m³; 1MA multiplying by the percentage)\nMark 2: $= 15\\,500\\,430\\,000 \\text{ m}^3$ (1CA simplification). Accept 15 500,43 million m³.",
+          "topic": "Finance/Measurement – Percentage of a value",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-3-2-1",
+          "label": "3.2.1",
+          "questionText": "In an average middle-class household in South Africa a 10-minute shower costs almost R13 (or R1,30/min) with a normal 15 litre/min shower head. By changing to a low-flow shower head and reducing shower time to 6 minutes, this can be reduced to R4,20 per shower (or 70c/min).\n\nA four-minute shower uses 1,7 kWh of energy. A ten-minute shower uses 4,3 kWh of energy. Calculate the percentage increase in kWh of energy used when taking a 4-minute shower compared to taking a 10-minute shower.\n\nYou may use the following formula:\n\nPercentage increase = (kWh used for 10 min − kWh used for 4 min) ÷ (kWh used for 4 min) × 100%",
+          "marks": 3,
+          "memoText": "Mark 1: $\\dfrac{4{,}3 - 1{,}7}{1{,}7} \\times 100\\%$ (1SF correct substitution; 1A correct denominator)\nMark 2: $= 152{,}94\\%$ (1CA simplification; no penalty for rounding)",
+          "topic": "Finance – Percentage increase",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-3-2-2",
+          "label": "3.2.2",
+          "questionText": "A low-flow shower head reduces the rate of water flow compared to a normal shower head.\n\nGive ONE possible reason why you would advise someone to use a low-flow shower head rather than a normal shower head.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Any ONE of — saves energy (kWh); saves water (litres); saves money (2A reason)",
+          "topic": "Data handling – Interpretation",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-3-2-3",
+          "label": "3.2.3",
+          "questionText": "A normal shower head uses 15 litres of water per minute.\n\nCalculate the range of the number of litres of water used during a 2-minute shower and an 8-minute shower using a normal shower head.",
+          "marks": 3,
+          "memoText": "Mark 1: maximum (8 min): $8 \\times 15 = 120$ ℓ (1RT)\nMark 1: minimum (2 min): $2 \\times 15 = 30$ ℓ (1RT)\nMark 2: Range $= 120 - 30 = 90$ ℓ (1CA simplification)\nOR: difference in time $8-2 = 6$ min; $6 \\times 15 = 90$ ℓ.",
+          "topic": "Data handling – Range",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Chicken biryani costing, break-even and tourism in India",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "math-lit-p1-nov-2021-4-1-1",
+          "label": "4.1.1",
+          "questionText": "Bobby lives in India and wants to start his own take-away business selling chicken biryani. He buys ingredients in bulk. TABLE 4 shows the estimated cost of ingredients used to make 8 plates of chicken biryani.\n\n| Product | Cost (in Rs) |\n|---|---|\n| 1 kg chicken | 200 |\n| 1 kg basmati rice | 120 |\n| Masala powder | 10 |\n| Other ingredients | 62 |\n\nDetermine (in Rs) the price of 520 g of chicken.",
+          "marks": 3,
+          "memoText": "Mark 1: convert 520 g → $\\dfrac{520}{1\\,000}$ (1C conversion)\nMark 2: $\\dfrac{520}{1\\,000} \\times \\text{Rs}200$ (1MA multiplying by correct value)\nMark 3: $= \\text{Rs}104$ (1CA simplification)",
+          "topic": "Measurement – Rate and proportion",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-4-1-2",
+          "label": "4.1.2",
+          "questionText": "The ingredients to make 8 plates of chicken biryani cost: 1 kg chicken Rs200; 1 kg basmati rice Rs120; masala powder Rs10; other ingredients Rs62. Each plate is packed in a disposable food container that costs Rs2,43 each.\n\nCalculate the total cost to make and package a plate of chicken biryani.",
+          "marks": 5,
+          "memoText": "Ingredients for 8 plates: $\\text{Rs}200 + \\text{Rs}120 + \\text{Rs}10 + \\text{Rs}62 = \\text{Rs}392$ (1A total)\nPer plate: $\\dfrac{\\text{Rs}392}{8} = \\text{Rs}49$ (1MA divide by 8; 1CA)\nAdd container: $\\text{Rs}49 + \\text{Rs}2{,}43 = \\text{Rs}51{,}43$ (1MA adding the container; 1CA simplification)",
+          "topic": "Finance – Cost of production",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-4-1-3",
+          "label": "4.1.3",
+          "questionText": "Bobby intends selling a plate of chicken biryani for eighty rupees (Rs80). The total cost to make and package one plate is Rs51,43.\n\nBobby claims that he can make more than 50% profit on one plate of chicken biryani. Verify, by showing ALL calculations, if his claim is valid.",
+          "marks": 5,
+          "memoText": "Profit per plate: $\\text{Rs}80 - \\text{Rs}51{,}43 = \\text{Rs}28{,}57$ (1MA subtracting CP from SP; 1CA)\n% profit: $\\dfrac{\\text{Rs}28{,}57}{\\text{Rs}51{,}43} \\times 100\\% = 55{,}55\\%$ (1M percentage; 1CA)\nSince $55{,}55\\% > 50\\%$, Bobby's claim is VALID (1O conclusion)",
+          "topic": "Finance – Percentage profit",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-4-1-4",
+          "label": "4.1.4",
+          "questionText": "The exchange rate between South African rands and Indian rupees on 3 March 2021:\n\n| South African Rand (ZAR) | Indian Rupees (Rs) |\n|---|---|\n| 1 | 4,8346707 |\n| 0,206839 | 1 |\n\nMasala powder costs Rs10. Determine (in ZAR) the price of masala powder.",
+          "marks": 3,
+          "memoText": "Mark 1: $\\text{Rs}10 \\times 0{,}206839$ (1RT correct values; 1MA multiplying by 0,206839)\nMark 2: $= \\text{R}2{,}06839 \\approx \\text{R}2{,}07$ (1A simplification)\nOR $\\dfrac{\\text{Rs}10}{4{,}8346707} = \\text{R}2{,}07$.",
+          "topic": "Finance – Exchange rates",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-4-2-1",
+          "label": "4.2.1",
+          "questionText": "Bobby's niece Janet has her own take-away business in South Africa. Her variable cost to make one plate of chicken biryani is R13,00 and her fixed cost is R600. She uses the equation:\n\nTotal cost = R600,00 + 13p, where p = number of plates.\n\nUse the equation to determine the number of plates sold if the total cost was R1 380,00.",
+          "marks": 4,
+          "memoText": "$1\\,380 = 600 + 13p$ (1SF substitution)\n$1\\,380 - 600 = 13p$ (1MA subtracting 600)\n$780 = 13p$ (1CA)\n$p = 60$ plates (1CA)",
+          "topic": "Patterns – Solving an equation",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-4-2-2",
+          "label": "4.2.2",
+          "questionText": "TABLE 6 shows Janet's total cost and income from selling different numbers of plates of biryani.\n\n| Number of plates | 0 | 10 | 30 | 50 | 70 | 90 | 100 |\n|---|---|---|---|---|---|---|---|\n| Income (R) | 0 | 250 | 750 | 1 250 | 1 750 | 2 250 | 2 500 |\n| Cost (R) | 600 | 730 | 990 | 1 250 | 1 510 | 1 770 | 1 900 |\n\nThe income graph has already been drawn on the answer sheet. On the same grid, draw another line graph representing the COST of different numbers of plates of biryani. (This is a graph-drawing question — plot the cost points and join them with a straight line.)",
+          "marks": 3,
+          "memoText": "Plot the cost line using the points from TABLE 6:\n- Start point (0 ; 600) (1A)\n- End point (100 ; 1 900) (1A)\n- A correct straight line through the plotted points (1A)\nCost points: (0;600), (10;730), (30;990), (50;1 250), (70;1 510), (90;1 770), (100;1 900).",
+          "topic": "Patterns – Drawing a line graph",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-4-2-3",
+          "label": "4.2.3",
+          "questionText": "On Janet's graph the income line and the cost line meet at 50 plates (where both equal R1 250). Below 50 plates the cost is higher than the income; above 50 plates the income is higher than the cost.\n\nDetermine the minimum number of plates of biryani that Janet must sell before she starts making a profit.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: 50 plates (2RT number of plates)\nTeaching point: The break-even point is where income = cost (50 plates). She only makes a profit once she sells more than this.",
+          "topic": "Finance – Break-even",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-4-3-1",
+          "label": "4.3.1",
+          "questionText": "Tourism in India is growing rapidly. ANNEXURE C shows a pie chart of the most important countries from where tourists come to India:\n\n| Country of origin | Percentage |\n|---|---|\n| Bangladesh | 37,1% |\n| United States | 21,1% |\n| Other Countries | 18,7% |\n| United Kingdom | 14,4% |\n| Canada | 5% |\n| Australia | 3,5% |\n\nWrite down, as a decimal, the probability of selecting a tourist that comes from 'Other' countries.",
+          "marks": 2,
+          "memoText": "Mark 1: $\\dfrac{18{,}7}{100}$ (1RT reading 18,7)\nMark 2: $= 0{,}187$ (1CA simplification)",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-4-3-2",
+          "label": "4.3.2",
+          "questionText": "ANNEXURE C shows the number of tourist arrivals in India from 2015 to 2019 (in millions):\n\n| Year | Arrivals (millions) |\n|---|---|\n| 2015 | 8,03 |\n| 2016 | 8,8 |\n| 2017 | 10,04 |\n| 2018 | 10,56 |\n| 2019 | 10,93 |\n\nState the trend in the number of tourist arrivals in India from 2015 to 2019.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: As the time increases the number of tourists visiting India increases (2A 'increases'). Accept 'increase'.",
+          "topic": "Data handling – Trends",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-4-3-3",
+          "label": "4.3.3",
+          "questionText": "For 2019 the total number of tourist arrivals in India was 10,93 million. On the pie chart (ANNEXURE C), tourists from Bangladesh make up 37,1% of the arrivals.\n\nBobby states that more than 4 500 000 tourists who visited India in 2019 came from Bangladesh. Verify, showing ALL calculations, whether his statement is CORRECT.",
+          "marks": 4,
+          "memoText": "Number from Bangladesh: $10{,}93 \\text{ million} \\times \\dfrac{37{,}1}{100}$ (1RT correct percentage; 1M multiplying)\n$= 4{,}05503 \\text{ million} = 4\\,055\\,030$ (1CA simplification)\nSince $4\\,055\\,030 < 4\\,500\\,000$, his statement is NOT CORRECT (1O conclusion)",
+          "topic": "Finance – Percentage of a value",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-4-3-4",
+          "label": "4.3.4",
+          "questionText": "The pie chart (ANNEXURE C) shows the total percentage of tourist arrivals in India for 2019 as 99,8%.\n\nGive a valid reason why this value is not 100%.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Due to the rounding of large numbers when converting to a percentage (2A stating rounding)",
+          "topic": "Data handling – Rounding",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Income tax and laptop market-share box plots",
+      "totalMarks": 27,
+      "subQuestions": [
+        {
+          "id": "math-lit-p1-nov-2021-5-1-1",
+          "label": "5.1.1",
+          "questionText": "Marius, who is 64 years old, earned an annual taxable income of R551 762,00 for the 2019/20 tax year. He was not a member of any medical fund. TABLE 7 shows the tax rates for the 2019/20 tax year.\n\n| Bracket | Taxable income (R) | Rates of tax (R) |\n|---|---|---|\n| 1 | 1 – 195 850 | 18% of taxable income |\n| 2 | 195 851 – 305 850 | 35 253 + 26% of taxable income above 195 850 |\n| 3 | 305 851 – 423 300 | 63 853 + 31% of taxable income above 305 850 |\n| 4 | 423 301 – 555 600 | 100 263 + 36% of taxable income above 423 300 |\n| 5 | 555 601 – 708 310 | 147 891 + 39% of taxable income above 555 600 |\n| 6 | 708 311 – 1 500 000 | 207 448 + 41% of taxable income above 708 310 |\n| 7 | 1 500 001 and above | 532 041 + 45% of taxable income above 1 500 000 |\n\nIdentify which tax bracket Marius falls in, based on his taxable income.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Tax Bracket 4 (R423 301 – R555 600) (2A correct tax bracket)\nTeaching point: R551 762 lies between R423 301 and R555 600, so it falls in bracket 4.",
+          "topic": "Finance – Income tax brackets",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-5-1-2",
+          "label": "5.1.2",
+          "questionText": "Marius earned a taxable income of R551 762,00. He falls in tax bracket 4, where the tax is: 100 263 + 36% of taxable income above 423 300. The primary tax rebate for 2019/20 is R14 220.\n\nCalculate the amount of tax Marius must pay for the 2019/20 tax year.",
+          "marks": 5,
+          "memoText": "Tax before rebate: $\\text{R}100\\,263 + 36\\%(\\text{R}551\\,762 - \\text{R}423\\,300)$ (1SF substitution)\n$= \\text{R}100\\,263 + 36\\% \\times \\text{R}128\\,462$ (1CA)\n$= \\text{R}100\\,263 + \\text{R}46\\,246{,}32 = \\text{R}146\\,509{,}32$ (1CA tax before rebate)\nTax payable $= \\text{R}146\\,509{,}32 - \\text{R}14\\,220$ (1MCA subtracting rebate)\n$= \\text{R}132\\,289{,}32$ (1CA)",
+          "topic": "Finance – Income tax calculation",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-5-1-3",
+          "label": "5.1.3",
+          "questionText": "Marius's tax payable for 2019/20 is R132 289,32. Tax rebates for 2019/20: primary R14 220; secondary (65 and older) R7 794. Marius is 64, so he only received the primary rebate.\n\nMarius stated that if he had been one year older (65), he would have saved more than R600 monthly on taxes paid during the 2019/20 tax year. Verify, showing ALL calculations, whether his statement is CORRECT.",
+          "marks": 6,
+          "memoText": "If one year older he also gets the secondary rebate of R7 794.\nAnnual tax one year older: $\\text{R}132\\,289{,}32 - \\text{R}7\\,794 = \\text{R}124\\,495{,}32$ (1A rebate; 1MA subtracting)\nMonthly saving $= \\dfrac{\\text{R}7\\,794}{12} = \\text{R}649{,}50$ (1MA ÷ 12; 1CA)\nOR compare monthly: $\\dfrac{132\\,289{,}32}{12} - \\dfrac{124\\,495{,}32}{12} = \\text{R}11\\,024{,}11 - \\text{R}10\\,374{,}61 = \\text{R}649{,}50$ (1CA)\nSince $\\text{R}649{,}50 > \\text{R}600$, his statement is CORRECT (1O conclusion)",
+          "topic": "Finance – Tax rebates",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-5-1-4",
+          "label": "5.1.4",
+          "questionText": "Medical credits per month for medical fund members (2019/20): main member R310; first dependent R310; each additional dependent R209.\n\nMarius is considering joining a medical fund. He plans to include his wife and two grandchildren. Determine the total monthly medical credits he would qualify for if he joined a medical fund.",
+          "marks": 4,
+          "memoText": "Marius = main member (R310); wife = first dependent (R310); two grandchildren = additional dependents (R209 each).\n$\\text{R}310 + \\text{R}310 + (\\text{R}209 \\times 2)$ (1RT values; 1MA × 2; 1MA adding)\n$= \\text{R}310 + \\text{R}310 + \\text{R}418 = \\text{R}1\\,038$ (1CA simplification)",
+          "topic": "Finance – Medical aid credits",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-5-2-1a",
+          "label": "5.2.1 (a)",
+          "questionText": "Marius studied the market share (in percentages) of the three most popular laptop brands sold in South Africa from Q4 2019 to Q3 2020. The box-and-whisker plots give this five-number summary (all values are percentages):\n\n| Brand | Minimum | Q1 | Median | Q3 | Maximum |\n|---|---|---|---|---|---|\n| Huawei | 18,8 | 19,15 | 21,5 | 22,85 | 23,5 |\n| Samsung | 14,6 | 15,7 | 17,75 | 18,75 | 20,2 |\n| Apple | 10,2 | 11,8 | 13,15 | 15,95 | 19,9 |\n\nWrite down the name of the most popular laptop brand.",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: Huawei (2RT correct brand)\nTeaching point: Huawei's box sits at the highest market-share percentages, so it is the most popular.",
+          "topic": "Data handling – Box-and-whisker plots",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-5-2-1b",
+          "label": "5.2.1 (b)",
+          "questionText": "For the box-and-whisker plots, Huawei has this five-number summary: minimum 18,8; Q1 19,15; median 21,5; Q3 22,85; maximum 23,5 (all percentages).\n\nHence, write down the 50th percentile of the brand identified in QUESTION 5.2.1(a) (Huawei).",
+          "marks": 2,
+          "memoText": "Mark 1 & 2: 21,5% (2RT correct percentage)\nTeaching point: The 50th percentile is the median, which is 21,5% for Huawei.",
+          "topic": "Data handling – Percentiles",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-5-2-2",
+          "label": "5.2.2",
+          "questionText": "For the Samsung brand the five-number summary is: minimum 14,6; Q1 15,7; median 17,75; Q3 18,75; maximum 20,2 (all percentages).\n\nCalculate the interquartile range (IQR) of the Samsung brand.",
+          "marks": 4,
+          "memoText": "$\\text{IQR} = Q_3 - Q_1$ (1MA concept of IQR)\n$= 18{,}75 - 15{,}7$ (1RT correct Q3; 1RT correct Q1)\n$= 3{,}05$ (1CA simplification)",
+          "topic": "Data handling – Interquartile range",
+          "type": "written"
+        },
+        {
+          "id": "math-lit-p1-nov-2021-5-2-3",
+          "label": "5.2.3",
+          "questionText": "For the Apple brand the five-number summary is: minimum 10,2; Q1 11,8; median 13,15; Q3 15,95; maximum 19,9 (all percentages).\n\nA data analyst claims that 75% of the dataset of Apple was less than 16%. Explain whether or not his statement is valid.",
+          "marks": 2,
+          "memoText": "Mark 1: Quartile 3 (Q3) is at 15,95%, and Q3 marks the point below which 75% of the data lies (1O explanation)\nMark 2: Since 15,95% < 16%, the statement is VALID (1O conclusion)",
+          "topic": "Data handling – Interpreting quartiles",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

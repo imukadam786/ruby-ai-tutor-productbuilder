@@ -1,0 +1,545 @@
+{
+  "id": "math-p1-nov-2024",
+  "subject": "Mathematics",
+  "paperCode": "P1",
+  "year": 2024,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Algebra & Equations",
+      "totalMarks": 27,
+      "subQuestions": [
+        {
+          "id": "1-1-1",
+          "label": "1.1.1",
+          "questionText": "Solve for $x$:\n\n$$x(x - 3) = 0$$",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $x = 0$\nMark 2: $x = 3$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-2",
+          "label": "1.1.2",
+          "questionText": "Solve for $x$ (correct to TWO decimal places):\n\n$$2x^2 + 1 = 4x$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Standard form — $2x^2 - 4x + 1 = 0$\nMark 2: Correct substitution into the correct formula — $x = \\dfrac{-(-4) \\pm \\sqrt{(-4)^2 - 4(2)(1)}}{2(2)}$\nMark 3: $x = 1{,}71$\nMark 4: $x = 0{,}29$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-3",
+          "label": "1.1.3",
+          "questionText": "Solve for $x$:\n\n$$x^2 - 2x - 3 > 0$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Factors — $(x - 3)(x + 1) > 0$\nMark 2: Critical values — $x = 3$ or $x = -1$\nMarks 3–4 (double mark): $x < -1$ or $x > 3$ (i.e. $x \\in (-\\infty\\,;\\,-1) \\cup (3\\,;\\,\\infty)$)",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-4",
+          "label": "1.1.4",
+          "questionText": "Solve for $x$:\n\n$$2^{2x} - 2^{x+2} - 32 = 0$$",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Use of exponential law — $2^{2x} - 2^2 \\cdot 2^x - 32 = 0$\nMark 2: Factors — $(2^x - 8)(2^x + 4) = 0$\nMark 3: $2^x = 8$\nMark 4: $2^x \\neq -4$ (no solution)\nMark 5: Answer — $2^x = 2^3 \\Rightarrow x = 3$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-1-5",
+          "label": "1.1.5",
+          "questionText": "Solve for $x$:\n\n$$\\sqrt{-2x + 4} - x = 2$$",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Isolating the root — $\\sqrt{-2x + 4} = 2 + x$\nMark 2: Squaring both sides — $-2x + 4 = 4 + 4x + x^2$\nMark 3: Standard form — $x^2 + 6x = 0 \\Rightarrow x(x + 6) = 0$\nMark 4: Answers with selection — $x = 0$ ($x \\neq -6$)",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-2",
+          "label": "1.2",
+          "questionText": "Solve for $x$ and $y$ simultaneously:\n\n$$2x + y = 3$$\n$$y^2 + xy = 2$$",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: From equation 1 — $y = 3 - 2x$\nMark 2: Substitution — $(3 - 2x)^2 + (3 - 2x)x = 2$\nMark 3: Standard form — $2x^2 - 9x + 7 = 0 \\Rightarrow (2x - 7)(x - 1) = 0$\nMark 4: Both $x$-values — $x = \\tfrac{7}{2}$ or $x = 1$\nMark 5: Both $y$-values — $y = -4$ or $y = 1$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "1-3",
+          "label": "1.3",
+          "questionText": "Consider the product $\\left(1 + \\dfrac{1}{2}\\right)\\left(1 + \\dfrac{1}{3}\\right)\\left(1 + \\dfrac{1}{4}\\right) \\ldots$\n\nEach factor in the product is of the form $\\left(1 + \\dfrac{1}{n}\\right)$ for $n \\geq 2$.\n\nDetermine ALL the values of $n$ for which the product will be an integer value.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Telescoping product — $\\dfrac{3}{2} \\times \\dfrac{4}{3} \\times \\dfrac{5}{4} \\times \\ldots \\times \\dfrac{n+1}{n} = \\dfrac{n+1}{2}$\nMark 2: Statement — the product $\\dfrac{n+1}{2}$ is an integer when $n + 1$ is divisible by $2$, i.e. $n \\in \\{3\\,;\\,5\\,;\\,7\\,;\\,\\ldots\\}$\nMark 3: $n$ must be an odd number, greater than $2$",
+          "topic": "Algebra",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Number Patterns & Series",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "2-1-1",
+          "label": "2.1.1",
+          "questionText": "The first term of an arithmetic series is $7$. The common difference of this series is $5$ and the series contains $20$ terms.\n\nCalculate the sum of this series.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution — $S_{20} = \\dfrac{20}{2}[2(7) + (20 - 1)(5)]$\nMark 2: Answer — $S_{20} = 1\\,090$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "2-1-2",
+          "label": "2.1.2",
+          "questionText": "The original arithmetic series is extended to $75$ terms. The sum of these $75$ terms is $14\\,400$. Using sigma notation, write down an equation for the sum of the terms added to the original series.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: General term — $T_n = 7 + (n - 1)(5) = 5n + 2$\nMark 2: $S_{75} - S_{20} = 14\\,400 - 1\\,090$\nMark 3: Correct limits on the sigma notation — $\\displaystyle\\sum_{n=21}^{75}(5n + 2)$\nMark 4: $= 13\\,310$, so $\\displaystyle\\sum_{n=21}^{75}(5n + 2) = 13\\,310$\n(Alternatively $\\displaystyle\\sum_{n=1}^{55}(5n + 102) = 13\\,310$, using $T_n = 102 + 5n$.)",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "2-2-1",
+          "label": "2.2.1",
+          "questionText": "The sequence of the first differences of a quadratic pattern is: $1\\,;\\,3\\,;\\,5\\,;\\,\\ldots$\n\nIf $T_{99}$ of this quadratic pattern is $9\\,632$, calculate the value of $T_{98}$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: The first differences form the sequence $T_n = 2n - 1$; the $98$th first difference $= 2(98) - 1 = 195$\nMark 2: Method — $T_{98} = T_{99} - (98\\text{th first difference}) = 9\\,632 - 195$\nMark 3: Answer — $T_{98} = 9\\,437$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "2-2-2",
+          "label": "2.2.2",
+          "questionText": "If it is further given that the third term of the quadratic pattern is $32$, determine the general term, $T_n$, of the quadratic pattern.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks — for $T_n = an^2 + bn + c$):\nMark 1: Second difference $= 2 \\Rightarrow 2a = 2$\nMark 2: $a = 1$\nMark 3: $b = -2$ (from $3a + b = 1$)\nMark 4: Method to calculate $c$ — $9a + 3b + c = 32$ (or $T_3 = 1(3)^2 - 2(3) + c = 32$)\nMark 5: $c = 29$, so $T_n = n^2 - 2n + 29$",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Geometric Series (Circles Pattern)",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "3-1",
+          "label": "3.1",
+          "questionText": "A circle with radius $6$ cm is drawn. A second, smaller circle is drawn through the centre of the first circle and also touches the first circle internally, as shown in the diagram. A third, smaller circle is drawn through the centre of the second circle and touches the second circle internally. The process of drawing circles continues and forms a geometric pattern.\n\nWrite down the radius of the $3^{\\text{rd}}$ circle.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — each circle's radius is half the previous one):\nMarks 1–2 (double mark): $2^{\\text{nd}}$ circle $= \\dfrac{6}{2} = 3$ cm, so $3^{\\text{rd}}$ circle $= \\dfrac{3}{2} = 1{,}5$ cm (or $6\\left(\\tfrac{1}{2}\\right)^2 = 1{,}5$)",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "3-2",
+          "label": "3.2",
+          "questionText": "Calculate the sum of the areas of the first $10$ circles.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks — the areas form a geometric series $36\\pi\\,;\\,9\\pi\\,;\\,\\tfrac{9}{4}\\pi\\,;\\,\\ldots$):\nMark 1: $a = 36\\pi$\nMark 2: $r = \\dfrac{1}{4}$\nMark 3: Substitution — $S_{10} = \\dfrac{36\\pi\\left[\\left(\\tfrac{1}{4}\\right)^{10} - 1\\right]}{\\tfrac{1}{4} - 1}$\nMark 4: Answer — $S_{10} = 150{,}80$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "3-3",
+          "label": "3.3",
+          "questionText": "Which circle has a diameter of $\\dfrac{3}{128}$ cm?",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks — the radii form $6\\,;\\,3\\,;\\,\\tfrac{3}{2}\\,;\\,\\ldots$):\nMark 1: Radius $= \\tfrac{1}{2}\\left(\\dfrac{3}{128}\\right) = \\dfrac{3}{256}$\nMark 2: Equating to the general term — $\\dfrac{3}{256} = 6\\left(\\tfrac{1}{2}\\right)^{n-1}$\nMark 3: Simplification — $\\dfrac{1}{512} = \\left(\\tfrac{1}{2}\\right)^{n-1} \\Rightarrow \\left(\\tfrac{1}{2}\\right)^9 = \\left(\\tfrac{1}{2}\\right)^{n-1}$, so $n - 1 = 9$\nMark 4: Answer — $n = 10$ (the $10^{\\text{th}}$ circle)\n(Alternatively work with the diameters $12\\,;\\,6\\,;\\,3\\,;\\,\\ldots$ and set $\\dfrac{3}{128} = 12\\left(\\tfrac{1}{2}\\right)^{n-1}$, giving $n = 10$.)",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Exponential Function & Inverse",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "4-1",
+          "label": "4.1",
+          "questionText": "Given: $f(x) = a^x - 1$ for $a > 0$. $B\\left(2\\,;\\,\\dfrac{-5}{9}\\right)$ is a point on $f$.\n\nCalculate the value of $a$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution — $-\\dfrac{5}{9} = a^2 - 1 \\Rightarrow a^2 = \\dfrac{4}{9}$\nMark 2: Answer — $a = \\dfrac{2}{3}$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-2",
+          "label": "4.2",
+          "questionText": "Write down the range of $f$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $y > -1$ (i.e. $y \\in (-1\\,;\\,\\infty)$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-3",
+          "label": "4.3",
+          "questionText": "Sketch the graph of $f$. Clearly show the intercepts with the axes and asymptotes, if any.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Intercept $(0\\,;\\,0)$\nMark 2: Asymptote $y = -1$\nMark 3: Decreasing shape (since $0 < a < 1$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "4-4",
+          "label": "4.4",
+          "questionText": "It is further given that C is a point on $f$ at $y = \\dfrac{19}{8}$.\n\nDetermine the coordinates of $\\text{C}'$, the image of C, when C is reflected about the line $y = x$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Substitution — $\\dfrac{19}{8} = \\left(\\tfrac{2}{3}\\right)^x - 1 \\Rightarrow \\dfrac{27}{8} = \\left(\\tfrac{2}{3}\\right)^x$, i.e. $\\left(\\tfrac{3}{2}\\right)^3 = \\left(\\tfrac{3}{2}\\right)^{-x}$\nMark 2: Answer — $x = -3$, so $\\text{C}\\left(-3\\,;\\,\\tfrac{19}{8}\\right)$\nMark 3: Reflection about $y = x$ — $\\text{C}'\\left(\\tfrac{19}{8}\\,;\\,-3\\right)$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Hyperbola",
+      "totalMarks": 10,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2024_q5.png",
+      "subQuestions": [
+        {
+          "id": "5-1",
+          "label": "5.1",
+          "questionText": "Sketched below is the graph of $f(x) = \\dfrac{a}{x + p} + q$ having the domain $(-\\infty\\,;\\,1) \\cup (1\\,;\\,\\infty)$. The graph of $f$ cuts the $y$-axis at $(0\\,;\\,1)$. A line of symmetry of $f$ is given by $g(x) = x - 3$.\n\nWrite down the value of $p$.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $p = -1$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-2",
+          "label": "5.2",
+          "questionText": "Determine the equation of the horizontal asymptote of $f$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — the line of symmetry $g(x) = x - 3$ passes through the intersection of the asymptotes; the vertical asymptote is $x = 1$):\nMark 1: Substitution — $y = (1) - 3$\nMark 2: Answer — $y = -2$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-3",
+          "label": "5.3",
+          "questionText": "Calculate the value of $a$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitute $(0\\,;\\,1)$ — $1 = \\dfrac{a}{0 - 1} - 2 \\Rightarrow 3 = \\dfrac{a}{-1}$\nMark 2: Answer — $a = -3$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-4",
+          "label": "5.4",
+          "questionText": "For which values of $x$ is $f(x) \\geq 0$?",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $x$-intercept — $\\dfrac{-3}{x - 1} - 2 = 0 \\Rightarrow -3 = 2x - 2 \\Rightarrow x = -\\tfrac{1}{2}$\nMarks 2–3 (double mark): $x \\in \\left[-\\tfrac{1}{2}\\,;\\,1\\right)$ (i.e. $-\\tfrac{1}{2} \\leq x < 1$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "5-5",
+          "label": "5.5",
+          "questionText": "Graph $f$ undergoes a transformation to $h$ where:\n\n- The domain and range of $h$ are the same as that of $f$\n- $h'(x)$, the derivative of $h$, is negative on its domain\n\nDescribe a possible transformation that $f$ could have undergone to result in $h$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): $f$ is reflected in the $y$-axis, then translated $2$ units to the right (OR reflected in the $x$-axis, then translated $4$ units down; OR reflected about the line $x = 1$; OR reflected about the line $y = -2$)",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Parabola & Straight Line",
+      "totalMarks": 15,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2024_q6.png",
+      "subQuestions": [
+        {
+          "id": "6-1",
+          "label": "6.1",
+          "questionText": "In the diagram, the graphs of $f(x) = -x^2 + 4x + 5$ and $g$, a straight line, are drawn. $C(3\\,;\\,8)$ is a point of intersection of $f$ and $g$. EH is drawn parallel to the $y$-axis, with E a point on $f$ and H a point on $g$.\n\nCalculate the coordinates of B, the turning point of $f$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Method for $x$ — $x = \\dfrac{-4}{2(-1)}$ (or $f'(x) = -2x + 4 = 0$)\nMark 2: $x = 2$\nMark 3: $y = -(2)^2 + 4(2) + 5 = 9$, so $B(2\\,;\\,9)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-2",
+          "label": "6.2",
+          "questionText": "Show that the equation of the line through A and C is given by $g(x) = 2x + 2$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks — A is the left $x$-intercept of $f$):\nMark 1: $x^2 - 4x - 5 = 0 \\Rightarrow (x - 5)(x + 1) = 0$, so $A(-1\\,;\\,0)$\nMark 2: Method for gradient — $m = \\dfrac{8 - 0}{3 + 1} = 2$\nMark 3: Substitute point A or C into the straight-line equation — $y - 0 = 2(x + 1) \\Rightarrow y = 2x + 2$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-3",
+          "label": "6.3",
+          "questionText": "Calculate the maximum length of EH for $f > g$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: Difference — $EH = (-x^2 + 4x + 5) - (2x + 2)$\nMark 2: $EH = -x^2 + 2x + 3$\nMark 3: $x$-value of maximum — $-2x + 2 = 0 \\Rightarrow x = 1$\nMark 4: Maximum length — $EH = -(1)^2 + 2(1) + 3 = 4$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "6-4",
+          "label": "6.4",
+          "questionText": "Given: $k(x) = f(x + m) = -x^2 - 2mx - m^2 + 4x + 4m + 5$\n\nDetermine the value of $m$ such that $g$ is a tangent to $k$.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: $k'(x) = -2x - 2m + 4$\nMark 2: $k'(x) = 2$ (gradient of $g$)\nMark 3: $x = 1 - m$\nMark 4: Substitution — $k(1 - m) = g(1 - m)$, i.e. $-(1-m)^2 - 2m(1-m) - m^2 + 4(1-m) + 4m + 5 = 2(1-m) + 2$\nMark 5: Answer — $-2m - 4 = 0 \\Rightarrow m = -2$\n(Alternatively set $k(x) = g(x)$ and use $\\Delta = 0$: $0 = x^2 + (2m - 2)x + m^2 - 4m - 3$, $\\Delta = 8m + 16 = 0 \\Rightarrow m = -2$.)",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Financial Mathematics",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "7-1",
+          "label": "7.1",
+          "questionText": "Mary's grandparents deposited $R5\\,000$ into a savings account on the day that she was born. The account pays interest at a rate of $6{,}8\\%$ p.a., compounded quarterly. Calculate the accumulated amount in this account on Mary's $16^{\\text{th}}$ birthday.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Correct $i$ and $n$ — $i = \\dfrac{6{,}8}{400}$, $n = 64$\nMark 2: Substitution into the correct formula — $A = 5\\,000\\left(1 + \\dfrac{6{,}8}{400}\\right)^{64}$\nMark 3: Answer — $A = R14\\,706{,}56$",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "7-2",
+          "label": "7.2",
+          "questionText": "After $4$ years, the value of a printer was half of its original value. Determine the rate at which the value of the printer depreciated over this period, if depreciation was calculated according to a straight-line method.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Substitution into the correct formula — $\\tfrac{1}{2}P = P(1 - 4i)$, so $\\tfrac{1}{2} = 1 - 4i$\nMark 2: Answer — $i = \\tfrac{1}{8}$, so $r = 12{,}5\\%$",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "7-3-1",
+          "label": "7.3.1",
+          "questionText": "Tshepo was granted a loan of $R100\\,000$ on 1 March 2022 at an interest rate of $13{,}5\\%$ p.a., compounded monthly. Tshepo agreed to repay the loan over $5$ years in monthly instalments of $R2\\,300{,}98$, starting on 1 April 2022.\n\nCalculate the total interest that he will pay over the $5$ years.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Amount already paid — $2\\,300{,}98 \\times 60 = R138\\,058{,}80$\nMark 2: Interest — $138\\,058{,}80 - 100\\,000 = R38\\,058{,}80$",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "7-3-2",
+          "label": "7.3.2",
+          "questionText": "Tshepo paid $R22\\,300{,}98$ (his monthly instalment and an additional $R20\\,000$) on 1 March 2024 into the loan account. He continues to pay the original monthly instalment thereafter. How many months earlier will Tshepo repay the loan?",
+          "marks": 7,
+          "memoText": "Mark scheme (7 marks):\nMark 1: $n = 36$ for the balance after 2 years\nMark 2: Correct $i = \\dfrac{13{,}5}{1200}$\nMark 3: Substitution into the correct balance formula — $P = \\dfrac{2\\,300{,}98\\left[1 - \\left(1 + \\tfrac{13{,}5}{1200}\\right)^{-36}\\right]}{\\tfrac{13{,}5}{1200}} = R67\\,804{,}94$\nMark 4: Balance after the $R20\\,000$ payment — $67\\,804{,}94 - 20\\,000 = R47\\,804{,}94$\nMark 5: Substitution into the correct formula — $47\\,804{,}94 = \\dfrac{2\\,300{,}98\\left[1 - \\left(1 + \\tfrac{13{,}5}{1200}\\right)^{-n}\\right]}{\\tfrac{13{,}5}{1200}}$\nMark 6: Correct use of logs — $0{,}766 = (1{,}01125)^{-n}$\nMark 7: $n = 23{,}83$ (months of remaining payments), so the loan is repaid $12$ months earlier",
+          "topic": "Finance",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Calculus: Differentiation",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "8-1-1",
+          "label": "8.1.1",
+          "questionText": "Determine:\n\n$$\\dfrac{d}{dx}\\left[3x - 5x^2\\right]$$",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: $3$\nMark 2: $-10x$, so $\\dfrac{d}{dx}\\left[3x - 5x^2\\right] = 3 - 10x$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "8-1-2",
+          "label": "8.1.2",
+          "questionText": "Determine $g'(x)$ if $g(x) = \\dfrac{2}{x^2} - \\sqrt[3]{x^7}$.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $2x^{-2}$ (rewriting first term)\nMark 2: $-x^{\\frac{7}{3}}$ (rewriting second term)\nMark 3: $-4x^{-3}$ (derivative of first term)\nMark 4: $-\\dfrac{7}{3}x^{\\frac{4}{3}}$ (derivative of second term), so $g'(x) = -4x^{-3} - \\dfrac{7}{3}x^{\\frac{4}{3}}$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "8-2",
+          "label": "8.2",
+          "questionText": "Determine the equation of the tangent to $f(x) = x^3 - 4x^2 + 2x + 3$ at $x = 2$.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $f'(x) = 3x^2 - 8x + 2$, so $m = f'(2) = 3(2)^2 - 8(2) + 2 = -2$\nMark 2: $y = f(2) = (2)^3 - 4(2)^2 + 2(2) + 3 = -1$\nMark 3: Answer — $y + 1 = -2(x - 2) \\Rightarrow y = -2x + 3$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "8-3-1",
+          "label": "8.3.1",
+          "questionText": "Given: $f(x) = -6x^2$\n\nDetermine $f'(x)$ from first principles.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nMark 1: Substitution — $f'(x) = \\displaystyle\\lim_{h \\to 0}\\dfrac{-6(x + h)^2 + 6x^2}{h}$\nMark 2: $f(x + h) = -6x^2 - 12xh - 6h^2$\nMark 3: Simplification — $\\displaystyle\\lim_{h \\to 0}\\dfrac{-12xh - 6h^2}{h}$\nMark 4: Common factor — $\\displaystyle\\lim_{h \\to 0}\\dfrac{h(-12x - 6h)}{h} = \\displaystyle\\lim_{h \\to 0}(-12x - 6h)$\nMark 5: Answer — $f'(x) = -12x$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "8-3-2",
+          "label": "8.3.2",
+          "questionText": "Write down how you will restrict the domain of $f$ such that $f^{-1}$, the inverse of $f$, is a function.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nMark 1: $x \\geq 0$ (or $x \\leq 0$)",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "8-3-3",
+          "label": "8.3.3",
+          "questionText": "Determine the equation of $f^{-1}$ for $f^{-1}(x) \\leq 0$. Write your answer in the form $y = \\ldots$",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: Swopping $x$ and $y$ — $x = -6y^2$\nMark 2: $y = \\pm\\sqrt{-\\tfrac{1}{6}x}$\nMark 3: Answer with selection — $y = -\\sqrt{-\\tfrac{1}{6}x}$ (for $x \\leq 0$)",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Calculus: Cubic Graph Interpretation",
+      "totalMarks": 8,
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-nov-2024_q9.png",
+      "subQuestions": [
+        {
+          "id": "9-1",
+          "label": "9.1",
+          "questionText": "$A(1\\,;\\,9)$ and $B\\left(\\dfrac{5}{2}\\,;\\,8\\right)$ are the turning points of graph $f$ below. $C(0\\,;\\,7)$ is the $y$-intercept of $f$.\n\nFor which values of $x$ is $f$ decreasing?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMarks 1–2 (double mark): $1 < x < \\dfrac{5}{2}$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "9-2",
+          "label": "9.2",
+          "questionText": "Write down the $x$-intercepts of $f'$, the derivative of $f$.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — the $x$-intercepts of $f'$ are the $x$-values of the turning points of $f$):\nMark 1: $x = 1$\nMark 2: $x = \\dfrac{5}{2}$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "9-3",
+          "label": "9.3",
+          "questionText": "For which values of $x$ will $f$ be concave up?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — the point of inflection is the midpoint of the turning points):\nMark 1: Method — $\\dfrac{\\tfrac{5}{2} + 1}{2} = \\dfrac{7}{4}$\nMark 2: Answer — concave up for $x > \\dfrac{7}{4}$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "9-4",
+          "label": "9.4",
+          "questionText": "Determine the value of $k$ for which $y = f(x) + k$ will have THREE positive $x$-intercepts.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — shifting $f$ vertically so all three roots become positive; the lower turning point $y = 8$ must move to $0 < y$ and the $y$-intercept $7$ must move below the $x$-axis):\nMarks 1–2 (double mark): $-9 < k < -8$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Calculus: Rates of Change",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "10-1",
+          "label": "10.1",
+          "questionText": "A cyclist rode from town P and stopped at town T. The speed (in km/h) at which this cyclist rode is represented by the equation $s'(t) = -3t^2 + 18t$.\n\n**NOTE:** Speed is the rate of change in distance with respect to time.\n\nCalculate the maximum speed that the cyclist reached on this ride.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nMark 1: $s''(t) = -6t + 18 = 0$\nMark 2: Value of $t$ — $t = 3$\nMark 3: Answer — $s'(3) = -3(3)^2 + 18(3) = 27$ km/h",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "10-2",
+          "label": "10.2",
+          "questionText": "Calculate the distance between town P and town T.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks — the cyclist stops when the speed is $0$):\nMark 1: Factors — $-3t^2 + 18t = 0 \\Rightarrow -3t(t - 6) = 0$\nMark 2: Values — $t = 0$ or $t = 6$\nMark 3: $a$ and $b$ from $s'(t) = 3at^2 + 2bt$ — $a = -1$ and $b = 9$\nMark 4: Substitution — $s(t) = -t^3 + 9t^2$, so $s(6) = -(6)^3 + 9(6)^2$\nMark 5: Answer — $s(6) = 108$ (distance $= 108$ km)",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Probability: Venn Diagram",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "11-1",
+          "label": "11.1",
+          "questionText": "A certain number of learners are sitting for examinations in Mathematics, Tourism and Geography.\n\n- All these learners sit for at least one of these examinations.\n- The total number of learners who sit for Mathematics (M), is $22$.\n- The total number of learners sitting for Tourism (T), is $16$.\n- The total number of learners sitting for Geography (G), is $18$.\n- $5$ learners sit for Mathematics and Tourism, but not Geography.\n- $4$ learners sit for Mathematics and Geography, but not Tourism.\n- $3$ learners sit for Tourism and Geography, but not Mathematics.\n- $6$ learners sit for only Tourism.\n\nDraw a Venn diagram to represent ALL the learners sitting for these examinations.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks — let the centre (all three) $= x$):\nMark 1: Centre value — $x = 2$ (from T total: $6 + 5 + 3 + x = 16$)\nMark 2: Values $3\\,;\\,4\\,;\\,5$ in the two-subject regions (M∩T only $= 5$, M∩G only $= 4$, T∩G only $= 3$)\nMark 3: Values $6\\,;\\,9\\,;\\,11$ in the single-subject regions (M only $= 11$, T only $= 6$, G only $= 9$); total $= 40$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "11-2",
+          "label": "11.2",
+          "questionText": "Calculate the probability that a learner, chosen at random, will sit for examinations in at least TWO of the subjects.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Numerator — $(4 + 2 + 5 + 3) = 14$\nMark 2: Denominator $40$, so $P(\\text{at least two subjects}) = \\dfrac{14}{40} = \\dfrac{7}{20} = 0{,}35$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "11-3",
+          "label": "11.3",
+          "questionText": "Determine if the events: sitting for examinations in Mathematics and sitting for examinations in Tourism are independent. Support your answer with the necessary calculations.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nMark 1: $P(M) \\times P(T) = \\dfrac{22}{40} \\times \\dfrac{16}{40}$\nMark 2: $= \\dfrac{11}{50} = 0{,}22$\nMark 3: $P(M \\text{ and } T) = \\dfrac{7}{40} = 0{,}175$\nMark 4: Since $P(M) \\times P(T) \\neq P(M \\text{ and } T)$, events M and T are NOT independent",
+          "topic": "Probability",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Counting Principles",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "12-1",
+          "label": "12.1",
+          "questionText": "A company generates a 4-character code using the 26 letters of the alphabet and the 10 digits, from 0 to 9.\n\nThe code is in the form:\n\n| letter | digit | letter | digit |\n|---|---|---|---|\n\nDetermine how many different codes can be formed if letters and digits may be repeated.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMark 1: Correct letters — $26 \\times 26$\nMark 2: Correct digits — $\\times 10 \\times 10$, so $26 \\times 10 \\times 26 \\times 10 = 67\\,600$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "12-2",
+          "label": "12.2",
+          "questionText": "Determine how many different codes can be formed if:\n\n- The letters D, F, I, Q, U and V may NOT be used\n- The code may NOT start with a W or a Z\n- Letters or digits may NOT be repeated\n- The code ends with an odd digit",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks — $20$ usable letters; first letter excludes W and Z; last digit is odd):\nMark 1: First position (letter, not W or Z) — $18$\nMark 2: Second position (digit) — $9$\nMark 3: Third position (letter, no repeat) — $19$\nMark 4: Fourth position (odd digit) — $5$; total $= 18 \\times 9 \\times 19 \\times 5 = 15\\,390$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "12-3",
+          "label": "12.3",
+          "questionText": "The company wishes to increase the number of 4-character codes formed in QUESTION 12.2 by allowing the letters D, F, I, Q, U and V to be used. Calculate the percentage increase in the number of different codes that can now be formed.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks — now $26$ letters, first letter still excludes W and Z, so $24$):\nMark 1: New total — $24 \\times 9 \\times 25 \\times 5 = 27\\,000$\nMark 2: Percentage increase — $\\dfrac{27\\,000 - 15\\,390}{15\\,390} \\times 100 = 75{,}44\\%$",
+          "topic": "Probability",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

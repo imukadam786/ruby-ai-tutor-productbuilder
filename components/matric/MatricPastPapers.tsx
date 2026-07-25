@@ -310,6 +310,21 @@ function savePaperProgress(paperId: string, status: "in_progress" | "completed",
 
 const ALL_YEARS = [2025, 2024, 2023, 2022, 2021];
 
+// Exam-session tabs. Year-end ("November") papers and mid-year ("May/June")
+// papers can both exist for the same subject/year, so the list is split by tab.
+type SessionTab = "June" | "November";
+const SESSION_TAB_LABEL: Record<SessionTab, string> = {
+  June: "May/June",
+  November: "November",
+};
+
+function sessionTabOf(session: string): SessionTab | null {
+  const s = session.toLowerCase();
+  if (s.startsWith("nov")) return "November";
+  if (s.includes("jun")) return "June"; // "May/June", "May-June"
+  return null; // Prep/Predictive are filtered out before this runs
+}
+
 function PaperList({
   subjectId,
   onSelect,
@@ -328,6 +343,11 @@ function PaperList({
   );
   const [expandedCode, setExpandedCode] = useState<"P1" | "P2" | null>("P1");
   const [progressMap, setProgressMap] = useState<Record<string, PaperProgress>>({});
+
+  // Show the session toggle only when this subject actually has year-end papers.
+  const hasNovember = papers.some((p) => sessionTabOf(p.session) === "November");
+  const [sessionTab, setSessionTab] = useState<SessionTab>("June");
+  const visiblePapers = papers.filter((p) => sessionTabOf(p.session) === sessionTab);
 
   useEffect(() => {
     (async () => {
@@ -350,7 +370,7 @@ function PaperList({
   }, [subjectId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const papersByCode = (code: "P1" | "P2") =>
-    papers.filter((p) => p.paperCode === code).sort((a, b) => b.year - a.year);
+    visiblePapers.filter((p) => p.paperCode === code).sort((a, b) => b.year - a.year);
 
   return (
     <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
@@ -374,9 +394,28 @@ function PaperList({
           </div>
           <div>
             <h1 className="text-2xl font-extrabold text-gray-900">{subject.name}</h1>
-            <p className="text-sm text-gray-400">{papers.length} {papers.length === 1 ? "paper" : "papers"} available</p>
+            <p className="text-sm text-gray-400">{visiblePapers.length} {visiblePapers.length === 1 ? "paper" : "papers"} available</p>
           </div>
         </div>
+
+        {/* Exam-session toggle — only when this subject has year-end papers */}
+        {hasNovember && (
+          <div className="inline-flex rounded-xl bg-gray-100 p-1 gap-1">
+            {(["June", "November"] as const).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setSessionTab(tab)}
+                className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
+                  sessionTab === tab
+                    ? "bg-white text-gray-900 shadow-sm"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                {SESSION_TAB_LABEL[tab]}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Accordion: one card per paper code */}
         <div className="space-y-3">
@@ -434,7 +473,7 @@ function PaperList({
                             className="px-5 py-4 flex items-center justify-between opacity-40 cursor-not-allowed"
                           >
                             <div>
-                              <p className="text-sm font-semibold text-gray-500">May/June {year}</p>
+                              <p className="text-sm font-semibold text-gray-500">{SESSION_TAB_LABEL[sessionTab]} {year}</p>
                               <p className="text-xs text-gray-400 mt-0.5">Coming soon</p>
                             </div>
                             <span className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded-full">Soon</span>
