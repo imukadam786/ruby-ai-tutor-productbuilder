@@ -2443,7 +2443,7 @@ function SessionView({
                 {currentAttempt.coachMessages.map((msg, i) => (
                   <div key={i}>
                     {msg.type === "system" ? (
-                      <div className="text-sm text-gray-500 bg-gray-50 rounded-xl px-4 py-3">
+                      <div className={`text-sm text-gray-500 bg-gray-50 ${cc("rounded-2xl border border-gray-100", "rounded-xl")} px-4 py-3`}>
                         <MathMarkdown content={msg.content} />
                       </div>
                     ) : (

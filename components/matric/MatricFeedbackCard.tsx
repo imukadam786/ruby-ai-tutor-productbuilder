@@ -3,6 +3,12 @@
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import { CONCEPT_C } from "@/lib/flags";
+
+// Concept C makes static cards read chunkier (2px borders, heavier labels).
+// The result-tier colours stay semantic — they encode full/partial/zero marks,
+// not brand — so the reskin only touches weight and edges, never the hue.
+const cc = (on: string, off = "") => (CONCEPT_C ? on : off);
 
 // Shared AI-feedback card for the past-paper "Ruby coach" panel — used by
 // both MatricPastPapers and PrepPapers2026 so the two screens can't drift.
@@ -101,9 +107,9 @@ export default function MatricFeedbackCard({
   const header = tier ? HEADER[tier] : null;
 
   return (
-    <div className={`border rounded-2xl px-4 py-4 space-y-3 ${CARD[t]}`}>
+    <div className={`${cc("border-2", "border")} rounded-2xl px-4 py-4 space-y-3 ${CARD[t]}`}>
       {header && (
-        <div className={`flex items-center gap-1.5 text-sm font-bold ${header.color}`}>
+        <div className={`flex items-center gap-1.5 text-sm ${cc("font-extrabold", "font-bold")} ${header.color}`}>
           <span aria-hidden>{header.icon}</span>
           <span>{header.label}</span>
         </div>
@@ -141,7 +147,7 @@ export default function MatricFeedbackCard({
           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Answer</p>
           <button
             onClick={() => onExpandImage?.(modelAnswerImageUrl)}
-            className="relative group block rounded-xl overflow-hidden border border-gray-200 bg-white max-w-[220px]"
+            className={`relative group block ${cc("rounded-2xl border-2", "rounded-xl border")} overflow-hidden border-gray-200 bg-white max-w-[220px]`}
             title="Tap to expand"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -157,7 +163,7 @@ export default function MatricFeedbackCard({
 
       {marksEarned !== undefined && totalMarks !== undefined && (
         <div className={`flex items-center gap-2 pt-1 border-t ${DIVIDER[t]}`}>
-          <div className={`text-xs font-bold px-2.5 py-1 rounded-full ${BADGE[t]}`}>
+          <div className={`text-xs ${cc("font-extrabold px-3 py-1.5", "font-bold px-2.5 py-1")} rounded-full ${BADGE[t]}`}>
             {marksEarned}/{totalMarks} marks
           </div>
         </div>
