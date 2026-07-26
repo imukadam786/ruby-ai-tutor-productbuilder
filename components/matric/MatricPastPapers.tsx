@@ -11,8 +11,53 @@ import { PAPER_INDEX, PaperMeta, loadPaperById } from "@/lib/matric/paper-index"
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
 import Button from "@/components/ui/Button";
+import AnswerButton from "@/components/ui/AnswerButton";
 import MatricFeedbackCard, { RubricPoint } from "./MatricFeedbackCard";
 import { resolvePrimarySkill } from "@/lib/phys-sci-topic-map";
+import { CONCEPT_C } from "@/lib/flags";
+import { GEM_HEX } from "@/lib/design/gemColors";
+
+// ─── Concept C helpers ───────────────────────────────────────────────────────
+// The reskin is entirely flag-gated: `cc(on, off)` returns the Concept C classes
+// only when the flag is on, so the current UI is byte-identical when it's off.
+const cc = (on: string, off = "") => (CONCEPT_C ? on : off);
+
+// Each subject's session takes its own gem accent, mirroring "the gem you cut
+// matches the subject you are in" from the skill tree. Keyed by paper.subject
+// (the display name). Brand-red stays reserved for the app, so sciences map to
+// coral, never red. Anything unmapped falls back to ruby.
+const SUBJECT_GEM: Record<string, string> = {
+  "Accounting": GEM_HEX.emerald,
+  "Agricultural Sciences": GEM_HEX.lime,
+  "Afrikaans": GEM_HEX.orange,
+  "Business Studies": GEM_HEX.blue,
+  "Economics": GEM_HEX.indigo,
+  "English": GEM_HEX.sky,
+  "Geography": GEM_HEX.teal,
+  "History": GEM_HEX.amber,
+  "Hospitality Studies": GEM_HEX.orange,
+  "Life Sciences": GEM_HEX.pink,
+  "Mathematics": GEM_HEX.rose,
+  "Maths Literacy": GEM_HEX.violet,
+  "Physical Science": GEM_HEX.cyan,
+  "Physical Sciences": GEM_HEX.cyan,
+  "Tourism": GEM_HEX.cyan,
+};
+
+/** Darken a #rrggbb hex by a factor (0–1) for the chunky pressable "lip". */
+function darkenHex(hex: string, f = 0.78): string {
+  const n = parseInt(hex.slice(1), 16);
+  const r = Math.round(((n >> 16) & 255) * f);
+  const g = Math.round(((n >> 8) & 255) * f);
+  const b = Math.round((n & 255) * f);
+  return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+}
+
+/** Resolve a subject's gem colour + its darker lip, defaulting to ruby. */
+function gemFor(subject: string): { gem: string; lip: string } {
+  const gem = SUBJECT_GEM[subject] ?? "#E11D48";
+  return { gem, lip: darkenHex(gem) };
+}
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -904,6 +949,11 @@ function SessionView({
   const [hintLevel, setHintLevel] = useState(0);
   const [expandedDiagramUrl, setExpandedDiagramUrl] = useState<string | null>(null);
   const isMaths = paper.subject === "Mathematics";
+  // Concept C: this subject's gem accent, threaded through the session as CSS vars.
+  const { gem, lip: gemLip } = gemFor(paper.subject);
+  const gemVars = CONCEPT_C
+    ? ({ "--gem": gem, "--gem-lip": gemLip } as React.CSSProperties)
+    : undefined;
   const STEP_LABELS = ["Step 1", "Step 2", "Step 3", "Step 4", "Final Answer"];
 
   const MATH_SYMBOLS: { label: string; insert: string }[] = [
@@ -1356,7 +1406,7 @@ function SessionView({
   const pctComplete = totalQuestions > 0 ? Math.round((answeredCount / totalQuestions) * 100) : 0;
 
   return (
-    <div className="h-full flex flex-col overflow-hidden relative">
+    <div className="h-full flex flex-col overflow-hidden relative" style={gemVars}>
       {/* Compact header: back + current Q info + info sheet */}
       <div className="flex-shrink-0 bg-white border-b border-gray-100 px-3 sm:px-4">
         <div className="flex items-center gap-2 py-2">
@@ -1373,7 +1423,10 @@ function SessionView({
           <div className="flex-1 min-w-0">
             <p className="text-sm font-bold text-gray-800 leading-tight">
               {currentSQ.label}
-              <span className="ml-1.5 text-xs font-semibold text-brand">
+              <span
+                className="ml-1.5 text-xs font-semibold text-brand"
+                style={CONCEPT_C ? { color: "var(--gem)" } : undefined}
+              >
                 · {currentSQ.marks} {currentSQ.marks === 1 ? "mk" : "mks"}
               </span>
             </p>
@@ -1438,6 +1491,10 @@ function SessionView({
                           } ${
                             isSubmitted ? "bg-brand" : isAnswered ? "bg-amber-400" : "bg-gray-200"
                           }`}
+                          style={CONCEPT_C ? ({
+                            ...(isSubmitted ? { backgroundColor: "var(--gem)" } : {}),
+                            ...(isActive ? { "--tw-ring-color": "var(--gem)" } : {}),
+                          } as React.CSSProperties) : undefined}
                         />
                       );
                     })}
@@ -1651,8 +1708,46 @@ function SessionView({
                 <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Your answer</span>
               </div>
 
-              {currentSQ.type === "mcq" && currentSQ.options ? (
-                /* ── MCQ Option Cards ── */
+              {currentSQ.type === "mcq" && currentSQ.options && CONCEPT_C ? (
+                /* ── MCQ · Concept C 4-colour ChoiceGrid (select → reveal) ── */
+                (() => {
+                  const letters = Object.keys(currentSQ.options!).sort();
+                  // Correct letter lives in memoText as "Correct answer: X" (same
+                  // pattern the hint builder uses). Undefined → no reveal.
+                  const correct = currentSQ.memoText?.match(/correct answer:\s*([A-E])/i)?.[1]?.toUpperCase();
+                  return (
+                    <div className="flex-1 overflow-y-auto min-h-0 grid grid-cols-1 sm:grid-cols-2 gap-2.5 content-start">
+                      {letters.map((letter, i) => {
+                        const text = currentSQ.options![letter as keyof typeof currentSQ.options]!;
+                        const picked = currentAttempt.selectedOption === letter;
+                        // Only reveal right/wrong once the answer is submitted.
+                        const result = !currentAttempt.submitted
+                          ? null
+                          : correct && letter === correct
+                          ? "correct"
+                          : picked
+                          ? "wrong"
+                          : null;
+                        const dimmed = currentAttempt.submitted && !picked && result !== "correct";
+                        return (
+                          <AnswerButton
+                            key={letter}
+                            index={i}
+                            disabled={currentAttempt.submitted}
+                            selected={picked && !currentAttempt.submitted}
+                            result={result}
+                            dimmed={dimmed}
+                            onClick={() => updateAttempt(currentSQ.id, { selectedOption: letter })}
+                          >
+                            {text}
+                          </AnswerButton>
+                        );
+                      })}
+                    </div>
+                  );
+                })()
+              ) : currentSQ.type === "mcq" && currentSQ.options ? (
+                /* ── MCQ Option Cards (current UI) ── */
                 <div className="flex-1 overflow-y-auto space-y-2 min-h-0">
                   {Object.keys(currentSQ.options!).sort().map((letter) => {
                     const text = currentSQ.options![letter as keyof typeof currentSQ.options]!;
@@ -1688,7 +1783,7 @@ function SessionView({
                       onChange={(e) => updateAttempt(currentSQ.id, { textWorking: e.target.value })}
                       placeholder="Show all your working steps here…"
                       disabled={currentAttempt.submitted}
-                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand resize-none font-mono disabled:opacity-60"
+                      className={`flex-1 min-h-0 w-full ${cc("border-2 rounded-2xl", "border rounded-xl")} border-gray-200 px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 ${cc("focus:ring-[var(--gem)]", "focus:ring-brand")} resize-none font-mono disabled:opacity-60`}
                     />
                   </div>
                   <div className="flex-shrink-0">
@@ -1699,7 +1794,8 @@ function SessionView({
                       onChange={(e) => updateAttempt(currentSQ.id, { calcAnswer: e.target.value })}
                       placeholder="e.g. R 1 234 500"
                       disabled={currentAttempt.submitted}
-                      className="w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm font-semibold text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand disabled:opacity-60"
+                      className={`w-full border-2 border-gray-200 ${cc("rounded-2xl", "rounded-xl")} px-3 py-2.5 text-sm font-semibold text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 ${cc("focus:ring-[var(--gem)]", "focus:ring-brand")} disabled:opacity-60`}
+                      style={CONCEPT_C ? { borderColor: "color-mix(in srgb, var(--gem) 45%, #e5e7eb)" } : undefined}
                     />
                   </div>
                 </div>
@@ -1715,7 +1811,7 @@ function SessionView({
                       onChange={(e) => updateAttempt(currentSQ.id, { textWorking: e.target.value })}
                       placeholder={`Enter ${currentSQ.col1Label ?? "column 1"} here…`}
                       disabled={currentAttempt.submitted}
-                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand resize-none disabled:opacity-60"
+                      className={`flex-1 min-h-0 w-full ${cc("border-2 rounded-2xl", "border rounded-xl")} border-gray-200 px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 ${cc("focus:ring-[var(--gem)]", "focus:ring-brand")} resize-none disabled:opacity-60`}
                     />
                   </div>
                   <div className="flex-1 flex flex-col min-h-0">
@@ -1727,7 +1823,7 @@ function SessionView({
                       onChange={(e) => updateAttempt(currentSQ.id, { col2Working: e.target.value })}
                       placeholder={`Enter ${currentSQ.col2Label ?? "column 2"} here…`}
                       disabled={currentAttempt.submitted}
-                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand resize-none disabled:opacity-60"
+                      className={`flex-1 min-h-0 w-full ${cc("border-2 rounded-2xl", "border rounded-xl")} border-gray-200 px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 ${cc("focus:ring-[var(--gem)]", "focus:ring-brand")} resize-none disabled:opacity-60`}
                     />
                   </div>
                 </div>
@@ -1753,7 +1849,7 @@ function SessionView({
                       <label className="text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wide flex-shrink-0">
                         {currentSQ.col2Label ?? "Statement (R)"}
                       </label>
-                      <div className="flex-1 min-h-0 flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white">
+                      <div className={`flex-1 min-h-0 flex flex-col ${cc("border-2 rounded-2xl", "border rounded-xl")} border-gray-200 overflow-hidden bg-white`}>
                         {/* Table header */}
                         <div className="flex-shrink-0 flex border-b border-gray-200 bg-gray-50">
                           <div className="flex-1 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-gray-400">
@@ -1847,11 +1943,16 @@ function SessionView({
                                     else { next[row.label] = letter; }
                                     updateAttempt(currentSQ.id, { matchAnswers: next });
                                   }}
-                                  className={`w-8 h-8 rounded-lg text-sm font-bold border-2 transition-all ${
+                                  className={`${cc("w-9 h-9 rounded-xl active:translate-y-[2px]", "w-8 h-8 rounded-lg")} text-sm font-bold border-2 transition-all ${
                                     isChosen
                                       ? "bg-brand border-brand text-white"
                                       : "bg-white border-gray-200 text-gray-500 hover:border-gray-400"
                                   } disabled:cursor-default`}
+                                  style={CONCEPT_C && isChosen ? {
+                                    backgroundColor: "var(--gem)",
+                                    borderColor: "var(--gem)",
+                                    boxShadow: "0 3px 0 0 var(--gem-lip)",
+                                  } : undefined}
                                 >
                                   {letter}
                                 </button>
@@ -1905,7 +2006,7 @@ function SessionView({
                             }}
                             placeholder={i < 4 ? `Working for ${label.toLowerCase()}…` : "Final answer…"}
                             rows={2}
-                            className="flex-1 border border-gray-200 rounded-lg px-2.5 py-1.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand resize-none font-mono disabled:opacity-60"
+                            className={`flex-1 ${cc("border-2 rounded-xl", "border rounded-lg")} border-gray-200 px-2.5 py-1.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 ${cc("focus:ring-[var(--gem)]", "focus:ring-brand")} resize-none font-mono disabled:opacity-60`}
                             style={{ minHeight: "clamp(2.5rem, 8vh, 4.5rem)" }}
                             onInput={(e) => {
                               const t = e.target as HTMLTextAreaElement;
@@ -2009,11 +2110,16 @@ function SessionView({
                                 textWorking: isSelected ? "" : word,
                               })
                             }
-                            className={`px-3 py-1.5 rounded-lg border-2 text-sm font-medium transition-all ${
+                            className={`px-3 py-1.5 ${cc("rounded-xl active:translate-y-[2px]", "rounded-lg")} border-2 text-sm font-medium transition-all ${
                               isSelected
                                 ? "border-brand bg-rose-50 text-brand"
                                 : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
                             } disabled:cursor-default`}
+                            style={CONCEPT_C && isSelected ? {
+                              borderColor: "var(--gem)",
+                              color: "var(--gem)",
+                              backgroundColor: "color-mix(in srgb, var(--gem) 12%, white)",
+                            } : undefined}
                           >
                             {word}
                           </button>
@@ -2070,7 +2176,7 @@ function SessionView({
                       updateAttempt(currentSQ.id, { textWorking: e.target.value })
                     }
                     placeholder="Show your working here"
-                    className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand resize-none font-mono"
+                    className={`flex-1 min-h-0 w-full ${cc("border-2 rounded-2xl", "border rounded-xl")} border-gray-200 px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 ${cc("focus:ring-[var(--gem)]", "focus:ring-brand")} resize-none font-mono`}
                   />
 
                   {/* Below textarea: camera + hint — centred */}
@@ -2296,6 +2402,7 @@ function SessionView({
                               ? "bg-amber-100 text-amber-700 border border-amber-200"
                               : "bg-gray-100 text-gray-400 border border-gray-200 hover:border-gray-300"
                           }`}
+                          style={CONCEPT_C && isCurrent ? { backgroundColor: "var(--gem)" } : undefined}
                         >
                           {sq.label}
                         </button>
@@ -2393,6 +2500,11 @@ function SummaryView({
   // The topic→skill link only exists for Physical Sciences today. Gate on subject
   // so other subjects' reports are unchanged.
   const isPhysSci = /phys/i.test(paper.subject);
+  // Concept C: this subject's gem accent for the results screen.
+  const { gem, lip: gemLip } = gemFor(paper.subject);
+  const gemVars = CONCEPT_C
+    ? ({ "--gem": gem, "--gem-lip": gemLip } as React.CSSProperties)
+    : undefined;
   const [showReview, setShowReview] = useState(false);
   const flatQuestions = getFlatSubQuestions(paper);
   const totalEarned = flatQuestions.reduce(
@@ -2420,11 +2532,22 @@ function SummaryView({
   const grade = getGrade(pct);
 
   return (
-    <div className="h-full overflow-y-auto bg-[#F4F4F5]">
+    <div className="h-full overflow-y-auto bg-[#F4F4F5]" style={gemVars}>
       <div className="max-w-2xl mx-auto px-5 py-10 space-y-8">
         {/* Score hero */}
         <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 text-center space-y-4">
-          <div className="text-5xl font-black text-brand">{pct}%</div>
+          {CONCEPT_C && (
+            /* Gem-cut mark: the subject's gem, faceted. */
+            <div
+              className="w-14 h-14 mx-auto"
+              style={{
+                background: "radial-gradient(circle at 35% 25%, color-mix(in srgb, var(--gem) 55%, white), var(--gem) 60%, var(--gem-lip))",
+                clipPath: "polygon(50% 0, 90% 30%, 72% 100%, 28% 100%, 10% 30%)",
+                boxShadow: "0 6px 16px -6px var(--gem-lip)",
+              }}
+            />
+          )}
+          <div className="text-5xl font-black text-brand" style={CONCEPT_C ? { color: "var(--gem)" } : undefined}>{pct}%</div>
           <div>
             <p className={`font-bold text-lg ${grade.color}`}>{grade.label}</p>
             <p className="text-gray-400 text-sm mt-1">
@@ -2434,7 +2557,7 @@ function SummaryView({
           <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
             <div
               className="h-full bg-brand rounded-full transition-all"
-              style={{ width: `${pct}%` }}
+              style={CONCEPT_C ? { width: `${pct}%`, backgroundColor: "var(--gem)" } : { width: `${pct}%` }}
             />
           </div>
         </div>
@@ -2473,6 +2596,7 @@ function SummaryView({
                       )
                     }
                     className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-brand hover:underline"
+                    style={CONCEPT_C ? { color: "var(--gem)" } : undefined}
                   >
                     Practise this →
                   </button>
@@ -2501,7 +2625,8 @@ function SummaryView({
                       `Practising ${weakTopic} — from your ${paper.subject} ${paper.paperCode} ${paper.session} ${paper.year} paper`,
                     )
                   }
-                  className="inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-hover transition-colors"
+                  className={`inline-flex items-center gap-1.5 ${cc("rounded-2xl active:translate-y-[3px] active:shadow-none", "rounded-full")} bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-hover transition-colors`}
+                  style={CONCEPT_C ? { backgroundColor: "var(--gem)", boxShadow: "0 4px 0 0 var(--gem-lip)" } : undefined}
                 >
                   Practise {weakTopic} →
                 </button>
