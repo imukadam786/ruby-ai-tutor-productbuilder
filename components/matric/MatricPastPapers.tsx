@@ -181,6 +181,13 @@ const SUBJECTS = [
     available: true,
   },
   {
+    id: "hospitality-studies",
+    name: "Hospitality Studies",
+    thumbnail: "/thumbnails/tourism.webp",
+    color: "from-rose-400 to-orange-500",
+    available: true,
+  },
+  {
     id: "life-sciences",
     name: "Life Sciences",
     thumbnail: "/thumbnails/life-sciences.webp",
@@ -347,7 +354,10 @@ function PaperList({
 
   // Show the session toggle only when this subject actually has year-end papers.
   const hasNovember = papers.some((p) => sessionTabOf(p.session) === "November");
-  const [sessionTab, setSessionTab] = useState<SessionTab>("June");
+  const hasJune = papers.some((p) => sessionTabOf(p.session) === "June");
+  // Default to November for subjects that only have year-end papers, so the
+  // list isn't empty on open (the June tab would otherwise show nothing).
+  const [sessionTab, setSessionTab] = useState<SessionTab>(hasJune ? "June" : "November");
   const visiblePapers = papers.filter((p) => sessionTabOf(p.session) === sessionTab);
 
   useEffect(() => {
