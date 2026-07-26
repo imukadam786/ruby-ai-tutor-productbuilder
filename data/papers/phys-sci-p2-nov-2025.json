@@ -1,0 +1,750 @@
+{
+  "id": "phys-sci-p2-nov-2025",
+  "subject": "Physical Science",
+  "paperCode": "P2",
+  "year": 2025,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "infoSheet": {
+    "title": "Data Sheet",
+    "pdfUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/Physical%20Science%20Info%20Sheet.pdf"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "ps2-25-1-1",
+          "label": "1.1",
+          "type": "mcq",
+          "questionText": "Which ONE of the following is the name of the functional group of propan-1-ol?",
+          "marks": 2,
+          "options": {
+            "A": "Carboxyl",
+            "B": "Carbonyl",
+            "C": "Hydroxyl",
+            "D": "Formyl"
+          },
+          "memoText": "Correct answer: C (2 marks)\nPropan-1-ol is an alcohol; its functional group is the hydroxyl (−OH) group.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-1-2",
+          "label": "1.2",
+          "type": "mcq",
+          "questionText": "The organic compound C₂H₄ is converted to an alkane as shown by the reaction below.\n\nC₂H₄ → Alkane\n\nWhich ONE of the following is a suitable catalyst for this reaction?",
+          "marks": 2,
+          "options": {
+            "A": "Lead",
+            "B": "Platinum",
+            "C": "Hydrogen",
+            "D": "Iron"
+          },
+          "memoText": "Correct answer: B (2 marks)\nHydrogenation of an alkene (C₂H₄ + H₂ → alkane) is catalysed by platinum (Pt).",
+          "topic": "Organic Reactions"
+        },
+        {
+          "id": "ps2-25-1-3",
+          "label": "1.3",
+          "type": "mcq",
+          "questionText": "Which of the following statements ALWAYS apply to compounds that are structural isomers of one another?\n\n(i) They belong to the same homologous series.\n(ii) They have the same structural formula.\n(iii) They have the same molecular formula.",
+          "marks": 2,
+          "options": {
+            "A": "(iii) only",
+            "B": "(i) and (iii) only",
+            "C": "(i) and (ii) only",
+            "D": "(i), (ii) and (iii)"
+          },
+          "memoText": "Correct answer: A (2 marks)\nStructural isomers always share the same molecular formula only; they may differ in homologous series and always differ in structural formula.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-1-4",
+          "label": "1.4",
+          "type": "mcq",
+          "questionText": "Magnesium ribbon of mass 2 g reacts with excess hydrochloric acid of concentration 0,1 mol·dm⁻³ at 20 °C:\n\nMg(s) + 2HCℓ(aq) → MgCℓ₂(aq) + H₂(g)\n\nWhich ONE of the following changes will NOT increase the initial rate of the reaction?",
+          "marks": 2,
+          "options": {
+            "A": "Using 2 g of powdered magnesium",
+            "B": "Increasing the temperature of HCℓ to 30 °C",
+            "C": "Using a longer piece of the magnesium ribbon",
+            "D": "Doubling the volume of the hydrochloric acid used"
+          },
+          "memoText": "Correct answer: D (2 marks)\nDoubling the volume (at the same concentration) does not change the concentration and does not increase the initial rate.",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps2-25-1-5",
+          "label": "1.5",
+          "type": "mcq",
+          "questionText": "The following reaction reaches equilibrium in a closed container:\n\nH₂(g) + S(s) ⇌ H₂S(g)   ΔH < 0\n\nThe reaction rate versus time graph shows both the forward and reverse reaction rates constant and equal (at equilibrium), then at time t₁ both rates suddenly jump up to a new higher value and again become equal, establishing a new equilibrium at a higher rate. What change was made to the system at time t₁?\n\n*(Refer to the reaction rate versus time graph in the original question paper.)*",
+          "marks": 2,
+          "options": {
+            "A": "The pressure was increased at a constant temperature.",
+            "B": "The volume of the container was increased.",
+            "C": "The temperature was increased.",
+            "D": "More hydrogen was added to the system."
+          },
+          "memoText": "Correct answer: A (2 marks)\nBoth forward and reverse rates increase equally at t₁ at constant temperature — consistent with an increase in pressure (decrease in volume).",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "ps2-25-1-6",
+          "label": "1.6",
+          "type": "mcq",
+          "questionText": "A hypothetical endothermic reaction is given below.\n\nA(g) + B(g) → AB(g)\n\nThe activation energy for the reverse reaction is 50 kJ·mol⁻¹. Which ONE of the following is possible for the reaction above?",
+          "marks": 2,
+          "options": {
+            "A": "The heat of the reaction is +70 kJ·mol⁻¹.",
+            "B": "The activation energy for the forward reaction is 50 kJ·mol⁻¹.",
+            "C": "The energy of the activated complex is 40 kJ·mol⁻¹.",
+            "D": "The activation energy for the forward reaction is 40 kJ·mol⁻¹."
+          },
+          "memoText": "Correct answer: A (2 marks)\nFor an endothermic reaction ΔH > 0, and the forward activation energy exceeds the reverse activation energy (50 kJ·mol⁻¹). Only ΔH = +70 kJ·mol⁻¹ is consistent (Ea(forward) = 50 + 70 = 120 kJ·mol⁻¹).",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps2-25-1-7",
+          "label": "1.7",
+          "type": "mcq",
+          "questionText": "The products for the reaction between a metal oxide and an acid are ...",
+          "marks": 2,
+          "options": {
+            "A": "a salt and water.",
+            "B": "a salt and hydrogen gas.",
+            "C": "a salt and carbon dioxide.",
+            "D": "a salt, water and carbon dioxide."
+          },
+          "memoText": "Correct answer: A (2 marks)\nA metal oxide (base) reacts with an acid to form a salt and water only.",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "ps2-25-1-8",
+          "label": "1.8",
+          "type": "mcq",
+          "questionText": "The concentration of each of the four solutions below is 0,1 mol·dm⁻³.\n\nHNO₃(aq), NH₃(aq), NaOH(aq) and H₂CO₃(aq)\n\nWhich ONE of the following CORRECTLY places the solutions in order of INCREASING pH?",
+          "marks": 2,
+          "options": {
+            "A": "H₂CO₃ ; HNO₃ ; NH₃ ; NaOH",
+            "B": "HNO₃ ; H₂CO₃ ; NH₃ ; NaOH",
+            "C": "NaOH ; NH₃ ; H₂CO₃ ; HNO₃",
+            "D": "HNO₃ ; H₂CO₃ ; NaOH ; NH₃"
+          },
+          "memoText": "Correct answer: B (2 marks)\nIncreasing pH goes from strong acid to strong base: HNO₃ (strong acid) < H₂CO₃ (weak acid) < NH₃ (weak base) < NaOH (strong base).",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "ps2-25-1-9",
+          "label": "1.9",
+          "type": "mcq",
+          "questionText": "A galvanic cell consists of the following half-cells:\n\nFe³⁺(aq)|Fe²⁺(aq)\nNi²⁺(aq)|Ni(s)\n\nWhich ONE of the following statements is CORRECT for this cell?",
+          "marks": 2,
+          "options": {
+            "A": "Ni²⁺ is reduced and Fe²⁺ is oxidised.",
+            "B": "Ni²⁺ is oxidised and Fe³⁺ is reduced.",
+            "C": "Pt is the electrode at the cathode.",
+            "D": "Ni is the electrode at the cathode."
+          },
+          "memoText": "Correct answer: C (2 marks)\nFe³⁺/Fe²⁺ (E° = +0,77 V) is the cathode (reduction), so a Pt electrode is used at the cathode; Ni is oxidised at the anode.",
+          "topic": "Electrochemistry (Galvanic)"
+        },
+        {
+          "id": "ps2-25-1-10",
+          "label": "1.10",
+          "type": "mcq",
+          "questionText": "The set-up for electroplating an iron medal with silver is shown in a simplified diagram: a power source is connected to an iron medal (to be plated) and a silver rod, both immersed in an electrolyte. Which ONE of the following combinations for the ANODE and REACTION AT THE CATHODE is CORRECT?\n\n*(Refer to the electroplating diagram in the original question paper.)*",
+          "marks": 2,
+          "options": {
+            "A": "Anode: Iron medal — Cathode reaction: Ag⁺(aq) + e⁻ → Ag(s)",
+            "B": "Anode: Silver rod — Cathode reaction: Fe²⁺(aq) + 2e⁻ → Fe(s)",
+            "C": "Anode: Iron medal — Cathode reaction: Ag(s) → Ag⁺(aq) + e⁻",
+            "D": "Anode: Silver rod — Cathode reaction: Ag⁺(aq) + e⁻ → Ag(s)"
+          },
+          "memoText": "Correct answer: D (2 marks)\nIn electroplating with silver, the silver rod is the anode (dissolves: Ag → Ag⁺ + e⁻) and the iron medal is the cathode where Ag⁺(aq) + e⁻ → Ag(s).",
+          "topic": "Electrochemistry (Electrolytic)"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Organic Chemistry: Naming and Isomers",
+      "totalMarks": 22,
+      "subQuestions": [
+        {
+          "id": "ps2-25-2-1-1",
+          "label": "2.1.1",
+          "type": "written",
+          "questionText": "The letters A to G represent organic compounds shown in a table in the question paper:\n• A – a structure that is 3-methylbutan-2-one (a ketone, C₅H₁₀O)\n• B – a structure that is 2,6-dichloro-2,5-dimethylheptane\n• C – CH₃CH(CH₃)CH₂CHO (an aldehyde, 3-methylbutanal, C₅H₁₀O)\n• D – C₄H₁₀O\n• E – C₃H₈\n• F – Pentane\n• G – a structure that is 3-ethyl-2-methylhex-2-ene\n\nWrite down the LETTER(S) that represent(s) an alcohol.\n\n*(Refer to the table of structures A–G in the original question paper.)*",
+          "marks": 1,
+          "memoText": "D ✓ (1 mark)\n(D, C₄H₁₀O, is the alcohol.)",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-2-1-2",
+          "label": "2.1.2",
+          "type": "written",
+          "questionText": "Write down the LETTER(S) that represent(s) TWO compounds that are functional isomers of one another.",
+          "marks": 1,
+          "memoText": "A and C ✓ (1 mark)\n(A, the ketone, and C, the aldehyde, are both C₅H₁₀O — functional isomers.)",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-2-1-3",
+          "label": "2.1.3",
+          "type": "written",
+          "questionText": "Write down the LETTER(S) that represent(s) TWO compounds that belong to the same homologous series.",
+          "marks": 1,
+          "memoText": "E and F ✓ (1 mark)\n(E, C₃H₈ propane, and F, pentane, are both alkanes.)",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-2-2-1",
+          "label": "2.2.1",
+          "type": "written",
+          "questionText": "Write down the IUPAC name of compound A.",
+          "marks": 3,
+          "memoText": "Marking criteria:\n• Correct stem i.e. butanone. ✓\n• Substituents (methyl) correctly identified. ✓\n• IUPAC name completely correct including numbering, sequence, hyphens and commas. ✓\n\n3-methylbutan-2-one / 3-methylbutanone\nACCEPT: 3-methyl-2-butanone / methylbutanone",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-2-2-2",
+          "label": "2.2.2",
+          "type": "written",
+          "questionText": "Write down the IUPAC name of compound B.",
+          "marks": 3,
+          "memoText": "Marking criteria:\n• Correct stem i.e. heptane. ✓\n• Substituents (dichloro and dimethyl) correctly identified. ✓\n• IUPAC name completely correct including numbering, sequence, hyphens and commas. ✓\n\n2,6-dichloro-2,5-dimethylheptane",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-2-2-3",
+          "label": "2.2.3",
+          "type": "written",
+          "questionText": "Write down the IUPAC name of compound G.",
+          "marks": 3,
+          "memoText": "Marking criteria:\n• Correct stem i.e. hexene. ✓\n• Substituents (ethyl and methyl) correctly identified. ✓\n• IUPAC name completely correct including numbering, sequence, hyphens and commas. ✓\n\n3-ethyl-2-methylhex-2-ene / 3-ethyl-2-methyl-2-hexene",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-2-2-4",
+          "label": "2.2.4",
+          "type": "written",
+          "questionText": "Write down the STRUCTURAL FORMULAE of two STRAIGHT CHAIN positional isomers of compound D (C₄H₁₀O).",
+          "marks": 4,
+          "memoText": "Marking criteria (per molecule):\nMolecule 1: Hydroxyl group on the 1st C-atom ✓; whole structure correct ✓ — i.e. butan-1-ol:\nH–O–CH₂–CH₂–CH₂–CH₃ (fully displayed).\nMolecule 2: Hydroxyl group on the 2nd C-atom ✓; whole structure correct ✓ — i.e. butan-2-ol:\nCH₃–CH(OH)–CH₂–CH₃ (fully displayed).\n\nIF: More than one functional group / wrong functional group: 0/2 per molecule.\nIF: Condensed structural formulae used: Max. 2/4.\nBond between O and H not shown: accept.",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-2-3-1",
+          "label": "2.3.1",
+          "type": "written",
+          "questionText": "Compound E, C₃H₈(g), reacts with oxygen, O₂(g), according to the balanced equation:\n\nC₃H₈(g) + 5O₂(g) → 3CO₂(g) + 4H₂O(g)\n\nWrite down the name for this type of reaction.",
+          "marks": 1,
+          "memoText": "Combustion / oxidation ✓ (1 mark)",
+          "topic": "Organic Reactions"
+        },
+        {
+          "id": "ps2-25-2-3-2",
+          "label": "2.3.2",
+          "type": "written",
+          "questionText": "Initially 8 cm³ of compound E (C₃H₈) and 50 cm³ of oxygen were injected into a container of adjustable volume and allowed to react (C₃H₈(g) + 5O₂(g) → 3CO₂(g) + 4H₂O(g)). Calculate the TOTAL volume of the GASES present in the container at the end of the reaction.",
+          "marks": 5,
+          "memoText": "Marking criteria: (a) Volume O₂ and C₃H₈ used; (b) Volume CO₂ and H₂O produced; (c) Volume O₂ remaining; (d) Addition of the three volumes; (e) Correct final answer 66 cm³ (or 0,066 dm³).\n\nOPTION 1:\nV(O₂)used = 5·V(C₃H₈) = (5)(8) = 40 cm³   (a)\nV(CO₂)formed = 3·V(C₃H₈) = (3)(8) = 24 cm³\nV(H₂O)formed = 4·V(C₃H₈) = (4)(8) = 32 cm³   (b)\nV(O₂)unused = 50 − 40 = 10 cm³   (c)\nVolume gas in container = 10 + 24 + 32   (d)\nTotal volume of gas = 66 cm³   (e)\n\n(H₂O is gaseous here, so it is counted.) ACCEPT: moles calculated using 22,4 dm³ molar gas volume, giving 0,066 dm³.",
+          "topic": "Organic Reactions"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Intermolecular Forces",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "ps2-25-3-1",
+          "label": "3.1",
+          "type": "written",
+          "questionText": "Two bottles contain compounds A and B with the same molecular formula, C₄H₈O₂. These are straight chain molecules that belong to two different homologous series, distinguished by their boiling points.\n\nDefine the term homologous series.",
+          "marks": 1,
+          "memoText": "A series of organic compounds that can be described by the same general formula. (1 OR 0)\nOR\nA series of organic compounds in which one member differs from the next by a CH₂ group. (1 mark)",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-3-2",
+          "label": "3.2",
+          "type": "written",
+          "questionText": "Identify the TWO homologous series to which these compounds (A and B, both C₄H₈O₂) belong.",
+          "marks": 2,
+          "memoText": "Ester ✓ and carboxylic acid ✓ (2 marks)",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-3-3-1",
+          "label": "3.3.1",
+          "type": "written",
+          "questionText": "The vapour pressures at a given temperature are: Compound A = 0,071 kPa; Compound B = 9,7 kPa.\n\nWrite down the STRUCTURAL FORMULA of compound A.",
+          "marks": 2,
+          "memoText": "Marking criteria:\n(a) Functional group correct ✓ (carboxylic acid −COOH).\n(b) Whole structure correct ✓.\nStructure — butanoic acid: CH₃–CH₂–CH₂–COOH (fully displayed, with H–O–C(=O)– group).",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-3-3-2",
+          "label": "3.3.2",
+          "type": "written",
+          "questionText": "Write down the IUPAC name for a possible compound B.",
+          "marks": 2,
+          "memoText": "Methyl propanoate / Propyl methanoate / Ethyl ethanoate (2 OR 0) (2 marks)",
+          "topic": "Organic Chemistry"
+        },
+        {
+          "id": "ps2-25-3-4-1",
+          "label": "3.4.1",
+          "type": "written",
+          "questionText": "Write down the strongest type of Van der Waals' forces between the molecules in Compound A.",
+          "marks": 1,
+          "memoText": "Hydrogen bonds ✓ (1 mark)",
+          "topic": "Intermolecular Forces"
+        },
+        {
+          "id": "ps2-25-3-4-2",
+          "label": "3.4.2",
+          "type": "written",
+          "questionText": "Write down the strongest type of Van der Waals' forces between the molecules in Compound B.",
+          "marks": 1,
+          "memoText": "Dipole-dipole forces ✓ (1 mark)",
+          "topic": "Intermolecular Forces"
+        },
+        {
+          "id": "ps2-25-3-5",
+          "label": "3.5",
+          "type": "written",
+          "questionText": "Which compound, A or B, has a higher boiling point? Give a reason for the answer by referring to the strength of the intermolecular forces.",
+          "marks": 2,
+          "memoText": "A ✓\nThe hydrogen bond is stronger than the dipole-dipole force. ✓\nOR The dipole-dipole force is weaker than the hydrogen bonds.\nOR Compound A has stronger intermolecular forces (than B).\nOR Compound B has weaker intermolecular forces (than A). (2 marks)",
+          "topic": "Intermolecular Forces"
+        },
+        {
+          "id": "ps2-25-3-6",
+          "label": "3.6",
+          "type": "written",
+          "questionText": "The boiling point of compound A is measured again on another day when the atmospheric pressure is much lower. How will the boiling point of this compound now be affected? Choose from INCREASES, DECREASES or REMAINS THE SAME.",
+          "marks": 1,
+          "memoText": "Decreases ✓ (1 mark)",
+          "topic": "Intermolecular Forces"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Organic Reactions",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "ps2-25-4-1-1",
+          "label": "4.1.1",
+          "type": "written",
+          "questionText": "Study the three organic reactions I, II and III below. Compounds T and W are organic compounds. R and S are inorganic substances. Consider only the major products.\n\nI:   HBr(g) + T → W\nII:  W + NaOH(aq) → CH₃CH(OH)CH₂CH₃ + R\nIII: CH₃CH(OH)CH₂CH₃ —(S)→ T + H₂O(ℓ)\n\nWrite down the IUPAC name of compound W.",
+          "marks": 2,
+          "memoText": "2-bromobutane ✓✓ (2 marks)",
+          "topic": "Organic Reactions"
+        },
+        {
+          "id": "ps2-25-4-1-2",
+          "label": "4.1.2",
+          "type": "written",
+          "questionText": "Write down the NAME or FORMULA of R.",
+          "marks": 1,
+          "memoText": "NaBr / Sodium bromide ✓ (1 mark)",
+          "topic": "Organic Reactions"
+        },
+        {
+          "id": "ps2-25-4-1-3",
+          "label": "4.1.3",
+          "type": "written",
+          "questionText": "Write down TWO names for the type of reaction in reaction I (HBr(g) + T → W).",
+          "marks": 2,
+          "memoText": "Addition ✓\nHydrohalogenation / Hydrobromination ✓ (2 marks)",
+          "topic": "Organic Reactions"
+        },
+        {
+          "id": "ps2-25-4-1-4",
+          "label": "4.1.4",
+          "type": "written",
+          "questionText": "Write down the NAME or FORMULA of S.",
+          "marks": 1,
+          "memoText": "(Concentrated) sulphuric acid / H₂SO₄ / Phosphoric acid / H₃PO₄ ✓ (1 mark)",
+          "topic": "Organic Reactions"
+        },
+        {
+          "id": "ps2-25-4-1-5",
+          "label": "4.1.5",
+          "type": "written",
+          "questionText": "Write down the STRUCTURAL formula of compound T.",
+          "marks": 2,
+          "memoText": "Marking criteria:\n(a) Correct functional group ✓ (C=C double bond, alkene).\n(b) Whole structure correct ✓.\nT is but-2-ene: CH₃–CH=CH–CH₃ (fully displayed).\nIF more than one functional group / wrong functional group: 0/2.\nIF correct condensed formula: Max 1/2.",
+          "topic": "Organic Reactions"
+        },
+        {
+          "id": "ps2-25-4-1-6",
+          "label": "4.1.6",
+          "type": "written",
+          "questionText": "Compound W can be converted to compound T in one step. State, besides heat, ONE other reaction condition for this conversion.",
+          "marks": 1,
+          "memoText": "Concentrated strong base ✓\nConcentrated NaOH / KOH / LiOH (1 mark)",
+          "topic": "Organic Reactions"
+        },
+        {
+          "id": "ps2-25-4-2-1",
+          "label": "4.2.1",
+          "type": "written",
+          "questionText": "A compound with the formula C₁₀H₂₂ undergoes a cracking reaction according to the equation:\n\nC₁₀H₂₂(ℓ) → 2X(g) + C₄H₁₀(g)\n\nThe mixture of the two products is bubbled in bromine water, Br₂(aq), in a darkened room.\n\nDefine the term cracking.",
+          "marks": 2,
+          "memoText": "The chemical process/reaction in which longer chain hydrocarbon/alkane molecules are broken down to shorter (more useful) molecules. ✓✓\n(If any one of the underlined key phrases in the correct context is omitted, deduct 1 mark.) (2 marks)",
+          "topic": "Organic Reactions"
+        },
+        {
+          "id": "ps2-25-4-2-2",
+          "label": "4.2.2",
+          "type": "written",
+          "questionText": "State ONE change, besides a change in temperature, that will be observed when the mixture is bubbled in Br₂(aq).",
+          "marks": 1,
+          "memoText": "Decolourisation / colour fades / becomes lighter in colour / colourless ✓ (1 mark)",
+          "topic": "Organic Reactions"
+        },
+        {
+          "id": "ps2-25-4-2-3",
+          "label": "4.2.3",
+          "type": "written",
+          "questionText": "Write down the STRUCTURAL FORMULA of X (from C₁₀H₂₂(ℓ) → 2X(g) + C₄H₁₀(g)).",
+          "marks": 2,
+          "memoText": "Marking criteria:\n(a) Correct functional group ✓ (C=C double bond).\n(b) Whole structure correct ✓.\nX is propene, C₃H₆: CH₂=CH–CH₃ (fully displayed).",
+          "topic": "Organic Reactions"
+        },
+        {
+          "id": "ps2-25-4-2-4",
+          "label": "4.2.4",
+          "type": "written",
+          "questionText": "Which compound, X or C₄H₁₀, reacts faster with Br₂(aq)? Explain the answer.",
+          "marks": 3,
+          "memoText": "X / C₃H₆ / Propene ✓\n• X is unsaturated / has a double bond / is an alkene. ✓\nANY ONE of the following: ✓\n• X undergoes addition.\n• Alkenes are more reactive than alkanes / unsaturated compounds react faster than saturated compounds.\n• Addition reaction is faster than substitution.\n• Addition reaction does not need UV/light. (3 marks)",
+          "topic": "Organic Reactions"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Reaction Rate",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "ps2-25-5-1",
+          "label": "5.1",
+          "type": "written",
+          "questionText": "Define the term reaction rate.",
+          "marks": 2,
+          "memoText": "ANY ONE: (2 or 0)\n• Change in concentration of products/reactants per (unit) time. ✓✓\n• Change in amount/number of moles/volume/mass of products or reactants per (unit) time.\n• Amount/number of moles/volume/mass of products formed/reactants used per (unit) time.\n• Rate of change in concentration/amount/number of moles/volume/mass.\nNOTE: Give the mark for 'per unit time' only if in context of reaction rate.",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps2-25-5-2-1",
+          "label": "5.2.1",
+          "type": "written",
+          "questionText": "Carbon monoxide, CO(g), reacts with oxygen, O₂(g), to form carbon dioxide, CO₂(g), in a sealed container according to the balanced equation:\n\n2CO(g) + O₂(g) → 2CO₂(g)\n\nA graph shows the concentration of O₂(g) (mol·dm⁻³) versus time (s): it starts at about 0,27 mol·dm⁻³ at 0 s, drops steeply to about 0,15 mol·dm⁻³ at 10 s, then levels off to about 0,05 mol·dm⁻³ by 40–60 s.\n\nAt which time, 10 s or 30 s, is the reaction rate higher?\n\n*(Refer to the concentration of O₂ versus time graph in the original question paper.)*",
+          "marks": 1,
+          "memoText": "10 (s) ✓ (1 mark)\n(The gradient/steepness of the curve is greater at 10 s.)",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps2-25-5-2-2",
+          "label": "5.2.2",
+          "type": "written",
+          "questionText": "The reaction takes place in a 3 dm³ container. Calculate the average rate (in mol·s⁻¹) at which CO₂(g) is formed in the first 10 s. (Read from the graph: [O₂] = 0,27 mol·dm⁻³ at 0 s and 0,15 mol·dm⁻³ at 10 s.)",
+          "marks": 5,
+          "memoText": "Marking criteria: (a) Calculate the change [O₂]final − [O₂]initial (accept 0,265 to 0,27 for [O₂]initial); (b) Substitute 10 s in rate formula; (c) Multiply rate/concentration of O₂ by 3 dm³; (d) Use mol ratio n(O₂):n(CO₂) = 1:2; (e) Final correct answer = 0,072 mol·s⁻¹. RANGE: 0,06 – 0,072.\n\nOPTION 1:\nRate(O₂) = −Δc(O₂)/Δt = −(0,15 − 0,27)/(10 − 0)   (a),(b)\n         = 0,012 mol·dm⁻³·s⁻¹\nRate(O₂) in mol·s⁻¹ = cV = (0,012)(3)   (c) = 0,036 mol·s⁻¹\nRate(CO₂) = 2 × rate(O₂) = 2 × 0,036   (d) = 0,072 mol·s⁻¹   (e)",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps2-25-5-2-3",
+          "label": "5.2.3",
+          "type": "written",
+          "questionText": "Which reactant is in excess, CO or O₂?",
+          "marks": 1,
+          "memoText": "O₂ / Oxygen ✓ (1 mark)",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps2-25-5-2-4",
+          "label": "5.2.4",
+          "type": "written",
+          "questionText": "This reaction was repeated using a smaller sealed container. How will this affect the magnitude of the gradient of the graph at the beginning of the reaction? Choose from INCREASES, DECREASES or REMAINS THE SAME. Give a reason for the answer.",
+          "marks": 2,
+          "memoText": "Increases ✓\nHigher reaction rate. / Concentration of reactants is higher. ✓\nACCEPT: pressure increased. (2 marks)",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps2-25-5-3-1",
+          "label": "5.3.1",
+          "type": "written",
+          "questionText": "The reaction between sulphur dioxide, SO₂(g), and oxygen, O₂(g), takes place in a sealed container according to the balanced equation:\n\n2SO₂(g) + O₂(g) → 2SO₃(g)   ΔH = −196 kJ·mol⁻¹\n\nWas there a net release or net absorption of energy during the REVERSE reaction?",
+          "marks": 1,
+          "memoText": "Absorption ✓ (1 mark)\n(The forward reaction is exothermic, so the reverse reaction is endothermic — net absorption of energy.)",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps2-25-5-3-2",
+          "label": "5.3.2",
+          "type": "written",
+          "questionText": "Define the term activated complex.",
+          "marks": 2,
+          "memoText": "Unstable (high energy) transition state from reactants to products. ✓✓\nACCEPT: Unstable (high energy) transition state between reactants and products.\n(If any one of the underlined key phrases in the correct context is omitted, deduct 1 mark.) (2 marks)",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps2-25-5-3-3",
+          "label": "5.3.3",
+          "type": "written",
+          "questionText": "A catalyst, vanadium pentoxide, is added to the reaction. Explain, in terms of the collision theory, why the rate of the reaction will increase.",
+          "marks": 3,
+          "memoText": "• Catalyst provides an alternative path with lower activation energy / lowers the activation energy. ✓\n• More particles have sufficient (kinetic) energy / kinetic energy greater than (or equal to) activation energy. ✓\n• More effective collisions per unit time/second. ✓ OR Higher frequency of effective collisions. (3 marks)",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps2-25-5-3-4",
+          "label": "5.3.4",
+          "type": "written",
+          "questionText": "Curve X is the Maxwell-Boltzmann distribution curve for the reaction above. More SO₂(g) is now added to the container at constant temperature. How will this change affect the heat of the reaction? Choose from INCREASES, DECREASES or REMAINS THE SAME.\n\n*(Refer to the Maxwell-Boltzmann distribution curve X in the original question paper.)*",
+          "marks": 1,
+          "memoText": "Remains the same ✓ (1 mark)",
+          "topic": "Reaction Rate"
+        },
+        {
+          "id": "ps2-25-5-3-5",
+          "label": "5.3.5",
+          "type": "written",
+          "questionText": "Redraw the above Maxwell-Boltzmann graph (number of particles versus kinetic energy) in the ANSWER BOOK. On the same set of axes, draw the curve that will now be obtained after more SO₂(g) is added at constant temperature. Label this as curve Y.",
+          "marks": 2,
+          "memoText": "Marking criteria:\n• Both curves start at origin and have correct shape with peaks at the same Eₖ. ✓\n• Peak of curve Y must be higher than curve X, with peaks at the same Eₖ. ✓\n(Adding more SO₂ increases the number of particles at constant temperature; distribution shape and most-probable kinetic energy stay the same, so curve Y is taller.)\nIF both curves not labelled: 0/2. IF curves intersect at any point other than the origin: Max 1/2.",
+          "topic": "Reaction Rate"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Chemical Equilibrium",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "ps2-25-6-1-1",
+          "label": "6.1.1",
+          "type": "written",
+          "questionText": "Equilibrium is established at 25 °C in a saturated calcium hydroxide solution according to the reaction:\n\nCa(OH)₂(s) ⇌ Ca²⁺(aq) + 2OH⁻(aq)\n\nState Le Chatelier's principle.",
+          "marks": 2,
+          "memoText": "When the equilibrium in a closed system is disturbed, the system will re-instate a new equilibrium by favouring the reaction that will cancel/oppose the disturbance. ✓✓\n(If any one of the underlined key phrases in the correct context is omitted, deduct 1 mark.) (2 marks)",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "ps2-25-6-1-2",
+          "label": "6.1.2",
+          "type": "written",
+          "questionText": "A few drops of concentrated hydrochloric acid, HCℓ(conc.), are added to the equilibrium mixture. What effect does this addition have on the mass of Ca(OH)₂(s)? Choose from INCREASES, DECREASES or REMAINS THE SAME.",
+          "marks": 1,
+          "memoText": "(Mass) decreases ✓ (1 mark)",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "ps2-25-6-1-3",
+          "label": "6.1.3",
+          "type": "written",
+          "questionText": "Explain the answer to QUESTION 6.1.2 by using Le Chatelier's principle.",
+          "marks": 2,
+          "memoText": "• Decrease in amount of OH⁻ ions / concentration of OH⁻ ions favours the reaction that increases the amount/concentration of OH⁻ ions. ✓ OR Acid / HCℓ / H⁺ reacts with OH⁻ ions.\n• The forward reaction is favoured. ✓ OR The amount/concentration of the products increases. (2 marks)",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "ps2-25-6-2-1",
+          "label": "6.2.1",
+          "type": "written",
+          "questionText": "Initially 70 g of NH₄HS(s) is placed in a 3 dm³ container at 250 °C. The container is sealed and the reaction is allowed to reach equilibrium according to the balanced equation:\n\nNH₄HS(s) ⇌ NH₃(g) + H₂S(g)\n\nThe Kc values for the decomposition of NH₄HS(s) are: 200 °C → 7,5 × 10⁻²; 250 °C → 18 × 10⁻²; 300 °C → 40 × 10⁻².\n\nIs the decomposition of NH₄HS(s) an EXOTHERMIC or ENDOTHERMIC reaction?",
+          "marks": 1,
+          "memoText": "Endothermic ✓ (1 mark)",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "ps2-25-6-2-2",
+          "label": "6.2.2",
+          "type": "written",
+          "questionText": "Explain the answer to QUESTION 6.2.1 by using Le Chatelier's principle.",
+          "marks": 3,
+          "memoText": "• With an increase in the temperature the Kc value increases. ✓\n• The concentration of the products increases. ✓ OR Concentration of reactants decreases. OR The forward reaction is favoured.\n• (According to Le Chatelier's principle) an increase in temperature favours the endothermic reaction. ✓ (3 marks)",
+          "topic": "Chemical Equilibrium"
+        },
+        {
+          "id": "ps2-25-6-2-3",
+          "label": "6.2.3",
+          "type": "written",
+          "questionText": "Calculate the mass of NH₄HS(s) that will be present at equilibrium at 250 °C. (M(NH₄HS) = 51 g·mol⁻¹; Kc at 250 °C = 18 × 10⁻²; container = 3 dm³.)",
+          "marks": 8,
+          "memoText": "Marking criteria: (a) Calculate n(NH₄HS) = 70/51 = 1,37 mol; (b) Using ratio NH₄HS : NH₃ : H₂S = 1 : 1 : 1; (c) Calculate c(NH₃) and c(H₂S) at equilibrium (divide equilibrium moles by 3); (d) Correct Kc expression; (e) Substitute Kc = 18 × 10⁻²; (f) n(NH₄HS)eq = n(NH₄HS)in − n(NH₄HS)change OR m(NH₄HS)eq = m in − m change; (g) Substitute 51 in n = m/M; (h) CORRECT final answer m = 5,61 g. Range: 4,96 – 5,74 g.\n\nOPTION 2:\nn(NH₄HS) = m/M = 70/51 = 1,37 mol   (a)\nLet change in each gas = x mol; equilibrium n(NH₃) = n(H₂S) = x.\nKc = [NH₃][H₂S]   (d)\n18 × 10⁻² = (x/3)²   (e)\nx/3 = 0,42 → x = 1,26 mol   (b),(c)\nn(NH₄HS)eq = 1,37 − 1,26 = 0,11 mol   (f)\nm(NH₄HS)eq = nM = 0,11 × 51   (g) = 5,61 g   (h)\n\n(No Kc expression, correct substitution: Max 7/8. Wrong Kc expression: Max 6/8.)",
+          "topic": "Chemical Equilibrium"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Acids and Bases",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "ps2-25-7-1-1",
+          "label": "7.1.1",
+          "type": "written",
+          "questionText": "Phosphoric acid, H₃PO₄(aq), is an example of an acid that can ionise in three steps:\n\nH₃PO₄(aq) + H₂O(ℓ) ⇌ H₃O⁺(aq) + H₂PO₄⁻(aq)   Ka = 6,9 × 10⁻³\nH₂PO₄⁻(aq) + H₂O(ℓ) ⇌ H₃O⁺(aq) + HPO₄²⁻(aq)   Ka = 6,2 × 10⁻⁸\nHPO₄²⁻(aq) + H₂O(ℓ) ⇌ H₃O⁺(aq) + PO₄³⁻(aq)   Ka = 4,8 × 10⁻¹³\n\nWhich one is the stronger acid, H₂PO₄⁻ or HPO₄²⁻? Give a reason for the answer by referring to the data above.",
+          "marks": 2,
+          "memoText": "H₂PO₄⁻ ✓\nKa of H₂PO₄⁻ greater/higher than Ka of HPO₄²⁻. ✓\nAccept: Ka of H₂PO₄⁻ greater. (2 marks)",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "ps2-25-7-1-2",
+          "label": "7.1.2",
+          "type": "written",
+          "questionText": "Write down the FORMULA for the conjugate base of H₂PO₄⁻(aq).",
+          "marks": 1,
+          "memoText": "HPO₄²⁻ ✓ (1 mark)",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "ps2-25-7-1-3",
+          "label": "7.1.3",
+          "type": "written",
+          "questionText": "Identify a substance behaving as an ampholyte in the reactions above.",
+          "marks": 1,
+          "memoText": "H₂PO₄⁻ OR HPO₄²⁻ ✓ (1 mark)",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "ps2-25-7-1-4",
+          "label": "7.1.4",
+          "type": "written",
+          "questionText": "Sodium hydrogen phosphate, Na₂HPO₄(s), is dissolved in water. Will the resulting solution be ACIDIC or BASIC?",
+          "marks": 1,
+          "memoText": "Basic ✓ (1 mark)",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "ps2-25-7-1-5",
+          "label": "7.1.5",
+          "type": "written",
+          "questionText": "Write a balanced equation to explain the answer to QUESTION 7.1.4.",
+          "marks": 3,
+          "memoText": "Marking criteria: correct reactants ✓; correct products ✓; balancing ✓. (Ignore phases; marking rule 6.3.10.)\n\nHPO₄²⁻(aq) + H₂O(ℓ) ⇌ H₂PO₄⁻(aq) + OH⁻(aq)\nOR HPO₄²⁻(aq) + 2H₂O(ℓ) ⇌ H₃PO₄(aq) + 2OH⁻(aq)\nACCEPT: Na₂HPO₄(aq) + H₂O(ℓ) ⇌ NaH₂PO₄(aq) + NaOH(aq) (and equivalent forms). (3 marks)",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "ps2-25-7-2-1",
+          "label": "7.2.1",
+          "type": "written",
+          "questionText": "Barium hydroxide, Ba(OH)₂, dissolves in water according to: Ba(OH)₂(s) → Ba²⁺(aq) + 2OH⁻(aq).\n\nA 100 cm³ solution is prepared by dissolving an unknown amount of Ba(OH)₂ at 25 °C. 25 cm³ of this Ba(OH)₂ solution is reacted with 15 cm³ of a 0,2 mol·dm⁻³ HCℓ solution in a flask, according to: Ba(OH)₂(aq) + 2HCℓ(aq) → BaCℓ₂(aq) + 2H₂O(ℓ). The final pH of the solution is 12,62 at 25 °C.\n\nCalculate the final concentration of the hydroxide ions in the flask.",
+          "marks": 4,
+          "memoText": "Marking criteria: (a) Any formula: pH = −log[H₃O⁺] / [H₃O⁺] = 10⁻ᵖᴴ / pOH = −log[OH⁻] / [H₃O⁺][OH⁻] = 10⁻¹⁴ / pH + pOH = 14; (b) Substitute 12,62; (c) Substitute calculated [H₃O⁺] (or pOH = 1,38); (d) Final answer 0,04 mol·dm⁻³. RANGE: 0,04 – 0,042 mol·dm⁻³.\n\nOPTION 1:\npH = −log[H₃O⁺]\n12,62 = −log[H₃O⁺]   (b) → [H₃O⁺] = 2,4 × 10⁻¹³   (a)\n[H₃O⁺][OH⁻] = 10⁻¹⁴\n(2,4 × 10⁻¹³)[OH⁻] = 1 × 10⁻¹⁴   (c)\n[OH⁻] = 0,0417 mol·dm⁻³   (d)\n\nOPTION 2:\npH + pOH = 14 → 12,62 + pOH = 14   (b) → pOH = 1,38\npOH = −log[OH⁻] → 1,38 = −log[OH⁻]   (c)\n[OH⁻] = 0,042 mol·dm⁻³   (d)",
+          "topic": "Acids and Bases"
+        },
+        {
+          "id": "ps2-25-7-2-2",
+          "label": "7.2.2",
+          "type": "written",
+          "questionText": "Calculate the number of moles of Ba(OH)₂ used to prepare the 100 cm³ solution.",
+          "marks": 8,
+          "memoText": "POSITIVE MARKING FROM QUESTION 7.2.1.\nMarking criteria: (a) Substitute 0,2 mol·dm⁻³ AND 0,015 dm³ in n = cV; (b) Using ratio n(OH⁻):n(HCℓ) = 1:1 / n(Ba(OH)₂):n(HCℓ) = 1:2; (c) Substitute c(OH⁻) AND 0,04 in n = cV; (d) Calculate n(OH)ini = n(OH)reacted with HCℓ + n(OH)final; (e) Using ratio n(Ba(OH)₂):n(OH⁻) = 1:2; (f) Multiply n(Ba(OH)₂) in 25 cm³ by 4 (or divide by 0,025 dm³ and multiply by 0,1 dm³); (g) Final correct answer 9,34 × 10⁻³ mol. Range: 9,2 × 10⁻³ – 9,36 × 10⁻³.\n\nOPTION 1:\nn(HCℓ) = cV = (0,2)(0,015) = 3 × 10⁻³ mol   (a)\nn(OH) = n(HCℓ) = 3 × 10⁻³ mol   (b)\nn(OH)final = cV = (0,0417)(0,04) = 1,67 × 10⁻³ mol   (c)\nn(OH)ini = 3 × 10⁻³ + 1,67 × 10⁻³ = 4,67 × 10⁻³ mol   (d)\nn(Ba(OH)₂) = ½·n(OH)ini = ½(4,67 × 10⁻³) = 2,33 × 10⁻³ mol in 25 cm³   (e)\nIn 100 cm³ = (4)(2,33 × 10⁻³) = 9,34 × 10⁻³ mol   (f),(g)",
+          "topic": "Acids and Bases"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Electrochemistry (Galvanic)",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "ps2-25-8-1",
+          "label": "8.1",
+          "type": "written",
+          "questionText": "The diagram represents a galvanic cell operating initially under standard conditions: an aluminium (Aℓ) electrode in Aℓ³⁺(aq) connected through a voltmeter (V) to a zinc (Zn) electrode in Zn²⁺(aq), with a salt bridge between the half-cells.\n\nDefine the term electrolyte.\n\n*(Refer to the galvanic cell diagram in the original question paper.)*",
+          "marks": 2,
+          "memoText": "ANY ONE: (2 OR 0)\n• A substance whose (aqueous) solution contains ions. ✓✓\n• Substance that dissolves in water to give a solution that conducts electricity (through movement of ions).\n• A substance that dissociates to form ions in water / in molten state. (2 marks)",
+          "topic": "Electrochemistry (Galvanic)"
+        },
+        {
+          "id": "ps2-25-8-2",
+          "label": "8.2",
+          "type": "written",
+          "questionText": "Which ion concentration, Aℓ³⁺(aq) or Zn²⁺(aq), will increase? Give a reason for the answer.",
+          "marks": 2,
+          "memoText": "Aℓ³⁺ / Aluminium ion ✓\nAℓ is oxidised OR Aℓ is a stronger reducing agent. ✓ (2 marks)",
+          "topic": "Electrochemistry (Galvanic)"
+        },
+        {
+          "id": "ps2-25-8-3",
+          "label": "8.3",
+          "type": "written",
+          "questionText": "Write down the cell notation for this cell.",
+          "marks": 3,
+          "memoText": "Aℓ(s) | Aℓ³⁺(aq) || Zn²⁺(aq) | Zn(s) ✓✓✓\nOR Aℓ(s) | Aℓ³⁺ (1 mol·dm⁻³) || Zn²⁺(aq) (1 mol·dm⁻³) | Zn(s)\nACCEPT: Aℓ | Aℓ³⁺ || Zn²⁺ | Zn (3 marks)",
+          "topic": "Electrochemistry (Galvanic)"
+        },
+        {
+          "id": "ps2-25-8-4",
+          "label": "8.4",
+          "type": "written",
+          "questionText": "The electrolyte in the aluminium half-cell is prepared by dissolving some aluminium sulphate, Aℓ₂(SO₄)₃(s), in water. Calculate the mass of Aℓ₂(SO₄)₃(s) needed to prepare 250 cm³ of this solution so that the cell operates initially under STANDARD CONDITIONS.",
+          "marks": 4,
+          "memoText": "Marking criteria: (a) Calculate n(Aℓ³⁺); (b) Use mol ratio n(Aℓ₂(SO₄)₃):n(Aℓ³⁺) = 1:2; (c) Multiply n(Aℓ₂(SO₄)₃) by M = 342; (d) Final correct answer = 42,75 g.\n\nOPTION 1:\nn(Aℓ³⁺) = cV = (1)(0,25) = 0,25 mol   (a)   [standard conditions ⇒ [Aℓ³⁺] = 1 mol·dm⁻³]\nn(Aℓ₂(SO₄)₃) = ½·n(Aℓ³⁺) = ½(0,25) = 0,125 mol   (b)\nn = m/M → 0,125 = m/342   (c)\nm = 42,75 g   (d)",
+          "topic": "Electrochemistry (Galvanic)"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Electrochemistry (Electrolytic)",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "ps2-25-9-1",
+          "label": "9.1",
+          "type": "written",
+          "questionText": "The diagram represents a cell used for the refining of copper, with electrodes Q and R in an electrolyte, connected to a power source with a switch. The unrefined copper contains zinc as the only impurity.\n\nIs this an ELECTROLYTIC or a GALVANIC cell?\n\n*(Refer to the copper-refining cell diagram in the original question paper.)*",
+          "marks": 1,
+          "memoText": "Electrolytic ✓ (1 mark)",
+          "topic": "Electrochemistry (Electrolytic)"
+        },
+        {
+          "id": "ps2-25-9-2-1",
+          "label": "9.2.1",
+          "type": "written",
+          "questionText": "When the switch is closed, it is found after T hours that the amount of Cu²⁺(aq) ions in the electrolyte changed by 0,05 moles and 0,15 moles of Cu(s) were deposited on electrode Q.\n\nHow will the concentration of the zinc ions in the electrolyte be affected during the refining of the copper? Choose from INCREASES, DECREASES or REMAINS THE SAME.",
+          "marks": 1,
+          "memoText": "Increases ✓ (1 mark)",
+          "topic": "Electrochemistry (Electrolytic)"
+        },
+        {
+          "id": "ps2-25-9-2-2",
+          "label": "9.2.2",
+          "type": "written",
+          "questionText": "Will the amount of Cu²⁺(aq) ions INCREASE or DECREASE? Explain the answer in terms of the relative strengths of the oxidising agents present.",
+          "marks": 3,
+          "memoText": "Decrease ✓\n• More copper(II) ions/Cu²⁺ are reduced than formed. / Only copper(II) ions/Cu²⁺ are reduced. ✓\n• Copper(II) ion/Cu²⁺ is a stronger oxidising agent than the zinc(II) ion/Zn²⁺. ✓ OR Zinc(II) ion/Zn²⁺ is a weaker oxidising agent than the copper(II) ion/Cu²⁺. (3 marks)",
+          "topic": "Electrochemistry (Electrolytic)"
+        },
+        {
+          "id": "ps2-25-9-2-3",
+          "label": "9.2.3",
+          "type": "written",
+          "questionText": "Calculate the change in mass of electrode R after T hours. (Electrode Q is the cathode where 0,15 mol Cu is deposited; the amount of Cu²⁺ in the electrolyte changed by 0,05 mol. M(Cu) = 63,5 g·mol⁻¹; M(Zn) = 65 g·mol⁻¹.)",
+          "marks": 6,
+          "memoText": "Marking criteria: (a) Using ratio n(Cu²⁺):n(Zn²⁺) = 1:1; (b) Formula n = m/M; (c) Substitute 65 AND n(Zn²⁺) in n = m/M; (d) Subtraction of moles; (e) Substitute 63,5 AND n(Cu) in n = m/M; (f) Final correct answer: 9,6 g (NO RANGE).\n\nn(Zn²⁺) = n(Cu²⁺) = 0,05 mol   (a)\nm(Zn) = nM = (0,05)(65)   (b),(c) = 3,25 g Zn from R\n0,15 − 0,05 = 0,1 mol Cu   (d)\nm(Cu) = nM = 0,1(63,5)   (e) = 6,35 g Cu from R\nChange in mass = 6,35 + 3,25 = 9,6 g   (f)  (decrease in mass)",
+          "topic": "Electrochemistry (Electrolytic)"
+        }
+      ]
+    }
+  ]
+}

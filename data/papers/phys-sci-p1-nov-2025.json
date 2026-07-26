@@ -1,0 +1,640 @@
+{
+  "id": "phys-sci-p1-nov-2025",
+  "subject": "Physical Science",
+  "paperCode": "P1",
+  "year": 2025,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "infoSheet": {
+    "title": "Data Sheet",
+    "formulaSheetVariant": "physics-p1"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-p1-1-1",
+          "label": "1.1",
+          "type": "mcq",
+          "questionText": "The net force acting on an object on a horizontal surface is always ...",
+          "marks": 2,
+          "options": {
+            "A": "in the direction of motion of the object.",
+            "B": "in the direction of acceleration of the object.",
+            "C": "zero when the object moves at constant acceleration.",
+            "D": "increasing when the object moves at constant acceleration."
+          },
+          "memoText": "Correct answer: B (2 marks)\nBy Newton's second law, the net force is always in the direction of the acceleration of the object.",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-p1-1-2",
+          "label": "1.2",
+          "type": "mcq",
+          "questionText": "A hot-air balloon is moving upwards at a constant velocity. A small stone is dropped from the balloon. Which ONE of the following graphs represents the motions of the balloon and the stone? Ignore the effects of friction on the stone. Each option shows velocity (m·s⁻¹) versus time (s) graphs for both the balloon and the stone. *(Refer to the velocity-time graph options in the original question paper.)*",
+          "marks": 2,
+          "options": {
+            "A": "Balloon shown as a horizontal line (constant velocity) and stone shown with the incorrect trend.",
+            "B": "Balloon as a horizontal line (constant upward velocity); the stone starts at the same upward velocity as the balloon, decreases at constant rate, crosses the time axis and becomes negative (correct).",
+            "C": "Balloon and stone lines with the stone starting from zero, an incorrect representation.",
+            "D": "Both balloon and stone represented incorrectly relative to the constant-velocity balloon and decelerating stone."
+          },
+          "memoText": "Correct answer: B (2 marks)\nThe stone leaves the balloon with the balloon's upward velocity, so both start at the same positive velocity; the stone then decelerates uniformly under gravity while the balloon's velocity stays constant.",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-p1-1-3",
+          "label": "1.3",
+          "type": "mcq",
+          "questionText": "A motor fixed to the ground is used to lift a box vertically upwards at a CONSTANT VELOCITY. Consider the statements below for the upward motion of the box.\n(i) The rate at which work is done by the motor on the box increases.\n(ii) The rate at which work is done by the motor on the box is constant.\n(iii) The mechanical energy of the box increases.\n(iv) The mechanical energy of the box is constant.\nWhich of the statements above are CORRECT?",
+          "marks": 2,
+          "options": {
+            "A": "(i) and (iii) only",
+            "B": "(ii) and (iv) only",
+            "C": "(ii) and (iii) only",
+            "D": "(i) and (iv) only"
+          },
+          "memoText": "Correct answer: C (2 marks)\nAt constant velocity the power (rate of doing work) is constant, and as the box rises its gravitational potential energy (and hence mechanical energy) increases.",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-p1-1-4",
+          "label": "1.4",
+          "type": "mcq",
+          "questionText": "Objects P and Q, with masses m and 2m respectively, have the same momentum. The velocity of P is ...",
+          "marks": 2,
+          "options": {
+            "A": "equal to the velocity of Q.",
+            "B": "half the velocity of Q.",
+            "C": "twice the velocity of Q.",
+            "D": "four times the velocity of Q."
+          },
+          "memoText": "Correct answer: C (2 marks)\np = mv is the same for both, so with half the mass, P has twice the velocity of Q.",
+          "topic": "Momentum and Impulse"
+        },
+        {
+          "id": "phys-p1-1-5",
+          "label": "1.5",
+          "type": "mcq",
+          "questionText": "A block moves along a rough horizontal surface while a horizontal force F of magnitude 18 N and a constant kinetic frictional force of magnitude 6 N act on it. Which ONE of the following combinations of ACCELERATION and NET WORK DONE ON THE BLOCK is CORRECT?",
+          "marks": 2,
+          "options": {
+            "A": "Acceleration: Constant; Net work done on the block: Increases",
+            "B": "Acceleration: Increases; Net work done on the block: Constant",
+            "C": "Acceleration: Increases; Net work done on the block: Increases",
+            "D": "Acceleration: Constant; Net work done on the block: Constant"
+          },
+          "memoText": "Correct answer: A (2 marks)\nThe net force (18 − 6 = 12 N) is constant, so the acceleration is constant; the net work done increases as the displacement increases.",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-p1-1-6",
+          "label": "1.6",
+          "type": "mcq",
+          "questionText": "A star's spectrum, observed from Earth, is red shifted. Which ONE of the following statements is CORRECT?",
+          "marks": 2,
+          "options": {
+            "A": "The speed of light is increasing.",
+            "B": "The star is moving towards Earth.",
+            "C": "The frequency of each spectral line has increased.",
+            "D": "The wavelength of each spectral line has increased."
+          },
+          "memoText": "Correct answer: D (2 marks)\nA red shift means the observed wavelength of each spectral line has increased (the star is moving away from Earth).",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-p1-1-7",
+          "label": "1.7",
+          "type": "mcq",
+          "questionText": "Three point charges, Q₁, Q₂ and Q₃, are fixed in a straight line. Q₁ is r metres from Q₂, while Q₃ is 2r metres from Q₂ (Q₁, then Q₂, then Q₃ along the line). The magnitude of the charge on Q₂ is q. The net electrostatic force on charge Q₁ is zero. What is the magnitude of charge Q₃ in terms of q?",
+          "marks": 2,
+          "options": {
+            "A": "⅑ q",
+            "B": "⅓ q",
+            "C": "3q",
+            "D": "9q"
+          },
+          "memoText": "Correct answer: D (2 marks)\nFor the net force on Q₁ to be zero, kqQ₁/r² = kQ₃Q₁/(3r)², giving Q₃ = 9q.",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-p1-1-8",
+          "label": "1.8",
+          "type": "mcq",
+          "questionText": "Three identical light bulbs, X, Y and Z, are connected in a circuit with switch S initially closed. Bulb X is in series with the parallel combination that contains bulb Y in one branch and, when S is closed, bulb Z (with switch S) in the other branch. Ignore the internal resistance of the battery. Switch S is now opened. How will the brightness of bulbs X and Y be affected? *(Refer to the circuit diagram in the original question paper.)*",
+          "marks": 2,
+          "options": {
+            "A": "Brightness of bulb X: Increases; Brightness of bulb Y: Decreases",
+            "B": "Brightness of bulb X: Decreases; Brightness of bulb Y: Increases",
+            "C": "Brightness of bulb X: Increases; Brightness of bulb Y: Increases",
+            "D": "Brightness of bulb X: Decreases; Brightness of bulb Y: Decreases"
+          },
+          "memoText": "Correct answer: B (2 marks)\nOpening S removes the Z branch, so total resistance increases and the total current through X decreases (X dimmer); the full circuit current now passes through Y, so the current through Y increases (Y brighter).",
+          "topic": "Electric Circuits"
+        },
+        {
+          "id": "phys-p1-1-9",
+          "label": "1.9",
+          "type": "mcq",
+          "questionText": "How does the commutator in a DC motor ensure that the coil rotates continuously in ONE direction?",
+          "marks": 2,
+          "options": {
+            "A": "By reducing friction",
+            "B": "By converting AC to DC",
+            "C": "By reversing the direction of the current in the coil",
+            "D": "By maintaining electrical contact between the external and the internal circuits"
+          },
+          "memoText": "Correct answer: C (2 marks)\nThe (split-ring) commutator reverses the direction of the current in the coil every half turn, keeping the turning effect in the same direction.",
+          "topic": "Electrodynamics"
+        },
+        {
+          "id": "phys-p1-1-10",
+          "label": "1.10",
+          "type": "mcq",
+          "questionText": "Light of different wavelengths is incident on a metal surface. Which ONE of the following graphs shows the CORRECT relationship between the maximum kinetic energy of the photoelectrons, Ek(max), and the inverse of the wavelength of the incident light, 1/λ? *(Refer to the four Ek(max) versus 1/λ graph options in the original question paper.)*",
+          "marks": 2,
+          "options": {
+            "A": "A straight line through the origin with positive gradient.",
+            "B": "A straight line with a positive y-intercept.",
+            "C": "A straight line with a positive gradient that intercepts the 1/λ axis at a positive value (negative y-intercept), i.e. Ek(max) only becomes positive above the threshold value of 1/λ (correct).",
+            "D": "A curved or otherwise incorrect line."
+          },
+          "memoText": "Correct answer: C (2 marks)\nSince Ek(max) = hc(1/λ) − W₀, a graph of Ek(max) versus 1/λ is a straight line with positive gradient hc and a negative y-intercept (−W₀), cutting the 1/λ axis at the threshold value.",
+          "topic": "Photoelectric Effect"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Newton's Laws",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "phys-p1-2-1",
+          "label": "2.1",
+          "type": "written",
+          "questionText": "A block of mass 5 kg is at rest on a rough horizontal surface. When a constant force F of magnitude 18 N acts on the block at an angle θ to the horizontal (directed above the horizontal), the block experiences maximum static friction. State Newton's Second Law of Motion in words.",
+          "marks": 2,
+          "memoText": "Marking criteria (2 marks): If any of the underlined key words/phrases in the correct context is omitted, deduct 1 mark.\nWhen a net/resultant force acts on an object, the object will accelerate in the direction of the force; the acceleration is directly proportional to the force and inversely proportional to the mass of the object. (2 or 0)\nOR\nThe net/resultant force acting on an object is equal to the rate of change of momentum of the object (in the direction of the net force).",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-p1-2-2",
+          "label": "2.2",
+          "type": "written",
+          "questionText": "Draw a labelled free-body diagram showing ALL the forces acting on the block.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks): Free-body diagram with four correctly labelled forces, each shown with an arrow acting from the dot:\n✓ Weight w (Fg / Fw / mg / 49 N / gravitational force) — downward\n✓ Normal force N (FN / Normal force) — upward\n✓ Applied force F (FA / 18 N) — at angle θ above the horizontal\n✓ Maximum static friction fsmax (Ff / fs / static friction) — horizontal, opposing the horizontal component of F\nNotes: Mark awarded for label AND arrow. fk is NOT accepted as a label. Do not penalise for length of arrows (not to scale). Any additional force(s): Max 3/4. If everything correct but no arrows: Max 3/4. If force(s) do not make contact with the dot: Max 3/4.\n*(Refer to the diagram of the block with force F at angle θ in the original question paper.)*",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-p1-2-3-1",
+          "label": "2.3.1",
+          "type": "written",
+          "questionText": "The horizontal component of force F is 15 N. Calculate the angle θ that force F makes with the horizontal.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nFx = Fcosθ ✓\n15 = 18 cosθ\nθ = 33,56° ✓\nOR 9,95 = 15 tanθ → θ = 33,56°\nOR 9,95 = 18 sinθ → θ = 33,56°\nNOTE: If answer only, award 1/2.",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-p1-2-3-2",
+          "label": "2.3.2",
+          "type": "written",
+          "questionText": "Calculate the coefficient of static friction.",
+          "marks": 5,
+          "memoText": "POSITIVE MARKING FROM QUESTION 2.3.1.\nMarking criteria (5 marks):\n✓ Formula fsmax = μsN\n✓ Correct substitution of fsmax\n✓ Correct calculation of Fy (18sin 33,56°)\n✓ Subtraction for the calculation of N from Fg thus: (5)(9,8)\n✓ Correct final answer: 0,38\nOPTION 1: fsmax = μs(mg − Fsinθ)\n15 = μs[(5)(9,8) − 18sin33,56°]\nμs = 0,38\nOPTION 2: Fnet = 0 → FN + Fy − Fg = 0 → FN = (5)(9,8) − (18sin33,56°) = 39,05 N; fsmax = μsN → 15 = μs(39,05) → μs = 0,38\nOPTION 3: Fy = √(18² − 15²) = 9,95 N; FN = Fg − Fy = (5)(9,8) − 9,95 = 39,05 N; fsmax = μsN → 15 = μs(39,05) → μs = 0,38\nNOTE: If N calculation NOT shown, award 3/5.",
+          "topic": "Newton's Laws"
+        },
+        {
+          "id": "phys-p1-2-4",
+          "label": "2.4",
+          "type": "written",
+          "questionText": "Angle θ is decreased while the magnitude of force F remains constant. How will the friction acting on the block be affected? Choose from INCREASES, DECREASES or REMAINS THE SAME. Explain the answer.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nINCREASES\n✓ Vertical component of F decreases\n✓ Normal force increases\n✓ μs remains constant, fsmax is directly proportional to N\nOR\nDECREASES\n✓ Horizontal component of F increases\n✓ The block will move (Fnet will increase)\n✓ fk < fsmax\nOR\nREMAINS THE SAME\n✓ Explain using a relevant calculation. NB: candidate must choose a μk < μs value and θ that together give an answer of 15 N for fk.",
+          "topic": "Newton's Laws"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Vertical Projectile Motion",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "phys-p1-3-1",
+          "label": "3.1",
+          "type": "written",
+          "questionText": "A ball is projected vertically upwards from the top of a building that is 5 m high. Ignore the effects of friction. A table shows the magnitude of the velocity of the ball at THREE different times during its motion: at time 0 s the velocity is (initial, unknown); at time p the velocity is 15 m·s⁻¹; at time 3,36 s the velocity is 0; and at a later time the velocity is q. Define the term free fall.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nMotion under the influence of weight/gravitational force only. (2 or 0)\nNOTE: If projectile defined, award 0/2.\n*(Refer to the velocity table and the 5 m building diagram in the original question paper.)*",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-p1-3-2",
+          "label": "3.2",
+          "type": "written",
+          "questionText": "Using EQUATIONS OF MOTION ONLY, calculate the value of p (the time at which the magnitude of the velocity of the ball is 15 m·s⁻¹).",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\n✓ Formula with t\n✓ Correct substitution into formula\n✓ Correct final answer: 1,53 s\nNOTE (3.2 and 3.3): If energy principles used, award 1/3 for the final answer.\nOPTION 1 (A–B, upwards positive): vf = vi + at → 0 = 15 + (−9,8)t → t = 1,53 s\nOPTION 2 (B–C, upwards positive): vf = vi + at → −15 = 0 + (−9,8)t → t = 1,53 s\nOPTION 3 (A–C, upwards positive): vf = vi + at → −15 = 15 + (−9,8)t → t = 3,06; p = 3,06 ÷ 2 = 1,53 s\n(Downwards-positive versions give t = 1,53 s equivalently.)",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-p1-3-3",
+          "label": "3.3",
+          "type": "written",
+          "questionText": "The ball strikes the ground 3,36 seconds after it was thrown upwards. Calculate q (the magnitude of the velocity with which the ball strikes the ground).",
+          "marks": 3,
+          "memoText": "POSITIVE MARKING FROM QUESTION 3.2.\nMark scheme (3 marks):\n✓ Formula with vf\n✓ Correct substitution into formula\n✓ Correct final answer: 17,97 m·s⁻¹ [RANGE: 17,93 – 18,33]\nOPTION 1 (A–G, upwards positive): vf² = vi² + 2aΔy = (15)² + 2(−9,8)(−5) → vf = −17,97 → vf = 17,97 m·s⁻¹\nOPTION 2 (A–G): vf = vi + at = 15 + (−9,8)(3,36) = −17,93 → 17,93 m·s⁻¹\nOther options (C–G, B–G etc.) give values in the range 17,93 – 18,33 m·s⁻¹.",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-p1-3-4",
+          "label": "3.4",
+          "type": "written",
+          "questionText": "The ball bounces to a maximum height of 3 m after it struck the ground. Is the collision with the ground ELASTIC or INELASTIC? Explain the answer WITHOUT the use of calculations.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\n✓ Inelastic.\n✓ The height decreased/is smaller.\n✓ The velocity with which the ball strikes the ground is not the same as the velocity with which it left the ground / kinetic energy is converted to heat and sound energy / kinetic energy is NOT conserved / the kinetic energy is not the same before and after the ball strikes the ground.\nACCEPT: Kinetic energy is lost.\nNOTE: DO NOT ACCEPT ANY CALCULATION AS AN EXPLANATION.",
+          "topic": "Vertical Projectile Motion"
+        },
+        {
+          "id": "phys-p1-3-5",
+          "label": "3.5",
+          "type": "written",
+          "questionText": "Sketch a velocity versus time graph for the motion of the ball from the time it was projected until it reached the maximum height after it bounced. Show the following NUMERICAL VALUES on the graph: the initial velocity; time p; velocity q.",
+          "marks": 4,
+          "memoText": "POSITIVE MARKING FROM QUESTIONS 3.2 AND 3.3.\nCriteria for graph (4 marks):\n✓ Straight line starting at v = 15 m·s⁻¹ with negative final velocity (or starting at v = −15 m·s⁻¹ with positive final velocity).\n✓ Straight line cuts the time axis at the time calculated in Question 3.2 (1,53 s).\n✓ Correct velocity as calculated in Q 3.3 (17,97 m·s⁻¹, on the ground).\n✓ Velocity of the second line is less than that calculated in Q 3.3, the lines are drawn parallel and end at v = 0.\nNOTE: Accept if no contact time is shown on the graph. (Upwards positive: line from 15 through 1,53 to −17,97, then a shorter parallel line back to 0.)",
+          "topic": "Vertical Projectile Motion"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Momentum and Impulse",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "phys-p1-4-1",
+          "label": "4.1",
+          "type": "written",
+          "questionText": "Cricketers at an academy conduct an experiment to determine the relationship between the contact time and the final momentum of a ball for a constant average net force. A cricket ball of mass 150 g is thrown horizontally with a certain initial velocity vi and is struck by a bat so that the ball moves in the opposite direction with velocity vf. The average net force acting on the ball is horizontal. The experiment is repeated using the same ball, with the average net force and the initial velocity kept constant while the contact time is changed each time. The sketch graph of final momentum pf (kg·m·s⁻¹) versus contact time Δt (s) is a straight line passing through pf = 4,5 kg·m·s⁻¹ at Δt = 0,03 s and cutting the time axis at Δt = 0,01 s. Define the term impulse.",
+          "marks": 2,
+          "memoText": "Marking criteria (2 marks): If any of the underlined key words/phrases in the correct context is omitted, deduct 1 mark.\nThe product of the resultant/net force acting on an object and the time the (net) force acts on the object.\nOR\nThe product of the resultant/net force and the contact time.\n*(Refer to the bat-and-ball diagram and the pf versus Δt graph in the original question paper.)*",
+          "topic": "Momentum and Impulse"
+        },
+        {
+          "id": "phys-p1-4-2-1",
+          "label": "4.2.1",
+          "type": "written",
+          "questionText": "Calculate the average net force acting on the ball.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nOPTION 1: Gradient = Fnet = pf/Δt = (4,5 − 0)/(0,03 − 0,01) ✓✓ = 225 N ✓\nFnet = 225 N to the right / opposite to the original direction of the ball.\nOPTION 2/3: Fnet·Δt = Δp → Fnet(0,01) = 0 − pi (eq 1) and Fnet(0,03) = 4,5 − pi (eq 2); solving: Fnet = 225 N to the right / opposite to the original direction of the ball.",
+          "topic": "Momentum and Impulse"
+        },
+        {
+          "id": "phys-p1-4-2-2",
+          "label": "4.2.2",
+          "type": "written",
+          "questionText": "Calculate the magnitude of the initial velocity of the ball.",
+          "marks": 4,
+          "memoText": "POSITIVE MARKING FROM 4.2.1.\nMark scheme (4 marks):\nOPTION 1: Fnet·Δt = Δp = mvf − mvi → (225)(0,03) = 4,5 − (0,15)vi → vi = −15 m·s⁻¹ → magnitude vi = 15 m·s⁻¹\nOPTION 2: (225)(0,01) = 0 − (0,15)vi → vi = −15 m·s⁻¹ → 15 m·s⁻¹\nOPTION 3: pf = Fnet·Δt + pi → 4,5 = 225(0,03) + pi → pi = −2,25; pi = mvi → −2,25 = 0,15vi → vi = 15 m·s⁻¹\nOPTION 4: Fnet = ma → 225 = 0,15a → a = 1500 m·s⁻²; pf = mvf → 4,5 = 0,15vf → vf = 30 m·s⁻¹; a = Δv/Δt → 1500 = (30 − vi)/(0,03) → vi = 15 m·s⁻¹",
+          "topic": "Momentum and Impulse"
+        },
+        {
+          "id": "phys-p1-4-3",
+          "label": "4.3",
+          "type": "written",
+          "questionText": "Redraw the graph in the ANSWER BOOK and label it as A. On the same set of axes, draw the graph that will be obtained when a ball with a bigger mass is used, without changing the initial velocity and average net force. Label this as B.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks): (2 or 0)\nGraph B is a straight line, parallel to and to the right of graph A (same gradient, larger contact-time intercept), representing the larger mass.\nNOTE: If labels A and B not indicated, award 0/2. Award full marks for solid labelled lines.",
+          "topic": "Momentum and Impulse"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Work, Energy and Power",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "phys-p1-5-1",
+          "label": "5.1",
+          "type": "written",
+          "questionText": "A crate of mass 3 kg is at rest at point A on a frictionless horizontal surface. A constant horizontal force F of 12 N acts on the crate and moves it from point A to point B. The crate then moves down a rough plane inclined at 20° to the horizontal. The distance from point A to point B is 7 m and from point B to point C is 6,8 m. State the work-energy theorem in words.",
+          "marks": 2,
+          "memoText": "Marking criteria (2 marks): If any of the underlined key words/phrases in the correct context is omitted, deduct 1 mark.\nThe net/total work done (on an object) is equal to the change in the object's kinetic energy.\nOR\nThe work done (on an object) by a resultant/net force is equal to the change in the object's kinetic energy.\n*(Refer to the A–B–C incline diagram in the original question paper.)*",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-p1-5-2",
+          "label": "5.2",
+          "type": "written",
+          "questionText": "Using ENERGY PRINCIPLES ONLY, calculate the kinetic energy of the crate at point B.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nWnet = ΔEk → WFA = ΔEk\nFAΔxcosθ = ½mvf² − ½mvi² (any one form)\n(12)(7)cos 0° = Ekf − 0 ✓✓\nEkf = 84 J ✓",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-p1-5-3",
+          "label": "5.3",
+          "type": "written",
+          "questionText": "Force F is removed when the crate reaches point B. The crate then experiences a constant frictional force of 21 N as it moves down the incline. Draw a free-body diagram showing ALL the forces acting on the crate as it moves down the incline.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks): Free-body diagram with three correctly labelled forces acting from the dot:\n✓ Weight w (Fw / Fg / mg / 29,4 N / gravitational force) — vertically downward\n✓ Normal force N (FN / Normal force) — perpendicular to the incline\n✓ Friction f (Ff / fk / kinetic friction / 21 N) — up the incline, opposing motion\nNotes: Mark awarded for label AND arrow. Do not penalise for arrow length. Any additional force(s): Max 2/3. If everything correct but no arrows: Max 2/3. If force(s) do not make contact with the dot: Max 2/3.",
+          "topic": "Work, Energy and Power"
+        },
+        {
+          "id": "phys-p1-5-4",
+          "label": "5.4",
+          "type": "written",
+          "questionText": "Using ENERGY PRINCIPLES ONLY, determine whether the crate will pass point C.",
+          "marks": 5,
+          "memoText": "POSITIVE MARKING FROM 5.2.\nMarking criteria (5 marks):\n✓ Correct substitution to calculate WFg\n✓ Correct substitution to calculate Wf\n✓ Correct substitution to calculate ΔEk\n✓ Correct final answer\n✓ Conclusion\nNOTE: Accept for all options cos70° or sin20°.\nOPTION 1: Wnet = ΔEk → WFg + Wfk = Ekf − Eki → mgsinθ·Δxcosθ + fk·Δxcosθ = Ekf − Eki\n(3)(9,8)sin20°·Δxcos0° + 21·Δxcos180° = 0 − 84 → Δx = 7,68 m\n7,68 m > 6,8 m → The crate will pass point C.\nOPTION 2: substituting Δx = 6,8 m gives Ekf = 9,58 J (or vf = 2,52 m·s⁻¹); 9,58 J > 0 J → The crate will pass point C.\nOPTION 5: Fnet·Δxcosθ = Ekf − Eki → [(3)(9,8)sin20° − 21]Δxcos0° = 0 − 84 → Δx = 7,68 m > 6,8 m → The crate will pass point C.",
+          "topic": "Work, Energy and Power"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Doppler Effect",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "phys-p1-6-1",
+          "label": "6.1",
+          "type": "written",
+          "questionText": "An investigation is performed to determine the relationship between the velocity of a moving sound source and the frequency of the sound detected. The siren of an ambulance produces sound with a constant frequency. The ambulance, with its siren on, moves towards a stationary sound detector (Part A) and away from the stationary sound detector (Part B) at constant velocities. The experiment is repeated for different velocities. On the graph of detected frequency (Hz) versus velocity of the ambulance (m·s⁻¹), Part A (approaching) is a line above 1 298 Hz and Part B (receding) passes through 1 115 Hz. STATE the Doppler effect.",
+          "marks": 2,
+          "memoText": "Marking criteria (2 marks): If any of the underlined key words/phrases in the correct context is omitted, deduct 1 mark.\nThe change in frequency (or pitch) of the sound detected by a listener, because the sound source and the listener have different velocities relative to the medium of sound propagation.\nOR\nAn (apparent) change in (observed/detected) frequency (pitch) as a result of the relative motion between a sound source and an observer.\n*(Refer to the Part A / Part B diagrams and the detected-frequency versus velocity graph in the original question paper.)*",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-p1-6-2-1",
+          "label": "6.2.1",
+          "type": "written",
+          "questionText": "For this experiment, write down the independent variable.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nVelocity/speed (vs) of the ambulance/source. ✓",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-p1-6-2-2",
+          "label": "6.2.2",
+          "type": "written",
+          "questionText": "For this experiment, write down a controlled variable.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nFrequency/wavelength of the sound produced by the ambulance siren (fs) / speed of sound / density or temperature of air / detector (listener) is stationary. ✓",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-p1-6-3",
+          "label": "6.3",
+          "type": "written",
+          "questionText": "What conclusion can be made for Part B of this experiment?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nAs the velocity of the ambulance increases, the detected frequency decreases. ✓✓\nNOTE: If inversely proportional indicated, award 0/2.",
+          "topic": "Doppler Effect"
+        },
+        {
+          "id": "phys-p1-6-4",
+          "label": "6.4",
+          "type": "written",
+          "questionText": "Calculate the speed of sound in air. (Use the detected frequency of 1 298 Hz when the ambulance approaches at 25 m·s⁻¹ and 1 115 Hz when it moves away at 25 m·s⁻¹.)",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nAmbulance approaching: fL = [v/(v − vs)]fs → 1298 = [v/(v − 25)]fs → v·fs = 1298(v − 25) ... eq (1)\nAmbulance moving away: fL = [v/(v + vs)]fs → 1115 = [v/(v + 25)]fs → v·fs = 1115(v + 25) ... eq (2)\nSetting (1) = (2): 1298(v − 25) = 1115(v + 25)\nv = 329,64 m·s⁻¹",
+          "topic": "Doppler Effect"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Electrostatics",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "phys-p1-7-1",
+          "label": "7.1",
+          "type": "written",
+          "questionText": "A sphere X is placed at point A on a horizontal surface. X carries a charge of +3 × 10⁻⁷ C. Point P is r metres to the left of point A. The magnitude of the electric field at point P is 1,08 × 10⁶ N·C⁻¹. Describe an electric field.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks): (2 or 0)\nA region of space in which an electric charge experiences a force. ✓✓",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-p1-7-2",
+          "label": "7.2",
+          "type": "written",
+          "questionText": "Draw the electric field pattern due to the charge on sphere X.",
+          "marks": 2,
+          "memoText": "Marking criteria (2 marks):\n✓ Direction: field lines radially outward (positive charge)\n✓ Field lines drawn correctly around the sphere\nTwo or more field lines inside the sphere / not touching the sphere / crossing each other: deduct 1 mark. If more than one charge drawn: 0/2.",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-p1-7-3",
+          "label": "7.3",
+          "type": "written",
+          "questionText": "Show, by means of a calculation, that r = 0,05 m.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nE = kQ/r² ✓\n1,08 × 10⁶ = (9 × 10⁹)(3 × 10⁻⁷)/r² ✓\nr = 0,05 m ✓",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-p1-7-4",
+          "label": "7.4",
+          "type": "written",
+          "questionText": "Sphere Y, carrying a charge of −5 × 10⁻⁷ C, is now fixed at point P and sphere Z, carrying a charge of −4 × 10⁻⁷ C, is fixed 0,04 m to the right of sphere X (arrangement along a line: Y at P, then X at A with r = 0,05 m between Y and X, then Z 0,04 m to the right of X). The NET FORCE acting on sphere X is 0,0427 N at point A. Is the surface frictionless? Choose from YES or NO. Explain the answer by means of a calculation.",
+          "marks": 6,
+          "memoText": "Mark scheme (6 marks):\nNOTE: Ignore if negative charges are substituted.\nOPTION 1:\nFXY = kQXQY/r² = (9 × 10⁹)(3 × 10⁻⁷)(5 × 10⁻⁷)/(0,05)² = 0,54 N\nFXZ = kQXQZ/r² = (9 × 10⁹)(3 × 10⁻⁷)(4 × 10⁻⁷)/(0,04)² = 0,68 N\nFnet(E) = FXZ − FXY = 0,68 − 0,54 = 0,14 N ✓✓✓✓\nNO ✓\nBecause Fnet(E) (0,14 N) ≠ Fnet (0,0427 N), so an additional (friction) force acts. ✓\nOPTION 2: Enet = kQ/r² + kQ/r² = (9 × 10⁹)(5 × 10⁻⁷)/(0,05)² − (9 × 10⁹)(4 × 10⁻⁷)/(0,04)² → Enet = 450 000 N·C⁻¹; Fnet = qE = (3 × 10⁻⁷)(450 000) = 0,14 N; NO, Fnet(E) ≠ Fnet.\nOPTION 3: Fnet(E) = 0,14 N; 0,0427 = 0,14 − f → f = 0,0923 N → NO.",
+          "topic": "Electrostatics"
+        },
+        {
+          "id": "phys-p1-7-5",
+          "label": "7.5",
+          "type": "written",
+          "questionText": "Sphere Y is brought into contact with sphere X, and is placed back in its original position. How will the magnitude of the force that sphere X now exerts on sphere Y be affected? Choose from INCREASES, DECREASES or REMAINS THE SAME.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nDECREASES ✓✓",
+          "topic": "Electrostatics"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Electric Circuits",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-p1-8-1",
+          "label": "8.1",
+          "type": "written",
+          "questionText": "Two identical headlights, L1 and L2, and a starter motor, M, of a car are connected to a battery. The resistance of each headlight is 12 Ω, while the resistance of the starter motor is 0,1 Ω. The emf (ε) and internal resistance (r) of the battery are unknown. Ammeter A1 is in the headlights branch and ammeter A2 is in the starter-motor branch; the voltmeter V (high resistance) is connected across the battery terminals. The ammeters and connecting wires have negligible resistance. Switches S1 and S2 are initially open. Define the term emf.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks): (2 or 0)\nThe maximum/total energy provided (work done) by a battery/cell per unit (coulomb) of charge passing through it. ✓✓\n*(Refer to the circuit diagram with L1, L2, M, A1, A2, V, S1 and S2 in the original question paper.)*",
+          "topic": "Electric Circuits"
+        },
+        {
+          "id": "phys-p1-8-2",
+          "label": "8.2",
+          "type": "written",
+          "questionText": "Switch S1 remains open while switch S2 is closed. The reading on ammeter A2 is 120 A. Calculate the reading on the voltmeter.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nR = V/I ✓\n0,1 = V/120 ✓\nV = 12 V ✓",
+          "topic": "Electric Circuits"
+        },
+        {
+          "id": "phys-p1-8-3-1",
+          "label": "8.3.1",
+          "type": "written",
+          "questionText": "Switch S1 is now closed and switch S2 is opened. The power dissipated by each headlight is 15 W. Calculate the current passing through L1.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nOPTION 1: P = I²R → 15 = I²(12) ✓✓ → I = 1,12 A ✓\nOPTION 2: P = V²/R → 15 = V²/12 → V = 13,42 V; P = VI → 15 = (13,42)I → I = 1,12 A\nOPTION 3: 15 = V²/12 → V = 13,42 V; V = IR → 13,42 = I(12) → I = 1,12 A",
+          "topic": "Electric Circuits"
+        },
+        {
+          "id": "phys-p1-8-3-2",
+          "label": "8.3.2",
+          "type": "written",
+          "questionText": "Write down the reading on ammeter A1.",
+          "marks": 1,
+          "memoText": "POSITIVE MARKING FROM QUESTION 8.3.1.\nMark scheme (1 mark):\nA1 = (1,12)(2) = 2,24 A ✓ (the two headlights are in parallel, so A1 reads the total current)",
+          "topic": "Electric Circuits"
+        },
+        {
+          "id": "phys-p1-8-4",
+          "label": "8.4",
+          "type": "written",
+          "questionText": "Calculate the emf of the battery.",
+          "marks": 6,
+          "memoText": "POSITIVE MARKING FROM QUESTIONS 8.2 and 8.3.2. [RANGE: 13,42 V – 13,47 V]\nOPTION 1:\nRp: 1/Rp = 1/12 + 1/12 → Rp = 6 Ω\nWhen S1 closed and S2 open: ε = I(R + r) = 2,24(6 + r) ✓\nWhen S1 open and S2 closed: ε = I(R + r) = 120(0,1 + r) ✓\nEquating: 2,24(6 + r) = 120(0,1 + r) ✓ → r = 0,012 Ω ✓\nε = I(R + r) = 2,24(6 + 0,012) = 13,46 V ✓ (OR ε = 120(0,1 + 0,012) = 13,47 V) ✓\nOPTION 2 gives equivalent results in the range 13,42 V – 13,47 V.",
+          "topic": "Electric Circuits"
+        },
+        {
+          "id": "phys-p1-8-5",
+          "label": "8.5",
+          "type": "written",
+          "questionText": "Both switches are now closed. How will the reading on ammeter A1 be affected? Choose from INCREASES, DECREASES or REMAINS THE SAME. Explain the answer WITHOUT the use of a calculation.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nDECREASE\n✓ Total/external resistance decreases\n✓ Total current increases\n✓ Vinternal increases\n✓ Voltage across the light bulbs decreases / Vexternal decreases\n(final mark for the correct answer DECREASE with valid explanation)\nNOTE: Calculation given as explanation: 1/5. Max 3/5 for the ACCEPT alternative.\nACCEPT: INCREASES (only if explanation correct) — Initial reading of A1 = 0 A when S1 is open; now both switches closed so current flows through the circuit (A1 reading increases from 0). Refer to the candidate's explanation first to check if they are referring to Q8.2.",
+          "topic": "Electric Circuits"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Electrodynamics",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "phys-p1-9-1",
+          "label": "9.1",
+          "type": "written",
+          "questionText": "An AC generator operates a fan. The directions of the rotation of the coil and the induced current are shown in a simplified diagram, with the magnet pole nearest the coil marked Z. Define the term rms potential difference.",
+          "marks": 2,
+          "memoText": "Marking criteria (2 marks): If any of the underlined key words/phrases in the correct context is omitted, deduct 1 mark.\nThe AC potential difference/voltage that produces/dissipates the same amount of energy as an equivalent DC potential difference/voltage. ✓✓\nNOTE: If DC written first / energy or heating effect is omitted / alternating current is defined: 0/2.\n*(Refer to the AC generator and fan diagram in the original question paper.)*",
+          "topic": "Electrodynamics"
+        },
+        {
+          "id": "phys-p1-9-2",
+          "label": "9.2",
+          "type": "written",
+          "questionText": "What is the polarity of the magnet at Z?",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nN / North ✓✓",
+          "topic": "Electrodynamics"
+        },
+        {
+          "id": "phys-p1-9-3",
+          "label": "9.3",
+          "type": "written",
+          "questionText": "The resistance of the fan is 60 Ω and the maximum potential difference produced by the generator is 311,11 V. Calculate the cost of operating the fan for 1,5 hours if the cost of electricity is R3,33 per kWh.",
+          "marks": 5,
+          "memoText": "Mark scheme (5 marks):\nVrms = Vmax/√2 = 311,11/√2 = 219,99 V ✓✓\nPave = Vrms²/R = 219,99²/60 = 806,59 W = 0,80659 kW ✓\nE = Pt = 0,80659 × 1,5 = 1,21 kWh (energy) ✓\ncost = P·t × tariff = 0,80659(1,5)(3,33) = R4,03 ✓\n(OTHER OPTIONS: Pave = Vrms·Irms = (311,11/√2)(220/60)... = 806,67 W → cost = R4,03; or W = (V²/R)t → E = 1,21 kWh → cost = R4,03)",
+          "topic": "Electrodynamics"
+        },
+        {
+          "id": "phys-p1-9-4",
+          "label": "9.4",
+          "type": "written",
+          "questionText": "The voltage versus time graph for this generator is given (an induced-emf versus time sinusoidal curve over one rotation, with a marked time of 4 s). Redraw this graph in the ANSWER BOOK and label it as A. On the same set of axes, draw the graph for ONE rotation of the coil when the speed of rotation is doubled. Label this as graph B.",
+          "marks": 3,
+          "memoText": "Marking criteria (3 marks):\n✓ Amplitude of graph B bigger than that of graph A\n✓ Period of B is half of A\n✓ Correct shape and one cycle (sinusoidal/cosine graph)\n*(Refer to the voltage versus time graph in the original question paper.)*",
+          "topic": "Electrodynamics"
+        },
+        {
+          "id": "phys-p1-9-5",
+          "label": "9.5",
+          "type": "written",
+          "questionText": "State ONE way in which this generator can be changed to a DC generator.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\nBy replacing the slip rings with a split-ring commutator / split ring / commutator. ✓",
+          "topic": "Electrodynamics"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Photoelectric Effect",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "phys-p1-10-1-1",
+          "label": "10.1.1",
+          "type": "written",
+          "questionText": "Learners conduct an experiment to determine whether electrons will be emitted from the surface of different metals when light with a single frequency is incident on the metal. The maximum kinetic energy of emitted electrons is measured when light of frequency 1,045 × 10¹⁵ Hz is used. The results are: Zinc — electrons emitted: Yes; Sodium — electrons emitted: Yes, maximum kinetic energy 0 J; Caesium — electrons emitted: Yes, maximum kinetic energy 2,53 × 10⁻¹⁹ J; Metal M — electrons emitted: No, work function 3,50 × 10⁻¹⁹ J. Define the term work function.",
+          "marks": 2,
+          "memoText": "Marking criteria (2 marks): If any of the underlined key words/phrases in the correct context is omitted, deduct 1 mark.\nThe minimum energy needed for the electrons to be emitted from the metal surface. ✓✓\nNOTE: If threshold frequency defined: 0/2.\n*(Refer to the results table in the original question paper.)*",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-p1-10-1-2",
+          "label": "10.1.2",
+          "type": "written",
+          "questionText": "Write down the threshold frequency of zinc.",
+          "marks": 1,
+          "memoText": "Mark scheme (1 mark):\n1,045 × 10¹⁵ Hz ✓",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-p1-10-1-3",
+          "label": "10.1.3",
+          "type": "written",
+          "questionText": "How does the work function of sodium compare to that of caesium? Choose from SMALLER THAN, GREATER THAN or EQUAL TO. Explain the answer.",
+          "marks": 3,
+          "memoText": "Mark scheme (3 marks):\nGREATER THAN ✓\n✓ The maximum kinetic energy of electrons from sodium is smaller (0 J vs 2,53 × 10⁻¹⁹ J).\n✓ E is constant / same frequency (same light) used, so since E = W₀ + Ek(max), a smaller Ek(max) means a larger W₀.",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-p1-10-1-4",
+          "label": "10.1.4",
+          "type": "written",
+          "questionText": "Light of the same frequency, but with a higher intensity, is now incident on metal M. Will electrons now be ejected? Choose from YES or NO. Give a reason for the answer.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nNO ✓\n✓ The intensity of light does not have any effect on the ejection of electrons for metal M OR the frequency of light has not changed / the energy of a photon has not changed.",
+          "topic": "Photoelectric Effect"
+        },
+        {
+          "id": "phys-p1-10-2-1",
+          "label": "10.2.1",
+          "type": "written",
+          "questionText": "The energy diagram (NOT drawn to scale) shows the electron energies in different energy levels of a certain atom: E₃ = 5,7 × 10⁻¹⁹ J, E₂ = 5,1 × 10⁻¹⁹ J, E₁ = 1,3 × 10⁻¹⁹ J. An electron of this atom moves from E₃ to E₁. Photon X is emitted. Calculate the frequency of photon X.",
+          "marks": 4,
+          "memoText": "Mark scheme (4 marks):\nAccept E₃ − E₁ OR E₁ − E₃ in all options.\nOPTION 1: E = hf → 5,7 × 10⁻¹⁹ − 1,3 × 10⁻¹⁹ = (6,63 × 10⁻³⁴)f ✓✓✓ → f = 6,64 × 10¹⁴ Hz ✓\nOPTION 2: E = E₁ − E₃ = 1,3 × 10⁻¹⁹ − 5,7 × 10⁻¹⁹ = −4,4 × 10⁻¹⁹ J; E = hf → 4,4 × 10⁻¹⁹ = (6,63 × 10⁻³⁴)f → f = 6,64 × 10¹⁴ Hz (f must be positive)",
+          "topic": "Emission & Absorption Spectra"
+        },
+        {
+          "id": "phys-p1-10-2-2",
+          "label": "10.2.2",
+          "type": "written",
+          "questionText": "Is it possible for a photon with an energy of 2,5 × 10⁻¹⁹ J to be emitted from this atom? Choose from YES or NO. Give a reason for the answer.",
+          "marks": 2,
+          "memoText": "Mark scheme (2 marks):\nNO ✓\nThe energy does not correspond to any (allowed) transition in this atom. ✓",
+          "topic": "Emission & Absorption Spectra"
+        }
+      ]
+    }
+  ]
+}
