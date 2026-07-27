@@ -394,7 +394,9 @@ function PaperList({
       !p.session.startsWith("Prep") &&
       !p.session.startsWith("Predictive")
   );
-  const [expandedCode, setExpandedCode] = useState<"P1" | "P2" | null>("P1");
+  // null = "not chosen yet" → falls back to the first available code so a card
+  // is open on load. "" = user explicitly collapsed everything.
+  const [expandedCode, setExpandedCode] = useState<string | null>(null);
   const [progressMap, setProgressMap] = useState<Record<string, PaperProgress>>({});
 
   // Show the session toggle only when this subject actually has year-end papers.
@@ -425,7 +427,13 @@ function PaperList({
     })();
   }, [subjectId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const papersByCode = (code: "P1" | "P2") =>
+  // Paper codes actually present for this subject + session (P1/P2/P3 — some
+  // subjects like Afrikaans have a P3, others only a P1). Only render cards for
+  // codes that have at least one paper, so there are no empty "coming soon" cards.
+  const availableCodes = Array.from(new Set(visiblePapers.map((p) => p.paperCode))).sort();
+  const openCode = expandedCode === null ? availableCodes[0] ?? null : expandedCode || null;
+
+  const papersByCode = (code: string) =>
     visiblePapers.filter((p) => p.paperCode === code).sort((a, b) => b.year - a.year);
 
   return (
@@ -475,10 +483,10 @@ function PaperList({
 
         {/* Accordion: one card per paper code */}
         <div className="space-y-3">
-          {(["P1", "P2"] as const).map((code) => {
-            const codeLabel = code === "P1" ? "1" : "2";
+          {availableCodes.map((code) => {
+            const codeLabel = code.replace(/^P/i, "");
             const codeGroup = papersByCode(code);
-            const isOpen = expandedCode === code;
+            const isOpen = openCode === code;
 
             return (
               <div
@@ -487,7 +495,7 @@ function PaperList({
               >
                 {/* Accordion header */}
                 <button
-                  onClick={() => setExpandedCode(isOpen ? null : code)}
+                  onClick={() => setExpandedCode(isOpen ? "" : code)}
                   className="w-full flex items-center justify-between px-5 py-4 hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex items-center gap-3">
@@ -1422,13 +1430,7 @@ function SessionView({
 
           <div className="flex-1 min-w-0">
             <p className="text-sm font-bold text-gray-800 leading-tight">
-              {currentSQ.label}
-              <span
-                className="ml-1.5 text-xs font-semibold text-brand"
-                style={CONCEPT_C ? { color: "var(--gem)" } : undefined}
-              >
-                · {currentSQ.marks} {currentSQ.marks === 1 ? "mk" : "mks"}
-              </span>
+              Question {currentSQ.label}
             </p>
             <p className="text-[11px] text-gray-400 truncate hidden sm:block leading-tight mt-0.5">
               {paper.questions.find((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))?.title ?? ""}
@@ -1456,53 +1458,40 @@ function SessionView({
           )}
         </div>
 
-        {/* Question progress dots — scrollable, grouped by parent question */}
-        <div className="overflow-x-auto pb-2.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="flex items-end gap-2 w-max">
-            {paper.questions.map((q, qi) => (
-              <React.Fragment key={q.number}>
-                {qi > 0 && <div className="w-px h-4 bg-gray-200 self-center flex-shrink-0" />}
-                <div className="flex flex-col items-start gap-1 flex-shrink-0">
-                  <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wide leading-none px-0.5">
-                    Q{q.number}
-                  </span>
-                  <div className="flex items-center gap-1">
-                    {q.subQuestions.map((sq) => {
-                      const flatIdx = flatQuestions.findIndex((f) => f.id === sq.id);
-                      const attempt = attempts[sq.id];
-                      const isActive = flatIdx === currentIdx;
-                      const isSubmitted = attempt?.submitted ?? false;
-                      const isAnswered = (() => {
-                        if (!attempt) return false;
-                        if (sq.type === "mcq") return !!attempt.selectedOption;
-                        if (sq.type === "match-group") return Object.keys(attempt.matchAnswers ?? {}).length > 0;
-                        if (sq.type === "calculation") return !!(attempt.textWorking.trim() || attempt.calcAnswer.trim());
-                        if (sq.type === "answer-book") return hasStatementContent(attempt.col2Working);
-                        if (sq.type === "two-column") return !!(attempt.textWorking.trim() || attempt.col2Working.trim());
-                        return !!(attempt.textWorking.trim() || attempt.imageFile);
-                      })();
-                      return (
-                        <button
-                          key={sq.id}
-                          onClick={() => setCurrentIdx(flatIdx)}
-                          title={`${sq.label} · ${sq.marks} ${sq.marks === 1 ? "mk" : "mks"}`}
-                          className={`flex-shrink-0 rounded-full transition-all duration-150 ${
-                            isActive ? "w-5 h-5 ring-2 ring-brand ring-offset-1" : "w-4 h-4 hover:scale-110"
-                          } ${
-                            isSubmitted ? "bg-brand" : isAnswered ? "bg-amber-400" : "bg-gray-200"
-                          }`}
-                          style={CONCEPT_C ? ({
-                            ...(isSubmitted ? { backgroundColor: "var(--gem)" } : {}),
-                            ...(isActive ? { "--tw-ring-color": "var(--gem)" } : {}),
-                          } as React.CSSProperties) : undefined}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
-              </React.Fragment>
-            ))}
+        {/* Overall progress bar + current-question marks pill. Replaces the old
+            per-question dot strip, which was too busy on mobile. The bar tracks
+            paper completion; the pill shows the current question's marks, turning
+            into an earned/total score (green when full) once submitted. */}
+        <div className="flex items-center gap-3 pb-2.5">
+          <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+            <div
+              className="h-full rounded-full transition-all duration-300 bg-brand"
+              style={{
+                width: `${pctComplete}%`,
+                ...(CONCEPT_C ? { backgroundColor: "var(--gem)" } : {}),
+              }}
+            />
           </div>
+          {(() => {
+            const scored = currentAttempt?.submitted ?? false;
+            const full = scored && currentAttempt.marksEarned >= currentSQ.marks;
+            const label = scored
+              ? `${currentAttempt.marksEarned} / ${currentSQ.marks}`
+              : `${currentSQ.marks} ${currentSQ.marks === 1 ? "mark" : "marks"}`;
+            const tone = full
+              ? "bg-green-100 text-green-700"
+              : scored
+                ? "bg-amber-100 text-amber-700"
+                : "bg-rose-50 text-brand";
+            return (
+              <span
+                className={`flex-shrink-0 text-xs font-bold px-2.5 py-1 rounded-full ${tone}`}
+                style={!scored && CONCEPT_C ? { color: "var(--gem)" } : undefined}
+              >
+                {label}
+              </span>
+            );
+          })()}
         </div>
       </div>
 

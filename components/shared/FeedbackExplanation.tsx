@@ -128,21 +128,31 @@ export default function FeedbackExplanation({
   }
 
   // ── Wrong — five-part explanation ───────────────────────────────────────────
-  // A subject-supplied whyOverride is authoritative — skip the generic map's
-  // label/example so we never show, say, a multiplication example on a VAT error.
-  const explanation = whyOverride ? null : resolveErrorExplanation(errorSignals);
+  // What went wrong · Why this happens · How to fix it · Think of it like this ·
+  // Where you'll see this. The middle three come from the authored error-code map
+  // (backfilled from the misconception family, so every code carries all parts).
+  //
+  // The map is resolved whenever the question supplies `errorSignals`. Subjects
+  // that instead hand us a ready `whyOverride` (their own memo) pass no codes, so
+  // the map stays empty for them and there is no risk of a mismatched example —
+  // whyOverride still wins for the "why" either way.
+  const explanation = resolveErrorExplanation(errorSignals);
   const student = studentAnswer?.trim();
   const correct = correctAnswer?.trim();
-  const showWhat = !!student && !!correct && student !== correct;
-  const relation = showWhat ? numericRelation(student!, correct!) : null;
+  const showComparison = !!student && !!correct && student !== correct;
+  const relation = showComparison ? numericRelation(student!, correct!) : null;
   const diagnosisText = diagnosis?.trim();
   const headerLabel = labelOverride ?? explanation?.label;
+  // WHAT — an authored, behavioural line (from the map) plus/or the answer
+  // comparison below. Shown for word/MCQ answers too, not just numeric ones.
+  const whatText = explanation?.what;
   // A personalised diagnosis already speaks to this answer, so don't also fall
   // back to serverFeedback for the generic "why" — it would just repeat it.
   const whyText = whyOverride || explanation?.why || (diagnosisText ? undefined : serverFeedback);
   const hasWorking = !!workingSteps && workingSteps.length > 0;
   const howText = hasWorking ? undefined : howOverride || explanation?.how;
   const exampleText = explanation?.example;
+  const whereText = explanation?.where;
 
   return (
     <div className={`rounded-2xl border-2 overflow-hidden ${CONCEPT_C ? "border-rose-200 bg-rose-50" : "border-orange-200 bg-orange-50"}`}>
@@ -163,13 +173,34 @@ export default function FeedbackExplanation({
           <p className="text-gray-800 leading-relaxed">{diagnosisText}</p>
         )}
 
-        {/* WHAT — the two facts, sharpened with how far off when both are numbers */}
-        {showWhat && (
-          <p className="text-sm text-gray-700">
-            You answered <span className={`font-semibold ${CONCEPT_C ? "text-rose-700" : "text-orange-700"}`}>{student}</span>
-            {relation && <> — {relation}</>}. The answer is{" "}
-            <span className="font-semibold text-green-700">{correct}</span>.
-          </p>
+        {/* WHAT WENT WRONG — an authored behavioural line and/or the answer
+            comparison. Works for MCQ/word answers, not only numeric ones. */}
+        {(whatText || showComparison) && (
+          CONCEPT_C ? (
+            <div className="bg-rose-50 border border-rose-200 rounded-xl p-4 space-y-1.5">
+              <p className="text-sm font-semibold text-rose-700">🔍 What went wrong</p>
+              {whatText && <p className="text-gray-800 text-sm leading-relaxed">{whatText}</p>}
+              {showComparison && (
+                <p className="text-sm text-gray-700">
+                  You answered <span className="font-semibold text-rose-700">{student}</span>
+                  {relation && <> — {relation}</>}. The answer is{" "}
+                  <span className="font-semibold text-green-700">{correct}</span>.
+                </p>
+              )}
+            </div>
+          ) : (
+            <div>
+              <p className="text-sm font-medium text-gray-600 mb-1">What went wrong</p>
+              {whatText && <p className="text-gray-800 text-sm leading-relaxed">{whatText}</p>}
+              {showComparison && (
+                <p className="text-sm text-gray-700">
+                  You answered <span className="font-semibold text-orange-700">{student}</span>
+                  {relation && <> — {relation}</>}. The answer is{" "}
+                  <span className="font-semibold text-green-700">{correct}</span>.
+                </p>
+              )}
+            </div>
+          )
         )}
 
         {partialCredit && (
@@ -216,6 +247,14 @@ export default function FeedbackExplanation({
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
             <p className="text-sm font-medium text-amber-700 mb-1">💡 Think of it like this</p>
             <p className="text-gray-800 text-sm leading-relaxed">{exampleText}</p>
+          </div>
+        )}
+
+        {/* WHERE — the fifth part: where the idea shows up (emerald block) */}
+        {whereText && (
+          <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
+            <p className="text-sm font-medium text-emerald-700 mb-1">📍 Where you'll see this</p>
+            <p className="text-gray-800 text-sm leading-relaxed">{whereText}</p>
           </div>
         )}
       </div>

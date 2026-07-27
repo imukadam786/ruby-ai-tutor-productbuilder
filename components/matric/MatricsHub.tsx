@@ -20,9 +20,6 @@ interface MatricCardProps {
 function MatricCard({
   image,
   label,
-  caption,
-  badge,
-  badgeColor = "bg-gray-100 text-gray-600",
   onClick,
 }: MatricCardProps) {
   return (
@@ -34,19 +31,10 @@ function MatricCard({
           : "shadow-md active:opacity-80 hover:shadow-xl hover:-translate-y-1"
       }`}
     >
-      {/* Square image header */}
+      {/* The label is baked into the artwork, so the thumbnail is the whole card
+          — no repeated text box underneath (it only wasted vertical space). */}
       <div className="w-full flex-shrink-0" style={{ aspectRatio: "1 / 1" }}>
         <img src={image} alt={label} className="w-full h-full object-cover" />
-      </div>
-      {/* Label + caption + badge */}
-      <div className="px-2 pt-2 pb-3 sm:px-5 sm:pt-4 sm:pb-5 flex flex-col items-start gap-1 sm:gap-1.5">
-        <span className="font-bold text-gray-900 text-xs sm:text-xl leading-tight">{label}</span>
-        <span className="text-[10px] sm:text-sm text-gray-500 leading-snug hidden sm:block">{caption}</span>
-        {badge && (
-          <span className={`text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap mt-2 hidden sm:inline-block ${badgeColor}`}>
-            {badge}
-          </span>
-        )}
       </div>
     </button>
   );

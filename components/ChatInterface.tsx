@@ -580,11 +580,15 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
         {/* Quick-action prompts — visible until the first message is sent */}
         {showQuickActions && (
           <div className="flex flex-wrap justify-center gap-2 mb-3">
-            {quickActions.map((action) => (
+            {quickActions.map((action, index) => (
               <button
                 key={action.label}
                 onClick={() => sendMessage(action.prompt)}
+                /* Mobile is kept uncluttered: only the top two prompts show on
+                   small screens; the rest appear from the `sm` breakpoint up. */
                 className={`px-4 py-2 rounded-full text-sm font-medium text-white transition-all ${
+                  index >= 2 ? "hidden sm:inline-block" : ""
+                } ${
                   CONCEPT_C
                     ? "bg-ruby hover:bg-ruby-deep shadow-lip-sm active:translate-y-[2px] active:shadow-none"
                     : "bg-brand hover:bg-brand-hover hover:shadow-sm"
