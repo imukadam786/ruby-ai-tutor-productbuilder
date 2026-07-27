@@ -16,8 +16,37 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import EduBackground from "@/components/EduBackground";
 import RubyIcon from "@/components/ui/RubyIcon";
+import Gem from "@/components/ui/Gem";
+import { GEM_HEX, RUBY, type GemColor, type GemState } from "@/lib/design/gemColors";
 import SkillTreePath from "@/components/shared/SkillTreePath";
 import { CONCEPT_C } from "@/lib/flags";
+
+// Strips every `shadow-*` utility from a class string. Concept C removes the
+// card/ring drop-shadows platform-wide, but the per-accent style objects below
+// (`ACCENTS`) bake shadows into ~14 colour entries — stripping at the point of
+// use avoids touching every one of them individually.
+const stripShadow = (cls: string) => (CONCEPT_C ? cls.replace(/\bshadow-\S+/g, "").trim() : cls);
+
+// A skill's status → which gem state it draws in Concept C (mirrors the same
+// mapping SkillTreePath uses, so the compact card view and the full winding
+// path never disagree about what a status looks like).
+function gemStateForStatus(status: SkillTreeStatus): GemState {
+  switch (status) {
+    case "mastered":
+    case "auto_complete":
+      return "polished";
+    case "in_progress":
+      return "cutting";
+    case "current":
+    case "active":
+      return "polished";
+    case "locked":
+    case "hard_gate":
+      return "locked";
+    default: // available, entry_point
+      return "rough";
+  }
+}
 
 // When a tree renders inside the Subjects hub, it opts into a more compact
 // presentation: the header reads a plain "Skill Tree" (the subject name is
@@ -356,7 +385,7 @@ const ACCENT_LABEL: Record<"active" | "current", string> = {
   current: "Start here",
 };
 
-function SkillTile({ skill, accent }: { skill: TreeSkill; accent: typeof ACCENTS[SkillTreeAccent] }) {
+function SkillTile({ skill, accent, gemColor }: { skill: TreeSkill; accent: typeof ACCENTS[SkillTreeAccent]; gemColor: string }) {
   const [showHint, setShowHint] = useState(false);
   const isAccentStatus = skill.status === "active" || skill.status === "current";
   const tile = isAccentStatus
@@ -371,9 +400,9 @@ function SkillTile({ skill, accent }: { skill: TreeSkill; accent: typeof ACCENTS
   const className = [
     "px-3 py-1.5 rounded-lg border text-xs font-medium text-left",
     bg,
-    skill.status === "active" ? accent.activeRing : "",
+    skill.status === "active" ? stripShadow(accent.activeRing) : "",
     skill.entry ? "ring-2 ring-blue-400 ring-offset-1" : "",
-    clickable ? accent.hoverRing : "",
+    clickable ? stripShadow(accent.hoverRing) : "",
     !clickable && skill.status === "locked" ? "opacity-70 cursor-default" : "",
   ]
     .filter(Boolean)
@@ -381,7 +410,17 @@ function SkillTile({ skill, accent }: { skill: TreeSkill; accent: typeof ACCENTS
 
   const inner = (
     <>
-      <span className="mr-1" aria-hidden>{icon}</span>
+      <span className="mr-1" aria-hidden>
+        {CONCEPT_C ? (
+          <Gem
+            color={isAccentStatus ? RUBY : gemColor}
+            state={gemStateForStatus(skill.status)}
+            className="w-[0.85em] h-[1.05em]"
+          />
+        ) : (
+          icon
+        )}
+      </span>
       {skill.title}
       {skill.replay && <span className="ml-1 text-current opacity-70" aria-hidden>🔁</span>}
       {skill.autoComplete && <span className="ml-1.5 text-green-500" title="Auto-completed via placement" aria-hidden>✦</span>}
@@ -440,12 +479,14 @@ function SkillTile({ skill, accent }: { skill: TreeSkill; accent: typeof ACCENTS
 function LevelCard({
   level,
   accent,
+  gemColor,
   isOpen,
   onToggle,
   innerRef,
 }: {
   level: TreeLevel;
   accent: typeof ACCENTS[SkillTreeAccent];
+  gemColor: string;
   isOpen: boolean;
   onToggle: () => void;
   innerRef?: (el: HTMLDivElement | null) => void;
@@ -492,7 +533,7 @@ function LevelCard({
       )}
       <div
         className={`bg-white border rounded-2xl overflow-hidden transition-all ${
-          isCurrent ? accent.currentCard : "border-gray-200"
+          isCurrent ? stripShadow(accent.currentCard) : "border-gray-200"
         }`}
       >
         {level.banner && (
@@ -573,7 +614,7 @@ function LevelCard({
                   <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">{tier.title}</p>
                   <div className="flex flex-wrap gap-2">
                     {tier.skills.map((skill) => (
-                      <SkillTile key={skill.id} skill={skill} accent={accent} />
+                      <SkillTile key={skill.id} skill={skill} accent={accent} gemColor={gemColor} />
                     ))}
                   </div>
                 </div>
@@ -585,7 +626,7 @@ function LevelCard({
                 )}
                 <div className="flex flex-wrap gap-2">
                   {previewSkills.map((skill) => (
-                    <SkillTile key={skill.id} skill={skill} accent={accent} />
+                    <SkillTile key={skill.id} skill={skill} accent={accent} gemColor={gemColor} />
                   ))}
                 </div>
               </div>
@@ -618,6 +659,7 @@ export default function SkillTreeShell({
   emptyState,
 }: SkillTreeShellProps) {
   const accent = ACCENTS[accentName];
+  const gemColor = GEM_HEX[accentName as GemColor] ?? RUBY;
   const hub = useContext(HubTreeContext);
   const inHub = hub.inHub;
 
@@ -652,6 +694,7 @@ export default function SkillTreeShell({
           key={level.id}
           level={level}
           accent={accent}
+          gemColor={gemColor}
           isOpen={isOpen(level)}
           onToggle={() => toggle(level)}
           innerRef={level.isCurrent ? (el) => (currentRef.current = el) : undefined}

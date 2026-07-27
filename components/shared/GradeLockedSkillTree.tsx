@@ -15,6 +15,7 @@ import SkillTreeShell, {
   type SkillTreeStatus,
   type SkillTreeAccent,
 } from "@/components/shared/SkillTreeShell";
+import { CONCEPT_C } from "@/lib/flags";
 
 type BaseStatus = "locked" | "available" | "in_progress" | "mastered";
 
@@ -153,7 +154,11 @@ export default function GradeLockedSkillTree({
     <SkillTreeShell
       accent={accent}
       title={title}
-      statline={`${total > 0 && mastered === total ? 1 : 0}/1 Levels · ${masteredTiers}/${totalTiers} Tiers · ${mastered}/${total} Atomic skills · ${progress}%`}
+      statline={
+        CONCEPT_C
+          ? `Gems to collect · ${mastered}/${total}`
+          : `${total > 0 && mastered === total ? 1 : 0}/1 Levels · ${masteredTiers}/${totalTiers} Tiers · ${mastered}/${total} Atomic skills · ${progress}%`
+      }
       levels={levels}
       compact={compact}
       onBack={onBack}

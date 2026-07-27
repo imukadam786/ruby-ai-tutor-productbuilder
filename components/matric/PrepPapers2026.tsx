@@ -938,7 +938,7 @@ function SessionView({
                   <>
                     {passageText && (
                       <div className="mb-3 px-3 py-2.5 bg-stone-50 border-l-4 border-stone-300 rounded-r-md">
-                        <p className="text-sm text-gray-700 whitespace-pre-wrap font-serif leading-relaxed">{passageText}</p>
+                        <p className="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed">{passageText}</p>
                       </div>
                     )}
                     <div className="text-base text-gray-800 leading-relaxed">

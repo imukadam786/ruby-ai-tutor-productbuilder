@@ -22,6 +22,10 @@ interface AnswerButtonProps {
   selected?: boolean;
   /** A different option was picked — fade this one back. */
   dimmed?: boolean;
+  /** Denser sizing for dense/multi-question contexts (e.g. matric past papers)
+   *  where the full onboarding-scale lip/padding crowds out the question. Every
+   *  other caller omits this and keeps today's chunky look. */
+  compact?: boolean;
   children: ReactNode;
 }
 
@@ -32,25 +36,29 @@ export default function AnswerButton({
   result = null,
   selected = false,
   dimmed = false,
+  compact = false,
   children,
 }: AnswerButtonProps) {
   const c = ANSWER_COLORS[index % ANSWER_COLORS.length];
   // Pressed-in (down, no lip) is the "I picked this" signal; the others fade back.
   const opacity = dimmed ? 0.4 : result === "wrong" ? 0.5 : 1;
+  const lip = compact ? 3 : 5;
   return (
     <button
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className="flex items-center gap-3 w-full rounded-2xl px-4 py-3.5 text-white font-extrabold text-left transition-transform active:translate-y-[3px] active:shadow-none disabled:cursor-not-allowed"
+      className={`flex items-center gap-3 w-full text-white text-left transition-transform active:translate-y-[3px] active:shadow-none disabled:cursor-not-allowed ${
+        compact ? "rounded-xl px-3 py-2.5 font-bold text-sm" : "rounded-2xl px-4 py-3.5 font-extrabold"
+      }`}
       style={{
         background: c.bg,
-        boxShadow: selected ? "none" : `0 5px 0 0 ${c.lip}`,
-        transform: selected ? "translateY(3px)" : undefined,
+        boxShadow: selected ? "none" : `0 ${lip}px 0 0 ${c.lip}`,
+        transform: selected ? `translateY(${lip}px)` : undefined,
         opacity,
       }}
     >
-      <span className="w-6 h-6 rounded-lg bg-white/25 flex items-center justify-center text-sm">{c.key}</span>
+      <span className={`rounded-lg bg-white/25 flex items-center justify-center flex-shrink-0 ${compact ? "w-5 h-5 text-xs" : "w-6 h-6 text-sm"}`}>{c.key}</span>
       <span className="flex-1">{children}</span>
       {result === "correct" && <span aria-hidden>✓</span>}
       {result === "wrong" && <span aria-hidden>✗</span>}

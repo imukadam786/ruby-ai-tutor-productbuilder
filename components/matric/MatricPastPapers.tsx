@@ -464,14 +464,14 @@ function PaperList({
 
         {/* Exam-session toggle — only when this subject has year-end papers */}
         {hasNovember && (
-          <div className="inline-flex rounded-xl bg-gray-100 p-1 gap-1">
+          <div className="inline-flex rounded-2xl bg-gray-100 p-1.5 gap-1.5">
             {(["June", "November"] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setSessionTab(tab)}
-                className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
+                className={`px-6 py-2.5 rounded-xl text-base font-bold transition-all ${
                   sessionTab === tab
-                    ? "bg-white text-gray-900 shadow-sm"
+                    ? "bg-white text-brand shadow-md ring-2 ring-brand/20"
                     : "text-gray-500 hover:text-gray-700"
                 }`}
               >
@@ -523,9 +523,9 @@ function PaperList({
                   </svg>
                 </button>
 
-                {/* Year rows */}
+                {/* Year rows — each its own chunky boxed block, not a flat divided list */}
                 {isOpen && (
-                  <div className="border-t border-gray-100 divide-y divide-gray-100">
+                  <div className="border-t border-gray-100 p-3 space-y-2.5">
                     {ALL_YEARS.map((year) => {
                       const paper = codeGroup.find((p) => p.year === year);
                       const isLatest = year === 2025;
@@ -534,7 +534,7 @@ function PaperList({
                         return (
                           <div
                             key={year}
-                            className="px-5 py-4 flex items-center justify-between opacity-40 cursor-not-allowed"
+                            className="rounded-xl border-2 border-gray-100 px-5 py-4 flex items-center justify-between opacity-40 cursor-not-allowed"
                           >
                             <div>
                               <p className="text-sm font-semibold text-gray-500">{SESSION_TAB_LABEL[sessionTab]} {year}</p>
@@ -551,8 +551,10 @@ function PaperList({
                         <button
                           key={year}
                           onClick={() => onSelect(paper.id)}
-                          className={`w-full text-left px-5 group transition-colors ${
-                            isLatest ? "py-5 hover:bg-rose-50" : "py-4 hover:bg-gray-50"
+                          className={`w-full text-left px-5 rounded-xl border-2 group transition-all ${
+                            isLatest
+                              ? "py-5 border-rose-200 bg-rose-50/40 hover:bg-rose-50 shadow-sm"
+                              : "py-4 border-gray-200 hover:border-gray-300 hover:bg-gray-50"
                           }`}
                         >
                           <div className="flex items-center justify-between gap-3">
@@ -956,6 +958,7 @@ function SessionView({
   const [showInfoSheet, setShowInfoSheet] = useState(false);
   const [hintLevel, setHintLevel] = useState(0);
   const [expandedDiagramUrl, setExpandedDiagramUrl] = useState<string | null>(null);
+  const [expandedQuestion, setExpandedQuestion] = useState(false);
   const isMaths = paper.subject === "Mathematics";
   // Concept C: this subject's gem accent, threaded through the session as CSS vars.
   const { gem, lip: gemLip } = gemFor(paper.subject);
@@ -985,6 +988,7 @@ function SessionView({
   useEffect(() => {
     setHintLevel(0);
     setMobileTab("question");
+    setExpandedQuestion(false);
   }, [currentIdx]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Auto-switch to feedback tab on mobile after evaluation completes
@@ -1534,6 +1538,39 @@ function SessionView({
         </>
       )}
 
+      {/* Full-question panel — same bottom-sheet/side-panel pattern as the
+          diagram viewer above, so long questions never rely on the small
+          inline scroll box. Diagrams keep their own tap-to-expand. */}
+      {expandedQuestion && (
+        <>
+          <div
+            className="sm:hidden fixed inset-0 z-[39] bg-black/20"
+            onClick={() => setExpandedQuestion(false)}
+          />
+          <div className="fixed z-40 flex flex-col bg-white shadow-2xl
+            bottom-0 left-0 right-0 h-[70%] rounded-t-2xl
+            sm:top-0 sm:bottom-0 sm:left-auto sm:right-0 sm:h-full sm:w-[min(560px,45%)] sm:rounded-none">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 flex-shrink-0">
+              <span className="font-bold text-sm text-gray-800">{currentSQ.label}</span>
+              <button
+                onClick={() => setExpandedQuestion(false)}
+                className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+                title="Close"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto p-5">
+              <div className="text-base text-gray-800 leading-relaxed">
+                <MathMarkdown content={currentSQ.questionText} />
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
       {/* Mobile tab bar — guided mode only */}
       {mode === "guided" && (
         <div className="sm:hidden flex-shrink-0 flex border-b border-gray-100 bg-white">
@@ -1573,13 +1610,23 @@ function SessionView({
                 const el = e.currentTarget;
                 setShowScrollHint(el.scrollHeight - el.scrollTop > el.clientHeight + 20);
               }}
-              className="relative flex-shrink-0 overflow-y-auto border-b border-gray-100 max-h-[30%] sm:max-h-[45%] bg-rose-50/20"
+              className="relative flex-shrink-0 overflow-y-auto border-b border-gray-100 max-h-[22%] sm:max-h-[38%] bg-rose-50/20"
             >
               {/* "QUESTION" badge — clear visual separator from answer area */}
               <div className="sticky top-0 z-10 flex items-center gap-2 px-3 sm:px-5 pt-2 pb-1 bg-rose-50/90 backdrop-blur-sm border-b border-rose-100/60">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-brand/70">Question</span>
                 <span className="text-[10px] text-gray-400">·</span>
                 <span className="text-[10px] font-semibold text-gray-500">{currentSQ.label}</span>
+                <button
+                  onClick={() => setExpandedQuestion(true)}
+                  className="ml-auto flex items-center gap-1 text-[10px] font-bold text-brand bg-white px-2 py-0.5 rounded-full border border-rose-200 hover:bg-rose-50 transition-colors"
+                  title="View full question"
+                >
+                  <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4" />
+                  </svg>
+                  View full
+                </button>
               </div>
               <div className="px-3 sm:px-5 py-2 sm:py-3">
                 <div className="text-sm text-gray-800 leading-relaxed">
@@ -1726,6 +1773,7 @@ function SessionView({
                             selected={picked && !currentAttempt.submitted}
                             result={result}
                             dimmed={dimmed}
+                            compact
                             onClick={() => updateAttempt(currentSQ.id, { selectedOption: letter })}
                           >
                             {text}

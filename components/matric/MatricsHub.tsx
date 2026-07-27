@@ -32,9 +32,11 @@ function MatricCard({
       }`}
     >
       {/* The label is baked into the artwork, so the thumbnail is the whole card
-          — no repeated text box underneath (it only wasted vertical space). */}
-      <div className="w-full flex-shrink-0" style={{ aspectRatio: "1 / 1" }}>
-        <img src={image} alt={label} className="w-full h-full object-cover" />
+          — no repeated text box underneath (it only wasted vertical space).
+          Source art is portrait (~0.88 ratio, all three images), not square —
+          render at natural ratio so the baked-in label band never gets cropped. */}
+      <div className="w-full flex-shrink-0">
+        <img src={image} alt={label} className="w-full h-auto block" />
       </div>
     </button>
   );
