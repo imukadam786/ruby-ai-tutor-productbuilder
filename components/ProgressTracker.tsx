@@ -154,24 +154,10 @@ function TrophyIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-function ChartIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-    </svg>
-  );
-}
 function CalendarIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-    </svg>
-  );
-}
-function CheckIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   );
 }
@@ -496,30 +482,14 @@ export default function ProgressTracker({
       <div className="relative flex-1 overflow-y-auto p-6">
         <div className="max-w-3xl mx-auto space-y-5">
 
-          {/* ── 4 Stat Cards ──────────────────────────────────────────── */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {/* ── Stat Cards ──────────────────────────────────────────── */}
+          <div className="grid grid-cols-2 gap-3">
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-gray-500">Skills Mastered</span>
                 <TrophyIcon className="w-5 h-5 flex-shrink-0" />
               </div>
               <span className="text-2xl font-bold text-blue-600">{realStats.skillsMastered}</span>
-            </div>
-
-            <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-500">In Progress</span>
-                <ChartIcon className="w-5 h-5 text-amber-500 flex-shrink-0" />
-              </div>
-              <span className="text-2xl font-bold text-amber-500">{realStats.inProgress}</span>
-            </div>
-
-            <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-500">Lessons Done</span>
-                <CheckIcon className="w-5 h-5 text-green-600 flex-shrink-0" />
-              </div>
-              <span className="text-2xl font-bold text-green-600">{realStats.lessonsDone}</span>
             </div>
 
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-4 shadow-sm">

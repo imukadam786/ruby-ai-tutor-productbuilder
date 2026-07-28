@@ -1103,7 +1103,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           ) : (
             /* Standalone subject cards. Tapping one opens its condensed tree
                above (the "expandedSubject" branch). */
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 gap-3 sm:gap-4">
               {subjects.map((s) => (
                 <button
                   key={s.id}
@@ -1132,10 +1132,6 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
                         onSave={() => offline.download(s.id)}
                       />
                     )}
-                  </div>
-                  <div className="p-3 flex-1 flex flex-col gap-0.5">
-                    <p className="font-bold text-gray-900 text-sm leading-tight">{s.label}</p>
-                    <p className="text-gray-500 text-xs leading-snug line-clamp-2">{s.caption}</p>
                   </div>
                 </button>
               ))}

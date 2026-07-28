@@ -2,13 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ActiveView } from "@/types";
-import { hydrateStudentProfileFromSupabase } from "@/lib/student-model";
-import { hydrateReadingProfileFromSupabase } from "@/lib/reading-student-model";
-import { ReadingStudentProfile } from "@/types/reading";
 import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
-import SavedReportView from "@/components/SavedReportView";
 import { TUTORS } from "@/lib/tutors";
 import Gem from "@/components/ui/Gem";
 import { RUBY } from "@/lib/design/gemColors";
@@ -27,14 +23,6 @@ const MATRIC_PLANS = ["master", "matric-pack"];
 // Tutor characters, shown 3 per page in a swipable carousel.
 const TUTORS_PER_PAGE = 3;
 const TUTOR_PAGES = Math.ceil(TUTORS.length / TUTORS_PER_PAGE);
-
-// Placeholder FAQs — copy to be subbed in later.
-const FAQS = [
-  { q: "How does Ruby teach maths?", a: "Ruby uses an adaptive skill tree to find your level and target the exact gaps you need to work on." },
-  { q: "Can I change the app language?", a: "Yes — tap the Language tile above to switch the app into your preferred language." },
-  { q: "How do I find my level?", a: "Start a Discovery for Maths or Reading and Ruby will place you at the right starting point." },
-  { q: "Is my progress saved?", a: "Yes, your progress is saved to your account so you can pick up where you left off on any device." },
-];
 
 function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   return (
@@ -59,9 +47,8 @@ function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   );
 }
 
-export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onOpenChatWithTutor }: HomeScreenProps) {
+export default function HomeScreen({ onNavigate, userPlan, onOpenChatWithTutor }: HomeScreenProps) {
   const hasMatricAccess = userPlan !== null && MATRIC_PLANS.includes(userPlan);
-  const isFreebie = userPlan === "freebie" || userPlan === null;
 
   const handleMatricPrepClick = () => {
     if (hasMatricAccess) {
@@ -78,49 +65,22 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
     }
   };
 
-  const handleUpgradeClick = () => {
-    document.dispatchEvent(
-      new CustomEvent("ruby-upgrade-needed", {
-        detail: { reason: undefined, matricOnly: false },
-      })
-    );
-  };
-
   const { t } = useT();
 
   const [firstName, setFirstName] = useState("there");
   // Matric Prep is Grade 12-only. Fail closed: unknown grade keeps it hidden.
   const [isGrade12, setIsGrade12] = useState(false);
-  const [mathsDone, setMathsDone] = useState(false);
-  const [readingDone, setReadingDone] = useState(false);
-  const [viewReport, setViewReport] = useState<"maths" | "reading" | null>(null);
-  const [faqOpen, setFaqOpen] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [tutorPage, setTutorPage] = useState(0);
   const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     const load = async () => {
-      const [auth, profile, readingProfile] = await Promise.all([
-        fetchAuthorisedGrade(),
-        hydrateStudentProfileFromSupabase(),
-        hydrateReadingProfileFromSupabase(),
-      ]);
+      const auth = await fetchAuthorisedGrade();
       if (auth?.name) setFirstName(auth.name.split(" ")[0]);
       setIsGrade12(auth?.grade === 12);
-      setMathsDone(profile?.placementCompleted ?? false);
-      setReadingDone((readingProfile as ReadingStudentProfile | null)?.placementCompleted ?? false);
     };
     load();
   }, []);
-
-  if (viewReport) {
-    return (
-      <div className="h-full overflow-hidden">
-        <SavedReportView subject={viewReport} onBack={() => setViewReport(null)} />
-      </div>
-    );
-  }
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
@@ -236,78 +196,9 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
             </section>
           )}
 
-          {/* ── Quick actions (Language / Upgrade / FAQ) ─────────────────── */}
-          <section className="mb-6">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <button
-                onClick={() => onOpenLangPicker?.()}
-                className="bg-white rounded-2xl p-4 flex items-center gap-3 border border-gray-100 hover:shadow-md active:scale-[0.98] transition-all text-left"
-              >
-                <span className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl flex-shrink-0">🌍</span>
-                <div className="min-w-0">
-                  <p className="font-semibold text-gray-800 text-base leading-tight">Language</p>
-                  <p className="text-gray-500 text-xs mt-0.5">Change app language</p>
-                </div>
-              </button>
-
-              <button
-                onClick={handleUpgradeClick}
-                className="bg-white rounded-2xl p-4 flex items-center gap-3 border border-gray-100 hover:shadow-md active:scale-[0.98] transition-all text-left"
-              >
-                <span className="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl flex-shrink-0">⭐</span>
-                <div className="min-w-0">
-                  <p className="font-semibold text-gray-800 text-base leading-tight">
-                    {isFreebie ? "Upgrade" : "Manage plan"}
-                  </p>
-                  <p className="text-gray-500 text-xs mt-0.5">
-                    {isFreebie ? "Unlock unlimited learning" : `Current: ${userPlan}`}
-                  </p>
-                </div>
-              </button>
-
-              <button
-                onClick={() => setFaqOpen((v) => !v)}
-                aria-expanded={faqOpen}
-                className="bg-white rounded-2xl p-4 flex items-center gap-3 border border-gray-100 hover:shadow-md active:scale-[0.98] transition-all text-left"
-              >
-                <span className="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl flex-shrink-0">❓</span>
-                <div className="min-w-0 flex-1">
-                  <p className="font-semibold text-gray-800 text-base leading-tight">FAQ</p>
-                  <p className="text-gray-500 text-xs mt-0.5">Frequently asked questions</p>
-                </div>
-                <span className={`text-gray-400 transition-transform flex-shrink-0 ${faqOpen ? "rotate-180" : ""}`}>⌄</span>
-              </button>
-            </div>
-
-            {/* FAQ accordion — placeholder copy, subbed in later */}
-            {faqOpen && (
-              <div className="mt-3 bg-white rounded-2xl border border-gray-100 divide-y divide-gray-100 overflow-hidden">
-                {FAQS.map((item, i) => {
-                  const open = openFaq === i;
-                  return (
-                    <div key={item.q}>
-                      <button
-                        onClick={() => setOpenFaq(open ? null : i)}
-                        aria-expanded={open}
-                        className="w-full flex items-center gap-3 px-4 py-3.5 text-left hover:bg-gray-50 transition-colors"
-                      >
-                        <span className="font-medium text-gray-800 text-sm flex-1">{item.q}</span>
-                        <span className={`text-gray-400 transition-transform flex-shrink-0 ${open ? "rotate-180" : ""}`}>⌄</span>
-                      </button>
-                      {open && (
-                        <p className="px-4 pb-4 -mt-1 text-sm text-gray-500 leading-relaxed">{item.a}</p>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </section>
-
-          {/* ── Discovery CTAs ────────────────────────────────────────────── */}
-          <section className="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {/* Matric Prep is Grade 12-only — hidden for every other learner. */}
-            {isGrade12 && (
+          {/* Matric Prep is Grade 12-only — hidden for every other learner. */}
+          {isGrade12 && (
+            <section className="mb-8">
               <button
                 onClick={handleMatricPrepClick}
                 className="w-full h-full bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
@@ -327,68 +218,8 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenLangPicker, onO
                   {hasMatricAccess ? "View →" : "Upgrade →"}
                 </span>
               </button>
-            )}
-
-            {mathsDone ? (
-              <button
-                onClick={() => setViewReport("maths")}
-                className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
-              >
-                <div className="flex-1 flex items-start gap-3">
-                  <span className="text-2xl">🧮</span>
-                  <div className="min-w-0">
-                    <p className="font-semibold text-white leading-tight">Maths Discovery</p>
-                    <p className="text-sm text-blue-50 mt-0.5 leading-snug">View your placement results</p>
-                  </div>
-                </div>
-                <span className="text-white font-semibold text-sm self-end mt-auto">View →</span>
-              </button>
-            ) : (
-              <button
-                onClick={() => onNavigate("discover-maths")}
-                className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
-              >
-                <div className="flex-1 flex items-start gap-3">
-                  <span className="text-2xl">🧮</span>
-                  <div className="min-w-0">
-                    <p className="font-semibold text-white leading-tight">Start Maths Discovery</p>
-                    <p className="text-sm text-blue-50 mt-0.5 leading-snug">Find your Maths level</p>
-                  </div>
-                </div>
-                <span className="text-white font-semibold text-sm self-end mt-auto">Start →</span>
-              </button>
-            )}
-
-            {readingDone ? (
-              <button
-                onClick={() => setViewReport("reading")}
-                className="w-full h-full bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
-              >
-                <div className="flex-1 flex items-start gap-3">
-                  <span className="text-2xl">📖</span>
-                  <div className="min-w-0">
-                    <p className="font-semibold text-white leading-tight">Reading Discovery</p>
-                    <p className="text-sm text-purple-50 mt-0.5 leading-snug">View your placement results</p>
-                  </div>
-                </div>
-                <span className="text-white font-semibold text-sm self-end mt-auto">View →</span>
-              </button>
-            ) : (
-              <button
-                onClick={() => onNavigate("discover-reading")}
-                className="w-full h-full bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
-              >
-                <div className="flex-1 flex items-start gap-3">
-                  <span className="text-2xl">📖</span>
-                  <div className="min-w-0">
-                    <p className="font-semibold text-white leading-tight">Start Reading Discovery</p>
-                    <p className="text-sm text-purple-50 mt-0.5 leading-snug">Find your Reading level</p>
-                  </div>
-                </div>
-                <span className="text-white font-semibold text-sm self-end mt-auto">Start →</span>
-              </button>
-            )}
-          </section>
+            </section>
+          )}
 
         </div>
       </div>

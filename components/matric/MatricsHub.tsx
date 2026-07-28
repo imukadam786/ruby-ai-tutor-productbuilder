@@ -94,7 +94,7 @@ export default function MatricsHub({ onNavigate }: MatricsHubProps) {
             <p className="text-gray-500 text-sm mt-1">Prepare for your matric exams with real papers and guides.</p>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 sm:gap-6">
+          <div className="grid grid-cols-1 gap-3 sm:gap-6">
             {CARDS.map((card) => (
               <MatricCard
                 key={card.label}

@@ -999,12 +999,10 @@ function SessionView({
     wasEvaluating.current = isEvaluating;
   }, [isEvaluating, mode]);
 
-  // Show scroll hint when question panel content overflows (mobile)
   useEffect(() => {
     const el = questionPanelRef.current;
     if (!el) return;
     el.scrollTop = 0;
-    setShowScrollHint(el.scrollHeight > el.clientHeight + 8);
   }, [currentIdx]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -1012,7 +1010,6 @@ function SessionView({
   const mathsInputRefs = useRef<Record<string, HTMLTextAreaElement | null>>({});
   const activeMathsKey = useRef<string | null>(null);
   const questionPanelRef = useRef<HTMLDivElement>(null);
-  const [showScrollHint, setShowScrollHint] = useState(false);
 
   const currentSQ = flatQuestions[currentIdx];
   const currentAttempt = attempts[currentSQ.id];
@@ -1606,10 +1603,6 @@ function SessionView({
             {/* Question text + diagram (scrollable together) */}
             <div
               ref={questionPanelRef}
-              onScroll={(e) => {
-                const el = e.currentTarget;
-                setShowScrollHint(el.scrollHeight - el.scrollTop > el.clientHeight + 20);
-              }}
               className="relative flex-shrink-0 overflow-y-auto border-b border-gray-100 max-h-[22%] sm:max-h-[38%] bg-rose-50/20"
             >
               {/* "QUESTION" badge — clear visual separator from answer area */}
@@ -1721,18 +1714,6 @@ function SessionView({
                       {currentAttempt.marksEarned}/{currentSQ.marks} marks earned
                     </span>
                   )}
-                </div>
-              )}
-
-              {/* Mobile scroll hint — only shown when content is clipped */}
-              {showScrollHint && (
-                <div className="sm:hidden sticky bottom-0 left-0 right-0 -mx-3 px-3 pt-4 pb-1.5 pointer-events-none bg-gradient-to-t from-rose-50 via-rose-50/90 to-transparent flex justify-center">
-                  <span className="animate-bounce flex items-center gap-1 text-[11px] font-semibold text-gray-400">
-                    Scroll for more
-                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
                 </div>
               )}
             </div>{/* end inner padding div */}
