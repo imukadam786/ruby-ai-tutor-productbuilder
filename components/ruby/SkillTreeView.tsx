@@ -140,6 +140,7 @@ export default function SkillTreeView({ profile, onReplaySkill, onContinue, onBa
     <SkillTreeShell
       accent="blue"
       title={t("nav.maths_skill_tree")}
+      backLabel="Maths"
       statline={statline}
       levels={levels}
       compact={compact}

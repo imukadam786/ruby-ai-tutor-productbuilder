@@ -13,7 +13,7 @@
 // `status` per skill plus an optional `onClick`. Accent colours are looked up
 // from a static map (Tailwind can't build class names dynamically).
 
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import EduBackground from "@/components/EduBackground";
 import RubyIcon from "@/components/ui/RubyIcon";
 import Gem from "@/components/ui/Gem";
@@ -47,37 +47,6 @@ function gemStateForStatus(status: SkillTreeStatus): GemState {
       return "rough";
   }
 }
-
-// When a tree renders inside the Subjects hub, it opts into a more compact
-// presentation: the header reads a plain "Skill Tree" (the subject name is
-// already shown by the card next to it), the panel is transparent (no nested
-// card / textured background), and an open level shows only the learner's
-// current sub-section (tier) until they choose to expand it. Every other
-// surface (standalone subject pages, the Progress page) leaves this `false`,
-// so nothing there changes.
-export interface HubTreeInfo {
-  inHub: boolean;
-  /** Subject thumbnail shown in the hub tree header (mirrors Ruby's chat avatar). */
-  thumbnail?: string;
-  /** Fallback emoji when a subject has no thumbnail image. */
-  emoji?: string;
-  /** Subject name shown as the hub header title (e.g. "Geography"). */
-  label?: string;
-  /** Subject accent gradient (Tailwind `from-*`/`to-*`) — paints the coloured
-   *  frame around the hub thumbnail so each subject reads by its own colour. */
-  accentFrom?: string;
-  accentTo?: string;
-}
-export const HubTreeContext = createContext<HubTreeInfo>({ inHub: false });
-
-// Statuses that mark a tier as "where the learner is working" — used to pick
-// the single tier shown when an open level is collapsed in the hub.
-const ACTIONABLE_STATUSES = new Set<SkillTreeStatus>([
-  "current",
-  "active",
-  "available",
-  "in_progress",
-]);
 
 export type SkillTreeAccent =
   | "blue"
@@ -153,6 +122,9 @@ export interface SkillTreeShellProps {
   levels: TreeLevel[];
   compact?: boolean;
   onBack?: () => void;
+  /** Short subject name for the back row, e.g. "Accounting" → "← Accounting".
+   *  Falls back to `title` if omitted. */
+  backLabel?: string;
   /** Compact-mode footer toggle ("View full tree" / "Show only current level"). */
   footerToggle?: { label: string; onClick: () => void };
   /** Optional note rendered above the levels (e.g. "this grade is coming soon"). */
@@ -493,31 +465,6 @@ function LevelCard({
 }) {
   const progress = level.progressPct;
   const isCurrent = !!level.isCurrent;
-  const inHub = useContext(HubTreeContext).inHub;
-
-  // In the hub, an open level previews only the focus tier the learner is working
-  // on, capped to a few skills — so every subject's card is the same compact size
-  // no matter how many topics/skills the level holds (content subjects can have
-  // 16+ per tier). The learner reveals the rest of the level with the toggle.
-  const HUB_PREVIEW_SKILLS = 3;
-  const [tiersExpanded, setTiersExpanded] = useState(false);
-  const focusTierIndex = (() => {
-    const next = level.tiers.findIndex((t) => t.skills.some((s) => ACTIONABLE_STATUSES.has(s.status)));
-    if (next >= 0) return next;
-    const firstUnlocked = level.tiers.findIndex((t) => t.skills.some((s) => s.status !== "locked"));
-    return firstUnlocked >= 0 ? firstUnlocked : 0;
-  })();
-  const focusTier = level.tiers[focusTierIndex];
-  // Start the preview at the actionable skill so "Start here" is always visible.
-  const previewSkills = (() => {
-    if (!focusTier) return [];
-    const firstActionable = focusTier.skills.findIndex((s) => ACTIONABLE_STATUSES.has(s.status));
-    const start = firstActionable > 0 ? firstActionable : 0;
-    return focusTier.skills.slice(start, start + HUB_PREVIEW_SKILLS);
-  })();
-  const totalSkills = level.tiers.reduce((n, t) => n + t.skills.length, 0);
-  const canCollapseTiers = inHub && totalSkills > previewSkills.length;
-  const showAllTiers = !canCollapseTiers || tiersExpanded;
 
   return (
     <div ref={innerRef}>
@@ -608,38 +555,16 @@ function LevelCard({
 
         {isOpen && (
           <div className="px-5 pb-4">
-            {showAllTiers ? (
-              level.tiers.map((tier) => (
-                <div key={tier.id} className="mt-3">
-                  <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">{tier.title}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {tier.skills.map((skill) => (
-                      <SkillTile key={skill.id} skill={skill} accent={accent} gemColor={gemColor} />
-                    ))}
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div className="mt-3">
-                {focusTier && (
-                  <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">{focusTier.title}</p>
-                )}
+            {level.tiers.map((tier) => (
+              <div key={tier.id} className="mt-3">
+                <p className="text-xs text-gray-400 font-medium uppercase tracking-wide mb-2">{tier.title}</p>
                 <div className="flex flex-wrap gap-2">
-                  {previewSkills.map((skill) => (
+                  {tier.skills.map((skill) => (
                     <SkillTile key={skill.id} skill={skill} accent={accent} gemColor={gemColor} />
                   ))}
                 </div>
               </div>
-            )}
-            {canCollapseTiers && (
-              <button
-                type="button"
-                onClick={() => setTiersExpanded((v) => !v)}
-                className="mt-3 text-xs font-semibold text-gray-500 hover:text-gray-700 transition-colors"
-              >
-                {tiersExpanded ? "Show less ▴" : `Show all ${totalSkills} skills ▾`}
-              </button>
-            )}
+            ))}
           </div>
         )}
       </div>
@@ -654,14 +579,13 @@ export default function SkillTreeShell({
   levels,
   compact,
   onBack,
+  backLabel,
   footerToggle,
   notice,
   emptyState,
 }: SkillTreeShellProps) {
   const accent = ACCENTS[accentName];
   const gemColor = GEM_HEX[accentName as GemColor] ?? RUBY;
-  const hub = useContext(HubTreeContext);
-  const inHub = hub.inHub;
 
   // Per-level expand/collapse, seeded from each level's defaultOpen flag.
   const [overrides, setOverrides] = useState<Record<string, boolean>>({});
@@ -669,14 +593,11 @@ export default function SkillTreeShell({
   const toggle = (lvl: TreeLevel) =>
     setOverrides((prev) => ({ ...prev, [String(lvl.id)]: !(prev[String(lvl.id)] ?? !!lvl.defaultOpen) }));
 
-  // Scroll the current level into view on full-page mounts (not compact embeds,
-  // so the Subjects / Progress pages aren't yanked around).
+  // Scroll the current level into view on full-page mounts (not compact embeds).
   const currentRef = useRef<HTMLDivElement | null>(null);
   const currentKey = levels.find((l) => l.isCurrent)?.id;
   useEffect(() => {
-    // The hub embeds trees mid-page; scrolling the current level into view
-    // would yank the whole Subjects page, so treat hub like compact here.
-    if (compact || inHub) return;
+    if (compact) return;
     const id = window.requestAnimationFrame(() => {
       currentRef.current?.scrollIntoView({ block: "start", behavior: "auto" });
     });
@@ -713,54 +634,10 @@ export default function SkillTreeShell({
     </div>
   );
 
-  // ── Hub presentation ──────────────────────────────────────────────────────
-  // Inside the Subjects hub there's no header bar and no subject title: the
-  // learner sees only the subject thumbnail (with the stat-line beneath it) and
-  // the skill-tree card beside it. The thumbnail is a fixed square — pinned to
-  // the top, NOT stretched to the tree's height — so every subject's card reads
-  // at the same size regardless of how tall its tree is. On mobile they stack.
-  if (inHub) {
-    const thumb = hub.thumbnail ? (
-      <img src={hub.thumbnail} alt={hub.label ?? ""} className="w-full h-full object-cover" />
-    ) : (
-      <div className="w-full h-full bg-gray-50 flex items-center justify-center text-5xl">
-        {hub.emoji ?? "📘"}
-      </div>
-    );
-
-    return (
-      <div className="relative isolate">
-        <div className="flex flex-col md:flex-row md:items-start gap-4">
-          {/* Left: fixed-square thumbnail + stat-line. Just the image — no frame,
-              border or padding — and a constant size across every subject. */}
-          <div className="flex flex-col items-center md:items-stretch md:w-48 lg:w-56 md:flex-shrink-0">
-            <div className="w-40 aspect-square md:w-full md:aspect-square rounded-2xl overflow-hidden">
-              {thumb}
-            </div>
-            {statline && (
-              <p className="text-center text-xs text-gray-500 mt-2">{statline}</p>
-            )}
-          </div>
-
-          {/* Right: the skill-tree card */}
-          <div className="flex-1 min-w-0">{body}</div>
-        </div>
-      </div>
-    );
-  }
-
-  // ── Standalone / full-page presentation ───────────────────────────────────
   return (
     <div className={`relative isolate bg-gray-50 ${compact ? "" : "flex flex-col h-full"}`}>
       <div className="absolute inset-0 -z-10">
         <EduBackground />
-      </div>
-
-      <div className={`border-b px-6 py-4 ${accent.headerBg} hidden md:block`}>
-        <div className="min-w-0">
-          <h2 className={`font-semibold text-lg ${accent.headerTitle}`}>{title}</h2>
-          {statline && <p className={`text-sm ${accent.headerSub}`}>{statline}</p>}
-        </div>
       </div>
 
       <div className={compact ? "p-6" : "flex-1 overflow-y-auto p-6"}>
@@ -770,7 +647,7 @@ export default function SkillTreeShell({
               onClick={onBack}
               className="text-sm font-semibold text-[#1a2744] hover:text-brand flex items-center gap-1"
             >
-              ← Subjects
+              ← {backLabel ?? title}
             </button>
           </div>
         )}

@@ -18,9 +18,20 @@ import type {
   LifeOrientationSpSkillTree,
   LifeOrientationSpStudentProfile,
 } from "@/types/life-orientation-sp";
-import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
 
 const tree = lifeOrientationSpSkillTreeData as unknown as LifeOrientationSpSkillTree;
+
+/** Stats for the subject landing screen, without mounting the tree. */
+export function getLifeOrientationSpStats(grade: number, profile: LifeOrientationSpStudentProfile | null) {
+  return computeGradeTreeStats(
+    tree,
+    grade,
+    seedForGrade,
+    (id) => getLifeOrientationSpSkillStatus(id, profile),
+    (ids) => (profile ? getLifeOrientationSpLevelProgress(ids, profile.skill_mastery) : 0)
+  );
+}
 
 interface LifeOrientationSpSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -39,6 +50,7 @@ export default function LifeOrientationSpSkillTreeView({
     <GradeLockedSkillTree
       accent="lime"
       title="Life Orientation Skill Tree"
+      backLabel="Life Orientation"
       subhead="Development of the self · Health & responsibility · Constitutional rights · World of work · master each topic at 75%"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

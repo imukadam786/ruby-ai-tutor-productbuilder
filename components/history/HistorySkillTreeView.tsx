@@ -15,9 +15,20 @@ import {
   getHistoryLevelProgress,
 } from "@/lib/history-student-model";
 import type { HistorySkillTree, HistoryStudentProfile } from "@/types/history";
-import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
 
 const tree = historySkillTreeData as unknown as HistorySkillTree;
+
+/** Stats for the subject landing screen, without mounting the tree. */
+export function getHistoryStats(grade: number, profile: HistoryStudentProfile | null) {
+  return computeGradeTreeStats(
+    tree,
+    grade,
+    seedForGrade,
+    (id) => getHistorySkillStatus(id, profile),
+    (ids) => (profile ? getHistoryLevelProgress(ids, profile.skill_mastery) : 0)
+  );
+}
 
 interface HistorySkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -36,6 +47,7 @@ export default function HistorySkillTreeView({
     <GradeLockedSkillTree
       accent="amber"
       title="History Skill Tree"
+      backLabel="History"
       subhead="Mastery 75% · 20 questions per topic"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

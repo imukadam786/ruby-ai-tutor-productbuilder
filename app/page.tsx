@@ -133,6 +133,21 @@ const FEATURE_TUTORIAL_KEYS: Partial<Record<ActiveView, string>> = {
   progress:          "ruby_tut_progress",
 };
 
+// Every subject's learning-path (tree) view — the mobile top bar (gems/
+// language) is hidden here, and on a subject's landing screen, so the
+// simplified "← Subject" header is the only thing competing for attention.
+const HIDE_MOBILE_BAR_VIEWS = new Set<ActiveView>([
+  "skill-tree", "reading-skill-tree",
+  "life-skills-skill-tree", "afrikaans-fal-skill-tree",
+  "social-sciences-skill-tree", "natural-sciences-tech-skill-tree",
+  "matric-phys-sci-skill-tree", "grade-10-phys-sci-skill-tree", "grade-11-phys-sci-skill-tree",
+  "maths-literacy-skill-tree", "life-sciences-skill-tree", "history-skill-tree",
+  "business-studies-skill-tree", "accounting-skill-tree", "economics-skill-tree",
+  "technology-sp-skill-tree", "life-orientation-sp-skill-tree", "creative-arts-sp-skill-tree",
+  "tourism-skill-tree", "geography-skill-tree", "natural-sciences-sp-skill-tree",
+  "social-sciences-sp-skill-tree", "ems-sp-skill-tree",
+]);
+
 // Views where the learner answers questions ("skill questions"). Freebie users
 // see their daily usage counters pinned to the top of these (chat shows its own
 // counters in its header, so it's intentionally excluded here).
@@ -161,6 +176,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
   const [rubyProfile, setRubyProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [showLangPicker, setShowLangPicker] = useState(false);
+  // Whether the Subjects tab is showing a subject's landing screen (vs. the
+  // grid) — drives hiding the mobile top bar there too, alongside every tree view.
+  const [subjectsHubOnLanding, setSubjectsHubOnLanding] = useState(false);
   const [survey, setSurvey] = useState<{ type: "maths" | "reading" | "chat" } | null>(null);
   const [activeTutorial, setActiveTutorial] = useState<ActiveView | null>(null);
   const [userPlan, setUserPlan] = useState<string | null>(null);
@@ -487,7 +505,10 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       {/* Live "🔥 N in a row" combo pill — driven by the server combo */}
       <ComboIndicator />
 
-      {/* Mobile top bar — in normal flow so banner shows above it */}
+      {/* Mobile top bar — in normal flow so banner shows above it. Hidden on
+          every subject learning-path screen and subject landing screen, so
+          the simplified local header is the only thing up top there. */}
+      {!(HIDE_MOBILE_BAR_VIEWS.has(activeView) || (activeView === "subjects" && subjectsHubOnLanding)) && (
       <header className="md:hidden flex-shrink-0 bg-white border-b border-gray-200 px-4 py-2 flex items-center gap-3 shadow-sm z-30">
         {/* Hamburger retired on mobile — navigation now lives in the bottom bar
             (MobileBottomNav). The drawer Sidebar stays for md+ only. */}
@@ -516,6 +537,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           </button>
         )}
       </header>
+      )}
 
       {/* Inner row: sidebar + main content side by side */}
       <div className="flex flex-1 overflow-hidden min-h-0">
@@ -656,7 +678,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           window.location.reload();
         }} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
-        {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}
+        {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} onModeChange={(mode) => setSubjectsHubOnLanding(mode === "landing")} />}
         {activeView === "matrics" && <MatricsHub onNavigate={handleViewChange} />}
         {activeView === "matric" && <MatricPastPapers onBack={() => handleViewChange("matrics")} onPractiseSkill={handlePractiseSkill} />}
         {activeView === "prep-papers-2026" && <PrepPapers2026 onBack={() => handleViewChange("matrics")} />}

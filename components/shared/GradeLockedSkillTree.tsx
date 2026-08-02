@@ -29,10 +29,36 @@ interface GradeLevel {
   tiers: GradeTier[];
 }
 
+/** Pure mastered/total/progress computation for a grade-locked subject, usable
+ *  without mounting the tree (e.g. for a subject landing screen's stats line).
+ *  Mirrors the calculation GradeLockedSkillTree does internally. */
+export function computeGradeTreeStats(
+  tree: { levels: GradeLevel[] },
+  grade: number,
+  seedForGrade: (grade: number) => { level: number; belowContent?: boolean; beyondContent?: boolean },
+  statusFor: (skillId: string) => BaseStatus,
+  progressFor: (skillIds: string[]) => number
+): { grade: number; mastered: number; total: number; progress: number } {
+  const seed = seedForGrade(grade);
+  const level = tree.levels.find((l) => l.id === seed.level);
+  if (!level) return { grade: seed.level, mastered: 0, total: 0, progress: 0 };
+  let mastered = 0;
+  const ids: string[] = [];
+  for (const tier of level.tiers) {
+    for (const skill of tier.atomic_skills) {
+      ids.push(skill.id);
+      if (statusFor(skill.id) === "mastered") mastered += 1;
+    }
+  }
+  return { grade: seed.level, mastered, total: ids.length, progress: progressFor(ids) };
+}
+
 export interface GradeLockedSkillTreeProps {
   accent: SkillTreeAccent;
   /** Header title, e.g. "History Skill Tree". */
   title: string;
+  /** Short subject name for the back row, e.g. "History" → "← History". */
+  backLabel?: string;
   /** Level-card sub-line, e.g. "Mastery 75% · 20 questions per topic". */
   subhead?: string;
   tree: { levels: GradeLevel[] };
@@ -54,6 +80,7 @@ export interface GradeLockedSkillTreeProps {
 export default function GradeLockedSkillTree({
   accent,
   title,
+  backLabel,
   subhead,
   tree,
   defaultGrade,
@@ -154,6 +181,7 @@ export default function GradeLockedSkillTree({
     <SkillTreeShell
       accent={accent}
       title={title}
+      backLabel={backLabel}
       statline={
         CONCEPT_C
           ? `Gems to collect · ${mastered}/${total}`

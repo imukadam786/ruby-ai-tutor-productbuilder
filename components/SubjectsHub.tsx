@@ -1,7 +1,6 @@
 "use client";
 
-import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
-import dynamic from "next/dynamic";
+import { useEffect, useMemo, useState } from "react";
 import { ActiveView } from "@/types";
 import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
 import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
@@ -36,8 +35,9 @@ import type { MathsLiteracyStudentProfile } from "@/types/maths-literacy";
 import { ReadingStudentProfile } from "@/types/reading";
 import { StudentProfile } from "@/types/ruby";
 import EduBackground from "@/components/EduBackground";
-import { HubTreeContext } from "@/components/shared/SkillTreeShell";
-import Button from "@/components/ui/Button";
+import SavedReportView from "@/components/SavedReportView";
+import DiscoverCard from "@/components/shared/DiscoverCard";
+import { supabase } from "@/lib/supabase";
 import { CONCEPT_C } from "@/lib/flags";
 import { useT } from "@/lib/i18n";
 import {
@@ -111,30 +111,7 @@ import type { TechnologySpStudentProfile } from "@/types/technology-sp";
 import type { LifeOrientationSpStudentProfile } from "@/types/life-orientation-sp";
 import type { CreativeArtsSpStudentProfile } from "@/types/creative-arts-sp";
 
-const SkillTreeView           = dynamic(() => import("@/components/ruby/SkillTreeView"),                       { ssr: false });
-const ReadingSkillTreeView    = dynamic(() => import("@/components/reading/ReadingSkillTreeView"),             { ssr: false });
-const LifeSkillsSkillTreeView = dynamic(() => import("@/components/life-skills/LifeSkillsSkillTreeView"),     { ssr: false });
-const AfrikaansSkillTreeView  = dynamic(() => import("@/components/afrikaans/AfrikaansSkillTreeView"),         { ssr: false });
-const SocialSciencesSkillTreeView = dynamic(() => import("@/components/social-sciences/SocialSciencesSkillTreeView"), { ssr: false });
-const NstSkillTreeView        = dynamic(() => import("@/components/nst/NstSkillTreeView"),                     { ssr: false });
-const MatricPhysSciSkillTreeView = dynamic(() => import("@/components/matric-phys-sci/MatricPhysSciSkillTreeView"), { ssr: false });
-const MathsLiteracySkillTreeView = dynamic(() => import("@/components/maths-literacy/MathsLiteracySkillTreeView"), { ssr: false });
-const LifeSciencesSkillTreeView    = dynamic(() => import("@/components/life-sciences/LifeSciencesSkillTreeView"),       { ssr: false });
-const HistorySkillTreeView         = dynamic(() => import("@/components/history/HistorySkillTreeView"),                 { ssr: false });
-const BusinessStudiesSkillTreeView = dynamic(() => import("@/components/business-studies/BusinessStudiesSkillTreeView"), { ssr: false });
-const TourismSkillTreeView         = dynamic(() => import("@/components/tourism/TourismSkillTreeView"),                 { ssr: false });
-const GeographySkillTreeView       = dynamic(() => import("@/components/geography/GeographySkillTreeView"),             { ssr: false });
-const NaturalSciencesSpSkillTreeView = dynamic(() => import("@/components/natural-sciences-sp/NaturalSciencesSpSkillTreeView"), { ssr: false });
-const SocialSciencesSpSkillTreeView = dynamic(() => import("@/components/social-sciences-sp/SocialSciencesSpSkillTreeView"), { ssr: false });
-const EmsSpSkillTreeView = dynamic(() => import("@/components/ems-sp/EmsSpSkillTreeView"), { ssr: false });
-const AccountingSkillTreeView = dynamic(() => import("@/components/accounting/AccountingSkillTreeView"), { ssr: false });
-const EconomicsSkillTreeView = dynamic(() => import("@/components/economics/EconomicsSkillTreeView"), { ssr: false });
-const TechnologySpSkillTreeView = dynamic(() => import("@/components/technology-sp/TechnologySpSkillTreeView"), { ssr: false });
-const LifeOrientationSpSkillTreeView = dynamic(() => import("@/components/life-orientation-sp/LifeOrientationSpSkillTreeView"), { ssr: false });
-const CreativeArtsSpSkillTreeView = dynamic(() => import("@/components/creative-arts-sp/CreativeArtsSpSkillTreeView"), { ssr: false });
-
 type SubjectId =
-  | "discover"
   | "maths"
   | "english"
   | "life-skills"
@@ -161,7 +138,43 @@ type SubjectId =
 
 interface SubjectsHubProps {
   onNavigate: (view: ActiveView) => void;
+  /** Fires when the hub switches between the subject grid and a subject
+   *  landing screen, so the app shell can hide its mobile top bar there. */
+  onModeChange?: (mode: "grid" | "landing") => void;
 }
+
+// Where "Continue Learning" on a subject's landing screen should go, and which
+// stashed target-skill key (if any) to clear first so it resumes naturally
+// instead of jumping back to a specific topic from a previous visit. Mirrors
+// the navigation targets `startContentSkill` used inside the old compact tree.
+const CONTINUE_TARGET: Partial<Record<SubjectId, { view: ActiveView; key?: string }>> = {
+  "life-skills": { view: "life-skills", key: "ruby_life-skills_target_skill" },
+  afrikaans: { view: "afrikaans-fal", key: "ruby_afrikaans_target_skill" },
+  "social-sciences": { view: "social-sciences", key: "ruby_social-sciences_target_skill" },
+  nst: { view: "natural-sciences-tech", key: "ruby_nst_target_skill" },
+  "matric-phys-sci": { view: "matric-phys-sci" },
+  "grade-10-phys-sci": { view: "grade-10-phys-sci" },
+  "grade-11-phys-sci": { view: "grade-11-phys-sci" },
+  "life-sciences": { view: "life-sciences", key: "ruby_life-sciences_target_skill" },
+  history: { view: "history", key: "ruby_history_target_skill" },
+  "business-studies": { view: "business-studies", key: "ruby_business-studies_target_skill" },
+  accounting: { view: "accounting", key: "ruby_accounting_target_skill" },
+  economics: { view: "economics", key: "ruby_economics_target_skill" },
+  tourism: { view: "tourism", key: "ruby_tourism_target_skill" },
+  geography: { view: "geography", key: "ruby_geography_target_skill" },
+  "natural-sciences-sp": { view: "natural-sciences-sp", key: "ruby_natural_sciences_sp_target_skill" },
+  "social-sciences-sp": { view: "social-sciences-sp", key: "ruby_social_sciences_sp_target_skill" },
+  "ems-sp": { view: "ems-sp", key: "ruby_ems_sp_target_skill" },
+  "technology-sp": { view: "technology-sp", key: "ruby_technology_sp_target_skill" },
+  "life-orientation-sp": { view: "life-orientation-sp", key: "ruby_life_orientation_sp_target_skill" },
+  "creative-arts-sp": { view: "creative-arts-sp", key: "ruby_creative_arts_sp_target_skill" },
+};
+
+// Remembers which subject landing screen was open across a tree-page round
+// trip, since the tree's own "← Subject" back button always returns to the
+// Subjects tab fresh — without this, the learner would land back on the grid
+// instead of the subject page they came from.
+const LANDING_BREADCRUMB_KEY = "ruby_subjects_landing_id";
 
 // The learner's authorised grade is only fetchable over the network, so the
 // first hub paint would otherwise show all 13 subjects, then reflow down to the
@@ -174,43 +187,6 @@ function readCachedGrade(): number | null {
   return !isNaN(n) && n >= 1 && n <= 12 ? n : null;
 }
 
-
-// Defers mounting a subject's (heavy) skill tree until it nears the viewport, so
-// opening the Subjects tab paints instantly instead of mounting every tree (and
-// its curriculum data) at once. The first couple render eagerly (above the fold).
-function LazyMount({
-  children,
-  eager = false,
-  minHeight = 300,
-}: {
-  children: ReactNode;
-  eager?: boolean;
-  minHeight?: number;
-}) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [shown, setShown] = useState(eager);
-  useEffect(() => {
-    if (shown) return;
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setShown(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "600px 0px" }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [shown]);
-  return (
-    <div ref={ref} style={shown ? undefined : { minHeight }}>
-      {shown ? children : null}
-    </div>
-  );
-}
 
 interface SubjectMeta {
   id: SubjectId;
@@ -225,7 +201,7 @@ interface SubjectMeta {
   navigateTo: ActiveView;
 }
 
-export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
+export default function SubjectsHub({ onNavigate, onModeChange }: SubjectsHubProps) {
   const { t } = useT();
   // Every profile and the grade are seeded synchronously from the local cache so
   // the trees paint with the learner's real progress (and the right subject
@@ -235,9 +211,12 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(() => getReadingProfile());
   const [mathsLiteracyProfile, setMathsLiteracyProfile] = useState<MathsLiteracyStudentProfile | null>(() => getMathsLiteracyProfile());
   // Subjects hub navigation: null = the standalone subject-card grid; a subject
-  // id = that card tapped open, showing its condensed tree until the learner
-  // taps "Open full tree" to go to the subject's own page.
-  const [expandedId, setExpandedId] = useState<SubjectId | null>(null);
+  // id = that card tapped open, showing its landing screen (Continue Learning
+  // hero + stats + Learning path link) until the learner taps "← Subjects".
+  const [landingId, setLandingId] = useState<SubjectId | null>(null);
+  const [landingStats, setLandingStats] = useState<{ grade: number; mastered: number; total: number; progress: number } | null>(null);
+  const [userPlan, setUserPlan] = useState<string>("freebie");
+  const [discoverViewReport, setDiscoverViewReport] = useState<"maths" | "reading" | null>(null);
   const [businessStudiesProfile, setBusinessStudiesProfile] = useState<BusinessStudiesStudentProfile | null>(() => loadBusinessStudiesProfile());
   const [lifeSciencesProfile, setLifeSciencesProfile] = useState<LifeSciencesStudentProfile | null>(() => loadLifeSciencesProfile());
   const [historyProfile, setHistoryProfile] = useState<HistoryStudentProfile | null>(() => loadHistoryProfile());
@@ -292,6 +271,35 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     return () => window.removeEventListener(SUBJECTS_UPDATED_EVENT, onUpdated);
   }, []);
 
+  // Restore whichever subject landing screen was open, so a round trip through
+  // that subject's full-page tree ("← Subject") returns here instead of the grid.
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem(LANDING_BREADCRUMB_KEY);
+      if (saved) setLandingId(saved as SubjectId);
+    } catch { /* ignore */ }
+  }, []);
+  useEffect(() => {
+    try {
+      if (landingId) sessionStorage.setItem(LANDING_BREADCRUMB_KEY, landingId);
+      else sessionStorage.removeItem(LANDING_BREADCRUMB_KEY);
+    } catch { /* ignore */ }
+  }, [landingId]);
+
+  // Plan (freebie vs paid) drives the Discover freebie-lock on the Maths/
+  // Reading landing screens, mirroring DiscoverHub's own gating.
+  useEffect(() => {
+    supabase.auth.getUser().then(async ({ data: { user } }) => {
+      if (!user) return;
+      const { data } = await supabase
+        .from("subscriptions")
+        .select("plan, status")
+        .eq("user_id", user.id)
+        .maybeSingle();
+      setUserPlan(data?.status === "active" && data?.plan ? data.plan : "freebie");
+    });
+  }, []);
+
   // Background refresh for the FET content-subject profiles (already seeded from
   // the local copy above). Only overwrite when Supabase returns a newer mirror.
   useEffect(() => {
@@ -333,6 +341,42 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       cancelled = true;
     };
   }, []);
+
+  // Landing-screen stats (mastered/total/progress) for whichever subject is
+  // open. Dynamically imports just that subject's module — same chunk the
+  // lazy tree view already uses — so opening the Subjects tab never pulls in
+  // every subject's curriculum data up front.
+  useEffect(() => {
+    if (!landingId) { setLandingStats(null); return; }
+    let cancelled = false;
+    setLandingStats(null);
+    const g = grade ?? 10;
+    const load = async (): Promise<{ grade: number; mastered: number; total: number; progress: number } | null> => {
+      switch (landingId) {
+        case "accounting": return (await import("@/components/accounting/AccountingSkillTreeView")).getAccountingStats(g, accountingProfile);
+        case "technology-sp": return (await import("@/components/technology-sp/TechnologySpSkillTreeView")).getTechnologySpStats(g, technologySpProfile);
+        case "tourism": return (await import("@/components/tourism/TourismSkillTreeView")).getTourismStats(g, tourismProfile);
+        case "social-sciences-sp": return (await import("@/components/social-sciences-sp/SocialSciencesSpSkillTreeView")).getSocialSciencesSpStats(g, socialSciencesSpProfile);
+        case "natural-sciences-sp": return (await import("@/components/natural-sciences-sp/NaturalSciencesSpSkillTreeView")).getNaturalSciencesSpStats(g, naturalSciencesSpProfile);
+        case "life-sciences": return (await import("@/components/life-sciences/LifeSciencesSkillTreeView")).getLifeSciencesStats(g, lifeSciencesProfile);
+        case "life-orientation-sp": return (await import("@/components/life-orientation-sp/LifeOrientationSpSkillTreeView")).getLifeOrientationSpStats(g, lifeOrientationSpProfile);
+        case "history": return (await import("@/components/history/HistorySkillTreeView")).getHistoryStats(g, historyProfile);
+        case "ems-sp": return (await import("@/components/ems-sp/EmsSpSkillTreeView")).getEmsSpStats(g, emsSpProfile);
+        case "geography": return (await import("@/components/geography/GeographySkillTreeView")).getGeographyStats(g, geographyProfile);
+        case "economics": return (await import("@/components/economics/EconomicsSkillTreeView")).getEconomicsStats(g, economicsProfile);
+        case "creative-arts-sp": return (await import("@/components/creative-arts-sp/CreativeArtsSpSkillTreeView")).getCreativeArtsSpStats(g, creativeArtsSpProfile);
+        case "business-studies": return (await import("@/components/business-studies/BusinessStudiesSkillTreeView")).getBusinessStudiesStats(g, businessStudiesProfile);
+        default: return null;
+      }
+    };
+    load().then((stats) => { if (!cancelled) setLandingStats(stats); });
+    return () => { cancelled = true; };
+  }, [
+    landingId, grade,
+    accountingProfile, technologySpProfile, tourismProfile, socialSciencesSpProfile,
+    naturalSciencesSpProfile, lifeSciencesProfile, lifeOrientationSpProfile, historyProfile,
+    emsSpProfile, geographyProfile, economicsProfile, creativeArtsSpProfile, businessStudiesProfile,
+  ]);
 
   // Fail open: when the learner's grade can't be read (e.g. a legacy account
   // with no saved grade), show every subject rather than silently defaulting
@@ -426,39 +470,14 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
       ).length
     : 0;
 
-  const discoverBadge = loading
-    ? "..."
-    : mathsDone && readingDone
-    ? "Both done"
-    : mathsDone || readingDone
-    ? "1 of 2 done"
-    : "Not started";
-
   const mathsBadge = loading ? "..." : mathsDone ? `${mathsMastered} mastered` : "Not started";
   const readingBadge = loading ? "..." : readingDone ? `${readingMastered} mastered` : "Not started";
 
-  const discoverBadgeColor =
-    mathsDone && readingDone
-      ? "bg-green-100 text-green-700"
-      : mathsDone || readingDone
-      ? "bg-amber-100 text-amber-700"
-      : "bg-gray-100 text-gray-600";
   const mathsBadgeColor = mathsDone ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600";
   const readingBadgeColor = readingDone ? "bg-purple-100 text-purple-700" : "bg-gray-100 text-gray-600";
 
   const subjects = useMemo<SubjectMeta[]>(() => {
     const all: SubjectMeta[] = [
-      {
-        id: "discover",
-        thumbnail: "/thumbnails/discover.webp",
-        label: "Discover",
-        caption: "Take the placement and find your starting point",
-        badge: discoverBadge,
-        badgeColor: discoverBadgeColor,
-        accentFrom: "from-slate-600",
-        accentTo: "to-slate-700",
-        navigateTo: "discover",
-      },
       {
         id: "maths",
         thumbnail: "/thumbnails/mathematics.webp",
@@ -765,17 +784,11 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
           return !key || selectedSubjects.includes(key);
         })
       : all;
-    // "Discover" is the placement entry point, not a curriculum subject, so it
-    // stays pinned at the top. Every real subject is then ordered alphabetically
-    // by label — the same order for every grade.
-    const pinned = fetFiltered.filter((s) => s.id === "discover");
-    const rest = fetFiltered
-      .filter((s) => s.id !== "discover")
-      .sort((a, b) => a.label.localeCompare(b.label));
-    return [...pinned, ...rest];
+    // Every subject is ordered alphabetically by label — the same order for
+    // every grade.
+    return [...fetFiltered].sort((a, b) => a.label.localeCompare(b.label));
   }, [
     grade, selectedSubjects,
-    discoverBadge, discoverBadgeColor,
     mathsBadge, mathsBadgeColor,
     readingBadge, readingBadgeColor,
     showLifeSkills, showAfrikaans, showSocialSciences, showNst, physSciCardId,
@@ -799,15 +812,7 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   // tap-to-save badge on metered/unknown connections). See lib/offline/.
   const offline = useOfflineDownload(useMemo(() => subjects.map((s) => s.id), [subjects]));
 
-  // ── Maths / Reading replay + continue handlers (mirror app/page.tsx logic) ──
-  const startMathsReplay = (skillId: string) => {
-    if (typeof window !== "undefined") sessionStorage.setItem("ruby_maths_replay_skill", skillId);
-    onNavigate("ruby");
-  };
-  const startReadingReplay = (skillId: string) => {
-    if (typeof window !== "undefined") sessionStorage.setItem("ruby_reading_replay_skill", skillId);
-    onNavigate("reading");
-  };
+  // ── Maths / Reading / Maths-Literacy continue handlers (mirror app/page.tsx) ──
   const continueMaths = () => {
     if (typeof window !== "undefined") sessionStorage.removeItem("ruby_maths_replay_skill");
     onNavigate("ruby");
@@ -816,215 +821,31 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
     if (typeof window !== "undefined") sessionStorage.removeItem("ruby_reading_replay_skill");
     onNavigate("reading");
   };
-  const startAfrikaansSkill = (skillId: string) => {
-    if (typeof window !== "undefined") sessionStorage.setItem("ruby_afrikaans_target_skill", skillId);
-    onNavigate("afrikaans-fal");
-  };
-  const startMathsLiteracyReplay = (skillId: string) => {
-    if (typeof window !== "undefined") sessionStorage.setItem("ruby_maths_literacy_replay_skill", skillId);
-    onNavigate("maths-literacy");
-  };
   const continueMathsLiteracy = () => {
     if (typeof window !== "undefined") sessionStorage.removeItem("ruby_maths_literacy_replay_skill");
     onNavigate("maths-literacy");
   };
-  // Content subjects (FET + Life Skills / Social Sciences / NST): tapping a
-  // topic stashes its id, then that subject's session reads the key on mount
-  // and opens straight into the topic's questions — skipping its topic picker.
-  const startContentSkill = (view: ActiveView, key: string) => (skillId: string) => {
-    if (typeof window !== "undefined") sessionStorage.setItem(key, skillId);
-    onNavigate(view);
+  // "Continue Learning" on a subject's landing screen — clears any stashed
+  // target-skill first so it resumes naturally rather than jumping to a
+  // specific topic left over from a previous visit.
+  const continueLanding = () => {
+    if (!landingId) return;
+    if (landingId === "maths") return continueMaths();
+    if (landingId === "english") return continueReading();
+    if (landingId === "maths-literacy") return continueMathsLiteracy();
+    const target = CONTINUE_TARGET[landingId];
+    if (!target) return;
+    if (typeof window !== "undefined" && target.key) sessionStorage.removeItem(target.key);
+    onNavigate(target.view);
   };
 
-  function renderSubjectPanel(subject: SubjectMeta) {
-    switch (subject.id) {
-      case "discover":
-        return (
-          <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-5 flex flex-col items-center text-center gap-3">
-            <div className="text-3xl">🧭</div>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              Discovery places you on the right starting rung of the Maths and Reading skill trees.
-            </p>
-            <button
-              onClick={() => onNavigate("discover")}
-              className="px-4 py-2 rounded-full bg-brand hover:bg-brand-hover text-white font-semibold text-sm transition-colors shadow-sm"
-            >
-              {mathsDone && readingDone ? "View placement results →" : "Open Discover →"}
-            </button>
-          </div>
-        );
-      case "maths":
-        return (
-          <SkillTreeView
-            profile={mathsProfile}
-            onReplaySkill={startMathsReplay}
-            onContinue={continueMaths}
-            compact
-          />
-        );
-      case "english":
-        return (
-          <ReadingSkillTreeView
-            profile={readingProfile}
-            onReplaySkill={startReadingReplay}
-            onContinue={continueReading}
-            compact
-          />
-        );
-      case "life-skills":
-        return (
-          <LifeSkillsSkillTreeView
-            onPickTopic={startContentSkill("life-skills", "ruby_life-skills_target_skill")}
-            compact
-          />
-        );
-      case "afrikaans":
-        return (
-          <AfrikaansSkillTreeView
-            onPickSkill={startAfrikaansSkill}
-            profile={afrikaansProfile}
-            compact
-          />
-        );
-      case "social-sciences":
-        return (
-          <SocialSciencesSkillTreeView
-            onPickTopic={startContentSkill("social-sciences", "ruby_social-sciences_target_skill")}
-            compact
-          />
-        );
-      case "nst":
-        return (
-          <NstSkillTreeView
-            onPickTopic={startContentSkill("natural-sciences-tech", "ruby_nst_target_skill")}
-            compact
-          />
-        );
-      case "matric-phys-sci":
-        return <MatricPhysSciSkillTreeView onPickSkill={() => onNavigate("matric-phys-sci")} compact />;
-      case "grade-10-phys-sci":
-        return <MatricPhysSciSkillTreeView grade={10} onPickSkill={() => onNavigate("grade-10-phys-sci")} compact />;
-      case "grade-11-phys-sci":
-        return <MatricPhysSciSkillTreeView grade={11} onPickSkill={() => onNavigate("grade-11-phys-sci")} compact />;
-      case "maths-literacy":
-        return (
-          <MathsLiteracySkillTreeView
-            profile={mathsLiteracyProfile}
-            onReplaySkill={startMathsLiteracyReplay}
-            onContinue={continueMathsLiteracy}
-            compact
-          />
-        );
-      // FET content subjects: render the real tree inline. Tapping a topic
-      // opens straight into that topic's questions (every topic is unlocked).
-      case "life-sciences":
-        return (
-          <LifeSciencesSkillTreeView
-            onPickSkill={startContentSkill("life-sciences", "ruby_life-sciences_target_skill")}
-            profile={lifeSciencesProfile}
-            compact
-          />
-        );
-      case "history":
-        return (
-          <HistorySkillTreeView
-            onPickSkill={startContentSkill("history", "ruby_history_target_skill")}
-            profile={historyProfile}
-            compact
-          />
-        );
-      case "business-studies":
-        return (
-          <BusinessStudiesSkillTreeView
-            onPickSkill={startContentSkill("business-studies", "ruby_business-studies_target_skill")}
-            profile={businessStudiesProfile}
-            compact
-          />
-        );
-      case "accounting":
-        return (
-          <AccountingSkillTreeView
-            onPickSkill={startContentSkill("accounting", "ruby_accounting_target_skill")}
-            profile={accountingProfile}
-            compact
-          />
-        );
-      case "economics":
-        return (
-          <EconomicsSkillTreeView
-            onPickSkill={startContentSkill("economics", "ruby_economics_target_skill")}
-            profile={economicsProfile}
-            compact
-          />
-        );
-      case "tourism":
-        return (
-          <TourismSkillTreeView
-            onPickSkill={startContentSkill("tourism", "ruby_tourism_target_skill")}
-            profile={tourismProfile}
-            compact
-          />
-        );
-      case "geography":
-        return (
-          <GeographySkillTreeView
-            onPickSkill={startContentSkill("geography", "ruby_geography_target_skill")}
-            profile={geographyProfile}
-            compact
-          />
-        );
-      case "natural-sciences-sp":
-        return (
-          <NaturalSciencesSpSkillTreeView
-            onPickSkill={startContentSkill("natural-sciences-sp", "ruby_natural_sciences_sp_target_skill")}
-            profile={naturalSciencesSpProfile}
-            compact
-          />
-        );
-      case "social-sciences-sp":
-        return (
-          <SocialSciencesSpSkillTreeView
-            onPickSkill={startContentSkill("social-sciences-sp", "ruby_social_sciences_sp_target_skill")}
-            profile={socialSciencesSpProfile}
-            compact
-          />
-        );
-      case "ems-sp":
-        return (
-          <EmsSpSkillTreeView
-            onPickSkill={startContentSkill("ems-sp", "ruby_ems_sp_target_skill")}
-            profile={emsSpProfile}
-            compact
-          />
-        );
-      case "technology-sp":
-        return (
-          <TechnologySpSkillTreeView
-            onPickSkill={startContentSkill("technology-sp", "ruby_technology_sp_target_skill")}
-            profile={technologySpProfile}
-            compact
-          />
-        );
-      case "life-orientation-sp":
-        return (
-          <LifeOrientationSpSkillTreeView
-            onPickSkill={startContentSkill("life-orientation-sp", "ruby_life_orientation_sp_target_skill")}
-            profile={lifeOrientationSpProfile}
-            compact
-          />
-        );
-      case "creative-arts-sp":
-        return (
-          <CreativeArtsSpSkillTreeView
-            onPickSkill={startContentSkill("creative-arts-sp", "ruby_creative_arts_sp_target_skill")}
-            profile={creativeArtsSpProfile}
-            compact
-          />
-        );
-      default:
-        return null;
-    }
-  }
+  const onUpgradeNeeded = () =>
+    document.dispatchEvent(
+      new CustomEvent("ruby-upgrade-needed", { detail: { reason: "Upgrade to unlock both Maths and Reading Discovery Activities." } })
+    );
+  const isFreebie = userPlan === "freebie";
+  const mathsLocked = isFreebie && !mathsDone && readingDone;
+  const readingLocked = isFreebie && !readingDone && mathsDone;
 
   // FET learners (Gr 10–12) with no saved subject selection are gated into
   // picking before the hub opens. While the grade / saved subjects are still
@@ -1034,7 +855,19 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
   const waitingForGrade = loading && (!gradeKnown || needsSubjectChoice);
   // The card tapped open (if any). Falls back to the grid when the id no longer
   // matches a subject the learner takes (e.g. after a grade/subject change).
-  const expandedSubject = expandedId ? subjects.find((s) => s.id === expandedId) ?? null : null;
+  const landingSubject = landingId ? subjects.find((s) => s.id === landingId) ?? null : null;
+
+  useEffect(() => {
+    onModeChange?.(landingSubject || discoverViewReport ? "landing" : "grid");
+  }, [landingSubject, discoverViewReport, onModeChange]);
+
+  if (discoverViewReport) {
+    return (
+      <div className="h-full overflow-hidden">
+        <SavedReportView subject={discoverViewReport} onBack={() => setDiscoverViewReport(null)} />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
@@ -1076,38 +909,96 @@ export default function SubjectsHub({ onNavigate }: SubjectsHubProps) {
                 onClose={() => { /* closes itself once the save fires SUBJECTS_UPDATED_EVENT */ }}
               />
             </>
-          ) : expandedSubject ? (
-            /* A card tapped open: its condensed tree (SkillTreeShell hub mode),
-               with a way back to the grid and a button into the subject's own
-               full-tree page. The thumbnail / emoji / accent are handed to the
-               tree via HubTreeContext, exactly as before. */
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center justify-between gap-3 mb-4">
-                <Button variant="ghost" size="sm" onClick={() => setExpandedId(null)}>
-                  ← All subjects
-                </Button>
-                {expandedSubject.id !== "discover" && (
-                  <Button variant="primary" size="sm" onClick={() => onNavigate(expandedSubject.navigateTo)}>
-                    Open full tree →
-                  </Button>
-                )}
-              </div>
-              <HubTreeContext.Provider
-                value={{ inHub: true, thumbnail: expandedSubject.thumbnail, emoji: expandedSubject.placeholderEmoji, label: expandedSubject.label, accentFrom: expandedSubject.accentFrom, accentTo: expandedSubject.accentTo }}
+          ) : landingSubject ? (
+            /* Subject landing screen: the grade/progress is the hero, not
+               artwork — no subject image here. "Continue Learning" is the one
+               primary action; "Learning path" (was "Open full tree") is
+               secondary. Maths/English also surface Discover/placement here
+               instead of as its own card on the grid. */
+            <div className="max-w-2xl mx-auto">
+              <button
+                onClick={() => setLandingId(null)}
+                className="text-sm font-semibold text-gray-500 hover:text-gray-700 mb-4 inline-flex items-center gap-1"
               >
-                <section className="min-w-0">
-                  <LazyMount eager>{renderSubjectPanel(expandedSubject)}</LazyMount>
-                </section>
-              </HubTreeContext.Provider>
+                ← Subjects
+              </button>
+
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">{landingSubject.label}</h1>
+              <p className="text-gray-500 text-sm mb-6">
+                {landingId === "maths"
+                  ? `Level ${mathsProfile?.current_level ?? "—"} · ${mathsMastered} mastered`
+                  : landingId === "english"
+                  ? `Level ${readingProfile?.current_level ?? "—"} · ${readingMastered} mastered`
+                  : landingId === "maths-literacy"
+                  ? `${mathsLiteracyMastered} skills mastered`
+                  : landingStats
+                  ? `Grade ${landingStats.grade} • ${landingStats.progress}% Complete`
+                  : grade != null
+                  ? `Grade ${grade}`
+                  : null}
+              </p>
+
+              <button
+                onClick={continueLanding}
+                className="w-full flex items-center gap-3 rounded-2xl border-2 border-gray-100 bg-white px-5 py-5 mb-4 shadow-lip active:translate-y-[3px] active:shadow-none transition-all text-left"
+              >
+                <span className="text-3xl flex-shrink-0" aria-hidden>▶️</span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">Continue Learning</p>
+                  <p className="text-xl font-extrabold text-gray-900 truncate">{landingSubject.label}</p>
+                </div>
+                <span className="text-2xl text-gray-300 flex-shrink-0" aria-hidden>→</span>
+              </button>
+
+              {landingStats && (
+                <div className="flex items-center gap-2 text-sm text-gray-600 mb-6 px-1">
+                  <span>Grade {landingStats.grade}</span>
+                  <span aria-hidden>·</span>
+                  <span>{landingStats.progress}% Complete</span>
+                  <span aria-hidden>·</span>
+                  <span>{Math.max(landingStats.total - landingStats.mastered, 0)} Topics Remaining</span>
+                </div>
+              )}
+
+              <button
+                onClick={() => onNavigate(landingSubject.navigateTo)}
+                className="w-full flex items-center justify-between rounded-2xl border-2 border-gray-100 bg-white px-5 py-4 mb-6 shadow-lip active:translate-y-[3px] active:shadow-none transition-all text-left"
+              >
+                <span className="font-semibold text-gray-900">Learning path</span>
+                <span className="text-gray-300" aria-hidden>→</span>
+              </button>
+
+              {landingId === "maths" && (
+                <DiscoverCard
+                  subject="maths"
+                  done={mathsDone}
+                  locked={mathsLocked}
+                  loading={loading}
+                  onNavigate={onNavigate}
+                  onViewReport={() => setDiscoverViewReport("maths")}
+                  onUpgradeNeeded={onUpgradeNeeded}
+                />
+              )}
+              {landingId === "english" && (
+                <DiscoverCard
+                  subject="reading"
+                  done={readingDone}
+                  locked={readingLocked}
+                  loading={loading}
+                  onNavigate={onNavigate}
+                  onViewReport={() => setDiscoverViewReport("reading")}
+                  onUpgradeNeeded={onUpgradeNeeded}
+                />
+              )}
             </div>
           ) : (
-            /* Standalone subject cards. Tapping one opens its condensed tree
-               above (the "expandedSubject" branch). */
+            /* Standalone subject cards. Tapping one opens its landing screen
+               above (the "landingSubject" branch). */
             <div className="grid grid-cols-1 gap-3 sm:gap-4">
               {subjects.map((s) => (
                 <button
                   key={s.id}
-                  onClick={() => setExpandedId(s.id)}
+                  onClick={() => setLandingId(s.id)}
                   className={`group bg-white rounded-2xl border border-gray-200 transition-all text-left overflow-hidden flex flex-col ${
                     CONCEPT_C
                       ? "shadow-lip active:translate-y-[3px] active:shadow-none"
