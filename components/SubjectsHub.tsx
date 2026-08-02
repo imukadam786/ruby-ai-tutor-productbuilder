@@ -5,7 +5,7 @@ import { ActiveView } from "@/types";
 import { hydrateStudentProfileFromSupabase, getStudentProfile } from "@/lib/student-model";
 import { hydrateReadingProfileFromSupabase, getReadingProfile } from "@/lib/reading-student-model";
 import { getMathsLiteracyProfile } from "@/lib/maths-literacy-student-model";
-import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import { fetchAuthorisedGrade, readCachedGrade, writeCachedGrade } from "@/lib/onboarding-reader";
 import { useOfflineDownload } from "@/lib/offline/useOfflineDownload";
 import OfflineBadge from "@/components/OfflineBadge";
 import EditSubjectsModal from "@/components/onboarding/EditSubjectsModal";
@@ -38,7 +38,6 @@ import EduBackground from "@/components/EduBackground";
 import SavedReportView from "@/components/SavedReportView";
 import DiscoverCard from "@/components/shared/DiscoverCard";
 import { supabase } from "@/lib/supabase";
-import { CONCEPT_C } from "@/lib/flags";
 import { useT } from "@/lib/i18n";
 import {
   loadBusinessStudiesProfile,
@@ -176,18 +175,6 @@ const CONTINUE_TARGET: Partial<Record<SubjectId, { view: ActiveView; key?: strin
 // instead of the subject page they came from.
 const LANDING_BREADCRUMB_KEY = "ruby_subjects_landing_id";
 
-// The learner's authorised grade is only fetchable over the network, so the
-// first hub paint would otherwise show all 13 subjects, then reflow down to the
-// entitled subset once Supabase answers. Caching the last-known grade lets us
-// seed the correct subset synchronously on subsequent visits — no reflow.
-const GRADE_CACHE_KEY = "ruby_authorised_grade";
-function readCachedGrade(): number | null {
-  if (typeof window === "undefined") return null;
-  const n = parseInt(window.localStorage.getItem(GRADE_CACHE_KEY) ?? "", 10);
-  return !isNaN(n) && n >= 1 && n <= 12 ? n : null;
-}
-
-
 interface SubjectMeta {
   id: SubjectId;
   thumbnail?: string;
@@ -251,7 +238,7 @@ export default function SubjectsHub({ onNavigate, onModeChange }: SubjectsHubPro
       setMathsLiteracyProfile(getMathsLiteracyProfile());
       if (auth?.grade != null) {
         setGrade(auth.grade);
-        try { window.localStorage.setItem(GRADE_CACHE_KEY, String(auth.grade)); } catch { /* quota / private mode */ }
+        writeCachedGrade(auth.grade);
       }
       if (auth) {
         setSelectedSubjects(auth.subjects);
@@ -999,13 +986,9 @@ export default function SubjectsHub({ onNavigate, onModeChange }: SubjectsHubPro
                 <button
                   key={s.id}
                   onClick={() => setLandingId(s.id)}
-                  className={`group bg-white rounded-2xl border border-gray-200 transition-all text-left overflow-hidden flex flex-col ${
-                    CONCEPT_C
-                      ? "shadow-lip active:translate-y-[3px] active:shadow-none"
-                      : "shadow-sm hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.99]"
-                  }`}
+                  className="group rounded-2xl transition-all text-left overflow-hidden flex flex-col active:scale-[0.98]"
                 >
-                  <div className={`relative aspect-square bg-gradient-to-br ${s.accentFrom} ${s.accentTo} flex items-center justify-center`}>
+                  <div className={`relative h-28 sm:h-36 rounded-2xl bg-gradient-to-br ${s.accentFrom} ${s.accentTo} flex items-center justify-center`}>
                     {s.thumbnail ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={s.thumbnail} alt={s.label} className="w-full h-full object-cover" />

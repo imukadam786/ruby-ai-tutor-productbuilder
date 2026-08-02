@@ -70,7 +70,9 @@ export default function SkillTreePath({
   }
 
   const height = nodes.length * ROW;
-  const points = nodes.map((_, i) => ({ x: X[i % X.length], y: i * ROW + ROW / 2 }));
+  // Climb bottom-to-top: node 0 (the first skill) sits at the bottom of the
+  // trail and later nodes climb upward, Duolingo-style.
+  const points = nodes.map((_, i) => ({ x: X[i % X.length], y: height - (i * ROW + ROW / 2) }));
   const trail = points.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ");
 
   return (

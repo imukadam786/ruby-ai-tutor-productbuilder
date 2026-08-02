@@ -9,7 +9,7 @@
 // passed in as closures — no back-end logic lives here.
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import { fetchAuthorisedGrade, readCachedGrade, writeCachedGrade } from "@/lib/onboarding-reader";
 import SkillTreeShell, {
   type TreeLevel,
   type SkillTreeStatus,
@@ -94,12 +94,21 @@ export default function GradeLockedSkillTree({
   noticeBelow,
   noticeBeyond,
 }: GradeLockedSkillTreeProps) {
-  const [grade, setGrade] = useState<number | null>(null);
-  const [loading, setLoading] = useState(true);
+  // Seed synchronously from the last-known grade (shared with the Subjects
+  // hub's cache) so the tree paints immediately instead of blocking on a
+  // network round-trip every time it mounts. Supabase then confirms/corrects
+  // it in the background below.
+  const [grade, setGrade] = useState<number | null>(() => readCachedGrade());
+  const [loading, setLoading] = useState(() => readCachedGrade() === null);
 
   useEffect(() => {
     fetchAuthorisedGrade().then((data) => {
-      setGrade(data?.grade ?? defaultGrade);
+      if (data?.grade != null) {
+        setGrade(data.grade);
+        writeCachedGrade(data.grade);
+      } else {
+        setGrade((g) => g ?? defaultGrade);
+      }
       setLoading(false);
     });
   }, [defaultGrade]);
@@ -136,7 +145,9 @@ export default function GradeLockedSkillTree({
           id: skill.id,
           title: skill.title,
           status,
-          onClick: base === "locked" ? undefined : () => onPickSkill(skill.id),
+          // Every skill is tappable, regardless of mastery/prerequisite status —
+          // no section is gated behind unlocking another one first.
+          onClick: () => onPickSkill(skill.id),
         };
       });
       if (tierTotal > 0 && tierMastered === tierTotal) masteredTiers += 1;

@@ -9,7 +9,6 @@ import EduBackground from "@/components/EduBackground";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import { TUTORS } from "@/lib/tutors";
 import { getStreakData, StreakData } from "@/lib/storage";
-import RubyBalance from "@/components/RubyBalance";
 
 interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
@@ -149,7 +148,7 @@ export default function HomeScreen({
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 min-w-0">
                 <RubyAvatar size="w-9 h-9" />
-                <h1 className="text-lg font-bold text-gray-900 truncate">
+                <h1 className="text-lg font-bold text-gray-900">
                   {(() => {
                     const [before, after] = t("home.greeting").split("{name}");
                     return (
@@ -168,7 +167,6 @@ export default function HomeScreen({
                     🔥 {streak.currentStreak}
                   </span>
                 )}
-                <RubyBalance theme="light" />
               </div>
             </div>
             {streakLine && (
