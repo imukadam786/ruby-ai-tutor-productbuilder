@@ -634,11 +634,19 @@ export default function SkillTreeShell({
     </div>
   );
 
+  // The gem path is visually dense on its own (trail, gems, chips) — the
+  // decorative background icons behind it just compete for attention, so it
+  // goes hero instead of sharing the frame. The classic card view still gets
+  // it, matching every other screen that uses EduBackground.
+  const showPath = CONCEPT_C && !compact && !emptyState;
+
   return (
     <div className={`relative isolate bg-gray-50 ${compact ? "" : "flex flex-col h-full"}`}>
-      <div className="absolute inset-0 -z-10">
-        <EduBackground />
-      </div>
+      {!showPath && (
+        <div className="absolute inset-0 -z-10">
+          <EduBackground />
+        </div>
+      )}
 
       <div className={compact ? "p-6" : "flex-1 overflow-y-auto p-6"}>
         {onBack && (
@@ -653,11 +661,7 @@ export default function SkillTreeShell({
         )}
 
         <div className="max-w-2xl mx-auto">
-          {CONCEPT_C && !compact && !emptyState ? (
-            <SkillTreePath levels={levels} accent={accentName} />
-          ) : (
-            body
-          )}
+          {showPath ? <SkillTreePath levels={levels} accent={accentName} /> : body}
         </div>
       </div>
     </div>
