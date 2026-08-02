@@ -2,13 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ActiveView } from "@/types";
+import { StudentProfile } from "@/types/ruby";
+import { ReadingStudentProfile } from "@/types/reading";
 import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
 import { TUTORS } from "@/lib/tutors";
-import Gem from "@/components/ui/Gem";
-import { RUBY } from "@/lib/design/gemColors";
-import { CONCEPT_C } from "@/lib/flags";
+import { getStreakData, StreakData } from "@/lib/storage";
+import RubyBalance from "@/components/RubyBalance";
 
 interface HomeScreenProps {
   onNavigate: (view: ActiveView) => void;
@@ -16,6 +17,10 @@ interface HomeScreenProps {
   onOpenLangPicker?: () => void;
   /** Opens the chat personalised to the named tutor (header, avatar, prompts). */
   onOpenChatWithTutor?: (tutorName: string) => void;
+  mathsProfile: StudentProfile | null;
+  readingProfile: ReadingStudentProfile | null;
+  onContinueMaths: () => void;
+  onContinueReading: () => void;
 }
 
 const MATRIC_PLANS = ["master", "matric-pack"];
@@ -47,7 +52,15 @@ function RubyAvatar({ size = "w-12 h-12" }: { size?: string }) {
   );
 }
 
-export default function HomeScreen({ onNavigate, userPlan, onOpenChatWithTutor }: HomeScreenProps) {
+export default function HomeScreen({
+  onNavigate,
+  userPlan,
+  onOpenChatWithTutor,
+  mathsProfile,
+  readingProfile,
+  onContinueMaths,
+  onContinueReading,
+}: HomeScreenProps) {
   const hasMatricAccess = userPlan !== null && MATRIC_PLANS.includes(userPlan);
 
   const handleMatricPrepClick = () => {
@@ -72,6 +85,7 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenChatWithTutor }
   const [isGrade12, setIsGrade12] = useState(false);
   const [tutorPage, setTutorPage] = useState(0);
   const touchStartX = useRef<number | null>(null);
+  const [streak, setStreak] = useState<StreakData | null>(null);
 
   useEffect(() => {
     const load = async () => {
@@ -82,6 +96,47 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenChatWithTutor }
     load();
   }, []);
 
+  useEffect(() => {
+    const load = () => { getStreakData().then(setStreak); };
+    load();
+    const onUpdate = () => load();
+    document.addEventListener("ruby-streak-updated", onUpdate);
+    return () => document.removeEventListener("ruby-streak-updated", onUpdate);
+  }, []);
+
+  const todayStr = new Date().toISOString().split("T")[0];
+  const streakLine =
+    streak && streak.currentStreak > 0
+      ? streak.lastActiveDate !== todayStr
+        ? `You're 1 lesson away from your ${streak.currentStreak + 1}-day streak!`
+        : streak.currentStreak >= 2
+        ? `You're on a ${streak.currentStreak}-day streak — nice work!`
+        : null
+      : null;
+
+  // "Continue Learning" resolves to whichever subject the learner has real
+  // progress in (most recently active first); falls back to Subjects hub.
+  const mathsActive = !!mathsProfile && mathsProfile.session_count > 0;
+  const readingActive = !!readingProfile && readingProfile.session_count > 0;
+  let continueTarget: "maths" | "reading" | null = null;
+  if (mathsActive && readingActive) {
+    continueTarget =
+      new Date(mathsProfile!.last_active).getTime() >= new Date(readingProfile!.last_active).getTime()
+        ? "maths"
+        : "reading";
+  } else if (mathsActive) {
+    continueTarget = "maths";
+  } else if (readingActive) {
+    continueTarget = "reading";
+  }
+
+  const continueCta =
+    continueTarget === "maths"
+      ? { icon: "🧮", label: "Maths", action: onContinueMaths }
+      : continueTarget === "reading"
+      ? { icon: "📖", label: "English", action: onContinueReading }
+      : { icon: "🚀", label: "Get Started", action: () => onNavigate("subjects") };
+
   return (
     <div className="flex flex-col h-full bg-[#F4F4F5] relative">
       <EduBackground />
@@ -89,29 +144,59 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenChatWithTutor }
       <div className="relative flex-1 overflow-y-auto">
         <div className="max-w-4xl mx-auto px-5 py-8 sm:px-8 sm:py-10">
 
-          {/* ── Hero ─────────────────────────────────────────────────────── */}
-          <div className="flex items-center justify-center sm:justify-start gap-4 mb-8">
-            <RubyAvatar size="w-14 h-14" />
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">
-                {(() => {
-                  const [before, after] = t("home.greeting").split("{name}");
-                  return (
-                    <>
-                      {before}
-                      <span style={{ color: "rgb(var(--brand))" }}>{firstName}</span>
-                      {after}
-                    </>
-                  );
-                })()}
-              </h1>
-              <p className="text-gray-500 text-base mt-0.5">Ready to keep learning?</p>
+          {/* ── Status row ───────────────────────────────────────────────── */}
+          <div className="mb-4">
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <RubyAvatar size="w-9 h-9" />
+                <h1 className="text-lg font-bold text-gray-900 truncate">
+                  {(() => {
+                    const [before, after] = t("home.greeting").split("{name}");
+                    return (
+                      <>
+                        {before}
+                        <span style={{ color: "rgb(var(--brand))" }}>{firstName}</span>
+                        {after}
+                      </>
+                    );
+                  })()}
+                </h1>
+              </div>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                {streak && streak.currentStreak > 0 && (
+                  <span className="inline-flex items-center gap-1 rounded-full border border-orange-200 bg-orange-50 px-2 py-0.5 text-[11px] font-semibold text-orange-700">
+                    🔥 {streak.currentStreak}
+                  </span>
+                )}
+                <RubyBalance theme="light" />
+              </div>
             </div>
+            {streakLine && (
+              <p className="text-sm text-gray-500 mt-1 truncate">{streakLine}</p>
+            )}
           </div>
 
-          {/* ── Meet your Tutors (the AI tutors are the headline value, so they
-                greet the learner first — tap a card to start a chat). ─────── */}
-          <section className="mb-8">
+          {/* ── Continue Learning — the one primary action on this screen ── */}
+          <section className="mb-6">
+            <button
+              onClick={continueCta.action}
+              className="w-full flex items-center gap-3 rounded-2xl border-2 border-gray-100 bg-white px-5 py-5 shadow-lip active:translate-y-[3px] active:shadow-none transition-all text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
+            >
+              <span className="text-3xl flex-shrink-0" aria-hidden>{continueCta.icon}</span>
+              <div className="min-w-0 flex-1">
+                <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+                  {continueTarget ? t("home.continue_learning") : "Homework help & subjects"}
+                </p>
+                <p className="text-xl font-extrabold text-gray-900 truncate">
+                  {continueTarget ? `Continue ${continueCta.label}` : continueCta.label}
+                </p>
+              </div>
+              <span className="text-2xl text-gray-300 flex-shrink-0" aria-hidden>→</span>
+            </button>
+          </section>
+
+          {/* ── Meet your Tutors (tap a card to start a chat). ─────────── */}
+          <section className="mb-6">
             <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Meet your Tutors</h2>
 
             <div
@@ -135,7 +220,7 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenChatWithTutor }
                       <button
                         key={tutor.name}
                         onClick={() => onOpenChatWithTutor?.(tutor.name)}
-                        className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
+                        className="bg-white rounded-2xl border-2 border-gray-100 shadow-lip overflow-hidden active:translate-y-[3px] active:shadow-none transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
                       >
                         <img
                           src={tutor.img}
@@ -171,37 +256,12 @@ export default function HomeScreen({ onNavigate, userPlan, onOpenChatWithTutor }
             </div>
           </section>
 
-          {/* ── Today's goal (Concept C) — gold card below the tutors ────── */}
-          {CONCEPT_C && (
-            <section className="mb-8">
-              <div
-                className="rounded-2xl px-5 py-4 shadow-lip"
-                style={{ background: "linear-gradient(135deg,#FFB323,#ff9e3d)" }}
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <Gem color={RUBY} state="polished" className="w-8 h-10" />
-                    <div>
-                      <p className="font-extrabold text-lg leading-tight" style={{ color: "#5a3600" }}>
-                        Today&apos;s goal
-                      </p>
-                      <p className="text-sm font-semibold" style={{ color: "#7a4a10" }}>
-                        Collect gems as you learn
-                      </p>
-                    </div>
-                  </div>
-                  <span className="text-2xl" aria-hidden>🔥</span>
-                </div>
-              </div>
-            </section>
-          )}
-
           {/* Matric Prep is Grade 12-only — hidden for every other learner. */}
           {isGrade12 && (
-            <section className="mb-8">
+            <section className="mb-6">
               <button
                 onClick={handleMatricPrepClick}
-                className="w-full h-full bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.99] text-left"
+                className="w-full h-full bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl px-4 py-4 flex flex-col gap-3 shadow-lip active:translate-y-[3px] active:shadow-none transition-all text-left"
               >
                 <div className="flex-1 flex items-start gap-3">
                   <span className="text-2xl">🎓</span>

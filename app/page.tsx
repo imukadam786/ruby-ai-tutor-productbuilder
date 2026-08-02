@@ -552,7 +552,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           </div>
         )}
         <div className="flex-1 min-h-0 overflow-hidden">
-        {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} onOpenLangPicker={() => setShowLangPicker(true)} onOpenChatWithTutor={(name) => { handleViewChange("chat"); setSelectedTutor(name); }} />}
+        {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} onOpenLangPicker={() => setShowLangPicker(true)} onOpenChatWithTutor={(name) => { handleViewChange("chat"); setSelectedTutor(name); }} mathsProfile={rubyProfile} readingProfile={readingProfile} onContinueMaths={continueMaths} onContinueReading={continueReading} />}
         {activeView === "chat" && (
           selectedTutor
             ? <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} tutorName={selectedTutor} onChangeTutor={() => setSelectedTutor(null)} />
