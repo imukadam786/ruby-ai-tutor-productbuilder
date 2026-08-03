@@ -24,6 +24,7 @@ const ProgressTutorial   = dynamic(() => import("@/components/tutorial/ProgressT
 // ── Loaded on demand (dynamic imports) ──────────────────────────────────────
 const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
 const CharacterPicker      = dynamic(() => import("@/components/CharacterPicker"),                      { ssr: false });
+const HomeworkStart        = dynamic(() => import("@/components/HomeworkStart"),                        { ssr: false });
 const ProgressTracker      = dynamic(() => import("@/components/ProgressTracker"),                     { ssr: false });
 const DiagnosticSession    = dynamic(() => import("@/components/ruby/DiagnosticSession"),               { ssr: false });
 const SkillTreeView        = dynamic(() => import("@/components/ruby/SkillTreeView"),                   { ssr: false });
@@ -185,8 +186,15 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
   // Learner's grade drives matric gating. null = not yet known; we fail closed
   // (no matric) until a confirmed Grade 12 is read from the profile.
   const [grade, setGrade] = useState<number | null>(null);
-  // The tutor whose chat is currently open (null = general Ruby chat).
+  // The tutor whose chat is currently open. null = no chat started yet (show
+  // HomeworkStart); "" = chat started with no specific tutor (general Ruby
+  // chat — reached when nothing in the homework text/photo matched a subject).
   const [selectedTutor, setSelectedTutor] = useState<string | null>(null);
+  // Optional "Meet your tutors" browsing screen, reached from HomeworkStart.
+  const [showTutorBrowser, setShowTutorBrowser] = useState(false);
+  // Text/photo entered on HomeworkStart before a tutor was resolved — carried
+  // into ChatInterface as the first message so the learner never retypes it.
+  const [pendingHomework, setPendingHomework] = useState<{ text: string; file: File | null } | null>(null);
 
   // Only the freebie plan has daily limits; paid plans are unlimited, so the
   // usage counters are removed for them entirely. (Matches UsageMeter, which
@@ -408,9 +416,14 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       if (count % 3 === 0) setSurvey({ type: "chat" });
       setChatEngaged(false);
     }
-    // Opening chat from the nav is the general Ruby chat; a tutor card sets the
-    // tutor right after this call, so the last write (the tutor) wins.
-    if (view === "chat") setSelectedTutor(null);
+    // Opening chat from the nav always starts at HomeworkStart; a tutor card
+    // (or the browser/pending-homework state) sets things right after this
+    // call, so the last write wins.
+    if (view === "chat") {
+      setSelectedTutor(null);
+      setShowTutorBrowser(false);
+      setPendingHomework(null);
+    }
     setActiveView(view);
     if (view === "skill-tree" || view === "student-dashboard" || view === "ruby" || view === "discover-maths") {
       void hydrateStudentProfileFromSupabase().then((p) => setRubyProfile(p));
@@ -576,9 +589,21 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
         <div className="flex-1 min-h-0 overflow-hidden">
         {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} onOpenLangPicker={() => setShowLangPicker(true)} onOpenChatWithTutor={(name) => { handleViewChange("chat"); setSelectedTutor(name); }} mathsProfile={rubyProfile} readingProfile={readingProfile} onContinueMaths={continueMaths} onContinueReading={continueReading} />}
         {activeView === "chat" && (
-          selectedTutor
-            ? <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} tutorName={selectedTutor} onChangeTutor={() => setSelectedTutor(null)} />
-            : <CharacterPicker onPick={(name) => setSelectedTutor(name)} />
+          selectedTutor !== null
+            ? <ChatInterface
+                onMessageSent={() => { refreshStats(); setChatEngaged(true); }}
+                tutorName={selectedTutor || undefined}
+                onChangeTutor={() => setSelectedTutor(null)}
+                initialSubmission={pendingHomework}
+                onInitialSubmissionHandled={() => setPendingHomework(null)}
+              />
+            : showTutorBrowser
+              ? <CharacterPicker onPick={(name) => { setSelectedTutor(name); setShowTutorBrowser(false); }} onBack={() => setShowTutorBrowser(false)} />
+              : <HomeworkStart
+                  onStart={(tutorName, text, file) => { setPendingHomework({ text, file }); setSelectedTutor(tutorName ?? ""); }}
+                  onContinue={(tutorName) => setSelectedTutor(tutorName)}
+                  onBrowseTutors={() => setShowTutorBrowser(true)}
+                />
         )}
         {activeView === "progress" && <ProgressTracker
           onMathsReplaySkill={startMathsReplay}

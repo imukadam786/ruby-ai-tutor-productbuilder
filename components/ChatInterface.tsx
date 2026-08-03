@@ -13,6 +13,7 @@ import UsageMeter from "@/components/UsageMeter";
 import RubyBalance from "@/components/RubyBalance";
 import { getTutor } from "@/lib/tutors";
 import { CONCEPT_C } from "@/lib/flags";
+import { recordHomeworkSession } from "@/lib/homeworkHistory";
 
 // Default quick actions for the general (Ruby) chat. A specific tutor's chat
 // swaps these out for that tutor's own subject-tailored prompts (see lib/tutors).
@@ -29,6 +30,12 @@ interface ChatInterfaceProps {
   tutorName?: string | null;
   /** Return to the tutor picker (shown only when a tutor is active). */
   onChangeTutor?: () => void;
+  /** Text/file already entered on HomeworkStart — auto-sent once on mount so
+      the learner never has to retype what they just asked. */
+  initialSubmission?: { text: string; file: File | null } | null;
+  /** Called once the initial submission has been consumed, so the parent can
+      clear it (prevents a stale resend if this component remounts later). */
+  onInitialSubmissionHandled?: () => void;
 }
 
 const WELCOME_MSG =
@@ -99,12 +106,13 @@ import { supabase } from "@/lib/supabase";
 const speakNaturally = speakViaAPI;
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor }: ChatInterfaceProps) {
+export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor, initialSubmission, onInitialSubmissionHandled }: ChatInterfaceProps) {
   const tutor = getTutor(tutorName);
   const quickActions = tutor?.quickActions ?? QUICK_ACTIONS;
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [autoSendPending, setAutoSendPending] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [playingMsgId, setPlayingMsgId] = useState<string | null>(null);
   const [attachedFile, setAttachedFile] = useState<File | null>(null);
@@ -134,6 +142,26 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
       }
     });
   }, []);
+
+  // Consume a homework question typed/attached on HomeworkStart before this
+  // component even mounted — populate the input/attachment once, then send.
+  // Deliberately `[]` deps: this must fire only on first mount, never again if
+  // tutorName changes while this instance stays alive.
+  useEffect(() => {
+    if (!initialSubmission || (!initialSubmission.text.trim() && !initialSubmission.file)) return;
+    if (initialSubmission.text) setInput(initialSubmission.text);
+    if (initialSubmission.file) handleFileSelected(initialSubmission.file);
+    setAutoSendPending(true);
+    onInitialSubmissionHandled?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (!autoSendPending) return;
+    setAutoSendPending(false);
+    sendMessage(input);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoSendPending]);
 
   // Scroll messages container without affecting page scroll (fixes mobile push-up)
   useEffect(() => {
@@ -207,6 +235,10 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
       setInput("");
       removeAttachment();
       setIsLoading(true);
+
+      if (tutor && !isHint) {
+        recordHomeworkSession(tutor.name, messageText || (isImage ? "Photo homework" : "Homework help"));
+      }
       incrementMessageCount();
 
       const assistantMessage: Message = {

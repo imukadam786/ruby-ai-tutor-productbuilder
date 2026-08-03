@@ -229,7 +229,7 @@ export default function HomeScreen({
                         <div className="px-2 py-2 text-center">
                           <p className="font-semibold text-brand text-sm sm:text-base">{tutor.name}</p>
                           <p className="text-brand text-[10px] sm:text-[11px] font-medium leading-tight mt-0.5">
-                            {tutor.subjects.join(" · ")}
+                            {tutor.role}
                           </p>
                         </div>
                       </button>

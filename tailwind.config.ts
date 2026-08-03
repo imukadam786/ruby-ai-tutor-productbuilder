@@ -60,9 +60,17 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(10px) scale(0.9)" },
           "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
         },
+        // Subtle "alive" breathing/sway loop for tutor character art — no
+        // sprite frames exist, so this is a CSS-only stand-in for a real
+        // blink/wave animation.
+        "tutor-idle": {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "50%": { transform: "translateY(-3px) rotate(-1deg)" },
+        },
       },
       animation: {
         "fade-in-up": "fade-in-up 0.45s cubic-bezier(0.22,1,0.36,1) both",
+        "tutor-idle": "tutor-idle 3.2s ease-in-out infinite",
       },
     },
   },
