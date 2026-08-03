@@ -1,6 +1,5 @@
 "use client";
-import RubyBalance from "@/components/RubyBalance";
-import MasteryHeader from "@/components/shared/MasteryHeader";
+import QuizShell from "@/components/shared/QuizShell";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
 import Button from "@/components/ui/Button";
@@ -467,98 +466,80 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
 
   // ─── Render: question / feedback ───────────────────────────────────────────
 
+  if (!question || !skillId) return null;
+
+  const distinctAnswered = new Set(getSocialSciencesUsedRefs(skillId)).size;
+  const required = requiredCount(skillId);
+
   return (
-    <div className="relative flex flex-col h-full bg-[#F4F4F5]">
-      <EduBackground />
-      <div className="relative flex-1 overflow-y-auto">
-       <div className="max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
-        <div className="flex items-center justify-between">
-          <button
-            onClick={() => {
-              setSkillId(null);
-              setQuestion(null);
-              setResult(null);
-              setPhase("tree");
-            }}
-            className="text-sm text-[#1a2744] font-semibold underline decoration-2 underline-offset-4"
-          >
-            ← Topics
-          </button>
-            <span className="hidden md:inline-flex flex-shrink-0"><RubyBalance theme="light" size="lg" /></span>
-        </div>
-
-        {skillId && (
-          <MasteryHeader
-            title={findSkill(skillId)?.skill?.title ?? "Master this topic"}
-            distinctAnswered={new Set(getSocialSciencesUsedRefs(skillId)).size}
-            requiredCount={requiredCount(skillId)}
-            correctCount={correctCount}
-            attemptCount={attemptCount}
-            mastered={mastery[skillId] === "mastered"}
-          />
-        )}
-
-        {question && (
-          <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-5">
-            <div className="flex items-start gap-2">
-              <p className="flex-1 text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">
-                {question.ruby_prompt || question.question}
-              </p>
-              <SpeakButton
-                playing={playing}
-                onClick={() => (playing ? stop() : speak(question.ruby_prompt || question.question))}
-              />
-            </div>
-
-            {phase === "question" && (
-              <div className="relative">
-                <div className={submitting ? "opacity-40 pointer-events-none transition-opacity" : "transition-opacity"}>
-                  <AnswerInput
-                    question={question}
-                    value={answer}
-                    sequenceOrder={sequenceOrder}
-                    onSequenceChange={setSequenceOrder}
-                    onChange={setAnswer}
-                    onSubmit={handleSubmit}
-                    submitting={submitting}
-                    speak={speak}
-                  />
-                </div>
-                {submitting && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="flex items-center gap-2 bg-white/90 rounded-full px-4 py-2 shadow text-[#1a2744] font-semibold text-sm">
-                      <span className="w-4 h-4 border-2 border-brand border-t-transparent rounded-full animate-spin" />
-                      Checking…
-                    </span>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {phase === "feedback" && result && (
-              <FeedbackExplanation
-                gemColor={GEM_HEX.violet}
-                isCorrect={result.is_correct}
-                note={result.is_correct ? result.memo : undefined}
-                whyOverride={result.is_correct ? undefined : result.memo}
-                footer={
-                <FeedbackFooter
-                  isCorrect={result.is_correct}
-                  onNext={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
-                  onRetry={() => { setAnswer(""); setResult(null); setError(null); setPhase("question"); }}
-                />
-              }
-              />
-            )}
-
-            {error && (
-              <p className="text-sm text-rose-600 bg-rose-50 rounded-xl px-3 py-2">{error}</p>
-            )}
-          </div>
-        )}
-       </div>
+    <QuizShell
+      accent="violet"
+      topicTitle={findSkill(skillId)?.skill?.title ?? "Master this topic"}
+      onExit={() => {
+        setSkillId(null);
+        setQuestion(null);
+        setResult(null);
+        setPhase("tree");
+      }}
+      questionNumber={Math.min(distinctAnswered, required) + 1}
+      totalQuestions={required}
+      difficulty={question.difficulty}
+    >
+      <div className="flex items-start gap-2">
+        <p className="flex-1 text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">
+          {question.ruby_prompt || question.question}
+        </p>
+        <SpeakButton
+          playing={playing}
+          onClick={() => (playing ? stop() : speak(question.ruby_prompt || question.question))}
+        />
       </div>
-    </div>
+
+      {phase === "question" && (
+        <div className="relative">
+          <div className={submitting ? "opacity-40 pointer-events-none transition-opacity" : "transition-opacity"}>
+            <AnswerInput
+              question={question}
+              value={answer}
+              sequenceOrder={sequenceOrder}
+              onSequenceChange={setSequenceOrder}
+              onChange={setAnswer}
+              onSubmit={handleSubmit}
+              submitting={submitting}
+              speak={speak}
+            />
+          </div>
+          {submitting && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="flex items-center gap-2 bg-white/90 rounded-full px-4 py-2 shadow text-[#1a2744] font-semibold text-sm">
+                <span className="w-4 h-4 border-2 border-brand border-t-transparent rounded-full animate-spin" />
+                Checking…
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+
+      {phase === "feedback" && result && (
+        <FeedbackExplanation
+          gemColor={GEM_HEX.violet}
+          isCorrect={result.is_correct}
+          note={result.is_correct ? result.memo : undefined}
+          whyOverride={result.is_correct ? undefined : result.memo}
+          footer={
+            <FeedbackFooter
+              isCorrect={result.is_correct}
+              onNext={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
+              onRetry={() => { setAnswer(""); setResult(null); setError(null); setPhase("question"); }}
+            />
+          }
+        />
+      )}
+
+      {error && (
+        <p className="text-sm text-rose-600 bg-rose-50 rounded-xl px-3 py-2">{error}</p>
+      )}
+    </QuizShell>
   );
 }
 

@@ -689,13 +689,18 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
 
       </div>{/* end inner row */}
 
-      {/* Mobile bottom navigation — replaces the hamburger drawer on phones */}
+      {/* Mobile bottom navigation — replaces the hamburger drawer on phones.
+          Hidden during quiz/session views so a stray tap can't bounce a kid
+          to Home/Subjects mid-question and lose their place; each session's
+          own "← Exit" (with a confirm dialog) is the only way out. */}
+      {!SESSION_VIEWS.includes(activeView) && (
       <MobileBottomNav
         activeView={activeView}
         onViewChange={handleViewChange}
         onSettings={() => handleViewChange("settings")}
         grade={grade}
       />
+      )}
 
       {survey && (
         <PostSessionSurvey
