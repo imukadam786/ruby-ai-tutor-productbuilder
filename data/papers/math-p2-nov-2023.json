@@ -130,7 +130,7 @@
       "number": 3,
       "title": "Analytical Geometry",
       "totalMarks": 20,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q3.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2023_q3.png",
       "subQuestions": [
         {
           "id": "3-1",
@@ -210,7 +210,7 @@
       "number": 4,
       "title": "Analytical Geometry — Circles & Tangent",
       "totalMarks": 20,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q4.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2023_q4.png",
       "subQuestions": [
         {
           "id": "4-1",
@@ -360,7 +360,7 @@
       "number": 6,
       "title": "Trigonometric Graphs",
       "totalMarks": 12,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q6.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2023_q6.png",
       "subQuestions": [
         {
           "id": "6-1",
@@ -422,7 +422,7 @@
       "number": 7,
       "title": "Trigonometry — 3-D Application",
       "totalMarks": 7,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q7.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2023_q7.png",
       "subQuestions": [
         {
           "id": "7-1",
@@ -457,7 +457,6 @@
       "number": 8,
       "title": "Euclidean Geometry — Circles",
       "totalMarks": 16,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q8.png",
       "subQuestions": [
         {
           "id": "8-1",
@@ -466,7 +465,8 @@
           "marks": 5,
           "memoText": "Mark scheme (5 marks):\nMark 1: Construction — draw $KO$ produced\nMark 2: $\\hat{O}_1 = \\hat{K}_1 + \\hat{T}$ [ext $\\angle$ of $\\triangle$]; but $\\hat{K}_1 = \\hat{T}$ [$\\angle$s opp equal sides] so $\\hat{O}_1 = 2\\hat{K}_1$\nMark 3: $\\hat{O}_2 = \\hat{K}_2 + \\hat{P}$ [ext $\\angle$ of $\\triangle$]; but $\\hat{K}_2 = \\hat{P}$ [$\\angle$s opp equal sides] so $\\hat{O}_2 = 2\\hat{K}_2$\nMark 4: $\\hat{O}_1 + \\hat{O}_2 = 2\\hat{K}_1 + 2\\hat{K}_2 = 2(\\hat{K}_1 + \\hat{K}_2)$\nMark 5: $\\therefore T\\hat{O}P = 2T\\hat{K}P$",
           "topic": "Euclidean Geometry",
-          "type": "written"
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2023_q8.1.png"
         },
         {
           "id": "8-2",
@@ -475,7 +475,8 @@
           "marks": 5,
           "memoText": "Mark scheme (5 marks):\nMark 1 (S): $\\hat{A} = 2x + 50^\\circ$\nMark 2 (R): [$\\angle$ at centre $= 2\\times\\angle$ at circumference]\nMark 3 (S): $x + 34^\\circ + 2x + 50^\\circ = 180^\\circ$\nMark 4 (R): [opp $\\angle$s of cyclic quad]\nMark 5: $3x = 96^\\circ \\Rightarrow x = 32^\\circ$",
           "topic": "Euclidean Geometry",
-          "type": "written"
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2023_q8.2.png"
         },
         {
           "id": "8-3-1",
@@ -484,7 +485,8 @@
           "marks": 2,
           "memoText": "Mark scheme (2 marks):\nMark 1 (S): $O\\hat{M}B = 90^\\circ$\nMark 2 (R): [$\\angle$ in semi-circle]",
           "topic": "Euclidean Geometry",
-          "type": "written"
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2023_q8.3.png"
         },
         {
           "id": "8-3-2",
@@ -493,7 +495,8 @@
           "marks": 4,
           "memoText": "Mark scheme (4 marks):\nMark 1 (S): $AB = \\sqrt{300} = 10\\sqrt{3}$, so $MB = 5\\sqrt{3}$\nMark 2 (R): [line from centre $\\perp$ to chord]\nMark 3 (S): $OB^2 = OM^2 + MB^2 = 5^2 + (5\\sqrt{3})^2$ [Pythagoras]\nMark 4: Answer — $OB = 10$ units",
           "topic": "Euclidean Geometry",
-          "type": "written"
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2023_q8.3.png"
         }
       ]
     },
@@ -501,7 +504,7 @@
       "number": 9,
       "title": "Euclidean Geometry — Proportionality & Similarity",
       "totalMarks": 9,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q9.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2023_q9.png",
       "subQuestions": [
         {
           "id": "9-1",
@@ -536,7 +539,7 @@
       "number": 10,
       "title": "Euclidean Geometry — Cyclic Quadrilateral & Tangents",
       "totalMarks": 15,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2023_q10.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2023_q10.png",
       "subQuestions": [
         {
           "id": "10-1",

@@ -17,7 +17,7 @@
       "number": 1,
       "title": "Statistics: Regression & Correlation",
       "totalMarks": 12,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q1.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2022_q1.PNG",
       "subQuestions": [
         {
           "id": "1-1-1",
@@ -88,7 +88,7 @@
       "number": 2,
       "title": "Statistics: Ogive",
       "totalMarks": 8,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q2.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2022_q2.png",
       "subQuestions": [
         {
           "id": "2-1",
@@ -141,7 +141,7 @@
       "number": 3,
       "title": "Analytical Geometry",
       "totalMarks": 20,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q3.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2022_q3.png",
       "subQuestions": [
         {
           "id": "3-1-1",
@@ -212,7 +212,7 @@
       "number": 4,
       "title": "Analytical Geometry: Circle",
       "totalMarks": 20,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q4.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2022_q4.png",
       "subQuestions": [
         {
           "id": "4-1",
@@ -362,7 +362,7 @@
       "number": 6,
       "title": "Trigonometric Graphs",
       "totalMarks": 10,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q6.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2022_q6.png",
       "subQuestions": [
         {
           "id": "6-1",
@@ -424,7 +424,7 @@
       "number": 7,
       "title": "Trigonometry in 3-D",
       "totalMarks": 10,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q7.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2022_q7.png",
       "subQuestions": [
         {
           "id": "7-1",
@@ -459,7 +459,7 @@
       "number": 8,
       "title": "Euclidean Geometry: Circles & Proportionality",
       "totalMarks": 13,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q8.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2022_q8.png",
       "subQuestions": [
         {
           "id": "8-1-1",
@@ -512,7 +512,6 @@
       "number": 9,
       "title": "Euclidean Geometry: Circle Theorems",
       "totalMarks": 14,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q9.png",
       "subQuestions": [
         {
           "id": "9-1",
@@ -521,7 +520,8 @@
           "marks": 5,
           "memoText": "Mark scheme (5 marks):\nMark 1: Construction — draw OA and OB\nMark 2: First pair of sides — $OA = OB$ [radii]\nMark 3: Other 2 pairs — $OD = OD$ [common], $AD = DB$ [given]\nMark 4: $\\triangle ADO \\equiv \\triangle BDO$ [S;S;S]\nMark 5: $\\hat{D}_1 = \\hat{D}_2$ and ADB is a straight line, so $OD \\perp AB$ [$\\angle$s on a straight line]",
           "topic": "Euclidean Geometry",
-          "type": "written"
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2022_q9.1.png"
         },
         {
           "id": "9-2-1",
@@ -530,7 +530,8 @@
           "marks": 5,
           "memoText": "Mark scheme (5 marks):\nMark 1: Statement — $O\\hat{T}G = 90^\\circ$\nMark 2: Reason — line from centre to midpoint of chord (T is the midpoint of chord EF)\nMark 3: Statement — $O\\hat{B}G = 90^\\circ$\nMark 4: Reason — tangent $\\perp$ radius (GB is a tangent at B)\nMark 5: $\\therefore O\\hat{T}G = O\\hat{B}G = 90^\\circ$, so OTBG is a cyclic quadrilateral [line subtends equal $\\angle$s / converse $\\angle$s in the same segment]",
           "topic": "Euclidean Geometry",
-          "type": "written"
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2022_q9.2.png"
         },
         {
           "id": "9-2-2",
@@ -539,7 +540,8 @@
           "marks": 4,
           "memoText": "Mark scheme (4 marks):\nMark 1: Statement — $\\hat{S} = B\\hat{T}G$\nMark 2: Reason — corresponding $\\angle$s; $GF \\parallel PS$\nMark 3: Statement — $B\\hat{T}G = G\\hat{O}B$\nMark 4: Reason — $\\angle$s in the same segment (of cyclic quad OTBG), $\\therefore G\\hat{O}B = \\hat{S}$",
           "topic": "Euclidean Geometry",
-          "type": "written"
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2022_q9.2.png"
         }
       ]
     },
@@ -547,7 +549,7 @@
       "number": 10,
       "title": "Euclidean Geometry: Tangents & Similar Triangles",
       "totalMarks": 13,
-      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p2-nov-2022_q10.png",
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_p2_nov_2022_q10.png",
       "subQuestions": [
         {
           "id": "10-1",
