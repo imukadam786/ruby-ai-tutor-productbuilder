@@ -132,6 +132,23 @@ function ContinueBtn({ label, onClick, disabled, loading }: { label: string; onC
   );
 }
 
+// Map plan names to email packageType enum values
+function mapPlanToPackageType(plan: string): "free" | "scholar" | "master" | "matric" {
+  switch (plan) {
+    case "freebie":
+      return "free";
+    case "scholar":
+      return "scholar";
+    case "master":
+      return "master";
+    case "matric-pack":
+      return "matric";
+    case "standard":
+    default:
+      return "scholar";
+  }
+}
+
 interface OnboardingFlowProps {
   onComplete: (data: OnboardingData) => void;
   initialStep?: number;
@@ -246,10 +263,16 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           trial_expires_at: trialExpiresAt,
         });
         // Send welcome email — fire-and-forget, never blocks signup
+        const packageType = mapPlanToPackageType(data.plan || "standard");
         fetch("/api/email/welcome", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, email }),
+          body: JSON.stringify({
+            name,
+            email,
+            grade: data.grade || "",
+            packageType,
+          }),
         }).catch(() => {});
       }
       // Account created — continue through onboarding questions
@@ -352,10 +375,16 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       });
       // Google OAuth users: welcome email is sent here (email sign-up sends it in handleSignUp)
       if (initialData?.userId === signedUpUserId) {
+        const packageType = mapPlanToPackageType(final.plan);
         fetch("/api/email/welcome", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, email }),
+          body: JSON.stringify({
+            name,
+            email,
+            grade: final.grade,
+            packageType,
+          }),
         }).catch(() => {});
       }
     }
@@ -461,7 +490,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                 )}
 
                 {/* Google sign-in */}
-                <button
+                {/*<button
                   onClick={handleGoogleSignIn}
                   disabled={authLoading}
                   className="w-full flex items-center justify-center gap-3 py-3 px-4 mb-3 rounded-full border-2 border-gray-200 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:border-gray-300 transition-colors disabled:opacity-50"
@@ -479,7 +508,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                   <div className="flex-1 h-px bg-gray-200" />
                   <span className="text-xs text-gray-400 font-medium">or</span>
                   <div className="flex-1 h-px bg-gray-200" />
-                </div>
+                </div>*/}
 
                 <Button
                   variant="primary"
