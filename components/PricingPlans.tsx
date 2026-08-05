@@ -38,8 +38,8 @@ const PLANS: PricingPlan[] = [
     key: "matric-pack",
     name: "Matric Exam Pack",
     subtitle: "Grade 12",
-    priceRands: 99,
-    originalPrice: 199,
+    priceRands: 199,
+    originalPrice: 299,
     isLaunchOffer: true,
     badge: "New",
     badgeClass: "bg-blue-500 text-white",
@@ -54,7 +54,7 @@ const PLANS: PricingPlan[] = [
       { text: "10+ Matric Study Guides", note: "Major Subjects", highlight: true },
       { text: "15+ Matric 2026 Prep Papers", note: "Major Subjects", highlight: true },
       { text: "Unlimited AI Feedback in 11 Languages" },
-      { text: "Unlimited Access between 1 May – 30 June 2026" },
+      { text: "Unlimited Access between 1 August – 30 November 2026" },
     ],
   },
   {
@@ -109,7 +109,7 @@ const PLANS: PricingPlan[] = [
       { text: "5 Audio Playbacks per day" },
     ],
   },
-  {
+  /*{
     key: "master",
     name: "Master",
     subtitle: "Grade 12",
@@ -129,7 +129,7 @@ const PLANS: PricingPlan[] = [
       { text: "9 Matric Study Guides", note: "Major Subjects", highlight: true },
       { text: "10+ Matric 2026 Prep Papers", note: "Major Subjects", highlight: true },
     ],
-  },
+  },*/
 ];
 
 interface PricingPlansProps {
