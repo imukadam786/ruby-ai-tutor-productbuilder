@@ -349,7 +349,9 @@ function PaperList({
       !p.session.startsWith("Prep") &&
       !p.session.startsWith("Predictive")
   );
-  const [expandedCode, setExpandedCode] = useState<"P1" | "P2" | null>("P1");
+  // null = "not chosen yet" → falls back to the first available code so a card
+  // is open on load. "" = user explicitly collapsed everything.
+  const [expandedCode, setExpandedCode] = useState<string | null>(null);
   const [progressMap, setProgressMap] = useState<Record<string, PaperProgress>>({});
 
   // Show the session toggle only when this subject actually has year-end papers.
@@ -380,7 +382,13 @@ function PaperList({
     })();
   }, [subjectId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const papersByCode = (code: "P1" | "P2") =>
+  // Paper codes actually present for this subject + session (P1/P2/P3 — some
+  // subjects like Afrikaans have a P3, others only a P1). Only render cards for
+  // codes that have at least one paper, so there are no empty "coming soon" cards.
+  const availableCodes = Array.from(new Set(visiblePapers.map((p) => p.paperCode))).sort();
+  const openCode = expandedCode === null ? availableCodes[0] ?? null : expandedCode || null;
+
+  const papersByCode = (code: string) =>
     visiblePapers.filter((p) => p.paperCode === code).sort((a, b) => b.year - a.year);
 
   return (
@@ -430,10 +438,10 @@ function PaperList({
 
         {/* Accordion: one card per paper code */}
         <div className="space-y-3">
-          {(["P1", "P2"] as const).map((code) => {
-            const codeLabel = code === "P1" ? "1" : "2";
+          {availableCodes.map((code) => {
+            const codeLabel = code.replace(/^P/i, "");
             const codeGroup = papersByCode(code);
-            const isOpen = expandedCode === code;
+            const isOpen = openCode === code;
 
             return (
               <div
@@ -442,7 +450,7 @@ function PaperList({
               >
                 {/* Accordion header */}
                 <button
-                  onClick={() => setExpandedCode(isOpen ? null : code)}
+                  onClick={() => setExpandedCode(isOpen ? "" : code)}
                   className="w-full flex items-center justify-between px-5 py-4 hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex items-center gap-3">
