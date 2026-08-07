@@ -4,6 +4,8 @@ import MasteryHeader from "@/components/shared/MasteryHeader";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
 import Button from "@/components/ui/Button";
+import ChoiceGrid from "@/components/ui/ChoiceGrid";
+import { CONCEPT_C } from "@/lib/flags";
 
 // GeographySession — clone of HistorySession with a dispatcher widened for the
 // Geography bank. Key points:
@@ -682,6 +684,7 @@ function AnswerDispatcher({ question, submitting, onSubmit }: AnswerDispatcherPr
   // ── Option grids (choice / cloze / scenario / match / diagram-label /
   //    data-interpret) ─────────────────────────────────────────────────────────
   if (options && options.length > 0) {
+    if (CONCEPT_C) return <ChoiceGrid options={options} submitting={submitting} onSubmit={onSubmit} />;
     const wide = options.some((o) => o.length > 40);
     const gridCols = wide ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2";
     return (
