@@ -114,6 +114,15 @@ function hasStatementContent(raw: string): boolean {
   return true;
 }
 
+// Distinct colour per MCQ letter — tinted before selection, deeper once selected.
+const MCQ_OPTION_COLORS: Record<string, { border: string; bg: string; badge: string; selectedBorder: string; selectedBg: string; selectedBadge: string }> = {
+  A: { border: "border-blue-200", bg: "bg-blue-50/50 hover:bg-blue-50", badge: "bg-blue-100 text-blue-600", selectedBorder: "border-blue-500", selectedBg: "bg-blue-50", selectedBadge: "bg-blue-500 text-white" },
+  B: { border: "border-purple-200", bg: "bg-purple-50/50 hover:bg-purple-50", badge: "bg-purple-100 text-purple-600", selectedBorder: "border-purple-500", selectedBg: "bg-purple-50", selectedBadge: "bg-purple-500 text-white" },
+  C: { border: "border-amber-200", bg: "bg-amber-50/50 hover:bg-amber-50", badge: "bg-amber-100 text-amber-700", selectedBorder: "border-amber-500", selectedBg: "bg-amber-50", selectedBadge: "bg-amber-500 text-white" },
+  D: { border: "border-teal-200", bg: "bg-teal-50/50 hover:bg-teal-50", badge: "bg-teal-100 text-teal-600", selectedBorder: "border-teal-500", selectedBg: "bg-teal-50", selectedBadge: "bg-teal-500 text-white" },
+  E: { border: "border-pink-200", bg: "bg-pink-50/50 hover:bg-pink-50", badge: "bg-pink-100 text-pink-600", selectedBorder: "border-pink-500", selectedBg: "bg-pink-50", selectedBadge: "bg-pink-500 text-white" },
+};
+
 const SA_LANGUAGES = [
   "English",
   "Afrikaans",
@@ -1303,6 +1312,45 @@ function SessionView({
     }
   };
 
+  // Guided mode: picking an MCQ option is itself the submission — no separate
+  // "Submit answer" click needed, so evaluate immediately on selection.
+  const submitMCQAnswer = async (letter: string) => {
+    updateAttempt(currentSQ.id, { selectedOption: letter });
+    setIsEvaluating(true);
+
+    try {
+      const result = await evaluateQuestion(currentSQ, { ...currentAttempt, selectedOption: letter });
+
+      const newMsg: CoachMessage = {
+        type: "ai",
+        content: result.feedback,
+        marksEarned: result.marksEarned,
+        totalMarks: result.totalMarks,
+        breakdown: result.breakdown,
+      };
+
+      updateAttempt(currentSQ.id, {
+        selectedOption: letter,
+        submitted: true,
+        marksEarned: result.marksEarned,
+        attemptCount: currentAttempt.attemptCount + 1,
+        coachMessages: [...currentAttempt.coachMessages, newMsg],
+      });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "unknown error";
+      console.error("[submitMCQAnswer] caught:", err);
+      updateAttempt(currentSQ.id, {
+        selectedOption: letter,
+        coachMessages: [
+          ...currentAttempt.coachMessages,
+          { type: "system", content: `Something went wrong (${msg}). Please try again.` },
+        ],
+      });
+    } finally {
+      setIsEvaluating(false);
+    }
+  };
+
   const handleRetry = () => {
     updateAttempt(currentSQ.id, {
       submitted: false,
@@ -1746,16 +1794,26 @@ function SessionView({
                           ? "wrong"
                           : null;
                         const dimmed = currentAttempt.submitted && !picked && result !== "correct";
+                        const isDisabled = currentAttempt.submitted || isEvaluating;
                         return (
                           <AnswerButton
                             key={letter}
                             index={i}
-                            disabled={currentAttempt.submitted}
+                            disabled={isDisabled}
                             selected={picked && !currentAttempt.submitted}
                             result={result}
                             dimmed={dimmed}
                             compact
-                            onClick={() => updateAttempt(currentSQ.id, { selectedOption: letter })}
+                            onClick={() => {
+                              if (isDisabled) return;
+                              // Picking an option is the submission in guided mode —
+                              // evaluate right away instead of waiting for a Submit click.
+                              if (mode === "guided") {
+                                submitMCQAnswer(letter);
+                              } else {
+                                updateAttempt(currentSQ.id, { selectedOption: letter });
+                              }
+                            }}
                           >
                             {text}
                           </AnswerButton>
@@ -1770,21 +1828,36 @@ function SessionView({
                   {Object.keys(currentSQ.options!).sort().map((letter) => {
                     const text = currentSQ.options![letter as keyof typeof currentSQ.options]!;
                     const isSelected = currentAttempt.selectedOption === letter;
+                    const isBusy = isSelected && isEvaluating;
+                    const colors = MCQ_OPTION_COLORS[letter] ?? MCQ_OPTION_COLORS.A;
+                    const isDisabled = currentAttempt.submitted || isEvaluating;
                     return (
                       <button
                         key={letter}
-                        onClick={() => !currentAttempt.submitted && updateAttempt(currentSQ.id, { selectedOption: letter })}
-                        disabled={currentAttempt.submitted}
+                        onClick={() => {
+                          if (isDisabled) return;
+                          if (mode === "guided") {
+                            submitMCQAnswer(letter);
+                          } else {
+                            updateAttempt(currentSQ.id, { selectedOption: letter });
+                          }
+                        }}
+                        disabled={isDisabled}
                         className={`w-full text-left flex items-start gap-3 p-3.5 rounded-xl border-2 transition-all ${
                           isSelected
-                            ? "border-brand bg-rose-50"
-                            : "border-gray-200 hover:border-gray-300 bg-white"
-                        } ${currentAttempt.submitted ? "cursor-default" : "cursor-pointer"}`}
+                            ? `${colors.selectedBorder} ${colors.selectedBg}`
+                            : `${colors.border} ${colors.bg}`
+                        } ${isDisabled ? "cursor-default" : "cursor-pointer"}`}
                       >
                         <span className={`flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-sm font-bold ${
-                          isSelected ? "bg-brand text-white" : "bg-gray-100 text-gray-500"
+                          isSelected ? colors.selectedBadge : colors.badge
                         }`}>
-                          {letter}
+                          {isBusy ? (
+                            <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                            </svg>
+                          ) : letter}
                         </span>
                         <span className="text-sm text-gray-700 leading-relaxed pt-0.5">{text}</span>
                       </button>
@@ -2316,31 +2389,33 @@ function SessionView({
                     >
                       Skip
                     </button>
-                    <Button
-                      variant="primary"
-                      size="md"
-                      className="flex-1 flex items-center justify-center gap-2"
-                      onClick={handleSubmitWorking}
-                      disabled={
-                        isEvaluating || (() => {
-                          if (currentSQ.type === "mcq") return !currentAttempt.selectedOption;
-                          if (currentSQ.type === "match-group") return Object.keys(currentAttempt.matchAnswers ?? {}).length === 0;
-                          if (currentSQ.type === "calculation") return !currentAttempt.textWorking.trim() && !currentAttempt.calcAnswer.trim();
-                          if (currentSQ.type === "two-column" || currentSQ.type === "answer-book") return !currentAttempt.textWorking.trim() && !currentAttempt.col2Working.trim();
-                          return !currentAttempt.textWorking.trim() && !currentAttempt.imageFile;
-                        })()
-                      }
-                    >
-                      {isEvaluating ? (
-                        <>
-                          <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                          </svg>
-                          Evaluating…
-                        </>
-                      ) : currentSQ.type === "mcq" ? "Submit answer" : "Submit working"}
-                    </Button>
+                    {/* MCQ has no Submit button — picking an option submits it immediately */}
+                    {currentSQ.type !== "mcq" && (
+                      <Button
+                        variant="primary"
+                        size="md"
+                        className="flex-1 flex items-center justify-center gap-2"
+                        onClick={handleSubmitWorking}
+                        disabled={
+                          isEvaluating || (() => {
+                            if (currentSQ.type === "match-group") return Object.keys(currentAttempt.matchAnswers ?? {}).length === 0;
+                            if (currentSQ.type === "calculation") return !currentAttempt.textWorking.trim() && !currentAttempt.calcAnswer.trim();
+                            if (currentSQ.type === "two-column" || currentSQ.type === "answer-book") return !currentAttempt.textWorking.trim() && !currentAttempt.col2Working.trim();
+                            return !currentAttempt.textWorking.trim() && !currentAttempt.imageFile;
+                          })()
+                        }
+                      >
+                        {isEvaluating ? (
+                          <>
+                            <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                            </svg>
+                            Evaluating…
+                          </>
+                        ) : "Submit working"}
+                      </Button>
+                    )}
                   </div>
                 )
               ) : (
