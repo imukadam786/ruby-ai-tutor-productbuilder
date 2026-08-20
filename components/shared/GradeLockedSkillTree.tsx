@@ -9,12 +9,13 @@
 // passed in as closures — no back-end logic lives here.
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import { fetchAuthorisedGrade, readCachedGrade, writeCachedGrade } from "@/lib/onboarding-reader";
 import SkillTreeShell, {
   type TreeLevel,
   type SkillTreeStatus,
   type SkillTreeAccent,
 } from "@/components/shared/SkillTreeShell";
+import { CONCEPT_C } from "@/lib/flags";
 
 type BaseStatus = "locked" | "available" | "in_progress" | "mastered";
 
@@ -28,10 +29,36 @@ interface GradeLevel {
   tiers: GradeTier[];
 }
 
+/** Pure mastered/total/progress computation for a grade-locked subject, usable
+ *  without mounting the tree (e.g. for a subject landing screen's stats line).
+ *  Mirrors the calculation GradeLockedSkillTree does internally. */
+export function computeGradeTreeStats(
+  tree: { levels: GradeLevel[] },
+  grade: number,
+  seedForGrade: (grade: number) => { level: number; belowContent?: boolean; beyondContent?: boolean },
+  statusFor: (skillId: string) => BaseStatus,
+  progressFor: (skillIds: string[]) => number
+): { grade: number; mastered: number; total: number; progress: number } {
+  const seed = seedForGrade(grade);
+  const level = tree.levels.find((l) => l.id === seed.level);
+  if (!level) return { grade: seed.level, mastered: 0, total: 0, progress: 0 };
+  let mastered = 0;
+  const ids: string[] = [];
+  for (const tier of level.tiers) {
+    for (const skill of tier.atomic_skills) {
+      ids.push(skill.id);
+      if (statusFor(skill.id) === "mastered") mastered += 1;
+    }
+  }
+  return { grade: seed.level, mastered, total: ids.length, progress: progressFor(ids) };
+}
+
 export interface GradeLockedSkillTreeProps {
   accent: SkillTreeAccent;
   /** Header title, e.g. "History Skill Tree". */
   title: string;
+  /** Short subject name for the back row, e.g. "History" → "← History". */
+  backLabel?: string;
   /** Level-card sub-line, e.g. "Mastery 75% · 20 questions per topic". */
   subhead?: string;
   tree: { levels: GradeLevel[] };
@@ -53,6 +80,7 @@ export interface GradeLockedSkillTreeProps {
 export default function GradeLockedSkillTree({
   accent,
   title,
+  backLabel,
   subhead,
   tree,
   defaultGrade,
@@ -66,12 +94,21 @@ export default function GradeLockedSkillTree({
   noticeBelow,
   noticeBeyond,
 }: GradeLockedSkillTreeProps) {
-  const [grade, setGrade] = useState<number | null>(null);
-  const [loading, setLoading] = useState(true);
+  // Seed synchronously from the last-known grade (shared with the Subjects
+  // hub's cache) so the tree paints immediately instead of blocking on a
+  // network round-trip every time it mounts. Supabase then confirms/corrects
+  // it in the background below.
+  const [grade, setGrade] = useState<number | null>(() => readCachedGrade());
+  const [loading, setLoading] = useState(() => readCachedGrade() === null);
 
   useEffect(() => {
     fetchAuthorisedGrade().then((data) => {
-      setGrade(data?.grade ?? defaultGrade);
+      if (data?.grade != null) {
+        setGrade(data.grade);
+        writeCachedGrade(data.grade);
+      } else {
+        setGrade((g) => g ?? defaultGrade);
+      }
       setLoading(false);
     });
   }, [defaultGrade]);
@@ -108,7 +145,9 @@ export default function GradeLockedSkillTree({
           id: skill.id,
           title: skill.title,
           status,
-          onClick: base === "locked" ? undefined : () => onPickSkill(skill.id),
+          // Every skill is tappable, regardless of mastery/prerequisite status —
+          // no section is gated behind unlocking another one first.
+          onClick: () => onPickSkill(skill.id),
         };
       });
       if (tierTotal > 0 && tierMastered === tierTotal) masteredTiers += 1;
@@ -153,7 +192,12 @@ export default function GradeLockedSkillTree({
     <SkillTreeShell
       accent={accent}
       title={title}
-      statline={`${total > 0 && mastered === total ? 1 : 0}/1 Levels · ${masteredTiers}/${totalTiers} Tiers · ${mastered}/${total} Atomic skills · ${progress}%`}
+      backLabel={backLabel}
+      statline={
+        CONCEPT_C
+          ? `Gems to collect · ${mastered}/${total}`
+          : `${total > 0 && mastered === total ? 1 : 0}/1 Levels · ${masteredTiers}/${totalTiers} Tiers · ${mastered}/${total} Atomic skills · ${progress}%`
+      }
       levels={levels}
       compact={compact}
       onBack={onBack}

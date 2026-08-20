@@ -18,9 +18,20 @@ import type {
   EmsSpSkillTree,
   EmsSpStudentProfile,
 } from "@/types/ems-sp";
-import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
 
 const tree = emsSpSkillTreeData as unknown as EmsSpSkillTree;
+
+/** Stats for the subject landing screen, without mounting the tree. */
+export function getEmsSpStats(grade: number, profile: EmsSpStudentProfile | null) {
+  return computeGradeTreeStats(
+    tree,
+    grade,
+    seedForGrade,
+    (id) => getEmsSpSkillStatus(id, profile),
+    (ids) => (profile ? getEmsSpLevelProgress(ids, profile.skill_mastery) : 0)
+  );
+}
 
 interface EmsSpSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -39,6 +50,7 @@ export default function EmsSpSkillTreeView({
     <GradeLockedSkillTree
       accent="violet"
       title="Economic & Management Sciences Skill Tree"
+      backLabel="Economic & Management Sciences"
       subhead="The Economy · Financial Literacy · Entrepreneurship · master each topic at 75%"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

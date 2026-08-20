@@ -18,9 +18,20 @@ import type {
   SocialSciencesSpSkillTree,
   SocialSciencesSpStudentProfile,
 } from "@/types/social-sciences-sp";
-import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
 
 const tree = socialSciencesSpSkillTreeData as unknown as SocialSciencesSpSkillTree;
+
+/** Stats for the subject landing screen, without mounting the tree. */
+export function getSocialSciencesSpStats(grade: number, profile: SocialSciencesSpStudentProfile | null) {
+  return computeGradeTreeStats(
+    tree,
+    grade,
+    seedForGrade,
+    (id) => getSocialSciencesSpSkillStatus(id, profile),
+    (ids) => (profile ? getSocialSciencesSpLevelProgress(ids, profile.skill_mastery) : 0)
+  );
+}
 
 interface SocialSciencesSpSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -39,6 +50,7 @@ export default function SocialSciencesSpSkillTreeView({
     <GradeLockedSkillTree
       accent="orange"
       title="Social Sciences Skill Tree"
+      backLabel="Social Sciences"
       subhead="History &amp; Geography · master each topic at 75%"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

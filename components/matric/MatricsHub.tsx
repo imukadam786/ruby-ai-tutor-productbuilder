@@ -2,6 +2,7 @@
 
 import { ActiveView } from "@/types";
 import EduBackground from "@/components/EduBackground";
+import { CONCEPT_C } from "@/lib/flags";
 
 interface MatricsHubProps {
   onNavigate: (view: ActiveView) => void;
@@ -19,29 +20,23 @@ interface MatricCardProps {
 function MatricCard({
   image,
   label,
-  caption,
-  badge,
-  badgeColor = "bg-gray-100 text-gray-600",
   onClick,
 }: MatricCardProps) {
   return (
     <button
       onClick={onClick}
-      className="rounded-2xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col text-left transition-all active:opacity-80 hover:shadow-xl hover:-translate-y-1"
+      className={`rounded-2xl overflow-hidden bg-white border border-gray-100 flex flex-col text-left transition-all ${
+        CONCEPT_C
+          ? "shadow-lip active:translate-y-[3px] active:shadow-none"
+          : "shadow-md active:opacity-80 hover:shadow-xl hover:-translate-y-1"
+      }`}
     >
-      {/* Square image header */}
-      <div className="w-full flex-shrink-0" style={{ aspectRatio: "1 / 1" }}>
-        <img src={image} alt={label} className="w-full h-full object-cover" />
-      </div>
-      {/* Label + caption + badge */}
-      <div className="px-2 pt-2 pb-3 sm:px-5 sm:pt-4 sm:pb-5 flex flex-col items-start gap-1 sm:gap-1.5">
-        <span className="font-bold text-gray-900 text-xs sm:text-xl leading-tight">{label}</span>
-        <span className="text-[10px] sm:text-sm text-gray-500 leading-snug hidden sm:block">{caption}</span>
-        {badge && (
-          <span className={`text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap mt-2 hidden sm:inline-block ${badgeColor}`}>
-            {badge}
-          </span>
-        )}
+      {/* The label is baked into the artwork, so the thumbnail is the whole card
+          — no repeated text box underneath (it only wasted vertical space).
+          Source art is portrait (~0.88 ratio, all three images), not square —
+          render at natural ratio so the baked-in label band never gets cropped. */}
+      <div className="w-full flex-shrink-0">
+        <img src={image} alt={label} className="w-full h-auto block" />
       </div>
     </button>
   );
@@ -99,7 +94,7 @@ export default function MatricsHub({ onNavigate }: MatricsHubProps) {
             <p className="text-gray-500 text-sm mt-1">Prepare for your matric exams with real papers and guides.</p>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 sm:gap-6">
+          <div className="grid grid-cols-1 gap-3 sm:gap-6">
             {CARDS.map((card) => (
               <MatricCard
                 key={card.label}

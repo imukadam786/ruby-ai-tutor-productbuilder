@@ -32,7 +32,7 @@ function MockupPredict({ isMobile }: { isMobile: boolean }) {
                 <span
                   key={topic}
                   className="text-[10px] font-semibold px-2.5 py-1 rounded-full border"
-                  style={{ borderColor: "#B7182E", color: "#B7182E", backgroundColor: "#fff5f5" }}
+                  style={{ borderColor: "rgb(var(--brand-alt))", color: "rgb(var(--brand-alt))", backgroundColor: "#fff5f5" }}
                 >
                   {topic}
                 </span>

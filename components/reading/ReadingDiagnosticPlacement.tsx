@@ -11,6 +11,8 @@ import type { DiagnosticReportInput } from "@/lib/report-generator";
 import { DIAGNOSTIC_TASKS } from "@/lib/reading-diagnostic-tasks";
 import { friendlyReadingSkillName, getReadingLevelById } from "@/lib/reading-student-model";
 import discoveryProbesData from "@/data/reading-discovery-probes.json";
+import AnswerButton from "@/components/ui/AnswerButton";
+import { CONCEPT_C } from "@/lib/flags";
 
 // ── Task definitions (hardcoded — no API calls for generation) ────────────────
 
@@ -975,7 +977,11 @@ export default function ReadingDiagnosticPlacement({
                 setPhase("report");
               }
             }}
-            className="w-full bg-[#B7182E] text-white py-5 rounded-3xl font-bold text-xl shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-100"
+            className={`w-full text-white py-5 rounded-3xl font-bold text-xl transition-all ${
+              CONCEPT_C
+                ? "bg-ruby hover:bg-ruby-deep shadow-lip active:translate-y-[3px] active:shadow-none"
+                : "bg-brand-alt shadow-lg hover:shadow-xl hover:scale-105 active:scale-100"
+            }`}
           >
             View Report 📋
           </button>
@@ -1077,24 +1083,41 @@ export default function ReadingDiagnosticPlacement({
 
             {/* CHOICE or FLASH_CHOICE */}
             {(task.answerMode === "choice" || (isFlashTask && flashDone)) && task.choices && (
-              <div className={`grid gap-3 ${task.choices.length === 2 ? "grid-cols-2" : "grid-cols-1"}`}>
-                {task.choices.map((c) => (
-                  <button
-                    key={`${task.id}-${c.value}`}
-                    onClick={() => handleChoice(c)}
-                    disabled={submitting || !!selectedChoice}
-                    className={`px-4 py-4 rounded-2xl border-2 text-base font-semibold text-left transition-all select-none ${
-                      selectedChoice === c.value
-                        ? "bg-purple-500 border-purple-500 text-white shadow-lg scale-105"
-                        : selectedChoice
-                        ? "opacity-40 border-gray-200 text-gray-400 cursor-not-allowed pointer-events-none"
-                        : "border-gray-200 text-gray-700 hover:border-purple-300 hover:bg-purple-50 active:scale-95"
-                    }`}
-                  >
-                    {c.label}
-                  </button>
-                ))}
-              </div>
+              CONCEPT_C ? (
+                <div className={`grid gap-3 ${task.choices.length === 2 ? "grid-cols-2" : "grid-cols-1"}`}>
+                  {task.choices.map((c, i) => (
+                    <AnswerButton
+                      key={`${task.id}-${c.value}`}
+                      index={i}
+                      onClick={() => handleChoice(c)}
+                      disabled={submitting || !!selectedChoice}
+                      selected={selectedChoice === c.value}
+                      dimmed={!!selectedChoice && selectedChoice !== c.value}
+                    >
+                      {c.label}
+                    </AnswerButton>
+                  ))}
+                </div>
+              ) : (
+                <div className={`grid gap-3 ${task.choices.length === 2 ? "grid-cols-2" : "grid-cols-1"}`}>
+                  {task.choices.map((c) => (
+                    <button
+                      key={`${task.id}-${c.value}`}
+                      onClick={() => handleChoice(c)}
+                      disabled={submitting || !!selectedChoice}
+                      className={`px-4 py-4 rounded-2xl border-2 text-base font-semibold text-left transition-all select-none ${
+                        selectedChoice === c.value
+                          ? "bg-purple-500 border-purple-500 text-white shadow-lg scale-105"
+                          : selectedChoice
+                          ? "opacity-40 border-gray-200 text-gray-400 cursor-not-allowed pointer-events-none"
+                          : "border-gray-200 text-gray-700 hover:border-purple-300 hover:bg-purple-50 active:scale-95"
+                      }`}
+                    >
+                      {c.label}
+                    </button>
+                  ))}
+                </div>
+              )
             )}
 
             {/* Waiting for flash */}

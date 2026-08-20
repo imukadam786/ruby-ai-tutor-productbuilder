@@ -33,6 +33,7 @@ export default function NstSkillTreeView({
     <GradeLockedSkillTree
       accent="lime"
       title="Natural Sciences & Tech Skill Tree"
+      backLabel="Natural Sciences & Tech"
       subhead="Pick a topic to start. Ruby will read each question to you."
       tree={tree}
       defaultGrade={4}

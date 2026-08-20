@@ -5,6 +5,7 @@ import { ActiveView } from "@/types";
 import { useT } from "@/lib/i18n";
 import UsageMeter from "@/components/UsageMeter";
 import RubyBalance from "@/components/RubyBalance";
+import { CONCEPT_C } from "@/lib/flags";
 
 interface SidebarProps {
   activeView: ActiveView;
@@ -87,7 +88,7 @@ export default function Sidebar({
         className={`
           fixed inset-y-0 left-0 z-50
           md:static md:z-auto md:translate-x-0
-          bg-gradient-to-b from-[#BE1832] to-[#E8305A]
+          ${CONCEPT_C ? "bg-gradient-to-b from-ruby-deep to-ruby-bright" : "bg-gradient-to-b from-brand to-[#E8305A]"}
           flex flex-col h-full shadow-xl
           transition-all duration-300 ease-in-out
           overflow-x-hidden

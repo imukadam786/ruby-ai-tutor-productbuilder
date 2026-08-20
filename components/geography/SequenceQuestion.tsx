@@ -105,14 +105,14 @@ export default function SequenceQuestion({ items, submitting, onSubmit }: Props)
         <button
           onClick={reset}
           disabled={submitting || order.length === 0}
-          className="text-sm text-gray-500 hover:text-[#BE1832] disabled:text-gray-300 underline underline-offset-4"
+          className="text-sm text-gray-500 hover:text-brand disabled:text-gray-300 underline underline-offset-4"
         >
           Reset
         </button>
         <button
           onClick={submit}
           disabled={submitting || !allPlaced}
-          className="flex-1 py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-base"
+          className="flex-1 py-4 rounded-full bg-brand hover:bg-brand-hover disabled:bg-gray-300 text-white font-bold text-base"
         >
           {allPlaced ? "Check answer" : `Place ${remaining.length} more`}
         </button>

@@ -14,9 +14,20 @@ import {
   getBusinessStudiesLevelProgress,
 } from "@/lib/business-studies-student-model";
 import type { BusinessStudiesSkillTree, BusinessStudiesStudentProfile } from "@/types/business-studies";
-import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
 
 const tree = businessStudiesSkillTreeData as unknown as BusinessStudiesSkillTree;
+
+/** Stats for the subject landing screen, without mounting the tree. */
+export function getBusinessStudiesStats(grade: number, profile: BusinessStudiesStudentProfile | null) {
+  return computeGradeTreeStats(
+    tree,
+    grade,
+    seedForGrade,
+    (id) => getBusinessStudiesSkillStatus(id, profile),
+    (ids) => (profile ? getBusinessStudiesLevelProgress(ids, profile.skill_mastery) : 0)
+  );
+}
 
 interface BusinessStudiesSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -35,6 +46,7 @@ export default function BusinessStudiesSkillTreeView({
     <GradeLockedSkillTree
       accent="indigo"
       title="Business Studies Skill Tree"
+      backLabel="Business Studies"
       subhead="Mastery 75% · 20 questions per topic"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

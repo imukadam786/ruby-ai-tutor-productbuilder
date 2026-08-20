@@ -8,6 +8,8 @@ import { SEARCH_GATES, LEVEL_LABEL, getSearchWindow, isGatePassed, resolveEntryL
 import { simplifyText } from "@/lib/question-simplifier";
 import { getReadingProfile } from "@/lib/reading-student-model";
 import { DotArray, parseDotArray } from "./DotArray";
+import AnswerButton from "@/components/ui/AnswerButton";
+import { CONCEPT_C } from "@/lib/flags";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -501,7 +503,11 @@ export default function MathsDiagnosticPlacement({
           <p className="text-gray-500 text-sm">Check your connection and try again.</p>
           <button
             onClick={() => { bankLoadedRef.current = false; setPhase("welcome"); }}
-            className="w-full bg-[#B7182E] text-white py-3 rounded-2xl font-semibold hover:opacity-90 transition-opacity"
+            className={`w-full text-white py-3 rounded-2xl font-semibold transition-all ${
+              CONCEPT_C
+                ? "bg-ruby hover:bg-ruby-deep shadow-lip active:translate-y-[3px] active:shadow-none"
+                : "bg-brand-alt hover:opacity-90"
+            }`}
           >
             Try again
           </button>
@@ -563,7 +569,11 @@ export default function MathsDiagnosticPlacement({
 
           <button
             onClick={() => onViewReport ? onViewReport(placementResult) : onComplete(placementResult)}
-            className="w-full bg-[#B7182E] text-white py-5 rounded-3xl font-bold text-xl shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-100"
+            className={`w-full text-white py-5 rounded-3xl font-bold text-xl transition-all ${
+              CONCEPT_C
+                ? "bg-ruby hover:bg-ruby-deep shadow-lip active:translate-y-[3px] active:shadow-none"
+                : "bg-brand-alt shadow-lg hover:shadow-xl hover:scale-105 active:scale-100"
+            }`}
           >
             View Report 📋
           </button>
@@ -619,24 +629,41 @@ export default function MathsDiagnosticPlacement({
 
             {/* ── Choice UI ── */}
             {isChoiceTask && task.choices && (
-              <div className="grid grid-cols-2 gap-3">
-                {task.choices.map((c) => (
-                  <button
-                    key={c.value}
-                    onClick={() => handleChoice(c)}
-                    disabled={submitting || !!selectedChoice}
-                    className={`px-4 py-5 rounded-2xl border-2 text-base font-bold text-center transition-all active:scale-95 ${
-                      selectedChoice === c.value
-                        ? "bg-blue-500 border-blue-500 text-white shadow-lg scale-105"
-                        : selectedChoice
-                        ? "opacity-40 border-gray-200 text-gray-400 cursor-not-allowed"
-                        : "border-gray-200 text-gray-700 hover:border-blue-300 hover:bg-blue-50 cursor-pointer"
-                    }`}
-                  >
-                    {c.label}
-                  </button>
-                ))}
-              </div>
+              CONCEPT_C ? (
+                <div className="grid grid-cols-2 gap-3">
+                  {task.choices.map((c, i) => (
+                    <AnswerButton
+                      key={c.value}
+                      index={i}
+                      onClick={() => handleChoice(c)}
+                      disabled={submitting || !!selectedChoice}
+                      selected={selectedChoice === c.value}
+                      dimmed={!!selectedChoice && selectedChoice !== c.value}
+                    >
+                      {c.label}
+                    </AnswerButton>
+                  ))}
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 gap-3">
+                  {task.choices.map((c) => (
+                    <button
+                      key={c.value}
+                      onClick={() => handleChoice(c)}
+                      disabled={submitting || !!selectedChoice}
+                      className={`px-4 py-5 rounded-2xl border-2 text-base font-bold text-center transition-all active:scale-95 ${
+                        selectedChoice === c.value
+                          ? "bg-blue-500 border-blue-500 text-white shadow-lg scale-105"
+                          : selectedChoice
+                          ? "opacity-40 border-gray-200 text-gray-400 cursor-not-allowed"
+                          : "border-gray-200 text-gray-700 hover:border-blue-300 hover:bg-blue-50 cursor-pointer"
+                      }`}
+                    >
+                      {c.label}
+                    </button>
+                  ))}
+                </div>
+              )
             )}
 
             {/* ── Numeric / text / fraction UI ── */}

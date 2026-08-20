@@ -7,6 +7,7 @@ import { useTTS } from "@/lib/tts";
 import { apiFetch } from "@/lib/fetch";
 import { resolveErrorExplanation } from "@/lib/error-explanations";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import RubyIcon from "@/components/ui/RubyIcon";
 
 interface QuestionContext {
@@ -300,6 +301,7 @@ export default function FeedbackCard({
 
   return (
     <FeedbackExplanation
+      gemColor={GEM_HEX.blue}
       isCorrect={false}
       studentAnswer={questionContext?.student_answer}
       correctAnswer={questionContext?.expected_answer}

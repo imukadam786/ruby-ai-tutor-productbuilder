@@ -86,7 +86,7 @@ export default function FeatureTutorialShell({ onComplete, slides, featureName, 
               style={{
                 width: i === step ? 20 : 8,
                 height: 8,
-                backgroundColor: i === step ? "#B7182E" : "#e5e7eb",
+                backgroundColor: i === step ? "rgb(var(--brand-alt))" : "#e5e7eb",
               }}
             />
           ))}

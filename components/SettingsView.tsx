@@ -10,6 +10,7 @@ import EditSubjectsModal from "@/components/onboarding/EditSubjectsModal";
 import Button from "@/components/ui/Button";
 import { isFetGrade, readCachedSubjects, type FetSubjectKey } from "@/lib/fet-subjects";
 import { ActiveView } from "@/types";
+import { CONCEPT_C } from "@/lib/flags";
 
 interface SettingsViewProps {
   onBack: () => void;
@@ -73,7 +74,11 @@ function Row({
 
 function Card({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden divide-y divide-gray-100">
+    <div
+      className={`bg-white rounded-2xl overflow-hidden divide-y divide-gray-100 ${
+        CONCEPT_C ? "border-2 border-gray-100 shadow-lip" : "border border-gray-100 shadow-sm"
+      }`}
+    >
       {children}
     </div>
   );
@@ -708,7 +713,7 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogo
                 className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   accountLang === l ? "text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
                 }`}
-                style={accountLang === l ? { backgroundColor: "#B7182E" } : {}}>
+                style={accountLang === l ? { backgroundColor: CONCEPT_C ? "#E11D48" : "#B7182E" } : {}}>
                 {l}
               </button>
             ))}
@@ -726,7 +731,7 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogo
                 className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   learnLang === l ? "text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
                 }`}
-                style={learnLang === l ? { backgroundColor: "#B7182E" } : {}}
+                style={learnLang === l ? { backgroundColor: CONCEPT_C ? "#E11D48" : "#B7182E" } : {}}
               >
                 {l}
               </button>

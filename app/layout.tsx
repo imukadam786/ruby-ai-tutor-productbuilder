@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import PwaUpdatePrompt from "@/components/PwaUpdatePrompt";
+import { CONCEPT_C } from "@/lib/flags";
 
 export const metadata: Metadata = {
   title: "Ruby AI Tutor",
@@ -28,7 +29,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  themeColor: "#B7182E",
+  themeColor: CONCEPT_C ? "#E11D48" : "#B7182E",
   // Prevents layout from resizing when soft keyboard opens on mobile
   interactiveWidget: "resizes-visual",
 };
@@ -39,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full overflow-hidden">
+    <html lang="en" className={`h-full overflow-hidden${CONCEPT_C ? " concept-c" : ""}`}>
       <head>
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

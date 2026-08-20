@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useT } from "@/lib/i18n";
 import SpinningGlobe from "@/components/SpinningGlobe";
+import { CONCEPT_C } from "@/lib/flags";
 
 const CONTINENTS = [
   {
@@ -64,7 +65,7 @@ export default function LanguagePickerModal({ onClose }: Props) {
             {selectedContinent ? (
               <button
                 onClick={() => setSelectedContinent(null)}
-                className="flex items-center gap-1.5 text-sm text-blue-500 font-medium"
+                className={`flex items-center gap-1.5 text-sm font-medium ${CONCEPT_C ? "text-ruby" : "text-blue-500"}`}
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -93,7 +94,11 @@ export default function LanguagePickerModal({ onClose }: Props) {
                   <button
                     key={c.key}
                     onClick={() => setSelectedContinent(c.key)}
-                    className="flex flex-col items-center gap-2.5 p-5 rounded-2xl transition-all active:scale-[0.97] hover:opacity-90"
+                    className={`flex flex-col items-center gap-2.5 p-5 rounded-2xl transition-all hover:opacity-90 ${
+                      CONCEPT_C
+                        ? "shadow-lip active:translate-y-[3px] active:shadow-none"
+                        : "active:scale-[0.97]"
+                    }`}
                     style={{ backgroundColor: c.color }}
                   >
                     <span className="text-4xl">{c.emoji}</span>
@@ -110,7 +115,7 @@ export default function LanguagePickerModal({ onClose }: Props) {
                     onClick={() => handleSelect(lang)}
                     className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-colors flex items-center justify-between ${
                       currentLang === lang
-                        ? "bg-blue-500 text-white"
+                        ? CONCEPT_C ? "bg-ruby text-white" : "bg-blue-500 text-white"
                         : "bg-gray-50 text-gray-700 hover:bg-gray-100"
                     }`}
                   >

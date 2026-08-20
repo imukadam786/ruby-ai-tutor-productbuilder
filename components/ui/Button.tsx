@@ -16,6 +16,7 @@
 // Use `variant` for intent and `size` for scale; pass `fullWidth` to stretch.
 
 import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
+import { CONCEPT_C } from "@/lib/flags";
 
 export type ButtonVariant = "primary" | "success" | "outline" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
@@ -35,18 +36,20 @@ function cx(...parts: Array<string | false | null | undefined>): string {
 
 const BASE =
   "inline-flex items-center justify-center gap-2 font-bold whitespace-nowrap " +
-  "transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/40 " +
+  "transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 " +
   "active:scale-[0.98] disabled:cursor-not-allowed";
 
 const VARIANTS: Record<ButtonVariant, string> = {
-  primary:
-    "bg-[#BE1832] hover:bg-[#a01528] text-white disabled:bg-gray-300",
+  // Concept C: brighter ruby + the chunky pressable "lip" the team asked for.
+  primary: CONCEPT_C
+    ? "bg-ruby hover:bg-ruby-deep text-white disabled:bg-gray-300 shadow-lip active:translate-y-[3px] active:shadow-none"
+    : "bg-brand hover:bg-brand-hover text-white disabled:bg-gray-300",
   success:
     "bg-green-600 hover:bg-green-700 text-white disabled:bg-gray-300",
   outline:
-    "border-2 border-[#BE1832] text-[#BE1832] hover:bg-[#BE1832]/5 disabled:border-gray-200 disabled:text-gray-300",
+    "border-2 border-brand text-brand hover:bg-brand/5 disabled:border-gray-200 disabled:text-gray-300",
   ghost:
-    "text-[#BE1832] hover:bg-[#BE1832]/5 disabled:text-gray-300",
+    "text-brand hover:bg-brand/5 disabled:text-gray-300",
 };
 
 const SIZES: Record<ButtonSize, string> = {

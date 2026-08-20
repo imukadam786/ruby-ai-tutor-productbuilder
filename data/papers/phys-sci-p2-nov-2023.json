@@ -74,7 +74,8 @@
             "D": "Initial rate in Y: Higher; Final volume of H₂ in Y: More"
           },
           "memoText": "Correct answer: B (2 marks)\nZn lumps have a smaller surface area than powder, so the initial rate in Y is lower. Zn is in excess, so HCℓ is limiting; Y has twice the amount of HCℓ (200 cm³) → more H₂ is produced.",
-          "topic": "Reaction Rate"
+          "topic": "Reaction Rate",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q1.4.png"
         },
         {
           "id": "ps2-23-1-5",
@@ -89,7 +90,8 @@
             "D": "0 < Kc < 1"
           },
           "memoText": "Correct answer: D (2 marks)\nKc = [N₂O₄]/[NO₂]². Because the container has relatively few N₂O₄ and many NO₂ molecules, the ratio is a small positive value: 0 < Kc < 1.",
-          "topic": "Chemical Equilibrium"
+          "topic": "Chemical Equilibrium",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q1.5.png"
         },
         {
           "id": "ps2-23-1-6",
@@ -104,7 +106,8 @@
             "D": "[O₂] Decreases; moles O₂ Increases; Kc Remains the same"
           },
           "memoText": "Correct answer: C (2 marks)\nOnly O₂ is gaseous, so Kc = [O₂]. At constant temperature Kc is unchanged, so [O₂] stays the same; to keep the same concentration in a larger volume the number of moles of O₂ must increase.",
-          "topic": "Chemical Equilibrium"
+          "topic": "Chemical Equilibrium",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q1.6.png"
         },
         {
           "id": "ps2-23-1-7",
@@ -134,7 +137,8 @@
             "D": "[H⁺] > [OH⁻] and pH > 7"
           },
           "memoText": "Correct answer: A (2 marks)\nExceeding the endpoint means excess HCℓ was added, so the mixture becomes acidic: [H⁺] > [OH⁻] and pH < 7.",
-          "topic": "Acids and Bases"
+          "topic": "Acids and Bases",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q1.8.png"
         },
         {
           "id": "ps2-23-1-9",
@@ -149,7 +153,8 @@
             "D": "(ii) and (iii) only"
           },
           "memoText": "Correct answer: B (2 marks)\n(i) TRUE – emf = +0,10 − (−0,10) = 0,20 V. (ii) TRUE – Y has the lower reduction potential, so it is oxidised (anode). (iii) FALSE – X has the higher potential, so it is reduced (cathode), not oxidised.",
-          "topic": "Electrochemistry (Galvanic)"
+          "topic": "Electrochemistry (Galvanic)",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q1.9.png"
         },
         {
           "id": "ps2-23-1-10",
@@ -263,7 +268,8 @@
           "memoText": "Mark scheme (1 mark):\nD and G ✓",
           "topic": "Organic Chemistry"
         }
-      ]
+      ],
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q2.png"
     },
     {
       "number": 3,
@@ -342,7 +348,8 @@
           "memoText": "Mark scheme (3 marks):\nCarboxylic acid/B/propanoic acid have (in addition to London forces and dipole-dipole forces) two sites for hydrogen bonding between molecules. ✓ OR carboxylic acid/B can form dimers due to strong hydrogen bonding.\nAlcohol/A/butan-1-ol have (in addition to London and dipole-dipole forces) one site for hydrogen bonding between molecules. ✓\nIntermolecular forces in the carboxylic acid are stronger / more energy is needed to overcome/break the intermolecular forces in the carboxylic acid, so it has the higher boiling point. ✓",
           "topic": "Intermolecular Forces"
         }
-      ]
+      ],
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q3.png"
     },
     {
       "number": 4,
@@ -439,6 +446,10 @@
           "memoText": "Mark scheme (2 marks):\nElimination ✓\nDehydrohalogenation / dehydrochlorination ✓",
           "topic": "Organic Reactions"
         }
+      ],
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q4.1.png",
+      "diagramUrls": [
+        "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q4.2.png"
       ]
     },
     {
@@ -453,7 +464,8 @@
           "questionText": "The reaction between EXCESS dilute hydrochloric acid and sodium thiosulphate is used to investigate factors that influence reaction rate:\nNa₂S₂O₃(aq) + 2HCℓ(aq) → 2NaCℓ(aq) + S(s) + H₂O(ℓ) + SO₂(g)\nThe concentration of HCℓ(aq) used is 1 mol·dm⁻³. The same volume of HCℓ(aq) is used in each run. The time taken for the cross on the paper under the flask to become invisible is measured. The results are:\nRun 1: 50 cm³ Na₂S₂O₃(aq), 0 cm³ H₂O added, concentration 0,13 mol·dm⁻³, time 20,4 s.\nRun 2: 40 cm³ Na₂S₂O₃(aq), 10 cm³ H₂O added, concentration 0,10 mol·dm⁻³, time 26,7 s.\nRun 3: 30 cm³ Na₂S₂O₃(aq), 20 cm³ H₂O added, concentration P, time 33,3 s.\n*(Refer to the apparatus diagram and results table in the original question paper.)*\n\nDefine reaction rate.",
           "marks": 2,
           "memoText": "Mark scheme (2 marks, 2 or 0):\nANY ONE:\n• Change in concentration of products/reactants per (unit) time.\n• Change in amount/number of moles/volume/mass of products or reactants per (unit) time.\n• Amount/number of moles/volume/mass of products formed/reactants used per (unit) time.\n• Rate of change in concentration/amount/number of moles/volume/mass. ✓✓",
-          "topic": "Reaction Rate"
+          "topic": "Reaction Rate",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q5.1.png"
         },
         {
           "id": "ps2-23-5-2",
@@ -579,7 +591,8 @@
           "memoText": "Mark scheme (3 marks):\nThe gradients (of all three curves) will be steeper ✓ and reach the same equilibrium values ✓ before 40 s / reaches the same equilibrium sooner (in less than 40 s). ✓\nOR the gradients of the curves become zero at the same equilibrium values before 40 s.\nIF curves are identified, all three must be named.",
           "topic": "Chemical Equilibrium"
         }
-      ]
+      ],
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q6.png"
     },
     {
       "number": 7,
@@ -622,7 +635,8 @@
           "memoText": "Mark scheme (8 marks):\n(Positive marking from 7.2.2.)\nn(HNO₃)initial = cV = (0,4)(0,025) ✓ = 0,01 mol\nn(HNO₃) reacted with MCO₃ = n(HNO₃)initial − n(HNO₃)excess = 0,01 − 0,006 ✓ = 0,004 mol\nn(MCO₃) = ½ n(HNO₃) = ½(0,004) ✓ = 0,002 mol (use ratio)\nm(MCO₃ pure) = 0,85 × 0,198 ✓ = 0,168 g (calculate pure mass)\nM(MCO₃) = m/n = 0,168/0,002 ✓ (substitute n and m) = 84 g·mol⁻¹\nMolar mass of M = 84 − 60 ✓ (subtract 60 g·mol⁻¹ for CO₃) = 24 g·mol⁻¹\nTherefore metal M is Mg. ✓",
           "topic": "Acids and Bases"
         }
-      ]
+      ],
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q7.png"
     },
     {
       "number": 8,
@@ -654,7 +668,8 @@
           "questionText": "Explain the answer to QUESTION 8.1.1 by referring to the relative strengths of the oxidising agents or reducing agents.",
           "marks": 3,
           "memoText": "Mark scheme (3 marks):\nAg⁺ (ion) is a stronger oxidising agent than Cu²⁺ ion ✓ and will oxidise Cu ✓ to Cu²⁺ ion. ✓\nOR Cu²⁺ (ion) is a weaker oxidising agent than Ag⁺ ion and Cu will be oxidised to Cu²⁺ ion.\nOR Cu/copper is a stronger reducing agent than Ag/silver and will reduce silver ions to silver.",
-          "topic": "Electrochemistry (Galvanic)"
+          "topic": "Electrochemistry (Galvanic)",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q8.2.png"
         },
         {
           "id": "ps2-23-8-3-1",
@@ -692,7 +707,8 @@
           "memoText": "Mark scheme (2 marks):\nK⁺ ✓\n[Ag⁺] decreases (in the silver half-cell the concentration of positive ions decreases / the silver half-cell becomes negative), so K⁺ moves in to maintain the ion balance / electrical neutrality. ✓",
           "topic": "Electrochemistry (Galvanic)"
         }
-      ]
+      ],
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q8.png"
     },
     {
       "number": 9,
@@ -744,7 +760,8 @@
           "memoText": "Mark scheme (2 marks):\nAg/silver is a weaker reducing agent than Cu/copper or Zn/zinc ✓ and will not be oxidised. ✓\nOR Cu/copper or Zn/zinc is a stronger reducing agent than Ag/silver and Ag will not be oxidised.\nOR the voltage of the power source is not effective enough to oxidise Ag/silver.",
           "topic": "Electrochemistry (Electrolytic)"
         }
-      ]
+      ],
+      "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p2_nov_2023_q9.png"
     }
   ]
 }

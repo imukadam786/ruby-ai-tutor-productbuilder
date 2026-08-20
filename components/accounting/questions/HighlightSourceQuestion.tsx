@@ -139,14 +139,14 @@ export default function HighlightSourceQuestion({
         <button
           onClick={() => setSelected(new Set())}
           disabled={submitting || selected.size === 0}
-          className="text-sm text-gray-500 hover:text-[#BE1832] disabled:text-gray-300 underline underline-offset-4"
+          className="text-sm text-gray-500 hover:text-brand disabled:text-gray-300 underline underline-offset-4"
         >
           Clear
         </button>
         <button
           onClick={submit}
           disabled={submitting || selected.size === 0}
-          className="flex-1 py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-base"
+          className="flex-1 py-4 rounded-full bg-brand hover:bg-brand-hover disabled:bg-gray-300 text-white font-bold text-base"
         >
           Check answer
         </button>

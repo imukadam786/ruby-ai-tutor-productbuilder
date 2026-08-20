@@ -140,7 +140,7 @@ const PREP_SUBJECTS = [
     id: "mathematics",
     name: "Mathematics",
     thumbnail: "/thumbnails/mathematics.webp",
-    color: "from-[#BE1832] to-rose-700",
+    color: "from-brand to-rose-700",
     available: true,
   },
   {
@@ -197,8 +197,8 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: PrepSubject
           <span className="text-sm font-medium">Back</span>
         </button>
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 bg-[#BE1832]/10 border border-[#BE1832]/20 text-[#BE1832] text-xs font-semibold px-3 py-1.5 rounded-full">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#BE1832]" />
+          <div className="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 text-brand text-xs font-semibold px-3 py-1.5 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand" />
             Predictive 2026
           </div>
           <h1 className="text-3xl font-extrabold text-gray-900">Prep Papers 2026</h1>
@@ -302,7 +302,7 @@ function PaperList({
                 <button
                   key={paper.id}
                   onClick={() => onSelect(paper.id)}
-                  className="text-left bg-white rounded-2xl border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#BE1832]/40 transition-all group p-6 space-y-4"
+                  className="text-left bg-white rounded-2xl border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-brand/40 transition-all group p-6 space-y-4"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-gray-50">
@@ -334,7 +334,7 @@ function PaperList({
 
                   <div className="flex items-center gap-2">
                     {progress.status === "not_started" && (
-                      <span className="text-xs font-semibold text-[#BE1832] underline">Start Paper {variant} 🚀</span>
+                      <span className="text-xs font-semibold text-brand underline">Start Paper {variant} 🚀</span>
                     )}
                     {progress.status === "in_progress" && (
                       <>
@@ -414,10 +414,10 @@ function ModeSelect({
               title: "Guided Mode",
               subtitle: "Learn with AI coaching",
               recommendation: "Best for learning",
-              recommendationColor: "text-[#BE1832] bg-rose-50",
+              recommendationColor: "text-brand bg-rose-50",
               bullets: ["AI evaluates after each question","Step-by-step hints available","Feedback in your home language","No time pressure"],
               color: "border-rose-200 bg-rose-50",
-              activeColor: "border-[#BE1832] bg-rose-50 ring-2 ring-[#BE1832]",
+              activeColor: "border-brand bg-rose-50 ring-2 ring-brand",
             },
           ] as const).map((m) => (
             <button
@@ -435,7 +435,7 @@ function ModeSelect({
                   <p className="text-xs text-gray-500">{m.subtitle}</p>
                 </div>
                 {mode === m.id && (
-                  <div className="ml-auto w-5 h-5 rounded-full bg-[#BE1832] flex items-center justify-center flex-shrink-0">
+                  <div className="ml-auto w-5 h-5 rounded-full bg-brand flex items-center justify-center flex-shrink-0">
                     <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
@@ -454,7 +454,7 @@ function ModeSelect({
           ))}
         </div>
 
-        <div className="bg-white rounded-2xl border-2 border-[#BE1832]/20 p-5 space-y-3 shadow-sm">
+        <div className="bg-white rounded-2xl border-2 border-brand/20 p-5 space-y-3 shadow-sm">
           <div className="flex items-center gap-2">
             <span className="text-lg">🌍</span>
             <div>
@@ -465,7 +465,7 @@ function ModeSelect({
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
-            className="w-full border-2 border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] focus:border-[#BE1832]"
+            className="w-full border-2 border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand"
           >
             {SA_LANGUAGES.map((l) => (
               <option key={l} value={l}>
@@ -501,7 +501,7 @@ function InfoSheetModal({ sheet, onClose }: { sheet: InfoSheet; onClose: () => v
       <div className="relative bg-white w-full sm:max-w-[520px] flex flex-col shadow-2xl h-full">
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0">
           <div className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-[#BE1832]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-4 h-4 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             <h2 className="font-bold text-gray-800 text-sm">{sheet.title}</h2>
@@ -787,7 +787,7 @@ function SessionView({
     return (
       <div className="h-full flex flex-col items-center justify-center bg-[#F4F4F5] gap-6 px-6 text-center">
         <div className="w-16 h-16 rounded-full bg-rose-50 flex items-center justify-center animate-pulse">
-          <svg className="w-8 h-8 text-[#BE1832]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-8 h-8 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
@@ -796,7 +796,7 @@ function SessionView({
           <p className="text-sm text-gray-500 mt-1">Question {submitProgress} of {totalQuestions}</p>
         </div>
         <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
-          <div className="h-full bg-[#BE1832] rounded-full transition-all duration-300" style={{ width: `${(submitProgress / totalQuestions) * 100}%` }} />
+          <div className="h-full bg-brand rounded-full transition-all duration-300" style={{ width: `${(submitProgress / totalQuestions) * 100}%` }} />
         </div>
       </div>
     );
@@ -809,7 +809,7 @@ function SessionView({
       {/* Top bar */}
       <div className="flex-shrink-0 bg-white border-b border-gray-100 px-3 sm:px-4">
         <div className="flex items-center gap-2 py-2">
-          <button onClick={onBack} className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-[#BE1832] bg-gray-100 hover:bg-rose-50 px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0">
+          <button onClick={onBack} className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-brand bg-gray-100 hover:bg-rose-50 px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
@@ -817,11 +817,11 @@ function SessionView({
           </button>
           <span className="text-sm font-bold text-gray-800 whitespace-nowrap">{currentSQ.label}</span>
           <span className="text-gray-300 text-xs">·</span>
-          <span className="text-xs font-semibold text-[#BE1832] whitespace-nowrap">{currentSQ.marks} {currentSQ.marks === 1 ? "mk" : "mks"}</span>
+          <span className="text-xs font-semibold text-brand whitespace-nowrap">{currentSQ.marks} {currentSQ.marks === 1 ? "mk" : "mks"}</span>
           <span className="text-gray-300 text-xs hidden sm:inline">·</span>
           <span className="text-xs text-gray-500 whitespace-nowrap hidden sm:inline">{pctComplete}% done</span>
           <div className="hidden sm:block w-10 h-1.5 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
-            <div className="h-full bg-[#BE1832] rounded-full transition-all" style={{ width: `${pctComplete}%` }} />
+            <div className="h-full bg-brand rounded-full transition-all" style={{ width: `${pctComplete}%` }} />
           </div>
           {mode === "practice" && language !== "English" && language !== "Afrikaans" && (
             <span className="ml-auto flex items-center gap-1.5 text-xs flex-shrink-0">
@@ -840,13 +840,13 @@ function SessionView({
         </div>
         <div className="flex items-center gap-2 pb-2 sm:hidden">
           <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-            <div className="h-full bg-[#BE1832] rounded-full transition-all" style={{ width: `${pctComplete}%` }} />
+            <div className="h-full bg-brand rounded-full transition-all" style={{ width: `${pctComplete}%` }} />
           </div>
           <span className="text-[11px] text-gray-500 whitespace-nowrap flex-shrink-0">{pctComplete}% done</span>
           <select
             value={paper.questions.findIndex((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))}
             onChange={(e) => { const idx = questionStartIndices[Number(e.target.value)]; if (idx >= 0) setCurrentIdx(idx); }}
-            className="border border-gray-200 rounded-lg px-2 py-1 text-xs font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] max-w-[120px] flex-shrink-0"
+            className="border border-gray-200 rounded-lg px-2 py-1 text-xs font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-brand max-w-[120px] flex-shrink-0"
           >
             {paper.questions.map((q, i) => <option key={q.number} value={i}>Q{q.number}: {q.title}</option>)}
           </select>
@@ -855,7 +855,7 @@ function SessionView({
           <select
             value={paper.questions.findIndex((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))}
             onChange={(e) => { const idx = questionStartIndices[Number(e.target.value)]; if (idx >= 0) setCurrentIdx(idx); }}
-            className="border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] max-w-[260px]"
+            className="border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-brand max-w-[260px]"
           >
             {paper.questions.map((q, i) => <option key={q.number} value={i}>Q{q.number}: {q.title}</option>)}
           </select>
@@ -893,7 +893,7 @@ function SessionView({
           <button
             onClick={() => setMobileTab("question")}
             className={`flex-1 py-2.5 text-xs font-semibold transition-colors border-b-2 ${
-              mobileTab === "question" ? "text-[#BE1832] border-[#BE1832]" : "text-gray-400 border-transparent"
+              mobileTab === "question" ? "text-brand border-brand" : "text-gray-400 border-transparent"
             }`}
           >
             Question
@@ -901,7 +901,7 @@ function SessionView({
           <button
             onClick={() => setMobileTab("feedback")}
             className={`flex-1 py-2.5 text-xs font-semibold transition-colors border-b-2 ${
-              mobileTab === "feedback" ? "text-[#BE1832] border-[#BE1832]" : "text-gray-400 border-transparent"
+              mobileTab === "feedback" ? "text-brand border-brand" : "text-gray-400 border-transparent"
             }`}
           >
             Ruby Feedback
@@ -938,7 +938,7 @@ function SessionView({
                   <>
                     {passageText && (
                       <div className="mb-3 px-3 py-2.5 bg-stone-50 border-l-4 border-stone-300 rounded-r-md">
-                        <p className="text-sm text-gray-700 whitespace-pre-wrap font-serif leading-relaxed">{passageText}</p>
+                        <p className="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed">{passageText}</p>
                       </div>
                     )}
                     <div className="text-base text-gray-800 leading-relaxed">
@@ -989,7 +989,7 @@ function SessionView({
                             }}
                             placeholder={i < 4 ? `Working for ${label.toLowerCase()}…` : "Final answer…"}
                             rows={2}
-                            className="flex-1 border border-gray-200 rounded-lg px-2.5 py-1.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono disabled:opacity-60"
+                            className="flex-1 border border-gray-200 rounded-lg px-2.5 py-1.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand resize-none font-mono disabled:opacity-60"
                             style={{ minHeight: "clamp(2.5rem, 8vh, 4.5rem)" }}
                             onInput={(e) => { const t = e.target as HTMLTextAreaElement; t.style.height = "auto"; t.style.height = `${t.scrollHeight}px`; }}
                           />
@@ -1037,7 +1037,7 @@ function SessionView({
                     value={currentAttempt.textWorking}
                     onChange={(e) => updateAttempt(currentSQ.id, { textWorking: e.target.value })}
                     placeholder="Show your working here"
-                    className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono"
+                    className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand resize-none font-mono"
                   />
                   <div className="flex items-center justify-center gap-4 flex-shrink-0">
                     {!currentAttempt.imagePreviewUrl && (
@@ -1155,7 +1155,7 @@ function SessionView({
               ))}
               {isEvaluating && (
                 <div className="flex items-center gap-2 text-sm text-gray-400 py-2">
-                  <svg className="w-4 h-4 animate-spin text-[#BE1832]" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" /></svg>
+                  <svg className="w-4 h-4 animate-spin text-brand" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" /></svg>
                   Looking this over…
                 </div>
               )}
@@ -1203,13 +1203,13 @@ function SummaryView({
     <div className="h-full overflow-y-auto bg-[#F4F4F5]">
       <div className="max-w-2xl mx-auto px-5 py-10 space-y-8">
         <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 text-center space-y-4">
-          <div className="text-5xl font-black text-[#BE1832]">{pct}%</div>
+          <div className="text-5xl font-black text-brand">{pct}%</div>
           <div>
             <p className={`font-bold text-lg ${grade.color}`}>{grade.label}</p>
             <p className="text-gray-400 text-sm mt-1">{totalEarned} / {totalPossible} marks · Mathematics {paper.session} 2026</p>
           </div>
           <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
-            <div className="h-full bg-[#BE1832] rounded-full transition-all" style={{ width: `${pct}%` }} />
+            <div className="h-full bg-brand rounded-full transition-all" style={{ width: `${pct}%` }} />
           </div>
         </div>
 

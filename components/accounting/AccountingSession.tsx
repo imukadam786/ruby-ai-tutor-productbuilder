@@ -25,6 +25,7 @@ import historyTreeData from "@/data/accounting-skill-tree.json";
 import accountingBankData from "@/data/accounting-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreAccountingAnswer } from "@/lib/accounting-scoring";
 import AccountingSkillTreeView from "./AccountingSkillTreeView";
@@ -533,7 +534,7 @@ export default function AccountingSession({ onBack }: { onBack?: () => void } = 
                   {submitting && (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="flex items-center gap-2 bg-white/90 rounded-full px-4 py-2 shadow text-[#1a2744] font-semibold text-sm">
-                        <span className="w-4 h-4 border-2 border-[#BE1832] border-t-transparent rounded-full animate-spin" />
+                        <span className="w-4 h-4 border-2 border-brand border-t-transparent rounded-full animate-spin" />
                         Checking…
                       </span>
                     </div>
@@ -543,6 +544,7 @@ export default function AccountingSession({ onBack }: { onBack?: () => void } = 
 
               {phase === "feedback" && result && (
                 <FeedbackExplanation
+                  gemColor={GEM_HEX.emerald}
                   isCorrect={result.is_correct}
                   note={result.is_correct ? result.memo : undefined}
                   whyOverride={result.is_correct ? undefined : result.memo}

@@ -74,8 +74,8 @@ function MockupStreak({ isMobile }: { isMobile: boolean }) {
             </div>
           </div>
           <div className="flex items-center gap-1">
-            <div className="w-2 h-2 rounded-full bg-[#B7182E]" />
-            <span className="text-[10px] text-[#B7182E] font-medium">Consistency beats cramming every time</span>
+            <div className="w-2 h-2 rounded-full bg-brand-alt" />
+            <span className="text-[10px] text-brand-alt font-medium">Consistency beats cramming every time</span>
           </div>
         </div>
       </div>

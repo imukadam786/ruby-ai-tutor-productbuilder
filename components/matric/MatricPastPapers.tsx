@@ -11,8 +11,53 @@ import { PAPER_INDEX, PaperMeta, loadPaperById } from "@/lib/matric/paper-index"
 import { FORMULA_SHEETS } from "@/lib/matric/formula-sheets";
 import { supabase } from "@/lib/supabase";
 import Button from "@/components/ui/Button";
+import AnswerButton from "@/components/ui/AnswerButton";
 import MatricFeedbackCard, { RubricPoint } from "./MatricFeedbackCard";
 import { resolvePrimarySkill } from "@/lib/phys-sci-topic-map";
+import { CONCEPT_C } from "@/lib/flags";
+import { GEM_HEX } from "@/lib/design/gemColors";
+
+// ─── Concept C helpers ───────────────────────────────────────────────────────
+// The reskin is entirely flag-gated: `cc(on, off)` returns the Concept C classes
+// only when the flag is on, so the current UI is byte-identical when it's off.
+const cc = (on: string, off = "") => (CONCEPT_C ? on : off);
+
+// Each subject's session takes its own gem accent, mirroring "the gem you cut
+// matches the subject you are in" from the skill tree. Keyed by paper.subject
+// (the display name). Brand-red stays reserved for the app, so sciences map to
+// coral, never red. Anything unmapped falls back to ruby.
+const SUBJECT_GEM: Record<string, string> = {
+  "Accounting": GEM_HEX.emerald,
+  "Agricultural Sciences": GEM_HEX.lime,
+  "Afrikaans": GEM_HEX.orange,
+  "Business Studies": GEM_HEX.blue,
+  "Economics": GEM_HEX.indigo,
+  "English": GEM_HEX.sky,
+  "Geography": GEM_HEX.teal,
+  "History": GEM_HEX.amber,
+  "Hospitality Studies": GEM_HEX.orange,
+  "Life Sciences": GEM_HEX.pink,
+  "Mathematics": GEM_HEX.rose,
+  "Maths Literacy": GEM_HEX.violet,
+  "Physical Science": GEM_HEX.cyan,
+  "Physical Sciences": GEM_HEX.cyan,
+  "Tourism": GEM_HEX.cyan,
+};
+
+/** Darken a #rrggbb hex by a factor (0–1) for the chunky pressable "lip". */
+function darkenHex(hex: string, f = 0.78): string {
+  const n = parseInt(hex.slice(1), 16);
+  const r = Math.round(((n >> 16) & 255) * f);
+  const g = Math.round(((n >> 8) & 255) * f);
+  const b = Math.round((n & 255) * f);
+  return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+}
+
+/** Resolve a subject's gem colour + its darker lip, defaulting to ruby. */
+function gemFor(subject: string): { gem: string; lip: string } {
+  const gem = SUBJECT_GEM[subject] ?? "#E11D48";
+  return { gem, lip: darkenHex(gem) };
+}
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -68,6 +113,15 @@ function hasStatementContent(raw: string): boolean {
   } catch { /* not JSON */ }
   return true;
 }
+
+// Distinct colour per MCQ letter — tinted before selection, deeper once selected.
+const MCQ_OPTION_COLORS: Record<string, { border: string; bg: string; badge: string; selectedBorder: string; selectedBg: string; selectedBadge: string }> = {
+  A: { border: "border-blue-200", bg: "bg-blue-50/50 hover:bg-blue-50", badge: "bg-blue-100 text-blue-600", selectedBorder: "border-blue-500", selectedBg: "bg-blue-50", selectedBadge: "bg-blue-500 text-white" },
+  B: { border: "border-purple-200", bg: "bg-purple-50/50 hover:bg-purple-50", badge: "bg-purple-100 text-purple-600", selectedBorder: "border-purple-500", selectedBg: "bg-purple-50", selectedBadge: "bg-purple-500 text-white" },
+  C: { border: "border-amber-200", bg: "bg-amber-50/50 hover:bg-amber-50", badge: "bg-amber-100 text-amber-700", selectedBorder: "border-amber-500", selectedBg: "bg-amber-50", selectedBadge: "bg-amber-500 text-white" },
+  D: { border: "border-teal-200", bg: "bg-teal-50/50 hover:bg-teal-50", badge: "bg-teal-100 text-teal-600", selectedBorder: "border-teal-500", selectedBg: "bg-teal-50", selectedBadge: "bg-teal-500 text-white" },
+  E: { border: "border-pink-200", bg: "bg-pink-50/50 hover:bg-pink-50", badge: "bg-pink-100 text-pink-600", selectedBorder: "border-pink-500", selectedBg: "bg-pink-50", selectedBadge: "bg-pink-500 text-white" },
+};
 
 const SA_LANGUAGES = [
   "English",
@@ -198,7 +252,7 @@ const SUBJECTS = [
     id: "mathematics",
     name: "Mathematics",
     thumbnail: "/thumbnails/mathematics.webp",
-    color: "from-[#BE1832] to-rose-700",
+    color: "from-brand to-rose-700",
     available: true,
   },
   {
@@ -419,14 +473,14 @@ function PaperList({
 
         {/* Exam-session toggle — only when this subject has year-end papers */}
         {hasNovember && (
-          <div className="inline-flex rounded-xl bg-gray-100 p-1 gap-1">
+          <div className="inline-flex rounded-2xl bg-gray-100 p-1.5 gap-1.5">
             {(["June", "November"] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setSessionTab(tab)}
-                className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
+                className={`px-6 py-2.5 rounded-xl text-base font-bold transition-all ${
                   sessionTab === tab
-                    ? "bg-white text-gray-900 shadow-sm"
+                    ? "bg-white text-brand shadow-md ring-2 ring-brand/20"
                     : "text-gray-500 hover:text-gray-700"
                 }`}
               >
@@ -478,9 +532,9 @@ function PaperList({
                   </svg>
                 </button>
 
-                {/* Year rows */}
+                {/* Year rows — each its own chunky boxed block, not a flat divided list */}
                 {isOpen && (
-                  <div className="border-t border-gray-100 divide-y divide-gray-100">
+                  <div className="border-t border-gray-100 p-3 space-y-2.5">
                     {ALL_YEARS.map((year) => {
                       const paper = codeGroup.find((p) => p.year === year);
                       const isLatest = year === 2025;
@@ -489,7 +543,7 @@ function PaperList({
                         return (
                           <div
                             key={year}
-                            className="px-5 py-4 flex items-center justify-between opacity-40 cursor-not-allowed"
+                            className="rounded-xl border-2 border-gray-100 px-5 py-4 flex items-center justify-between opacity-40 cursor-not-allowed"
                           >
                             <div>
                               <p className="text-sm font-semibold text-gray-500">{SESSION_TAB_LABEL[sessionTab]} {year}</p>
@@ -506,8 +560,10 @@ function PaperList({
                         <button
                           key={year}
                           onClick={() => onSelect(paper.id)}
-                          className={`w-full text-left px-5 group transition-colors ${
-                            isLatest ? "py-5 hover:bg-rose-50" : "py-4 hover:bg-gray-50"
+                          className={`w-full text-left px-5 rounded-xl border-2 group transition-all ${
+                            isLatest
+                              ? "py-5 border-rose-200 bg-rose-50/40 hover:bg-rose-50 shadow-sm"
+                              : "py-4 border-gray-200 hover:border-gray-300 hover:bg-gray-50"
                           }`}
                         >
                           <div className="flex items-center justify-between gap-3">
@@ -519,7 +575,7 @@ function PaperList({
                                   {paper.session} {year}
                                 </span>
                                 {isLatest && (
-                                  <span className="text-xs font-semibold bg-[#BE1832] text-white px-2.5 py-0.5 rounded-full">
+                                  <span className="text-xs font-semibold bg-brand text-white px-2.5 py-0.5 rounded-full">
                                     Latest
                                   </span>
                                 )}
@@ -562,7 +618,7 @@ function PaperList({
                                 {progress.status === "not_started" && (
                                   <>
                                     <div className="flex-1 max-w-[120px] h-1.5 bg-gray-100 rounded-full" />
-                                    <span className="text-xs font-semibold text-[#BE1832]">Get Started 🚀 · 0%</span>
+                                    <span className="text-xs font-semibold text-brand">Get Started 🚀 · 0%</span>
                                   </>
                                 )}
                                 {progress.status === "in_progress" && (
@@ -591,7 +647,7 @@ function PaperList({
 
                             {/* Red chevron */}
                             <svg
-                              className="w-5 h-5 text-[#BE1832] flex-shrink-0 group-hover:translate-x-0.5 transition-transform"
+                              className="w-5 h-5 text-brand flex-shrink-0 group-hover:translate-x-0.5 transition-transform"
                               fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             >
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -680,7 +736,7 @@ function ModeSelect({
                 title: "Guided Mode",
                 subtitle: "Learn with AI coaching",
                 recommendation: "Best for learning",
-                recommendationColor: "text-[#BE1832] bg-rose-50",
+                recommendationColor: "text-brand bg-rose-50",
                 bullets: [
                   "AI evaluates after each question",
                   "Step-by-step hints available",
@@ -688,7 +744,7 @@ function ModeSelect({
                   "No time pressure",
                 ],
                 color: "border-rose-200 bg-rose-50",
-                activeColor: "border-[#BE1832] bg-rose-50 ring-2 ring-[#BE1832]",
+                activeColor: "border-brand bg-rose-50 ring-2 ring-brand",
               },
             ] as const
           ).map((m) => (
@@ -711,7 +767,7 @@ function ModeSelect({
                   <p className="text-xs text-gray-500">{m.subtitle}</p>
                 </div>
                 {mode === m.id && (
-                  <div className="ml-auto w-5 h-5 rounded-full bg-[#BE1832] flex items-center justify-center flex-shrink-0">
+                  <div className="ml-auto w-5 h-5 rounded-full bg-brand flex items-center justify-center flex-shrink-0">
                     <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
@@ -731,7 +787,7 @@ function ModeSelect({
         </div>
 
         {/* Language selector — elevated prominence */}
-        <div className="bg-white rounded-2xl border-2 border-[#BE1832]/20 p-5 space-y-3 shadow-sm">
+        <div className="bg-white rounded-2xl border-2 border-brand/20 p-5 space-y-3 shadow-sm">
           <div className="flex items-center gap-2">
             <span className="text-lg">🌍</span>
             <div>
@@ -742,7 +798,7 @@ function ModeSelect({
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
-            className="w-full border-2 border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#BE1832] focus:border-[#BE1832]"
+            className="w-full border-2 border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand"
           >
             {SA_LANGUAGES.map((l) => (
               <option key={l} value={l}>
@@ -789,7 +845,7 @@ function InfoSheetModal({ sheet, onClose }: { sheet: InfoSheet; onClose: () => v
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0">
           <div className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-[#BE1832]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-4 h-4 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             <h2 className="font-bold text-gray-800 text-sm">{sheet.title}</h2>
@@ -800,7 +856,7 @@ function InfoSheetModal({ sheet, onClose }: { sheet: InfoSheet; onClose: () => v
                 href={sheet.pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-[#BE1832] font-medium hover:underline px-2 py-1"
+                className="text-xs text-brand font-medium hover:underline px-2 py-1"
               >
                 Open in new tab
               </a>
@@ -911,7 +967,13 @@ function SessionView({
   const [showInfoSheet, setShowInfoSheet] = useState(false);
   const [hintLevel, setHintLevel] = useState(0);
   const [expandedDiagramUrl, setExpandedDiagramUrl] = useState<string | null>(null);
+  const [expandedQuestion, setExpandedQuestion] = useState(false);
   const isMaths = paper.subject === "Mathematics";
+  // Concept C: this subject's gem accent, threaded through the session as CSS vars.
+  const { gem, lip: gemLip } = gemFor(paper.subject);
+  const gemVars = CONCEPT_C
+    ? ({ "--gem": gem, "--gem-lip": gemLip } as React.CSSProperties)
+    : undefined;
   const STEP_LABELS = ["Step 1", "Step 2", "Step 3", "Step 4", "Final Answer"];
 
   const MATH_SYMBOLS: { label: string; insert: string }[] = [
@@ -935,6 +997,7 @@ function SessionView({
   useEffect(() => {
     setHintLevel(0);
     setMobileTab("question");
+    setExpandedQuestion(false);
   }, [currentIdx]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Auto-switch to feedback tab on mobile after evaluation completes
@@ -945,12 +1008,10 @@ function SessionView({
     wasEvaluating.current = isEvaluating;
   }, [isEvaluating, mode]);
 
-  // Show scroll hint when question panel content overflows (mobile)
   useEffect(() => {
     const el = questionPanelRef.current;
     if (!el) return;
     el.scrollTop = 0;
-    setShowScrollHint(el.scrollHeight > el.clientHeight + 8);
   }, [currentIdx]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -958,7 +1019,6 @@ function SessionView({
   const mathsInputRefs = useRef<Record<string, HTMLTextAreaElement | null>>({});
   const activeMathsKey = useRef<string | null>(null);
   const questionPanelRef = useRef<HTMLDivElement>(null);
-  const [showScrollHint, setShowScrollHint] = useState(false);
 
   const currentSQ = flatQuestions[currentIdx];
   const currentAttempt = attempts[currentSQ.id];
@@ -1252,6 +1312,45 @@ function SessionView({
     }
   };
 
+  // Guided mode: picking an MCQ option is itself the submission — no separate
+  // "Submit answer" click needed, so evaluate immediately on selection.
+  const submitMCQAnswer = async (letter: string) => {
+    updateAttempt(currentSQ.id, { selectedOption: letter });
+    setIsEvaluating(true);
+
+    try {
+      const result = await evaluateQuestion(currentSQ, { ...currentAttempt, selectedOption: letter });
+
+      const newMsg: CoachMessage = {
+        type: "ai",
+        content: result.feedback,
+        marksEarned: result.marksEarned,
+        totalMarks: result.totalMarks,
+        breakdown: result.breakdown,
+      };
+
+      updateAttempt(currentSQ.id, {
+        selectedOption: letter,
+        submitted: true,
+        marksEarned: result.marksEarned,
+        attemptCount: currentAttempt.attemptCount + 1,
+        coachMessages: [...currentAttempt.coachMessages, newMsg],
+      });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "unknown error";
+      console.error("[submitMCQAnswer] caught:", err);
+      updateAttempt(currentSQ.id, {
+        selectedOption: letter,
+        coachMessages: [
+          ...currentAttempt.coachMessages,
+          { type: "system", content: `Something went wrong (${msg}). Please try again.` },
+        ],
+      });
+    } finally {
+      setIsEvaluating(false);
+    }
+  };
+
   const handleRetry = () => {
     updateAttempt(currentSQ.id, {
       submitted: false,
@@ -1341,7 +1440,7 @@ function SessionView({
     return (
       <div className="h-full flex flex-col items-center justify-center bg-[#F4F4F5] gap-6 px-6 text-center">
         <div className="w-16 h-16 rounded-full bg-rose-50 flex items-center justify-center animate-pulse">
-          <svg className="w-8 h-8 text-[#BE1832]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-8 h-8 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
@@ -1353,7 +1452,7 @@ function SessionView({
         </div>
         <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
           <div
-            className="h-full bg-[#BE1832] rounded-full transition-all duration-300"
+            className="h-full bg-brand rounded-full transition-all duration-300"
             style={{ width: `${(submitProgress / totalQuestions) * 100}%` }}
           />
         </div>
@@ -1364,13 +1463,13 @@ function SessionView({
   const pctComplete = totalQuestions > 0 ? Math.round((answeredCount / totalQuestions) * 100) : 0;
 
   return (
-    <div className="h-full flex flex-col overflow-hidden relative">
+    <div className="h-full flex flex-col overflow-hidden relative" style={gemVars}>
       {/* Compact header: back + current Q info + info sheet */}
       <div className="flex-shrink-0 bg-white border-b border-gray-100 px-3 sm:px-4">
         <div className="flex items-center gap-2 py-2">
           <button
             onClick={onBack}
-            className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-[#BE1832] bg-gray-100 hover:bg-rose-50 px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0"
+            className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-brand bg-gray-100 hover:bg-rose-50 px-2.5 py-1.5 rounded-lg transition-colors flex-shrink-0"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -1380,10 +1479,7 @@ function SessionView({
 
           <div className="flex-1 min-w-0">
             <p className="text-sm font-bold text-gray-800 leading-tight">
-              {currentSQ.label}
-              <span className="ml-1.5 text-xs font-semibold text-[#BE1832]">
-                · {currentSQ.marks} {currentSQ.marks === 1 ? "mk" : "mks"}
-              </span>
+              Question {currentSQ.label}
             </p>
             <p className="text-[11px] text-gray-400 truncate hidden sm:block leading-tight mt-0.5">
               {paper.questions.find((q) => q.subQuestions.some((sq) => sq.id === currentSQ.id))?.title ?? ""}
@@ -1411,49 +1507,40 @@ function SessionView({
           )}
         </div>
 
-        {/* Question progress dots — scrollable, grouped by parent question */}
-        <div className="overflow-x-auto pb-2.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="flex items-end gap-2 w-max">
-            {paper.questions.map((q, qi) => (
-              <React.Fragment key={q.number}>
-                {qi > 0 && <div className="w-px h-4 bg-gray-200 self-center flex-shrink-0" />}
-                <div className="flex flex-col items-start gap-1 flex-shrink-0">
-                  <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wide leading-none px-0.5">
-                    Q{q.number}
-                  </span>
-                  <div className="flex items-center gap-1">
-                    {q.subQuestions.map((sq) => {
-                      const flatIdx = flatQuestions.findIndex((f) => f.id === sq.id);
-                      const attempt = attempts[sq.id];
-                      const isActive = flatIdx === currentIdx;
-                      const isSubmitted = attempt?.submitted ?? false;
-                      const isAnswered = (() => {
-                        if (!attempt) return false;
-                        if (sq.type === "mcq") return !!attempt.selectedOption;
-                        if (sq.type === "match-group") return Object.keys(attempt.matchAnswers ?? {}).length > 0;
-                        if (sq.type === "calculation") return !!(attempt.textWorking.trim() || attempt.calcAnswer.trim());
-                        if (sq.type === "answer-book") return hasStatementContent(attempt.col2Working);
-                        if (sq.type === "two-column") return !!(attempt.textWorking.trim() || attempt.col2Working.trim());
-                        return !!(attempt.textWorking.trim() || attempt.imageFile);
-                      })();
-                      return (
-                        <button
-                          key={sq.id}
-                          onClick={() => setCurrentIdx(flatIdx)}
-                          title={`${sq.label} · ${sq.marks} ${sq.marks === 1 ? "mk" : "mks"}`}
-                          className={`flex-shrink-0 rounded-full transition-all duration-150 ${
-                            isActive ? "w-5 h-5 ring-2 ring-[#BE1832] ring-offset-1" : "w-4 h-4 hover:scale-110"
-                          } ${
-                            isSubmitted ? "bg-[#BE1832]" : isAnswered ? "bg-amber-400" : "bg-gray-200"
-                          }`}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
-              </React.Fragment>
-            ))}
+        {/* Overall progress bar + current-question marks pill. Replaces the old
+            per-question dot strip, which was too busy on mobile. The bar tracks
+            paper completion; the pill shows the current question's marks, turning
+            into an earned/total score (green when full) once submitted. */}
+        <div className="flex items-center gap-3 pb-2.5">
+          <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+            <div
+              className="h-full rounded-full transition-all duration-300 bg-brand"
+              style={{
+                width: `${pctComplete}%`,
+                ...(CONCEPT_C ? { backgroundColor: "var(--gem)" } : {}),
+              }}
+            />
           </div>
+          {(() => {
+            const scored = currentAttempt?.submitted ?? false;
+            const full = scored && currentAttempt.marksEarned >= currentSQ.marks;
+            const label = scored
+              ? `${currentAttempt.marksEarned} / ${currentSQ.marks}`
+              : `${currentSQ.marks} ${currentSQ.marks === 1 ? "mark" : "marks"}`;
+            const tone = full
+              ? "bg-green-100 text-green-700"
+              : scored
+                ? "bg-amber-100 text-amber-700"
+                : "bg-rose-50 text-brand";
+            return (
+              <span
+                className={`flex-shrink-0 text-xs font-bold px-2.5 py-1 rounded-full ${tone}`}
+                style={!scored && CONCEPT_C ? { color: "var(--gem)" } : undefined}
+              >
+                {label}
+              </span>
+            );
+          })()}
         </div>
       </div>
 
@@ -1496,13 +1583,46 @@ function SessionView({
         </>
       )}
 
+      {/* Full-question panel — same bottom-sheet/side-panel pattern as the
+          diagram viewer above, so long questions never rely on the small
+          inline scroll box. Diagrams keep their own tap-to-expand. */}
+      {expandedQuestion && (
+        <>
+          <div
+            className="sm:hidden fixed inset-0 z-[39] bg-black/20"
+            onClick={() => setExpandedQuestion(false)}
+          />
+          <div className="fixed z-40 flex flex-col bg-white shadow-2xl
+            bottom-0 left-0 right-0 h-[70%] rounded-t-2xl
+            sm:top-0 sm:bottom-0 sm:left-auto sm:right-0 sm:h-full sm:w-[min(560px,45%)] sm:rounded-none">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 flex-shrink-0">
+              <span className="font-bold text-sm text-gray-800">{currentSQ.label}</span>
+              <button
+                onClick={() => setExpandedQuestion(false)}
+                className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+                title="Close"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto p-5">
+              <div className="text-base text-gray-800 leading-relaxed">
+                <MathMarkdown content={currentSQ.questionText} />
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
       {/* Mobile tab bar — guided mode only */}
       {mode === "guided" && (
         <div className="sm:hidden flex-shrink-0 flex border-b border-gray-100 bg-white">
           <button
             onClick={() => setMobileTab("question")}
             className={`flex-1 py-2.5 text-xs font-semibold transition-colors border-b-2 ${
-              mobileTab === "question" ? "text-[#BE1832] border-[#BE1832]" : "text-gray-400 border-transparent"
+              mobileTab === "question" ? "text-brand border-brand" : "text-gray-400 border-transparent"
             }`}
           >
             Question
@@ -1510,7 +1630,7 @@ function SessionView({
           <button
             onClick={() => setMobileTab("feedback")}
             className={`flex-1 py-2.5 text-xs font-semibold transition-colors border-b-2 ${
-              mobileTab === "feedback" ? "text-[#BE1832] border-[#BE1832]" : "text-gray-400 border-transparent"
+              mobileTab === "feedback" ? "text-brand border-brand" : "text-gray-400 border-transparent"
             }`}
           >
             Ruby Feedback
@@ -1531,17 +1651,23 @@ function SessionView({
             {/* Question text + diagram (scrollable together) */}
             <div
               ref={questionPanelRef}
-              onScroll={(e) => {
-                const el = e.currentTarget;
-                setShowScrollHint(el.scrollHeight - el.scrollTop > el.clientHeight + 20);
-              }}
-              className="relative flex-shrink-0 overflow-y-auto border-b border-gray-100 max-h-[30%] sm:max-h-[45%] bg-rose-50/20"
+              className="relative flex-shrink-0 overflow-y-auto border-b border-gray-100 max-h-[22%] sm:max-h-[38%] bg-rose-50/20"
             >
               {/* "QUESTION" badge — clear visual separator from answer area */}
               <div className="sticky top-0 z-10 flex items-center gap-2 px-3 sm:px-5 pt-2 pb-1 bg-rose-50/90 backdrop-blur-sm border-b border-rose-100/60">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#BE1832]/70">Question</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-brand/70">Question</span>
                 <span className="text-[10px] text-gray-400">·</span>
                 <span className="text-[10px] font-semibold text-gray-500">{currentSQ.label}</span>
+                <button
+                  onClick={() => setExpandedQuestion(true)}
+                  className="ml-auto flex items-center gap-1 text-[10px] font-bold text-brand bg-white px-2 py-0.5 rounded-full border border-rose-200 hover:bg-rose-50 transition-colors"
+                  title="View full question"
+                >
+                  <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4" />
+                  </svg>
+                  View full
+                </button>
               </div>
               <div className="px-3 sm:px-5 py-2 sm:py-3">
                 <div className="text-sm text-gray-800 leading-relaxed">
@@ -1638,18 +1764,6 @@ function SessionView({
                   )}
                 </div>
               )}
-
-              {/* Mobile scroll hint — only shown when content is clipped */}
-              {showScrollHint && (
-                <div className="sm:hidden sticky bottom-0 left-0 right-0 -mx-3 px-3 pt-4 pb-1.5 pointer-events-none bg-gradient-to-t from-rose-50 via-rose-50/90 to-transparent flex justify-center">
-                  <span className="animate-bounce flex items-center gap-1 text-[11px] font-semibold text-gray-400">
-                    Scroll for more
-                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </div>
-              )}
             </div>{/* end inner padding div */}
             </div>{/* end question panel */}
 
@@ -1659,27 +1773,91 @@ function SessionView({
                 <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Your answer</span>
               </div>
 
-              {currentSQ.type === "mcq" && currentSQ.options ? (
-                /* ── MCQ Option Cards ── */
+              {currentSQ.type === "mcq" && currentSQ.options && CONCEPT_C ? (
+                /* ── MCQ · Concept C 4-colour ChoiceGrid (select → reveal) ── */
+                (() => {
+                  const letters = Object.keys(currentSQ.options!).sort();
+                  // Correct letter lives in memoText as "Correct answer: X" (same
+                  // pattern the hint builder uses). Undefined → no reveal.
+                  const correct = currentSQ.memoText?.match(/correct answer:\s*([A-E])/i)?.[1]?.toUpperCase();
+                  return (
+                    <div className="flex-1 overflow-y-auto min-h-0 grid grid-cols-1 sm:grid-cols-2 gap-2.5 content-start">
+                      {letters.map((letter, i) => {
+                        const text = currentSQ.options![letter as keyof typeof currentSQ.options]!;
+                        const picked = currentAttempt.selectedOption === letter;
+                        // Only reveal right/wrong once the answer is submitted.
+                        const result = !currentAttempt.submitted
+                          ? null
+                          : correct && letter === correct
+                          ? "correct"
+                          : picked
+                          ? "wrong"
+                          : null;
+                        const dimmed = currentAttempt.submitted && !picked && result !== "correct";
+                        const isDisabled = currentAttempt.submitted || isEvaluating;
+                        return (
+                          <AnswerButton
+                            key={letter}
+                            index={i}
+                            disabled={isDisabled}
+                            selected={picked && !currentAttempt.submitted}
+                            result={result}
+                            dimmed={dimmed}
+                            compact
+                            onClick={() => {
+                              if (isDisabled) return;
+                              // Picking an option is the submission in guided mode —
+                              // evaluate right away instead of waiting for a Submit click.
+                              if (mode === "guided") {
+                                submitMCQAnswer(letter);
+                              } else {
+                                updateAttempt(currentSQ.id, { selectedOption: letter });
+                              }
+                            }}
+                          >
+                            {text}
+                          </AnswerButton>
+                        );
+                      })}
+                    </div>
+                  );
+                })()
+              ) : currentSQ.type === "mcq" && currentSQ.options ? (
+                /* ── MCQ Option Cards (current UI) ── */
                 <div className="flex-1 overflow-y-auto space-y-2 min-h-0">
                   {Object.keys(currentSQ.options!).sort().map((letter) => {
                     const text = currentSQ.options![letter as keyof typeof currentSQ.options]!;
                     const isSelected = currentAttempt.selectedOption === letter;
+                    const isBusy = isSelected && isEvaluating;
+                    const colors = MCQ_OPTION_COLORS[letter] ?? MCQ_OPTION_COLORS.A;
+                    const isDisabled = currentAttempt.submitted || isEvaluating;
                     return (
                       <button
                         key={letter}
-                        onClick={() => !currentAttempt.submitted && updateAttempt(currentSQ.id, { selectedOption: letter })}
-                        disabled={currentAttempt.submitted}
+                        onClick={() => {
+                          if (isDisabled) return;
+                          if (mode === "guided") {
+                            submitMCQAnswer(letter);
+                          } else {
+                            updateAttempt(currentSQ.id, { selectedOption: letter });
+                          }
+                        }}
+                        disabled={isDisabled}
                         className={`w-full text-left flex items-start gap-3 p-3.5 rounded-xl border-2 transition-all ${
                           isSelected
-                            ? "border-[#BE1832] bg-rose-50"
-                            : "border-gray-200 hover:border-gray-300 bg-white"
-                        } ${currentAttempt.submitted ? "cursor-default" : "cursor-pointer"}`}
+                            ? `${colors.selectedBorder} ${colors.selectedBg}`
+                            : `${colors.border} ${colors.bg}`
+                        } ${isDisabled ? "cursor-default" : "cursor-pointer"}`}
                       >
                         <span className={`flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-sm font-bold ${
-                          isSelected ? "bg-[#BE1832] text-white" : "bg-gray-100 text-gray-500"
+                          isSelected ? colors.selectedBadge : colors.badge
                         }`}>
-                          {letter}
+                          {isBusy ? (
+                            <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                            </svg>
+                          ) : letter}
                         </span>
                         <span className="text-sm text-gray-700 leading-relaxed pt-0.5">{text}</span>
                       </button>
@@ -1696,7 +1874,7 @@ function SessionView({
                       onChange={(e) => updateAttempt(currentSQ.id, { textWorking: e.target.value })}
                       placeholder="Show all your working steps here…"
                       disabled={currentAttempt.submitted}
-                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono disabled:opacity-60"
+                      className={`flex-1 min-h-0 w-full ${cc("border-2 rounded-2xl", "border rounded-xl")} border-gray-200 px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 ${cc("focus:ring-[var(--gem)]", "focus:ring-brand")} resize-none font-mono disabled:opacity-60`}
                     />
                   </div>
                   <div className="flex-shrink-0">
@@ -1707,7 +1885,8 @@ function SessionView({
                       onChange={(e) => updateAttempt(currentSQ.id, { calcAnswer: e.target.value })}
                       placeholder="e.g. R 1 234 500"
                       disabled={currentAttempt.submitted}
-                      className="w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm font-semibold text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] disabled:opacity-60"
+                      className={`w-full border-2 border-gray-200 ${cc("rounded-2xl", "rounded-xl")} px-3 py-2.5 text-sm font-semibold text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 ${cc("focus:ring-[var(--gem)]", "focus:ring-brand")} disabled:opacity-60`}
+                      style={CONCEPT_C ? { borderColor: "color-mix(in srgb, var(--gem) 45%, #e5e7eb)" } : undefined}
                     />
                   </div>
                 </div>
@@ -1723,7 +1902,7 @@ function SessionView({
                       onChange={(e) => updateAttempt(currentSQ.id, { textWorking: e.target.value })}
                       placeholder={`Enter ${currentSQ.col1Label ?? "column 1"} here…`}
                       disabled={currentAttempt.submitted}
-                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none disabled:opacity-60"
+                      className={`flex-1 min-h-0 w-full ${cc("border-2 rounded-2xl", "border rounded-xl")} border-gray-200 px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 ${cc("focus:ring-[var(--gem)]", "focus:ring-brand")} resize-none disabled:opacity-60`}
                     />
                   </div>
                   <div className="flex-1 flex flex-col min-h-0">
@@ -1735,7 +1914,7 @@ function SessionView({
                       onChange={(e) => updateAttempt(currentSQ.id, { col2Working: e.target.value })}
                       placeholder={`Enter ${currentSQ.col2Label ?? "column 2"} here…`}
                       disabled={currentAttempt.submitted}
-                      className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none disabled:opacity-60"
+                      className={`flex-1 min-h-0 w-full ${cc("border-2 rounded-2xl", "border rounded-xl")} border-gray-200 px-3 py-2.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 ${cc("focus:ring-[var(--gem)]", "focus:ring-brand")} resize-none disabled:opacity-60`}
                     />
                   </div>
                 </div>
@@ -1761,7 +1940,7 @@ function SessionView({
                       <label className="text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wide flex-shrink-0">
                         {currentSQ.col2Label ?? "Statement (R)"}
                       </label>
-                      <div className="flex-1 min-h-0 flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white">
+                      <div className={`flex-1 min-h-0 flex flex-col ${cc("border-2 rounded-2xl", "border rounded-xl")} border-gray-200 overflow-hidden bg-white`}>
                         {/* Table header */}
                         <div className="flex-shrink-0 flex border-b border-gray-200 bg-gray-50">
                           <div className="flex-1 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-gray-400">
@@ -1806,7 +1985,7 @@ function SessionView({
                         {!currentAttempt.submitted && (
                           <button
                             onClick={() => updateRows([...statementRows, { desc: "", amount: "" }])}
-                            className="flex-shrink-0 w-full py-2 text-xs text-gray-400 hover:text-[#BE1832] hover:bg-rose-50 transition-colors border-t border-gray-100 flex items-center justify-center gap-1"
+                            className="flex-shrink-0 w-full py-2 text-xs text-gray-400 hover:text-brand hover:bg-rose-50 transition-colors border-t border-gray-100 flex items-center justify-center gap-1"
                           >
                             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -1855,11 +2034,16 @@ function SessionView({
                                     else { next[row.label] = letter; }
                                     updateAttempt(currentSQ.id, { matchAnswers: next });
                                   }}
-                                  className={`w-8 h-8 rounded-lg text-sm font-bold border-2 transition-all ${
+                                  className={`${cc("w-9 h-9 rounded-xl active:translate-y-[2px]", "w-8 h-8 rounded-lg")} text-sm font-bold border-2 transition-all ${
                                     isChosen
-                                      ? "bg-[#BE1832] border-[#BE1832] text-white"
+                                      ? "bg-brand border-brand text-white"
                                       : "bg-white border-gray-200 text-gray-500 hover:border-gray-400"
                                   } disabled:cursor-default`}
+                                  style={CONCEPT_C && isChosen ? {
+                                    backgroundColor: "var(--gem)",
+                                    borderColor: "var(--gem)",
+                                    boxShadow: "0 3px 0 0 var(--gem-lip)",
+                                  } : undefined}
                                 >
                                   {letter}
                                 </button>
@@ -1881,7 +2065,7 @@ function SessionView({
                         <button
                           key={label}
                           onMouseDown={(e) => { e.preventDefault(); insertMathSymbol(insert); }}
-                          className="flex-shrink-0 h-8 min-w-[2rem] px-2 rounded-lg border border-gray-200 bg-white text-gray-700 text-sm font-mono hover:border-[#BE1832] hover:text-[#BE1832] hover:bg-rose-50 active:scale-95 transition-all"
+                          className="flex-shrink-0 h-8 min-w-[2rem] px-2 rounded-lg border border-gray-200 bg-white text-gray-700 text-sm font-mono hover:border-brand hover:text-brand hover:bg-rose-50 active:scale-95 transition-all"
                         >
                           {label}
                         </button>
@@ -1913,7 +2097,7 @@ function SessionView({
                             }}
                             placeholder={i < 4 ? `Working for ${label.toLowerCase()}…` : "Final answer…"}
                             rows={2}
-                            className="flex-1 border border-gray-200 rounded-lg px-2.5 py-1.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono disabled:opacity-60"
+                            className={`flex-1 ${cc("border-2 rounded-xl", "border rounded-lg")} border-gray-200 px-2.5 py-1.5 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 ${cc("focus:ring-[var(--gem)]", "focus:ring-brand")} resize-none font-mono disabled:opacity-60`}
                             style={{ minHeight: "clamp(2.5rem, 8vh, 4.5rem)" }}
                             onInput={(e) => {
                               const t = e.target as HTMLTextAreaElement;
@@ -2017,11 +2201,16 @@ function SessionView({
                                 textWorking: isSelected ? "" : word,
                               })
                             }
-                            className={`px-3 py-1.5 rounded-lg border-2 text-sm font-medium transition-all ${
+                            className={`px-3 py-1.5 ${cc("rounded-xl active:translate-y-[2px]", "rounded-lg")} border-2 text-sm font-medium transition-all ${
                               isSelected
-                                ? "border-[#BE1832] bg-rose-50 text-[#BE1832]"
+                                ? "border-brand bg-rose-50 text-brand"
                                 : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
                             } disabled:cursor-default`}
+                            style={CONCEPT_C && isSelected ? {
+                              borderColor: "var(--gem)",
+                              color: "var(--gem)",
+                              backgroundColor: "color-mix(in srgb, var(--gem) 12%, white)",
+                            } : undefined}
                           >
                             {word}
                           </button>
@@ -2078,7 +2267,7 @@ function SessionView({
                       updateAttempt(currentSQ.id, { textWorking: e.target.value })
                     }
                     placeholder="Show your working here"
-                    className="flex-1 min-h-0 w-full border border-gray-200 rounded-xl px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BE1832] resize-none font-mono"
+                    className={`flex-1 min-h-0 w-full ${cc("border-2 rounded-2xl", "border rounded-xl")} border-gray-200 px-3 py-2.5 text-base text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 ${cc("focus:ring-[var(--gem)]", "focus:ring-brand")} resize-none font-mono`}
                   />
 
                   {/* Below textarea: camera + hint — centred */}
@@ -2200,31 +2389,33 @@ function SessionView({
                     >
                       Skip
                     </button>
-                    <Button
-                      variant="primary"
-                      size="md"
-                      className="flex-1 flex items-center justify-center gap-2"
-                      onClick={handleSubmitWorking}
-                      disabled={
-                        isEvaluating || (() => {
-                          if (currentSQ.type === "mcq") return !currentAttempt.selectedOption;
-                          if (currentSQ.type === "match-group") return Object.keys(currentAttempt.matchAnswers ?? {}).length === 0;
-                          if (currentSQ.type === "calculation") return !currentAttempt.textWorking.trim() && !currentAttempt.calcAnswer.trim();
-                          if (currentSQ.type === "two-column" || currentSQ.type === "answer-book") return !currentAttempt.textWorking.trim() && !currentAttempt.col2Working.trim();
-                          return !currentAttempt.textWorking.trim() && !currentAttempt.imageFile;
-                        })()
-                      }
-                    >
-                      {isEvaluating ? (
-                        <>
-                          <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                          </svg>
-                          Evaluating…
-                        </>
-                      ) : currentSQ.type === "mcq" ? "Submit answer" : "Submit working"}
-                    </Button>
+                    {/* MCQ has no Submit button — picking an option submits it immediately */}
+                    {currentSQ.type !== "mcq" && (
+                      <Button
+                        variant="primary"
+                        size="md"
+                        className="flex-1 flex items-center justify-center gap-2"
+                        onClick={handleSubmitWorking}
+                        disabled={
+                          isEvaluating || (() => {
+                            if (currentSQ.type === "match-group") return Object.keys(currentAttempt.matchAnswers ?? {}).length === 0;
+                            if (currentSQ.type === "calculation") return !currentAttempt.textWorking.trim() && !currentAttempt.calcAnswer.trim();
+                            if (currentSQ.type === "two-column" || currentSQ.type === "answer-book") return !currentAttempt.textWorking.trim() && !currentAttempt.col2Working.trim();
+                            return !currentAttempt.textWorking.trim() && !currentAttempt.imageFile;
+                          })()
+                        }
+                      >
+                        {isEvaluating ? (
+                          <>
+                            <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                            </svg>
+                            Evaluating…
+                          </>
+                        ) : "Submit working"}
+                      </Button>
+                    )}
                   </div>
                 )
               ) : (
@@ -2297,13 +2488,14 @@ function SessionView({
                           onClick={() => setCurrentIdx(flatIdx)}
                           className={`px-2.5 h-7 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
                             isCurrent
-                              ? "bg-[#BE1832] text-white shadow"
+                              ? "bg-brand text-white shadow"
                               : isDone
                               ? "bg-green-100 text-green-700 border border-green-200"
                               : hasContent
                               ? "bg-amber-100 text-amber-700 border border-amber-200"
                               : "bg-gray-100 text-gray-400 border border-gray-200 hover:border-gray-300"
                           }`}
+                          style={CONCEPT_C && isCurrent ? { backgroundColor: "var(--gem)" } : undefined}
                         >
                           {sq.label}
                         </button>
@@ -2344,7 +2536,7 @@ function SessionView({
                 {currentAttempt.coachMessages.map((msg, i) => (
                   <div key={i}>
                     {msg.type === "system" ? (
-                      <div className="text-sm text-gray-500 bg-gray-50 rounded-xl px-4 py-3">
+                      <div className={`text-sm text-gray-500 bg-gray-50 ${cc("rounded-2xl border border-gray-100", "rounded-xl")} px-4 py-3`}>
                         <MathMarkdown content={msg.content} />
                       </div>
                     ) : (
@@ -2364,7 +2556,7 @@ function SessionView({
 
                 {isEvaluating && (
                   <div className="flex items-center gap-2 text-sm text-gray-400 py-2">
-                    <svg className="w-4 h-4 animate-spin text-[#BE1832]" fill="none" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 animate-spin text-brand" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
                     </svg>
@@ -2401,6 +2593,11 @@ function SummaryView({
   // The topic→skill link only exists for Physical Sciences today. Gate on subject
   // so other subjects' reports are unchanged.
   const isPhysSci = /phys/i.test(paper.subject);
+  // Concept C: this subject's gem accent for the results screen.
+  const { gem, lip: gemLip } = gemFor(paper.subject);
+  const gemVars = CONCEPT_C
+    ? ({ "--gem": gem, "--gem-lip": gemLip } as React.CSSProperties)
+    : undefined;
   const [showReview, setShowReview] = useState(false);
   const flatQuestions = getFlatSubQuestions(paper);
   const totalEarned = flatQuestions.reduce(
@@ -2428,11 +2625,22 @@ function SummaryView({
   const grade = getGrade(pct);
 
   return (
-    <div className="h-full overflow-y-auto bg-[#F4F4F5]">
+    <div className="h-full overflow-y-auto bg-[#F4F4F5]" style={gemVars}>
       <div className="max-w-2xl mx-auto px-5 py-10 space-y-8">
         {/* Score hero */}
         <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 text-center space-y-4">
-          <div className="text-5xl font-black text-[#BE1832]">{pct}%</div>
+          {CONCEPT_C && (
+            /* Gem-cut mark: the subject's gem, faceted. */
+            <div
+              className="w-14 h-14 mx-auto"
+              style={{
+                background: "radial-gradient(circle at 35% 25%, color-mix(in srgb, var(--gem) 55%, white), var(--gem) 60%, var(--gem-lip))",
+                clipPath: "polygon(50% 0, 90% 30%, 72% 100%, 28% 100%, 10% 30%)",
+                boxShadow: "0 6px 16px -6px var(--gem-lip)",
+              }}
+            />
+          )}
+          <div className="text-5xl font-black text-brand" style={CONCEPT_C ? { color: "var(--gem)" } : undefined}>{pct}%</div>
           <div>
             <p className={`font-bold text-lg ${grade.color}`}>{grade.label}</p>
             <p className="text-gray-400 text-sm mt-1">
@@ -2441,8 +2649,8 @@ function SummaryView({
           </div>
           <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
             <div
-              className="h-full bg-[#BE1832] rounded-full transition-all"
-              style={{ width: `${pct}%` }}
+              className="h-full bg-brand rounded-full transition-all"
+              style={CONCEPT_C ? { width: `${pct}%`, backgroundColor: "var(--gem)" } : { width: `${pct}%` }}
             />
           </div>
         </div>
@@ -2480,7 +2688,8 @@ function SummaryView({
                         `Practising ${topic} — from your ${paper.subject} ${paper.paperCode} ${paper.session} ${paper.year} paper`,
                       )
                     }
-                    className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-[#BE1832] hover:underline"
+                    className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-brand hover:underline"
+                    style={CONCEPT_C ? { color: "var(--gem)" } : undefined}
                   >
                     Practise this →
                   </button>
@@ -2509,7 +2718,8 @@ function SummaryView({
                       `Practising ${weakTopic} — from your ${paper.subject} ${paper.paperCode} ${paper.session} ${paper.year} paper`,
                     )
                   }
-                  className="inline-flex items-center gap-1.5 rounded-full bg-[#BE1832] px-4 py-2 text-sm font-semibold text-white hover:bg-[#a01528] transition-colors"
+                  className={`inline-flex items-center gap-1.5 ${cc("rounded-2xl active:translate-y-[3px] active:shadow-none", "rounded-full")} bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-hover transition-colors`}
+                  style={CONCEPT_C ? { backgroundColor: "var(--gem)", boxShadow: "0 4px 0 0 var(--gem-lip)" } : undefined}
                 >
                   Practise {weakTopic} →
                 </button>

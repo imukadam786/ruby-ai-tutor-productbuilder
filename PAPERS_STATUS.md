@@ -1,6 +1,6 @@
 # Past Papers — Source of Truth
 
-> Last updated: 2026-07-25
+> Last updated: 2026-07-26
 > ✅ Complete · ⚠️ Partial · ❌ Not started · ➖ Text-only · 🚫 File missing
 
 | Subject | P | Year | Session | Wired | Missing | Status |
@@ -40,6 +40,10 @@
 | Business Studies | P1 | 2021–2025 | May/Jun | 0 | 0 | ➖ |
 | Business Studies | P2 | 2021–2025 | May/Jun | 0 | 0 | ➖ |
 | Business Studies | P2 | 2026 | Predictive | 0 | 0 | ➖ |
+| Business Studies | P1 | 2022–2025 | November | 0 | 0 | ➖ |
+| Business Studies | P1 | 2021 | November | — | — | 🚫 |
+| Business Studies | P2 | 2022–2024 | November | 0 | 0 | ➖ |
+| Business Studies | P2 | 2021, 2025 | November | — | — | 🚫 |
 | Economics | P1 | 2021 | May/Jun | 5 | 0 | ✅ |
 | Economics | P1 | 2022 | May/Jun | 2 | 0 | ✅ |
 | Economics | P1 | 2023 | May/Jun | 6 | 0 | ✅ |
@@ -92,6 +96,16 @@
 | Geography | P2 | 2024 | May/Jun | 33 | 3 | ⚠️ |
 | Geography | P2 | 2025 | May/Jun | 39 | 0 | ✅ |
 | Geography | P2 | 2026 | Predictive | 0 | 9 | ❌ |
+| Geography | P1 | 2021 | November | 82 | 57 | ⚠️ |
+| Geography | P1 | 2022 | November | 86 | 69 | ⚠️ |
+| Geography | P1 | 2023 | November | 85 | 60 | ⚠️ |
+| Geography | P1 | 2024 | November | 78 | 58 | ⚠️ |
+| Geography | P1 | 2025 | November | 81 | 59 | ⚠️ |
+| Geography | P2 | 2021 | November | 78 | 58 | ⚠️ |
+| Geography | P2 | 2022 | November | 84 | 41 | ⚠️ |
+| Geography | P2 | 2023 | November | 78 | 25 | ⚠️ |
+| Geography | P2 | 2024 | November | 81 | 30 | ⚠️ |
+| Geography | P2 | 2025 | November | 80 | 44 | ⚠️ |
 | History | P1 | 2021–2025 | May/Jun | 0 | 0 | ➖ |
 | History | P1 | 2026 | Predictive | 18 | 0 | ✅ |
 | History | P2 | 2021–2025 | May/Jun | 0 | 0 | ➖ |

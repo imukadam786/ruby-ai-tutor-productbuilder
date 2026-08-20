@@ -91,7 +91,7 @@ export default function ArgumentBuilderQuestion({
       <button
         onClick={() => onSubmit(JSON.stringify(selected))}
         disabled={submitting || selected.length !== pickN}
-        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-base"
+        className="w-full py-4 rounded-full bg-brand hover:bg-brand-hover disabled:bg-gray-300 text-white font-bold text-base"
       >
         {selected.length === pickN
           ? "Check answer"

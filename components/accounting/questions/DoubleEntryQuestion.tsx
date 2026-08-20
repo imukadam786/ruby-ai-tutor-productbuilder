@@ -110,7 +110,7 @@ export default function DoubleEntryQuestion({ accounts, submitting, onSubmit }: 
       <button
         onClick={submit}
         disabled={submitting || !ready}
-        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-base"
+        className="w-full py-4 rounded-full bg-brand hover:bg-brand-hover disabled:bg-gray-300 text-white font-bold text-base"
       >
         {ready ? "Check answer" : "Fill both Debit and Credit"}
       </button>

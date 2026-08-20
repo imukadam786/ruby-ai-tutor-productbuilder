@@ -41,7 +41,7 @@ export default function WatchComingSoon() {
 
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
-              Watch &amp; <span className="text-[#BE1832]">Learn</span>
+              Watch &amp; <span className="text-brand">Learn</span>
             </h1>
             <p className="text-gray-500 text-lg leading-relaxed max-w-xl mx-auto">
               Instead of searching through endless videos online, students will find focused content

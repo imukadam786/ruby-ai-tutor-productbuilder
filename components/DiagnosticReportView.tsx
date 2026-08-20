@@ -84,7 +84,7 @@ function CheckItem({ text }: { text: string }) {
 function BulletItem({ text }: { text: string }) {
   return (
     <div className="flex gap-2 items-start">
-      <span className="text-[#B7182E] font-bold mt-0.5 text-base leading-none">•</span>
+      <span className="text-brand-alt font-bold mt-0.5 text-base leading-none">•</span>
       <span className="text-gray-700 text-sm">{text}</span>
     </div>
   );

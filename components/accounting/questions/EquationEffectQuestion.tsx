@@ -89,7 +89,7 @@ export default function EquationEffectQuestion({ columns, submitting, onSubmit }
       <button
         onClick={submit}
         disabled={submitting || !allChosen}
-        className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-base"
+        className="w-full py-4 rounded-full bg-brand hover:bg-brand-hover disabled:bg-gray-300 text-white font-bold text-base"
       >
         {allChosen ? "Check answer" : `Choose ${remaining} more`}
       </button>
