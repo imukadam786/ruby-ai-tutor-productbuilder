@@ -5,6 +5,7 @@ import { apiFetch } from "@/lib/fetch";
 import MathsLiteracyMarkdown from "@/components/maths-literacy/MathsLiteracyMarkdown";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import Button from "@/components/ui/Button";
+import ChoiceGrid from "@/components/ui/ChoiceGrid";
 import SignToggle from "@/components/ui/SignToggle";
 import { seedForGrade } from "@/lib/maths-literacy-grade-map";
 import {
@@ -140,7 +141,10 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
   // Score client-side for instant feedback (the answer key ships with the
   // question, and the same scoring lib runs on the server), then reconcile
   // mastery/rubies/usage with the server in the background.
-  const onSubmit = async () => {
+  // `answerOverride` lets a multiple-choice tap submit its own value straight
+  // away — reading studentAnswer from state here would race the setState
+  // from the same click, since state hasn't committed yet on this render.
+  const onSubmit = async (answerOverride?: string) => {
     if (!question || submitInFlightRef.current) return;
     const key = parseAnswerKey(question.expected_answer_key);
     if (!key) return;
@@ -148,7 +152,7 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
     const fieldsPayload = question.fields
       ? question.fields.map((f) => ({ label: f.label, value: studentFields[f.label] ?? "" }))
       : undefined;
-    const singleAnswer = question.answerMode === "multiField" ? "" : studentAnswer.trim();
+    const singleAnswer = question.answerMode === "multiField" ? "" : (answerOverride ?? studentAnswer).trim();
     const { isCorrect, partialCredit } = scoreMathsLiteracy(key, singleAnswer, fieldsPayload);
 
     // Instant feedback from the client score.
@@ -337,6 +341,8 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
       onExit={() => (replayMode ? onExitReplayClick() : onBack?.())}
       questionNumber={Math.min(distinctAnswered, requiredCount) + 1}
       totalQuestions={requiredCount}
+      noCard={phase === "feedback"}
+      onSkip={phase === "question" && !submitting ? () => fetchQuestion(currentSkillId) : undefined}
     >
       {phase === "question" && question && (
         <QuestionView
@@ -398,15 +404,13 @@ function QuestionView({
   setStudentAnswer: (v: string) => void;
   studentFields: Record<string, string>;
   setStudentFields: (v: Record<string, string>) => void;
-  onSubmit: () => void;
+  onSubmit: (answerOverride?: string) => void;
   submitting: boolean;
 }) {
   const canSubmit =
     question.answerMode === "multiField"
       ? (question.fields ?? []).every((f) => (studentFields[f.label] ?? "").trim() !== "")
       : studentAnswer.trim() !== "";
-
-  const wide = (question.options ?? []).some((o) => o.length > 40);
 
   return (
     <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-5">
@@ -441,21 +445,11 @@ function QuestionView({
       )}
 
       {question.answerMode === "multiChoice" && question.options && (
-        <div className={`grid ${wide ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2"} gap-3`}>
-          {question.options.map((opt, i) => (
-            <button
-              key={i}
-              onClick={() => setStudentAnswer(opt)}
-              className={`rounded-2xl px-5 py-5 text-left text-base sm:text-lg font-semibold text-[#1a2744] active:scale-95 transition-all whitespace-pre-line border-2 ${
-                studentAnswer === opt
-                  ? "bg-teal-100 border-teal-400 ring-2 ring-teal-300"
-                  : "bg-teal-50 hover:bg-teal-100 border-teal-200 hover:border-teal-300"
-              }`}
-            >
-              {opt}
-            </button>
-          ))}
-        </div>
+        <ChoiceGrid
+          options={question.options}
+          submitting={submitting}
+          onSubmit={(opt) => { setStudentAnswer(opt); onSubmit(opt); }}
+        />
       )}
 
       {question.answerMode === "multiField" && question.fields && (
@@ -477,9 +471,11 @@ function QuestionView({
         </div>
       )}
 
-      <Button variant="primary" size="lg" fullWidth onClick={onSubmit} disabled={!canSubmit || submitting}>
-        {submitting ? "Checking…" : "Submit"}
-      </Button>
+      {question.answerMode !== "multiChoice" && (
+        <Button variant="primary" size="lg" fullWidth onClick={() => onSubmit()} disabled={!canSubmit || submitting}>
+          {submitting ? "Checking…" : "Submit"}
+        </Button>
+      )}
     </div>
   );
 }

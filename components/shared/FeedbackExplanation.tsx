@@ -209,52 +209,59 @@ export default function FeedbackExplanation({
           </p>
         )}
 
-        {/* WHY — violet block in Concept C */}
-        {whyText && (
-          CONCEPT_C ? (
-            <div className="bg-violet-50 border border-violet-200 rounded-xl p-4">
-              <p className="text-sm font-semibold text-violet-700 mb-1">🧠 Why this happens</p>
-              <p className="text-gray-800 leading-relaxed">{whyText}</p>
-            </div>
-          ) : (
-            <div>
-              <p className="text-sm font-medium text-gray-600 mb-1">Why this happens</p>
-              <p className="text-gray-800 leading-relaxed">{whyText}</p>
-            </div>
-          )
-        )}
+        {/* WHY / HOW / EXAMPLE / WHERE — paired 2-up on desktop so the whole
+            card can fit one screen instead of stacking five sections tall;
+            still a single column on mobile where the width can't take it. */}
+        {(whyText || hasWorking || howText || exampleText || whereText) && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* WHY — violet block in Concept C */}
+            {whyText && (
+              CONCEPT_C ? (
+                <div className="bg-violet-50 border border-violet-200 rounded-xl p-4">
+                  <p className="text-sm font-semibold text-violet-700 mb-1">🧠 Why this happens</p>
+                  <p className="text-gray-800 leading-relaxed">{whyText}</p>
+                </div>
+              ) : (
+                <div>
+                  <p className="text-sm font-medium text-gray-600 mb-1">Why this happens</p>
+                  <p className="text-gray-800 leading-relaxed">{whyText}</p>
+                </div>
+              )
+            )}
 
-        {/* HOW — worked steps if the subject authors them, else the map's fix (sky block in Concept C) */}
-        {hasWorking && (
-          <div className={`rounded-xl p-4 ${CONCEPT_C ? "bg-sky-50 border border-sky-200" : "bg-white border border-orange-200"}`}>
-            <p className={`text-sm mb-1 ${CONCEPT_C ? "font-semibold text-sky-700" : "font-medium text-gray-600"}`}>{CONCEPT_C ? "🔧 How to fix it" : "How to fix it"}</p>
-            <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
-              {workingSteps!.map((s, i) => (
-                <li key={i}>{s}</li>
-              ))}
-            </ol>
-          </div>
-        )}
-        {howText && (
-          <div className={`rounded-xl p-4 ${CONCEPT_C ? "bg-sky-50 border border-sky-200" : "bg-white border border-orange-200"}`}>
-            <p className={`text-sm mb-1 ${CONCEPT_C ? "font-semibold text-sky-700" : "font-medium text-gray-600"}`}>{CONCEPT_C ? "🔧 How to fix it" : "How to fix it"}</p>
-            <p className="text-gray-800 text-sm leading-relaxed">{howText}</p>
-          </div>
-        )}
+            {/* HOW — worked steps if the subject authors them, else the map's fix (sky block in Concept C) */}
+            {hasWorking && (
+              <div className={`rounded-xl p-4 ${CONCEPT_C ? "bg-sky-50 border border-sky-200" : "bg-white border border-orange-200"}`}>
+                <p className={`text-sm mb-1 ${CONCEPT_C ? "font-semibold text-sky-700" : "font-medium text-gray-600"}`}>{CONCEPT_C ? "🔧 How to fix it" : "How to fix it"}</p>
+                <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
+                  {workingSteps!.map((s, i) => (
+                    <li key={i}>{s}</li>
+                  ))}
+                </ol>
+              </div>
+            )}
+            {howText && (
+              <div className={`rounded-xl p-4 ${CONCEPT_C ? "bg-sky-50 border border-sky-200" : "bg-white border border-orange-200"}`}>
+                <p className={`text-sm mb-1 ${CONCEPT_C ? "font-semibold text-sky-700" : "font-medium text-gray-600"}`}>{CONCEPT_C ? "🔧 How to fix it" : "How to fix it"}</p>
+                <p className="text-gray-800 text-sm leading-relaxed">{howText}</p>
+              </div>
+            )}
 
-        {/* EXAMPLE — amber in both looks */}
-        {exampleText && (
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-            <p className="text-sm font-medium text-amber-700 mb-1">💡 Think of it like this</p>
-            <p className="text-gray-800 text-sm leading-relaxed">{exampleText}</p>
-          </div>
-        )}
+            {/* EXAMPLE — amber in both looks */}
+            {exampleText && (
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                <p className="text-sm font-medium text-amber-700 mb-1">💡 Think of it like this</p>
+                <p className="text-gray-800 text-sm leading-relaxed">{exampleText}</p>
+              </div>
+            )}
 
-        {/* WHERE — the fifth part: where the idea shows up (emerald block) */}
-        {whereText && (
-          <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
-            <p className="text-sm font-medium text-emerald-700 mb-1">📍 Where you'll see this</p>
-            <p className="text-gray-800 text-sm leading-relaxed">{whereText}</p>
+            {/* WHERE — the fifth part: where the idea shows up (emerald block) */}
+            {whereText && (
+              <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
+                <p className="text-sm font-medium text-emerald-700 mb-1">📍 Where you'll see this</p>
+                <p className="text-gray-800 text-sm leading-relaxed">{whereText}</p>
+              </div>
+            )}
           </div>
         )}
       </div>

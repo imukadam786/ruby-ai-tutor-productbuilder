@@ -479,6 +479,8 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
       questionNumber={Math.min(distinctAnswered, required) + 1}
       totalQuestions={required}
       difficulty={question.difficulty}
+      noCard={phase === "feedback"}
+      onSkip={phase === "question" && !submitting ? () => skillId && loadNextQuestion(skillId, correctCount, attemptCount) : undefined}
     >
       <div className="flex items-start gap-2">
         <p className="flex-1 text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">

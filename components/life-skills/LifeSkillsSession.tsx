@@ -502,6 +502,8 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
       questionNumber={Math.min(distinctAnswered, required) + 1}
       totalQuestions={required}
       difficulty={question.difficulty}
+      noCard={phase === "feedback"}
+      onSkip={phase === "question" && !submitting ? () => skillId && loadNextQuestion(skillId) : undefined}
     >
       {/* Question + compact tap-to-hear icon (no autoplay) */}
       <div className="flex items-start gap-2">

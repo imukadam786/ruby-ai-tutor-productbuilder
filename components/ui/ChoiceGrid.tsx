@@ -18,11 +18,8 @@ interface ChoiceGridProps {
 }
 
 export default function ChoiceGrid({ options, submitting, onSubmit }: ChoiceGridProps) {
-  const wide = options.some((o) => o.length > 40);
-  const gridCols = wide ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2";
-
   return (
-    <div className={`grid ${gridCols} gap-3`}>
+    <div className="grid grid-cols-1 gap-3">
       {options.map((opt, i) => (
         <AnswerButton key={opt} index={i} disabled={submitting} onClick={() => onSubmit(opt)}>
           <span className="whitespace-pre-line">{opt}</span>

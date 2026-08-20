@@ -502,6 +502,8 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
       questionNumber={Math.min(distinctAnswered, required) + 1}
       totalQuestions={required}
       difficulty={question.difficulty}
+      noCard={phase === "feedback"}
+      onSkip={phase === "question" && !submitting ? () => skillId && loadNextQuestion(skillId, correctCount, attemptCount) : undefined}
     >
       {/* English instruction + compact tap-to-hear icon (no autoplay;
           scaffolding stays English) */}

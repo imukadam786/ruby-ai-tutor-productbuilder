@@ -419,6 +419,8 @@ export default function MatricPhysSciSession({
       }}
       questionNumber={Math.min(attemptCount + 1, target)}
       totalQuestions={target}
+      noCard={phase === "feedback"}
+      onSkip={phase === "question" && !submitting ? () => skillId && loadNextQuestion(skillId) : undefined}
     >
       {contextLabel && (
         <div className="flex items-center gap-2 rounded-2xl bg-[#eef2ff] border border-[#c7d2fe] px-4 py-2.5 text-sm text-[#3730a3]">

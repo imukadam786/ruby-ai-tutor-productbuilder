@@ -987,31 +987,33 @@ export default function SubjectsHub({ onNavigate, onModeChange }: SubjectsHubPro
                 <button
                   key={s.id}
                   onClick={() => setLandingId(s.id)}
-                  className={`group rounded-2xl bg-white border border-gray-100 transition-all text-left overflow-hidden flex flex-col ${
-                    CONCEPT_C
-                      ? "shadow-lip active:translate-y-[3px] active:shadow-none"
-                      : "shadow-md active:opacity-80 hover:shadow-xl hover:-translate-y-1"
-                  }`}
+                  className="group relative rounded-2xl bg-white border-2 border-gray-200 shadow-sm transition-all text-left overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-gray-300"
                 >
-                  <div className={`relative h-20 sm:h-24 bg-gradient-to-br ${s.accentFrom} ${s.accentTo} flex items-center justify-center`}>
+                  <div className="relative w-full aspect-square overflow-hidden bg-gray-50">
                     {s.thumbnail ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={s.thumbnail} alt={s.label} className="w-full h-full object-cover" />
-                    ) : (
-                      <span className="text-4xl" aria-hidden>{s.placeholderEmoji ?? "📚"}</span>
-                    )}
-                    {s.badge && (
-                      <span className={`absolute top-2 left-2 text-[10px] font-semibold px-2 py-0.5 rounded-full ${s.badgeColor ?? "bg-white/90 text-gray-700"}`}>
-                        {s.badge}
-                      </span>
-                    )}
-                    {offline.isEligible(s.id) && (
-                      <OfflineBadge
-                        status={offline.status[s.id] ?? "idle"}
-                        onSave={() => offline.download(s.id)}
+                      <img
+                        src={s.thumbnail}
+                        alt={s.label}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
+                    ) : (
+                      <div className={`w-full h-full bg-gradient-to-br ${s.accentFrom} ${s.accentTo} flex items-center justify-center`}>
+                        <span className="text-4xl" aria-hidden>{s.placeholderEmoji ?? "📚"}</span>
+                      </div>
                     )}
                   </div>
+                  {s.badge && (
+                    <span className={`absolute top-2 left-2 text-[10px] font-semibold px-2 py-0.5 rounded-full ${s.badgeColor ?? "bg-white/90 text-gray-700"}`}>
+                      {s.badge}
+                    </span>
+                  )}
+                  {offline.isEligible(s.id) && (
+                    <OfflineBadge
+                      status={offline.status[s.id] ?? "idle"}
+                      onSave={() => offline.download(s.id)}
+                    />
+                  )}
                 </button>
               ))}
             </div>

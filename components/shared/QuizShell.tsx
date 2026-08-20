@@ -51,6 +51,19 @@ export interface QuizShellProps {
   masteryTarget?: number;
   /** 1–5 difficulty of the CURRENT question. Omit to hide the indicator. */
   difficulty?: number | null;
+  /**
+   * Skips the current question without scoring it. Only meaningful while a
+   * question is showing — pass undefined (not just omit) during feedback/
+   * loading so the button disappears instead of staying clickable.
+   */
+  onSkip?: () => void;
+  /**
+   * Renders children without the white question-card wrapper. Pass true while
+   * showing feedback, since FeedbackExplanation is already its own coloured
+   * card — wrapping it in a second white card just adds a border/margin
+   * around it. Leave false (default) for the question phase.
+   */
+  noCard?: boolean;
   /** The question card contents (question text, diagram, answer input, feedback). */
   children: ReactNode;
 }
@@ -63,6 +76,8 @@ export default function QuizShell({
   totalQuestions,
   masteryTarget = 0.75,
   difficulty,
+  onSkip,
+  noCard = false,
   children,
 }: QuizShellProps) {
   const gemColor = GEM_HEX[accent as GemColor] ?? GEM_HEX.rose;
@@ -110,7 +125,15 @@ export default function QuizShell({
             <span className="text-sm font-semibold text-gray-500 flex-shrink-0">
               Question {clamped} of {totalQuestions}
             </span>
-            <div className="relative flex items-center gap-2 flex-shrink-0">
+            <div className="relative flex items-center gap-3 flex-shrink-0">
+              {onSkip && (
+                <button
+                  onClick={onSkip}
+                  className="text-sm text-gray-400 hover:text-gray-600 font-semibold transition-colors"
+                >
+                  Skip
+                </button>
+              )}
               <span className="hidden sm:inline-flex"><RubyBalance theme="light" /></span>
               <button
                 onClick={() => setShowTextMenu((v) => !v)}
@@ -175,7 +198,11 @@ export default function QuizShell({
           </div>
 
           {/* ── Question card ── */}
-          <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-5">{children}</div>
+          {noCard ? (
+            <div className="space-y-5">{children}</div>
+          ) : (
+            <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-5">{children}</div>
+          )}
 
           {/* ── Motivational footer ── */}
           <p className="text-center text-sm text-gray-500">

@@ -1595,11 +1595,15 @@ function SessionView({
           <div className="fixed z-40 flex flex-col bg-white shadow-2xl
             bottom-0 left-0 right-0 h-[70%] rounded-t-2xl
             sm:top-0 sm:bottom-0 sm:left-auto sm:right-0 sm:h-full sm:w-[min(560px,45%)] sm:rounded-none">
-            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 flex-shrink-0">
-              <span className="font-bold text-sm text-gray-800">{currentSQ.label}</span>
+            <div className="flex items-center justify-between gap-2 px-5 py-3 bg-rose-50/90 backdrop-blur-sm border-b border-rose-100/60 flex-shrink-0">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-brand/70">Question</span>
+                <span className="text-[10px] text-gray-400">·</span>
+                <span className="font-bold text-sm text-gray-800">{currentSQ.label}</span>
+              </div>
               <button
                 onClick={() => setExpandedQuestion(false)}
-                className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+                className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-white/70 transition-colors"
                 title="Close"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1607,7 +1611,7 @@ function SessionView({
                 </svg>
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto p-5">
+            <div className="flex-1 overflow-y-auto p-5 bg-rose-50/10">
               <div className="text-base text-gray-800 leading-relaxed">
                 <MathMarkdown content={currentSQ.questionText} />
               </div>
@@ -1781,7 +1785,7 @@ function SessionView({
                   // pattern the hint builder uses). Undefined → no reveal.
                   const correct = currentSQ.memoText?.match(/correct answer:\s*([A-E])/i)?.[1]?.toUpperCase();
                   return (
-                    <div className="flex-1 overflow-y-auto min-h-0 grid grid-cols-1 sm:grid-cols-2 gap-2.5 content-start">
+                    <div className="flex-1 overflow-y-auto min-h-0 grid grid-cols-1 gap-2.5 content-start">
                       {letters.map((letter, i) => {
                         const text = currentSQ.options![letter as keyof typeof currentSQ.options]!;
                         const picked = currentAttempt.selectedOption === letter;

@@ -506,6 +506,8 @@ export default function EmsSpSession({ onBack }: { onBack?: () => void } = {}) {
       questionNumber={Math.min(distinctAnswered, required) + 1}
       totalQuestions={required}
       difficulty={question.difficulty}
+      noCard={phase === "feedback"}
+      onSkip={phase === "question" && !submitting ? () => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount) : undefined}
     >
       <p className="text-lg sm:text-xl text-[#1a2744] font-medium leading-snug whitespace-pre-line">
         {question.question}

@@ -479,6 +479,8 @@ export default function BusinessStudiesSession({ onBack }: { onBack?: () => void
       questionNumber={Math.min(distinctAnswered, required) + 1}
       totalQuestions={required}
       difficulty={question.difficulty}
+      noCard={phase === "feedback"}
+      onSkip={phase === "question" && !submitting ? () => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount) : undefined}
     >
       {/* Optional source block — renders above the mechanic. */}
       {question.source && <SourceBlock source={question.source} />}
