@@ -14,20 +14,9 @@ import {
   getAccountingLevelProgress,
 } from "@/lib/accounting-student-model";
 import type { AccountingSkillTree, AccountingStudentProfile } from "@/types/accounting";
-import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
 
 const tree = accountingSkillTreeData as unknown as AccountingSkillTree;
-
-/** Stats for the subject landing screen, without mounting the tree. */
-export function getAccountingStats(grade: number, profile: AccountingStudentProfile | null) {
-  return computeGradeTreeStats(
-    tree,
-    grade,
-    seedForGrade,
-    (id) => getAccountingSkillStatus(id, profile),
-    (ids) => (profile ? getAccountingLevelProgress(ids, profile.skill_mastery) : 0)
-  );
-}
 
 interface AccountingSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -46,7 +35,6 @@ export default function AccountingSkillTreeView({
     <GradeLockedSkillTree
       accent="emerald"
       title="Accounting Skill Tree"
-      backLabel="Accounting"
       subhead="Mastery 75% · 20 questions per topic"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

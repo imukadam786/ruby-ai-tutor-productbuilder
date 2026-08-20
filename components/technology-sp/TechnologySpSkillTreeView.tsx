@@ -18,20 +18,9 @@ import type {
   TechnologySpSkillTree,
   TechnologySpStudentProfile,
 } from "@/types/technology-sp";
-import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
 
 const tree = technologySpSkillTreeData as unknown as TechnologySpSkillTree;
-
-/** Stats for the subject landing screen, without mounting the tree. */
-export function getTechnologySpStats(grade: number, profile: TechnologySpStudentProfile | null) {
-  return computeGradeTreeStats(
-    tree,
-    grade,
-    seedForGrade,
-    (id) => getTechnologySpSkillStatus(id, profile),
-    (ids) => (profile ? getTechnologySpLevelProgress(ids, profile.skill_mastery) : 0)
-  );
-}
 
 interface TechnologySpSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -50,7 +39,6 @@ export default function TechnologySpSkillTreeView({
     <GradeLockedSkillTree
       accent="slate"
       title="Technology Skill Tree"
-      backLabel="Technology"
       subhead="The Economy · Financial Literacy · Entrepreneurship · master each topic at 75%"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

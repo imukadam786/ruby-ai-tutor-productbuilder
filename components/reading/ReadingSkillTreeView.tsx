@@ -155,7 +155,6 @@ export default function ReadingSkillTreeView({ profile, onReplaySkill, onContinu
     <SkillTreeShell
       accent="purple"
       title={t("nav.reading_skill_tree")}
-      backLabel="English"
       statline={statline}
       levels={levels}
       compact={compact}

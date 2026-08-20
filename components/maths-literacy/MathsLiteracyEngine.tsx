@@ -15,9 +15,8 @@ import {
   updateMathsLiteracySkillMastery,
 } from "@/lib/maths-literacy-student-model";
 import { requiredCoverageCount } from "@/lib/content-mastery";
-import QuizShell from "@/components/shared/QuizShell";
+import MasteryHeader from "@/components/shared/MasteryHeader";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
-import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import EduBackground from "@/components/EduBackground";
 import RubyBalance from "@/components/RubyBalance";
@@ -273,113 +272,111 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
 
   const showProgress = (phase === "question" || phase === "feedback") && !!question;
 
-  // Loading / error states render outside QuizShell — there's no live
-  // question yet, so a progress bar / counter would be meaningless.
-  if (!showProgress) {
-    return (
-      <div className="relative flex flex-col h-full bg-[#F4F4F5]">
-        <EduBackground />
-        <div className="relative flex-1 overflow-y-auto">
-          <div className="max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
-            <div className="flex items-center justify-between gap-3">
-              {onBack ? (
-                <button
-                  onClick={onBack}
-                  className="text-sm text-[#1a2744] font-semibold underline decoration-2 underline-offset-4"
-                  aria-label="Back to subjects"
-                >
-                  ← Subjects
-                </button>
-              ) : (
-                <span />
-              )}
-              <div className="flex items-center gap-3">
-                {replayMode && (
-                  <button
-                    onClick={onExitReplayClick}
-                    className="text-xs text-blue-600 hover:underline"
-                  >
-                    Exit replay
-                  </button>
-                )}
-                <span className="hidden md:inline-flex flex-shrink-0">
-                  <RubyBalance theme="light" size="lg" />
-                </span>
-              </div>
-            </div>
-
-            {phase === "loading" && (
-              <div className="bg-white rounded-3xl shadow-md p-8 text-center text-gray-500">
-                Loading question…
-              </div>
-            )}
-
-            {phase === "error" && (
-              <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-4">
-                <p className="text-sm text-rose-700 bg-rose-50 rounded-xl px-3 py-2">
-                  {error ?? "Something went wrong."}
-                </p>
-                <Button variant="primary" size="lg" fullWidth onClick={() => fetchQuestion(currentSkillId)}>
-                  Try again
-                </Button>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <QuizShell
-      accent="teal"
-      topicTitle={skill?.title ?? "Maths Literacy"}
-      onExit={() => (replayMode ? onExitReplayClick() : onBack?.())}
-      questionNumber={Math.min(distinctAnswered, requiredCount) + 1}
-      totalQuestions={requiredCount}
-    >
-      {phase === "question" && question && (
-        <QuestionView
-          question={question}
-          studentAnswer={studentAnswer}
-          setStudentAnswer={setStudentAnswer}
-          studentFields={studentFields}
-          setStudentFields={setStudentFields}
-          onSubmit={onSubmit}
-          submitting={submitting}
-        />
-      )}
+    <div className="relative flex flex-col h-full bg-[#F4F4F5]">
+      <EduBackground />
+      <div className="relative flex-1 overflow-y-auto">
+        <div className="max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
+          {/* Top row: back to subjects + rubies (+ replay exit) */}
+          <div className="flex items-center justify-between gap-3">
+            {onBack ? (
+              <button
+                onClick={onBack}
+                className="text-sm text-[#1a2744] font-semibold underline decoration-2 underline-offset-4"
+                aria-label="Back to subjects"
+              >
+                ← Subjects
+              </button>
+            ) : (
+              <span />
+            )}
+            <div className="flex items-center gap-3">
+              {replayMode && (
+                <button
+                  onClick={onExitReplayClick}
+                  className="text-xs text-blue-600 hover:underline"
+                >
+                  Exit replay
+                </button>
+              )}
+              <span className="hidden md:inline-flex flex-shrink-0">
+                <RubyBalance theme="light" size="lg" />
+              </span>
+            </div>
+          </div>
 
-      {phase === "feedback" && feedback && question && (
-        <FeedbackExplanation
-          gemColor={GEM_HEX.teal}
-          isCorrect={feedback.is_correct}
-          studentAnswer={submittedAnswer}
-          correctAnswer={(() => {
-            const k = parseAnswerKey(question.expected_answer_key);
-            return k ? formatExpectedAnswer(k) : undefined;
-          })()}
-          errorSignals={question.error_signals}
-          whyOverride={question.error_explanation}
-          workingSteps={question.working_steps}
-          partialCredit={feedback.partial_credit}
-          footer={
-            <FeedbackFooter
+          {/* Coverage / mastery progress card — shared across all subjects. */}
+          {showProgress && (
+            <MasteryHeader
+              title={skill?.title ?? "Maths Literacy"}
+              distinctAnswered={distinctAnswered}
+              requiredCount={requiredCount}
+              correctCount={mastery?.correct_count ?? 0}
+              attemptCount={mastery?.attempt_count ?? 0}
+              mastered={mastery?.status === "mastered"}
+            />
+          )}
+
+          {phase === "loading" && (
+            <div className="bg-white rounded-3xl shadow-md p-8 text-center text-gray-500">
+              Loading question…
+            </div>
+          )}
+
+          {phase === "error" && (
+            <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-4">
+              <p className="text-sm text-rose-700 bg-rose-50 rounded-xl px-3 py-2">
+                {error ?? "Something went wrong."}
+              </p>
+              <Button variant="primary" size="lg" fullWidth onClick={() => fetchQuestion(currentSkillId)}>
+                Try again
+              </Button>
+            </div>
+          )}
+
+          {phase === "question" && question && (
+            <QuestionView
+              question={question}
+              studentAnswer={studentAnswer}
+              setStudentAnswer={setStudentAnswer}
+              studentFields={studentFields}
+              setStudentFields={setStudentFields}
+              onSubmit={onSubmit}
+              submitting={submitting}
+            />
+          )}
+
+          {phase === "feedback" && feedback && question && (
+            <FeedbackExplanation
               isCorrect={feedback.is_correct}
-              onNext={onContinue}
-              onRetry={onRetry}
-              nextLabel={
-                profile?.skill_mastery[currentSkillId]?.status === "mastered" &&
-                feedback.is_correct &&
-                !replayMode
-                  ? "Next skill →"
-                  : "Next question →"
+              studentAnswer={submittedAnswer}
+              correctAnswer={(() => {
+                const k = parseAnswerKey(question.expected_answer_key);
+                return k ? formatExpectedAnswer(k) : undefined;
+              })()}
+              errorSignals={question.error_signals}
+              whyOverride={question.error_explanation}
+              workingSteps={question.working_steps}
+              partialCredit={feedback.partial_credit}
+              footer={
+                <FeedbackFooter
+                  isCorrect={feedback.is_correct}
+                  onNext={onContinue}
+                  onRetry={onRetry}
+                  nextLabel={
+                    profile?.skill_mastery[currentSkillId]?.status === "mastered" &&
+                    feedback.is_correct &&
+                    !replayMode
+                      ? "Next skill →"
+                      : "Next question →"
+                  }
+                />
               }
             />
-          }
-        />
-      )}
-    </QuizShell>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 

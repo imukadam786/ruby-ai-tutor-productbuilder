@@ -1,6 +1,6 @@
 "use client";
 
-import QuizShell from "@/components/shared/QuizShell";
+import RubyBalance from "@/components/RubyBalance";
 import { useCallback, useEffect, useRef, useState } from "react";
 import RubyLoader from "@/components/RubyLoader";
 import { apiFetch } from "@/lib/fetch";
@@ -8,7 +8,6 @@ import EduBackground from "@/components/EduBackground";
 import MatricPhysSciSkillTreeView from "./MatricPhysSciSkillTreeView";
 import SequenceQuestion from "./SequenceQuestion";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
-import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scorePhysSci } from "@/lib/matric-phys-sci-scoring";
 import Button from "@/components/ui/Button";
@@ -402,95 +401,126 @@ export default function MatricPhysSciSession({
   }
 
   // ─── Render: question / feedback ───────────────────────────────────────────
-
-  if (!question || !skillId) return null;
-
-  const target = targetItemCount(skillId, grade);
+  const target = skillId ? targetItemCount(skillId, grade) : 20;
+  const progressPct = skillId
+    ? Math.round((Math.min(attemptCount, target) / target) * 100)
+    : 0;
 
   return (
-    <QuizShell
-      accent="rose"
-      topicTitle={findSkillMeta(skillId, grade)?.skill.title ?? skillId}
-      onExit={() => {
-        setSkillId(null);
-        setQuestion(null);
-        setResult(null);
-        setPhase("tree");
-      }}
-      questionNumber={Math.min(attemptCount + 1, target)}
-      totalQuestions={target}
-    >
-      {contextLabel && (
-        <div className="flex items-center gap-2 rounded-2xl bg-[#eef2ff] border border-[#c7d2fe] px-4 py-2.5 text-sm text-[#3730a3]">
-          <span aria-hidden>📄</span>
-          <span>{contextLabel}</span>
-        </div>
-      )}
-
-      <p className="text-base sm:text-lg text-[#1a2744] font-medium leading-relaxed whitespace-pre-wrap">
-        {question.question}
-      </p>
-
-      {phase === "question" && (
-        <div className="relative">
-          <div className={submitting ? "opacity-40 pointer-events-none transition-opacity" : "transition-opacity"}>
-            <MatricAnswerInput
-              question={question}
-              value={answer}
-              onChange={setAnswer}
-              multiFieldAnswers={multiFieldAnswers}
-              onMultiFieldChange={setMultiFieldAnswers}
-              onSubmit={handleSubmit}
-              submitting={submitting}
-            />
+    <div className="relative flex flex-col h-full bg-[#F4F4F5]">
+      <EduBackground />
+      <div className="relative flex-1 overflow-y-auto">
+        <div className="max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => {
+                setSkillId(null);
+                setQuestion(null);
+                setResult(null);
+                setPhase("tree");
+              }}
+              className="text-sm text-[#1a2744] font-semibold underline decoration-2 underline-offset-4"
+            >
+              ← Skills
+            </button>
+            <span className="hidden md:inline-flex flex-shrink-0"><RubyBalance theme="light" size="lg" /></span>
           </div>
-          {submitting && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="flex items-center gap-2 bg-white/90 rounded-full px-4 py-2 shadow text-[#1a2744] font-semibold text-sm">
-                <span className="w-4 h-4 border-2 border-brand border-t-transparent rounded-full animate-spin" />
-                Checking…
-              </span>
+
+          {contextLabel && (
+            <div className="flex items-center gap-2 rounded-2xl bg-[#eef2ff] border border-[#c7d2fe] px-4 py-2.5 text-sm text-[#3730a3]">
+              <span aria-hidden>📄</span>
+              <span>{contextLabel}</span>
             </div>
           )}
-        </div>
-      )}
 
-      {phase === "feedback" && result && (
-        (() => {
-          // "What you put / answer" only reads clearly for single-value
-          // modes; multiField/sequence answers are serialised, so skip them.
-          const singleValue =
-            question.answerMode === "choice" ||
-            question.answerMode === "numeric" ||
-            question.answerMode === "text";
-          const modelAnswer =
-            question.expected_answer !== undefined
-              ? `${String(question.expected_answer)}${question.unit ? ` ${question.unit}` : ""}`
-              : undefined;
-          return (
-            <FeedbackExplanation
-              gemColor={GEM_HEX.rose}
-              isCorrect={result.is_correct}
-              studentAnswer={singleValue ? answer : undefined}
-              correctAnswer={singleValue ? modelAnswer : undefined}
-              note={result.is_correct ? result.explanation : undefined}
-              whyOverride={result.is_correct ? undefined : result.explanation}
-              footer={
+          {skillId && (
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs font-bold uppercase tracking-wide text-amber-800">
+                  {findSkillMeta(skillId, grade)?.skill.title ?? skillId}
+                </span>
+                <span className="text-sm font-semibold text-amber-700">
+                  Q {Math.min(attemptCount + 1, target)} of {target} · {correctCount} correct
+                </span>
+              </div>
+              <div className="h-2 bg-amber-100 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-amber-500 rounded-full transition-all"
+                  style={{ width: `${progressPct}%` }}
+                />
+              </div>
+            </div>
+          )}
+
+          {question && (
+            <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-5">
+              <p className="text-base sm:text-lg text-[#1a2744] font-medium leading-relaxed whitespace-pre-wrap">
+                {question.question}
+              </p>
+
+              {phase === "question" && (
+                <div className="relative">
+                  <div className={submitting ? "opacity-40 pointer-events-none transition-opacity" : "transition-opacity"}>
+                    <MatricAnswerInput
+                      question={question}
+                      value={answer}
+                      onChange={setAnswer}
+                      multiFieldAnswers={multiFieldAnswers}
+                      onMultiFieldChange={setMultiFieldAnswers}
+                      onSubmit={handleSubmit}
+                      submitting={submitting}
+                    />
+                  </div>
+                  {submitting && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="flex items-center gap-2 bg-white/90 rounded-full px-4 py-2 shadow text-[#1a2744] font-semibold text-sm">
+                        <span className="w-4 h-4 border-2 border-[#BE1832] border-t-transparent rounded-full animate-spin" />
+                        Checking…
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {phase === "feedback" && result && (
+                (() => {
+                  // "What you put / answer" only reads clearly for single-value
+                  // modes; multiField/sequence answers are serialised, so skip them.
+                  const singleValue =
+                    question.answerMode === "choice" ||
+                    question.answerMode === "numeric" ||
+                    question.answerMode === "text";
+                  const modelAnswer =
+                    question.expected_answer !== undefined
+                      ? `${String(question.expected_answer)}${question.unit ? ` ${question.unit}` : ""}`
+                      : undefined;
+                  return (
+                    <FeedbackExplanation
+                      isCorrect={result.is_correct}
+                      studentAnswer={singleValue ? answer : undefined}
+                      correctAnswer={singleValue ? modelAnswer : undefined}
+                      note={result.is_correct ? result.explanation : undefined}
+                      whyOverride={result.is_correct ? undefined : result.explanation}
+                      footer={
                 <FeedbackFooter
                   isCorrect={result.is_correct}
                   onNext={() => skillId && loadNextQuestion(skillId)}
                   onRetry={() => { setAnswer(""); setResult(null); setError(null); setPhase("question"); }}
                 />
               }
-            />
-          );
-        })()
-      )}
+                    />
+                  );
+                })()
+              )}
 
-      {error && (
-        <p className="text-sm text-rose-600 bg-rose-50 rounded-xl px-3 py-2">{error}</p>
-      )}
-    </QuizShell>
+              {error && (
+                <p className="text-sm text-rose-600 bg-rose-50 rounded-xl px-3 py-2">{error}</p>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 

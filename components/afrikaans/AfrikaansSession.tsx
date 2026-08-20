@@ -1,9 +1,9 @@
 "use client";
-import QuizShell from "@/components/shared/QuizShell";
+import RubyBalance from "@/components/RubyBalance";
+import MasteryHeader from "@/components/shared/MasteryHeader";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
-import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreAfrikaans } from "@/lib/afrikaans-scoring";
 import Button from "@/components/ui/Button";
@@ -489,94 +489,113 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
   }
 
   // ─── Render: question / feedback ───────────────────────────────────────────
-  if (!question || !skillId) return null;
-
-  const distinctAnswered = profile ? new Set(getAfrikaansUsedRefs(profile, skillId)).size : 0;
-  const required = requiredCount(skillId);
-
   return (
-    <QuizShell
-      accent="orange"
-      topicTitle={findSkill(skillId)?.skill?.title ?? "Master this topic"}
-      onExit={backToTree}
-      questionNumber={Math.min(distinctAnswered, required) + 1}
-      totalQuestions={required}
-      difficulty={question.difficulty}
-    >
-      {/* English instruction + compact tap-to-hear icon (no autoplay;
-          scaffolding stays English) */}
-      <div className="flex items-start gap-2">
-        <p className="flex-1 text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">
-          {question.ruby_prompt || question.question}
-        </p>
-        <SpeakButton
-          playing={playing}
-          onClick={() => (playing ? stop() : speak(question.ruby_prompt || question.question))}
-          label="Read instruction aloud"
-        />
-      </div>
-
-      {/* Afrikaans audio — the target content to listen to */}
-      {question.audio && (
-        <button
-          onClick={() => speakAfrikaans(question.audio!, question.question_ref)}
-          className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl bg-orange-100 hover:bg-orange-200 border-2 border-orange-300 text-orange-900 font-bold text-base active:scale-[0.99]"
-        >
-          <span className="text-xl">🔊</span> Luister in Afrikaans
-        </button>
-      )}
-
-      {/* Context — a short English hint (Gr1–6) OR a full Afrikaans
-          passage/poem (FET). Poem line breaks are authored as " / ", so
-          we split on that and render each line on its own row; prose with
-          no " / " renders as a single readable paragraph that wraps. The
-          surrounding card already scrolls (overflow-y-auto above), so long
-          passages just grow the card. */}
-      {question.context && (
-        <div className="bg-orange-50 border border-orange-200 rounded-2xl px-4 py-3 text-base text-orange-900 leading-relaxed whitespace-pre-wrap">
-          {question.context.split(" / ").map((line, i) => (
-            <span key={i} className="block">
-              {line}
-            </span>
-          ))}
+    <div className="relative flex flex-col h-full bg-[#F4F4F5]">
+      <EduBackground />
+      <div className="relative flex-1 overflow-y-auto">
+       <div className="max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
+        {/* Header bar */}
+        <div className="flex items-center justify-between">
+          <button
+            onClick={backToTree}
+            className="text-sm text-[#1a2744] font-semibold underline decoration-2 underline-offset-4"
+          >
+            ← Skills
+          </button>
+            <span className="hidden md:inline-flex flex-shrink-0"><RubyBalance theme="light" size="lg" /></span>
         </div>
-      )}
 
-      {/* Input — branches on input_type */}
-      {phase === "question" && (
-        <AnswerInput
-          question={question}
-          value={answer}
-          sequenceOrder={sequenceOrder}
-          onSequenceChange={setSequenceOrder}
-          onChange={setAnswer}
-          onSubmit={handleSubmit}
-          submitting={submitting}
-          speakAfrikaans={(t) => speakAfrikaans(t)}
-        />
-      )}
-
-      {/* Feedback after submission */}
-      {phase === "feedback" && result && (
-        <FeedbackExplanation
-          gemColor={GEM_HEX.orange}
-          isCorrect={result.is_correct}
-          note={result.is_correct ? result.memo : undefined}
-          whyOverride={result.is_correct ? undefined : result.memo}
-          footer={
-          <FeedbackFooter
-            isCorrect={result.is_correct}
-            onNext={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
-            onRetry={() => { setAnswer(""); setResult(null); setError(null); setPhase("question"); }}
+        {skillId && (
+          <MasteryHeader
+            title={findSkill(skillId)?.skill?.title ?? "Master this topic"}
+            distinctAnswered={profile ? new Set(getAfrikaansUsedRefs(profile, skillId)).size : 0}
+            requiredCount={requiredCount(skillId)}
+            correctCount={correctCount}
+            attemptCount={attemptCount}
+            mastered={profile?.skill_mastery[skillId]?.status === "mastered"}
           />
-        }
-        />
-      )}
+        )}
 
-      {error && (
-        <p className="text-sm text-rose-600 bg-rose-50 rounded-xl px-3 py-2">{error}</p>
-      )}
-    </QuizShell>
+        {/* Question card */}
+        {question && (
+          <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-5">
+            {/* English instruction + compact tap-to-hear icon (no autoplay;
+                scaffolding stays English) */}
+            <div className="flex items-start gap-2">
+              <p className="flex-1 text-lg sm:text-xl text-[#1a2744] font-medium leading-snug">
+                {question.ruby_prompt || question.question}
+              </p>
+              <SpeakButton
+                playing={playing}
+                onClick={() => (playing ? stop() : speak(question.ruby_prompt || question.question))}
+                label="Read instruction aloud"
+              />
+            </div>
+
+            {/* Afrikaans audio — the target content to listen to */}
+            {question.audio && (
+              <button
+                onClick={() => speakAfrikaans(question.audio!, question.question_ref)}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl bg-orange-100 hover:bg-orange-200 border-2 border-orange-300 text-orange-900 font-bold text-base active:scale-[0.99]"
+              >
+                <span className="text-xl">🔊</span> Luister in Afrikaans
+              </button>
+            )}
+
+            {/* Context — a short English hint (Gr1–6) OR a full Afrikaans
+                passage/poem (FET). Poem line breaks are authored as " / ", so
+                we split on that and render each line on its own row; prose with
+                no " / " renders as a single readable paragraph that wraps. The
+                surrounding card already scrolls (overflow-y-auto above), so long
+                passages just grow the card. */}
+            {question.context && (
+              <div className="bg-orange-50 border border-orange-200 rounded-2xl px-4 py-3 text-base text-orange-900 leading-relaxed whitespace-pre-wrap">
+                {question.context.split(" / ").map((line, i) => (
+                  <span key={i} className="block">
+                    {line}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* Input — branches on input_type */}
+            {phase === "question" && (
+              <AnswerInput
+                question={question}
+                value={answer}
+                sequenceOrder={sequenceOrder}
+                onSequenceChange={setSequenceOrder}
+                onChange={setAnswer}
+                onSubmit={handleSubmit}
+                submitting={submitting}
+                speakAfrikaans={(t) => speakAfrikaans(t)}
+              />
+            )}
+
+            {/* Feedback after submission */}
+            {phase === "feedback" && result && (
+              <FeedbackExplanation
+                isCorrect={result.is_correct}
+                note={result.is_correct ? result.memo : undefined}
+                whyOverride={result.is_correct ? undefined : result.memo}
+                footer={
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId, correctCount, attemptCount)}
+                  onRetry={() => { setAnswer(""); setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
+              />
+            )}
+
+            {error && (
+              <p className="text-sm text-rose-600 bg-rose-50 rounded-xl px-3 py-2">{error}</p>
+            )}
+          </div>
+        )}
+       </div>
+      </div>
+    </div>
   );
 }
 
@@ -612,7 +631,7 @@ function PlayIcon({ text, speak }: { text: string; speak: (t: string) => void })
           speak(text);
         }
       }}
-      className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors bg-white border border-orange-300 hover:bg-orange-100 text-brand"
+      className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors bg-white border border-orange-300 hover:bg-orange-100 text-[#BE1832]"
     >
       🔊
     </span>
@@ -796,14 +815,14 @@ function SequenceInput({ order, onChange, onSubmit, submitting, speak }: Sequenc
                 disabled={submitting}
                 className={`w-full flex items-center gap-3 rounded-2xl px-4 py-4 text-left transition-all active:scale-[0.99] ${
                   isSelected
-                    ? "bg-brand border-2 border-brand text-white shadow-md"
+                    ? "bg-[#BE1832] border-2 border-[#BE1832] text-white shadow-md"
                     : "bg-orange-50 border-2 border-orange-200 text-[#1a2744] hover:bg-orange-100"
                 }`}
                 aria-pressed={isSelected}
               >
                 <span
                   className={`flex-shrink-0 w-8 h-8 rounded-full font-bold text-sm flex items-center justify-center ${
-                    isSelected ? "bg-white text-brand" : "bg-brand text-white"
+                    isSelected ? "bg-white text-[#BE1832]" : "bg-[#BE1832] text-white"
                   }`}
                 >
                   {idx + 1}

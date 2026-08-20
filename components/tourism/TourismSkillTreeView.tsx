@@ -14,20 +14,9 @@ import {
   getTourismLevelProgress,
 } from "@/lib/tourism-student-model";
 import type { TourismSkillTree, TourismStudentProfile } from "@/types/tourism";
-import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
 
 const tree = tourismSkillTreeData as unknown as TourismSkillTree;
-
-/** Stats for the subject landing screen, without mounting the tree. */
-export function getTourismStats(grade: number, profile: TourismStudentProfile | null) {
-  return computeGradeTreeStats(
-    tree,
-    grade,
-    seedForGrade,
-    (id) => getTourismSkillStatus(id, profile),
-    (ids) => (profile ? getTourismLevelProgress(ids, profile.skill_mastery) : 0)
-  );
-}
 
 interface TourismSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -46,7 +35,6 @@ export default function TourismSkillTreeView({
     <GradeLockedSkillTree
       accent="cyan"
       title="Tourism Skill Tree"
-      backLabel="Tourism"
       subhead="Mastery 75% · 20 questions per topic"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

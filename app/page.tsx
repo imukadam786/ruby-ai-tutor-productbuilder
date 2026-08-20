@@ -24,7 +24,6 @@ const ProgressTutorial   = dynamic(() => import("@/components/tutorial/ProgressT
 // ── Loaded on demand (dynamic imports) ──────────────────────────────────────
 const ChatInterface        = dynamic(() => import("@/components/ChatInterface"),                       { ssr: false });
 const CharacterPicker      = dynamic(() => import("@/components/CharacterPicker"),                      { ssr: false });
-const HomeworkStart        = dynamic(() => import("@/components/HomeworkStart"),                        { ssr: false });
 const ProgressTracker      = dynamic(() => import("@/components/ProgressTracker"),                     { ssr: false });
 const DiagnosticSession    = dynamic(() => import("@/components/ruby/DiagnosticSession"),               { ssr: false });
 const SkillTreeView        = dynamic(() => import("@/components/ruby/SkillTreeView"),                   { ssr: false });
@@ -112,7 +111,7 @@ function PlacementGuardScreen({
         </p>
         <button
           onClick={onGoToDiscover}
-          className="w-full py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-semibold text-base transition-colors"
+          className="w-full py-3 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-semibold text-base transition-colors"
         >
           Start Discovery Activity
         </button>
@@ -133,21 +132,6 @@ const FEATURE_TUTORIAL_KEYS: Partial<Record<ActiveView, string>> = {
   "prep-papers-2026": "ruby_tut_prep_papers",
   progress:          "ruby_tut_progress",
 };
-
-// Every subject's learning-path (tree) view — the mobile top bar (gems/
-// language) is hidden here, and on a subject's landing screen, so the
-// simplified "← Subject" header is the only thing competing for attention.
-const HIDE_MOBILE_BAR_VIEWS = new Set<ActiveView>([
-  "skill-tree", "reading-skill-tree",
-  "life-skills-skill-tree", "afrikaans-fal-skill-tree",
-  "social-sciences-skill-tree", "natural-sciences-tech-skill-tree",
-  "matric-phys-sci-skill-tree", "grade-10-phys-sci-skill-tree", "grade-11-phys-sci-skill-tree",
-  "maths-literacy-skill-tree", "life-sciences-skill-tree", "history-skill-tree",
-  "business-studies-skill-tree", "accounting-skill-tree", "economics-skill-tree",
-  "technology-sp-skill-tree", "life-orientation-sp-skill-tree", "creative-arts-sp-skill-tree",
-  "tourism-skill-tree", "geography-skill-tree", "natural-sciences-sp-skill-tree",
-  "social-sciences-sp-skill-tree", "ems-sp-skill-tree",
-]);
 
 // Views where the learner answers questions ("skill questions"). Freebie users
 // see their daily usage counters pinned to the top of these (chat shows its own
@@ -177,24 +161,14 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
   const [rubyProfile, setRubyProfile] = useState<StudentProfile | null>(null);
   const [readingProfile, setReadingProfile] = useState<ReadingStudentProfile | null>(null);
   const [showLangPicker, setShowLangPicker] = useState(false);
-  // Whether the Subjects tab is showing a subject's landing screen (vs. the
-  // grid) — drives hiding the mobile top bar there too, alongside every tree view.
-  const [subjectsHubOnLanding, setSubjectsHubOnLanding] = useState(false);
   const [survey, setSurvey] = useState<{ type: "maths" | "reading" | "chat" } | null>(null);
   const [activeTutorial, setActiveTutorial] = useState<ActiveView | null>(null);
   const [userPlan, setUserPlan] = useState<string | null>(null);
   // Learner's grade drives matric gating. null = not yet known; we fail closed
   // (no matric) until a confirmed Grade 12 is read from the profile.
   const [grade, setGrade] = useState<number | null>(null);
-  // The tutor whose chat is currently open. null = no chat started yet (show
-  // HomeworkStart); "" = chat started with no specific tutor (general Ruby
-  // chat — reached when nothing in the homework text/photo matched a subject).
+  // The tutor whose chat is currently open (null = general Ruby chat).
   const [selectedTutor, setSelectedTutor] = useState<string | null>(null);
-  // Optional "Meet your tutors" browsing screen, reached from HomeworkStart.
-  const [showTutorBrowser, setShowTutorBrowser] = useState(false);
-  // Text/photo entered on HomeworkStart before a tutor was resolved — carried
-  // into ChatInterface as the first message so the learner never retypes it.
-  const [pendingHomework, setPendingHomework] = useState<{ text: string; file: File | null } | null>(null);
 
   // Only the freebie plan has daily limits; paid plans are unlimited, so the
   // usage counters are removed for them entirely. (Matches UsageMeter, which
@@ -416,14 +390,9 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       if (count % 3 === 0) setSurvey({ type: "chat" });
       setChatEngaged(false);
     }
-    // Opening chat from the nav always starts at HomeworkStart; a tutor card
-    // (or the browser/pending-homework state) sets things right after this
-    // call, so the last write wins.
-    if (view === "chat") {
-      setSelectedTutor(null);
-      setShowTutorBrowser(false);
-      setPendingHomework(null);
-    }
+    // Opening chat from the nav is the general Ruby chat; a tutor card sets the
+    // tutor right after this call, so the last write (the tutor) wins.
+    if (view === "chat") setSelectedTutor(null);
     setActiveView(view);
     if (view === "skill-tree" || view === "student-dashboard" || view === "ruby" || view === "discover-maths") {
       void hydrateStudentProfileFromSupabase().then((p) => setRubyProfile(p));
@@ -518,10 +487,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
       {/* Live "🔥 N in a row" combo pill — driven by the server combo */}
       <ComboIndicator />
 
-      {/* Mobile top bar — in normal flow so banner shows above it. Hidden on
-          every subject learning-path screen and subject landing screen, so
-          the simplified local header is the only thing up top there. */}
-      {!(HIDE_MOBILE_BAR_VIEWS.has(activeView) || (activeView === "subjects" && subjectsHubOnLanding)) && (
+      {/* Mobile top bar — in normal flow so banner shows above it */}
       <header className="md:hidden flex-shrink-0 bg-white border-b border-gray-200 px-4 py-2 flex items-center gap-3 shadow-sm z-30">
         {/* Hamburger retired on mobile — navigation now lives in the bottom bar
             (MobileBottomNav). The drawer Sidebar stays for md+ only. */}
@@ -550,7 +516,6 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           </button>
         )}
       </header>
-      )}
 
       {/* Inner row: sidebar + main content side by side */}
       <div className="flex flex-1 overflow-hidden min-h-0">
@@ -587,23 +552,11 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           </div>
         )}
         <div className="flex-1 min-h-0 overflow-hidden">
-        {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} onOpenLangPicker={() => setShowLangPicker(true)} onOpenChatWithTutor={(name) => { handleViewChange("chat"); setSelectedTutor(name); }} mathsProfile={rubyProfile} readingProfile={readingProfile} onContinueMaths={continueMaths} onContinueReading={continueReading} />}
+        {activeView === "home" && <HomeScreen onNavigate={handleViewChange} userPlan={userPlan} onOpenLangPicker={() => setShowLangPicker(true)} onOpenChatWithTutor={(name) => { handleViewChange("chat"); setSelectedTutor(name); }} />}
         {activeView === "chat" && (
-          selectedTutor !== null
-            ? <ChatInterface
-                onMessageSent={() => { refreshStats(); setChatEngaged(true); }}
-                tutorName={selectedTutor || undefined}
-                onChangeTutor={() => setSelectedTutor(null)}
-                initialSubmission={pendingHomework}
-                onInitialSubmissionHandled={() => setPendingHomework(null)}
-              />
-            : showTutorBrowser
-              ? <CharacterPicker onPick={(name) => { setSelectedTutor(name); setShowTutorBrowser(false); }} onBack={() => setShowTutorBrowser(false)} />
-              : <HomeworkStart
-                  onStart={(tutorName, text, file) => { setPendingHomework({ text, file }); setSelectedTutor(tutorName ?? ""); }}
-                  onContinue={(tutorName) => setSelectedTutor(tutorName)}
-                  onBrowseTutors={() => setShowTutorBrowser(true)}
-                />
+          selectedTutor
+            ? <ChatInterface onMessageSent={() => { refreshStats(); setChatEngaged(true); }} tutorName={selectedTutor} onChangeTutor={() => setSelectedTutor(null)} />
+            : <CharacterPicker onPick={(name) => setSelectedTutor(name)} />
         )}
         {activeView === "progress" && <ProgressTracker
           onMathsReplaySkill={startMathsReplay}
@@ -703,7 +656,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
           window.location.reload();
         }} />}
         {activeView === "discover" && <DiscoverHub onNavigate={handleViewChange} />}
-        {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} onModeChange={(mode) => setSubjectsHubOnLanding(mode === "landing")} />}
+        {activeView === "subjects" && <SubjectsHub onNavigate={handleViewChange} />}
         {activeView === "matrics" && <MatricsHub onNavigate={handleViewChange} />}
         {activeView === "matric" && <MatricPastPapers onBack={() => handleViewChange("matrics")} onPractiseSkill={handlePractiseSkill} />}
         {activeView === "prep-papers-2026" && <PrepPapers2026 onBack={() => handleViewChange("matrics")} />}
@@ -714,18 +667,13 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
 
       </div>{/* end inner row */}
 
-      {/* Mobile bottom navigation — replaces the hamburger drawer on phones.
-          Hidden during quiz/session views so a stray tap can't bounce a kid
-          to Home/Subjects mid-question and lose their place; each session's
-          own "← Exit" (with a confirm dialog) is the only way out. */}
-      {!SESSION_VIEWS.includes(activeView) && (
+      {/* Mobile bottom navigation — replaces the hamburger drawer on phones */}
       <MobileBottomNav
         activeView={activeView}
         onViewChange={handleViewChange}
         onSettings={() => handleViewChange("settings")}
         grade={grade}
       />
-      )}
 
       {survey && (
         <PostSessionSurvey
@@ -872,7 +820,7 @@ function PostDiscoveryScreen({ onContinue }: { onContinue: () => void }) {
         </p>
         <button
           onClick={onContinue}
-          className="w-full py-4 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-lg transition-colors shadow-md"
+          className="w-full py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] text-white font-bold text-lg transition-colors shadow-md"
         >
           Choose a Plan
         </button>
@@ -921,8 +869,6 @@ export default function Home() {
   const [appState, setAppState] = useState<"loading" | "onboarding" | "welcome" | "plan-selection" | "discovery-prompt" | "post-discovery" | "tutorial-welcome" | "app" | "trial-expired">("loading");
   const [welcomeName, setWelcomeName] = useState("");
   const [welcomeGrade, setWelcomeGrade] = useState("");
-  const [initialOnboardingStep, setInitialOnboardingStep] = useState(1);
-  const [initialOnboardingData, setInitialOnboardingData] = useState<Partial<OnboardingData>>({});
   const [pendingDiscovery, setPendingDiscovery] = useState<"maths" | "reading" | null>(null);
   // Which subject's Discovery just finished, so the final post-onboarding mount
   // can land the learner in that skill tree instead of dumping them on Home.
@@ -959,20 +905,7 @@ export default function Home() {
           .from("users")
           .select("trial_expires_at")
           .eq("id", session.user.id)
-          .maybeSingle();
-
-        // No profile row = new OAuth (Google) user — route through onboarding steps 2-5
-        if (!userData) {
-          const googleName =
-            (session.user.user_metadata?.full_name as string | undefined) ||
-            (session.user.user_metadata?.name as string | undefined) ||
-            "";
-          const googleEmail = session.user.email || "";
-          setInitialOnboardingStep(2);
-          setInitialOnboardingData({ name: googleName, email: googleEmail, userId: session.user.id });
-          setAppState("onboarding");
-          return;
-        }
+          .single();
 
         const { data: subData } = await supabase
           .from("subscriptions")
@@ -1030,7 +963,7 @@ export default function Home() {
   if (appState === "loading") return null;
 
   if (appState === "onboarding") {
-    return <OnboardingFlow onComplete={handleOnboardingComplete} initialStep={initialOnboardingStep} initialData={initialOnboardingData} />;
+    return <OnboardingFlow onComplete={handleOnboardingComplete} />;
   }
 
   if (appState === "discovery-prompt") {

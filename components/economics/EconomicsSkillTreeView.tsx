@@ -14,20 +14,9 @@ import {
   getEconomicsLevelProgress,
 } from "@/lib/economics-student-model";
 import type { EconomicsSkillTree, EconomicsStudentProfile } from "@/types/economics";
-import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
 
 const tree = economicsSkillTreeData as unknown as EconomicsSkillTree;
-
-/** Stats for the subject landing screen, without mounting the tree. */
-export function getEconomicsStats(grade: number, profile: EconomicsStudentProfile | null) {
-  return computeGradeTreeStats(
-    tree,
-    grade,
-    seedForGrade,
-    (id) => getEconomicsSkillStatus(id, profile),
-    (ids) => (profile ? getEconomicsLevelProgress(ids, profile.skill_mastery) : 0)
-  );
-}
 
 interface EconomicsSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -46,7 +35,6 @@ export default function EconomicsSkillTreeView({
     <GradeLockedSkillTree
       accent="indigo"
       title="Economics Skill Tree"
-      backLabel="Economics"
       subhead="Mastery 75% · 20 questions per topic"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

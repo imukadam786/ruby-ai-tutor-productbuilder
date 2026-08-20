@@ -18,20 +18,9 @@ import type {
   CreativeArtsSpSkillTree,
   CreativeArtsSpStudentProfile,
 } from "@/types/creative-arts-sp";
-import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
 
 const tree = creativeArtsSpSkillTreeData as unknown as CreativeArtsSpSkillTree;
-
-/** Stats for the subject landing screen, without mounting the tree. */
-export function getCreativeArtsSpStats(grade: number, profile: CreativeArtsSpStudentProfile | null) {
-  return computeGradeTreeStats(
-    tree,
-    grade,
-    seedForGrade,
-    (id) => getCreativeArtsSpSkillStatus(id, profile),
-    (ids) => (profile ? getCreativeArtsSpLevelProgress(ids, profile.skill_mastery) : 0)
-  );
-}
 
 interface CreativeArtsSpSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -50,7 +39,6 @@ export default function CreativeArtsSpSkillTreeView({
     <GradeLockedSkillTree
       accent="pink"
       title="Creative Arts Skill Tree"
-      backLabel="Creative Arts"
       subhead="Music · Visual Arts · master each topic at 75%"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

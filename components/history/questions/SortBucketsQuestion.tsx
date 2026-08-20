@@ -1,18 +1,19 @@
 "use client";
 
 // SortBucketsQuestion — drag-and-drop sorting with tap-to-place fallback.
-// Uses the same chunky, colour-coded palette as the multiple-choice
-// ChoiceGrid/AnswerButton (Concept C) so this question type matches the rest
-// of the app instead of the old plain white/gray look. Colour is decorative
-// only — it never implies which bucket an item belongs in.
+//
+// UX:
+//   • Each item is a draggable card. Tap once to "pick up", tap a bucket to
+//     drop it there. This is the phone-friendly mode (no drag required).
+//   • Desktop users can drag the card onto a bucket the usual way.
+//   • A small "Reset" link clears all placements. Submit enables once every
+//     item has been placed.
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type {
   HistoryBucket,
   HistorySortBucketItem,
 } from "@/types/history";
-import Button from "@/components/ui/Button";
-import { ANSWER_COLORS } from "@/lib/design/gemColors";
 
 interface Props {
   buckets: HistoryBucket[];
@@ -26,17 +27,15 @@ export default function SortBucketsQuestion({ buckets, items, submitting, onSubm
   const [placement, setPlacement] = useState<Record<string, string>>({});
   const [pickedUp, setPickedUp] = useState<string | null>(null);
 
-  const unplaced = items.filter((it) => !placement[it.id]);
+  const unplaced = useMemo(
+    () => items.filter((it) => !placement[it.id]),
+    [items, placement],
+  );
 
   const placedInBucket = (bucketId: string) =>
     items.filter((it) => placement[it.id] === bucketId);
 
   const allPlaced = unplaced.length === 0;
-
-  // Stable colour per item (by its position in the original list), so an
-  // item's colour doesn't jump around as it moves between pool and bucket.
-  const colorForItem = (itemId: string) =>
-    ANSWER_COLORS[items.findIndex((it) => it.id === itemId) % ANSWER_COLORS.length];
 
   function placeItem(itemId: string, bucketId: string) {
     setPlacement((prev) => ({ ...prev, [itemId]: bucketId }));
@@ -68,13 +67,12 @@ export default function SortBucketsQuestion({ buckets, items, submitting, onSubm
         <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
           {pickedUp ? "Now tap a bucket below" : "Tap an item to pick it up, then tap a bucket"}
         </p>
-        <div className="flex flex-wrap gap-2 min-h-[60px] bg-gray-50 rounded-2xl border border-gray-200 p-3">
+        <div className="flex flex-wrap gap-2 min-h-[60px] bg-white rounded-2xl border border-gray-200 p-3">
           {unplaced.length === 0 && (
             <p className="text-sm text-gray-400 italic px-2 py-3">All items placed.</p>
           )}
           {unplaced.map((it) => {
             const selected = pickedUp === it.id;
-            const c = colorForItem(it.id);
             return (
               <button
                 key={it.id}
@@ -85,12 +83,11 @@ export default function SortBucketsQuestion({ buckets, items, submitting, onSubm
                   setPickedUp(it.id);
                 }}
                 onClick={() => setPickedUp(selected ? null : it.id)}
-                className="min-h-[44px] px-4 py-2 rounded-xl text-left text-sm sm:text-base font-bold text-white transition-transform active:translate-y-[2px] active:shadow-none disabled:cursor-not-allowed"
-                style={{
-                  background: c.bg,
-                  boxShadow: selected ? "none" : `0 3px 0 0 ${c.lip}`,
-                  transform: selected ? "translateY(3px)" : undefined,
-                }}
+                className={`min-h-[44px] px-4 py-2 rounded-xl border-2 text-left text-sm sm:text-base font-medium transition-all ${
+                  selected
+                    ? "bg-amber-100 border-amber-400 text-amber-900 ring-2 ring-amber-300"
+                    : "bg-white border-gray-300 text-[#1a2744] hover:border-amber-300"
+                }`}
               >
                 {it.text}
               </button>
@@ -105,9 +102,8 @@ export default function SortBucketsQuestion({ buckets, items, submitting, onSubm
           buckets.length <= 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-" + buckets.length
         }`}
       >
-        {buckets.map((b, bi) => {
+        {buckets.map((b) => {
           const inside = placedInBucket(b.id);
-          const c = ANSWER_COLORS[bi % ANSWER_COLORS.length];
           return (
             <div
               key={b.id}
@@ -120,35 +116,31 @@ export default function SortBucketsQuestion({ buckets, items, submitting, onSubm
               onClick={() => {
                 if (pickedUp) placeItem(pickedUp, b.id);
               }}
-              className={`rounded-2xl border-2 border-dashed p-3 min-h-[120px] transition-colors ${pickedUp ? "cursor-pointer" : ""}`}
-              style={{
-                borderColor: pickedUp ? c.bg : `${c.bg}66`,
-                background: pickedUp ? `${c.bg}1A` : `${c.bg}0D`,
-              }}
+              className={`rounded-2xl border-2 border-dashed p-3 min-h-[120px] transition-colors ${
+                pickedUp
+                  ? "border-amber-400 bg-amber-50/70 cursor-pointer"
+                  : "border-gray-300 bg-white"
+              }`}
             >
-              <p className="text-sm font-bold mb-2" style={{ color: c.lip }}>{b.label}</p>
+              <p className="text-sm font-bold text-[#1a2744] mb-2">{b.label}</p>
               <div className="flex flex-col gap-2">
                 {inside.length === 0 && (
                   <p className="text-xs text-gray-400 italic">Drop items here</p>
                 )}
-                {inside.map((it) => {
-                  const ic = colorForItem(it.id);
-                  return (
-                    <button
-                      key={it.id}
-                      disabled={submitting}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        unplaceItem(it.id);
-                      }}
-                      className="min-h-[44px] px-3 py-2 rounded-xl text-sm text-white text-left font-bold disabled:cursor-not-allowed"
-                      style={{ background: ic.bg }}
-                      title="Tap to remove"
-                    >
-                      {it.text}
-                    </button>
-                  );
-                })}
+                {inside.map((it) => (
+                  <button
+                    key={it.id}
+                    disabled={submitting}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      unplaceItem(it.id);
+                    }}
+                    className="min-h-[44px] px-3 py-2 rounded-xl bg-amber-100 border border-amber-300 text-sm text-amber-900 text-left hover:bg-amber-200"
+                    title="Tap to remove"
+                  >
+                    {it.text}
+                  </button>
+                ))}
               </div>
             </div>
           );
@@ -159,13 +151,17 @@ export default function SortBucketsQuestion({ buckets, items, submitting, onSubm
         <button
           onClick={reset}
           disabled={submitting || Object.keys(placement).length === 0}
-          className="text-sm text-gray-500 hover:text-brand disabled:text-gray-300 underline underline-offset-4"
+          className="text-sm text-gray-500 hover:text-[#BE1832] disabled:text-gray-300 underline underline-offset-4"
         >
           Reset
         </button>
-        <Button onClick={submit} disabled={submitting || !allPlaced} size="lg" className="flex-1">
+        <button
+          onClick={submit}
+          disabled={submitting || !allPlaced}
+          className="flex-1 py-4 rounded-full bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-300 text-white font-bold text-base"
+        >
           {allPlaced ? "Check answer" : `Place ${unplaced.length} more`}
-        </Button>
+        </button>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 "use client";
-import QuizShell from "@/components/shared/QuizShell";
+import RubyBalance from "@/components/RubyBalance";
+import MasteryHeader from "@/components/shared/MasteryHeader";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import RubyLoader from "@/components/RubyLoader";
 import Button from "@/components/ui/Button";
@@ -33,7 +34,6 @@ import naturalSciencesSpTreeData from "@/data/natural-sciences-sp-skill-tree.jso
 import naturalSciencesSpBankData from "@/data/natural-sciences-sp-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
-import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreNaturalSciencesSpAnswer } from "@/lib/natural-sciences-sp-scoring";
 import {
@@ -486,92 +486,109 @@ export default function NaturalSciencesSpSession({ onBack }: { onBack?: () => vo
 
   // ─── Render: question / feedback ───────────────────────────────────────────
 
-  if (!question || !skillId) return null;
-
-  const distinctAnswered = profile ? new Set(getNaturalSciencesSpUsedRefs(profile, skillId)).size : 0;
-  const required = requiredCount(skillId);
-
   return (
-    <QuizShell
-      accent="rose"
-      topicTitle={findSkill(skillId)?.skill?.title ?? "Master this topic"}
-      onExit={() => {
-        setSkillId(null);
-        setQuestion(null);
-        setResult(null);
-        setPhase("tree");
-      }}
-      questionNumber={Math.min(distinctAnswered, required) + 1}
-      totalQuestions={required}
-      difficulty={question.difficulty}
-    >
-      <p className="text-lg sm:text-xl text-[#1a2744] font-medium leading-snug whitespace-pre-line">
-        {question.question}
-      </p>
-
-      {/* Diagram image for diagram-label items (graceful placeholder
-          when the image_ref does not exist yet). */}
-      {question.input_type === "diagram-label" && question.image_refs?.[0] && (
-        <DiagramImage imageKey={question.image_refs[0]} alt={question.question} />
-      )}
-
-      {/* Inline data table for data-interpret items. */}
-      {question.input_type === "data-interpret" && question.data && (
-        <DataInterpretBlock data={question.data} />
-      )}
-
-      {question.context && (
-        <div className="bg-rose-50 border border-rose-200 rounded-2xl px-4 py-3 text-sm text-rose-900">
-          {question.context}
-        </div>
-      )}
-
-      {phase === "question" && (
-        <div className="relative">
-          <div
-            className={
-              submitting
-                ? "opacity-40 pointer-events-none transition-opacity"
-                : "transition-opacity"
-            }
-          >
-            <AnswerDispatcher
-              question={question}
-              submitting={submitting}
-              onSubmit={handleSubmit}
-            />
+    <div className="relative flex flex-col h-full bg-[#F4F4F5]">
+      <EduBackground />
+      <div className="relative flex-1 overflow-y-auto">
+        <div className="max-w-2xl mx-auto px-5 sm:px-8 pt-4 pb-12 w-full space-y-5">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => {
+                setSkillId(null);
+                setQuestion(null);
+                setResult(null);
+                setPhase("tree");
+              }}
+              className="text-sm text-[#1a2744] font-semibold underline decoration-2 underline-offset-4"
+            >
+              ← Topics
+            </button>
+            <span className="hidden md:inline-flex flex-shrink-0"><RubyBalance theme="light" size="lg" /></span>
           </div>
-          {submitting && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="flex items-center gap-2 bg-white/90 rounded-full px-4 py-2 shadow text-[#1a2744] font-semibold text-sm">
-                <span className="w-4 h-4 border-2 border-brand border-t-transparent rounded-full animate-spin" />
-                Checking…
-              </span>
+
+          {skillId && (
+            <MasteryHeader
+              title={findSkill(skillId)?.skill?.title ?? "Master this topic"}
+              distinctAnswered={profile ? new Set(getNaturalSciencesSpUsedRefs(profile, skillId)).size : 0}
+              requiredCount={requiredCount(skillId)}
+              correctCount={correctCount}
+              attemptCount={attemptCount}
+              mastered={profile?.skill_mastery[skillId]?.status === "mastered"}
+            />
+          )}
+
+          {question && (
+            <div className="bg-white rounded-3xl shadow-md p-6 sm:p-8 space-y-5">
+              <p className="text-lg sm:text-xl text-[#1a2744] font-medium leading-snug whitespace-pre-line">
+                {question.question}
+              </p>
+
+              {/* Diagram image for diagram-label items (graceful placeholder
+                  when the image_ref does not exist yet). */}
+              {question.input_type === "diagram-label" && question.image_refs?.[0] && (
+                <DiagramImage imageKey={question.image_refs[0]} alt={question.question} />
+              )}
+
+              {/* Inline data table for data-interpret items. */}
+              {question.input_type === "data-interpret" && question.data && (
+                <DataInterpretBlock data={question.data} />
+              )}
+
+              {question.context && (
+                <div className="bg-rose-50 border border-rose-200 rounded-2xl px-4 py-3 text-sm text-rose-900">
+                  {question.context}
+                </div>
+              )}
+
+              {phase === "question" && (
+                <div className="relative">
+                  <div
+                    className={
+                      submitting
+                        ? "opacity-40 pointer-events-none transition-opacity"
+                        : "transition-opacity"
+                    }
+                  >
+                    <AnswerDispatcher
+                      question={question}
+                      submitting={submitting}
+                      onSubmit={handleSubmit}
+                    />
+                  </div>
+                  {submitting && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="flex items-center gap-2 bg-white/90 rounded-full px-4 py-2 shadow text-[#1a2744] font-semibold text-sm">
+                        <span className="w-4 h-4 border-2 border-[#BE1832] border-t-transparent rounded-full animate-spin" />
+                        Checking…
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {phase === "feedback" && result && (
+                <FeedbackExplanation
+                  isCorrect={result.is_correct}
+                  note={result.is_correct ? result.memo : undefined}
+                  whyOverride={result.is_correct ? undefined : result.memo}
+                  footer={
+                <FeedbackFooter
+                  isCorrect={result.is_correct}
+                  onNext={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
+                  onRetry={() => { setResult(null); setError(null); setPhase("question"); }}
+                />
+              }
+                />
+              )}
+
+              {error && (
+                <p className="text-sm text-rose-600 bg-rose-50 rounded-xl px-3 py-2">{error}</p>
+              )}
             </div>
           )}
         </div>
-      )}
-
-      {phase === "feedback" && result && (
-        <FeedbackExplanation
-          gemColor={GEM_HEX.rose}
-          isCorrect={result.is_correct}
-          note={result.is_correct ? result.memo : undefined}
-          whyOverride={result.is_correct ? undefined : result.memo}
-          footer={
-            <FeedbackFooter
-              isCorrect={result.is_correct}
-              onNext={() => skillId && loadNextQuestion(skillId, profile, correctCount, attemptCount)}
-              onRetry={() => { setResult(null); setError(null); setPhase("question"); }}
-            />
-          }
-        />
-      )}
-
-      {error && (
-        <p className="text-sm text-rose-600 bg-rose-50 rounded-xl px-3 py-2">{error}</p>
-      )}
-    </QuizShell>
+      </div>
+    </div>
   );
 }
 

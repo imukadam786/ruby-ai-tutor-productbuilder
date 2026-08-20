@@ -14,20 +14,9 @@ import {
   getLifeSciencesLevelProgress,
 } from "@/lib/life-sciences-student-model";
 import type { LifeSciencesSkillTree, LifeSciencesStudentProfile } from "@/types/life-sciences";
-import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
 
 const tree = lifeSciencesSkillTreeData as unknown as LifeSciencesSkillTree;
-
-/** Stats for the subject landing screen, without mounting the tree. */
-export function getLifeSciencesStats(grade: number, profile: LifeSciencesStudentProfile | null) {
-  return computeGradeTreeStats(
-    tree,
-    grade,
-    seedForGrade,
-    (id) => getLifeSciencesSkillStatus(id, profile),
-    (ids) => (profile ? getLifeSciencesLevelProgress(ids, profile.skill_mastery) : 0)
-  );
-}
 
 interface LifeSciencesSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -46,7 +35,6 @@ export default function LifeSciencesSkillTreeView({
     <GradeLockedSkillTree
       accent="emerald"
       title="Life Sciences Skill Tree"
-      backLabel="Life Sciences"
       subhead="Mastery 75% · 20 questions per topic"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

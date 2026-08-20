@@ -1,10 +1,9 @@
 "use client";
 
-// The optional "Meet your tutors" browsing screen — reached via a link from
-// HomeworkStart (or Home), never a forced gate. Presents the tutor characters
-// in a swipeable carousel — one card per view on mobile, three on desktop —
-// and calls onPick(name) once the learner taps "Start Chat", which hands off
-// to ChatInterface personalised to that tutor.
+// Shown when the learner opens the Homework tab before a tutor is chosen. It
+// presents the tutor characters in a swipeable carousel — one card per view on
+// mobile, three on desktop — and calls onPick(name) once the learner taps one,
+// which hands off to ChatInterface personalised to that tutor.
 
 import { useEffect, useRef, useState } from "react";
 import EduBackground from "@/components/EduBackground";
@@ -12,18 +11,9 @@ import { TUTORS } from "@/lib/tutors";
 
 interface CharacterPickerProps {
   onPick: (tutorName: string) => void;
-  /** Back to HomeworkStart without picking a tutor. */
-  onBack?: () => void;
 }
 
-const CAPABILITY_ICONS: Record<string, string> = {
-  "Explains homework": "✅",
-  "Reads worksheets & photos": "📷",
-  "Voice questions & answers": "🗣️",
-  "Hints without giving away the answer": "💡",
-};
-
-export default function CharacterPicker({ onPick, onBack }: CharacterPickerProps) {
+export default function CharacterPicker({ onPick }: CharacterPickerProps) {
   // One card per view on phones, three on desktop. Tracked in state (not just
   // CSS) so the page count + dots + swipe maths line up with what's visible.
   const [perPage, setPerPage] = useState(3);
@@ -54,21 +44,10 @@ export default function CharacterPicker({ onPick, onBack }: CharacterPickerProps
       <div className="relative flex-1 overflow-y-auto">
         <div className="max-w-4xl mx-auto px-5 py-8 sm:px-8 sm:py-10">
 
-          <div className="text-center mb-8 relative">
-            {onBack && (
-              <button
-                onClick={onBack}
-                className="absolute left-0 top-1 flex items-center gap-1 text-sm font-semibold text-brand hover:text-brand-hover"
-              >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-                Back
-              </button>
-            )}
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Who&apos;s helping you today?</h1>
+          <div className="text-center mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Choose your tutor</h1>
             <p className="text-gray-500 text-base mt-1">
-              Every tutor can explain homework, read photos, and answer by voice — pick whoever feels right.
+              Pick a character to help with your homework.
             </p>
           </div>
 
@@ -80,7 +59,7 @@ export default function CharacterPicker({ onPick, onBack }: CharacterPickerProps
                   onClick={() => go(page - 1)}
                   disabled={page === 0}
                   aria-label="Previous tutors"
-                  className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-brand disabled:opacity-30 disabled:cursor-default transition-all"
+                  className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-[#BE1832] disabled:opacity-30 disabled:cursor-default transition-all"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -90,7 +69,7 @@ export default function CharacterPicker({ onPick, onBack }: CharacterPickerProps
                   onClick={() => go(page + 1)}
                   disabled={page === pages - 1}
                   aria-label="Next tutors"
-                  className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-brand disabled:opacity-30 disabled:cursor-default transition-all"
+                  className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-gray-100 text-gray-600 hover:text-[#BE1832] disabled:opacity-30 disabled:cursor-default transition-all"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -120,44 +99,29 @@ export default function CharacterPicker({ onPick, onBack }: CharacterPickerProps
                     className="w-full flex-shrink-0 grid gap-3 sm:gap-4"
                     style={{ gridTemplateColumns: `repeat(${perPage}, minmax(0, 1fr))` }}
                   >
-                    {TUTORS.slice(p * perPage, p * perPage + perPage).map((tutor, i) => (
-                      <div
+                    {TUTORS.slice(p * perPage, p * perPage + perPage).map((tutor) => (
+                      <button
                         key={tutor.name}
-                        className="w-full max-w-[190px] mx-auto bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-all flex flex-col"
+                        onClick={() => onPick(tutor.name)}
+                        className="w-full max-w-[260px] mx-auto bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BE1832]/50"
                       >
-                        {/* Source art is 267×400. Card capped at ~190px (down from the
-                            original 260px) so the reclaimed space below can fit
-                            personality copy + capability badges + a real CTA. */}
-                        <div className="overflow-hidden">
-                          <img
-                            src={tutor.img}
-                            alt={tutor.name}
-                            className="w-full aspect-[2/3] object-cover object-top block animate-tutor-idle"
-                            style={{ animationDelay: `${(i % 3) * 0.4}s` }}
-                            draggable={false}
-                          />
-                        </div>
-                        <div className="px-3 py-2.5 text-center flex-1 flex flex-col">
-                          <p className="font-semibold text-brand text-base">{tutor.name}</p>
-                          <p className="text-gray-500 text-xs font-medium leading-tight mt-0.5">
-                            {tutor.role}
+                        {/* Source art is 267×400; capping the card near that width
+                            keeps it from upscaling into a blur on a full-width
+                            phone. aspect-[2/3]+object-cover frames every tutor
+                            flush. Truly sharp at large sizes needs ~2× art. */}
+                        <img
+                          src={tutor.img}
+                          alt={tutor.name}
+                          className="w-full aspect-[2/3] object-cover object-top block"
+                          draggable={false}
+                        />
+                        <div className="px-3 py-2.5 text-center">
+                          <p className="font-semibold text-[#BE1832] text-base sm:text-lg">{tutor.name}</p>
+                          <p className="text-[#BE1832] text-xs sm:text-sm font-medium leading-tight mt-0.5">
+                            {tutor.subjects.join(" · ")}
                           </p>
-                          <div className="text-left mt-2 mb-3 space-y-1">
-                            {tutor.capabilities.map((cap) => (
-                              <div key={cap} className="flex items-center gap-1.5 text-[10.5px] text-gray-600 leading-tight">
-                                <span aria-hidden>{CAPABILITY_ICONS[cap] ?? "✅"}</span>
-                                <span>{cap}</span>
-                              </div>
-                            ))}
-                          </div>
-                          <button
-                            onClick={() => onPick(tutor.name)}
-                            className="mt-auto w-full bg-brand text-white text-sm font-semibold rounded-xl px-3 py-2 shadow-lip-sm active:translate-y-[2px] active:shadow-none transition-all"
-                          >
-                            Start Chat
-                          </button>
                         </div>
-                      </div>
+                      </button>
                     ))}
                   </div>
                 ))}
@@ -174,7 +138,7 @@ export default function CharacterPicker({ onPick, onBack }: CharacterPickerProps
                   onClick={() => go(p)}
                   aria-label={`Go to page ${p + 1}`}
                   className={`h-2 rounded-full transition-all ${
-                    page === p ? "w-6 bg-brand" : "w-2 bg-gray-300 hover:bg-gray-400"
+                    page === p ? "w-6 bg-[#BE1832]" : "w-2 bg-gray-300 hover:bg-gray-400"
                   }`}
                 />
               ))}
