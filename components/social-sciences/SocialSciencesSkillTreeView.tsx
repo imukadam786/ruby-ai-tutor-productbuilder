@@ -34,6 +34,7 @@ export default function SocialSciencesSkillTreeView({
     <GradeLockedSkillTree
       accent="violet"
       title="Social Sciences Skill Tree"
+      backLabel="Social Sciences"
       subhead="Pick a topic to start. Ruby will read each question to you."
       tree={tree}
       defaultGrade={4}

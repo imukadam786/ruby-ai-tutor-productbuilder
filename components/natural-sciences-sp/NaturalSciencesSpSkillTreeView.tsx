@@ -18,9 +18,20 @@ import type {
   NaturalSciencesSpSkillTree,
   NaturalSciencesSpStudentProfile,
 } from "@/types/natural-sciences-sp";
-import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
 
 const tree = naturalSciencesSpSkillTreeData as unknown as NaturalSciencesSpSkillTree;
+
+/** Stats for the subject landing screen, without mounting the tree. */
+export function getNaturalSciencesSpStats(grade: number, profile: NaturalSciencesSpStudentProfile | null) {
+  return computeGradeTreeStats(
+    tree,
+    grade,
+    seedForGrade,
+    (id) => getNaturalSciencesSpSkillStatus(id, profile),
+    (ids) => (profile ? getNaturalSciencesSpLevelProgress(ids, profile.skill_mastery) : 0)
+  );
+}
 
 interface NaturalSciencesSpSkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -39,6 +50,7 @@ export default function NaturalSciencesSpSkillTreeView({
     <GradeLockedSkillTree
       accent="rose"
       title="Natural Sciences Skill Tree"
+      backLabel="Natural Sciences"
       subhead="Mastery 75% · 20 questions per topic"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

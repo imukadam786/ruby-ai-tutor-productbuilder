@@ -14,9 +14,20 @@ import {
   getGeographyLevelProgress,
 } from "@/lib/geography-student-model";
 import type { GeographySkillTree, GeographyStudentProfile } from "@/types/geography";
-import GradeLockedSkillTree from "@/components/shared/GradeLockedSkillTree";
+import GradeLockedSkillTree, { computeGradeTreeStats } from "@/components/shared/GradeLockedSkillTree";
 
 const tree = geographySkillTreeData as unknown as GeographySkillTree;
+
+/** Stats for the subject landing screen, without mounting the tree. */
+export function getGeographyStats(grade: number, profile: GeographyStudentProfile | null) {
+  return computeGradeTreeStats(
+    tree,
+    grade,
+    seedForGrade,
+    (id) => getGeographySkillStatus(id, profile),
+    (ids) => (profile ? getGeographyLevelProgress(ids, profile.skill_mastery) : 0)
+  );
+}
 
 interface GeographySkillTreeViewProps {
   onPickSkill: (skillId: string) => void;
@@ -35,6 +46,7 @@ export default function GeographySkillTreeView({
     <GradeLockedSkillTree
       accent="sky"
       title="Geography Skill Tree"
+      backLabel="Geography"
       subhead="Mastery 75% · 20 questions per topic"
       tree={tree}
       defaultGrade={LOWEST_AVAILABLE_LEVEL}

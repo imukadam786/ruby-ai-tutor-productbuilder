@@ -45,6 +45,9 @@
   .ruby-celebrate-pop > div {
     animation: none;
   }
+  .animate-tutor-idle {
+    animation: none;
+  }
 }
 
 * {
@@ -60,6 +63,19 @@ body {
 
 :root {
   font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Brand red as RGB channels (see tailwind.config.ts `brand`). */
+  --brand: 190 24 50;        /* #BE1832 */
+  --brand-alt: 183 24 46;    /* #B7182E */
+  --brand-hover: 160 21 40;  /* #a01528 */
+}
+
+/* Concept C: one switch repaints every brand-red surface to ruby. The class is
+   put on <html> at build time when NEXT_PUBLIC_CONCEPT_C is on. */
+.concept-c {
+  --brand: 225 29 72;        /* #E11D48 ruby */
+  --brand-alt: 225 29 72;
+  --brand-hover: 179 18 60;  /* #B3123C ruby-deep */
 }
 
 ::-webkit-scrollbar {

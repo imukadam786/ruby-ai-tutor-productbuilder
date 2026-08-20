@@ -12,6 +12,8 @@ import EduBackground from "@/components/EduBackground";
 import UsageMeter from "@/components/UsageMeter";
 import RubyBalance from "@/components/RubyBalance";
 import { getTutor } from "@/lib/tutors";
+import { CONCEPT_C } from "@/lib/flags";
+import { recordHomeworkSession } from "@/lib/homeworkHistory";
 
 // Default quick actions for the general (Ruby) chat. A specific tutor's chat
 // swaps these out for that tutor's own subject-tailored prompts (see lib/tutors).
@@ -28,6 +30,12 @@ interface ChatInterfaceProps {
   tutorName?: string | null;
   /** Return to the tutor picker (shown only when a tutor is active). */
   onChangeTutor?: () => void;
+  /** Text/file already entered on HomeworkStart — auto-sent once on mount so
+      the learner never has to retype what they just asked. */
+  initialSubmission?: { text: string; file: File | null } | null;
+  /** Called once the initial submission has been consumed, so the parent can
+      clear it (prevents a stale resend if this component remounts later). */
+  onInitialSubmissionHandled?: () => void;
 }
 
 const WELCOME_MSG =
@@ -98,12 +106,13 @@ import { supabase } from "@/lib/supabase";
 const speakNaturally = speakViaAPI;
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor }: ChatInterfaceProps) {
+export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor, initialSubmission, onInitialSubmissionHandled }: ChatInterfaceProps) {
   const tutor = getTutor(tutorName);
   const quickActions = tutor?.quickActions ?? QUICK_ACTIONS;
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [autoSendPending, setAutoSendPending] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [playingMsgId, setPlayingMsgId] = useState<string | null>(null);
   const [attachedFile, setAttachedFile] = useState<File | null>(null);
@@ -133,6 +142,26 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
       }
     });
   }, []);
+
+  // Consume a homework question typed/attached on HomeworkStart before this
+  // component even mounted — populate the input/attachment once, then send.
+  // Deliberately `[]` deps: this must fire only on first mount, never again if
+  // tutorName changes while this instance stays alive.
+  useEffect(() => {
+    if (!initialSubmission || (!initialSubmission.text.trim() && !initialSubmission.file)) return;
+    if (initialSubmission.text) setInput(initialSubmission.text);
+    if (initialSubmission.file) handleFileSelected(initialSubmission.file);
+    setAutoSendPending(true);
+    onInitialSubmissionHandled?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (!autoSendPending) return;
+    setAutoSendPending(false);
+    sendMessage(input);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoSendPending]);
 
   // Scroll messages container without affecting page scroll (fixes mobile push-up)
   useEffect(() => {
@@ -206,6 +235,10 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
       setInput("");
       removeAttachment();
       setIsLoading(true);
+
+      if (tutor && !isHint) {
+        recordHomeworkSession(tutor.name, messageText || (isImage ? "Photo homework" : "Homework help"));
+      }
       incrementMessageCount();
 
       const assistantMessage: Message = {
@@ -412,7 +445,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
         <div className="md:hidden flex items-center gap-2 border-b border-gray-100 px-4 py-1.5 bg-white">
           <button
             onClick={onChangeTutor}
-            className="flex items-center gap-1 text-sm font-semibold text-[#BE1832]"
+            className={`flex items-center gap-1 text-sm font-semibold ${CONCEPT_C ? "text-ruby" : "text-brand"}`}
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -441,7 +474,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
             <h2 className="text-gray-900 font-semibold text-base sm:text-lg flex items-baseline gap-2 flex-wrap">
               {tutor ? `Chat with ${tutor.name}` : "Chat with Ruby"}
               {tutor && (
-                <span className="text-xs sm:text-sm font-medium text-[#BE1832]">
+                <span className={`text-xs sm:text-sm font-medium ${CONCEPT_C ? "text-ruby" : "text-brand"}`}>
                   {tutor.subjects.join(" · ")}
                 </span>
               )}
@@ -449,7 +482,11 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
             {tutor && onChangeTutor && (
               <button
                 onClick={onChangeTutor}
-                className="inline-flex items-center gap-1.5 mt-1 px-3 py-1 rounded-full bg-[#BE1832]/10 text-[#BE1832] text-xs font-semibold border border-[#BE1832]/20 hover:bg-[#BE1832] hover:text-white transition-colors"
+                className={`inline-flex items-center gap-1.5 mt-1 px-3 py-1 rounded-full text-xs font-semibold border transition-colors ${
+                  CONCEPT_C
+                    ? "bg-ruby/10 text-ruby border-ruby/20 hover:bg-ruby hover:text-white"
+                    : "bg-brand/10 text-brand border-brand/20 hover:bg-brand hover:text-white"
+                }`}
               >
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -483,7 +520,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
             {msg.role === "user" ? (
               /* User bubble */
               <div className="max-w-[80%] sm:max-w-[65%]">
-                <div className="bg-[#B7182E] text-white rounded-2xl rounded-tr-sm px-4 py-3">
+                <div className={`text-white rounded-2xl rounded-tr-sm px-4 py-3 ${CONCEPT_C ? "bg-ruby" : "bg-brand-alt"}`}>
                   <p className="text-base leading-relaxed whitespace-pre-wrap">{msg.content}</p>
                 </div>
                 <p className="text-xs text-gray-400 mt-1 text-right">
@@ -493,7 +530,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
             ) : (
               /* Ruby response — clean text, no card */
               <div className="max-w-[90%] sm:max-w-[75%]">
-                <div className="prose prose-base max-w-none leading-relaxed prose-headings:text-gray-800 prose-headings:font-bold prose-headings:mt-5 prose-headings:mb-2 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:!mb-5 prose-p:!mt-0 prose-strong:text-[#BE1832] prose-strong:font-semibold prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-100 prose-pre:rounded-xl prose-li:text-gray-700 prose-li:mb-1 prose-ul:mb-4 prose-ol:mb-4">
+                <div className={`prose prose-base max-w-none leading-relaxed prose-headings:text-gray-800 prose-headings:font-bold prose-headings:mt-5 prose-headings:mb-2 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:!mb-5 prose-p:!mt-0 prose-strong:font-semibold prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-100 prose-pre:rounded-xl prose-li:text-gray-700 prose-li:mb-1 prose-ul:mb-4 prose-ol:mb-4 ${CONCEPT_C ? "prose-strong:text-ruby" : "prose-strong:text-brand"}`}>
                   <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
                     {msg.content || "▌"}
                   </ReactMarkdown>
@@ -575,11 +612,19 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
         {/* Quick-action prompts — visible until the first message is sent */}
         {showQuickActions && (
           <div className="flex flex-wrap justify-center gap-2 mb-3">
-            {quickActions.map((action) => (
+            {quickActions.map((action, index) => (
               <button
                 key={action.label}
                 onClick={() => sendMessage(action.prompt)}
-                className="px-4 py-2 rounded-full bg-[#BE1832] text-sm font-medium text-white hover:bg-[#a01528] hover:shadow-sm transition-all"
+                /* Mobile is kept uncluttered: only the top two prompts show on
+                   small screens; the rest appear from the `sm` breakpoint up. */
+                className={`px-4 py-2 rounded-full text-sm font-medium text-white transition-all ${
+                  index >= 2 ? "hidden sm:inline-block" : ""
+                } ${
+                  CONCEPT_C
+                    ? "bg-ruby hover:bg-ruby-deep shadow-lip-sm active:translate-y-[2px] active:shadow-none"
+                    : "bg-brand hover:bg-brand-hover hover:shadow-sm"
+                }`}
               >
                 {action.label}
               </button>
@@ -614,7 +659,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
           <div className="relative flex-shrink-0 self-end pb-0.5" ref={uploadMenuRef}>
             <button
               onClick={() => setShowUploadMenu((v) => !v)}
-              className="w-8 h-8 flex items-center justify-center rounded-lg text-[#BE1832] hover:text-[#a01528] hover:bg-white transition-colors"
+              className={`w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white transition-colors ${CONCEPT_C ? "text-ruby hover:text-ruby-deep" : "text-brand hover:text-brand-hover"}`}
               title="Attach file or photo"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -699,7 +744,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor 
             <button
               onClick={() => sendMessage(input)}
               disabled={(!input.trim() && !attachedFile) || isLoading}
-              className="w-8 h-8 bg-[#BE1832] hover:bg-[#a01528] disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0"
+              className={`w-8 h-8 disabled:bg-gray-200 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-all flex-shrink-0 ${CONCEPT_C ? "bg-ruby hover:bg-ruby-deep" : "bg-brand hover:bg-brand-hover"}`}
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
