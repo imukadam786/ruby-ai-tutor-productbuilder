@@ -9,6 +9,7 @@ import { fetchAuthorisedGrade, readCachedGrade, writeCachedGrade } from "@/lib/o
 import { useOfflineDownload } from "@/lib/offline/useOfflineDownload";
 import OfflineBadge from "@/components/OfflineBadge";
 import EditSubjectsModal from "@/components/onboarding/EditSubjectsModal";
+import { CONCEPT_C } from "@/lib/flags";
 import {
   HUB_ID_TO_FET_KEY,
   isFetGrade,
@@ -981,14 +982,18 @@ export default function SubjectsHub({ onNavigate, onModeChange }: SubjectsHubPro
           ) : (
             /* Standalone subject cards. Tapping one opens its landing screen
                above (the "landingSubject" branch). */
-            <div className="grid grid-cols-1 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               {subjects.map((s) => (
                 <button
                   key={s.id}
                   onClick={() => setLandingId(s.id)}
-                  className="group rounded-2xl transition-all text-left overflow-hidden flex flex-col active:scale-[0.98]"
+                  className={`group rounded-2xl bg-white border border-gray-100 transition-all text-left overflow-hidden flex flex-col ${
+                    CONCEPT_C
+                      ? "shadow-lip active:translate-y-[3px] active:shadow-none"
+                      : "shadow-md active:opacity-80 hover:shadow-xl hover:-translate-y-1"
+                  }`}
                 >
-                  <div className={`relative h-28 sm:h-36 rounded-2xl bg-gradient-to-br ${s.accentFrom} ${s.accentTo} flex items-center justify-center`}>
+                  <div className={`relative h-20 sm:h-24 bg-gradient-to-br ${s.accentFrom} ${s.accentTo} flex items-center justify-center`}>
                     {s.thumbnail ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={s.thumbnail} alt={s.label} className="w-full h-full object-cover" />

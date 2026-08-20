@@ -116,11 +116,11 @@ function hasStatementContent(raw: string): boolean {
 
 // Distinct colour per MCQ letter — tinted before selection, deeper once selected.
 const MCQ_OPTION_COLORS: Record<string, { border: string; bg: string; badge: string; selectedBorder: string; selectedBg: string; selectedBadge: string }> = {
-  A: { border: "border-blue-200", bg: "bg-blue-50/50 hover:bg-blue-50", badge: "bg-blue-100 text-blue-600", selectedBorder: "border-blue-500", selectedBg: "bg-blue-50", selectedBadge: "bg-blue-500 text-white" },
-  B: { border: "border-purple-200", bg: "bg-purple-50/50 hover:bg-purple-50", badge: "bg-purple-100 text-purple-600", selectedBorder: "border-purple-500", selectedBg: "bg-purple-50", selectedBadge: "bg-purple-500 text-white" },
-  C: { border: "border-amber-200", bg: "bg-amber-50/50 hover:bg-amber-50", badge: "bg-amber-100 text-amber-700", selectedBorder: "border-amber-500", selectedBg: "bg-amber-50", selectedBadge: "bg-amber-500 text-white" },
-  D: { border: "border-teal-200", bg: "bg-teal-50/50 hover:bg-teal-50", badge: "bg-teal-100 text-teal-600", selectedBorder: "border-teal-500", selectedBg: "bg-teal-50", selectedBadge: "bg-teal-500 text-white" },
-  E: { border: "border-pink-200", bg: "bg-pink-50/50 hover:bg-pink-50", badge: "bg-pink-100 text-pink-600", selectedBorder: "border-pink-500", selectedBg: "bg-pink-50", selectedBadge: "bg-pink-500 text-white" },
+  A: { border: "border-blue-400", bg: "bg-blue-100 hover:bg-blue-200", badge: "bg-blue-200 text-blue-800", selectedBorder: "border-blue-600", selectedBg: "bg-blue-100", selectedBadge: "bg-blue-600 text-white" },
+  B: { border: "border-purple-400", bg: "bg-purple-100 hover:bg-purple-200", badge: "bg-purple-200 text-purple-800", selectedBorder: "border-purple-600", selectedBg: "bg-purple-100", selectedBadge: "bg-purple-600 text-white" },
+  C: { border: "border-amber-400", bg: "bg-amber-100 hover:bg-amber-200", badge: "bg-amber-200 text-amber-800", selectedBorder: "border-amber-600", selectedBg: "bg-amber-100", selectedBadge: "bg-amber-600 text-white" },
+  D: { border: "border-teal-400", bg: "bg-teal-100 hover:bg-teal-200", badge: "bg-teal-200 text-teal-800", selectedBorder: "border-teal-600", selectedBg: "bg-teal-100", selectedBadge: "bg-teal-600 text-white" },
+  E: { border: "border-pink-400", bg: "bg-pink-100 hover:bg-pink-200", badge: "bg-pink-200 text-pink-800", selectedBorder: "border-pink-600", selectedBg: "bg-pink-100", selectedBadge: "bg-pink-600 text-white" },
 };
 
 const SA_LANGUAGES = [
