@@ -239,7 +239,7 @@ const PLAN_INFO: Record<string, { label: string; color: string; features: string
   "matric-pack": {
     label: "Matric Exam Pack",
     color: "bg-blue-100 text-blue-700",
-    price: "R99 once-off",
+    price: "R199 once-off",
     priceRands: 199,
     features: ["50+ Matric Past Papers", "10+ Study Guides", "15+ Prep Papers 2026", "Unlimited AI Feedback"],
   },
