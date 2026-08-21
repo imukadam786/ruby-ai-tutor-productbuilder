@@ -137,6 +137,11 @@ const SUBJECTS: Subject[] = [
     thumbnail: "/thumbnails/business-studies.webp",
     guides: [
       {
+        label: "Paper 1 — Business Environments (Nov 2026)",
+        description: "Business environments, entrepreneurship and business roles",
+        filename: "bus-stud-p1-nov-2026_study-guide.pdf",
+      },
+      {
         label: "Paper 1 — Business Environments",
         description: "Business environments, entrepreneurship and business roles",
         filename: "busistd-p1-may-jun-2026-studyguide_compressed.pdf",
@@ -164,6 +169,16 @@ const SUBJECTS: Subject[] = [
     label: "Economics",
     thumbnail: "/thumbnails/economics.webp",
     guides: [
+      {
+        label: "Paper 1 — Macroeconomics & Microeconomics (Nov 2026)",
+        description: "Economic systems, markets, growth and development",
+        filename: "eco-p1-nov-2026-study-guide.pdf",
+      },
+      {
+        label: "Paper 2 — Economic Pursuits (Nov 2026)",
+        description: "Labour markets, public sector, foreign exchange and economic history",
+        filename: "eco-p2-nov-2026-study-guide.pdf",
+      },
       {
         label: "Paper 1 — Macroeconomics & Microeconomics",
         description: "Economic systems, markets, growth and development",
@@ -235,6 +250,16 @@ const SUBJECTS: Subject[] = [
     thumbnail: "/thumbnails/geography.webp",
     guides: [
       {
+        label: "Paper 1 — Physical Geography (Nov 2026)",
+        description: "Climate, geomorphology, rivers and global atmospheric systems",
+        filename: "geo-p1-nov-2026-study-guide.pdf",
+      },
+      {
+        label: "Paper 2 — Human Geography (Nov 2026)",
+        description: "Settlement, population, economic geography and development",
+        filename: "geo-p2-nov-2026-study-guide.pdf",
+      },
+      {
         label: "Paper 1 — Physical Geography",
         description: "Climate, geomorphology, rivers and global atmospheric systems",
         filename: "geo-p1-may-jun-2026-studyguide1.pdf",
@@ -262,6 +287,16 @@ const SUBJECTS: Subject[] = [
     label: "History",
     thumbnail: "/thumbnails/history.webp",
     guides: [
+      {
+        label: "Paper 1 — South African History (Nov 2026)",
+        description: "20th century South African and world history",
+        filename: "his-p1-nov-2026-study-guide.pdf",
+      },
+      {
+        label: "Paper 2 — World History (Nov 2026)",
+        description: "Cold War, decolonisation and global change",
+        filename: "his-p2-nov-2026-study-guide.pdf",
+      },
       {
         label: "Paper 1 — South African History",
         description: "20th century South African and world history",
@@ -313,6 +348,11 @@ const SUBJECTS: Subject[] = [
     thumbnail: "/thumbnails/mathematics.webp",
     guides: [
       {
+        label: "Paper 1 — Algebra, Calculus & Functions (Nov 2026)",
+        description: "Sequences, functions, calculus, finance and probability",
+        filename: "maths-p1-nov-2026-study-guide.pdf",
+      },
+      {
         label: "Paper 1 — Algebra, Calculus & Functions",
         description: "Sequences, functions, calculus, finance and probability",
         filename: "maths-p1-may-jun-2026-studyguide.pdf",
@@ -340,6 +380,16 @@ const SUBJECTS: Subject[] = [
     label: "Maths Literacy",
     thumbnail: "/thumbnails/maths-literacy.webp",
     guides: [
+      {
+        label: "Paper 1 — Basic Skills & Applications (Nov 2026)",
+        description: "Number, finance, measurement and maps",
+        filename: "math-lit-p1-nov-2026-study-guide.pdf",
+      },
+      {
+        label: "Paper 2 — Applications in Context (Nov 2026)",
+        description: "Data handling, probability and integrated contexts",
+        filename: "mathslit-p2-nov-2026-studyguide.pdf",
+      },
       {
         label: "Paper 1 — Basic Skills & Applications",
         description: "Number, finance, measurement and maps",
@@ -369,6 +419,11 @@ const SUBJECTS: Subject[] = [
     thumbnail: "/thumbnails/physical-science.webp",
     guides: [
       {
+        label: "Paper 1 — Physics (Nov 2026)",
+        description: "Mechanics, waves, electricity and magnetism",
+        filename: "phy-sci-p1-nov-2026-study-guide.pdf",
+      },
+      {
         label: "Paper 1 — Physics",
         description: "Mechanics, waves, electricity and magnetism",
         filename: "physics-pp1-may-jun-studyguide-2026 (1)_compressed.pdf",
@@ -396,6 +451,11 @@ const SUBJECTS: Subject[] = [
     label: "Tourism",
     thumbnail: "/thumbnails/tourism.webp",
     guides: [
+      {
+        label: "Paper 1 — Tourism Study Guide (Nov 2026)",
+        description: "Tourism sectors, responsible tourism, sustainable development and travel services",
+        filename: "tourism-p1-nov-2026-studyguide.pdf",
+      },
       {
         label: "Paper 1 — Tourism Study Guide",
         description: "Tourism sectors, responsible tourism, sustainable development and travel services",
