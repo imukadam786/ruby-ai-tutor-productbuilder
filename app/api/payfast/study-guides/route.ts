@@ -14,6 +14,9 @@ const STUDY_GUIDES_URL =
 const AI_TUTOR_SIGNUP_URL =
     "https://ruby-ai-tutor.vercel.app/";
 
+const PAYFAST_NOTIFY_URL =
+    "https://ruby-ai-tutor.vercel.app/api/payfast/notify";
+
 // These are the guide IDs used by your study guide app.
 const VALID_GUIDE_IDS = [
     "math",
@@ -70,7 +73,7 @@ function getCorsHeaders(
 // ─────────────────────────────────────────────────────────────────────────────
 // OPTIONS
 //
-// Handles the browser CORS preflight request.
+// Handles browser CORS preflight requests.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export async function OPTIONS(
@@ -209,7 +212,7 @@ export async function POST(
         }
 
         // ─────────────────────────────────────────────────────────────────────
-        // Validate every guide ID against the known guides
+        // Validate every guide ID
         // ─────────────────────────────────────────────────────────────────────
 
         const invalidGuide =
@@ -255,15 +258,19 @@ export async function POST(
         // ─────────────────────────────────────────────────────────────────────
         // 4-GUIDE BUNDLE
         //
-        // Your existing CartDrawer already sends customers with all four
-        // guides to the AI Tutor signup page.
+        // Your CartDrawer already sends customers with all four guides
+        // to the AI Tutor signup page.
         //
-        // We keep that behaviour here as an additional safety check.
+        // Keep this as an additional server-side safety check.
         // ─────────────────────────────────────────────────────────────────────
 
         if (
             uniqueGuideIds.length === 4
         ) {
+            console.log(
+                "[PayFast study-guides] 4-guide bundle detected — redirecting to AI Tutor signup."
+            );
+
             return NextResponse.json(
                 {
                     redirect:
@@ -277,20 +284,7 @@ export async function POST(
         }
 
         // ─────────────────────────────────────────────────────────────────────
-        // Determine the price SERVER-SIDE
-        //
-        // IMPORTANT:
-        //
-        // We intentionally do NOT accept amountOverride from the browser.
-        //
-        // A customer could modify:
-        //
-        // amountOverride: "1.00"
-        //
-        // in the browser.
-        //
-        // The server therefore calculates the amount from the number of
-        // selected guides.
+        // Determine price SERVER-SIDE
         // ─────────────────────────────────────────────────────────────────────
 
         const guideCount =
@@ -320,7 +314,7 @@ export async function POST(
             price.toFixed(2);
 
         // ─────────────────────────────────────────────────────────────────────
-        // Generate a unique PayFast payment ID
+        // Generate unique PayFast payment ID
         // ─────────────────────────────────────────────────────────────────────
 
         const paymentId =
@@ -328,14 +322,6 @@ export async function POST(
 
         // ─────────────────────────────────────────────────────────────────────
         // Build PayFast parameters
-        //
-        // NOTE:
-        //
-        // return_url and cancel_url point to the Firebase/static study guide
-        // website.
-        //
-        // notify_url points back to the Vercel backend because PayFast needs
-        // a server endpoint to send the ITN notification to.
         // ─────────────────────────────────────────────────────────────────────
 
         const params: Record<string, string> = {
@@ -346,18 +332,17 @@ export async function POST(
             merchant_key:
                 process.env.PAYFAST_MERCHANT_KEY!,
 
-            // Customer comes back to the Firebase website.
+            // Customer returns to Firebase/static website.
             return_url:
                 `${STUDY_GUIDES_URL}?payment=success`,
 
             cancel_url:
                 `${STUDY_GUIDES_URL}?payment=cancelled`,
 
-            // PayFast talks to the Vercel backend.
+            // Fixed production ITN endpoint.
             notify_url:
-                `${request.nextUrl.origin}/api/payfast/notify`,
+                PAYFAST_NOTIFY_URL,
 
-            // We only have the customer's email from the static site.
             name_first:
                 "Study",
 
@@ -367,11 +352,9 @@ export async function POST(
             email_address:
                 cleanEmail,
 
-            // Unique ID used to identify this payment.
             m_payment_id:
                 paymentId,
 
-            // Server-controlled amount.
             amount,
 
             item_name:
@@ -381,16 +364,14 @@ export async function POST(
                         : ""
                 }`,
 
-            // Used by the ITN to identify this as a study-guide purchase.
+            // Identifies this as a study-guide purchase.
             custom_str1:
                 "study-guides",
 
-            // Store the actual guides purchased.
+            // Actual guides purchased.
             //
             // Example:
             // math,science
-            //
-            // Your ITN can use this later to determine which PDFs to email.
             custom_str4:
                 uniqueGuideIds.join(","),
 
@@ -401,34 +382,126 @@ export async function POST(
 
         // ─────────────────────────────────────────────────────────────────────
         // Generate PayFast signature
-        //
-        // This MUST happen after every parameter has been added.
         // ─────────────────────────────────────────────────────────────────────
 
         params.signature =
             generateSignature(params);
 
         // ─────────────────────────────────────────────────────────────────────
-        // Logging
+        // SAFE DEBUG LOGGING
         //
-        // Do NOT log merchant keys, passphrases or signatures.
+        // IMPORTANT:
+        //
+        // We deliberately DO NOT log:
+        //
+        // - PAYFAST_MERCHANT_KEY
+        // - PAYFAST_PASSPHRASE
+        //
+        // We DO log the parameters sent to PayFast so we can compare them
+        // against the browser payload and identify the 400 error.
         // ─────────────────────────────────────────────────────────────────────
 
+        const debugParams = {
+            merchant_id:
+                params.merchant_id,
+
+            merchant_key:
+                "[REDACTED]",
+
+            return_url:
+                params.return_url,
+
+            cancel_url:
+                params.cancel_url,
+
+            notify_url:
+                params.notify_url,
+
+            name_first:
+                params.name_first,
+
+            name_last:
+                params.name_last,
+
+            email_address:
+                params.email_address,
+
+            m_payment_id:
+                params.m_payment_id,
+
+            amount:
+                params.amount,
+
+            item_name:
+                params.item_name,
+
+            custom_str1:
+                params.custom_str1,
+
+            custom_str3:
+                params.custom_str3,
+
+            custom_str4:
+                params.custom_str4,
+
+            signature:
+                params.signature,
+        };
+
         console.log(
-            "[PayFast study-guides] Checkout created:",
-            {
-                paymentId,
-                guideIds:
-                    uniqueGuideIds,
-                guideCount,
-                amount,
-                email:
-                    cleanEmail,
-            }
+            "============================================================"
+        );
+
+        console.log(
+            "[PayFast DEBUG] Checkout parameters"
+        );
+
+        console.log(
+            "[PayFast DEBUG] Process URL:",
+            PAYFAST_PROCESS_URL
+        );
+
+        console.log(
+            "[PayFast DEBUG] Parameters:",
+            debugParams
+        );
+
+        console.log(
+            "[PayFast DEBUG] Payment ID:",
+            paymentId
+        );
+
+        console.log(
+            "[PayFast DEBUG] Guide IDs:",
+            uniqueGuideIds
+        );
+
+        console.log(
+            "[PayFast DEBUG] Guide count:",
+            guideCount
+        );
+
+        console.log(
+            "[PayFast DEBUG] Amount:",
+            amount
+        );
+
+        console.log(
+            "[PayFast DEBUG] Email:",
+            cleanEmail
+        );
+
+        console.log(
+            "[PayFast DEBUG] Signature:",
+            params.signature
+        );
+
+        console.log(
+            "============================================================"
         );
 
         // ─────────────────────────────────────────────────────────────────────
-        // Return checkout information to the Firebase frontend
+        // Return checkout information to Firebase frontend
         // ─────────────────────────────────────────────────────────────────────
 
         return NextResponse.json(
