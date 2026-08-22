@@ -1,0 +1,573 @@
+{
+  "id": "math-lit-p1-nov-2023-combined",
+  "subject": "Maths Literacy",
+  "subjectCode": "math-lit",
+  "paperCode": "P1",
+  "year": 2023,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Info Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Spotify streaming statistics, music CD revenue distribution and vehicle financing",
+      "totalMarks": 29,
+      "subQuestions": [
+        {
+          "id": "math-lit-p1-nov-2023-1-1-1",
+          "label": "1.1.1",
+          "questionText": "Spotify is a legal way to listen to music using the internet. It is also referred to as streaming music online.\n\nTABLE 1 below shows different categories of users and items streamed for three different sessions (A, B and C) on 18 February 2023, using the Spotify mobile app.\n\n**TABLE 1: STREAMING PER CATEGORY ON 18 FEBRUARY 2023**\n\n| CATEGORIES | SESSION A | SESSION B | SESSION C |\n|---|---|---|---|\n| Free users | 8 120 031 | 8 120 908 | 8 120 970 |\n| Paid users | 690 160 | 690 164 | 690 164 |\n| Number of songs | 88 704 344 | 88 705 985 | 88 706 141 |\n| Number of music artists | 6 089 733 | 6 089 852 | 6 089 862 |\n| Music albums | 12 929 392 | 12 929 939 | 12 929 976 |\n\nUse TABLE 1 above to answer the questions that follow.\n\nState whether the values used for the different categories in the table are discrete or continuous data.",
+          "marks": 2,
+          "memoText": "**Discrete** (2A correct classification)\n\nTeaching point: All the values in Table 1 are whole-number counts — you can't stream half a song or have 0,5 of a user. Data that can only take exact, countable values (not any value in between) is discrete. Continuous data would be something measurable like time or height.",
+          "topic": "Data handling – Classifying data types",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-1-1-2",
+          "label": "1.1.2",
+          "questionText": "TABLE 1 shows different categories of users and items streamed for three different sessions (A, B and C) on 18 February 2023 (see TABLE 1 in question 1.1.1).\n\nThe number of music albums streamed during session B was 12 929 939.\n\nWrite down this number in words without using numerals.",
+          "marks": 2,
+          "memoText": "**Twelve million nine hundred and twenty-nine thousand nine hundred and thirty-nine** (2A correct wording)\n\nTeaching point: Break the number into groups of three digits from the right: 12 | 929 | 939 → twelve million, nine hundred and twenty-nine thousand, nine hundred and thirty-nine. Working from the largest place value down keeps you from skipping a group.",
+          "topic": "Number sense – Reading large numbers",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-1-1-3",
+          "label": "1.1.3",
+          "questionText": "TABLE 1 shows the number of music artists listened to per session (see TABLE 1 in question 1.1.1): Session A = 6 089 733, Session B = 6 089 852, Session C = 6 089 862.\n\nIdentify the session during which the second largest number of music artists were listened to.",
+          "marks": 2,
+          "memoText": "**Session B** (2RT correct session)\n\nTeaching point: Order the three values from largest to smallest: C (6 089 862) is largest, B (6 089 852) is second largest, A (6 089 733) is smallest. Reading straight off the ranked list avoids mixing up \"second largest\" with \"second smallest\".",
+          "topic": "Data handling – Reading a table",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-1-1-4",
+          "label": "1.1.4",
+          "questionText": "TABLE 1 shows the number of songs streamed per session (see TABLE 1 in question 1.1.1): Session A = 88 704 344, Session B = 88 705 985, Session C = 88 706 141.\n\nCalculate the increase in the number of songs streamed over the three sessions.",
+          "marks": 2,
+          "memoText": "Increase = 88 706 141 − 88 704 344 = **1 797 songs** (1RT correct values + 1A number of songs)\n\nOR: (88 705 985 − 88 704 344) + (88 706 141 − 88 705 985) = 1 641 + 156 = 1 797\n\nTeaching point: \"Increase over the three sessions\" means the total change from the first session to the last, so subtract the smallest (Session A) from the largest (Session C). Adding up the increase from A→B and B→C gives the same answer.",
+          "topic": "Data handling – Calculating an increase from a table",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-1-1-5",
+          "label": "1.1.5",
+          "questionText": "TABLE 1 shows Session A had 690 160 paid users and 8 120 031 free users (see TABLE 1 in question 1.1.1).\n\nDetermine, as a unit ratio, in the form 1 : ..., the number of paid users to the number of free users during session A.",
+          "marks": 3,
+          "memoText": "690 160 : 8 120 031 = **1 : 11,77** (1RT correct values + 1A values in correct order + 1A simplification)\n\nAccept: 11,765 / 11,8 / 12\n\nTeaching point: To write a ratio as 1 : ..., divide both sides by the first number: 690 160 ÷ 690 160 = 1, and 8 120 031 ÷ 690 160 ≈ 11,77. Keep the order the question asks for (paid : free), not the other way round.",
+          "topic": "Ratio – Unit ratio",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-1-2-1",
+          "label": "1.2.1",
+          "questionText": "A recent article stated that a music artist gets less than 10% from the sale of a music CD in South Africa.\n\nThe pie chart below shows how the money, in rand, for one music CD is distributed:\n\n**DISTRIBUTION OF MONEY, IN RAND, FROM THE SALE OF ONE MUSIC CD**\n\n| Slice | Meaning | Amount (R) |\n|---|---|---|\n| A | Record label's net profit | 18,05 |\n| B | Received by music store | 41,84 |\n| C | Tax | 12,16 |\n| D | Amount artist receives per music CD | 8,33 |\n| E | Received by writer of ONE song on music CD | 0,11 |\n| F | Distribution cost | 6,98 |\n| G | Press cost of music CD at record label | 11,53 |\n\nNOTE: CD = compact disc to store and play digital audio recordings.\n\nUse the pie chart above to answer the questions that follow.\n\nGive the acronym for value-added tax.",
+          "marks": 2,
+          "memoText": "**VAT** (2A correct acronym)\n\nTeaching point: An acronym is formed from the first letter of each word in a phrase — Value-Added Tax becomes VAT.",
+          "topic": "Finance – VAT terminology",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-1-2-2",
+          "label": "1.2.2",
+          "questionText": "The pie chart shows the distribution of money, in rand, from the sale of one music CD (see the table in question 1.2.1): A = R18,05, B = R41,84, C = R12,16, D = R8,33, E = R0,11, F = R6,98, G = R11,53.\n\nDetermine the total price for ONE music CD.",
+          "marks": 3,
+          "memoText": "Total price = R18,05 + R41,84 + R12,16 + R8,33 + R0,11 + R6,98 + R11,53 = **R99,00** (1RT all values + 1MA adding all values + 1A simplification)\n\nTeaching point: A pie chart's slices add up to the whole, so the total price is simply the sum of every slice's rand value.",
+          "topic": "Finance – Adding amounts from a pie chart",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-1-2-3",
+          "label": "1.2.3",
+          "questionText": "From the pie chart (see the table in question 1.2.1), the amount artist receives per music CD (D) = R8,33 and the amount received by the music store (B) = R41,84.\n\nCalculate the amount that the music artist receives for one music CD as a percentage of the amount received by the music store.",
+          "marks": 3,
+          "memoText": "R8,33 ÷ R41,84 × 100% = **19,91%** (1RT correct value + 1RT correct value + 1A simplification)\n\nTeaching point: \"As a percentage of\" means the artist's amount is the numerator and the store's amount is the denominator — divide the part by the whole you're comparing to, then × 100%.",
+          "topic": "Finance – Percentage of an amount",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-1-2-4",
+          "label": "1.2.4",
+          "questionText": "From the pie chart, the amount artist receives per music CD (D) = R8,33 (see the table in question 1.2.1).\n\nDetermine the amount of money a music artist will make if he sells 210 000 copies of his music CD.",
+          "marks": 2,
+          "memoText": "210 000 × R8,33 = **R1 749 300** (1MA multiplying correct values + 1A simplification)\n\nTeaching point: The artist earns R8,33 per CD sold, so total earnings = rate per CD × number of CDs sold.",
+          "topic": "Finance – Multiplying a rate by a quantity",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-1-2-5",
+          "label": "1.2.5",
+          "questionText": "From the pie chart, the amount received by the writer of ONE song on a music CD (E) = R0,11 (see the table in question 1.2.1).\n\nCalculate how many music CDs must be sold for a writer, who writes ONE song, to receive R16,50.",
+          "marks": 2,
+          "memoText": "R16,50 ÷ R0,11 = **150 CDs** (1MA dividing by R0,11 + 1A simplification)\n\nTeaching point: The writer earns R0,11 per CD, so to find how many CDs give a target total, divide the target amount by the rate per CD.",
+          "topic": "Finance – Dividing an amount by a rate",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-1-3-1",
+          "label": "1.3.1",
+          "questionText": "Many music artists use their own vehicles to travel to and perform at music concerts. They are advised to spend 25%, or less, of their gross monthly income on monthly repayments for a vehicle.\n\nTABLE 2 shows the price of a vehicle, the monthly repayment and the gross monthly income required to qualify for vehicle financing.\n\n**TABLE 2: PRICE OF A VEHICLE, MONTHLY REPAYMENT AND GROSS MONTHLY INCOME REQUIRED**\n\n| PRICE OF VEHICLE | MONTHLY REPAYMENT | GROSS MONTHLY INCOME REQUIRED |\n|---|---|---|\n| R150 000 | R3 207,82 | R12 831 |\n| R200 000 | R4 245,74 | R16 982 |\n| R300 000 | R6 321,57 | R25 286 |\n| R500 000 | R10 473,24 | R41 892 |\n| R750 000 | R15 662,83 | R62 651 |\n| R1 000 000 | R20 852,42 | R83 409 |\n| R2 000 000 | R41 610,78 | R166 443 |\n| R5 000 000 | R103 885,84 | R415 543 |\n\nUse TABLE 2 above to answer the questions that follow.\n\nDefine the term gross monthly income.",
+          "marks": 2,
+          "memoText": "**Gross monthly income is the monthly income before deductions** (2A explanation)\n\nTeaching point: \"Gross\" always means before anything is taken off (tax, insurance, etc.); \"net\" means what's left after those deductions.",
+          "topic": "Finance – Terminology (gross income)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.3.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-1-3-2",
+          "label": "1.3.2",
+          "questionText": "TABLE 2 shows the price of a vehicle, the monthly repayment and the gross monthly income required to qualify for vehicle financing (see the table in question 1.3.1).\n\nComplete the following statement:\n\nAn artist, with a gross average monthly income of R83 409, qualifies for a vehicle priced at ...",
+          "marks": 2,
+          "memoText": "**R1 000 000** (2RT correct price)\n\nTeaching point: Scan the \"Gross monthly income required\" column for R83 409 and read straight across to the matching \"Price of vehicle\" row.",
+          "topic": "Finance – Reading from a table (loan qualification)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.3.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-1-3-3",
+          "label": "1.3.3",
+          "questionText": "TABLE 2 shows the monthly repayment for a vehicle costing R2 000 000 is R41 610,78 (see the table in question 1.3.1).\n\nRound off the monthly repayment of a vehicle costing R2 000 000 to the nearest thousand.",
+          "marks": 2,
+          "memoText": "R41 610,78 rounds to **R42 000** (1RT correct value + 1R rounding)\n\nTeaching point: To round to the nearest thousand, look at the hundreds digit: R41 610,78 has a 6 in the hundreds place, so round up to R42 000.",
+          "topic": "Number sense – Rounding",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q1.3.png"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Bank statement analysis, income tax verification and municipal budget overview",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "math-lit-p1-nov-2023-2-1-1",
+          "label": "2.1.1",
+          "questionText": "David is a 68-year-old man who works at a grocery store in Swellendam.\n\nANNEXURE A shows an extract of David's Bank Statement for the period 1 November 2022 to 1 December 2022. Some amounts have been omitted.\n\n**ANNEXURE A: EXTRACT OF DAVID'S BANK STATEMENT (1 NOVEMBER 2022 – 1 DECEMBER 2022)**\n\nAccount type: Elite cheque account\n\n| Date | Description | Amount (R) |\n|---|---|---|\n| 25/11/2022 | Salary deposit | 10 078,41 |\n| 25/11/2022 | Salary deduction | −2 100,35 |\n| 25/11/2022 | Net salary (A) | 7 978,06 |\n| 28/11/2022 | Insurance premium – Policy 1 | −940,39 |\n| 28/11/2022 | Insurance premium – Policy 2 | −940,39 |\n| 29/11/2022 | Cash withdrawal fee | −1,60 |\n| 29/11/2022 | Card transaction fees | −69,00 |\n| 30/11/2022 | Monthly service fee (incl. VAT) | −110,00 |\n| 30/11/2022 | Total service fees (##) | ... |\n\nUse ANNEXURE A to answer the questions that follow.\n\nWrite down the type of account David has.",
+          "marks": 2,
+          "memoText": "**Elite cheque account** (2RT correct account)\n\nAccept: Cheque account\n\nTeaching point: The account type is stated directly at the top of the bank statement — no calculation needed, just read it off.",
+          "topic": "Finance – Bank statements (account type)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q2.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-2-1-2",
+          "label": "2.1.2",
+          "questionText": "ANNEXURE A shows the cash withdrawal fee (R1,60), card transaction fees (R69,00) and monthly service fee (R110,00) charged on David's account in November 2022 (see the table in question 2.1.1).\n\nDetermine the total amount paid for service fees (##).",
+          "marks": 3,
+          "memoText": "R1,60 + R69,00 + R110,00 = **R180,60** (1RT two correct values + 1RT third correct value + 1CA simplification) — Answer only full marks\n\nTeaching point: \"Total service fees\" means adding up every fee-related debit on the statement, not just the one labelled \"service fee\".",
+          "topic": "Finance – Adding amounts from a statement",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q2.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-2-1-3",
+          "label": "2.1.3",
+          "questionText": "ANNEXURE A shows David's salary deposit of R10 078,41 with a salary deduction of R2 100,35, giving a net salary (A) of R7 978,06 (see the table in question 2.1.1). He has two insurance policies, each debited at R940,39.\n\nDavid's net salary paid into his account is labelled A.\n\nHe has two insurance policies.\n\nDavid stated that his total monthly payments for insurance is more than a 1/4 of his net salary.\n\nVerify, showing ALL calculations, if his statement is CORRECT.",
+          "marks": 7,
+          "memoText": "Net salary (A) = R10 078,41 − R2 100,35 = R7 978,06\n\nPortion of net salary = R7 978,06 ÷ 4 = **R1 994,52**\n\nTotal insurance = R940,39 + R940,39 = **R1 880,78**\n\nR1 880,78 < R1 994,52 → **his statement is INCORRECT** (1RT both correct values + 1MA subtracting values + 1CA simplification + 1MCA dividing by 4 + 1CA simplification + 1A total monthly insurance + 1O conclusion)\n\nOR (percentage method): Total insurance ÷ Net salary × 100% = R1 880,78 ÷ R7 978,06 × 100% = 23,57%, and 23,57% < 25%, so his statement is INCORRECT.\n\nTeaching point: \"Verify\" means you must do the calculation and then explicitly compare it to the claim — work out the actual quarter (or percentage) and state whether the real insurance total is above or below it before giving your CORRECT/INCORRECT conclusion.",
+          "topic": "Finance – Verifying a statement (fractions and percentages)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q2.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-2-1-4",
+          "label": "2.1.4",
+          "questionText": "ANNEXURE A shows a monthly service fee of R110,00 charged on 30/11/2022.\n\nThe fixed monthly service fee of R110,00 on 30/11/2022 includes VAT of 15%.\n\nThe same service fee, excluding VAT, was charged on 30/11/2017 (when VAT was 14%).\n\nDetermine the service fee amount, including VAT, that would have been paid on 30/11/2017.",
+          "marks": 5,
+          "memoText": "Amount excluding VAT (2022) = R110,00 ÷ 1,15 = R95,65217391\n\nAmount including VAT (2017, at 14%) = R95,65217391 × 1,14 = **R109,04** (1A correct VAT calculation + 1MA multiplying by 100/115 + 1A simplification + 1MA multiplying by 1,14 + 1CA simplification)\n\nTeaching point: First strip out the CURRENT VAT rate to find the base (VAT-exclusive) price, then apply the OLD VAT rate to that same base price — you can't just apply 14% to the 2022 price directly, because that price already has 15% VAT baked in.",
+          "topic": "Finance – VAT calculations (excluding and including VAT)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q2.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-2-2-1",
+          "label": "2.2.1",
+          "questionText": "David's average monthly taxable income is R8 978,00, which includes monthly interest earned on his investments.\n\nHe does not earn any bonuses nor is he a member of a medical aid fund.\n\nTABLE 3 on ANNEXURE B shows the income tax table for the 2022/23 tax year and the tax rebates over a three-year period.\n\n**ANNEXURE B: TABLE 3 – INCOME TAX TABLE FOR INDIVIDUALS, 2022/23 TAX YEAR**\n\n| Tax bracket | Taxable income (R) | Rates of tax (R) |\n|---|---|---|\n| A | 1 – 226 000 | 18% of taxable income |\n| B | 226 001 – 353 100 | 40 680 + 26% of taxable income above 226 000 |\n| C | 353 101 – 488 700 | 73 726 + 31% of taxable income above 353 100 |\n| D | 488 701 – 641 400 | 115 762 + 36% of taxable income above 488 700 |\n| E | 641 401 – 817 600 | 170 734 + 39% of taxable income above 641 400 |\n| F | 817 601 – 1 731 600 | 239 452 + 41% of taxable income above 817 600 |\n| G | 1 731 601 and above | 614 192 + 45% of taxable income above 1 731 600 |\n\n**TAX REBATES (2021/22 – 2023/24)**\n\n| Rebate | 2021/22 | 2022/23 | 2023/24 |\n|---|---|---|---|\n| Primary | R15 714 | R16 425 | R17 235 |\n| Secondary (person 65 and older) | R8 613 | R9 000 | R9 444 |\n| Tertiary (person 75 and older) | R2 871 | R2 997 | R3 145 |\n\n**TAX THRESHOLDS (2022/23)**\n\n| Age | Threshold |\n|---|---|\n| Under 65 | R91 250 |\n| 65 and older | R141 250 |\n| 75 and older | R157 900 |\n\nUse TABLE 3 on ANNEXURE B to answer the questions that follow.\n\nIdentify which income tax bracket will be used to calculate David's annual tax.",
+          "marks": 3,
+          "memoText": "Annual taxable income = R8 978,00 × 12 = R107 736,00\n\nTax bracket = **A** (since R107 736 falls between R1 and R226 000) (1A annual taxable income + 2RT tax bracket)\n\nTeaching point: Always annualise a monthly income before using an ANNUAL tax table — multiply by 12 first, then find which bracket range the annual figure falls into.",
+          "topic": "Finance – Income tax (identifying a tax bracket)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q2.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-2-2-2",
+          "label": "2.2.2",
+          "questionText": "David is 68 years old, with an annual taxable income of R107 736,00, taxed in bracket A (18% of taxable income) — see the tax table and rebates in question 2.2.1.\n\nDavid claims that he should NOT be paying any income tax.\n\nVerify, showing ALL calculations, whether his claim is valid.",
+          "marks": 6,
+          "memoText": "Income tax = 18% × R107 736,00 = **R19 392,48**\n\nRebates (68 years old → primary + secondary) = R16 425 + R9 000 = R25 425\n\nR19 392,48 < R25 425, so the rebate fully cancels out the tax → **his statement is VALID** (CA from 2.2.1 + 1MCA calculating 18% + 1CA simplification + 1MA subtracting rebate + 1MA subtracting rebate + 1CA simplification + 1O conclusion)\n\nOR (threshold method): Tax threshold (65 and older) = R25 425 ÷ 18% = R141 250. Since R141 250 > R107 736, David earns below the tax threshold, so his statement is VALID.\n\nTeaching point: A taxpayer pays R0 tax whenever their calculated tax is fully covered by their rebate — equivalently, whenever their taxable income is below the tax threshold for their age group. Either method (compare tax to rebate, or compare income to threshold) gives the same conclusion.",
+          "topic": "Finance – Income tax (calculating tax payable and verifying a claim)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q2.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-2-3-1",
+          "label": "2.3.1",
+          "questionText": "TABLE 4 shows the financial overview of Swellendam Municipality (in R'000), including the income and expenditure, the original budgeted amount, the adjusted budgeted amount and the actual amount.\n\nDue to over- or under-spending, this original budgeted amount is reviewed during the year and adjusted accordingly.\n\n**TABLE 4: FINANCIAL OVERVIEW OF SWELLENDAM MUNICIPALITY (R'000)**\n\n*INCOME*\n\n| DETAILS | Original budgeted amount | Adjusted budgeted amount | Actual amount |\n|---|---|---|---|\n| Grants | 71 396 | 111 769 | 68 286 |\n| Taxes, levies and tariffs | 180 456 | ... | 180 702 |\n| Other | 61 940 | 48 152 | 68 594 |\n| TOTAL | 313 792 | 340 688 | 317 582 |\n\n*EXPENDITURE*\n\n| | Original budgeted amount | Adjusted budgeted amount | Actual amount |\n|---|---|---|---|\n| TOTAL | 322 891 | 316 678 | Z |\n\n*NET SURPLUS/DEFICIT*\n\n| | Original budgeted amount | Adjusted budgeted amount | Actual amount |\n|---|---|---|---|\n| TOTAL | (9 099) | 24 010 | Y |\n\nUse TABLE 4 above to answer the questions that follow.\n\nIdentify the item that was overbudgeted for by more than R40 million.",
+          "marks": 2,
+          "memoText": "**Grants** (original R71 396 000 → adjusted R111 769 000, a difference of R40 373 000) (2A correct identification)\n\nTeaching point: \"Overbudgeted\" means the adjusted amount was revised UP compared to the original budget. Grants is the only line where adjusted minus original exceeds R40 000 (in R'000), i.e. R40 million.",
+          "topic": "Finance – Reading a budget table",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q2.3.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-2-3-2",
+          "label": "2.3.2",
+          "questionText": "TABLE 4 shows the total adjusted budgeted income is R340 688 (R'000), made up of Grants R111 769, Taxes/levies/tariffs (missing) and Other R48 152 (see the table in question 2.3.1).\n\nDetermine the adjusted budgeted amount for the taxes, levies and tariffs.",
+          "marks": 3,
+          "memoText": "R340 688 − (R111 769 + R48 152) = **R180 767** (R'000) (1RT correct values + 1MA adding and subtracting + 1CA simplification)\n\nTeaching point: When one item in a total is missing, subtract all the known items from the given TOTAL to find it.",
+          "topic": "Finance – Calculating a missing table value (subtraction)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q2.3.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-2-3-3",
+          "label": "2.3.3",
+          "questionText": "TABLE 4 shows the original budgeted net surplus/deficit as (9 099) in brackets (see the table in question 2.3.1).\n\nGive a reason why the amount (9 099) is shown in brackets.",
+          "marks": 2,
+          "memoText": "**It indicates the amount is a deficit / a negative amount** (2O opinion)\n\nTeaching point: In financial statements, putting a number in round brackets is the standard way of showing a negative value — here it means the municipality budgeted to spend more than it would earn (a deficit).",
+          "topic": "Finance – Interpreting negative values in a budget",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q2.3.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-2-3-4",
+          "label": "2.3.4",
+          "questionText": "TABLE 4 shows the original budgeted total income as R313 792 (R'000) and the original budgeted total expenditure as R322 891 (R'000) (see the table in question 2.3.1).\n\nShow how the total net surplus/deficit amount for the original budgeted amount was calculated.",
+          "marks": 3,
+          "memoText": "R313 792 − R322 891 = **−R9 099** (R'000), shown as (9 099) (1RT correct value + 1RT correct value + 1A subtraction in correct order)\n\nTeaching point: Net surplus/deficit = Total income − Total expenditure. When expenditure is bigger than income, the answer is negative — a deficit.",
+          "topic": "Finance – Calculating a surplus or deficit",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q2.3.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-2-3-5",
+          "label": "2.3.5",
+          "questionText": "TABLE 4 shows the actual total income as R317 582 (R'000) and the actual total expenditure as Z (see the table in question 2.3.1).\n\nThe actual total expenditure (Y) shows a net surplus amount of 2,53% of the total income.\n\nShow, by means of calculations, that the table value of the actual amount for the total expenditure (Z) to the nearest whole number is R309 547.",
+          "marks": 4,
+          "memoText": "Net surplus (Y) = 2,53% × R317 582 = R8 034,825 ≈ R8 035 (R'000)\n\nZ = R317 582 − R8 035 = **R309 547** (R'000) (1RT correct value + 1MA calculating surplus + 1A simplification + 1MA subtracting correct values)\n\nOR: Expenditure as a % of income = 100% − 2,53% = 97,47%; Z = 97,47% × R317 582 = R309 547,18 ≈ R309 547.\n\nTeaching point: A surplus is what's left after expenditure is subtracted from income, so expenditure = income − surplus. The second method skips finding the surplus rand value and instead finds expenditure directly as \"the other 97,47%\" of income.",
+          "topic": "Finance – Percentages (working backwards from a percentage)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q2.3.png"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Childhood overweight and obesity statistics, growth chart percentiles and malnutrition sampling",
+      "totalMarks": 27,
+      "subQuestions": [
+        {
+          "id": "math-lit-p1-nov-2023-3-1-1",
+          "label": "3.1.1",
+          "questionText": "Overnutrition occurs when there is an excessive intake of dietary energy, resulting in overweight or obese people.\n\nThe double bar graph below shows the percentages of children in two age groups who are overweight or obese in South Africa. The following descriptors have been used: male, female, urban and rural.\n\n**CHILDREN IN TWO AGE GROUPS WHO ARE OVERWEIGHT OR OBESE (%)**\n\n| Descriptor | Under 5 years old | 5 to 17 years old |\n|---|---|---|\n| Male | 15,5 | 15,2 |\n| Female | 11,1 | 21,5 |\n| Urban | 13,2 | 20,1 |\n| Rural | 13,5 | 16,3 |\n\nUse the graph above to answer the questions that follow.\n\nIdentify the only descriptor where the age group 5 to 17 years old are fewer than the age group under 5 years old.",
+          "marks": 2,
+          "memoText": "**Male** (2RT correct option)\n\nTeaching point: Compare each row's two columns: for Male, 15,2% (5–17 years) is less than 15,5% (under 5) — the only descriptor where the older group's bar is shorter than the younger group's.",
+          "topic": "Data handling – Reading a double bar graph",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q3.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-3-1-2",
+          "label": "3.1.2",
+          "questionText": "The double bar graph shows Female: under 5 years old = 11,1%, 5 to 17 years old = 21,5% (see the table in question 3.1.1).\n\nDetermine the difference in percentages of the two age groups for the female descriptor.",
+          "marks": 3,
+          "memoText": "21,5% − 11,1% = **10,4%** (1RT correct values + 1MA subtracting values + 1CA simplification)\n\nTeaching point: \"Difference\" always means subtract the smaller from the larger, regardless of which one is listed first.",
+          "topic": "Data handling – Calculating a difference from a graph",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q3.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-3-1-3",
+          "label": "3.1.3",
+          "questionText": "The double bar graph shows Urban: under 5 = 13,2%, 5–17 = 20,1%; Rural: under 5 = 13,5%, 5–17 = 16,3% (see the table in question 3.1.1).\n\nCompare and comment on the urban and rural descriptors of the two age groups.",
+          "marks": 3,
+          "memoText": "**The percentage of children in the under-5 category is almost the same for urban and rural. There is a greater increase in urban than in rural for the over-5-to-17 category.** (2O comparison + 1O comparison/comment)\n\nOR: Possible reasons for the urban jump: healthy food vs junk food, more active vs less active, walking long distances to school vs driving to school, manual labour vs playing video games.\n\nTeaching point: A \"compare and comment\" question wants two things — a numeric comparison (which group is bigger/smaller and by roughly how much) AND a sensible real-world comment on why that pattern might exist.",
+          "topic": "Data handling – Comparing and commenting on a graph",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q3.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-3-1-4",
+          "label": "3.1.4",
+          "questionText": "The double bar graph shows that 16,3% of children in the rural, 5 to 17 years old age group are overweight or obese (see the table in question 3.1.1).\n\nIn a rural school, there are 795 learners in the age group 5 to 17 years old.\n\nCalculate the number of learners who are NOT overweight or obese.",
+          "marks": 3,
+          "memoText": "Overweight/obese = 16,3% × 795 = 129,585 ≈ 130 learners\n\nNot overweight/obese = 795 − 130 = **665 learners** (1MA percentage calculation + 1A simplification + 1CA simplification)\n\nAccept: 129 overweight → 666 not overweight\n\nOR directly: 100% − 16,3% = 83,7%; 83,7% × 795 = **665 learners**\n\nTeaching point: You can either find the overweight group first and subtract from the total, or find the \"NOT\" percentage (100% minus the given percentage) and apply it directly — both reach the same answer.",
+          "topic": "Data handling – Percentage of a sample",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q3.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-3-1-5",
+          "label": "3.1.5",
+          "questionText": "The double bar graph shows Female, overweight/obese (5 to 17 years old) = 11,1% (see the table in question 3.1.1).\n\nDetermine the probability, as a fraction, of randomly selecting a female who is under 5 years old and NOT overweight or obese.",
+          "marks": 3,
+          "memoText": "Not overweight/obese = 100% − 11,1% = 88,9%\n\nProbability = **889/1 000** (1MA calculating percentage + 1A simplification + 1CA correct fraction)\n\nTeaching point: A percentage converts straight to a fraction out of 100 (or out of 1 000 once you clear the decimal) — 88,9% = 88,9/100 = 889/1 000.",
+          "topic": "Probability – Calculating probability as a fraction",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q3.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-3-2-1",
+          "label": "3.2.1",
+          "questionText": "Shown below is a growth chart for boys, from birth to 24 months. Also shown on this chart is the head circumference-for-age and part of the weight-for-length percentiles.\n\nThe measurements for a boy at 1, 9, 12 and 18 months have been plotted on the chart by a nurse at the clinic. At 9 months, the plotted point reads approximately 17,9 inches (≈18 inches) on the head-circumference axis.\n\nUse the growth chart above to answer the questions that follow.\n\nWrite down, in inches, the measurement of the boy at 9 months.",
+          "marks": 2,
+          "memoText": "**17,9 inches** (accept 18 inches) (2RT reading from chart)\n\nTeaching point: Match the plotted dot at the 9-month mark on the horizontal axis to its height on the head-circumference (inches) scale on the vertical axis.",
+          "topic": "Data handling – Reading a growth chart",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q3.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-3-2-2",
+          "label": "3.2.2",
+          "questionText": "The growth chart plots the boy's head circumference at 1, 9, 12 and 18 months, against percentile curves (2nd, 5th, 10th, 25th, 50th, 75th, 90th, 95th, 98th) (see question 3.2.1).\n\nIdentify the month(s) in which the boy was below the 50th percentile.",
+          "marks": 2,
+          "memoText": "**1 month and 18 months** (1RT correct age + 1RT correct age)\n\nTeaching point: At each plotted month, check whether the dot sits above or below the 50th-percentile curve on the chart — \"below\" means a smaller head circumference than half of boys that age.",
+          "topic": "Data handling – Reading percentile lines on a chart",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q3.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-3-2-3",
+          "label": "3.2.3",
+          "questionText": "The growth chart plots the boy's head circumference at 18 months as approximately 46 cm (see question 3.2.1).\n\nAnother boy of the same age has a head circumference of 48 cm at 18 months.\n\nState whether this boy falls in a higher or lower percentile than the boy whose details have been plotted on the growth chart.",
+          "marks": 2,
+          "memoText": "**Higher** (2A correct conclusion)\n\nTeaching point: A bigger head circumference for the same age plots higher up the chart, landing on a higher percentile curve.",
+          "topic": "Data handling – Comparing percentiles",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q3.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-3-3-1",
+          "label": "3.3.1",
+          "questionText": "A study was done to investigate the relationship between the head circumference and the nutritional status of some children under 2 years old. The box-and-whisker plots below show the head circumference percentiles (HCP) of these children based on their nutritional status.\n\nA total of 142 children were included in this study.\n\n- 9,15% were malnourished.\n- 129 children had normal nutritional status.\n- There was a greater representation of younger children with more than 50% between 1 and 8 months of age.\n\n**HEAD CIRCUMFERENCE PERCENTILES IN NORMAL AND MALNOURISHED CHILDREN UNDER TWO YEARS OLD**\n\n| Nutritional status | Minimum | Lower quartile | Median | Upper quartile | Maximum |\n|---|---|---|---|---|---|\n| Normal | ~0 | 29,7 | 54 | 81,7 | 100 |\n| Malnourished | 1,1 | 9,5 | 10 | 33,5 | ~66 |\n\nUse the information and the box-and-whisker plots above to answer the questions that follow.\n\nWrite down the percentage of malnourished children with a head circumference below the 33,5 percentile.",
+          "marks": 2,
+          "memoText": "**75%** (2A correct percentage)\n\nTeaching point: 33,5 is the upper quartile of the malnourished group, and by definition the upper quartile is the point below which 75% of the data falls.",
+          "topic": "Data handling – Reading a box-and-whisker plot",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q3.3.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-3-3-2",
+          "label": "3.3.2",
+          "questionText": "129 children had normal nutritional status (see question 3.3.1).\n\nCalculate the number of children that were below the median head circumference in the children with normal nutritional status.",
+          "marks": 3,
+          "memoText": "129 × 50% = 64,5\n\n**64 children**, because the 65th child falls exactly on the median (1MA calculating 50% + 1RT finding 129 + 1A simplification)\n\nTeaching point: The median splits an ordered data set in half, so half of 129 children (64,5) fall below it. Since you can't have half a child, and the middle (65th) value IS the median itself, exactly 64 children fall strictly below it.",
+          "topic": "Data handling – Median from a box-and-whisker plot",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q3.3.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-3-3-3",
+          "label": "3.3.3",
+          "questionText": "The study included 142 children in total: 13 malnourished (9,15%) and 129 with normal nutritional status (see question 3.3.1).\n\nComment on the selection of the sample of children selected.",
+          "marks": 2,
+          "memoText": "**Unfair/biased sampling — having a sample of 13 malnourished and 129 normal children was skewed from the beginning.** (2O correct explanation)\n\nOR: The sample was skewed towards the normal nutritional status; the representation might have been based on the prevalence of malnourished to normal status in the wider population.\n\nTeaching point: A fair comparison usually needs reasonably balanced group sizes — with only 13 malnourished children against 129 normal children, conclusions drawn about the malnourished group are far less reliable.",
+          "topic": "Data handling – Evaluating a sampling method",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q3.3.png"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Grocery price comparison and doughnut fundraiser break-even analysis",
+      "totalMarks": 33,
+      "subQuestions": [
+        {
+          "id": "math-lit-p1-nov-2023-4-1-1",
+          "label": "4.1.1",
+          "questionText": "The Swartz family received news that their daughter was selected to go on a sports tour to Bloemfontein. They compared the in-store and online prices of two supermarkets for items needed to prepare meals for the bus tour.\n\nTABLE 5 below shows the in-store and the online prices of P&P store and W&W store for some items.\n\n**TABLE 5: PRICE (IN RAND) OF TWO STORES — IN-STORE VS ONLINE PRICES**\n\n| ITEMS | P&P In-store | P&P Online | W&W In-store | W&W Online |\n|---|---|---|---|---|\n| Apples | 16,50 | 16,50 | 14,99 | 21,99 |\n| Bread | 6,50 | 6,99 | 11,95 | 13,45 |\n| Cabbage | 10,99 | 10,99 | 12,99 | 12,99 |\n| Coca-Cola | 13,50 | 15,99 | 15,95 | 15,95 |\n| Eggs | 12,95 | 12,95 | 20,99 | 20,99 |\n| Cake flour | 32,99 | 30,99 | 13,95 | 14,95 |\n| Mealie-meal | 17,49 | 17,48 | 18,95 | 19,95 |\n| Margarine | 17,95 | 16,95 | 23,99 | 23,99 |\n| Milk | 22,79 | 22,79 | 27,95 | 27,95 |\n| Rice | 18,29 | 18,29 | 22,95 | 24,95 |\n| Sugar | 23,90 | 26,99 | 29,95 | 29,95 |\n| Tea | 14,89 | 14,89 | 15,95 | 15,95 |\n| Delivery | — | 50,00 | — | 50,00 |\n| Total | 208,74 | 261,80 | 230,56 | 293,06 |\n\nUse TABLE 5 above to answer the questions that follow.\n\nWrite down the modal in-store price for P&P store.",
+          "marks": 2,
+          "memoText": "**No mode** (2A no mode)\n\nAccept: None\n\nTeaching point: The mode is the value that appears MOST often. Every P&P in-store price in the table (16,50 / 6,50 / 10,99 / 13,50 / 12,95 / 32,99 / 17,49 / 17,95 / 22,79 / 18,29 / 23,90 / 14,89) is different, so there is no repeated value and therefore no mode.",
+          "topic": "Data handling – Mode from a table",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q4.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-4-1-2",
+          "label": "4.1.2",
+          "questionText": "TABLE 5 shows the in-store and online prices for W&W store (see the table in question 4.1.1).\n\nDetermine the number of items where the in-store and online prices are the same for the W&W store.",
+          "marks": 2,
+          "memoText": "**7 items** — Cabbage, Coca-Cola, Eggs, Margarine, Milk, Sugar, Tea (2A number of items)\n\nTeaching point: Go row by row down the W&W In-store and W&W Online columns and count only the rows where the two numbers match exactly.",
+          "topic": "Data handling – Comparing two columns in a table",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q4.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-4-1-3",
+          "label": "4.1.3",
+          "questionText": "TABLE 5 shows the P&P in-store total is R208,74 and the P&P online total (including R50,00 delivery) is R261,80 (see the table in question 4.1.1).\n\nA one-way trip to the P&P store is R15 per person.\n\nCalculate how much Mrs Swartz would be saving if she bought all the items listed in the table directly from the store rather than shopping online.",
+          "marks": 4,
+          "memoText": "Cost of shopping in-store (including a return trip) = R208,74 + (R15 × 2) = **R238,74**\n\nAmount saved = R261,80 − R238,74 = **R23,06** (1MA multiplying by 2 for return trip + 1A simplification + RT correct online total + 1CA simplification)\n\nOR: Amount saved = (R261,80 − R208,74) − (R15,00 × 2) = R53,06 − R30 = R23,06\n\nTeaching point: A \"one-way trip\" cost must be doubled to get a return trip, since Mrs Swartz has to travel to the store AND back home again. Add that travel cost to the in-store total before comparing it to the online total.",
+          "topic": "Finance – Comparing costs (in-store vs online, including travel)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q4.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-4-1-4",
+          "label": "4.1.4",
+          "questionText": "TABLE 5 shows the W&W in-store prices for the 12 listed items (see the table in question 4.1.1): 14,99 / 11,95 / 12,99 / 15,95 / 20,99 / 13,95 / 18,95 / 23,99 / 27,95 / 22,95 / 29,95 / 15,95.\n\nDetermine the median price of the listed items for in-store shopping in the W&W store.",
+          "marks": 4,
+          "memoText": "Arranged in order: 11,95 / 12,99 / 13,95 / 14,99 / 15,95 / 15,95 / 18,95 / 20,99 / 22,95 / 23,99 / 27,95 / 29,95\n\nMiddle two values (6th and 7th) = R15,95 and R18,95\n\nMedian = (15,95 + 18,95) ÷ 2 = **R17,45** (1A arranging values + 1RT two middle values + 1MA concept of median + 1CA simplification)\n\nTeaching point: With an even number of values (12 items here), the median is the average of the two middle values once everything is sorted from smallest to largest.",
+          "topic": "Data handling – Median from a table",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q4.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-4-1-5",
+          "label": "4.1.5",
+          "questionText": "TABLE 5 shows the in-store and online prices for P&P store (see the table in question 4.1.1).\n\nCalculate the probability of randomly selecting an item from the P&P store where the in-store price is exactly the same as the online price.",
+          "marks": 3,
+          "memoText": "Items with matching in-store/online prices at P&P: Apples, Cabbage, Eggs, Milk, Rice, Tea = 6 items out of 12\n\nProbability = 6/12 = **1/2 (0,5 or 50%)** (2A numerator + 1A denominator)\n\nTeaching point: Probability = number of favourable outcomes ÷ total number of outcomes. Here, \"favourable\" means the item where the two prices match, out of all 12 listed items.",
+          "topic": "Probability – Calculating probability from a table",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q4.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-4-2-1",
+          "label": "4.2.1",
+          "questionText": "The Swartz family also decided to buy and resell doughnuts in packets of four in order to fund the tour. They sourced the prices of doughnuts at four stores.\n\nTheir target was to sell 100 packets of doughnuts. The fixed cost for the buying and re-packaging of the doughnuts was R201,00.\n\nThe graphs for the income and expenses for the buying, re-packaging and selling of the packets of doughnuts, as well as the store prices of the doughnuts, are given in ANNEXURE C.\n\n**ANNEXURE C: STORE PRICES FOR A PACKET OF 4 DOUGHNUTS (approximate readings from the bar graph)**\n\n| Store | Price per packet of 4 |\n|---|---|\n| Bakers Store | R6,00 |\n| Sweet Treats | R8,00 |\n| P&P | R9,00 |\n| FLM | R10,00 |\n\n**INCOME AND EXPENSES GRAPH (approximate readings)**\n\n- Fixed cost (buying + re-packaging, before any doughnuts are bought): R201,00\n- Total Expenses line: R201,00 + R10,00 × (number of packets sold)\n- Total Income line: R20,00 × (number of packets sold)\n\nUse ANNEXURE C and the information above to answer the questions that follow.\n\nWrite down the name of the store that offers the third lowest price.",
+          "marks": 2,
+          "memoText": "Ranking lowest to highest: Bakers Store (R6,00) → Sweet Treats (R8,00) → **P&P (R9,00)** → FLM (R10,00)\n\n**P&P store** (2A correct store)\n\nTeaching point: \"Third lowest\" means you must rank ALL the prices from smallest to largest first, then count up to the third position — it's easy to mistakenly read off the third-highest instead.",
+          "topic": "Data handling – Reading from a graph (ranking values)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q4.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-4-2-2",
+          "label": "4.2.2",
+          "questionText": "ANNEXURE C shows the store prices for a packet of 4 doughnuts (see the table in question 4.2.1): Bakers Store R6,00, Sweet Treats R8,00, P&P R9,00, FLM R10,00. The fixed cost for buying and re-packaging is R201,00.\n\nThe total cost for buying and re-packaging 50 packets of doughnuts is R701,00.\n\nDetermine, with calculations, from which store they bought the doughnuts.",
+          "marks": 6,
+          "memoText": "Variable cost for 50 packets = R701,00 − R201,00 (fixed cost) = R500,00\n\nCost per packet = R500,00 ÷ 50 = **R10,00 per packet**\n\nThat matches the price at **FLM store** (1MA subtracting fixed cost + 1A number of doughnuts/variable cost + 1A cost of packs + 1MA dividing by 50 + 1CA simplification + 1A correct store)\n\nTeaching point: The total cost always splits into fixed cost (paid regardless of quantity) and variable cost (which scales with the number of packets). Strip out the fixed cost first, then divide the remainder by the number of packets to find the price per packet — then match that price back to the store list.",
+          "topic": "Finance – Break-even (working backwards to find unit cost)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q4.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-4-2-3",
+          "label": "4.2.3",
+          "questionText": "The doughnuts were bought from FLM store at R10,00 per packet, with a fixed cost of R201,00 for buying and re-packaging, and sold at R20,00 per packet (see questions 4.2.1 and 4.2.2).\n\nMr Swartz stated that the break-even point was reached before the sale of 20 packets.\n\nState, with a reason, whether you agree or disagree with his statement.",
+          "marks": 3,
+          "memoText": "**Disagree** — at 20 packets, Expenses = R201 + (R10 × 20) = R401, while Income = R20 × 20 = R400. The expenses are still higher than the income, so break-even has not yet been reached before 20 packets. (1A disagree + 2O reason)\n\nTeaching point: The break-even point is where the Income line crosses the Expenses line. To check a claim about \"before/after\" a specific quantity, calculate BOTH income and expenses at that exact quantity and compare them — don't just estimate from the graph shape.",
+          "topic": "Finance – Break-even point (interpreting a graph)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q4.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-4-2-4",
+          "label": "4.2.4",
+          "questionText": "The doughnuts have a fixed cost of R201,00 and are sold at R20,00 per packet (see questions 4.2.1 to 4.2.3).\n\nIf the selling price increased, write down, with a reason, whether the break-even point would now be lower or higher.",
+          "marks": 3,
+          "memoText": "**Lower** — a higher selling price means more income is earned per packet sold, so the fixed and variable costs are covered after fewer packets are sold, reaching break-even sooner (i.e. at a lower number of packets). (1A lower + 2O reason)\n\nTeaching point: On the Income vs Expenses graph, raising the selling price makes the Income line steeper, so it crosses the (unchanged) Expenses line earlier — at a smaller quantity.",
+          "topic": "Finance – Break-even point (effect of a price change)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q4.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-4-2-5",
+          "label": "4.2.5",
+          "questionText": "The doughnuts have a fixed cost of R201,00, a variable cost of R10,00 per packet, and are sold at R20,00 per packet (see questions 4.2.1 to 4.2.4).\n\nDetermine the percentage profit they would make if all 100 packets of doughnuts were sold.\n\nYou may use the formula:\n\nPercentage profit = (Total Income − Total Expenses) ÷ Total Expenses × 100%",
+          "marks": 4,
+          "memoText": "Total Expenses (100 packets) = R201 + (R10 × 100) = **R1 201**\n\nTotal Income (100 packets) = R20 × 100 = **R2 000**\n\nPercentage profit = (R2 000 − R1 201) ÷ R1 201 × 100% = **66,53%** (1RT correct value from graph + 1RT correct value from graph + 1SF correct substitution + 1CA simplification)\n\nTeaching point: Work out Total Income and Total Expenses separately first (each is a rate × 100 packets, plus the fixed cost for expenses), then substitute both into the given formula — don't try to skip straight to a percentage without those two totals.",
+          "topic": "Finance – Percentage profit (using a formula)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q4.2.png"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Global flight statistics and foreign currency exchange",
+      "totalMarks": 21,
+      "subQuestions": [
+        {
+          "id": "math-lit-p1-nov-2023-5-1-1",
+          "label": "5.1.1",
+          "questionText": "People take flights daily, either locally, nationally or internationally.\n\nTABLE 6 below shows the average daily flights taken in the top 10 countries, the top 10 aircraft operators for 2022 and the percentage (%) change from 2019. Some values have been omitted.\n\n**TABLE 6: TOP 10 COUNTRIES AND AIRCRAFT OPERATORS**\n\n| COUNTRY | 2022 avg. daily flights | % change from 2019 |\n|---|---|---|\n| United Kingdom | 4 728 | −20% |\n| Germany | 4 293 | −25% |\n| Spain | 4 277 | −9% |\n| France | 3 763 | A |\n| Italy | 3 201 | −12% |\n| Turkey | 2 634 | −8% |\n| Netherlands | 1 431 | −15% |\n| Greece | 1 327 | −1% |\n| Norway | 1 283 | −10% |\n| Switzerland | 1 125 | −15% |\n\n| AIRCRAFT OPERATORS | 2022 avg. daily flights | % change from 2019 |\n|---|---|---|\n| Ryanair Group | 2 566 | +9% |\n| Easy Jet Group | 1 347 | −20% |\n| Turkish Airlines | 1 249 | −7% |\n| Lufthansa Airlines | 1 067 | −29% |\n| Air France Group | 952 | −21% |\n| KLM Group | 709 | −18% |\n| Wizz Air Group | 667 | +13% |\n| British Airways Group | B | −30% |\n| Vueling | 547 | −10% |\n| SAS Group | 536 | −35% |\n\nUse TABLE 6 above to answer the questions that follow.\n\nWrite down the aircraft operator whose average daily flights increased the most since 2019.",
+          "marks": 2,
+          "memoText": "**Wizz Air Group** (+13%, the largest positive % change) (2A correct answer)\n\nTeaching point: Only two aircraft operators have a positive % change (Ryanair Group +9% and Wizz Air Group +13%) — the rest all decreased. \"Increased the most\" means the largest positive value, so Wizz Air Group at +13%.",
+          "topic": "Data handling – Reading a table (identifying an extreme value)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q5.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-5-1-2",
+          "label": "5.1.2",
+          "questionText": "TABLE 6 shows France operated 3 763 average daily flights in 2022 (see the table in question 5.1.1).\n\nFrance operated 4 290 average daily flights in 2019.\n\nDetermine missing value A, rounded to the nearest whole number.",
+          "marks": 4,
+          "memoText": "% change = (3 763 − 4 290) ÷ 4 290 × 100% = −527 ÷ 4 290 × 100% = −12,29...%\n\n**A = −12%** (1RT correct value (3 763) + 1A correct denominator + 1A simplification + 1R correct rounding)\n\nTeaching point: % change = (new value − old value) ÷ old value × 100%. Using 2022 as the \"new\" value and 2019 as the \"old\" value gives a negative result here, showing the number of flights decreased.",
+          "topic": "Finance – Percentage change (working backwards)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q5.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-5-1-3",
+          "label": "5.1.3",
+          "questionText": "TABLE 6 shows the % change from 2019 for the aircraft operators, ranging from Wizz Air Group (+13%) to SAS Group (−35%) (see the table in question 5.1.1).\n\nCalculate the range for the % change from 2019 for the aircraft operators.",
+          "marks": 3,
+          "memoText": "Range = highest value − lowest value = 13% − (−35%) = **48%** (1RT correct value + 1RT correct value + 1A simplification)\n\nTeaching point: Range = maximum − minimum. When the minimum is negative, subtracting a negative number is the same as adding — so 13 − (−35) = 13 + 35 = 48.",
+          "topic": "Data handling – Range",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q5.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-5-1-4",
+          "label": "5.1.4",
+          "questionText": "TABLE 6 shows the 2022 average daily flights for 9 of the 10 aircraft operators, with British Airways Group's value shown as B: Ryanair 2 566, Easy Jet 1 347, Turkish Airlines 1 249, Lufthansa 1 067, Air France 952, KLM 709, Wizz Air 667, British Airways B, Vueling 547, SAS 536 (see the table in question 5.1.1).\n\nCalculate missing value B, if the mean number of flights for aircraft operators for 2022 is 1 028,2.\n\nUse the formula: Mean = Sum of all values ÷ Number of values",
+          "marks": 4,
+          "memoText": "Sum of all 10 values = Mean × 10 = 1 028,2 × 10 = 10 282\n\nSum of the 9 known values = 2 566 + 1 347 + 1 249 + 1 067 + 952 + 709 + 667 + 547 + 536 = 9 640\n\nB = 10 282 − 9 640 = **642** (1MA concept of mean + 1MA adding values + 1MA changing the subject of the formula + 1CA simplification)\n\nTeaching point: To reverse-engineer a mean, first multiply the mean by the number of values to get the total sum, then subtract every known value to isolate the missing one.",
+          "topic": "Data handling – Mean (working backwards)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q5.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-5-1-5",
+          "label": "5.1.5",
+          "questionText": "TABLE 6 shows the % change from 2019 for the 10 aircraft operators, of which 2 (Ryanair Group and Wizz Air Group) increased (see the table in question 5.1.1).\n\nDetermine the probability, as a decimal, of randomly selecting an aircraft operator whose average daily flights increased from 2019 to 2022.",
+          "marks": 3,
+          "memoText": "Probability = 2/10 = **0,2** (1A numerator + 1A denominator + 1CA simplification)\n\nTeaching point: Count how many of the 10 operators have a positive (increasing) % change — only Ryanair Group and Wizz Air Group — then express that as a fraction of the total 10, converted to a decimal.",
+          "topic": "Probability – Calculating probability as a decimal",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q5.1.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-5-2-1",
+          "label": "5.2.1",
+          "questionText": "Timothy will fly from the United States of America to Palestine to play in a tournament. Before he leaves, he wants to exchange $2 580 for New Israeli shekel (NIS).\n\nThe currency used in Palestine is the New Israeli shekel (NIS).\n\nTABLE 7 below shows the currency conversion factors for four countries on 19 March 2023.\n\n**TABLE 7: CURRENCY CONVERSION FACTORS FOR FOUR COUNTRIES ON 19 MARCH 2023**\n\n| CURRENCY | UNITS PER NIS | NIS PER UNIT |\n|---|---|---|\n| Thai baht (฿) | 9,3223584 | 0,107269 |\n| Jordanian dinar (JOD) | 0,19368367 | 5,16306 |\n| South African rand (ZAR) | 5,0428413 | 0,198301 |\n| United States dollar (US$) | 0,27317867 | 3,66061 |\n\nUse TABLE 7 and the information above to answer the questions that follow.\n\nState whether the New Israeli shekel (NIS) is stronger or weaker than the South African rand (ZAR).",
+          "marks": 2,
+          "memoText": "**Stronger** — it takes 5,0428413 ZAR to equal just 1 NIS, so the NIS is worth more than the ZAR. (2A stronger)\n\nTeaching point: In a \"units per NIS\" table, a bigger number means it takes MORE of that currency to equal 1 NIS — which means that currency is WEAKER than the NIS (and the NIS is stronger).",
+          "topic": "Finance – Currency conversion (comparing exchange rates)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q5.2.png"
+        },
+        {
+          "id": "math-lit-p1-nov-2023-5-2-2",
+          "label": "5.2.2",
+          "questionText": "TABLE 7 shows 1 United States dollar (US$) = 3,66061 New Israeli shekel (NIS) (see the table in question 5.2.1).\n\nTimothy wants to exchange $2 580 for New Israeli shekel (NIS).\n\nCalculate the amount Timothy will receive in New Israeli shekel (NIS).",
+          "marks": 3,
+          "memoText": "$2 580 × 3,66061 = **NIS 9 444,37** (1A identifying correct exchange rate + 1MA multiplying with exchange rate + 1A simplification)\n\nOR: Using NIS 1 = $0,27317867: $2 580 ÷ 0,27317867 = NIS 9 444,37\n\nTeaching point: To convert FROM dollars TO shekels, multiply by the \"NIS per unit\" rate for US$ (3,66061) — or equivalently, divide by the \"units per NIS\" rate (0,27317867). Both give the same answer.",
+          "topic": "Finance – Currency conversion (calculation)",
+          "type": "written",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math_lit_p1_nov_2023_q5.2.png"
+        }
+      ]
+    }
+  ]
+}
