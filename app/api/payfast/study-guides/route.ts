@@ -37,6 +37,8 @@ const STUDY_GUIDE_PRICES: Record<number, number> = {
 const ALLOWED_ORIGINS = [
     "https://rubyaitutor.com",
     "https://www.rubyaitutor.com",
+    "https://rubyaitutor.web.app",
+    "https://rubyaitutor.firebaseapp.com",
     "http://localhost:5173",
 ];
 
