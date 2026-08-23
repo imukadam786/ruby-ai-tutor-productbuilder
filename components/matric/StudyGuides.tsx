@@ -99,6 +99,11 @@ const SUBJECTS: Subject[] = [
         description: "Poësie, drama en prosa",
         filename: "afrikaans-fal-p2-nov-2026-studyguide_compressed.pdf",
       },
+      {
+        label: "Paper 1 — Comprehension & Language (Nov 2026)",
+        description: "Begripstoets, opsomming en taalstrukture",
+        filename: "afrikaans-fal-p1-nov-2026-studyguide_compressed.pdf",
+      },
     ],
   },
   {
