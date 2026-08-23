@@ -368,16 +368,16 @@ export async function POST(
             custom_str1:
                 "study-guides",
 
+            // Explicitly once-off.
+            custom_str3:
+                "once-off",
+
             // Actual guides purchased.
             //
             // Example:
             // math,science
             custom_str4:
                 uniqueGuideIds.join(","),
-
-            // Explicitly once-off.
-            custom_str3:
-                "once-off",
         };
 
         // ─────────────────────────────────────────────────────────────────────
