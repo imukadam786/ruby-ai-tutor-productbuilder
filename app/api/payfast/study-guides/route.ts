@@ -19,10 +19,21 @@ const PAYFAST_NOTIFY_URL =
 
 // These are the guide IDs used by your study guide app.
 const VALID_GUIDE_IDS = [
-    "math",
-    "science",
-    "english",
-    "mathslit",
+  "accounting",
+  "afrikaans",
+  "businessstudies",
+  "cat",
+  "consumerstudies",
+  "economics",
+  "english",
+  "geo",
+  "history",
+  "hospitality",
+  "lifesci",
+  "mathslit",
+  "math",
+  "science",
+  "tourism",
 ] as const;
 
 // Server-side pricing.
