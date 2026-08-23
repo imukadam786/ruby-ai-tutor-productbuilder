@@ -31,6 +31,7 @@ const CONTAIN_THUMBNAILS = new Set([
   "/thumbnails/business-studies.webp",
   "/thumbnails/economics.webp",
   "/thumbnails/tourism.webp",
+  "/thumbnails/hospitality.svg",
 ]);
 
 const SUBJECTS: Subject[] = [
@@ -150,6 +151,11 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Business Environments (Nov 2026)",
         description: "Business environments, entrepreneurship and business roles",
         filename: "business-studies-p1-nov-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Management & Operations (Nov 2026)",
+        description: "Business functions, financial management and human resources",
+        filename: "BusinessStudies_Paper2_StudyGuide_Nov2026_compressed.pdf",
       },
       {
         label: "Paper 1 — Business Environments",
@@ -285,6 +291,17 @@ const SUBJECTS: Subject[] = [
         description: "Nedersetting, bevolking, ekonomiese geografie en ontwikkeling",
         filename: "geo-p2-may-jun-2026-studyguide-afrikaans.pdf",
         language: "af",
+      },
+    ],
+  },
+  {
+    label: "Hospitality Studies",
+    thumbnail: "/thumbnails/hospitality.svg",
+    guides: [
+      {
+        label: "Paper 1 — Hospitality Studies (Nov 2026)",
+        description: "Hospitality operations, food and beverage, and tourism sectors",
+        filename: "hospitality-p1-nov-2026-studyguide_compressed.pdf",
       },
     ],
   },
