@@ -32,6 +32,8 @@ const CONTAIN_THUMBNAILS = new Set([
   "/thumbnails/economics.webp",
   "/thumbnails/tourism.webp",
   "/thumbnails/hospitality.svg",
+  "/thumbnails/cat.svg",
+  "/thumbnails/consumer-studies.svg",
 ]);
 
 const SUBJECTS: Subject[] = [
@@ -91,6 +93,11 @@ const SUBJECTS: Subject[] = [
         label: "Paper 3 — Writing",
         description: "Opstel en transaksionele skryfwerk",
         filename: "afr-fal-p3-may-jun-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Literature (Nov 2026)",
+        description: "Poësie, drama en prosa",
+        filename: "afrikaans-fal-p2-nov-2026-studyguide_compressed.pdf",
       },
     ],
   },
@@ -182,6 +189,28 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Computer Applications Technology",
+    thumbnail: "/thumbnails/cat.svg",
+    guides: [
+      {
+        label: "Paper 2 — Computer Applications Technology (Nov 2026)",
+        description: "Systems technologies, network technologies and information management",
+        filename: "cat-p2-nov-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
+    label: "Consumer Studies",
+    thumbnail: "/thumbnails/consumer-studies.svg",
+    guides: [
+      {
+        label: "Paper 1 — Consumer Studies (Nov 2026)",
+        description: "Consumer rights, food and nutrition, and textiles",
+        filename: "consumer-studies-p1-nov-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
     label: "Economics",
     thumbnail: "/thumbnails/economics.webp",
     guides: [
@@ -245,6 +274,16 @@ const SUBJECTS: Subject[] = [
     thumbnail: "/thumbnails/english.webp",
     guides: [
       {
+        label: "Paper 1 — Comprehension & Language (Nov 2026)",
+        description: "Reading comprehension, summary and language in context",
+        filename: "English_HL_Paper1_Study_Guide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Literature (Nov 2026)",
+        description: "Poetry, drama, novel and short stories",
+        filename: "english-hl-p2-nov-2026-studyguide_compressed.pdf",
+      },
+      {
         label: "Paper 1 — Comprehension & Language",
         description: "Reading comprehension, summary and language in context",
         filename: "eng-p1-may-jun-2026-studyguide1_compressed.pdf",
@@ -269,6 +308,11 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Physical Geography (Nov 2026)",
         description: "Climate, geomorphology, rivers and global atmospheric systems",
         filename: "geo-p1-nov-2026-study-guide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Human Geography (Nov 2026)",
+        description: "Settlement, population, economic geography and development",
+        filename: "geo-p2-nov-2026-study-guide.pdf",
       },
       {
         label: "Paper 1 — Physical Geography",
