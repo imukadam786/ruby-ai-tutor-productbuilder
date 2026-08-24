@@ -961,19 +961,6 @@ export default function Home() {
           .eq("id", session.user.id)
           .maybeSingle();
 
-        // No profile row = new OAuth (Google) user — route through onboarding steps 2-5
-        if (!userData) {
-          const googleName =
-            (session.user.user_metadata?.full_name as string | undefined) ||
-            (session.user.user_metadata?.name as string | undefined) ||
-            "";
-          const googleEmail = session.user.email || "";
-          setInitialOnboardingStep(2);
-          setInitialOnboardingData({ name: googleName, email: googleEmail, userId: session.user.id });
-          setAppState("onboarding");
-          return;
-        }
-
         const { data: subData } = await supabase
           .from("subscriptions")
           .select("status")
