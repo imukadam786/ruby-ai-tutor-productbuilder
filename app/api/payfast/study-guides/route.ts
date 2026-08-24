@@ -3,6 +3,7 @@ import {
     generateSignature,
     PAYFAST_PROCESS_URL,
 } from "@/lib/payfast";
+import { VALID_STUDY_GUIDE_IDS } from "@/lib/study-guides";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Configuration
@@ -17,24 +18,8 @@ const AI_TUTOR_SIGNUP_URL =
 const PAYFAST_NOTIFY_URL =
     "https://ruby-ai-tutor.vercel.app/api/payfast/notify";
 
-// These are the guide IDs used by your study guide app.
-const VALID_GUIDE_IDS = [
-  "accounting",
-  "afrikaans",
-  "businessstudies",
-  "cat",
-  "consumerstudies",
-  "economics",
-  "english",
-  "geo",
-  "history",
-  "hospitality",
-  "lifesci",
-  "mathslit",
-  "math",
-  "science",
-  "tourism",
-] as const;
+// Guide IDs come from the shared catalog so checkout and fulfilment can never drift apart.
+const VALID_GUIDE_IDS = VALID_STUDY_GUIDE_IDS;
 
 // Server-side pricing.
 // NEVER accept the price directly from the browser.
@@ -229,9 +214,7 @@ export async function POST(
         const invalidGuide =
             uniqueGuideIds.find(
                 (id) =>
-                    !VALID_GUIDE_IDS.includes(
-                        id as typeof VALID_GUIDE_IDS[number]
-                    )
+                    !VALID_GUIDE_IDS.includes(id)
             );
 
         if (invalidGuide) {
