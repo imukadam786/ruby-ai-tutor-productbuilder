@@ -237,7 +237,7 @@ const SUBJECTS = [
   {
     id: "hospitality-studies",
     name: "Hospitality Studies",
-    thumbnail: "/thumbnails/tourism.webp",
+    thumbnail: "/thumbnails/hospitality.webp",
     color: "from-rose-400 to-orange-500",
     available: true,
   },

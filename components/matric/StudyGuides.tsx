@@ -31,9 +31,6 @@ const CONTAIN_THUMBNAILS = new Set([
   "/thumbnails/business-studies.webp",
   "/thumbnails/economics.webp",
   "/thumbnails/tourism.webp",
-  "/thumbnails/hospitality.svg",
-  "/thumbnails/cat.svg",
-  "/thumbnails/consumer-studies.svg",
 ]);
 
 const SUBJECTS: Subject[] = [
@@ -195,7 +192,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Computer Applications Technology",
-    thumbnail: "/thumbnails/cat.svg",
+    thumbnail: "/thumbnails/cat.webp",
     guides: [
       {
         label: "Paper 2 — Computer Applications Technology (Nov 2026)",
@@ -206,7 +203,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Consumer Studies",
-    thumbnail: "/thumbnails/consumer-studies.svg",
+    thumbnail: "/thumbnails/consumer-studies.webp",
     guides: [
       {
         label: "Paper 1 — Consumer Studies (Nov 2026)",
@@ -345,7 +342,7 @@ const SUBJECTS: Subject[] = [
   },
   {
     label: "Hospitality Studies",
-    thumbnail: "/thumbnails/hospitality.svg",
+    thumbnail: "/thumbnails/hospitality.webp",
     guides: [
       {
         label: "Paper 1 — Hospitality Studies (Nov 2026)",
