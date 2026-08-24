@@ -216,7 +216,14 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       }
       if (authData.user) {
         setSignedUpUserId(authData.user.id);
-        const trialExpiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
+        const isStudyGuidePurchaser = typeof window !== "undefined" &&
+          sessionStorage.getItem("ruby_study_guide_purchaser") === "1";
+        // Study-guide bundle purchasers already paid for AI Tutor access on the
+        // matric site and are here to claim it, not to sample a free trial —
+        // an already-past timestamp sends them straight to plan selection.
+        const trialExpiresAt = isStudyGuidePurchaser
+          ? new Date().toISOString()
+          : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
         await supabase.from("users").upsert({
           id: authData.user.id,
           email,
@@ -226,6 +233,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           curriculum: data.curriculum || null,
           language: data.language || "English",
           trial_expires_at: trialExpiresAt,
+          study_guide_purchaser: isStudyGuidePurchaser,
         });
         // Send welcome email — fire-and-forget, never blocks signup
         fetch("/api/email/welcome", {
@@ -321,6 +329,8 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
     };
     // Update Supabase with grade, curriculum, language and subjects now that user has selected them
     if (signedUpUserId) {
+      const isStudyGuidePurchaser = typeof window !== "undefined" &&
+        sessionStorage.getItem("ruby_study_guide_purchaser") === "1";
       await supabase.from("users").upsert({
         id: signedUpUserId,
         email,
@@ -330,8 +340,14 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         language: final.language,
         // null (not []) when there's no selection, so the hub fails open to "show all".
         subjects: finalSubjects.length ? finalSubjects : null,
-        trial_expires_at: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        trial_expires_at: isStudyGuidePurchaser
+          ? new Date().toISOString()
+          : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        study_guide_purchaser: isStudyGuidePurchaser,
       });
+      if (isStudyGuidePurchaser && typeof window !== "undefined") {
+        sessionStorage.removeItem("ruby_study_guide_purchaser");
+      }
       // Google OAuth users: welcome email is sent here (email sign-up sends it in handleSignUp)
       if (initialData?.userId === signedUpUserId) {
         fetch("/api/email/welcome", {

@@ -13,7 +13,7 @@ const STUDY_GUIDES_URL =
     "https://rubyaitutor.com/matrics";
 
 const AI_TUTOR_SIGNUP_URL =
-    "https://ruby-ai-tutor.vercel.app/";
+    "https://ruby-ai-tutor.vercel.app/?StudyGuidePurchaser=true";
 
 const PAYFAST_NOTIFY_URL =
     "https://ruby-ai-tutor.vercel.app/api/payfast/notify";

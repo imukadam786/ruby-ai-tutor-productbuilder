@@ -928,9 +928,19 @@ export default function Home() {
   // can land the learner in that skill tree instead of dumping them on Home.
   const [lastDiscovery, setLastDiscovery] = useState<"maths" | "reading" | null>(null);
   const [matricPrepPending, setMatricPrepPending] = useState(false);
+  // Landed here from the rubyaitutor.com/matrics 4-guide bundle redirect —
+  // no free trial, and the paywall screen shows different copy for them.
+  const [isStudyGuidePurchaser, setIsStudyGuidePurchaser] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    if (params.get("StudyGuidePurchaser") === "true") {
+      sessionStorage.setItem("ruby_study_guide_purchaser", "1");
+      setIsStudyGuidePurchaser(true);
+      const url = new URL(window.location.href);
+      url.searchParams.delete("StudyGuidePurchaser");
+      window.history.replaceState({}, "", url.pathname + url.search);
+    }
     if (params.get("reset") !== null) {
       supabase.auth.signOut();
       window.history.replaceState({}, "", window.location.pathname);
@@ -957,9 +967,10 @@ export default function Home() {
         // Check trial expiry and subscription status
         const { data: userData } = await supabase
           .from("users")
-          .select("trial_expires_at")
+          .select("trial_expires_at, study_guide_purchaser")
           .eq("id", session.user.id)
           .maybeSingle();
+        if (userData?.study_guide_purchaser) setIsStudyGuidePurchaser(true);
 
         const { data: subData } = await supabase
           .from("subscriptions")
@@ -1110,7 +1121,9 @@ export default function Home() {
         <div className="bg-white rounded-3xl shadow-xl w-full max-w-2xl my-4 overflow-hidden">
           <div className="text-center px-8 pt-8 pb-2">
             <div className="text-5xl mb-3">⏰</div>
-            <h1 className="text-2xl font-bold text-[#1a2744]">Your 7-day trial has ended</h1>
+            <h1 className="text-2xl font-bold text-[#1a2744]">
+              {isStudyGuidePurchaser ? "One step away to Ruby AI access" : "Your 7-day trial has ended"}
+            </h1>
             <p className="text-gray-400 text-sm mt-1">Upgrade to keep learning</p>
           </div>
           <PricingPlans mode="upgrade" showHeader={false} />
