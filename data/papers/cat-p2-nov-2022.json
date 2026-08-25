@@ -1,0 +1,1149 @@
+{
+  "id": "cat-p2-nov-2022",
+  "subject": "Computer Applications Technology",
+  "subjectCode": "cat",
+  "paperCode": "P2",
+  "year": 2022,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple-Choice Questions",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "cat-p2-nov-2022-1-1",
+          "label": "1.1",
+          "questionText": "The process during which your ISP slows down your internet connection is known as ...",
+          "marks": 1,
+          "memoText": "Correct answer: C throttling (1 mark)",
+          "topic": "Multiple-choice questions",
+          "type": "mcq",
+          "options": {
+            "A": "data cap",
+            "B": "shaping",
+            "C": "throttling",
+            "D": "bandwidth"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-1-2",
+          "label": "1.2",
+          "questionText": "Which ONE of the following processes would you use to protect your data?",
+          "marks": 1,
+          "memoText": "Correct answer: A Archiving (1 mark)",
+          "topic": "Multiple-choice questions",
+          "type": "mcq",
+          "options": {
+            "A": "Archiving",
+            "B": "Compression",
+            "C": "Error checking",
+            "D": "Firewall"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-1-3",
+          "label": "1.3",
+          "questionText": "Plug-and-play technology is used to ...",
+          "marks": 1,
+          "memoText": "Correct answer: D detect and configure new devices (1 mark)",
+          "topic": "Multiple-choice questions",
+          "type": "mcq",
+          "options": {
+            "A": "play games on a gaming console.",
+            "B": "access the content of a CD.",
+            "C": "install an operating system.",
+            "D": "detect and configure new devices."
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-1-4",
+          "label": "1.4",
+          "questionText": "A fraudulent process which tries to obtain sensitive information is called ...",
+          "marks": 1,
+          "memoText": "Correct answer: C phishing (1 mark)",
+          "topic": "Multiple-choice questions",
+          "type": "mcq",
+          "options": {
+            "A": "pharming.",
+            "B": "spamming.",
+            "C": "phishing.",
+            "D": "hoaxing."
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-1-5",
+          "label": "1.5",
+          "questionText": "Which ONE of the following is an example of a question that you should NOT include in a questionnaire in a PAT?",
+          "marks": 1,
+          "memoText": "Correct answer: A Why has the price of computers gone up? (1 mark)",
+          "topic": "Multiple-choice questions",
+          "type": "mcq",
+          "options": {
+            "A": "Why has the price of computers gone up?",
+            "B": "What is your favourite processor brand?",
+            "C": "Which operating system do you use?",
+            "D": "How many years have you been using computers?"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-1-6",
+          "label": "1.6",
+          "questionText": "The ... is used by the operating system to communicate with hardware devices.",
+          "marks": 1,
+          "memoText": "Correct answer: B Device Driver (1 mark)",
+          "topic": "Multiple-choice questions",
+          "type": "mcq",
+          "options": {
+            "A": "Device Manager",
+            "B": "Device Driver",
+            "C": "Audio Manager",
+            "D": "Disk Defragmenter"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-1-7",
+          "label": "1.7",
+          "questionText": "Which ONE of the following is NOT a task generally performed during the processing phase of the information processing cycle?",
+          "marks": 1,
+          "memoText": "Correct answer: A Send to storage (1 mark)",
+          "topic": "Multiple-choice questions",
+          "type": "mcq",
+          "options": {
+            "A": "Send to storage",
+            "B": "Search and sort",
+            "C": "Compare and decide",
+            "D": "Perform calculations"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-1-8",
+          "label": "1.8",
+          "questionText": "Which ONE of the following database objects is a user-friendly interface for capturing data?",
+          "marks": 1,
+          "memoText": "Correct answer: D Form (1 mark)",
+          "topic": "Multiple-choice questions",
+          "type": "mcq",
+          "options": {
+            "A": "Table",
+            "B": "Query",
+            "C": "Report",
+            "D": "Form"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-1-9",
+          "label": "1.9",
+          "questionText": "Which validation rule for a DateOfBirth field will allow ONLY dates of people born in the years 2003 to 2013?",
+          "marks": 1,
+          "memoText": "Correct answer: D >=#01/01/2003# AND <=#31/12/2013# (1 mark)",
+          "topic": "Multiple-choice questions",
+          "type": "mcq",
+          "options": {
+            "A": ">=2003 OR >=2013",
+            "B": ">=#01/01/2003# OR <=#31/12/2013#",
+            "C": ">=2003 AND >=2013",
+            "D": ">=#01/01/2003# AND <=#31/12/2013#"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-1-10",
+          "label": "1.10",
+          "questionText": "The following TWO spreadsheet functions are used on the same cell range A1:A8: =COUNTA(A1:A8) which returns a value of 6; =COUNT(A1:A8) which returns a value of 3. Which ONE of the following options is TRUE, based on the results above in the cell range A1:A8?",
+          "marks": 1,
+          "memoText": "Correct answer: B There are three numeric and three text values (1 mark)",
+          "topic": "Multiple-choice questions",
+          "type": "mcq",
+          "options": {
+            "A": "There is only one empty or blank cell.",
+            "B": "There are three numeric and three text values.",
+            "C": "There are six cells with numeric values.",
+            "D": "There are eight cells that contain any values."
+          }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Matching Items",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "cat-p2-nov-2022-2-1",
+          "label": "2.1",
+          "questionText": "Raw numbers or facts that are unorganised. Choose the matching term from: A VoIP, B information, C BIOS, D #NAME?, E data, F ISP, G gamer, H password, I operating system, J ROM, K telecommuting, L <img src=\"bird.jpg\">, M biometrics, N data capturer, O server, P <a href=\"bird.jpg\">, Q SOHO, R hub, S software version, T #VALUE!",
+          "marks": 1,
+          "memoText": "Correct answer: E data (1 mark)",
+          "topic": "Matching items",
+          "type": "matching",
+          "options": {
+            "A": "VoIP", "B": "information", "C": "BIOS", "D": "#NAME?", "E": "data",
+            "F": "ISP", "G": "gamer", "H": "password", "I": "operating system", "J": "ROM",
+            "K": "telecommuting", "L": "<img src=\"bird.jpg\">", "M": "biometrics", "N": "data capturer", "O": "server",
+            "P": "<a href=\"bird.jpg\">", "Q": "SOHO", "R": "hub", "S": "software version", "T": "#VALUE!"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-2-2",
+          "label": "2.2",
+          "questionText": "A device used on a network to manage and share resources. Choose the matching term from the same COLUMN B list as 2.1.",
+          "marks": 1,
+          "memoText": "Correct answer: O server (1 mark)",
+          "topic": "Matching items",
+          "type": "matching",
+          "options": {
+            "A": "VoIP", "B": "information", "C": "BIOS", "D": "#NAME?", "E": "data",
+            "F": "ISP", "G": "gamer", "H": "password", "I": "operating system", "J": "ROM",
+            "K": "telecommuting", "L": "<img src=\"bird.jpg\">", "M": "biometrics", "N": "data capturer", "O": "server",
+            "P": "<a href=\"bird.jpg\">", "Q": "SOHO", "R": "hub", "S": "software version", "T": "#VALUE!"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-2-3",
+          "label": "2.3",
+          "questionText": "An internet technology that enables people from various countries to communicate in real time. Choose the matching term from the same COLUMN B list as 2.1.",
+          "marks": 1,
+          "memoText": "Correct answer: A VoIP (1 mark)",
+          "topic": "Matching items",
+          "type": "matching",
+          "options": {
+            "A": "VoIP", "B": "information", "C": "BIOS", "D": "#NAME?", "E": "data",
+            "F": "ISP", "G": "gamer", "H": "password", "I": "operating system", "J": "ROM",
+            "K": "telecommuting", "L": "<img src=\"bird.jpg\">", "M": "biometrics", "N": "data capturer", "O": "server",
+            "P": "<a href=\"bird.jpg\">", "Q": "SOHO", "R": "hub", "S": "software version", "T": "#VALUE!"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-2-4",
+          "label": "2.4",
+          "questionText": "This user generally requires a good quality graphics card. Choose the matching term from the same COLUMN B list as 2.1.",
+          "marks": 1,
+          "memoText": "Correct answer: G gamer (1 mark)",
+          "topic": "Matching items",
+          "type": "matching",
+          "options": {
+            "A": "VoIP", "B": "information", "C": "BIOS", "D": "#NAME?", "E": "data",
+            "F": "ISP", "G": "gamer", "H": "password", "I": "operating system", "J": "ROM",
+            "K": "telecommuting", "L": "<img src=\"bird.jpg\">", "M": "biometrics", "N": "data capturer", "O": "server",
+            "P": "<a href=\"bird.jpg\">", "Q": "SOHO", "R": "hub", "S": "software version", "T": "#VALUE!"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-2-5",
+          "label": "2.5",
+          "questionText": "Firmware containing instructions for the start-up of a computer. Choose the matching term from the same COLUMN B list as 2.1.",
+          "marks": 1,
+          "memoText": "Correct answer: C BIOS (1 mark)",
+          "topic": "Matching items",
+          "type": "matching",
+          "options": {
+            "A": "VoIP", "B": "information", "C": "BIOS", "D": "#NAME?", "E": "data",
+            "F": "ISP", "G": "gamer", "H": "password", "I": "operating system", "J": "ROM",
+            "K": "telecommuting", "L": "<img src=\"bird.jpg\">", "M": "biometrics", "N": "data capturer", "O": "server",
+            "P": "<a href=\"bird.jpg\">", "Q": "SOHO", "R": "hub", "S": "software version", "T": "#VALUE!"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-2-6",
+          "label": "2.6",
+          "questionText": "An example of HTML code used to open a picture in a new browser window. Choose the matching term from the same COLUMN B list as 2.1.",
+          "marks": 1,
+          "memoText": "Correct answer: P <a href=\"bird.jpg\"> (1 mark)",
+          "topic": "Matching items",
+          "type": "matching",
+          "options": {
+            "A": "VoIP", "B": "information", "C": "BIOS", "D": "#NAME?", "E": "data",
+            "F": "ISP", "G": "gamer", "H": "password", "I": "operating system", "J": "ROM",
+            "K": "telecommuting", "L": "<img src=\"bird.jpg\">", "M": "biometrics", "N": "data capturer", "O": "server",
+            "P": "<a href=\"bird.jpg\">", "Q": "SOHO", "R": "hub", "S": "software version", "T": "#VALUE!"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-2-7",
+          "label": "2.7",
+          "questionText": "A technology that uses a person's unique physical characteristics to control access. Choose the matching term from the same COLUMN B list as 2.1.",
+          "marks": 1,
+          "memoText": "Correct answer: M biometrics (1 mark)",
+          "topic": "Matching items",
+          "type": "matching",
+          "options": {
+            "A": "VoIP", "B": "information", "C": "BIOS", "D": "#NAME?", "E": "data",
+            "F": "ISP", "G": "gamer", "H": "password", "I": "operating system", "J": "ROM",
+            "K": "telecommuting", "L": "<img src=\"bird.jpg\">", "M": "biometrics", "N": "data capturer", "O": "server",
+            "P": "<a href=\"bird.jpg\">", "Q": "SOHO", "R": "hub", "S": "software version", "T": "#VALUE!"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-2-8",
+          "label": "2.8",
+          "questionText": "A reason why certain documents display unreadable content when you open it on your computer, even though you have an appropriate application. Choose the matching term from the same COLUMN B list as 2.1.",
+          "marks": 1,
+          "memoText": "Correct answer: S software version (1 mark)",
+          "topic": "Matching items",
+          "type": "matching",
+          "options": {
+            "A": "VoIP", "B": "information", "C": "BIOS", "D": "#NAME?", "E": "data",
+            "F": "ISP", "G": "gamer", "H": "password", "I": "operating system", "J": "ROM",
+            "K": "telecommuting", "L": "<img src=\"bird.jpg\">", "M": "biometrics", "N": "data capturer", "O": "server",
+            "P": "<a href=\"bird.jpg\">", "Q": "SOHO", "R": "hub", "S": "software version", "T": "#VALUE!"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-2-9",
+          "label": "2.9",
+          "questionText": "An arrangement for employees to work from home using ICTs. Choose the matching term from the same COLUMN B list as 2.1.",
+          "marks": 1,
+          "memoText": "Correct answer: K telecommuting (1 mark)",
+          "topic": "Matching items",
+          "type": "matching",
+          "options": {
+            "A": "VoIP", "B": "information", "C": "BIOS", "D": "#NAME?", "E": "data",
+            "F": "ISP", "G": "gamer", "H": "password", "I": "operating system", "J": "ROM",
+            "K": "telecommuting", "L": "<img src=\"bird.jpg\">", "M": "biometrics", "N": "data capturer", "O": "server",
+            "P": "<a href=\"bird.jpg\">", "Q": "SOHO", "R": "hub", "S": "software version", "T": "#VALUE!"
+          }
+        },
+        {
+          "id": "cat-p2-nov-2022-2-10",
+          "label": "2.10",
+          "questionText": "A spreadsheet error message that will appear if you enter the following function: =AVG(B1:B20). Choose the matching term from the same COLUMN B list as 2.1.",
+          "marks": 1,
+          "memoText": "Correct answer: D #NAME? (1 mark)",
+          "topic": "Matching items",
+          "type": "matching",
+          "options": {
+            "A": "VoIP", "B": "information", "C": "BIOS", "D": "#NAME?", "E": "data",
+            "F": "ISP", "G": "gamer", "H": "password", "I": "operating system", "J": "ROM",
+            "K": "telecommuting", "L": "<img src=\"bird.jpg\">", "M": "biometrics", "N": "data capturer", "O": "server",
+            "P": "<a href=\"bird.jpg\">", "Q": "SOHO", "R": "hub", "S": "software version", "T": "#VALUE!"
+          }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "True/False Items",
+      "totalMarks": 5,
+      "subQuestions": [
+        {
+          "id": "cat-p2-nov-2022-3-1",
+          "label": "3.1",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct it if FALSE by changing the underlined word(s): An ATM is an example of a dedicated device.",
+          "marks": 1,
+          "memoText": "True (1 mark)",
+          "topic": "True/false items",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-3-2",
+          "label": "3.2",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct it if FALSE by changing the underlined word(s): Green computing refers to old computing devices that people throw away and that end up in landfill sites.",
+          "marks": 1,
+          "memoText": "False, E-waste/Electronic waste (1 mark). Candidates must supply the correct term to earn the mark — the word FALSE alone is not enough.",
+          "topic": "True/false items",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-3-3",
+          "label": "3.3",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct it if FALSE by changing the underlined word(s): A monitor converts electronic data into a hard copy.",
+          "marks": 1,
+          "memoText": "False, Printer (1 mark). Candidates must supply the correct device to earn the mark — the word FALSE alone is not enough.",
+          "topic": "True/false items",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-3-4",
+          "label": "3.4",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct it if FALSE by changing the underlined word(s): The function of a router is to transmit data between computer networks.",
+          "marks": 1,
+          "memoText": "True (1 mark)",
+          "topic": "True/false items",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-3-5",
+          "label": "3.5",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct it if FALSE by changing the underlined word(s): <br\\> is used in HTML to create a horizontal line.",
+          "marks": 1,
+          "memoText": "False, <hr> (1 mark). Candidates must supply the correct tag to earn the mark — the word FALSE alone is not enough. (Ignore the forward or backslash in the candidate's answer.)",
+          "topic": "True/false items",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Systems Technologies",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "cat-p2-nov-2022-4-1",
+          "label": "4.1",
+          "questionText": "Explain what an office suite is.",
+          "marks": 2,
+          "memoText": "An office suite is a collection of programs (software applications) that link/integrate with each other/with a similar user interface. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-2-1",
+          "label": "4.2.1",
+          "questionText": "You should consider the resolution when buying input devices such as scanners or cameras. What unit of measurement is used to describe resolution?",
+          "marks": 1,
+          "memoText": "Any ONE: DPI/dots per inch; Pixel/Megapixel/MP. (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-2-2",
+          "label": "4.2.2",
+          "questionText": "Give ONE disadvantage of capturing an image with poor resolution.",
+          "marks": 1,
+          "memoText": "Any ONE: Poor resolution causes poor image quality; OCR does not work on poor quality images; cannot enlarge image. (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-3-1",
+          "label": "4.3.1",
+          "questionText": "Software bugs are unintended errors in software. Explain ONE method software developers use to avoid software bugs in their software, before distributing the final version of the software.",
+          "marks": 1,
+          "memoText": "Any ONE: Internal testing by a dedicated team/Alpha testing; distribute Beta/Test versions (public test and report errors which are then corrected by the developer); error reporting (developers use error reporting facilities when a program crashes). (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-3-2",
+          "label": "4.3.2",
+          "questionText": "Recommend ONE way in which a user can get rid of a software bug, other than keeping software updated.",
+          "marks": 1,
+          "memoText": "Any ONE: Install a patch; install a service pack. (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-4",
+          "label": "4.4",
+          "questionText": "Name the utility program that you can use to close an unresponsive application.",
+          "marks": 1,
+          "memoText": "Task Manager (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-5",
+          "label": "4.5",
+          "questionText": "Give TWO examples of metadata that you can use as criteria when you search for a file, other than using the file name.",
+          "marks": 2,
+          "memoText": "Any TWO: Last modified; date modified; file extension/file type; file size; date created; date printed; author; subject; GPS information; time, etc. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-6",
+          "label": "4.6",
+          "questionText": "You use a USB cable to connect a smartphone to your computer. Although the cable is connected properly, the devices do not communicate with each other. Suggest TWO ways to solve this problem.",
+          "marks": 2,
+          "memoText": "Any TWO: Restart the smartphone and restart the computer; use manufacturer's cable/use another USB cable/port; install/update the driver/firmware on the computer; enable the relevant settings on the smartphone/connect the smartphone to the computer as File Transfer; turn on USB debugging on your smartphone; adjust security settings of the computer to allow the smartphone to connect. (2 marks — do NOT accept disconnecting and reconnecting the cable)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-7",
+          "label": "4.7",
+          "questionText": "Explain TWO ways to check the actual size of a hard drive on a Windows PC, using the graphical user interface.",
+          "marks": 2,
+          "memoText": "Any TWO: This PC (in File Explorer); System information/Device specification/(Windows) Properties; Disk management; Task Manager. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-8-1",
+          "label": "4.8.1",
+          "questionText": "Disabled people may need special hardware devices to enable them to use ICTs. Name ONE input device specifically designed for disabled users.",
+          "marks": 1,
+          "memoText": "Any ONE: Sip and Puff; Braille keyboard/Large key keyboard; oversized buttons on devices; head operated pointer; foot operated mouse; eye movement tracking device; generous trackball e.g. AbleNet Wave. (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-8-2",
+          "label": "4.8.2",
+          "questionText": "Name ONE output device specifically designed for disabled users.",
+          "marks": 1,
+          "memoText": "Any ONE: Braille printer; vibrating pads (that does not emit sounds); LED indicator lights; Braille screen/display with feedback that can be felt. (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-9",
+          "label": "4.9",
+          "questionText": "You downloaded a video licensed under the Creative Commons (CC) agreement. Explain what a Creative Commons (CC) licence generally is.",
+          "marks": 2,
+          "memoText": "Creative Commons is a copyright agreement that allows anyone to use and share the content under certain conditions (e.g. free) from the copyright holder/owner. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-10-1",
+          "label": "4.10.1",
+          "questionText": "The owner of a restaurant saw the following advertisement for a point of sale (POS) device: '15\" ALL-IN-1 TOUCH PC FOR POINT OF SALE' with the specifications: 15\" All-in-1 Touch Screen Computer; CPU (2.0 GHz) Quad Core Processor; 4 GB RAM; 64 GB SSD; 6 x USB; LAN Port; 1 x VGA; Win10 Pro 64 bit. Why would it be advisable for a restaurant owner to buy an All-in-1 POS device?",
+          "marks": 1,
+          "memoText": "Any ONE: Less physical space/mobility; no cables connecting various components such as monitor; easy to install/no additional devices necessary; the intuitive design leads to higher productivity/more efficient. (1 mark)",
+          "topic": "Systems technologies",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-10-2",
+          "label": "4.10.2",
+          "questionText": "Referring to the same All-in-1 POS device advertised above (15\" All-in-1 Touch Screen Computer, CPU (2.0 GHz) Quad Core Processor, 4 GB RAM, 64 GB SSD, 6 x USB, LAN Port, 1 x VGA, Win10 Pro 64 bit): Why would the 64 GB SSD have a suitable capacity for a restaurant POS device?",
+          "marks": 1,
+          "memoText": "Any ONE: Data is stored centrally on a server and generally not on the POS system; dedicated device/only uses one program; generates small files that may be stored in temporary storage. (1 mark)",
+          "topic": "Systems technologies",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-10-3",
+          "label": "4.10.3",
+          "questionText": "Referring to the same All-in-1 POS device advertised above, which is a touch screen computer: Give TWO disadvantages of using touch screens.",
+          "marks": 2,
+          "memoText": "Input can be inaccurate when wearing gloves/user has wet fingers/screen becomes dirty; cumbersome to input large amounts of data/to make corrections. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-11",
+          "label": "4.11",
+          "questionText": "Give TWO reasons why you would zip/compress a file.",
+          "marks": 2,
+          "memoText": "Any TWO: Possible decrease in storage space for a file/reduce file size; uses less data when sending files; add a layer of security to files with password; send a folder or group of files as single/smaller e-mail attachment; faster to transfer large, zipped files to removable media. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-12-1",
+          "label": "4.12.1",
+          "questionText": "You wish to store files, but do not have enough storage space on your device. Which optical media would you recommend to store some files?",
+          "marks": 1,
+          "memoText": "CD, DVD or Blu-ray (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-4-12-2",
+          "label": "4.12.2",
+          "questionText": "Discuss ONE disadvantage of using a flash drive to store some files.",
+          "marks": 1,
+          "memoText": "Any ONE: Easy to lose; easily stolen; size to cost ratio is high/expensive per GB; limited read or write cycles. (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Internet and Network Technologies",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "cat-p2-nov-2022-5-1",
+          "label": "5.1",
+          "questionText": "What type of network can a company use to connect their offices across the country?",
+          "marks": 1,
+          "memoText": "WAN/GAN/VPN (1 mark)",
+          "topic": "Internet and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-5-2",
+          "label": "5.2",
+          "questionText": "Give TWO reasons why a teacher would require learners to log in on the computer centre's network.",
+          "marks": 2,
+          "memoText": "Any TWO: Necessary for secure profiles/gain access to folder associated with each profile; user profiles distinguish users on a network/the access rights for each user; necessary for a classroom management system; necessary to access services provided by the network server, e.g. file sharing, hardware sharing, internet. (2 marks)",
+          "topic": "Internet and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-5-3",
+          "label": "5.3",
+          "questionText": "Explain TWO reasons why you could get a 'Page not found' error when you try to open a bookmarked website.",
+          "marks": 2,
+          "memoText": "Any TWO: Website is down due to maintenance; page was removed/bookmarked page does not exist anymore; (host) server is offline. (2 marks)",
+          "topic": "Internet and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-5-4",
+          "label": "5.4",
+          "questionText": "Suggest TWO criteria you should consider when choosing an ISP.",
+          "marks": 2,
+          "memoText": "Any TWO: Coverage of the ISP's services; types of services/security offered by the ISP; download and upload speeds offered; support offered by the ISP; reviews from other customers, e.g. reliability; pricing/terms of the various packages/contracts available. (2 marks)",
+          "topic": "Internet and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-5-5",
+          "label": "5.5",
+          "questionText": "Recommend TWO netiquette rules for a WhatsApp study group chat.",
+          "marks": 2,
+          "memoText": "Any TWO: Be kind and courteous; do not send large attachments; do not type in capital letters; do not use vulgar language/use more formal language; keep chats related to the purpose of the group/do not send spam messages. (2 marks)",
+          "topic": "Internet and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-5-6-1",
+          "label": "5.6.1",
+          "questionText": "Explain the concept of a search engine.",
+          "marks": 1,
+          "memoText": "Software/application that finds/searches for web pages by using key words/phrases (1 mark)",
+          "topic": "Internet and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-5-6-2",
+          "label": "5.6.2",
+          "questionText": "Explain the concept of a web browser.",
+          "marks": 1,
+          "memoText": "A program that gives access to the WWW/software that allows the user to explore and to view web pages (1 mark)",
+          "topic": "Internet and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-5-7",
+          "label": "5.7",
+          "questionText": "Give a reason why users experience buffering when streaming videos.",
+          "marks": 1,
+          "memoText": "Any ONE: Insufficient bandwidth/slow internet connection; streaming in high resolution. (1 mark)",
+          "topic": "Internet and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-5-8",
+          "label": "5.8",
+          "questionText": "Give TWO uses of IoT in a home environment.",
+          "marks": 2,
+          "memoText": "Any TWO: Devices can be monitored via the internet; devices can be controlled via the internet; a variety of sensors can be used to produce data for decision-making; improves reliability of the automated devices; creates opportunities for the integration of various devices. (2 marks — specific examples of IoT device usage with a motivation are also accepted, e.g. a fire alarm connected to the fire department)",
+          "topic": "Internet and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-5-9",
+          "label": "5.9",
+          "questionText": "Name the system that a research company can use to address the need for more computer processing power, without having to buy new hardware.",
+          "marks": 1,
+          "memoText": "Grid computing (1 mark)",
+          "topic": "Internet and network technologies",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Information Management",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "cat-p2-nov-2022-6-1",
+          "label": "6.1",
+          "questionText": "Discuss TWO reasons why the following focus question is poorly formulated: 'How has cybersecurity affected your life and how did you resolve it?'",
+          "marks": 2,
+          "memoText": "There is more than one question; can be answered without research/the question is not broad enough. (2 marks)",
+          "topic": "Information management",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-6-2",
+          "label": "6.2",
+          "questionText": "Explain TWO disadvantages of using closed questions in a questionnaire.",
+          "marks": 2,
+          "memoText": "Any TWO: Forces the respondent to answer in a certain way/limited choices; no way of knowing if the question was properly understood; survey result could be biased; could result in information that is not meaningful/focus could be too narrow. (2 marks)",
+          "topic": "Information management",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-6-3",
+          "label": "6.3",
+          "questionText": "Define EACH of the following word processing features without referring to their position in a document: Citation; Bibliography.",
+          "marks": 2,
+          "memoText": "Citation: A single reference to a specific source (in the bibliography). Bibliography: A detailed list of all sources used in a document. (2 marks — do NOT accept reference to position in the document)",
+          "topic": "Information management",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-6-4",
+          "label": "6.4",
+          "questionText": "Explain TWO advantages of using electronic data rather than using data in a hard copy format.",
+          "marks": 2,
+          "memoText": "Any TWO: Easier to obtain data via e-mail, SMS, portable storage media; no need to retype or scan data; often more likely to be up to date; easier to share data; easier to correlate/analyse/find data; less physical space needed for storage of data; high speed transfer of data; easier to make backups; easier to edit/improve readability. (2 marks)",
+          "topic": "Information management",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-6-5",
+          "label": "6.5",
+          "questionText": "Give TWO database options/features in a query that you can use to analyse data.",
+          "marks": 2,
+          "memoText": "Any TWO: Criteria/functions in criteria; total(s)/group by (NOT grouping/group); sort; show (only relevant fields); calculated fields/filter; filter. (2 marks)",
+          "topic": "Information management",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Social Implications",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "cat-p2-nov-2022-7-1",
+          "label": "7.1",
+          "questionText": "What is the difference between a bot and a zombie?",
+          "marks": 2,
+          "memoText": "A bot is software/application used to automate certain tasks and actions. A zombie is an infected computer that has been taken over/is remotely controlled (by a hacker). (2 marks)",
+          "topic": "Social implications",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-7-2",
+          "label": "7.2",
+          "questionText": "Explain why users may not realise when they are victims of a spoofing attack.",
+          "marks": 1,
+          "memoText": "The e-mail address appears to be valid. (1 mark)",
+          "topic": "Social implications",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-7-3",
+          "label": "7.3",
+          "questionText": "Give TWO reasons why DDoS attacks are harmful.",
+          "marks": 2,
+          "memoText": "Any TWO: Legitimate users are not able to use the website/service/internet; website/company can lose income; reputational damage done to the company. (2 marks)",
+          "topic": "Social implications",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-7-4",
+          "label": "7.4",
+          "questionText": "Discuss the risk of posting videos that you made on social media platforms (such as TikTok or Instagram).",
+          "marks": 1,
+          "memoText": "Any ONE: Others can use and share your content as if it belongs to them/identity theft; you may become a victim of stalking/phishing/cyberbullying; agreement may state that you have transferred the ownership of your content to that platform; consequences such as legal liability/harming minors and others; disadvantaging yourself on a social/professional level. (1 mark)",
+          "topic": "Social implications",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-7-5",
+          "label": "7.5",
+          "questionText": "Give TWO ways to reduce the risk of your computer getting infected by a virus, other than installing an antivirus program or keeping software up to date.",
+          "marks": 2,
+          "memoText": "Any TWO: Do not click on links/attachments in suspicious e-mails or websites; do not use pirated/cracked software; only download files from safe sources; use a browser known for good security e.g. Firefox/pop-up blocker; minimise use of untrustworthy/external media to transfer data; scan external media before data transfer. (2 marks)",
+          "topic": "Social implications",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-7-6",
+          "label": "7.6",
+          "questionText": "Give TWO examples of how artificial intelligence (AI) can be useful in a school environment.",
+          "marks": 2,
+          "memoText": "Any TWO: Educational apps to personalise learning experience; digital classroom assistant can help with internet research; facial recognition on CCTV can assist with better management of the school disciplinary system; automated management of attendance using data gathered from CCTV and fingerprint scanners; analysis of trends based on data gathered by sensors such as facial recognition and fingerprint scanners, regarding attendance of school functions, academic performance, etc. (2 marks — realistic examples of robots, autonomous cars, etc. with reference to the school environment are also accepted)",
+          "topic": "Social implications",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Solution Development",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "cat-p2-nov-2022-8-1-1",
+          "label": "8.1.1",
+          "questionText": "The screenshot of a spreadsheet below shows the earnings by Sam, a sales representative. Row 1 is a title, 'Sam's Sales', merged and centred across columns A to G. Row 2 shows 'Commission percentage' with the value 7.50% in column G. Row 3 has the headers: Stock description (column A/B), Date purchased (column C), Date sold (column D), Number sold (column E), Total (column F), Bonus commission (column G). The data rows are: Convection oven, purchased 2022/01/10, sold 2022/05/10, Number sold 4, Total R3 520.00, Bonus commission #VALUE!; Portable game, purchased 2022/05/10, sold 2022/07/10, Number sold 1, Total R440.00, Bonus commission R33.00; Camcorder, purchased 2022/11/11, sold 20/11/2022, Number sold 3, Total R5 940.00, Bonus commission R445.50; LED monitor, purchased 2022/12/11, sold 24/11/2022, Number sold 2, Total R5 280.00, Bonus commission R396.00; Docking station, purchased 14/11/2022, sold 16/11/2022, Number sold 4, Total R1 760.00, Bonus commission R132.00. Row 9 is the Total row: Number sold = 10, Total = #####, Bonus commission = #VALUE!. What kind of formatting has been used in row 1 (the 'Sam's Sales' title), other than font changes?",
+          "marks": 1,
+          "memoText": "Merge and centre/Merge (1 mark)",
+          "topic": "Solution development",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-8-1-2",
+          "label": "8.1.2",
+          "questionText": "Referring to the same spreadsheet above: notice that the Date purchased and Date sold columns show a mix of date formats — some cells display dates as 2022/01/10 (YYYY/MM/DD) while others display dates as 20/11/2022, 24/11/2022, 14/11/2022 or 16/11/2022 (DD/MM/YYYY). Which data in the spreadsheet does not have consistent formatting?",
+          "marks": 1,
+          "memoText": "Date purchased/Date sold, or specific examples such as C4:D8/Dates (1 mark)",
+          "topic": "Solution development",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-8-1-3",
+          "label": "8.1.3",
+          "questionText": "Referring to the same spreadsheet above: the formula used to determine the bonus commission in cell G4 is =F4*$G$2. What does the $ symbol indicate AND what is its purpose?",
+          "marks": 2,
+          "memoText": "$ symbol: Absolute cell referencing. Purpose: The cell reference remains the same/constant when the formula is copied down/pasted. (2 marks)",
+          "topic": "Solution development",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-8-1-4",
+          "label": "8.1.4",
+          "questionText": "Referring to the same spreadsheet above: cell F9 (the Total row's Total column) displays the error #####. How can you correct the ##### error displayed in cell F9?",
+          "marks": 1,
+          "memoText": "Any ONE: Make column wider; decrease font size. (1 mark)",
+          "topic": "Solution development",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-8-1-5",
+          "label": "8.1.5",
+          "questionText": "Referring to the same spreadsheet above: the Number sold column has the values 4, 1, 3, 2 and 4 for the five stock items (Convection oven, Portable game, Camcorder, LED monitor, Docking station), and the SUM function used in cell E9 returns 10 instead of the correct total of 14. Give ONE reason why this result is incorrect.",
+          "marks": 1,
+          "memoText": "Any ONE: The cell range in the function is incorrect; some values in the column are formatted as text. (1 mark)",
+          "topic": "Solution development",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-8-2-1",
+          "label": "8.2.1",
+          "questionText": "A company created a database to keep a record of their customers. The screenshot below shows the fields in their database table, with Field Name and Data Type: CustomerID (Short Text), CustomerSurname (Date/Time), CustomerName (Short Text), ContactNumber (Number), Address (Short Text), CreditIncluded (Yes/No), DateOfPurchase (Number). Identify TWO fields where unsuitable data types were used.",
+          "marks": 2,
+          "memoText": "Any TWO: CustomerSurname; ContactNumber; DateOfPurchase. (2 marks)",
+          "topic": "Solution development",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-8-2-2",
+          "label": "8.2.2",
+          "questionText": "Referring to the same database table above (fields: CustomerID, CustomerSurname, CustomerName, ContactNumber, Address, CreditIncluded, DateOfPurchase): Which field would be more appropriate for a primary key? Motivate your answer.",
+          "marks": 2,
+          "memoText": "Appropriate field: CustomerID. Motivation: Contents will be unique. (2 marks)",
+          "topic": "Solution development",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-8-2-3",
+          "label": "8.2.3",
+          "questionText": "Referring to the same database table above: why would you recommend an input mask for the ContactNumber field?",
+          "marks": 1,
+          "memoText": "Any ONE: Input mask forces a standard/consistent format for data entry; the correct data format will be used for accurate input. (1 mark)",
+          "topic": "Solution development",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-8-3-1",
+          "label": "8.3.1",
+          "questionText": "The following menu displays in a web browser, with the address bar showing 'T:\\Menu.htm' and the page content displayed as plain, unstyled text (no formatting, colours, images or lists): 'MENU: Bright and Fresh Lodge', followed on separate lines by 'Phyllo with mushrooms', 'Beef with sauce', 'Baked potatoes', 'Chicken pie', 'Onion rings'. State THREE changes which you could make to the HTML code to improve the design and layout of the menu in the web page.",
+          "marks": 3,
+          "memoText": "Any THREE: Heading sizes/bold font; ordered list/unordered list; font type/size/style and font colour; background colour; images/icons; centre tags; table tags; links to descriptions/images, etc. (3 marks — any three examples/HTML tags are accepted even if all three examples refer to the same bullet number)",
+          "topic": "Solution development",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-8-3-2",
+          "label": "8.3.2",
+          "questionText": "Referring to the same web page menu above, which is a plain HTML text file: give ONE advantage of web pages being based on text files.",
+          "marks": 1,
+          "memoText": "Any ONE: Various browsers can be used to open the web pages; the web pages can be edited with various text editors, word processing programs, etc.; text-only files are small files which load faster. (1 mark)",
+          "topic": "Solution development",
+          "type": "structured"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Integrated Scenario — School Book Club",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "cat-p2-nov-2022-9-1-1",
+          "label": "9.1.1",
+          "questionText": "Your school started a book club to encourage learners to read. The chairperson of the book club requires your ICT knowledge to assist with the planning and administration of the book club. The chairperson keeps a record of the members and the books read by each member, using the electronic form below: title 'Best Book Club', then fields 'Name' (a plain dotted-underline text field), 'Surname' (a plain dotted-underline text field), 'Grade' (five checkboxes labelled 8, 9, 10, 11, 12), and 'Date Joined' (a plain dotted-underline text field). Recommend TWO changes you can make to the electronic form to ensure that data capturing is more accurate.",
+          "marks": 2,
+          "memoText": "Any TWO: Use a combo box/drop-down list for the Grade choices; use a date picker for the selection of the Date Joined; help text; validation rule to exclude future dates. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-1-2",
+          "label": "9.1.2",
+          "questionText": "Which application can you use offline to create an electronic form, such as the Best Book Club membership form?",
+          "marks": 1,
+          "memoText": "Any ONE: Word processor, e.g. (Microsoft) Word/Open Office/WordPerfect; database, e.g. (Microsoft) Access; spreadsheet, e.g. (Microsoft) Excel. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-2-1",
+          "label": "9.2.1",
+          "questionText": "The Ubuntu project distributes free books in PDF and other digital formats. One of the aims of the school book club is to encourage learners to read these books on their computing devices. Give TWO reasons why a laptop is NOT a suitable device to use only for reading books in digital format.",
+          "marks": 2,
+          "memoText": "Any TWO: Physical size (heavy/too big to carry around); physical keyboard can be an obstacle/irritation; unnecessary amount of processing power and RAM/under-utilised; much reduced battery life when compared to a dedicated e-book reader; risk of damage. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-2-2",
+          "label": "9.2.2",
+          "questionText": "Which TWO software settings on a device can be used to make books in PDF format accessible to visually impaired users?",
+          "marks": 2,
+          "memoText": "Any TWO: Activate the Text-to-Speech/Narrator software; use the magnifying utility; increase font size; use high contrast colours; brightness/set lighting options. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-2-3",
+          "label": "9.2.3",
+          "questionText": "Suggest TWO ways to extend the battery life of a device used for reading these PDF books.",
+          "marks": 2,
+          "memoText": "Any TWO: Reduce the screen brightness; enable battery saving settings; enable flight/airplane mode; close background apps; disable unused sensors such as an accelerometer. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-2-4",
+          "label": "9.2.4",
+          "questionText": "Name the concept used when learners use their own devices, instead of the school's devices, to download these PDF books.",
+          "marks": 1,
+          "memoText": "BYOD/Bring Your Own Device (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-2-5",
+          "label": "9.2.5",
+          "questionText": "Name TWO technologies that learners can use to share these PDF books in electronic format without using the internet or the school's network.",
+          "marks": 2,
+          "memoText": "Any TWO: Bluetooth; NFC; Wi-Fi direct (accept examples: SHAREit, Airdrop); OTG (On The Go)/flash drive/removable media/USB cable. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-3-1",
+          "label": "9.3.1",
+          "questionText": "The book club created a spreadsheet to capture lesser known words that learners came across during their reading. The spreadsheet has a title 'Vocabulary list' in row 1, and headers in row 2: No. (column A), Name of book (column B), Word (column C), Characters per word (column D). Some of the rows near the bottom of this large list are: row 90, No. 163, Name of book 'Gone with the Wind', Word 'Twilight', Characters per word 8; row 91, No. 164, 'Gone with the Wind', 'Chronograph', 11; row 92, No. 165, 'Gone with the Wind', 'Cyclone', 7; row 93, No. 166, 'Narnia', 'Enchanted', 9; row 94, No. 167, 'Narnia', 'Hallucinate', 11; row 95, No. 168, 'The Time Machine', 'Sabre', 5. Which word processing feature can be used on a particular word to display more words with the same meaning?",
+          "marks": 1,
+          "memoText": "Synonyms/Thesaurus (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-3-2",
+          "label": "9.3.2",
+          "questionText": "Referring to the same vocabulary list spreadsheet above (columns No., Name of book, Word, Characters per word): the chairperson would like to know how many words appear for each specific book. Suggest ONE spreadsheet feature that can be used to display this information.",
+          "marks": 1,
+          "memoText": "SUBTOTAL (1 mark — Pivot Table is also accepted)",
+          "topic": "Integrated scenario",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-3-3",
+          "label": "9.3.3",
+          "questionText": "Referring to the same vocabulary list spreadsheet above: some of these words will be used to create a crossword puzzle. Name the function that was used in cells D90:D95 (the 'Characters per word' column) to determine the number of characters in each word.",
+          "marks": 1,
+          "memoText": "LEN (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-3-4",
+          "label": "9.3.4",
+          "questionText": "Referring to the same vocabulary list spreadsheet above: give TWO ways to determine if words appear more than once in the spreadsheet.",
+          "marks": 2,
+          "memoText": "Any TWO: Conditional formatting; Find feature; sort the data. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-4-1",
+          "label": "9.4.1",
+          "questionText": "Learners are encouraged to maintain a blog where they can write reviews on the books they have read. Give TWO advantages of using a blog rather than a website to share a book review.",
+          "marks": 2,
+          "memoText": "Blogs are more suitable for personal opinions; allows others to comment or give an opinion. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-4-2",
+          "label": "9.4.2",
+          "questionText": "Learners are required to reference the book they are reviewing in their blog. Other than the title, give TWO fields that should be included in the source to reference the book.",
+          "marks": 2,
+          "memoText": "Any TWO: Author; year/date published; publisher; city/where published; edition; page; volume; access dates. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-5-1",
+          "label": "9.5.1",
+          "questionText": "The chairperson of the book club keeps track of the frequency of the attendance and the number of books read by each member. Suggest the most suitable application to store the details of the members' attendance and reading progress.",
+          "marks": 1,
+          "memoText": "Database/Access (accept Spreadsheet/Excel) (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-5-2",
+          "label": "9.5.2",
+          "questionText": "A certificate will be issued for each member who attends more than 80% of the meetings. Name the word processing feature that can be used to generate multiple certificates using one data source.",
+          "marks": 1,
+          "memoText": "Mail Merge/Mailings (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-9-5-3",
+          "label": "9.5.3",
+          "questionText": "Give TWO possible reasons why the printer stopped working halfway through printing the certificates.",
+          "marks": 2,
+          "memoText": "Any TWO: No paper; no ink/toner; paper jam; physical malfunction; printer has no power/disconnected, etc. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Integrated Scenario — Day-Care Centre ICT Support",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "cat-p2-nov-2022-10-1-1",
+          "label": "10.1.1",
+          "questionText": "Your neighbour, Mrs Khumalo, owns a day-care centre for children aged between 4 and 10 years old. You started working there in the afternoons. As part of your job, you are required to assist with some ICT issues. Mrs Khumalo has five computers in the administration area. Give TWO reasons why you would recommend a wireless network for this day-care centre.",
+          "marks": 2,
+          "memoText": "Any TWO: Ease of mobility; lower installation cost; easy to use and install; easier to cover a large area; no cable clutter. (2 marks — reasons for creating a network are also accepted)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-1-2",
+          "label": "10.1.2",
+          "questionText": "Referring to the day-care centre's five computers in the administration area: what hardware does the day-care centre need to be able to connect a desktop computer to an existing wireless network?",
+          "marks": 1,
+          "memoText": "Any ONE: Wireless NIC/Wi-Fi adapter/wireless dongle; USB dongle/router; PCI card. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-1-3",
+          "label": "10.1.3",
+          "questionText": "Give TWO disadvantages of using a network at the day-care centre's administration area.",
+          "marks": 2,
+          "memoText": "Any TWO: Viruses; security/hacking; additional hardware cost; specialised installation. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-1-4",
+          "label": "10.1.4",
+          "questionText": "Give TWO reasons why you would advise Mrs Khumalo NOT to set up a public hotspot at the day-care centre.",
+          "marks": 2,
+          "memoText": "Any TWO: Network security issues, e.g. other devices such as printers etc., can be accessed; physical security of learners/boundary may be compromised due to loiterers wanting to access the Wi-Fi; additional data costs due to many outsiders accessing the internet; only office computers require access to the network. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-2-1",
+          "label": "10.2.1",
+          "questionText": "Some parents donated old computers which the day-care centre can use to teach the children computer literacy and to access online educational software. Suggest TWO reasons why you would recommend that the day-care centre uses open-source software (OSS) to teach computer literacy.",
+          "marks": 2,
+          "memoText": "Any TWO: Free to use; variety of applications are available; can be customised for school requirements. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-2-2",
+          "label": "10.2.2",
+          "questionText": "Referring to the donated computers used to access online educational software: which measure can teachers take to prevent children from being exposed to sensitive content on the internet?",
+          "marks": 1,
+          "memoText": "Any ONE: Parental guidance software, e.g. Net Nanny, Qustodio, Bark, etc.; parental settings/set up child profiles/content filtering; firewall, etc. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-3-1",
+          "label": "10.3.1",
+          "questionText": "You advise Mrs Khumalo to make regular backups either locally or in the cloud. Give ONE reason why it is important to make regular backups.",
+          "marks": 1,
+          "memoText": "Prevent loss of data (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-3-2",
+          "label": "10.3.2",
+          "questionText": "Explain TWO benefits of using cloud-based storage instead of using the device on which you are working to backup data.",
+          "marks": 2,
+          "memoText": "Any TWO: Cloud storage is scalable when you need more storage space; cloud storage reduces the need for space on local storage; cloud storage cannot be lost/damaged like the local storage media/less chance of losing data; can automatically synchronise files/can access data from any device; collaboration and sharing of files. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-4-1",
+          "label": "10.4.1",
+          "questionText": "Mrs Khumalo received the following message on her computer: 'Your personal files are encrypted! To decrypt your files, you need to obtain a private key. The server will destroy the key after the time specified in this window. To obtain the private key you need to pay equivalent of 100 USD in Bitcoin. Pay here. Any attempt to remove or damage this software will lead to the immediate destruction of the private key by the server. Private key will be destroyed on 9/12/2022, 11:17 AM. Time left: 71:51:19.' Name the type of malware found in the example above.",
+          "marks": 1,
+          "memoText": "Ransomware (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-4-2",
+          "label": "10.4.2",
+          "questionText": "Referring to the same ransomware message above, which demands payment of 100 USD in Bitcoin to obtain a private key: give TWO reasons why the person who sent this message prefers payment in cryptocurrency.",
+          "marks": 2,
+          "memoText": "Any TWO: Cannot trace who the owner of the account is; secure method of payment; payment can be made to anywhere in the world/does not need to be converted to other currencies. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "structured"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-4-3",
+          "label": "10.4.3",
+          "questionText": "Cryptocurrencies, such as the Bitcoin demanded in the ransomware message above, use blockchain technology. Explain what blockchain technology is.",
+          "marks": 2,
+          "memoText": "Blockchain technology is a sequence of blocks or groups of transactions that are chained together and distributed among the users/constantly updated/verified. OR: The blockchain is an incorruptible public digital ledger of economic transactions (that can be programmed to record not just financial transactions, but virtually everything of value). (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-5-1",
+          "label": "10.5.1",
+          "questionText": "You advised Mrs Khumalo to include a QR code on her business card. Give TWO reasons why QR codes can be used to promote her business.",
+          "marks": 2,
+          "memoText": "Any TWO: A QR code links directly to a website/live stream; no spelling errors made in the input of the URL; can contain other information, e.g. contact details, etc. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-5-2",
+          "label": "10.5.2",
+          "questionText": "Referring to the QR code on Mrs Khumalo's business card: how can she ensure that the QR code will always automatically appear in the newly created word processing documents?",
+          "marks": 1,
+          "memoText": "Use a template (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-6-1",
+          "label": "10.6.1",
+          "questionText": "A parent donated a 3D printer to the day-care centre. State TWO ways in which Mrs Khumalo can use the 3D printer at the day-care centre to promote the education of young children.",
+          "marks": 2,
+          "memoText": "Any TWO: Print educational models; print building blocks for children; print educational toys, e.g. for counting; print missing parts of toys; print tracing templates, etc. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "cat-p2-nov-2022-10-6-2",
+          "label": "10.6.2",
+          "questionText": "Referring to the donated 3D printer at the day-care centre: discuss TWO reasons why Mrs Khumalo should NOT use the 3D printer in the presence of children.",
+          "marks": 2,
+          "memoText": "Any TWO: Gives off strong smells/toxic/harmful fumes; loose pieces could be choking hazards; young children may want to push buttons, which may cause the printer to malfunction; children may get hurt if they bump or touch the printer; very hot surfaces on the printer are dangerous. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        }
+      ]
+    }
+  ]
+}
