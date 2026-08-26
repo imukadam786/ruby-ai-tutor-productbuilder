@@ -179,9 +179,16 @@ export async function POST(request: NextRequest) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 async function handleStudyGuidePurchase(data: Record<string, string>): Promise<NextResponse> {
-  const { payment_status, email_address: email, custom_str4: guideIdsRaw, pf_payment_id: pfPaymentId } = data;
+  const {
+    payment_status,
+    email_address: email,
+    custom_str2: school,
+    custom_str4: guideIdsRaw,
+    pf_payment_id: pfPaymentId,
+    amount_gross: amountGross,
+  } = data;
 
-  console.log("[PayFast ITN] study-guides purchase", { payment_status, email, guideIdsRaw });
+  console.log("[PayFast ITN] study-guides purchase", { payment_status, email, school, guideIdsRaw });
 
   if (payment_status !== "COMPLETE") {
     return new NextResponse("OK", { status: 200 });
@@ -216,6 +223,20 @@ async function handleStudyGuidePurchase(data: Record<string, string>): Promise<N
     console.error("[PayFast ITN] study-guides purchase resolved to zero deliverable guides", { guideIdsRaw });
     return new NextResponse("OK", { status: 200 });
   }
+
+  // Record the order so we can see who from which school bought which
+  // guides — the PayFast statement itself only ever shows a guide count.
+  const { error: orderErr } = await supabaseAdmin
+    .from("study_guide_orders")
+    .insert({
+      email,
+      school: school || "unknown",
+      guide_ids: validGuides.map((g) => g.id),
+      guide_names: validGuides.map((g) => g.name),
+      amount: parseFloat(amountGross || "0"),
+      payfast_payment_id: pfPaymentId || null,
+    });
+  if (orderErr) console.error("[PayFast ITN] study_guide_orders insert error", orderErr);
 
   const { error } = await resend.emails.send({
     from: "Ruby AI Tutor <guides@rubyaitutor.com>",

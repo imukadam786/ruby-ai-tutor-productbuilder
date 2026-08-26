@@ -108,9 +108,11 @@ export async function POST(
 
         const {
             email,
+            school,
             guideIds,
         } = body as {
             email?: string;
+            school?: string;
             guideIds?: string[];
         };
 
@@ -133,6 +135,28 @@ export async function POST(
                 {
                     error:
                         "A valid email address is required.",
+                },
+                {
+                    status: 400,
+                    headers: corsHeaders,
+                }
+            );
+        }
+
+        // ─────────────────────────────────────────────────────────────────────
+        // Validate school
+        // ─────────────────────────────────────────────────────────────────────
+
+        const cleanSchool =
+            typeof school === "string"
+                ? school.trim()
+                : "";
+
+        if (!cleanSchool) {
+            return NextResponse.json(
+                {
+                    error:
+                        "A school is required.",
                 },
                 {
                     status: 400,
@@ -362,6 +386,11 @@ export async function POST(
             custom_str1:
                 "study-guides",
 
+            // Buyer's school, so we can see who from which school bought
+            // which guides once the ITN webhook records the order.
+            custom_str2:
+                cleanSchool,
+
             // Explicitly once-off.
             custom_str3:
                 "once-off",
@@ -431,6 +460,9 @@ export async function POST(
 
             custom_str1:
                 params.custom_str1,
+
+            custom_str2:
+                params.custom_str2,
 
             custom_str3:
                 params.custom_str3,
