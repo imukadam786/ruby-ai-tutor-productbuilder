@@ -51,7 +51,7 @@ export default function MobileBottomNav({
     { id: "home",     emoji: "🏠", label: t("sidebar.home"),     active: activeView === "home",  onClick: () => onViewChange("home") },
     { id: "progress", emoji: "📊", label: t("sidebar.progress"), active: activeView === "progress", onClick: () => onViewChange("progress") },
     { id: "chat",     emoji: "💬", label: t("sidebar.homework"), active: activeView === "chat",  onClick: () => onViewChange("chat") },
-    { id: "subjects", emoji: "📚", label: "Subjects",            active: subjectsActive,         onClick: () => onViewChange("subjects") },
+    { id: "subjects", emoji: "📚", label: "Revision",            active: subjectsActive,         onClick: () => onViewChange("subjects") },
     ...(showMatric
       ? [{ id: "matrics" as ActiveView, emoji: "🎓", label: "Matrics", active: matricsActive, onClick: () => onViewChange("matrics") }]
       : []),

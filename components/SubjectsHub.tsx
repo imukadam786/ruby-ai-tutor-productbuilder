@@ -908,7 +908,7 @@ export default function SubjectsHub({ onNavigate, onModeChange }: SubjectsHubPro
                 onClick={() => setLandingId(null)}
                 className="text-sm font-semibold text-gray-500 hover:text-gray-700 mb-4 inline-flex items-center gap-1"
               >
-                ← Subjects
+                ← Revision
               </button>
 
               <h1 className="text-2xl font-bold text-gray-900 mb-1">{landingSubject.label}</h1>

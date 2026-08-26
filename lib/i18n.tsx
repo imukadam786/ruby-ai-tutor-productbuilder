@@ -145,7 +145,7 @@ export const UI_STRINGS: Record<string, string> = {
   "common.send": "Send",
   "common.cancel": "Cancel",
   // Subjects hub
-  "subjects.title": "Subjects",
+  "subjects.title": "Revision",
   "subjects.subtitle": "Choose what to work on today.",
   // Discover hub
   "discover.title": "Discovery Activity",

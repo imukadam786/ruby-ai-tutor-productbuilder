@@ -69,7 +69,7 @@ export default function Sidebar({
     { id: "home",     emoji: "🏠", label: t("sidebar.home") },
     { id: "progress", emoji: "📊", label: t("sidebar.progress") },
     { id: "chat",     emoji: "💬", label: t("sidebar.homework") },
-    { id: "subjects", emoji: "📚", label: "Subjects" },
+    { id: "subjects", emoji: "📚", label: "Revision" },
     // Matrics is Grade 12-only — omitted entirely for every other learner.
     ...(showMatric ? [{ id: "matrics" as ActiveView, emoji: "🎓", label: "Matrics" }] : []),
   ];

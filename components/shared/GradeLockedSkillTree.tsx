@@ -15,7 +15,6 @@ import SkillTreeShell, {
   type SkillTreeStatus,
   type SkillTreeAccent,
 } from "@/components/shared/SkillTreeShell";
-import { CONCEPT_C } from "@/lib/flags";
 
 type BaseStatus = "locked" | "available" | "in_progress" | "mastered";
 
@@ -137,7 +136,12 @@ export default function GradeLockedSkillTree({
       const skills = tier.atomic_skills.map((skill) => {
         total += 1;
         tierTotal += 1;
-        const base = statusFor(skill.id);
+        const rawStatus = statusFor(skill.id);
+        // Exam-season override: Grade 12 sees nothing locked (it was already
+        // tappable either way — this only drops the cosmetic "locked" look).
+        // Temporary for the exam period — remove this to restore normal
+        // grade-locked cosmetics.
+        const base = grade === 12 && rawStatus === "locked" ? "available" : rawStatus;
         if (base === "mastered") { mastered += 1; tierMastered += 1; }
         const status: SkillTreeStatus =
           skill.id === currentSkillId && base === "available" ? "current" : base;
@@ -193,11 +197,7 @@ export default function GradeLockedSkillTree({
       accent={accent}
       title={title}
       backLabel={backLabel}
-      statline={
-        CONCEPT_C
-          ? `Gems to collect · ${mastered}/${total}`
-          : `${total > 0 && mastered === total ? 1 : 0}/1 Levels · ${masteredTiers}/${totalTiers} Tiers · ${mastered}/${total} Atomic skills · ${progress}%`
-      }
+      statline={`${total > 0 && mastered === total ? 1 : 0}/1 Levels · ${masteredTiers}/${totalTiers} Tiers · ${mastered}/${total} Atomic skills · ${progress}%`}
       levels={levels}
       compact={compact}
       onBack={onBack}

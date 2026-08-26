@@ -217,7 +217,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
     "discover-maths": "Discover · Maths",
     "discover-reading": "Discover · Reading",
     "discover": "Discover",
-    subjects: "Subjects",
+    subjects: "Revision",
     matrics: "Matrics",
     "study-guides": "Study Guides",
     "life-skills": "Life Skills",

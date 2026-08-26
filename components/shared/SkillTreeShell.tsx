@@ -16,37 +16,13 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import EduBackground from "@/components/EduBackground";
 import RubyIcon from "@/components/ui/RubyIcon";
-import Gem from "@/components/ui/Gem";
-import { GEM_HEX, RUBY, type GemColor, type GemState } from "@/lib/design/gemColors";
+import { GEM_HEX, RUBY, type GemColor } from "@/lib/design/gemColors";
 import SkillTreePath from "@/components/shared/SkillTreePath";
-import { CONCEPT_C } from "@/lib/flags";
 
-// Strips every `shadow-*` utility from a class string. Concept C removes the
-// card/ring drop-shadows platform-wide, but the per-accent style objects below
-// (`ACCENTS`) bake shadows into ~14 colour entries — stripping at the point of
-// use avoids touching every one of them individually.
-const stripShadow = (cls: string) => (CONCEPT_C ? cls.replace(/\bshadow-\S+/g, "").trim() : cls);
-
-// A skill's status → which gem state it draws in Concept C (mirrors the same
-// mapping SkillTreePath uses, so the compact card view and the full winding
-// path never disagree about what a status looks like).
-function gemStateForStatus(status: SkillTreeStatus): GemState {
-  switch (status) {
-    case "mastered":
-    case "auto_complete":
-      return "polished";
-    case "in_progress":
-      return "cutting";
-    case "current":
-    case "active":
-      return "polished";
-    case "locked":
-    case "hard_gate":
-      return "locked";
-    default: // available, entry_point
-      return "rough";
-  }
-}
+// Concept C's gem-path redesign is retired for the skill tree (classic card
+// look only, everywhere) — kept as a no-op passthrough instead of deleting
+// every call site.
+const stripShadow = (cls: string) => cls;
 
 export type SkillTreeAccent =
   | "blue"
@@ -383,15 +359,7 @@ function SkillTile({ skill, accent, gemColor }: { skill: TreeSkill; accent: type
   const inner = (
     <>
       <span className="mr-1" aria-hidden>
-        {CONCEPT_C ? (
-          <Gem
-            color={isAccentStatus ? RUBY : gemColor}
-            state={gemStateForStatus(skill.status)}
-            className="w-[0.85em] h-[1.05em]"
-          />
-        ) : (
-          icon
-        )}
+        {icon}
       </span>
       {skill.title}
       {skill.replay && <span className="ml-1 text-current opacity-70" aria-hidden>🔁</span>}
@@ -634,11 +602,9 @@ export default function SkillTreeShell({
     </div>
   );
 
-  // The gem path is visually dense on its own (trail, gems, chips) — the
-  // decorative background icons behind it just compete for attention, so it
-  // goes hero instead of sharing the frame. The classic card view still gets
-  // it, matching every other screen that uses EduBackground.
-  const showPath = CONCEPT_C && !compact && !emptyState;
+  // The gem-path redesign is retired — the skill tree always renders the
+  // classic card view (Learning path and Progress now show the same look).
+  const showPath = false;
 
   return (
     <div className={`relative isolate bg-gray-50 ${compact ? "" : "flex flex-col h-full"}`}>

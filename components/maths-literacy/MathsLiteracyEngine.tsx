@@ -290,9 +290,9 @@ export default function MathsLiteracyEngine({ onBack, onExitReplay }: Props) {
                 <button
                   onClick={onBack}
                   className="text-sm text-[#1a2744] font-semibold underline decoration-2 underline-offset-4"
-                  aria-label="Back to subjects"
+                  aria-label="Back to revision"
                 >
-                  ← Subjects
+                  ← Revision
                 </button>
               ) : (
                 <span />

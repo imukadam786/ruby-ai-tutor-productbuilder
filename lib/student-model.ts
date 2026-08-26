@@ -258,6 +258,11 @@ export function getSkillStatus(
   if (mastery?.status === "mastered") return "mastered";
   if (mastery?.status === "in_progress") return "in_progress";
 
+  // Exam-season override: Grade 12 can revise any skill, not just what
+  // they've unlocked so far. Temporary for the exam period — remove this
+  // check to go back to normal prerequisite gating.
+  if (profile.grade === 12) return "available";
+
   // Check if available (prerequisites met)
   if (arePrerequisitesMet(skillId, profile.skill_mastery)) return "available";
   return "locked";

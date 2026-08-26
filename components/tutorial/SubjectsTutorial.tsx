@@ -38,7 +38,7 @@ function MockupSubjects({ isMobile }: { isMobile: boolean }) {
 const SLIDES: readonly SlideData[] = [
   {
     subtitle: "Everything in one place",
-    description: "Subjects brings together Discovery, Maths, Reading, Life Skills, and Afrikaans. Each card shows your progress at a glance. Life Skills is open for Grades 1–3 and Afrikaans for Grades 1–4.",
+    description: "Revision brings together Discovery, Maths, Reading, Life Skills, and Afrikaans. Each card shows your progress at a glance. Life Skills is open for Grades 1–3 and Afrikaans for Grades 1–4.",
     Mockup: MockupSubjects,
   },
 ];
@@ -56,7 +56,7 @@ export default function SubjectsTutorial({ onComplete }: { onComplete: () => voi
     <FeatureTutorialShell
       onComplete={onComplete}
       slides={SLIDES}
-      featureName="Subjects"
+      featureName="Revision"
       featureIcon={ICON}
       finalBtnLabel="Got it"
     />

@@ -292,10 +292,10 @@ type SubjectId = (typeof SUBJECTS)[number]["id"];
 
 function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: SubjectId) => void; onBack: () => void }) {
   return (
-    <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
+    <div className="h-full bg-[#F4F4F5] relative">
       <EduBackground />
 
-      <div className="relative max-w-3xl mx-auto px-5 py-10 space-y-8">
+      <div className="relative h-full overflow-y-auto max-w-3xl mx-auto px-5 py-10 space-y-8">
         {/* Back button */}
         <button
           onClick={onBack}
@@ -395,6 +395,25 @@ function sessionTabOf(session: string): SessionTab | null {
   return null; // Prep/Predictive are filtered out before this runs
 }
 
+// Subjects where November now has full coverage of every paper May/June used
+// to cover, so June is hidden from students to avoid duplicate/confusing exam
+// sittings. The May/June papers stay in the data untouched — this is a
+// display-only filter, easy to revert by removing an entry here. Subjects
+// left out (Accounting, Agricultural Sciences, English) keep May/June visible
+// because November isn't a complete substitute for them yet.
+const JUNE_HIDDEN_SUBJECTS = new Set<SubjectId>([
+  "afrikaans",
+  "business-studies",
+  "economics",
+  "geography",
+  "history",
+  "life-sciences",
+  "mathematics",
+  "maths-literacy",
+  "physical-science",
+  "tourism",
+]);
+
 function PaperList({
   subjectId,
   onSelect,
@@ -418,7 +437,8 @@ function PaperList({
 
   // Show the session toggle only when this subject actually has year-end papers.
   const hasNovember = papers.some((p) => sessionTabOf(p.session) === "November");
-  const hasJune = papers.some((p) => sessionTabOf(p.session) === "June");
+  const hasJune =
+    papers.some((p) => sessionTabOf(p.session) === "June") && !JUNE_HIDDEN_SUBJECTS.has(subjectId);
   // Default to November for subjects that only have year-end papers, so the
   // list isn't empty on open (the June tab would otherwise show nothing).
   const [sessionTab, setSessionTab] = useState<SessionTab>(hasJune ? "June" : "November");
@@ -454,9 +474,9 @@ function PaperList({
     visiblePapers.filter((p) => p.paperCode === code).sort((a, b) => b.year - a.year);
 
   return (
-    <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
+    <div className="h-full bg-[#F4F4F5] relative">
       <EduBackground />
-      <div className="relative max-w-2xl mx-auto px-5 py-10 space-y-8">
+      <div className="relative h-full overflow-y-auto max-w-2xl mx-auto px-5 py-10 space-y-8">
 
         <button
           onClick={onBack}
@@ -479,8 +499,10 @@ function PaperList({
           </div>
         </div>
 
-        {/* Exam-session toggle — only when this subject has year-end papers */}
-        {hasNovember && (
+        {/* Exam-session toggle — only when there's an actual choice: both a
+            June and a November set. Otherwise the one available session
+            renders directly with no toggle. */}
+        {hasNovember && hasJune && (
           <div className="inline-flex rounded-2xl bg-gray-100 p-1.5 gap-1.5">
             {(["June", "November"] as const).map((tab) => (
               <button
@@ -698,9 +720,9 @@ function ModeSelect({
   };
 
   return (
-    <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
+    <div className="h-full bg-[#F4F4F5] relative">
       <EduBackground />
-      <div className="relative z-10 max-w-2xl mx-auto px-5 py-10 space-y-8">
+      <div className="relative z-10 h-full overflow-y-auto max-w-2xl mx-auto px-5 py-10 space-y-8">
         <button
           onClick={onBack}
           className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-800 transition-colors"

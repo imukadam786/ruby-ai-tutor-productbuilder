@@ -240,7 +240,6 @@
           "label": "4.4",
           "questionText": "Sketch the graph of $f(x) = \\dfrac{2}{x-1} + 3$ for $-2 \\leq x \\leq 5$, clearly showing all asymptotes and intercepts.",
           "marks": 3,
-          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026a_q4-axes.png",
           "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026a_q4-memo.png",
           "memoText": "Mark scheme (3 marks):\nMark 1: Both asymptotes correctly drawn as dashed lines: $x = 1$ (vertical) and $y = 3$ (horizontal)\nMark 2: Both intercepts correctly plotted: $x$-intercept $(\\tfrac{1}{3}\\,;\\,0)$ and $y$-intercept $(0\\,;\\,1)$\nMark 3: Two correct hyperbola branches — upper-right branch (above $y=3$, right of $x=1$) and lower-left branch (below $y=3$, left of $x=1$), passing through the labelled intercepts\n\nCorrect graph features: $a = 2 > 0$, so upper branch is to the right of the vertical asymptote and lower branch is to the left.",
           "topic": "Functions",
@@ -504,7 +503,6 @@
           "label": "9.5",
           "questionText": "Sketch the graph of $f(x) = x^3 - 6x^2 + 9x - 4$. Show all intercepts and stationary points.",
           "marks": 4,
-          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026a_q9-axes.png",
           "memoImageUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026a_q9-memo.png",
           "memoText": "Mark scheme (4 marks):\nMark 1: Correct cubic shape — positive leading coefficient\nMark 2: $y$-intercept $(0\\,;\\,-4)$ and $x$-intercepts $(1\\,;\\,0)$ [touches] and $(4\\,;\\,0)$ [crosses] correctly plotted\nMark 3: Local maximum $(1\\,;\\,0)$ clearly shown — curve turns at the $x$-axis\nMark 4: Local minimum $(3\\,;\\,-4)$ clearly shown",
           "topic": "Calculus",
@@ -531,7 +529,6 @@
           "label": "10.1",
           "questionText": "A container has a cross-section consisting of a rectangle of width $2r$ metres and height $h$ metres with a semicircle of radius $r$ metres on top. The total perimeter of the cross-section is 20 metres.\n\nShow that $h = \\dfrac{20 - 2r - \\pi r}{2}$.",
           "marks": 2,
-          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/math-p1-prep-2026a_q10.png",
           "memoText": "Mark scheme (2 marks):\nMark 1: Write perimeter equation: $2h + 2r + \\pi r = 20$ (two sides of rectangle + diameter + semicircle arc)\nMark 2: Solve for $h$: $2h = 20 - 2r - \\pi r \\Rightarrow h = \\dfrac{20 - 2r - \\pi r}{2}$ ✓",
           "topic": "Calculus",
           "type": "written"

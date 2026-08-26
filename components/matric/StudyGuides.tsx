@@ -18,6 +18,9 @@ interface Guide {
   description: string;
   filename: string;
   language?: Language;
+  /** Set on a May/June guide once a November guide for the same paper exists —
+   *  hides it from students without deleting it, so it's a one-line revert. */
+  session?: "june";
 }
 
 interface Subject {
@@ -42,11 +45,13 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Accounting Concepts",
         description: "Financial statements, ledgers and accounting concepts",
         filename: "acc-p1-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Financial Reporting",
         description: "Partnerships, companies and cash flow statements",
         filename: "acc-p2-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Vraestel 1 — Rekeningkundige Konsepte",
@@ -80,11 +85,13 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Comprehension & Language",
         description: "Begripstoets, opsomming en taalstrukture",
         filename: "afri-fal-p1-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Literature",
         description: "Poësie, drama en prosa",
         filename: "afri-fal-p2-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 3 — Writing",
@@ -170,11 +177,13 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Business Environments",
         description: "Business environments, entrepreneurship and business roles",
         filename: "busistd-p1-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Management & Operations",
         description: "Business functions, financial management and human resources",
         filename: "busistd-p2-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Vraestel 1 — Besigheidsomgewings",
@@ -230,11 +239,13 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Macroeconomics & Microeconomics",
         description: "Economic systems, markets, growth and development",
         filename: "eco-p1-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Economic Pursuits",
         description: "Labour markets, public sector, foreign exchange and economic history",
         filename: "eco-p2-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Vraestel 1 — Makro-ekonomie & Mikro-ekonomie",
@@ -289,11 +300,13 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Comprehension & Language",
         description: "Reading comprehension, summary and language in context",
         filename: "eng-p1-may-jun-2026-studyguide1_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Literature",
         description: "Poetry, drama, novel and short stories",
         filename: "eng-hl-p2-may-jun-2026-studyguide2_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 3 — Writing",
@@ -320,11 +333,13 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Physical Geography",
         description: "Climate, geomorphology, rivers and global atmospheric systems",
         filename: "geo-p1-may-jun-2026-studyguide1.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Human Geography",
         description: "Settlement, population, economic geography and development",
         filename: "geo-p2-may-jun-2026-studyguide1.pdf",
+        session: "june",
       },
       {
         label: "Vraestel 1 — Fisiese Geografie",
@@ -369,11 +384,13 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — South African History",
         description: "20th century South African and world history",
         filename: "his-pp1-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — World History",
         description: "Cold War, decolonisation and global change",
         filename: "his-pp2-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Vraestel 2 — Wêreldgeskiedenis",
@@ -391,11 +408,13 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Life at the Molecular Level",
         description: "DNA, genetics, meiosis and evolution",
         filename: "lifesci-p1-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Life at the Systems Level",
         description: "Human biology, ecology and environmental studies",
         filename: "lifesci-p2-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Vraestel 1 — Lewe op Molekulêre Vlak",
@@ -439,11 +458,13 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Algebra, Calculus & Functions",
         description: "Sequences, functions, calculus, finance and probability",
         filename: "maths-p1-may-jun-2026-studyguide.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Geometry, Trigonometry & Stats",
         description: "Euclidean geometry, trigonometry, analytical geometry and statistics",
         filename: "maths-p2-may-jun-2026-studyguide.pdf",
+        session: "june",
       },
       {
         label: "Vraestel 1 — Algebra, Calculus & Funksies",
@@ -477,11 +498,13 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Basic Skills & Applications",
         description: "Number, finance, measurement and maps",
         filename: "mathslit-p1-may-jun-2026-studyguide1_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Applications in Context",
         description: "Data handling, probability and integrated contexts",
         filename: "mathslit-p2-may-jun-2026-studyguide2_compressed.pdf",
+        session: "june",
       },
       {
         label: "Vraestel 1 — Basiese Vaardighede & Toepassings",
@@ -515,11 +538,13 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Physics",
         description: "Mechanics, waves, electricity and magnetism",
         filename: "physics-pp1-may-jun-studyguide-2026 (1)_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Chemistry",
         description: "Matter & materials, chemical change and solutions",
         filename: "physics-pp2-may-jun-studyguide-2026_compressed.pdf",
+        session: "june",
       },
       {
         label: "Vraestel 1 — Fisika",
@@ -548,6 +573,7 @@ const SUBJECTS: Subject[] = [
         label: "Paper 1 — Tourism Study Guide",
         description: "Tourism sectors, responsible tourism, sustainable development and travel services",
         filename: "tourism-p1-may-jun-2026-studyguide.pdf",
+        session: "june",
       },
     ],
   },
@@ -579,10 +605,10 @@ export default function StudyGuides({ onBack }: StudyGuidesProps) {
   }
 
   return (
-    <div className="h-full overflow-y-auto bg-[#F4F4F5] relative">
+    <div className="h-full bg-[#F4F4F5] relative">
       <EduBackground />
 
-      <div className="relative max-w-3xl mx-auto px-5 py-10 space-y-8">
+      <div className="relative h-full overflow-y-auto max-w-3xl mx-auto px-5 py-10 space-y-8">
 
         {/* Back button */}
         <button
@@ -640,8 +666,11 @@ export default function StudyGuides({ onBack }: StudyGuidesProps) {
 
         {/* Guides list */}
         {selectedSubject && (() => {
-          const englishGuides = selectedSubject.guides.filter((g) => (g.language ?? "en") === "en");
-          const afrikaansGuides = selectedSubject.guides.filter((g) => g.language === "af");
+          // Hide May/June guides once a November guide exists for that paper —
+          // nothing is deleted, so this is a one-line revert if needed later.
+          const visibleGuides = selectedSubject.guides.filter((g) => g.session !== "june");
+          const englishGuides = visibleGuides.filter((g) => (g.language ?? "en") === "en");
+          const afrikaansGuides = visibleGuides.filter((g) => g.language === "af");
           const showLanguageHeadings = englishGuides.length > 0 && afrikaansGuides.length > 0;
 
           const renderGuide = (guide: Guide) => (
@@ -675,7 +704,7 @@ export default function StudyGuides({ onBack }: StudyGuidesProps) {
               <div className="space-y-3">
                 <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a paper</h2>
                 <div className="flex flex-col gap-3">
-                  {selectedSubject.guides.map(renderGuide)}
+                  {visibleGuides.map(renderGuide)}
                 </div>
               </div>
             );

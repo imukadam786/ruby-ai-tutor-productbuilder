@@ -394,6 +394,12 @@ export function getReadingSkillStatus(
   if (mastery?.status === "in_progress") return "in_progress";
   const skill = getReadingSkillById(skillId);
   if (!skill) return "locked";
+
+  // Exam-season override: Grade 12 can revise any skill, not just what
+  // they've unlocked so far. Temporary for the exam period — remove this
+  // check to go back to normal prerequisite gating.
+  if (profile.grade === 12) return "available";
+
   if (skill.prerequisites.length === 0) return "available";
   const allMet = skill.prerequisites.every(
     (p) => profile.skill_mastery[p]?.status === "mastered" || profile.skill_mastery[p]?.status === "assumed"
