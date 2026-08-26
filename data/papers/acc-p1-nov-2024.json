@@ -1,0 +1,274 @@
+{
+  "id": "acc-p1-nov-2024",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P1",
+  "year": 2024,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Company Financial Statements (Ivory Park Ltd)",
+      "totalMarks": 55,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2024-1-1-1",
+          "label": "1.1.1",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — IVORY PARK LTD\n\nThe information relates to Ivory Park Ltd for the financial year ended 29 February 2024.\n\nRefer to Information B (i) for fixed assets.\n\nCalculate the depreciation on equipment on 29 February 2024.\n\nINFORMATION A — Balances/totals on 29 Feb 2024 and 28 Feb 2023:\n                                          29 Feb 2024 (R)   28 Feb 2023 (R)\nEquipment at cost                          852 000            852 000\nAccumulated depreciation on equipment      472 500            344 700\n\nINFORMATION B (i) — Fixed assets:\nEquipment:\n• No equipment was bought or sold during the year.",
+          "marks": 2,
+          "memoText": "Depreciation on equipment:\n\nWorking: 472 500 − 344 700 = R127 800 ✓✓\n\nAnswer: R127 800\n\nTeaching point: Since NO equipment was bought or sold during the year, the entire increase in the accumulated depreciation balance from the prior year to the current year IS the current year's depreciation expense — no apportionment for part-year ownership is needed.",
+          "topic": "Company Financial Statements - Depreciation on Equipment",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2024-1-1-2",
+          "label": "1.1.2",
+          "questionText": "Refer to Information B (i) for fixed assets.\n\nCalculate the cost price of vehicles on 29 February 2024.\n\nINFORMATION A — Vehicles at cost on 28 Feb 2023: R1 250 000\n\nINFORMATION B (i) — Fixed assets — Vehicles:\n• An old vehicle was traded in on 1 September 2023 for a new vehicle, costing R320 000. The trade-in value received was R153 660. The following extract was taken from the Fixed Asset Register for the vehicle sold:\n  Cost price: R240 000\n  Date purchased: 1 July 2021\n  Rate of depreciation: 20% p.a. on the diminishing-balance method\n  FINANCIAL YEAR END   DEPRECIATION   ACCUMULATED DEPRECIATION\n  28 February 2022         R32 000          R32 000\n  28 February 2023         R41 600          R73 600\n  1 September 2023            ?                ?\n• Vehicles are depreciated at 20% p.a. on the diminishing-balance method.\n• Depreciation on the old remaining vehicles was R132 720.",
+          "marks": 4,
+          "memoText": "Cost price of vehicles on 29 February 2024:\n\nWorking: 1 250 000 (opening cost) − 240 000 (cost of the vehicle traded in, removed from the account) + 320 000 (cost of the new vehicle purchased) = R1 330 000 ✓☑ (one part correct)\n\nAnswer: R1 330 000\n\nTeaching point: The Vehicles at cost account only changes when a vehicle is bought (added at its cost price) or sold/traded in (removed at its ORIGINAL cost price, not its carrying value or trade-in value) — depreciation never affects this account.",
+          "topic": "Company Financial Statements - Cost Price of Vehicles",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2024-1-1-3",
+          "label": "1.1.3",
+          "questionText": "Refer to Information B (i) for fixed assets (see 1.1.2 above for the full details of the vehicle traded in and the depreciation policy).\n\nCalculate the depreciation on vehicles on 29 February 2024.\n\nReminder from Information B (i):\n• The new vehicle (R320 000) was purchased on 1 September 2023.\n• The vehicle traded in had accumulated depreciation of R73 600 on 28 February 2023 (cost R240 000).\n• Vehicles are depreciated at 20% p.a. on the diminishing-balance method.\n• Depreciation on the old remaining vehicles (i.e. vehicles other than the one traded in and the new one purchased) was R132 720 for the full year.",
+          "marks": 5,
+          "memoText": "Depreciation on vehicles on 29 February 2024:\n\nDepreciation on the new vehicle (owned for 6 months, 1 Sept 2023 – 29 Feb 2024):\n320 000 × 20% × 6/12 = R32 000 ✓☑\n\nDepreciation on the vehicle traded in (owned for 6 months of the year, 1 Mar 2023 – 1 Sept 2023, before it was traded in):\nCarrying value on 28 Feb 2023 = 240 000 − 73 600 = R166 400\n166 400 × 20% × 6/12 = R16 640 ✓☑\n\nDepreciation on the remaining (unchanged) vehicles: R132 720 (given)\n\nTotal depreciation on vehicles = 32 000 + 16 640 + 132 720 = R181 360 ✓☑ (one part correct; must include the R132 720)\n\nAnswer: R181 360\n\nTeaching point: Whenever a fixed asset is bought or sold PART WAY through the year, depreciation on THAT asset must be time-apportioned (× number of months ÷ 12) using its carrying value at the start of the period it was owned this year — while depreciation on assets held for the FULL year (here, the R132 720) is simply given/calculated in full.",
+          "topic": "Company Financial Statements - Depreciation on Vehicles",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2024-1-1-4",
+          "label": "1.1.4",
+          "questionText": "Refer to Information B (i) for fixed assets (see 1.1.2/1.1.3 above).\n\nCalculate the profit or loss on the vehicle traded in on 1 September 2023.\n\nReminder from Information B (i):\n• Cost price of the vehicle traded in: R240 000\n• Accumulated depreciation on 28 February 2023: R73 600\n• Depreciation on this vehicle for the 6 months up to the trade-in date (1 March 2023 – 1 September 2023, calculated in 1.1.3 above): R16 640\n• Trade-in value received: R153 660",
+          "marks": 5,
+          "memoText": "Profit/Loss on vehicle traded in on 1 September 2023:\n\nAccumulated depreciation at date of sale = 73 600 (see 1.1.3) + 16 640 (see 1.1.3) = R90 240 ✓☑ (see 1.1.3)\n\nCarrying value at date of sale = 240 000 − 90 240 = R149 760\n\nProfit/Loss = Trade-in value − Carrying value = 153 660 − 149 760 = R3 900 (PROFIT) ✓☑ (one part correct)\n\nAnswer: R3 900 profit\n\nNOTE: The relevant amounts calculated in 1.1.1–1.1.4 must be transferred to 1.2, the Statement of Comprehensive Income (depreciation into operating expenses; profit on sale of asset into other income).\n\nTeaching point: Whenever the amount RECEIVED for an asset (here, the trade-in value) is MORE than its carrying value, the difference is a PROFIT on disposal (other income); if it were LESS, it would be a LOSS (an operating expense).",
+          "topic": "Company Financial Statements - Profit/Loss on Disposal",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2024-1-2",
+          "label": "1.2",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — IVORY PARK LTD\n\nComplete the Statement of Comprehensive Income for the year ended 29 February 2024.\n\nNOTE: Some amounts are provided in the ANSWER BOOK.\n\nINFORMATION A — Balances/totals, among others, that appeared in the books on 29 Feb 2024 (and 28 Feb 2023 where shown):\n                                          29 Feb 2024 (R)   28 Feb 2023 (R)\nMortgage loan: Phambili Bank                744 100            987 700\nEquipment at cost                           852 000            852 000\nAccumulated depreciation on equipment       472 500            344 700\nVehicles at cost                                 ?             1 250 000\nAccumulated depreciation on vehicles             ?               420 000\nTrading stock                               654 500\nDebtors' control                            516 600\nProvision for bad debt                          ?                29 520\nSARS: Income tax (provisional tax payments) 340 000\nSales                                            ?\nCost of sales                             4 780 900\nAudit fees                                   79 000\nService fee income                        1 757 700\nSundry operating expenses                   119 900\nBad debts                                    24 780\nPacking material                             66 550\nSalaries and wages (including contributions) 1 425 600\nInsurance                                   100 800\nRent income                                 158 100\nInterest income                                  ?\nDirectors' fees                                  ?\nInterest on loan                            149 400\nDividends on ordinary shares                250 000\n\nINFORMATION B — Adjustments and additional information:\n\n(i) Fixed assets (see 1.1.1–1.1.4 above):\n    Depreciation on equipment: R127 800. Depreciation on vehicles: R181 360. Profit on the vehicle traded in: R3 900.\n\n(ii) The company maintains a mark-up of 60% on cost. Note that goods costing R115 000 (included in cost of sales of R4 780 900) were sold at a mark-up of 40% on cost to internal employees.\n\n(iii) Physical stocktaking on 29 February 2024 revealed the following:\n     • Trading stock, R647 100\n     • Packing material used during the financial year, R58 700\n\n(iv) Provision for bad debts must be adjusted to 5% of the outstanding debtors (R516 600).\n\n(v) Monthly insurance premiums were fixed for the past three years and were paid up to 31 May 2024 (i.e. 3 months in advance of the 29 February 2024 year end). The R100 800 recorded represents 15 months of premiums at the same fixed monthly rate.\n\n(vi) A tenant is renting an office from Ivory Park Ltd. Rent for this office has been received up until 30 April 2024 (i.e. 2 months in advance). Rent was decreased by 8% on 1 December 2023 on the office rented.\n\n(vii) One employee was omitted from the Salaries Journal of February 2024. His net monthly salary was R19 340 after 35% deductions were made for his pension and personal tax and R2 500 deducted for medical aid. The employer contributes 10% of his gross salary on behalf of employees towards pension.\n\n(viii) The company had two directors who received a combined annual fee of R1 065 200 after their monthly fees were increased by R5 800 each on 1 August 2023. A third director joined the company on 1 November 2023 and received the same monthly fee as the other directors, excluding the R5 800 increase.\n\n(ix) Net profit after tax, R992 160, was calculated after taking into account all the adjustments above. Income tax is calculated at 28% of the net profit (before tax).",
+          "marks": 39,
+          "memoText": "STATEMENT OF COMPREHENSIVE INCOME — IVORY PARK LTD (year ended 29 February 2024)\n\nSales = R7 626 440 ✓☑\nWorking: [4 780 900 × 1,6] − [115 000 × 0,2] = 7 649 440 − 23 000 = R7 626 440\nOR: [(4 780 900 − 115 000) × 1,6] + [115 000 × 1,4] = 7 465 440 + 161 000 = R7 626 440\nLogic: at the standard 60% mark-up, sales would have been R7 649 440. But R115 000 of that cost of sales was actually sold to employees at only a 40% mark-up, so the sales figure must be reduced by the shortfall: 115 000 × (1,6 − 1,4) = R23 000.\n\nCost of sales = (R4 780 900) (given)\n\nGross profit = Sales − Cost of sales = R2 845 540 ✓ (operation)\n\nOther income = R1 902 000 (operation)\n  Service fee income = R1 757 700 (given)\n  Profit on sale of asset = R3 900 ✓ (see 1.1.4)\n  Rent income = R136 710 ✓☑\n  Working: New monthly rent (after the 8% decrease on 1 Dec 2023) = R10 695. 2 months' advance (Mar–Apr 2024) = 10 695 × 2 = R21 390. Rent earned this year = 158 100 (total received) − 21 390 (advance) = R136 710.\n  OR: Old monthly rent (Mar–Nov 2023, 9 months) = 10 695 ÷ 0,92 = R11 625; 9 × 11 625 = R104 625. New monthly rent (Dec 2023–Feb 2024, 3 months) = 3 × 10 695 = R32 085. Total earned = 104 625 + 32 085 = R136 710.\n  Provision for bad debts adjustment = R3 690 ✓✓ (INCOME — see note below)\n  Working: New provision = 5% × 516 600 = R25 830. Old provision = R29 520. Decrease = 29 520 − 25 830 = R3 690.\n\nGross operating income = Gross profit + Other income = R4 747 540 ✓ (operation)\n\nOperating expenses = (R3 371 340) (operation)\n  Audit fees = R79 000 (given)\n  Sundry operating expenses = R119 900 (given)\n  Bad debts = R24 780 (given)\n  Packing material = R58 700 ✓ (physical count/used during the year)\n  Trading stock deficit = R7 400 ✓✓ (EXPENSE — see note below)\n  Working: 654 500 (per the books) − 647 100 (physical count) = R7 400 deficit.\n  Insurance = R80 640 ✓☑\n  Working: 100 800 represents 15 months of premiums at a fixed monthly rate = 100 800 ÷ 15 = R6 720/month. 3 months (Mar–May 2024) are prepaid: 3 × 6 720 = R20 160. Expense for the year = 100 800 − 20 160 = R80 640.\n  Salaries and Wages = R1 462 560 ✓☑\n  Working: Omitted employee's gross monthly salary: let gross = x. Net pay = x − 0,35x − 2 500 = 19 340, so 0,65x = 21 840, x = R33 600. Employer's 10% pension contribution = 3 360. Salaries and wages = 1 425 600 + 33 600 + 3 360 = R1 462 560.\n  Directors' fees = R1 229 200 ✓✓\n  Working: Let the original monthly fee per director (before the R5 800 increase) = y. For the two existing directors: 5 months (Mar–Jul 2023) at 2y, then 7 months (Aug 2023–Feb 2024) at 2(y + 5 800). 5(2y) + 7(2y + 11 600) = 1 065 200 → 24y + 81 200 = 1 065 200 → y = R41 000. The third director (joined 1 Nov 2023, on the ORIGINAL rate of R41 000/month, excluding the increase) worked 4 months (Nov 2023–Feb 2024): 4 × 41 000 = R164 000. Total = 1 065 200 + 164 000 = R1 229 200.\n  Depreciation = R309 160 ✓ (see 1.1.1: 127 800 + 1.1.3: 181 360)\n\nOperating profit = Gross operating income − Operating expenses = R1 376 200 ✓ (operation)\n\nInterest income = R151 200 ✓ (balancing figure; accept a negative figure if the candidate's workings produce one)\n\nProfit before interest expense = Net profit before tax + Interest expense = R1 527 400 ✓ (operation)\n\nInterest expense = (R149 400) (given)\n\nNet profit before tax = Net profit after tax + Income tax = R1 378 000 ✓ (operation)\nWorking: Since net profit after tax (R992 160) = 72% of net profit before tax (as tax is 28%), net profit before tax = 992 160 ÷ 0,72 = R1 378 000.\n\nIncome tax = (R385 840) ✓✓\nWorking: 992 160 × 28/72 = R385 840 (equivalently, 1 378 000 × 28% = R385 840).\n\nNet profit after tax = R992 160 (given, Information B(ix))\n\nPENALTIES: −1 foreign items (max −2, i.e. SFP items appearing here); −1 presentation (max −1).\n\nTeaching points:\n• Rent RECEIVED IN ADVANCE and directors' fees PAID IN ADVANCE are both timing adjustments — only the portion actually EARNED/INCURRED in the current financial year belongs in the Statement of Comprehensive Income; the advance portion becomes a Statement of Financial Position item (a liability for rent, an asset for prepaid fees).\n• A DECREASE in the provision for bad debts is INCOME (fewer debts are expected to go bad than previously provided for); an INCREASE would be an EXPENSE.\n• When net profit after tax and the tax rate are both given, you can work BACKWARDS to net profit before tax by dividing by (1 − tax rate) — this is a common technique for finding a missing balancing figure like Interest income.",
+          "topic": "Company Financial Statements - Statement of Comprehensive Income",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Cash Flow Statement and Financial Indicators (Eybers Ltd)",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2024-2-1",
+          "label": "2.1",
+          "questionText": "CASH FLOW STATEMENT AND FINANCIAL INDICATORS — EYBERS LTD\n\nThe information relates to Eybers Ltd for the financial year ended 29 February 2024.\n\nPrepare the Retained Income Note for the year ended 29 February 2024.\n\nINFORMATION B — Extract from the Statement of Financial Position:\n                                29 Feb 2024 (R)   28 Feb 2023 (R)\nRetained income                       ?                573 720\n\nINFORMATION C — Share capital:\n• On 1 March 2023, there were 1 200 000 shares in issue.\n• 400 000 shares were issued at R10 per share on 30 June 2023.\n• On 30 November 2023, 34 000 shares were repurchased at R1,90 (per share) ABOVE the average share price.\n\nINFORMATION D — Dividends and dividend pay-out rate:\n                            DIVIDENDS\nFinal      28 Feb 2023   Paid       17 cents per share\nInterim    1 Sept 2023   Paid       R416 000\nFinal      29 Feb 2024   Declared        ?\n\n• Total dividends paid and declared for the year ended 29 February 2024, R744 860.\n• The dividends pay-out rate for the year ended 29 February 2024 was 40%, after all transactions were correctly recorded.",
+          "marks": 8,
+          "memoText": "RETAINED INCOME NOTE — EYBERS LTD (year ended 29 February 2024)\n\nBalance at the beginning of the year: R573 720 (given)\n\nNet profit after tax = R1 862 150 ✓☑\nWorking: Dividend pay-out rate = Total dividends ÷ Net profit after tax × 100 = 40%, so Net profit after tax = 744 860 ÷ 40% = R1 862 150 (equivalently, 744 860 × 100/40).\n\nRepurchase of shares = (R64 600) ✓✓ (ignore brackets)\nWorking: Only the PREMIUM paid above the average share price is charged against retained income: 34 000 shares × R1,90 = R64 600. (The average-price portion of the repurchase is charged against share capital instead, and appears in the Cash Flow Statement, not here.)\n\nOrdinary share dividends = (R744 860) (given, Information D)\n  Interim dividend = R416 000 (given)\n  Final dividend = R328 860 ✓\n  Working: Ordinary share dividends − Interim dividend = 744 860 − 416 000 = R328 860\n\nBalance at the end of the year = R1 626 410 ✓☑\nWorking: 573 720 + 1 862 150 − 64 600 − 744 860 = R1 626 410 (check the operation: shares repurchased and ordinary share dividends must both be SUBTRACTED)\n\n−1P if no details are shown (max −1)\n\nTeaching point: A share repurchase affects retained income ONLY for the amount paid ABOVE the average share price (the 'premium') — the average-price portion reduces share capital, not retained income. This is why the repurchase premium must be worked out separately from the total cash paid for the shares.",
+          "topic": "Cash Flow Statement - Retained Income Note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-p1-nov-2024-2-2",
+          "label": "2.2",
+          "questionText": "CASH FLOW STATEMENT AND FINANCIAL INDICATORS — EYBERS LTD\n\nComplete the Cash Flow Statement for Eybers Ltd for the year ended 29 February 2024.\n\nNOTE: Certain figures are provided in the ANSWER BOOK (Cash generated from operations; Interest paid; Change in fixed deposit section).\n\nINFORMATION A — Extract from the Statement of Comprehensive Income:\n                          R\nSales                8 240 600\nCost of sales         5 060 000\nGross operating income 3 020 480\nOperating expenses    1 360 950\nOperating profit      1 659 530\nIncome tax              462 000\nNet profit after tax          ?\n\nINFORMATION B — Extract from the Statement of Financial Position:\n                                29 Feb 2024 (R)   28 Feb 2023 (R)\nCash and cash equivalents             ?                36 000\nTrading stock                     174 000               193 000\nSARS: Income tax                 66 650 Dr            44 675 Cr\nOrdinary shareholders' equity         ?             8 733 720\nOrdinary share capital                ?             8 160 000\nRetained income                       ?               573 720\nLoan: Smiley Bank              5 440 000                    ?\nShareholders for dividends            ?                    ?\nBank overdraft                        0               142 680\n\nINFORMATION C — Share capital (see 2.1 above): 1 200 000 shares in issue on 1 March 2023; 400 000 shares issued at R10 per share on 30 June 2023 (bringing shares in issue to 1 600 000); 34 000 shares repurchased on 30 November 2023 at R1,90 above the average share price.\nAverage share price at the time of repurchase = (8 160 000 + 4 000 000) ÷ 1 600 000 = R7,60 per share. Repurchase price = R7,60 + R1,90 = R9,50 per share.\n\nINFORMATION D — Dividends (see 2.1 above): Interim dividend R416 000; Final dividend R328 860; Total dividends paid and declared R744 860.\n\nINFORMATION E — Loan: Smiley Bank:\n• Monthly instalments of R97 120, including interest, were paid.\n• Interest capitalised (i.e. the interest portion of the year's instalments) amounted to R685 440.\n\nINFORMATION F — Net change in cash and cash equivalents, R296 460 inflow.",
+          "marks": 17,
+          "memoText": "CASH FLOW STATEMENT — EYBERS LTD (year ended 29 February 2024)\n\nCASH FLOW FROM OPERATING ACTIVITIES\nCash generated from operations: given in the answer book (not required here).\nInterest paid: given in the answer book (not required here).\n\nTaxation paid = R(573 325) ✓☑\nWorking: 44 675 (opening SARS LIABILITY, owed TO SARS) + 462 000 (current year tax) + 66 650 (closing SARS ASSET, meaning MORE than the current tax charge has already been paid) = R573 325\nOR: −44 675 − 462 000 − 66 650 (using the reversed sign convention consistently)\n\nDividends paid = R(620 000) ✓☑\nWorking: Opening Shareholders for dividends (1 200 000 shares × 17 cents) = R204 000, plus the Interim dividend paid this year, R416 000 = R620 000. (The R328 860 Final dividend declared this year remains a liability, not yet paid.)\n\nCASH FLOW FROM INVESTING ACTIVITIES: given in the answer book (fixed deposit — not applicable this year).\n\nCASH FLOW FROM FINANCING ACTIVITIES\nNew shares issued = R4 000 000 ✓\nWorking: 400 000 shares × R10 = R4 000 000\n\nShares repurchased = R(323 000) ✓☑\nWorking: 34 000 × R7,60 (average price) = R258 400, plus 34 000 × R1,90 (premium, see 2.1) = R64 600. Total = 258 400 + 64 600 = R323 000 (both figures must be added).\n\nLoan repaid = R(480 000) ✓✓ (if no bracket, award one mark)\nWorking: Total cash instalments for the year = 97 120 × 12 = R1 165 440. Of this, R685 440 was interest (capitalised into the loan balance rather than reducing it). Capital repaid = 1 165 440 − 685 440 = R480 000.\n\nNET CHANGE IN CASH AND CASH EQUIVALENTS = R296 460 (given, Information F)\n\nCASH AND CASH EQUIVALENTS AT THE BEGINNING OF THE YEAR = R(106 680) ✓✓ (if no bracket, award one mark)\nWorking: 36 000 (favourable cash and cash equivalents) − 142 680 (bank overdraft) = R(106 680)\n\nCASH AND CASH EQUIVALENTS AT THE END OF THE YEAR = R189 780 ✓ (operation)\nWorking: (106 680) + 296 460 = R189 780 (matches Bank overdraft of R0 at year end, i.e. a favourable balance).\n\n−1 poor presentation (max −1).\n\nTeaching points:\n• A closing SARS: Income tax ASSET (debit balance) means the company has PAID MORE than its actual tax charge for the year — this INCREASES the cash outflow for taxation paid, the opposite effect of a closing SARS liability.\n• 'Cash and cash equivalents' in the Cash Flow Statement is the NET of any favourable bank/cash balance AND any bank overdraft — both must be combined to get the opening and closing figures.\n• 'Interest capitalised' on a loan means that portion of the cash instalments paid was interest expense, not a reduction of the loan balance — only the remaining (capital) portion of the instalments reduces the loan for the Cash Flow Statement's 'Loan repaid' line.",
+          "topic": "Cash Flow Statement - Full Statement",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-p1-nov-2024-2-3a",
+          "label": "2.3 (% operating expenses on sales)",
+          "questionText": "CASH FLOW STATEMENT AND FINANCIAL INDICATORS — EYBERS LTD\n\nCalculate the % operating expenses on sales for the year ended 29 February 2024.\n\nINFORMATION A — Operating expenses: R1 360 950; Sales: R8 240 600",
+          "marks": 3,
+          "memoText": "% operating expenses on sales:\n\nWorking: 1 360 950 ÷ 8 240 600 × 100 ✓✓\n= 16,5% ✓ (one part correct; % sign not necessary; do not accept 0,165/0,17)\n\nAnswer: 16,5%\n\nTeaching point: This indicator shows what portion of every rand of sales is eaten up by the company's day-to-day running costs (excluding cost of sales) — a LOWER percentage means the company is controlling its operating costs more efficiently relative to how much it sells.",
+          "topic": "Financial Indicators - % Operating Expenses on Sales",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2024-2-3b",
+          "label": "2.3 (Stock turnover rate)",
+          "questionText": "Calculate the stock turnover rate for the year ended 29 February 2024.\n\nINFORMATION A — Cost of sales: R5 060 000\nINFORMATION B — Trading stock: 29 Feb 2024 R174 000; 28 Feb 2023 R193 000",
+          "marks": 4,
+          "memoText": "Stock turnover rate:\n\nWorking: 5 060 000 ÷ [½ × (174 000 + 193 000)] ✓✓\n= 5 060 000 ÷ 183 500 ✓✓ (two marks for the average trading stock working)\n= 27,6 times ✓ (one part correct; accept 28 times; must use average stock ×½)\n\nAnswer: 27,6 times\n\nTeaching point: Stock turnover rate measures how many times the AVERAGE stock holding is sold and replaced during the year. It must always use the AVERAGE of opening and closing stock (not just the closing figure), since stock levels typically fluctuate throughout the year.",
+          "topic": "Financial Indicators - Stock Turnover Rate",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2024-2-3c",
+          "label": "2.3 (Interim dividend per share)",
+          "questionText": "Calculate the interim dividend per share for the year ended 29 February 2024.\n\nINFORMATION C — Interim dividend paid on 1 September 2023: R416 000. Shares in issue at that date: 1 200 000 (in issue on 1 March 2023) + 400 000 (issued on 30 June 2023) = 1 600 000 shares.",
+          "marks": 3,
+          "memoText": "Interim dividend per share:\n\nWorking: 416 000 ÷ 1 600 000 × 100 ✓✓\n= 26 cents ✓ (one part correct; must be in cents — assume cents if not specified; accept R0,26)\n\nAnswer: 26 cents\n\nTeaching point: Dividend-per-share calculations must use the number of shares in issue AT THE DATE THE DIVIDEND WAS DECLARED/PAID — since the interim dividend was paid on 1 September 2023, AFTER the 400 000 new shares were issued on 30 June 2023, all 1 600 000 shares (not the original 1 200 000) share in that dividend.",
+          "topic": "Financial Indicators - Interim Dividend Per Share",
+          "type": "calculation"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Interpretation of Financial Information (Winston Ltd)",
+      "totalMarks": 45,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2024-3-1",
+          "label": "3.1",
+          "questionText": "INTERPRETATION OF FINANCIAL INFORMATION — WINSTON LTD\n\nThe information relates to Winston Ltd for the year ended 29 February 2024.\n\nNOTE: Where comments or explanations are required, you should quote financial indicators and trends with figures, and give a reason or an explanation for the financial indicators quoted.\n\nProfitability:\n\nQuote TWO financial indicators with figures and trends to indicate that the company is managing its expenses well.\n\nINFORMATION D — Financial indicators:\n                                    29 Feb 2024   28 Feb 2023\nMark-up %                              45%            40%\n% operating expenses on sales          14%            19%\n% operating profit on sales            18%            12%\n% net profit before tax on sales       19%            11%",
+          "marks": 4,
+          "memoText": "Any TWO financial indicators with figures and trends ✓✓ ✓✓ (indicator + figures/trend, 2 marks each):\n\n• % operating expenses on sales has DECREASED/improved (from 19%) to 14% / by 5%-points / by 26,3%.\n• % operating profit on sales has INCREASED/improved (from 12%) to 18% / by 6%-points / by 50%.\n• % net profit before tax on sales has INCREASED/improved (from 11%) to 19% / by 8%-points / by 72,7%.\n\nDo NOT accept mark-up %.\n\nTeaching point: Mark-up % relates to PRICING policy (how much is added to cost when selling), not to how well the company CONTROLS its running costs — that is exactly why it is excluded here, even though it also improved.",
+          "topic": "Interpretation - Profitability / Expense Management",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2024-3-2",
+          "label": "3.2",
+          "questionText": "Dividend pay-out policy:\n\nComment on the dividend pay-out policy of the company. Explain why this is a responsible change in policy. Provide ONE point.\n\nINFORMATION D — Dividend pay-out rate: 29 Feb 2024 60%; 28 Feb 2023 86%",
+          "marks": 3,
+          "memoText": "Figures and trend ✓: It decreased (from 86%) to 60% / by 26%-points / by 30,2%.\n\nExplanation ✓✓ (part-mark for unclear/incomplete answers):\nFunds have been retained for future expansion purposes / the shareholders will benefit in the future as funds have been set aside / this protects the cash flow of the business.\n\nTeaching point: A LOWER dividend pay-out rate means the company is keeping more of its profit inside the business (as retained income) instead of paying it all out to shareholders — this builds up funds for future growth and gives the business a stronger cash buffer.",
+          "topic": "Interpretation - Dividend Pay-out Policy",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2024-3-3",
+          "label": "3.3",
+          "questionText": "Earnings and returns:\n\nExplain whether the shareholders should be satisfied or not with the earnings per share and return on average shareholders' equity of the company. Quote TWO financial indicators with figures.\n\nINFORMATION D — Financial indicators:\n                                              29 Feb 2024   28 Feb 2023\nEarnings per share                            112 cents      104 cents\nReturn on average shareholders' equity           20%            11%\nInterest rate on fixed deposits                 7,5%           6,5%",
+          "marks": 4,
+          "memoText": "Earnings per share (EPS):\n• Increased (from 104 cents) to 112 cents / by 8 cents / by 7,7%. ✓\n• Shareholders should be happy, as it shows an increase in the profitability of the company. ✓\n\nReturn on average shareholders' equity (ROSHE):\n• Increased (from 11%) to 20% / by 9%-points / by 81,8%. ✓\n• Shareholders should be satisfied because ROSHE (20%) is greater than the interest rate on fixed deposit (7,5%). ✓\n\nTeaching point: Comparing ROSHE against a SAFE alternative (a fixed deposit interest rate) is the standard test of whether shareholders are being adequately rewarded for the extra RISK of investing in shares rather than simply banking their money.",
+          "topic": "Interpretation - Earnings and Returns",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2024-3-4a",
+          "label": "3.4 (Sources of financing)",
+          "questionText": "Financing strategies and gearing:\n\nRefer to Information C. The directors decided to buy new fixed assets in 2024 to enhance the company. Identify the TWO main sources (over R1m) that were used to finance this purchase. Provide figures.\n\nINFORMATION C — Extract from the Notes and Statement of Financial Position:\n                              29 Feb 2024 (R)   28 Feb 2023 (R)\nFixed assets purchased            8 235 000          4 180 000\nFixed assets sold                   710 000                  0\nFixed deposit: Caledon Bank         550 000            250 000\nOrdinary share capital           31 770 000         28 800 000\nLoan: Main Bank                  12 913 000          9 400 000",
+          "marks": 4,
+          "memoText": "Source and figures ✓✓ ✓✓ (2 marks each):\n\n• Shares issued (sold): R2 970 000 (from R28 800 000 to R31 770 000) / by 10,3%\n• Increase in loan: R3 513 000 (from R9 400 000 to R12 913 000) / by 37,4%\n\nDo NOT accept: sale of fixed assets / cash and cash equivalents.\n\nTeaching point: 'Sources over R1m' means only movements that raised MORE than R1 million in cash qualify — smaller items like the fixed deposit change or the R710 000 fixed assets sold, while real, are not large enough to be a MAIN financing source for an R8 235 000 fixed asset purchase.",
+          "topic": "Interpretation - Financing Strategies",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2024-3-4b",
+          "label": "3.4 (Effect on risk and gearing)",
+          "questionText": "Explain how the decisions (see 3.4 (Sources of financing) above: financing new fixed assets partly through an increased loan) affected the risk and gearing of the company. Quote TWO financial indicators with figures.\n\nINFORMATION D — Financial indicators:\n                                        29 Feb 2024   28 Feb 2023\nDebt-equity ratio                        0,2 : 1        0,5 : 1\n% return on average capital employed       24%            15%\nInterest rate on loans                     12%            12%",
+          "marks": 6,
+          "memoText": "Debt/equity ratio ✓:\n• Decreased/improved (from 0,5 : 1) to 0,2 : 1 / by 0,3 : 1. ✓\n• The company still has a low financial risk. ✓\n\nReturn on average capital employed (ROTCE) ✓:\n• Increased (from 15%) to 24% / by 9%-points / by 60%. ✓\n• The company has positive gearing, as ROTCE (24%) is greater than the interest rate on the loan (12%). ✓\n\nTeaching point: Even though the loan balance INCREASED in rand terms (financing the fixed asset purchase), the debt-equity RATIO still improved, because equity (via the share issue) grew even faster — this is why gearing must always be judged by the RATIO, not the rand value of debt alone. Positive gearing (ROTCE above the loan interest rate) means the borrowed funds are earning more than they cost.",
+          "topic": "Interpretation - Risk and Gearing",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2024-3-5a",
+          "label": "3.5 (Shares bought through rights issue)",
+          "questionText": "Grant Waters' % shareholding, rights issue and shares repurchased:\n\nRefer to Information B.\n\nCalculate the number of shares that Grant bought through the rights issue on 31 October 2023.\n\nINFORMATION A — Background information:\n• The chief executive officer (CEO), Shakira Solomon, was appointed on 1 October 2023, awarded a one-year contract, on probation.\n• Grant Waters, the majority shareholder, was instrumental in appointing the CEO.\n\nINFORMATION B — Share capital and rights issue:\n• 3 000 000 shares were already in issue on 1 March 2023.\n• Grant Waters' shareholding: he is the majority shareholder and owned 1 620 000 of the issued shares on 1 March 2023.\n• Rights issue: On 31 October 2023, each shareholder was offered 10 shares for every 50 shares that they owned, at a reduced price. All shareholders exercised this right. No other shares were issued or repurchased during the financial year.",
+          "marks": 3,
+          "memoText": "Number of shares Grant bought through the rights issue:\n\nWorking: 1 620 000 ÷ 50 × 10 ✓ (check numerator/denominator)\n= 324 000 shares ✓ (if × 10)\n\nAnswer: 324 000 shares\n\nTeaching point: A rights issue offered as 'X shares for every Y shares owned' applies proportionally to EVERY shareholder based on how many shares they ALREADY own — so a shareholder's rights-issue allocation is simply their existing holding × (X ÷ Y).",
+          "topic": "Interpretation - Rights Issue Calculation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2024-3-5b",
+          "label": "3.5 (% shareholding after rights issue)",
+          "questionText": "Calculate Grant's % shareholding after the rights issue on 29 February 2024.\n\nINFORMATION B — 3 000 000 shares already in issue on 1 March 2023; Grant owned 1 620 000 shares on 1 March 2023; on 31 October 2023 each shareholder received 10 shares for every 50 owned (Grant received 324 000 shares, see 3.5 (Shares bought through rights issue) above); no other shares were issued or repurchased during the year.\nTotal shares in issue after the rights issue = 3 000 000 + (3 000 000 ÷ 50 × 10) = 3 000 000 + 600 000 = 3 600 000 shares.",
+          "marks": 5,
+          "memoText": "Grant's % shareholding after the rights issue:\n\nWorking: (1 620 000 + 324 000) ÷ 3 600 000 × 100 ✓✓✓ (2 marks for the numerator components, 1 mark for the denominator: 3 000 000 + 600 000)\n= 54% ✓ (one part correct)\n\nOR: Other shareholders held (3 000 000 − 1 620 000) = 1 380 000 shares before, and received (1 380 000 ÷ 50 × 10) = 276 000 shares through the rights issue: (1 380 000 + 276 000) ÷ 3 600 000 × 100 = 46%. Grant's % = 100% − 46% = 54%.\n\nAnswer: 54%\n\nTeaching point: Because EVERY shareholder receives the SAME proportional rights-issue allocation (10 for every 50 owned), a rights issue on its own never changes anyone's % shareholding — Grant's 54% here would exactly match his ORIGINAL 1 620 000 ÷ 3 000 000 = 54% before the rights issue. His % only changes when shares are issued or repurchased selectively.",
+          "topic": "Interpretation - Shareholding After Rights Issue",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2024-3-5c",
+          "label": "3.5 (Amount spent on rights issue shares)",
+          "questionText": "Calculate the total amount that Grant spent on the shares he acquired through the rights issue.\n\nNOTE: No shares were repurchased during the financial year.\n\nInformation: The total value of all 600 000 shares issued through the rights issue was R2 970 000 (see 3.4 (Sources of financing) above: shares issued/sold, R2 970 000). Grant acquired 324 000 of those 600 000 shares (see 3.5 (Shares bought through rights issue) above).",
+          "marks": 4,
+          "memoText": "Total amount Grant spent on the rights issue shares:\n\nPrice per share = R2 970 000 ÷ 600 000 = R4,95 ✓✓ (two marks for deriving/using this price)\n\nGrant's amount = 324 000 × R4,95 ✓ = R1 603 800 ✓ (one part correct)\n\nOR: Other shareholders' 276 000 shares × R4,95 = R1 366 200; Grant's amount = 2 970 000 − 1 366 200 = R1 603 800\n\nAnswer: R1 603 800\n\nTeaching point: Since the rights issue price per share isn't stated directly, it can be found by dividing the TOTAL cash value raised through the rights issue (from the share capital movement) by the TOTAL number of rights-issue shares — the same per-share price then applies to every shareholder's individual allocation.",
+          "topic": "Interpretation - Rights Issue Amount Spent",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2024-3-5d",
+          "label": "3.5 (Board vote against future repurchase)",
+          "questionText": "Grant intends to convince the board of directors to repurchase shares from him in the next financial year at R12 per share. Explain why the other board members would probably vote against this transaction proposed by Grant. Provide TWO points (with figures).\n\nINFORMATION D — Net asset value per share: 564 cents; Market value per share: 950 cents.\nGrant's % shareholding after the rights issue (see 3.5 (% shareholding after rights issue) above): 54%.",
+          "marks": 4,
+          "memoText": "Any TWO valid points with figures ✓✓ ✓✓ (part-mark for unclear/incomplete answers):\n\n• The repurchase price of R12 (1 200 cents) exceeds the market value per share of 950 cents / by 250 cents.\n• The repurchase price of R12 (1 200 cents) exceeds the NAV per share of 564 cents / by 636 cents.\n• He is taking advantage of his status as the majority shareholder / this constitutes self-enrichment due to his position as the majority shareholder, owning 54% (see 3.5 (% shareholding after rights issue) above).\n\nTeaching point: A director proposing the company buy back HIS OWN shares at a price well above both the market value and the net asset value is a clear conflict of interest — the company would be overpaying, directly at the expense of the remaining shareholders, purely to benefit Grant personally.",
+          "topic": "Corporate Governance - Conflict of Interest in Share Repurchase",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2024-3-6a",
+          "label": "3.6 (Characteristics of a good CEO)",
+          "questionText": "Role of the CEO:\n\nExplain TWO characteristics that shareholders would expect of a good CEO.",
+          "marks": 4,
+          "memoText": "Any TWO valid explanations ✓✓ ✓✓:\n\n• Ability to set and communicate a clear vision of the company / have strong communication skills to effectively convey important information.\n• Maintain transparency with all stakeholders.\n• Ability to deliver consistent financial performance / understand financial management.\n• Ability to attract, develop and retain top talent.\n• Committed to ethical business practice with high standards of integrity.\n• Adapt quickly to change / respond to unexpected challenges.\n• Ability to identify and address the needs of various stakeholders / make well-informed decisions to manage risk and drive positive outcomes.\n• Creative in identifying new opportunities / allocate resources effectively to remain competitive in the market.\n\nTeaching point: A CEO's role blends STRATEGIC skills (vision, adaptability, identifying opportunities) with PEOPLE and GOVERNANCE skills (transparency, integrity, retaining talent) — strong answers name a specific characteristic AND briefly explain the benefit it brings shareholders.",
+          "topic": "Corporate Governance - Role of the CEO",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2024-3-6b",
+          "label": "3.6 (Other indicators the company is well managed)",
+          "questionText": "Apart from the factors and financial indicators covered in the previous questions, identify and explain TWO other points indicating that the company is well managed by the CEO. Quote figures.\n\nINFORMATION D — Financial indicators:\n                            29 Feb 2024   28 Feb 2023\nSolvency ratio                3,8 : 1        2,8 : 1\nCurrent ratio                  2,5 : 1        1,6 : 1\nAcid-test ratio                1,9 : 1        1,2 : 1",
+          "marks": 4,
+          "memoText": "Financial indicator (with figures and trend) + explanation ✓✓ ✓✓ (2 marks each; any TWO):\n\n• Solvency ratio increased/improved (from 2,8 : 1) to 3,8 : 1 — the business has a stronger financial position.\n• Current ratio increased/improved (from 1,6 : 1) to 2,5 : 1 — the business's ability to pay its short-term debts has strengthened.\n• Acid-test ratio increased/improved (from 1,2 : 1) to 1,9 : 1 — the business has enough cash (excluding stock) to cover its short-term debts.\n\nDo NOT accept mark-up %.\n\nTeaching point: Solvency, current, and acid-test ratios each test a slightly DIFFERENT layer of the company's ability to meet its obligations — solvency compares ALL assets to ALL liabilities, current compares only short-term assets/liabilities, and acid-test goes further by excluding stock (the least liquid current asset). Improvement across all three, as here, is strong evidence of good financial management.",
+          "topic": "Interpretation - Liquidity and Solvency Under CEO Management",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Corporate Governance (Valiant Ltd)",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2024-4-1",
+          "label": "4.1",
+          "questionText": "CORPORATE GOVERNANCE\n\nYou are provided with an extract of the independent external audit report of Valiant Ltd, presented to the shareholders at the Annual General Meeting.\n\nNOTE: In your answers, do NOT repeat responses in the different questions.\n\nExplain the role of an independent external auditor. Provide ONE point.\n\nINFORMATION — Extract from the independent external auditor's report on the financial statements of Valiant Ltd:\nAudit Opinion:\n'In our opinion the financial statements present fairly, in all material respects, the financial position of the company as at 29 February 2024 …'\nBasis for Audit Opinion:\n'… and the audit evidence obtained is sufficient and appropriate to provide a basis for our opinion.'",
+          "marks": 2,
+          "memoText": "Any suitable relevant response ✓✓:\n\n• Provides an unbiased audit report on the financial statements of the company.\n• Presents an opinion on the fair presentation of the financial statements.\n• Protects the interest of the shareholders/public.\n\nTeaching point: The independent external auditor is not part of the company's management — their entire value lies in giving shareholders and the public an INDEPENDENT, unbiased check on whether the financial statements can be trusted.",
+          "topic": "Corporate Governance - Role of the External Auditor",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2024-4-2",
+          "label": "4.2",
+          "questionText": "Choose the correct word from those in brackets. Write the answer in the ANSWER BOOK and explain your choice.\n\nValiant Ltd received a/an (qualified/unqualified/disclaimer of opinion) audit report.\n\nSee the audit report extract in 4.1 above: the auditor's opinion states the financial statements 'present fairly, in all material respects, the financial position of the company', with no exceptions or reservations noted, and the audit evidence obtained was 'sufficient and appropriate'.",
+          "marks": 2,
+          "memoText": "Audit report: Unqualified ✓\n\nExplanation (any suitable relevant response) ✓:\n• No errors/problems/irregularities were discovered.\n• The opinion indicates that the financial statements fairly present the financial situation of the company.\n\nTeaching point: An UNQUALIFIED (clean) audit report has NO 'except for' or similar qualifying language — the auditor is stating, without reservation, that the financial statements can be relied upon. This is the best possible audit outcome for a company.",
+          "topic": "Corporate Governance - Types of Audit Reports",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2024-4-3",
+          "label": "4.3",
+          "questionText": "What kind of audit evidence does the independent external auditor examine to verify the fixed assets of a company? Provide TWO points.",
+          "marks": 4,
+          "memoText": "Any suitable relevant response ✓✓ ✓✓ (any TWO):\n\n• Confirm the physical existence of items listed on the fixed assets register.\n• Check if calculations of depreciation are correct / check the correct depreciation rate was used.\n• Check the invoice/receipt against the cost price written on the fixed asset register, if they are the same.\n• Check if the correct procedure was followed in the procurement of new fixed assets / check if the correct procedure was followed in disposing of fixed assets.\n• Check the registration certificate / title deed to confirm ownership.\n\n(Responses worth only one mark: check the fixed asset register; check the logbook; verify source documents.)\n\nTeaching point: Verifying fixed assets means checking THREE separate things — that the asset physically EXISTS, that it is correctly VALUED (cost, depreciation), and that the company actually OWNS it (title deed/registration) — a strong two-point answer covers two different angles rather than two versions of the same check.",
+          "topic": "Corporate Governance - Audit Evidence for Fixed Assets",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2024-4-4",
+          "label": "4.4",
+          "questionText": "What are the implications of this audit report (see 4.2 above: an unqualified audit report) for the following:\n• Directors\n• Shareholders\n\nState ONE point in each case.",
+          "marks": 4,
+          "memoText": "Directors — any suitable relevant response ✓✓:\n• Will be reappointed by the shareholders.\n• Improves their credentials / reputation.\n\nShareholders — any suitable relevant response ✓✓:\n• Satisfied that their investment is safe.\n• It will encourage further investment in the company.\n\nNOTE: Mark 4.4 according to the audit report type identified in 4.2; disregard the choice made in 4.2 if the candidate's answer here still matches the marking guideline logic.\n\nTeaching point: A clean (unqualified) audit report benefits BOTH sides of the company relationship — it gives directors credibility (supporting their reappointment) and gives shareholders confidence (supporting continued or increased investment).",
+          "topic": "Corporate Governance - Implications of the Audit Report",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2024-4-5",
+          "label": "4.5",
+          "questionText": "State THREE possible consequences for the independent external auditor if he was influenced by the directors of the company to deliberately provide the shareholders with an incorrect audit report.",
+          "marks": 3,
+          "memoText": "Any suitable relevant response ✓✓✓ (accept one-word answers; any THREE):\n\nPossible consequences for the auditor personally:\n• Deregistered / struck off the roll by IRBA (the accounting body) / loss of professional licence / revocation of his certificate.\n• Disciplinary hearing / suspended (during investigation) / fired by his employer / fined / imprisonment (arrested).\n• Sued by shareholders (or the company) for negligence (financial loss) / bad reputation to his name.\n\nPossible consequences for his firm (the auditor's employer):\n• Lose clients / removed as auditors by clients / loss of employment to staff as the client base decreases / acquiring new contracts will be challenging in future / bad image for the firm.\n\nTeaching point: An auditor who lets a client's directors influence their opinion is committing a serious breach of professional independence — the consequences reach both the individual (deregistration, legal action) and the wider audit firm (reputational and financial damage from losing client trust).",
+          "topic": "Corporate Governance - Auditor Consequences for Misconduct",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

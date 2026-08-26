@@ -1,0 +1,328 @@
+{
+  "id": "acc-p1-nov-2025",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P1",
+  "year": 2025,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Company Financial Statements (Violet Ltd)",
+      "totalMarks": 50,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2025-1-1",
+          "label": "1.1",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — VIOLET LTD\n\nThe following information was taken from the accounting records of Violet Ltd. The financial year ended on 28 February 2025. The company trades in women's and men's clothing.\n\nRefer to Information B.\n\nCalculate the correct value of the closing stock of men's informal shirts.\n\nINFORMATION B — Trading stock:\nIt was discovered that the closing stock of one specific brand of men's informal shirts was valued according to the first-in-first-out (FIFO) stock valuation method instead of the weighted-average stock valuation method. This must be corrected.\n\nThe following records are applicable to this brand of informal shirts:\n                              Quantity   Total cost (R)\nStock (1 March 2024)             300           97 500\nPurchases                      4 800        1 605 000\nReturns                           100           42 500\nClosing stock (28 Feb 2025)      820          285 500 (incorrect FIFO value)",
+          "marks": 6,
+          "memoText": "CLOSING STOCK — WEIGHTED-AVERAGE METHOD\n\nStep 1 — Total cost of stock available for sale:\n97 500 + 1 605 000 − 42 500 = R1 660 000 ✓✓ (one mark for the operation, one mark for the correct total)\n\nStep 2 — Total quantity available for sale:\n300 + 4 800 − 100 = 5 000 units ✓✓ (one mark for the operation, one mark for the correct total)\n\nStep 3 — Weighted-average cost per unit:\nR1 660 000 ÷ 5 000 units = R332 per unit\n\nStep 4 — Correct closing stock value:\nR332 × 820 units = R272 240 ✓ (one part correct if multiplied by 820)\n\nAnswer: R272 240\n\nNOTE: Do not award marks for any stand-alone figures, e.g. no ticks if only R97 500/300 is written with no further working. Numerator and denominator must be clearly marked as such.\n\nTeaching point: The weighted-average method pools ALL units (opening stock + purchases − returns) into ONE average cost per unit, then applies that single average cost to however many units remain in stock at year end. This differs from FIFO, which assumes the OLDEST stock is sold first and values closing stock at the MOST RECENT purchase prices. Returns of purchased stock reduce both the cost pool and the quantity pool — they must be subtracted from both, not just one.",
+          "topic": "Company Financial Statements - Stock Valuation (Weighted Average)",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2025-1-2",
+          "label": "1.2",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — VIOLET LTD\n\nPrepare the Ordinary Share Capital Note for Violet Ltd for the year ended 28 February 2025.\n\nNOTE:\n• Show ALL workings in brackets.\n• Certain figures are provided in the ANSWER BOOK; missing amounts in shaded areas must NOT be filled in.\n\nINFORMATION A — Balances/totals on 28 Feb 2025 and 29 Feb 2024:\n                              28 Feb 2025 (R)   29 Feb 2024 (R)\nOrdinary share capital           17 875 000         11 395 000\n\nINFORMATION G — Shares and dividends:\nNOTE: The relevant entries have already been recorded.\n• The company had an authorised share capital of 9 000 000 shares.\n• 750 000 new shares were issued on 31 March 2024.\n• An interim dividend was paid on 1 September 2024.\n• 150 000 shares were repurchased on 31 January 2025. EFT payments totalling R1 710 000 were made in favour of shareholders.\n• The directors declared a final dividend of 90 cents per share on the 2 750 000 shares in issue on 28 February 2025.",
+          "marks": 8,
+          "memoText": "ORDINARY SHARE CAPITAL NOTE (year ended 28 February 2025)\n\nNumber of shares:\nShares in issue at beginning: 2 150 000 ✓ (balancing: 2 750 000 − 750 000 + 150 000)\nShares issued during the year: 750 000 ✓ (given)\nShares repurchased: (150 000) ✓ (given; ignore brackets)\nShares in issue at end: 2 750 000 (given — matches the 2 750 000 shares used for the final dividend)\n\nAmounts (R):\nShares in issue at beginning: R11 395 000 ✓ (given, Information A)\n\nShares repurchased — average share price:\nSince shares are ALWAYS repurchased at the average share price at the date of repurchase, the average price per share does NOT change as a result of the repurchase itself. This means the average price on 28 February 2025 is the same as it was on 31 January 2025:\nAverage share price = R17 875 000 ÷ 2 750 000 shares = R6,50 ✓\nDo NOT accept R1 710 000 (that is the actual CASH PAID, which included an extra premium above the average share price — the share capital note must reflect only the average-price portion).\nShares repurchased (R): 150 000 × R6,50 = R(975 000) ✓☑ (ignore brackets)\n\nShares issued during the year (R) — balancing figure:\nEnding share capital + Repurchased amount − Opening share capital\n= 17 875 000 + 975 000 − 11 395 000 = R7 455 000 ✓☑ (inspect the operation: +SBB − S@B)\n\nShares in issue at end: R17 875 000 ✓ (given, Information A)\n\n-1 presentation/details (max -1)\n\nTeaching point: Whenever a company repurchases its OWN shares, it must do so at the AVERAGE PRICE PER SHARE recorded in the share capital account — NOT at whatever cash amount was actually paid. Any premium paid above the average price (here: R1 710 000 − R975 000 = R735 000) is charged against RETAINED INCOME, not against share capital. This is why the R1 710 000 EFT figure must never appear in the Ordinary Share Capital Note.",
+          "topic": "Company Financial Statements - Ordinary Share Capital Note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-p1-nov-2025-1-3",
+          "label": "1.3",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — VIOLET LTD\n\nPrepare the Statement of Financial Position (Assets side and Equity and Liabilities side) for Violet Ltd on 28 February 2025.\n\nNOTE:\n• Show ALL workings in brackets.\n• Certain figures are provided in the ANSWER BOOK (Fixed assets at carrying value; Current assets total R5 798 000; Cash and cash equivalents; Total assets; Current liabilities total R4 460 000). Missing amounts in shaded areas must NOT be filled in.\n\nINFORMATION A — Balances/totals on 28 Feb 2025 and 29 Feb 2024:\n                                28 Feb 2025 (R)   29 Feb 2024 (R)\nFixed deposit: Time Bank              ?                 —\nTrading stock                   4 598 000               —\nDebtors' control                   735 000               —\nProvision for bad debts                ?                 —\nOrdinary shareholders' equity           ?          16 200 000\n  Ordinary share capital          17 875 000          11 395 000\n  Retained income                        ?           4 805 000\nMortgage loan: Delta Bank         3 200 000               —\nCreditors' control                 878 500               —\nBank (unfavourable)                     ?                 —\n\nINFORMATION B — Trading stock (see 1.1 above): corrected closing stock of men's informal shirts = R272 240 (was incorrectly valued at R285 500 using FIFO).\n\nINFORMATION C — Fixed deposit: Time Bank:\n• A fixed deposit of R320 000 matures on 31 July 2025 (within 12 months of year end).\n• The remaining 60% of the fixed deposit will mature on 31 December 2028.\n\nINFORMATION D — Transfer of balance and provision for bad debts:\n• A debtor, who had overpaid his account by R5 000 in the Debtors' Ledger, requested that this overpayment be transferred to his account in the Creditors' Ledger. This transfer has not yet been recorded.\n• The provision for bad debts must be adjusted to 4% of the outstanding debtors.\n\nINFORMATION E — Extract from the Statement of Comprehensive Income for the year ended 28 February 2025 (adjustments already taken into account):\n                        R\nOperating income\n  Commission income   169 400\n  Rent income          430 500\nOperating expenses\n  Directors' fees    1 998 750\n\nNOTE on the adjustments already reflected above:\n• Commission income for February 2025, R6 400, was still outstanding (accrued income).\n• Rent for March and April 2025 was received and recorded in advance. The rent was increased by 10% on 1 December 2024.\n• The company had two directors on 1 March 2024 (beginning of the year), earning the same monthly fee, paid in full for all 12 months. A third director, Jack Jele, was employed on 1 June 2024, earning a monthly fee 25% LOWER than the other directors. Jack was paid up to 31 March 2025 (i.e. one month in advance).\n\nINFORMATION F — Mortgage loan: Delta Bank:\n• Fixed monthly repayments of R45 000, including capitalised interest, have been made and correctly recorded for the year ended 28 February 2025.\n• The monthly repayments will remain the same until the loan is fully repaid in approximately four years' time.\n• Interest for the next financial year is expected to be R290 000.\n\nUse the Ordinary Share Capital Note information from 1.2 above (Ordinary share capital R17 875 000; 2 750 000 shares in issue at year end).\n\nINFORMATION H — Profit and income tax:\n• The assessment from SARS for the year ended 28 February 2025 indicated that the company qualifies for a tax refund of R70 000.\n• The net profit after tax was accurately calculated to be R4 721 700 for the year.\n\nINFORMATION I — Financial indicators calculated on 28 February 2025:\nCurrent ratio: 1,3 : 1\n% return on average shareholders' equity: 24%",
+          "marks": 36,
+          "memoText": "STATEMENT OF FINANCIAL POSITION — VIOLET LTD (28 February 2025)\n\nASSETS\n\nFixed deposit: Time Bank (non-current portion) = R480 000 ✓☑\nWorking: Total fixed deposit = R320 000 ÷ 40% = R800 000 (since R320 000 is the 40% maturing within 12 months, and the remaining 60% is non-current).\nNon-current portion = R800 000 × 60% = R480 000 (equivalently: R800 000 − R320 000 = R480 000).\n\nInventories = R4 584 740 ✓☑\nWorking: 4 598 000 (trading stock) − 13 260 (correction: 285 500 − 272 240, see 1.1) = R4 584 740\nSign note: since the corrected value (272 240) is LOWER than the incorrect FIFO value (285 500), trading stock must be REDUCED — the sign must be positive in the subtraction as shown.\n\nTrade and other receivables = R835 550 ✓☑\nWorking: 735 000 (debtors' control) + 5 000 (transfer of overpayment out of debtors, see Information D) − 29 600 (provision for bad debts: 4% × (735 000+5 000) = 29 600) + 6 400 (commission income accrued) + 48 750 (directors' fees prepaid — Jack Jele's monthly fee, paid one month in advance) + 70 000 (SARS: Income tax refund receivable) = R835 550\n\nCurrent assets total: R5 798 000 (given in the answer book — includes the R320 000 current portion of the fixed deposit and R57 710 cash and cash equivalents, neither of which needs to be calculated separately here).\n\nEQUITY AND LIABILITIES\n\nOrdinary shareholders' equity = R23 147 500 ✓☑\nWorking: % return on average shareholders' equity = Net profit after tax ÷ Average SHE × 100 = 24%\nAverage SHE = R4 721 700 ÷ 24% = R19 673 750\nAverage SHE × 2 = R39 347 500 (three marks)\nClosing SHE = R39 347 500 − R16 200 000 (opening SHE) = R23 147 500\n\nOrdinary share capital = R17 875 000 ✓ (see 1.2)\n\nRetained income = R5 272 500 ✓ (balancing: Ordinary shareholders' equity − Ordinary share capital = 23 147 500 − 17 875 000; can be negative in other scenarios)\n\nNon-current liabilities — Mortgage loan: Delta Bank = R2 950 000 ✓☑\nWorking: Next year's total repayments = R45 000 × 12 = R540 000\nNext year's capital repayment (the CURRENT portion) = R540 000 − R290 000 (interest) = R250 000\nNon-current portion = R3 200 000 (total loan balance) + R290 000 − R540 000 = R2 950 000\n(equivalently: R3 200 000 − R250 000 = R2 950 000)\n\nCurrent liabilities total: R4 460 000 (given in the answer book)\n\nTrade and other payables = R960 500 ✓☑\nWorking: 878 500 (creditors' control) + 5 000 (transfer of the debtor's overpayment INTO creditors, see Information D) + 77 000 (rent received in advance for March and April 2025 at the increased rate) = R960 500\nRent in advance working: new monthly rate (from 1 Dec 2024) = R38 500 (so 2 months' advance = R77 000); old monthly rate (Mar–Nov 2024) = R38 500 ÷ 1,10 = R35 000. Check: (9 × 35 000) + (5 × 38 500) − 77 000 = 315 000 + 192 500 − 77 000 = R430 500, matching the rent income given in Information E.\n\nCurrent portion of loan = R250 000 ✓ (see Non-current liabilities working above)\n\nShareholders for dividends = R2 475 000 ✓✓\nWorking: 2 750 000 shares (in issue on 28 Feb 2025, see 1.2) × 90 cents (final dividend per share) = R2 475 000\n\nBank overdraft = R774 500 ✓ (balancing figure: Current liabilities total 4 460 000 − Trade and other payables 960 500 − Current portion of loan 250 000 − Shareholders for dividends 2 475 000 = R774 500)\n\nTotal equity and liabilities = 23 147 500 + 2 950 000 + 4 460 000 = R30 557 500 (must equal Total assets)\n\nPENALTIES: −1 for each foreign item (max −2); −1 for poor presentation (max −1); misplaced items only earn marks for workings, not for the final answer line.\n\nTeaching points:\n• Directors' fees PREPAID (paying next year's fee early) is an ASSET (Trade and other receivables) — the company has paid for a service it has not yet received.\n• Rent received IN ADVANCE is a LIABILITY (Trade and other payables) — the company has received cash for a service it has not yet provided.\n• A loan's CURRENT portion is always the CAPITAL repayment expected in the NEXT 12 months, found by subtracting next year's expected interest from next year's total instalments.\n• When shares are repurchased at the average price, the % return on average shareholders' equity formula lets you work BACKWARDS from net profit after tax to find the closing shareholders' equity, then Retained income falls out as the balancing figure.",
+          "topic": "Company Financial Statements - Statement of Financial Position",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Cash Flow Statement and Financial Indicators (Mustang Ltd)",
+      "totalMarks": 45,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2025-2-1a",
+          "label": "2.1 (Change in receivables)",
+          "questionText": "CASH FLOW STATEMENT AND FINANCIAL INDICATORS — MUSTANG LTD\n\nThe information relates to Mustang Ltd for the financial year ended 28 February 2025.\n\nCalculate the change in receivables for the Reconciliation of Profit before Taxation and Cash Generated from Operations Note on 28 February 2025. Indicate inflow or outflow of cash.\n\nINFORMATION D — Trade and other receivables:\n                       28 Feb 2025 (R)   29 Feb 2024 (R)\nDebtors' control          3 167 000          1 303 500\nSARS: Income tax                  0             32 000\nTotal                     3 167 000          1 335 500",
+          "marks": 3,
+          "memoText": "Change in receivables:\n\nWorking: 3 167 000 − 1 303 500 = R1 863 500 ✓✓\n(ignore brackets in the working)\n\nAnswer: R1 863 500 — Outflow ✓\n\nNOTE: Only the DEBTORS' CONTROL balances are compared here (the SARS: Income tax receivable is dealt with separately as part of taxation paid, not as part of the trade receivables movement).\n\nTeaching point: When debtors' control INCREASES year-on-year, more cash is tied up in amounts owed by customers instead of being collected — this represents a cash OUTFLOW in the reconciliation note (cash that should have come in didn't).",
+          "topic": "Cash Flow Statement - Change in Receivables",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2025-2-1b",
+          "label": "2.1 (Change in payables)",
+          "questionText": "Calculate the change in payables for the Reconciliation of Profit before Taxation and Cash Generated from Operations Note on 28 February 2025. Indicate inflow or outflow of cash.\n\nINFORMATION F — Trade and other payables:\n                       28 Feb 2025 (R)   29 Feb 2024 (R)\nCreditors' control        1 450 000          1 323 500\nAccrued expenses             14 600                  0\nShareholders for dividends  129 480            162 000\nSARS: Income tax             15 300                  0\nTotal                     1 609 380          1 485 500",
+          "marks": 4,
+          "memoText": "Change in payables:\n\nWorking: (1 450 000 + 14 600) − 1 323 500 = 1 464 600 − 1 323 500 = R141 100 ✓☑ (one part correct: current year − prior year, or vice versa)\n\nAnswer: R141 100 — Inflow ✓\n\nNOTE: Only CREDITORS' CONTROL and ACCRUED EXPENSES are used here — Shareholders for dividends and SARS: Income tax are excluded because they are dealt with separately (dividends paid and taxation paid workings).\nIf workings are not shown, award full marks for the correct answer. Do not award a mark for any operation done on stand-alone figures for each year.\n\nTeaching point: When trade payables INCREASE, the business is taking longer to pay its suppliers — this FREES UP cash, representing a cash INFLOW in the reconciliation note.",
+          "topic": "Cash Flow Statement - Change in Payables",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2025-2-2",
+          "label": "2.2",
+          "questionText": "CASH FLOW STATEMENT AND FINANCIAL INDICATORS — MUSTANG LTD\n\nComplete the Cash Flow Statement for Mustang Ltd for the year ended 28 February 2025.\n\nNOTE:\n• Certain figures are provided in the ANSWER BOOK (Cash generated from operations; Change in fixed deposit — not applicable this year). Missing amounts in shaded areas MUST NOT be filled in.\n\nINFORMATION A — Extract from the Statement of Comprehensive Income for the year ended 28 February 2025:\n                          R\nCost of sales        12 800 000\nInterest on loan         316 250\nNet profit before tax    720 000\nTaxation for the year    201 600\nNet profit after tax     518 400\n\nINFORMATION B — Extract from the Statement of Financial Position:\n                              28 Feb 2025 (R)   29 Feb 2024 (R)\nOrdinary shareholders' equity   7 140 120          5 500 000\nMortgage loan: Merchant Bank     2 880 000       3 300 000 (given in the answer book)\nBank overdraft                     775 000                0\n\nINFORMATION C — Fixed assets:\n                                  28 Feb 2025 (R)   29 Feb 2024 (R)\nLand and buildings at cost           5 600 000          5 600 000\nEquipment at cost                      690 000            745 000\nVehicles at cost                     2 900 000          2 520 000\nAccumulated depreciation on equipment         ?            233 000\nAccumulated depreciation on vehicles          ?             85 000\n\nEquipment:\n• An old fridge was sold for cash at carrying value on 30 June 2024. According to the Fixed Asset Register, the cost of the fridge was R55 000 and its carrying value was R16 000 on 1 March 2024.\n• Equipment is depreciated at 15% p.a. on cost. No new equipment was purchased during the year.\n\nVehicles:\nA new delivery vehicle was bought for cash on 1 December 2024. No vehicles were sold during the year.\n\nINFORMATION D — Trade and other receivables (see 2.1 above).\n\nINFORMATION E — Cash and cash equivalents:\n                        28 Feb 2025 (R)   29 Feb 2024 (R)\nBank                              0            405 000\nPetty cash                   18 000             10 000\nTotal                         18 000            415 000\n\nINFORMATION F — Trade and other payables (see 2.1 above).\n\nINFORMATION G — Shares and dividends:\n• The directors paid an interim dividend on 31 July 2024.\n• 50 000 new shares were issued on 1 November 2024 at a price of R20 per share.\n• 2 000 shares were repurchased at 40% more than the average share price of R11 per share.\n• The directors declared a final dividend on 28 February 2025.\n• There were 498 000 ordinary shares in issue on 28 February 2025.\n• Dividends paid, as per the Cash Flow Statement for the year ended 28 February 2025, was R252 000.",
+          "marks": 23,
+          "memoText": "CASH FLOW STATEMENT — MUSTANG LTD (year ended 28 February 2025)\n\nCASH FLOW FROM OPERATING ACTIVITIES\nCash generated from operations: given in the answer book (not required — this figure, together with the other completed lines, produces the net change in cash shown below).\n\nInterest paid = R(316 250) ✓✓ (given directly, Information A)\n\nTaxation paid = R(154 300) ✓☑\nWorking: 201 600 (current year tax) − 32 000 (opening SARS: Income tax ASSET, meaning it was owed TO the company and reduces the amount actually paid) − 15 300 (closing SARS: Income tax LIABILITY, meaning this portion is still owed and hasn't been paid yet) = R154 300\nOR: −201 600 + 32 000 + 15 300 = R(154 300) — use ONE sign convention consistently.\n\nDividends paid = R(252 000) (given directly, Information G)\n\nCASH FLOW FROM INVESTING ACTIVITIES\nFixed asset purchased = R(380 000) ✓✓\nWorking: Vehicles at cost 2 900 000 − 2 520 000 = R380 000 (no vehicles were sold, so the full increase in cost is the new vehicle purchase; equipment had no new purchases this year).\n\nSale of fixed asset = R13 250 ✓☑\nWorking: Depreciation on the fridge, 1 March–30 June 2024 (4 months) = 55 000 × 15% × 4/12 = R2 750\nCarrying value at date of sale = 16 000 − 2 750 = R13 250\nOR: 55 000 (cost) − 41 750 (total accumulated depreciation at date of sale) = R13 250\nSold AT carrying value, so there is no profit or loss on disposal.\n\nChange in fixed deposit: not applicable — leave blank (Mustang Ltd has no fixed deposit).\n\nCASH FLOW FROM FINANCING ACTIVITIES\nSale of shares = R1 000 000 ✓✓\nWorking: 50 000 new shares × R20 = R1 000 000\n\nShares repurchased = R(30 800) ✓☑\nWorking: Repurchase price = R11 × 1,40 = R15,40 per share (40% MORE than the average price of R11)\n2 000 × R15,40 = R30 800\nOR: (2 000 × R11) + (2 000 × R4,40 premium) = 22 000 + 8 800 = R30 800\n\nChange in loan = R(420 000) ✓☑\nWorking: 3 300 000 (opening balance, given in the answer book) − 2 880 000 (closing balance, Information B) = R420 000 — the loan was reduced (repaid) this year, so this is a cash OUTFLOW.\n\nNET CHANGE IN CASH AND CASH EQUIVALENTS = R(1 172 000) ✓☑\n\nCASH AND CASH EQUIVALENTS AT BEGINNING = R415 000 ✓ (given, Information E: Bank R405 000 + Petty cash R10 000)\n\nCASH AND CASH EQUIVALENTS AT END = R(757 000) ✓✓\nWorking: 415 000 − 1 172 000 = R(757 000)\nCheck against Information E/B: Petty cash R18 000 − Bank overdraft R775 000 = R(757 000) ✓\n\n-1 presentation (max -1); misplaced items only earn marks for workings.\n\nTeaching points:\n• A LOWER opening SARS asset / higher closing SARS liability both REDUCE the actual cash paid to SARS this year.\n• Shares repurchased at a PREMIUM above the average price are still recorded at the actual price PAID in the Cash Flow Statement (unlike the Share Capital Note, which uses only the average price) — the whole cash outflow of R30 800 appears here.\n• 'Change in loan' in the Cash Flow Statement is simply the NET movement in the loan balance (repayments minus any new borrowing) between the two years' closing balances.",
+          "topic": "Cash Flow Statement - Full Statement",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-p1-nov-2025-2-3a",
+          "label": "2.3 (Net asset value per share)",
+          "questionText": "CASH FLOW STATEMENT AND FINANCIAL INDICATORS — MUSTANG LTD\n\nCalculate the net asset value per share for Mustang Ltd on 28 February 2025.\n\nINFORMATION B — Ordinary shareholders' equity on 28 February 2025: R7 140 120\nThere were 498 000 ordinary shares in issue on 28 February 2025 (Information G).",
+          "marks": 3,
+          "memoText": "Net asset value per share:\n\nFormula: Shareholders' equity ÷ Number of issued shares × 100\n= 7 140 120 ÷ 498 000 × 100 ✓✓\n= 1 433,8 cents ✓☑ (one part correct)\n\nAnswer: 1 433,8 cents (also accept R14,34 / R14,33 / 1 433c / 1 434c)\n\nNOTE: Rand/cent conversion is not necessary for the mark — either unit is accepted here.\n\nTeaching point: Net asset value (NAV) per share shows what each share would theoretically be worth if the company's net assets were divided equally among all shareholders — it is the 'book value' per share, based on shareholders' equity rather than the market price.",
+          "topic": "Financial Indicators - Net Asset Value Per Share",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2025-2-3b",
+          "label": "2.3 (Acid-test ratio)",
+          "questionText": "Calculate the acid-test ratio for Mustang Ltd on 28 February 2025.\n\nINFORMATION D — Debtors' control on 28 February 2025: R3 167 000\nINFORMATION E — Cash and cash equivalents on 28 February 2025: R18 000 (Bank R0 + Petty cash R18 000)\nINFORMATION F — Trade and other payables total on 28 February 2025: R1 609 380\nINFORMATION B — Bank overdraft on 28 February 2025: R775 000",
+          "marks": 5,
+          "memoText": "Acid-test ratio:\n\nNumerator (current assets excluding inventory): 3 167 000 (debtors' control) + 18 000 (cash and cash equivalents) = R3 185 000 ✓✓\n\nDenominator (current liabilities): 1 609 380 (trade and other payables) + 775 000 (bank overdraft) = R2 384 380 ✓✓\n\nAcid-test ratio = 3 185 000 : 2 384 380 = 1,3 : 1 ✓☑ (one part correct; accept 1,34 : 1)\n\nAnswer: 1,3 : 1\n\nTeaching point: The acid-test (quick) ratio EXCLUDES inventory from current assets, because stock can take time to sell and convert to cash. It shows whether the company can meet its short-term debts using only its most liquid assets (debtors and cash).",
+          "topic": "Financial Indicators - Acid-Test Ratio",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2025-2-3c",
+          "label": "2.3 (Dividend pay-out rate)",
+          "questionText": "Calculate the dividend pay-out rate for Mustang Ltd for the year ended 28 February 2025.\n\nINFORMATION A — Net profit after tax: R518 400\nINFORMATION F — Shareholders for dividends (final dividend declared, 28 February 2025): R129 480; Shareholders for dividends on 29 February 2024 (last year's final dividend, paid this year): R162 000.\nINFORMATION G — Dividends paid during the year (as per the Cash Flow Statement, see 2.2): R252 000.",
+          "marks": 5,
+          "memoText": "Dividend pay-out rate:\n\nStep 1 — Interim dividends paid this year (balancing figure):\nDividends paid (per Cash Flow Statement) − Opening Shareholders for dividends = 252 000 − 162 000 = R90 000\n\nStep 2 — Total dividends for the year:\nInterim dividends (90 000) + Final dividend declared (129 480, closing Shareholders for dividends) = R219 480 ✓✓✓ (two marks for identifying both components correctly, one mark for the total)\n\nStep 3 — Dividend pay-out rate:\n219 480 ÷ 518 400 × 100 ✓\n= 42,3% ✓☑ (one part correct; do not accept 0,42)\n\nAnswer: 42,3%\n\nTeaching point: Dividends paid (cash) = last year's FINAL dividend (which sits as a liability at the start of the year and gets paid out during the year) PLUS this year's INTERIM dividend (which is usually paid immediately, so it doesn't sit as a liability). This year's FINAL dividend, once declared, becomes a NEW liability (Shareholders for dividends) that will only be paid out next year.",
+          "topic": "Financial Indicators - Dividend Pay-out Rate",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2025-2-4",
+          "label": "2.4",
+          "questionText": "The directors should be concerned about the cash resources of the company for the year ended 28 February 2025. Give ONE reason (with figures) for this concern.\n\nUse the completed Cash Flow Statement from 2.2 above (Net change in cash and cash equivalents; Cash and cash equivalents at end).",
+          "marks": 2,
+          "memoText": "Any ONE reason with figures ✓ (reason) + ✓ (figures):\n\n• The cash and cash equivalents have changed from a FAVOURABLE balance of R415 000 to an UNFAVOURABLE balance of R757 000 (see 2.2).\n• The net cash OUTFLOW of R1 172 000 (see 2.2) indicates that the company's operations did not generate enough cash to cover its needs.\n\nTeaching point: A swing from a positive cash balance to a bank OVERDRAFT is a red flag — it means the business is now relying on borrowed short-term funds (at interest) just to keep operating, which is unsustainable if it continues.",
+          "topic": "Cash Flow Statement - Interpretation",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Concepts and Interpretation of Financial Information (Shorts Ltd and Lynn Ltd)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2025-3-1-1",
+          "label": "3.1.1",
+          "questionText": "CONCEPTS AND INTERPRETATION OF FINANCIAL INFORMATION — SHORTS LTD AND LYNN LTD\n\nThe information relates to Shorts Ltd and Lynn Ltd, operating in the same industry, for the year ended 28 February 2025.\n\nChoose the correct word(s) from the list below to complete the description. Write only the word(s).\n\nWord bank: Companies and Intellectual Properties Commission (CIPC); director; International Financial Reporting Standards (IFRS); internal auditor\n\nGuidelines for the preparation of financial statements to ensure consistency.",
+          "marks": 1,
+          "memoText": "International Financial Reporting Standards (IFRS) ✓\n\nTeaching: IFRS are the standardised accounting rules that ensure financial statements from DIFFERENT companies (and different years) can be prepared and compared CONSISTENTLY.",
+          "topic": "Interpretation - Terminology",
+          "type": "mcq",
+          "options": {
+            "A": "Companies and Intellectual Properties Commission (CIPC)",
+            "B": "director",
+            "C": "International Financial Reporting Standards (IFRS)",
+            "D": "internal auditor"
+          }
+        },
+        {
+          "id": "acc-p1-nov-2025-3-1-2",
+          "label": "3.1.2",
+          "questionText": "Choose the correct word(s) from the list below. Write only the word(s).\n\nWord bank: Companies and Intellectual Properties Commission (CIPC); director; International Financial Reporting Standards (IFRS); internal auditor\n\nAn elected board member responsible for the running of the company and implementing policy.",
+          "marks": 1,
+          "memoText": "Director ✓\n\nTeaching: Directors are ELECTED by shareholders to sit on the board and are responsible for running the company day-to-day and implementing its policies — distinct from shareholders (who own the company) and auditors (who check the records).",
+          "topic": "Interpretation - Terminology",
+          "type": "mcq",
+          "options": {
+            "A": "Companies and Intellectual Properties Commission (CIPC)",
+            "B": "director",
+            "C": "International Financial Reporting Standards (IFRS)",
+            "D": "internal auditor"
+          }
+        },
+        {
+          "id": "acc-p1-nov-2025-3-1-3",
+          "label": "3.1.3",
+          "questionText": "Choose the correct word(s) from the list below. Write only the word(s).\n\nWord bank: Companies and Intellectual Properties Commission (CIPC); director; International Financial Reporting Standards (IFRS); internal auditor\n\nResponsible for maintaining records and control of new and existing companies.",
+          "marks": 1,
+          "memoText": "Companies and Intellectual Properties Commission (CIPC) ✓\n\nTeaching: The CIPC is the government body that registers new companies and keeps the official record of all existing companies in South Africa.",
+          "topic": "Interpretation - Terminology",
+          "type": "mcq",
+          "options": {
+            "A": "Companies and Intellectual Properties Commission (CIPC)",
+            "B": "director",
+            "C": "International Financial Reporting Standards (IFRS)",
+            "D": "internal auditor"
+          }
+        },
+        {
+          "id": "acc-p1-nov-2025-3-2-1",
+          "label": "3.2.1",
+          "questionText": "SHORTS LTD — Operating efficiency:\n\nThe CEO believes that the company's pricing policy, when compared to its competitors, is well managed. Quote TWO financial indicators/financial data with trends to support his statement.\n\nINFORMATION C — Financial data and indicators for Shorts Ltd and Lynn Ltd:\n                                  Shorts Ltd            Lynn Ltd\n                             28 Feb 2025  29 Feb 2024   28 Feb 2025  29 Feb 2024\nSales                          R77 m        R48 m         R85 m        R90 m\nMark-up %                       50%          65%           60%          45%\n% operating expenses on sales   17,8%        18,2%          —            —\n% net profit after tax on sales 26,4%        22%            —            —",
+          "marks": 4,
+          "memoText": "Any TWO financial indicators/data with trends ✓✓ ✓✓ (2 marks each: indicator + figures/trend):\n\n• Mark-up % DECREASED from 65% to 50% (by 23,1% / by 15 percentage points).\n• % net profit after tax on sales INCREASED from 22% to 26,4% (by 20% / by 4,4 percentage points).\n• Sales have IMPROVED from R48 m to R77 m (by R29 m).\n\nDo NOT accept % operating expenses on sales (that measures cost control, not pricing policy).\n\nTeaching point: A LOWER mark-up % combined with a HIGHER net profit % shows the company is pricing more competitively (smaller mark-up per item) while still growing overall sales volume enough to increase overall profitability — a sign of a well-managed pricing strategy.",
+          "topic": "Interpretation - Operating Efficiency / Pricing Policy",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2025-3-2-2",
+          "label": "3.2.2",
+          "questionText": "SHORTS LTD — Liquidity:\n\nExplain how the credit policy has improved the liquidity of the company. Quote TWO financial indicators with trends.\n\nINFORMATION C — Financial indicators for Shorts Ltd:\n                                28 Feb 2025   29 Feb 2024\nCurrent ratio                    2,4 : 1        2,2 : 1\nAcid-test ratio                  1,8 : 1        1,4 : 1\nDebtors' collection period       31 days        42 days\nCreditors' payment period        90 days        71 days",
+          "marks": 4,
+          "memoText": "Any TWO financial indicators with trends ✓✓ ✓✓ (2 marks each: indicator + figures/trend):\n\n• Debtors' collection period IMPROVED (DECREASED) from 42 days to 31 days (by 11 days).\n• Creditors' payment period IMPROVED (INCREASED) from 71 days to 90 days (by 19 days).\n\nDo NOT accept current ratio and acid-test ratio (these measure overall liquidity, not the CREDIT POLICY specifically — i.e. how quickly debtors pay and how slowly the company itself pays creditors).\n\nTeaching point: A shorter debtors' collection period means the company is collecting cash from customers faster; a longer creditors' payment period means the company is holding onto its own cash for longer before paying suppliers. Both changes free up more cash on hand — this is what the 'credit policy' specifically refers to (the terms given to debtors and taken from creditors), as opposed to the current/acid-test ratios which are broader liquidity measures.",
+          "topic": "Interpretation - Liquidity / Credit Policy",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2025-3-2-3a",
+          "label": "3.2.3 (Effect on % shareholding)",
+          "questionText": "SHORTS LTD — Shareholding of Lewis Clark, the CFO:\n\nRefer to Information A, B and C.\n\nProvide a calculation to show the effect which the repurchase of shares had on Lewis's % shareholding.\n\nINFORMATION A — Background information for Shorts Ltd:\n• Lewis Clark, the CFO, is a shareholder of Shorts Ltd.\n• He has convinced the board of directors to repurchase 400 000 shares from a dissatisfied shareholder at R3 each. These shares will not qualify for final dividends.\n• This transaction occurred before the final dividends were declared. All parties agreed to the offer and the EFT payment was made accordingly.\n\nINFORMATION B — Share capital of Shorts Ltd:\nNumber of shares               28 Feb 2025   29 Feb 2024\nAuthorised shares                3 000 000     3 000 000\nRepurchase of shares               (400 000)            0\nNumber of shares in issue         1 383 250     1 783 250\n\nShareholding of Lewis Clark, the CFO:\n                          28 Feb 2025   29 Feb 2024\n% shareholding                   ?           40%",
+          "marks": 4,
+          "memoText": "Effect of the repurchase on Lewis's % shareholding:\n\nStep 1 — Lewis's number of shares (unchanged by the repurchase, since he did not sell any):\n1 783 250 × 40% = 713 300 shares ✓✓\n\nStep 2 — Lewis's % shareholding AFTER the repurchase (same number of shares, but FEWER total shares in issue):\n713 300 ÷ 1 383 250 × 100 ✓\n= 51,6% ✓☑ (one part correct; % sign not necessary; accept 51%/52%)\n\nOR: 100% − 48,4% = 51,6% (where 48,4% is the remaining shareholders' combined share)\n\nAnswer: 51,6%\n\nNOTE: 'x 100' does not count as 'one part correct' on its own. Numerator and denominator must be clearly marked. Do not award marks for anything added to 713 300/1 383 250.\n\nTeaching point: When a company repurchases (cancels) some of its shares, any shareholder who does NOT sell shares back automatically ends up owning a LARGER PERCENTAGE of the smaller remaining pool of shares — even though the NUMBER of shares they hold hasn't changed at all.",
+          "topic": "Interpretation - Shareholding Effect of Repurchase",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2025-3-2-3b",
+          "label": "3.2.3 (Reasons for auditor's concern)",
+          "questionText": "Give TWO reasons why the internal auditor expressed concern about the CFO persuading the board of directors to repurchase shares.\n\nUse the same background as 3.2.3(a) above: Lewis Clark, the CFO and a shareholder of Shorts Ltd, convinced the board to repurchase 400 000 shares from a dissatisfied shareholder at R3 each, before final dividends were declared, increasing his own % shareholding.",
+          "marks": 4,
+          "memoText": "Any TWO valid explanations ✓✓ ✓✓ (part-marks for incomplete/unclear answers):\n\n• The CFO is now (closer to) the majority shareholder — this could reduce the influence of minority shareholders.\n• Lewis acted for personal gain, not the company's benefit.\n• It took place just before the final dividends were declared, which could also have benefited Lewis unjustly (a larger % shareholding entitled to a larger share of the dividend).\n• The CFO's influence could undermine board independence and lead to biased decisions.\n• Using company funds to enrich himself is an improper use of company assets / embezzlement of company funds — he took advantage of his position to convince the board.\n• His actions risk damaging trust and the company's reputation.\n• They paid a higher price than the NAV and market price (see 3.2.3(c)).\n\nTeaching point: The CFO occupies a position of trust — using that position to influence a decision (like a share repurchase) that personally benefits him, especially just before a dividend declaration, is a conflict of interest and a corporate governance red flag.",
+          "topic": "Corporate Governance - Conflict of Interest",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2025-3-2-3c",
+          "label": "3.2.3 (Additional amount paid)",
+          "questionText": "Calculate the additional amount that the company paid for the shares repurchased, compared to the share price on the JSE.\n\nINFORMATION A — 400 000 shares repurchased at R3 each.\nINFORMATION C — Market price of Shorts Ltd shares on the last day of the year: 256 cents (R2,56).",
+          "marks": 2,
+          "memoText": "Additional amount paid:\n\nWorking: R3,00 − R2,56 = R0,44 premium per share\n400 000 × R0,44 = R176 000 ✓☑ (one part correct)\n\nOR: (400 000 × R3,00) − (400 000 × R2,56) = R1 200 000 − R1 024 000 = R176 000\n\nAnswer: R176 000\n\nTeaching point: Paying MORE than the market price for a share repurchase means the company (and, indirectly, the remaining shareholders) is worse off than if it had simply bought the shares at the price everyone else pays on the JSE.",
+          "topic": "Interpretation - Share Repurchase Premium",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2025-3-3-1a",
+          "label": "3.3.1 (% Returns)",
+          "questionText": "SHORTS LTD AND LYNN LTD — Returns and dividends pay-out policy:\n\nThe CEOs of both companies will discuss their companies' performance. Comment on what they should mention regarding % returns. Quote ONE financial indicator with figures.\n\nINFORMATION C — % return on shareholders' equity (ROSHE) and interest on fixed deposit:\n                                Shorts Ltd            Lynn Ltd\n                          28 Feb 2025  29 Feb 2024   28 Feb 2025  29 Feb 2024\n% return on shareholders' equity   6%          14,7%       16,1%         14,5%\nInterest on fixed deposit          7,1%                     6,7%",
+          "marks": 4,
+          "memoText": "Financial indicator with figures ✓✓, explanation/comment ✓✓:\n\nShorts Ltd:\n• ROSHE has DECREASED from 14,7% to 6% (by 8,7 percentage points / by 59,2%).\n• Directors will acknowledge this decrease and indicate that they are working on improving it in the new financial year.\n• The return from ROSHE is LESS than what could have been earned from a fixed deposit (7,1%) — shareholders would have done better simply leaving their money in the bank.\n\nLynn Ltd:\n• ROSHE has INCREASED from 14,5% to 16,1% (by 1,6 percentage points / by 11%).\n• Directors will remind shareholders that they are earning MORE than the interest of a fixed deposit (6,7%).\n• Investing in the company gives better returns than they would earn from a fixed deposit.\n\nTeaching point: ROSHE should always be compared against a SAFE alternative like a fixed deposit rate. If ROSHE falls BELOW that rate, shareholders are effectively worse off for having invested in risky shares rather than a guaranteed bank deposit.",
+          "topic": "Interpretation - Return on Shareholders' Equity",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2025-3-3-1b",
+          "label": "3.3.1 (Dividend pay-out policy)",
+          "questionText": "A potential investor believes that Lynn Ltd has a better dividend pay-out policy when compared to Shorts Ltd. Explain why you would agree with her. Provide TWO points with figures.\n\nINFORMATION C — Dividend pay-out rate and earnings/dividends per share:\n                            Shorts Ltd            Lynn Ltd\n                       28 Feb 2025  29 Feb 2024   28 Feb 2025  29 Feb 2024\nEarnings per share      130 cents    165 cents    510 cents    528 cents\nDividends per share     162 cents     81 cents    275 cents    260 cents\nDividend pay-out rate   124,6%        49,1%        53,9%        49,2%",
+          "marks": 4,
+          "memoText": "Any TWO points with figures ✓✓ ✓✓ (financial indicator + explanation, 2 marks each):\n\nShorts Ltd:\n• They did not retain any funds but had used 24,6% (162c of 130c) of funds from the previous financial year / it increased from 49,1% to 124,6%.\n• This was to distract shareholders from the decrease in profitability (EPS) of the company in the current financial year.\n• Hiding company share performance in the market / shares undervalued.\n• They wanted to make the shareholders happy (at the expense of the company's own reserves).\n\nLynn Ltd:\n• They have retained 46,1% (235c of 510c) of its earnings / it increased from 49,2% to 53,9%.\n• This indicates that they have plans for future expansion purposes, which will benefit shareholders in the future / allowed reinvestment in profitable projects.\n\nTeaching point: A pay-out rate ABOVE 100% (like Shorts Ltd's 124,6%) means the company paid MORE in dividends than it actually earned that year — it had to dip into RETAINED INCOME from previous years to do so. This is not sustainable and often signals the company is trying to mask weaker current performance, whereas Lynn Ltd's rate below 100% shows it is retaining profit to reinvest in the business.",
+          "topic": "Interpretation - Dividend Pay-out Policy Comparison",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2025-3-3-2",
+          "label": "3.3.2",
+          "questionText": "SHORTS LTD AND LYNN LTD — Share price:\n\nComment on the shareholders' satisfaction with the performance of their share price. Quote TWO financial indicators to support your response.\n\nINFORMATION C — Net asset value per share and market price:\n                              Shorts Ltd    Lynn Ltd\nNet asset value per share       270 cents     958 cents\nMarket price on last day of year 256 cents     976 cents",
+          "marks": 4,
+          "memoText": "Comparison of NAV to market price with figures ✓✓✓✓:\n\nShorts Ltd:\n• NAV of 270 cents is HIGHER than the market price of 256 cents, by 14 cents.\n\nLynn Ltd:\n• Market price of 976 cents is HIGHER than the NAV of 958 cents, by 18 cents.\n\nFor full marks: In Shorts Ltd, shares are UNDERVALUED at 14 cents, while in Lynn Ltd, shares are OVERVALUED at 18 cents.\n\nTeaching point: When the market price is BELOW net asset value, the market doesn't yet recognise the company's true underlying worth (undervalued — shareholders should be dissatisfied, as in Shorts Ltd). When the market price is ABOVE NAV, investors are willing to pay a premium, reflecting confidence in future growth (as in Lynn Ltd).",
+          "topic": "Interpretation - Share Value Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2025-3-4",
+          "label": "3.4",
+          "questionText": "LYNN LTD — Gearing:\n\nThe debt-equity ratio indicates that additional loans were acquired during the financial year. The directors are of the opinion that this was a good decision. Quote ONE financial indicator to support their opinion.\n\nINFORMATION C — Lynn Ltd financial indicators and interest rate:\n                                    28 Feb 2025   29 Feb 2024\n% return on total capital employed    21,8%          19,2%\nDebt-equity ratio                      0,6 : 1        0,4 : 1\nInterest on loans                      12,5%",
+          "marks": 3,
+          "memoText": "Financial indicator with figures ✓, explanation ✓✓:\n\n% return on total capital employed (ROTCE) has INCREASED from 19,2% to 21,8% (by 2,6 percentage points / by 13,5%).\n\nExplanation: ROTCE (21,8%) is HIGHER than the interest rate on loans (12,5%) — the company is POSITIVELY GEARED, meaning it has effectively used the borrowed funds to generate a higher return than the cost of borrowing them.\n\nTeaching point: Positive gearing means borrowing money and investing it earns MORE than it costs in interest — this grows shareholders' wealth. It is only a 'good decision' to borrow more when ROTCE stays comfortably above the interest rate; if the two were to cross over, additional borrowing would start destroying value instead.",
+          "topic": "Interpretation - Gearing / Debt-Equity Ratio",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2025-3-5a",
+          "label": "3.5 (Concern about audit report)",
+          "questionText": "AUDIT REPORT OF LYNN LTD:\n\nExplain why the shareholders should be concerned about this audit report. Provide TWO points.\n\nINFORMATION D — Extract from the audit report of Lynn Ltd:\n'... Audit Opinion\nIn our opinion, the financial statements fairly represent the financial position of the company, except for matters mentioned below.\nThe audit evidence revealed that supporting documentation of some expenditures were missing and could not be traced.'",
+          "marks": 2,
+          "memoText": "Any TWO valid points ✓✓:\n\n• This is a QUALIFIED report / this implies a bad/negative report.\n• This report will affect the company's image or reputation.\n• There is a lack of internal control processes (poor recording).\n• Possibility of mismanagement of funds or fraud.\n• Reduces confidence in the directors' integrity.\n• It can reduce market confidence and cause a fall in share price / it will create doubt for possible new investors.\n• It can lower the company's creditworthiness / contribute to a lower credit rating.\n\nTeaching point: 'Except for' language is the hallmark of a QUALIFIED audit opinion — the auditor is saying the statements are mostly fair, BUT there is at least one specific area (here, missing supporting documents) they could not fully verify. This is a step down from a clean (unqualified) report.",
+          "topic": "Corporate Governance - Qualified Audit Report",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2025-3-5b",
+          "label": "3.5 (Shareholder decisions)",
+          "questionText": "State TWO possible decisions that the shareholders could make based on this audit report of Lynn Ltd (see 3.5 (Concern about audit report) above for the audit report extract).",
+          "marks": 2,
+          "memoText": "Any TWO valid points ✓✓:\n\n• Investigate financial practices in the company.\n• Vote against reappointing directors / vote against rewarding current directors.\n• Appoint a new internal auditor due to lack of trust in the current one.\n• Demand clarification from directors to ensure transparency / demand improved internal controls or governance.\n• Sell their shares due to increased risk.\n• Avoid additional investment in the company / pause further investment until issues are resolved.\n\nTeaching point: Shareholders aren't powerless after a qualified report — from demanding answers, to voting out directors, to simply exiting their investment, they have several real levers available to protect their interests.",
+          "topic": "Corporate Governance - Shareholder Response to Audit Report",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Corporate Governance",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2025-4-1",
+          "label": "4.1",
+          "questionText": "CORPORATE GOVERNANCE\n\nRefer to Information A.\n\nSome shareholders are concerned about the donations made for environmental initiatives, believing that it is not their responsibility. Advise the shareholders on why corporate donations are important for the company. Provide TWO points.\n\nINFORMATION A — Extract from the social and ethics committee report of Shiloh Ltd:\n'The company has made donations to support community initiatives, including environmental seminars on recycling of tins, plastics and paper. The evidence for these donations is sufficient and properly recorded in the financial statements.'",
+          "marks": 2,
+          "memoText": "Any TWO valid points ✓✓:\n\n• Reflects good governance, which will contribute to the well-being of the community / donating to community projects helps improve people's lives / it builds a stable society.\n• The King Code encourages investment in environmental sustainability.\n• It reduces the company's taxable income.\n• Companies that help the community are more popular with customers.\n• Good publicity boosts company image or demand.\n• Builds strong community relationships to prevent disruptions / maintains loyalty through good community relations.\n\nTeaching point: Corporate donations aren't just generosity — under the King Code of Corporate Governance, companies are expected to act as responsible corporate citizens, and doing so also brings the company real benefits (tax deductions, reputation, customer loyalty).",
+          "topic": "Corporate Governance - Corporate Social Responsibility",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2025-4-2a",
+          "label": "4.2 (Reporting unethical behaviour)",
+          "questionText": "CORPORATE GOVERNANCE\n\nRefer to Information B.\n\nExplain TWO points why it is important for employees to report unethical behaviour in a business.\n\nINFORMATION B — Article 1: Dismissal of senior financial manager of Tekko Ltd:\n'An investigation by Tekko Ltd revealed that a senior financial manager had mismanaged company funds and had intimidated employees, who raised concerns, in her department. She had also sent threatening messages, creating a toxic work environment. The company responded by terminating her service, ensuring staff safety and launching a financial audit.'",
+          "marks": 2,
+          "memoText": "Any TWO valid points ✓✓:\n\n• It promotes accountability / good ethical behaviour / ensures employees' commitment to ethical values / shows commitment to ethical standards.\n• It guarantees employees' investment in the long-term success of the company / it proves that employees care about the success of the company.\n• Helps detect and solve issues early / motivates employees by addressing misconduct effectively.\n• Encourages a positive culture of being honest and transparent.\n• Protects company reputation / protects company financial health.\n• Creates a safe, productive work environment / protects employees' performance.\n• Boosts morale by ensuring fairness and addressing misconduct / enhances confidence by ensuring fairness.\n\nTeaching point: In this case, employees DID raise concerns, and the company acted (dismissal, safety measures, an audit). Reporting is only useful if the business has a culture — and a process — that actually acts on it, which is exactly what happened here.",
+          "topic": "Corporate Governance - Reporting Unethical Behaviour",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2025-4-2b",
+          "label": "4.2 (Preventing future incidents)",
+          "questionText": "Suggest TWO actions that the company (Tekko Ltd, see Information B above) could take to prevent similar incidents in the future.",
+          "marks": 2,
+          "memoText": "Any TWO valid points ✓✓:\n\n• Improve internal financial controls system / perform regular audits to identify irregularities early.\n• Regular ethics training to all employees.\n• Protect whistle-blowers / create a safe reporting channel for employees.\n• Monitor and evaluate leadership conduct more often / increase oversight of leadership behaviour.\n• Use a suggestion box for employees to share their views on ethical conduct.\n• Establish clear rules of conduct and consequences for violations / apply strict consequences for any harassment or bullying.\n• Encourage transparency to reduce conflict / promote openness to reduce toxic behaviour.\n\nTeaching point: Prevention measures should target BOTH the financial mismanagement (audits, controls) AND the toxic behaviour/intimidation (whistle-blower protection, clear conduct rules) — the article describes two distinct problems, so a strong answer addresses both.",
+          "topic": "Corporate Governance - Preventing Misconduct",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2025-4-3",
+          "label": "4.3",
+          "questionText": "CORPORATE GOVERNANCE\n\nRefer to Information C.\n\nExplain the meaning of the term insolvent.\n\nINFORMATION C — Article 2: Working its way out of insolvency:\n'Piranna Ltd was declared insolvent in March 2025. Companies that are insolvent need drastic measures to improve their financial situation. Piranna Ltd opted for the implementation of a \"rights issue\", where new shares would be issued to existing shareholders only.\n\nAfter receiving all the approvals to implement the rights issue, Piranna Ltd offered five million shares at a 30% discounted price of R27 per share to its existing shareholders. The shares of the company were trading at approximately R39 per share.\n\nShareholders responded positively to this rights issue and the company has raised sufficient cash to move out of insolvency.'",
+          "marks": 2,
+          "memoText": "Any valid explanation ✓✓:\n\n• The liabilities exceed the assets / the company does not have enough money or assets to pay what it owes.\n• The company will not be able to settle its liabilities with its assets if it is liquidated / financially unable to meet its obligations.\n• The company has a negative equity.\n\nTeaching point: 'Insolvent' is a BALANCE-SHEET concept — total liabilities are bigger than total assets, so shareholders' equity is actually negative. This is distinct from a simple cash-flow shortage; it means the company's whole financial position, not just its cash, is under water.",
+          "topic": "Corporate Governance - Insolvency",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2025-4-4",
+          "label": "4.4",
+          "questionText": "Comment on how the 'rights issue' (see Information C above) improved the solvency of the company to a favourable position. Refer to the effect of the rights issue on the assets, equities and liabilities of the company, assuming that the company's bank balance was favourable.",
+          "marks": 3,
+          "memoText": "Effect on assets, equity and liabilities ✓✓✓ (1 mark each):\n\n• Assets will increase, as more cash is received (5 000 000 shares × R27 = R135 000 000 raised).\n• Equity will increase, as more shares have been issued.\n• Liabilities will remain unchanged.\n\nSince the SOLVENCY RATIO = Total assets : Total liabilities, an increase in total assets with liabilities staying the same directly IMPROVES the solvency ratio.\n\nTeaching point: A rights issue raises cash from EXISTING shareholders without creating any new debt — it grows the asset side of the balance sheet (cash) and the equity side (share capital) in equal amounts, while liabilities don't move at all. This is precisely why it is a favoured way for a financially distressed company to recover: it improves solvency without adding any repayment burden.",
+          "topic": "Corporate Governance - Rights Issue and Solvency",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2025-4-5",
+          "label": "4.5",
+          "questionText": "Give TWO reasons why the existing shareholders responded positively to participating in the rights issue (see Information C above: shares offered at a 30% discounted price of R27 per share, against a market trading price of approximately R39 per share).",
+          "marks": 4,
+          "memoText": "Any TWO valid reasons ✓✓ ✓✓ (part-marks for incomplete/unclear answers):\n\n• They want to safeguard their previous investments in the company.\n• They are getting the shares at a discounted price (R27 vs R39 market price).\n• They can resell these shares at the market price and make a profit (R39 − R27 = R12 profit per share).\n• Minimise the chances of liquidation / save the company from insolvency.\n• They showed confidence in the company's recovery and management.\n\nTeaching point: A rights issue at a steep discount (here, 30% below market price) gives existing shareholders a strong personal financial incentive to participate — on top of protecting the value of shares they already hold — which is exactly why rights issues are effective at raising cash quickly from people who already have a stake in the company's survival.",
+          "topic": "Corporate Governance - Rights Issue Shareholder Response",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}
