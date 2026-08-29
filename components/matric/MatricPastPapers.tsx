@@ -37,6 +37,7 @@ const SUBJECT_GEM: Record<string, string> = {
   "Geography": GEM_HEX.teal,
   "History": GEM_HEX.amber,
   "Hospitality Studies": GEM_HEX.orange,
+  "Life Orientation": GEM_HEX.emerald,
   "Life Sciences": GEM_HEX.pink,
   "Mathematics": GEM_HEX.rose,
   "Maths Literacy": GEM_HEX.violet,
@@ -247,6 +248,13 @@ const SUBJECTS = [
     name: "Hospitality Studies",
     thumbnail: "/thumbnails/hospitality.webp",
     color: "from-rose-400 to-orange-500",
+    available: true,
+  },
+  {
+    id: "life-orientation",
+    name: "Life Orientation",
+    thumbnail: "/thumbnails/life-skills.webp",
+    color: "from-emerald-500 to-green-600",
     available: true,
   },
   {

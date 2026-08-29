@@ -1,0 +1,256 @@
+{
+  "id": "acc-p1-nov-2021",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P1",
+  "year": 2021,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Statement of Financial Position (Jimo Ltd)",
+      "totalMarks": 55,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2021-1-1",
+          "label": "1.1",
+          "questionText": "STATEMENT OF FINANCIAL POSITION — JIMO LIMITED\n\nThe information relates to Jimo Ltd for the financial year ended 30 June 2021. The business sells formal clothing for men and women.\n\nRefer to Information B. Calculate the value of the closing stock of formal suits that was omitted from the stock sheets on 30 June 2021.\n\nINFORMATION B — Stock of formal suits (the FIRST-IN-FIRST-OUT / FIFO method is used):\n\nBalances:                QUANTITY   UNIT PRICE   TOTAL VALUE\n  1 July 2020            110        R1 900       R209 000\n  30 June 2021           240        ?           ?\n\nPurchases (760 units, R1 943 500):\n  14 Nov. 2020           360        R2 350       R846 000\n  10 Feb. 2021           170        R2 600       R442 000\n  18 May 2021            230        R2 850       R655 500\n\nReturns:\n  25 May 2021            24         R2 850       R68 400\n\nThe closing stock of formal suits was omitted from the trading stock balance in Information A.",
+          "marks": 5,
+          "memoText": "CLOSING STOCK OF FORMAL SUITS (FIFO) — JIMO LTD\n\nUnits on hand at 30 June 2021: 240.\n\nUnder FIFO the closing stock is valued at the prices of the LATEST purchases:\n\nFrom the 18 May 2021 purchase: 230 − 24 returned = 206 units ✓ at R2 850 ✓\n  206 × R2 850 = R587 100\n\nStill needed: 240 − 206 = 34 units ☑ from the 10 February 2021 purchase at R2 600 ✓\n  34 × R2 600 = R88 400\n\nValue of closing stock = 587 100 + 88 400 = R675 500 ☑ (one part correct)\n\nAnswer: R675 500\n\nTeaching point: FIFO values what is LEFT at year end using the most recent purchase prices. Work backwards from the latest purchase (May), first stripping out the 24 units returned to the supplier, then take the balance of the 240 units from the next-latest purchase (February). This R675 500 is added to Inventories in 1.3.",
+          "topic": "Statement of Financial Position - FIFO Stock Valuation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2021-1-2",
+          "label": "1.2",
+          "questionText": "STATEMENT OF FINANCIAL POSITION — JIMO LIMITED\n\nRefer to Information C. Use the table provided to calculate the correct net profit after tax for the year ended 30 June 2021. Indicate '+' for an increase and '−' for a decrease.\n\nINFORMATION C — The net profit before tax, R4 918 950, was calculated BEFORE taking into account / correcting the following:\n(i) Audit fees include R123 600 which was paid in advance for the next financial year.\n(ii) The repayments on the loan are fixed at R35 000 per month (including capitalised interest). Loan balances per the loan statement: 1 July 2020 R4 175 000; 30 June 2021 R4 028 000. The loan balance in the books (Information A) is R3 755 000. Provide for interest on the loan.\n(iii) Rent income: R74 000 was received from a tenant for the period 1 July 2020 to 31 August 2021 and has been recorded. This amount takes into account a reduction of R750 per month from 1 May 2021. The year-end adjustment has not yet been made.\n(iv) After the corrections above, an additional R85 250 is still owed to SARS for income tax for the year. SARS: Income tax (provisional tax payments) in the books is R1 200 000.",
+          "marks": 12,
+          "memoText": "CORRECT NET PROFIT AFTER TAX — JIMO LTD (year ended 30 June 2021)\n\n  Incorrect net profit before tax .................... R4 918 950\n\n(i) Audit fees paid in advance ................. + R123 600 ✓✓ (no part marks)\n    (R123 600 is a prepaid expense — remove it from expenses, so profit increases.)\n\n(ii) Interest on the loan .................... − R273 000 ☑ (operation and minus sign, or brackets)\n    Working: 4 028 000 (loan per statement) − 3 755 000 (loan per books) = R273 000 interest still to be capitalised (an unrecorded expense), so profit decreases.\n    (Check: opening 4 175 000 + interest − repayments (35 000 × 12 = 420 000) = closing 4 028 000 → interest = R273 000.)\n\n(iii) Rent income received in advance .......... − R9 500 ☑ (operation and minus sign, or brackets)\n    Working: monthly rent = R5 500 before the reduction — 10 months (Jul 2020–Apr 2021) at 5 500 + 4 months (May–Aug 2021) at (5 500 − 750) = 74 000. Rent for July + August 2021 (2 months at the reduced R4 750) = R9 500 is received in advance, so this year's rent income decreases.\n\n(iv) Income tax ............................. − R1 285 250 ✓☑ (must add provisional tax + amount owed)\n    Working: total income tax for the year = 1 200 000 (provisional payments) + 85 250 (still owed) = R1 285 250.\n\n  Correct NET PROFIT AFTER TAX = 4 918 950 + 123 600 − 273 000 − 9 500 − 1 285 250 = R3 474 800 ☑ (one part correct; the total must include the net profit figure)\n\nTeaching points:\n• An expense PAID IN ADVANCE inflated expenses and understated profit — adding it back increases profit.\n• Interest 'capitalised' on a loan is the difference between the loan per the bank's statement and the loan per the books — an unrecorded finance cost that reduces profit.\n• Only rent EARNED in the current 12 months is income; the two months paid for July/August 2021 (at the new reduced rate) are received in advance and come out of this year's rent income.\n• Income tax for the year = provisional payments already made PLUS the extra amount still owed to SARS.",
+          "topic": "Statement of Financial Position - Correcting Net Profit After Tax",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-p1-nov-2021-1-3a",
+          "label": "1.3 (Retained Income Note)",
+          "questionText": "STATEMENT OF FINANCIAL POSITION — JIMO LIMITED\n\nComplete the Retained Income Note on 30 June 2021.\n\nINFORMATION:\n• Correct net profit after tax for the year (see 1.2): R3 474 800.\n• Information D — Shares and dividends: 26 000 shares were repurchased on 1 July 2020 at R3,00 above the average share price. No interim dividends were paid during the 2021 financial year. A final dividend of 65 cents per share was declared on 30 June 2021. 1 800 000 shares were in issue on 30 June 2021.\n• Information A — Retained income on 30 June 2021: R3 240 000.\n\nNOTE: The opening balance is provided / not required (shaded).",
+          "marks": 5,
+          "memoText": "RETAINED INCOME NOTE — JIMO LTD (30 June 2021)\n\n  Balance at the beginning of the year .............. (provided / shaded)\n  Net profit after tax .............................. R3 474 800 ☑ (see 1.2)\n  Shares repurchased ............................... (R78 000) ✓☑ (brackets to earn full marks)\n    Working: 26 000 shares × R3,00 (premium paid above the average share price) = R78 000.\n  Dividends for the year .......................... (R1 170 000) ✓☑ (brackets to earn full marks)\n    Working: final dividend only = 1 800 000 shares × 65 cents = R1 170 000 (no interim dividend was paid).\n  Balance at the end of the year .................. R3 240 000 (given)\n\n−1 for presentation if no details are shown.\n\nTeaching point: A share repurchase reduces retained income only by the PREMIUM paid above the average share price (26 000 × R3,00), not by the full cash paid. Because there was no interim dividend, 'dividends for the year' is simply the final dividend declared.",
+          "topic": "Statement of Financial Position - Retained Income Note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-p1-nov-2021-1-3b",
+          "label": "1.3 (Statement of Financial Position)",
+          "questionText": "STATEMENT OF FINANCIAL POSITION — JIMO LIMITED\n\nComplete the Statement of Financial Position (Balance Sheet) on 30 June 2021.\n\nNOTE: Adjustments from Information C also affect the Statement of Financial Position. Certain figures are provided in the ANSWER BOOK. Figures are NOT required in the shaded areas (fixed assets, financial assets and the non-current asset total are provided; Total Assets equals Total Equity and Liabilities).\n\nINFORMATION A — List of balances (before adjustments), among others:\n  Mortgage loan: Best Bank (per books) ......... R3 755 000\n  Trading stock ............................... R4 198 500\n  SARS: Income tax (provisional tax payments) .. R1 200 000\n  Net trade debtors .......................... R3 668 810\n  Creditors' control ........................ R1 253 000\n  Accrued income / Income receivable ........ R8 000\n  Retained income ........................... R3 240 000\n\nCARRIED FORWARD / OTHER INFORMATION:\n  Closing stock of formal suits omitted (see 1.1): R675 500\n  Interest to be capitalised on the loan (see 1.2): R273 000\n  Audit fees prepaid (see 1.2): R123 600\n  Rent income received in advance (see 1.2): R9 500\n  Additional income tax owed to SARS (see 1.2): R85 250\n  Shareholders for dividends (see 1.3): R1 170 000\n\nINFORMATION E — Debtors with credit balances totalling R11 000 must be transferred to the Creditors' Ledger.\nINFORMATION F — On 30 June 2021 Jimo Ltd returned 10 ladies' coats to the supplier (Bargain Wholesalers). The selling price was R1 750 each and the mark-up is 25% on cost. No entry has been made.\nINFORMATION G — A fixed monthly instalment of R35 000 is paid over the life of the loan; interest declines over the loan's life. The interest budgeted for the next financial year is R234 000.\nINFORMATION H — Financial indicators on 30 June 2021: acid-test ratio 1,2 : 1; net asset value per share (NAV) 540 cents. 1 800 000 shares are in issue.",
+          "marks": 33,
+          "memoText": "STATEMENT OF FINANCIAL POSITION — JIMO LTD (as at 30 June 2021)\n\nASSETS\n\nNON-CURRENT ASSETS: provided in the ANSWER BOOK (fixed assets + financial assets).\n\nCURRENT ASSETS = R8 700 000 (= Total Assets R16 762 000 − non-current assets provided)\n  Inventories = 4 198 500 + 675 500 − 14 000 = R4 860 000 ☑ (one part correct)\n    = trading stock 4 198 500 ✓ + omitted formal suits 675 500 ☑ (see 1.1) − cost of the 10 coats returned to the supplier 14 000 ✓✓\n    (Cost of a coat = 1 750 ÷ 1,25 = R1 400; 10 × R1 400 = R14 000.)\n  Trade and other receivables = 3 668 810 + 8 000 + 123 600 + 11 000 = R3 811 410 ☑ (one part correct)\n    = net trade debtors 3 668 810 ✓ + accrued income 8 000 ✓ + audit fees prepaid 123 600 ✓ + debtors' credit balances transferred out to the Creditors' Ledger 11 000 ✓\n  Cash and cash equivalents = R28 590 ☑ (balancing figure; accept a negative amount)\n    = current assets 8 700 000 − inventories 4 860 000 − trade and other receivables 3 811 410\n\nTOTAL ASSETS = R16 762 000 ☑ (= total equity and liabilities)\n\nEQUITY AND LIABILITIES\n\nSHAREHOLDERS' EQUITY = R9 720 000 ☑ (one part correct — must use NAV)\n  Working: NAV per share × shares in issue = 540 cents × 1 800 000 = R9 720 000 (or R5,40 × 1 800 000).\n  Ordinary share capital = R6 480 000 ☑ (balancing figure: shareholders' equity − retained income)\n  Retained income = R3 240 000 (see 1.3)\n\nNON-CURRENT LIABILITIES = R3 842 000\n  Mortgage loan = (3 755 000 + 273 000) − 186 000 = R3 842 000 ☑ (one part correct)\n    = loan per books 3 755 000 ✓ + interest to be capitalised 273 000 ☑ (see 1.2(ii)) = R4 028 000 total loan, less the R186 000 current portion.\n    Current portion of the loan = annual instalments (35 000 × 12 = 420 000) − interest budgeted for next year (234 000) = R186 000.\n\nCURRENT LIABILITIES = R3 200 000 ☑☑\n  Working: acid-test ratio = (current assets − inventories) : current liabilities = 1,2 : 1, so current liabilities = (8 700 000 − 4 860 000) ÷ 1,2 = R3 200 000.\n  Trade and other payables = 1 253 000 + 9 500 + 11 000 − 14 000 = R1 259 500 ☑ (one part correct)\n    = creditors' control 1 253 000 ✓ + rent income received in advance 9 500 ☑ (see 1.2(iii)) + debtors' credit balances transferred in 11 000 ✓ − the 10 coats returned to the supplier 14 000 ✓\n  Shareholders for dividends = R1 170 000 ☑ (see 1.3)\n  Current portion of loan = R186 000 ☑ (see the non-current liabilities working)\n  SARS: Income tax = R85 250 ✓ (additional amount still owed to SARS; the R1 200 000 provisional payments cancel against the tax expense)\n  Bank overdraft = R499 250 ☑ (balancing figure)\n    = current liabilities 3 200 000 − 1 259 500 − 1 170 000 − 186 000 − 85 250\n\nTOTAL EQUITY AND LIABILITIES = 9 720 000 + 3 842 000 + 3 200 000 = R16 762 000 ☑\n\nTOTAL MARKS: 55 (Question 1)\n\nPENALTIES: −1 foreign items (max −2); −1 presentation (max −2).\n\nTeaching points:\n• When a financial indicator is given (here the acid-test ratio and NAV), it is a KEY to unlock a missing total: shareholders' equity = NAV × shares; current liabilities = (current assets − inventories) ÷ acid-test ratio.\n• Goods returned to a supplier are removed at COST from both inventories and trade payables (creditors) — work the cost back from the selling price using the mark-up.\n• 'Debtors with credit balances' are added back to trade receivables AND added to trade payables when transferred to the Creditors' Ledger.\n• The current portion of a loan is the CAPITAL due in the next 12 months = next year's total instalments less next year's budgeted interest.",
+          "topic": "Statement of Financial Position - Full Statement",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Share Capital, Financial Indicators and Cash Flow Statement (Brewer Ltd)",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2021-2-1",
+          "label": "2.1",
+          "questionText": "SHARE CAPITAL, FINANCIAL INDICATORS AND CASH FLOW STATEMENT — BREWER LTD\n\nThe information relates to Brewer Ltd for the financial year ended 28 February 2021.\n\nPrepare the Ordinary Share Capital Note on 28 February 2021.\n\nINFORMATION A — Shares and dividends:\n  1 March 2020 ...... 800 000 shares in issue\n  30 June 2020 ...... 100 000 new shares issued\n  1 January 2021 .... 30 000 shares repurchased at R1,20 more than the average share price\n  28 February 2021 .. ? shares in issue\n\nINFORMATION C — from the Statement of Financial Position:\n                              28 Feb. 2021 (R)   29 Feb. 2020 (R)\n  Ordinary share capital ...  7 395 000          6 400 000",
+          "marks": 6,
+          "memoText": "ORDINARY SHARE CAPITAL NOTE — BREWER LTD (28 February 2021)\n\n                                                       No. of shares        R\n  Ordinary shares at the beginning ..............      800 000        6 400 000 ✓ (given)\n  New shares issued ............................       100 000        1 250 000 ☑ (balancing figure)\n  Repurchased shares (at ASP R8,50) ...........       (30 000) ✓       (255 000) ☑\n  Shares at the end of the year ..............         870 000 ✓      7 395 000 (given)\n\nWorkings:\n• Shares at year end = 800 000 + 100 000 − 30 000 = 870 000.\n• Average share price (ASP) = 7 395 000 ÷ 870 000 = R8,50.\n• Shares repurchased at the AVERAGE price: 30 000 × R8,50 = R255 000 (do NOT use R1,20; do NOT use 36 000).\n• New shares issued value = balancing figure: 7 395 000 + 255 000 − 6 400 000 = R1 250 000 (issued at R12,50 each).\n\nTeaching point: In the Ordinary Share Capital Note a repurchase is recorded at the AVERAGE share price only (30 000 × R8,50). The R1,20 premium per share (30 000 × R1,20 = R36 000) is charged against retained income, not shown here.",
+          "topic": "Cash Flow Statement - Ordinary Share Capital Note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-p1-nov-2021-2-2a",
+          "label": "2.2 (% operating expenses on sales)",
+          "questionText": "SHARE CAPITAL, FINANCIAL INDICATORS AND CASH FLOW STATEMENT — BREWER LTD\n\nCalculate the % operating expenses on sales on 28 February 2021.\n\nINFORMATION B — Extract from the Statement of Comprehensive Income:\n  Sales ............... R7 293 000\n  Operating expenses .. R1 458 600",
+          "marks": 2,
+          "memoText": "% OPERATING EXPENSES ON SALES — BREWER LTD\n\nWorking: 1 458 600 ÷ 7 293 000 × 100 = 20% ✓☑ (one part correct; the % sign is not necessary)\n\nAnswer: 20%\n\nTeaching point: This shows how many cents of every sales rand are spent on running costs (excluding cost of sales). A lower percentage means tighter cost control.",
+          "topic": "Financial Indicators - % Operating Expenses on Sales",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2021-2-2b",
+          "label": "2.2 (Dividend per share)",
+          "questionText": "Calculate the dividend per share on 28 February 2021.\n\nINFORMATION A — An interim dividend of R162 000 was paid on 30 September 2020 (when 900 000 shares were in issue: 800 000 + 100 000 issued on 30 June 2020). A final dividend of 22 cents per share was declared on 28 February 2021.\nINFORMATION C — Shareholders for dividends on 28 February 2021: R191 400. Shares in issue on 28 February 2021: 870 000.",
+          "marks": 4,
+          "memoText": "DIVIDEND PER SHARE — BREWER LTD\n\nInterim dividend per share = 162 000 ÷ 900 000 × 100 = 18 cents ✓✓\nFinal dividend per share = 191 400 ÷ 870 000 × 100 = 22 cents ✓ (as declared)\n\nDividend per share for the year = 18 + 22 = 40 cents ☑\n\nAnswer: 40 cents\n\nNOTE: the interim and final dividends must use DIFFERENT denominators (900 000 for the interim, 870 000 for the final) — no method mark if the same figure is used for both.\n\nTeaching point: Each dividend per share is worked out on the number of shares in issue WHEN THAT DIVIDEND WAS DECLARED/PAID. The interim (30 Sept 2020) was before the 1 January 2021 repurchase, so it uses 900 000 shares; the final (28 Feb 2021) uses the 870 000 shares left after the repurchase.",
+          "topic": "Financial Indicators - Dividend Per Share",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2021-2-2c",
+          "label": "2.2 (% return on average shareholders' equity)",
+          "questionText": "Calculate the % return on average shareholders' equity for the year ended 28 February 2021.\n\nINFORMATION B — Net profit after tax: R985 500.\nINFORMATION C — Ordinary shareholders' equity: 28 February 2021 R8 038 100; 29 February 2020 R6 450 000.",
+          "marks": 5,
+          "memoText": "% RETURN ON AVERAGE SHAREHOLDERS' EQUITY — BREWER LTD\n\nWorking: 985 500 ÷ [½ × (6 450 000 + 8 038 100)] × 100\n  = 985 500 ÷ 7 244 050 × 100\n  = 13,6% ☑ (one part correct; the '× 100' is not 'one part correct'; do not accept 0,136 or 0,14)\n\nAnswer: 13,6%\n\nTeaching point: The return is always compared against the AVERAGE shareholders' equity for the year (opening + closing ÷ 2), because the equity base changed (new shares issued, shares repurchased, profits retained).",
+          "topic": "Financial Indicators - % Return on Average Shareholders' Equity",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2021-2-3",
+          "label": "2.3",
+          "questionText": "SHARE CAPITAL, FINANCIAL INDICATORS AND CASH FLOW STATEMENT — BREWER LTD\n\nComplete the Cash Flow Statement for the year ended 28 February 2021. Certain figures are provided in the ANSWER BOOK (Cash generated from operations; Interest paid; Cash flow from investing activities).\n\nINFORMATION B — Net profit before tax R1 350 000; Net profit after tax R985 500.\nINFORMATION C — from the Statement of Financial Position:\n                              28 Feb. 2021 (R)   29 Feb. 2020 (R)\n  Petty cash and cash float .. ?                  20 000\n  Loan: Sharks Bank ......... 1 650 000          2 200 000\n  SARS: Income tax .......... 29 100 Dr          35 900 Cr\n  Shareholders for dividends . 191 400            115 300\n  Bank overdraft ........... 0                    95 200\n\nINFORMATION A — Interim dividend of R162 000 paid 30 September 2020; final dividend of 22 cents per share (R191 400) declared 28 February 2021.\nOTHER — Proceeds from shares issued = R1 250 000 (see 2.1); shares were repurchased for the average price plus R1,20 per share (see 2.1); Cash flow from investing activities = (R1 320 000) (provided).",
+          "marks": 18,
+          "memoText": "CASH FLOW STATEMENT — BREWER LTD (year ended 28 February 2021)\n\nCASH FLOW FROM OPERATING ACTIVITIES = R1 180 000\n  Cash generated from operations / Interest paid: provided in the ANSWER BOOK.\n  Taxation paid = (R429 500) ☑ (one part correct)\n    Working: income tax expense = 1 350 000 − 985 500 = R364 500. Tax paid = 35 900 (opening SARS credit balance, owed) + 364 500 (current tax) + 29 100 (closing SARS debit balance, prepaid) = R429 500.\n  Dividends paid = (R277 300) ✓☑ (one part correct)\n    Working: opening Shareholders for dividends 115 300 + interim dividend paid 162 000 = R277 300. (The R191 400 final dividend is declared, not yet paid.)\n\nCASH FLOW FROM INVESTING ACTIVITIES = (R1 320 000) (provided)\n\nCASH FLOW FROM FINANCING ACTIVITIES = R409 000 ☑ (one part correct)\n  Shares issued = R1 250 000 ☑ (see 2.1)\n  Shares repurchased = (R291 000) ☑\n    Working: 255 000 (average-price portion, see 2.1) + 30 000 × R1,20 (premium) = 255 000 + 36 000 = R291 000. (OR 30 000 × R9,70.)\n  Loan repaid = (R550 000) ✓☑\n    Working: 2 200 000 − 1 650 000 = R550 000.\n\nNET CHANGE IN CASH AND CASH EQUIVALENTS = 1 180 000 + (1 320 000) + 409 000 = R269 000 ☑\n\nCASH AND CASH EQUIVALENTS AT THE BEGINNING OF THE YEAR = 20 000 − 95 200 = (R75 200) ✓☑ (one mark only if the figure is correct but not in brackets)\n\nCASH AND CASH EQUIVALENTS AT THE END OF THE YEAR = (75 200) + 269 000 = R193 800 ☑ (one part correct)\n  (= Petty cash and cash float of R193 800 at year end, with no bank overdraft.)\n\n−1 presentation; each figure must indicate the correct operation and correct use of brackets.\n\nTeaching points:\n• Taxation paid combines the opening balance, the year's tax expense and the closing balance. An opening CREDIT (owed) and a closing DEBIT (prepaid) both ADD to the cash paid.\n• 'Cash and cash equivalents' is the NET of petty cash/bank and any bank overdraft — the company moved from R75 200 overdrawn to R193 800 positive.\n• The full cash cost of a share buy-back (average price + premium) is the financing outflow, even though only the average-price part reduces share capital.",
+          "topic": "Cash Flow Statement - Full Statement",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Interpretation of Company Financial Information (Flexi Ltd and Broom Ltd)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2021-3-1",
+          "label": "3.1",
+          "questionText": "INTERPRETATION OF FINANCIAL INFORMATION\n\nChoose a category of indicators from COLUMN B that matches the description in COLUMN A. Write only the letter (A–D) next to the question numbers (3.1.1 to 3.1.4).\n\nCOLUMN A:\n  3.1.1  The benefit that shareholders receive for investing in a company\n  3.1.2  The ability of a business to pay off its short-term debts\n  3.1.3  The extent to which a company is financed on borrowed capital (loans)\n  3.1.4  The ability of a business to settle all its debts using existing assets\n\nCOLUMN B:\n  A  liquidity\n  B  gearing\n  C  solvency\n  D  return on equity",
+          "marks": 4,
+          "memoText": "3.1.1  D ✓  (return on equity — the benefit shareholders receive for investing)\n3.1.2  A ✓  (liquidity — the ability to pay off short-term debts)\n3.1.3  B ✓  (gearing — the extent of financing on borrowed capital)\n3.1.4  C ✓  (solvency — the ability to settle all debts using existing assets)\n\nTeaching point: Liquidity is a SHORT-TERM test (can it pay debts due soon?); solvency is a WHOLE-BUSINESS test (do total assets exceed total liabilities?). Gearing is about the debt/equity mix, and return on equity is what the owners get back.",
+          "topic": "Interpretation - Categories of Financial Indicators",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2021-3-2-1",
+          "label": "3.2.1",
+          "questionText": "FLEXI LTD AND BROOM LTD\n\nBoth companies operate in the fashion clothing industry; the financial year ends on the last day of February. Bob Yates owns shares in both companies. On 1 November 2020 he convinced the board of Flexi Ltd to repurchase 150 000 of his shares, and used the money to buy additional shares in Broom Ltd.\n\nNOTE: Where comments or explanations are required, quote financial indicators, figures and trends.\n\nProfitability: Quote and explain TWO financial indicators to show which company is managing its expenses more efficiently, and is thereby more profitable. Quote figures and trends.\n\nINFORMATION B — Financial indicators:\n                                    FLEXI LTD              BROOM LTD\n                                Feb 2021  Feb 2020    Feb 2021  Feb 2020\n  % operating expenses on sales  17,5%     14,6%       13,6%     17,0%\n  % operating profit on sales    18,2%     21,9%       24,2%     20,5%\n  % net profit on sales          13,8%     18,0%       19,6%     16,0%",
+          "marks": 4,
+          "memoText": "Company: BROOM LTD (if figures are shown for Flexi Ltd, award marks for the names of the indicators only, max 2).\n\nAny TWO financial indicators with figures and trends ✓✓ ✓✓:\n• % operating expenses on sales improved / decreased (from 17,0%) to 13,6% / by 3,4 percentage points / by 20%.\n• % operating profit on sales increased (from 20,5%) to 24,2% / by 3,7 percentage points / by 18%.\n• % net profit on sales increased (from 16,0%) to 19,6% / by 3,6 percentage points / by 22,5%.\n\nAll of Broom's indicators improved (better expense control feeding higher profit); Flexi's all worsened over the same period.\n\nTeaching point: The most direct expense-efficiency measure is % operating expenses on sales. Broom cut it while Flexi's rose — and Broom's operating-profit and net-profit percentages improved as a direct result.",
+          "topic": "Interpretation - Profitability and Expense Efficiency",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2021-3-2-2a",
+          "label": "3.2.2 (Flexi Ltd dividend pay-out policy)",
+          "questionText": "Dividends, earnings and returns: Comment on the dividend pay-out policy of FLEXI LTD. Explain why this is an irresponsible change in policy. Provide TWO points. Quote figures and trends.\n\nINFORMATION B — Flexi Ltd: dividend pay-out rate 115% (2021) vs 59% (2020); earnings per share 80 cents (2021) vs 138 cents (2020); dividends per share 92 cents (2021) vs 82 cents (2020).",
+          "marks": 4,
+          "memoText": "Trend with figures ✓✓:\n• The dividend pay-out rate increased (from 59%) to 115% / by 56 percentage points / by 94,9%.\n• In 2021 Flexi paid a DPS of 92c against an EPS of only 80c — 12c per share came out of retained income.\n• EPS fell (from 138c to 80c) yet DPS still rose (from 82c to 92c), so DPS now EXCEEDS EPS by 12c.\n\nExplanation / comment ✓✓ (any one valid comment for two marks):\n• The company is depleting its retained income reserve, which could be used more effectively to rebuild profitability.\n• The company is trying to keep shareholders happy / to prop up the market price of the shares by raising dividends / to smooth (equalise) dividends over several years.\n\nTeaching point: Paying out MORE than you earn (pay-out rate over 100%) is unsustainable — it funds today's dividend from past profits and leaves nothing to reinvest, especially damaging when earnings are already falling.",
+          "topic": "Interpretation - Dividend Pay-out Policy",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2021-3-2-2b",
+          "label": "3.2.2 (% return on shareholders' equity — each company)",
+          "questionText": "Comment on the % return on shareholders' equity of EACH company. Quote figures and trends.\n\nINFORMATION B — % return on shareholders' equity: Flexi Ltd 7,6% (2021) vs 12,2% (2020); Broom Ltd 14,1% (2021) vs 10,7% (2020). Interest rate on loans 13% for both; interest rates on alternative investments (e.g. fixed deposits) are lower.",
+          "marks": 4,
+          "memoText": "Financial indicator with figures and trend, each company ✓ ✓:\n• Flexi Ltd: % return on shareholders' equity (ROSHE) DROPPED (from 12,2%) to 7,6% / by 4,6 percentage points / by 37,7%.\n• Broom Ltd: ROSHE IMPROVED (from 10,7%) to 14,1% / by 3,4 percentage points / by 31,8%.\n\nAdditional comment in each case ✓ ✓ (must refer to a comparison with returns on alternative investments, e.g. a fixed deposit):\n• Flexi Ltd: shareholders are worse off — the 7,6% return is now close to (or below) what a safe alternative investment would earn.\n• Broom Ltd: shareholders are better off — the 14,1% return comfortably beats a safe alternative investment.\n\n(Only 1 mark for both companies combined if the answer just says 'increased / decreased / good / bad' with no reference to alternative investments.)\n\nTeaching point: ROSHE is only meaningful compared with a RISK-FREE alternative. A return that no longer beats a fixed deposit (Flexi) means shareholders are taking share-investment risk for no reward.",
+          "topic": "Interpretation - % Return on Shareholders' Equity",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2021-3-2-2c",
+          "label": "3.2.2 (EPS — Broom vs Flexi)",
+          "questionText": "A shareholder feels that the earnings per share (EPS) in BROOM LTD are better than that in FLEXI LTD. Explain why you agree with him. Quote figures or calculations.\n\nINFORMATION B:\n                          FLEXI LTD              BROOM LTD\n                      Feb 2021  Feb 2020    Feb 2021  Feb 2020\n  Earnings per share  80 cents  138 cents   72 cents  65 cents\n  Net asset value per share  1 081 c  1 128 c   632 c   609 c\n  Market price of shares     990 c   1 130 c   660 c   615 c",
+          "marks": 4,
+          "memoText": "To earn full marks, EPS must be compared to the VALUE of the share (market price or NAV) for BOTH companies, with figures ✓✓ ✓✓:\n\n• EPS to NAV: 7,4% for Flexi Ltd (80 ÷ 1 081) versus 11,4% for Broom Ltd (72 ÷ 632).\n• EPS to market price (2021): 8,1% for Flexi Ltd (80 ÷ 990) versus 10,9% for Broom Ltd (72 ÷ 660).\n• EPS to market price (2020): 7,1% for Flexi Ltd (80 ÷ 1 130) versus 11,7% for Broom Ltd (72 ÷ 615).\n• Flexi earned 80c on a share worth about 990c–1 081c; Broom earned 72c on a share worth only about 632c–660c.\n\n(OR, for 1 mark each: Flexi's EPS FELL from 138c to 80c while Broom's ROSE from 65c to 72c; Flexi's EPS is spread over far fewer shares — 700 000 vs 1 500 000 — which flatters it.)\n\nTeaching point: A bare EPS figure means little without the share's VALUE behind it. Broom generates more earnings per rand invested in each share (a higher EPS-to-price ratio), which is the real test.",
+          "topic": "Interpretation - Earnings Per Share Comparison",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2021-3-2-3a",
+          "label": "3.2.3 (Price paid for repurchased shares)",
+          "questionText": "Shareholding of Bob Yates: Comment on the price paid for the shares repurchased by FLEXI LTD. Provide TWO points. Quote figures.\n\nINFORMATION A — Flexi Ltd repurchase price: R13,20 per share; funds used to repurchase shares: R1 980 000 (150 000 shares).\nINFORMATION B — Flexi Ltd net asset value per share: 1 081 cents (2021), 1 128 cents (2020); market price of shares: 990 cents (2021), 1 130 cents (2020).",
+          "marks": 4,
+          "memoText": "Any TWO valid points (2 marks each), at least ONE of which relates a figure to a financial indicator:\n• The R13,20 repurchase price is well ABOVE the market price of R9,90 (or R11,30 the year before).\n• The R13,20 price is ABOVE the net asset value of R10,81 (or R11,28 the year before).\n• Compare R13,20 to any other value (e.g. the average issue price).\n• General comments (without figures): it compromised the company's cash / liquidity; Bob abused his position to enrich himself; the market price is on a downward trend; there is no real demand for the shares; overpaying could push the price down further.\n\nTeaching point: A company should never pay far more than the market value or the net asset value to buy back shares — doing so at R13,20 (against a market price under R10) transfers value from the remaining shareholders straight to the seller, Bob.",
+          "topic": "Interpretation - Price Paid on a Share Repurchase",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2021-3-2-3b",
+          "label": "3.2.3 (Shares Bob bought in Broom Ltd)",
+          "questionText": "Calculate the number of shares that Bob purchased in BROOM LTD with the money he received from the share buyback at FLEXI LTD.\n\nINFORMATION A — Flexi Ltd: 150 000 of Bob's shares were repurchased at R13,20 per share. Broom Ltd issued additional shares at R6,60 per share.",
+          "marks": 2,
+          "memoText": "SHARES BOB PURCHASED IN BROOM LTD\n\nMoney received from Flexi Ltd = 150 000 × R13,20 = R1 980 000\nShares bought in Broom Ltd = 1 980 000 ÷ R6,60 = 300 000 shares ✓☑ (one part correct)\n\nAnswer: 300 000 shares\n\nTeaching point: The cash Bob took out of Flexi (150 000 shares × R13,20) went straight into Broom shares at their R6,60 issue price — so divide the proceeds by the issue price.",
+          "topic": "Interpretation - Shares Purchased with Buyback Proceeds",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2021-3-2-3c",
+          "label": "3.2.3 (Effect on % shareholding — each company)",
+          "questionText": "Explain the effect of the share repurchase on the % shareholding of Bob Yates in EACH company. Quote figures and trends.\n\nINFORMATION A — Shares in issue: Flexi Ltd 700 000 (2021), 850 000 (2020); Broom Ltd 1 500 000 (2021), 1 100 000 (2020).\nINFORMATION C — Bob's shares: Flexi Ltd 283 500 (2021), 433 500 (2020) — % shareholding 51,0% in 2020; Broom Ltd 460 000 (2020) — % shareholding 41,8% in 2020; Bob bought 300 000 more Broom shares (see 3.2.3).",
+          "marks": 4,
+          "memoText": "FLEXI LTD (explanation ✓ + comparison with figures ✓):\n• Bob was the MAJORITY shareholder (51,0%).\n• He now holds only 40,5% (283 500 ÷ 700 000), so he has LOST majority status.\n\nBROOM LTD (explanation ✓ + comparison with figures ✓):\n• Bob held 41,8% of the shares (460 000).\n• He now holds 50,7% ((460 000 + 300 000) ÷ 1 500 000 = 760 000 ÷ 1 500 000), so he has BECOME the majority shareholder.\n\n(OR: there was no share repurchase in Broom Ltd itself, so on its own that would not have changed his 41,8% — it is the 300 000 shares he BOUGHT that made him the majority holder at 50,7%.)\n\nTeaching point: Selling his shares back to Flexi cut Bob below 50% there; using that cash to buy into Broom pushed him above 50% there. He effectively shifted control from one company to the other.",
+          "topic": "Interpretation - Effect of Repurchase on Percentage Shareholding",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2021-3-2-4a",
+          "label": "3.2.4 (Broom Ltd financing decisions)",
+          "questionText": "Financing strategies and gearing: The directors of each company have taken deliberate decisions reflected in their Cash Flow Statements.\n\nExplain the decisions taken by the directors of BROOM LTD and how these will benefit the company.\n\nINFORMATION A — Broom Ltd: increase in share capital R2 640 000 (400 000 shares issued at R6,60); increase (decrease) in loan (R400 000); fixed assets purchased R2 200 000.\nINFORMATION B — Broom Ltd: debt-equity ratio 0,2 : 1 (2021) vs 0,4 : 1 (2020); % return on capital employed 17,2% (2021) vs 14,7% (2020).",
+          "marks": 4,
+          "memoText": "Any ONE decision ✓ + figure ✓:\n• Increased the share capital by R2 640 000 (400 000 shares issued) OR\n• Decreased the loan by R400 000 OR\n• A net increase of R2 240 000 to total capital employed.\n\nExplain ONE benefit ✓✓ (part-marks for partial/unclear):\n• The money raised is being spent on lasting assets (R2 200 000 of fixed assets) that can generate further profits in future.\n• The debt-equity ratio improved (from 0,4 : 1 to 0,2 : 1) — lower financial risk and better creditworthiness for future borrowing.\n• The % return on average capital employed improved (from 14,7% to 17,2%).\n\nTeaching point: Broom funded expansion mainly with EQUITY (a share issue) and even reduced its loan — a low-risk financing strategy that lowered gearing while the money went into productive fixed assets.",
+          "topic": "Interpretation - Financing Strategy (Broom Ltd)",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2021-3-2-4b",
+          "label": "3.2.4 (Flexi Ltd risk and gearing)",
+          "questionText": "Explain how the decisions taken by FLEXI LTD affected the risk and gearing of the business. Quote TWO financial indicators (with figures and trends).\n\nINFORMATION A — Flexi Ltd: increase in loan R4 500 000; fixed assets purchased R1 000 000; 150 000 shares repurchased for R1 980 000.\nINFORMATION B — Flexi Ltd: debt-equity ratio 1,1 : 1 (2021) vs 0,4 : 1 (2020); % return on capital employed 10,2% (2021) vs 16,1% (2020); interest rate on loans 13%.",
+          "marks": 6,
+          "memoText": "TWO financial indicators with figures and trends ✓ ✓ ✓ ✓:\n• Debt-equity ratio: INCREASED (from 0,4 : 1) to 1,1 : 1 / by 0,7 : 1 — the company is now much more heavily geared.\n• % return on capital employed (ROTCE): DECREASED (from 16,1%) to 10,2% / by 5,9 percentage points / by 36,6%.\n\nExplanation ✓✓ (risk AND gearing must both be covered; part-marks for partial/unclear):\n• HIGH financial risk due to the large increase in the loan (R4 500 000).\n• The business is now NEGATIVELY geared — ROTCE (10,2%) is LOWER than the 13% interest rate on the loan, so the borrowed money is costing more than it earns.\n\nTeaching point: Flexi took on R4,5m of extra debt AND spent R1,98m buying back shares (shrinking equity) — a double hit to gearing. Worse, the return on capital employed fell below the loan interest rate, so the borrowing is now destroying value (negative gearing).",
+          "topic": "Interpretation - Risk and Gearing (Flexi Ltd)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Corporate Governance",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2021-4-1",
+          "label": "4.1",
+          "questionText": "CORPORATE GOVERNANCE\n\nExplain why a disclaimer audit report would be bad for a company's reputation. Provide TWO points.",
+          "marks": 4,
+          "memoText": "Any TWO points ✓✓ ✓✓ (part-marks for incomplete/partial/unclear; be aware of other valid responses):\n• It indicates that something is seriously wrong with the financial statements.\n• The company and its results cannot be trusted / it creates a bad impression and bad publicity.\n• It can negatively affect the share price on the JSE.\n• Demand for the shares falls / potential investors are lost / existing shareholders want to sell.\n• It points to poor management and control of internal processes / incompetent management / questions the integrity of the directors.\n• Suppliers and customers look elsewhere / creditors may withhold credit.\n• Banks and financial institutions may refuse loans.\n\nTeaching point: A disclaimer means the auditors could NOT form an opinion at all — the worst signal short of an adverse report. Every stakeholder (investors, lenders, suppliers, customers) reads it as 'these numbers cannot be relied on'.",
+          "topic": "Corporate Governance - Impact of a Disclaimer Audit Report",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2021-4-2a",
+          "label": "4.2 (Why shareholders appoint directors)",
+          "questionText": "One of the most important decisions that shareholders have to make at the annual general meeting (AGM) is to appoint directors to serve on the board. Explain why the shareholders have been given this responsibility.",
+          "marks": 2,
+          "memoText": "Any ONE valid response ✓✓ (part-marks for incomplete/partial/unclear):\n• There is a separation of ownership (shareholders) from control (directors).\n• The shareholders are the major investors but they cannot all work at the company.\n• They must appoint directors to run the company on their behalf.\n• They are entrusting their investment to the directors.\n\nTeaching point: Shareholders OWN the company but do not RUN it. Appointing the board is how they exercise control over the people who will manage their investment day to day.",
+          "topic": "Corporate Governance - Shareholders Appointing Directors",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2021-4-2b",
+          "label": "4.2 (Factors when choosing directors)",
+          "questionText": "If you were a shareholder, what factors or characteristics would you want to find out about the directors who would get your vote? Explain TWO points and give a reason for EACH.",
+          "marks": 6,
+          "memoText": "Any TWO separate and different EXPLANATIONS ✓✓ ✓✓ + a REASON for each ✓ ✓ (single-word points acceptable; reasons need not be uniquely linked):\n\nCharacteristics / factors:\n• Integrity / honesty / ethical conduct / sets a good example / no conflicts of interest / no nepotism.\n• A clear criminal record.\n• Good qualifications / membership of a professional body / management skills / competence / sound judgement / communication skills.\n• Innovative / creative.\n• Experience in the field / a good track record / references / awareness of company policies.\n• Up to date with current trends / ongoing professional development.\n• Collaborative / a good team player.\n• Transparency and accountability.\n\nReasons:\n• Shareholders have entrusted their investment to the directors.\n• Expertise is needed to run the company well.\n• The company must not fall behind in the global market.\n• Staff and shareholders will respect the director and have confidence in their ability.\n• The director must be a confident ambassador for the company with all stakeholders.\n\nTeaching point: A strong answer pairs a specific quality (e.g. 'proven track record') with WHY it matters to you as an owner (e.g. 'my investment is safer in experienced hands').",
+          "topic": "Corporate Governance - Choosing Directors to Vote For",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2021-4-3",
+          "label": "4.3",
+          "questionText": "A recent news report stated that a major company, Baxco Ltd, had been awarded a tender to supply equipment worth R20 million to a chain of private hospitals. The report accuses the CFO (chief financial officer) of Baxco of paying R2 million in cash to the CEO of the hospital group.\n\nAs a shareholder, explain what you would say at the AGM. Provide TWO points.",
+          "marks": 4,
+          "memoText": "Any TWO valid and different points ✓✓ ✓✓ (part-marks for incomplete/partial):\n• This appears to be a clear case of corruption / an under-hand deal that bypassed the normal tender process / kick-backs or bribes / unethical and illegal.\n• The CFO's actions must be investigated and appropriate disciplinary measures must follow (abuse of authority) / criminal proceedings should be instituted / he should be sued (merely 'dismissed / fired / replaced' = 1 mark).\n• Investigate further to check that the criminal conduct has not spread to other parts of the company.\n• If the directors' integrity is compromised it will affect how the public and customers respond.\n• It will hit the share price and profits (the company's image).\n• Concern about the CFO's access to such a large cash amount / weak internal controls.\n\nTeaching point: The shareholder's job at the AGM is to demand accountability — name the conduct for what it is (bribery), call for a proper investigation and consequences, and flag the control weakness that allowed R2m in cash to move.",
+          "topic": "Corporate Governance - Responding to a Bribery Allegation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2021-4-4",
+          "label": "4.4",
+          "questionText": "A major South African company states the following on its website and in its Directors' Report:\n\n'We have set up ways for employees and external stakeholders to report unethical conduct and incidents of individuals not complying with the company's ethical policies. We have set up a tip-off phone line (call centre) controlled by an independent service provider. All information will be treated confidentially. Whistle-blowers (informants) who submit genuine information will be protected and will remain anonymous.'\n\nIn your opinion, explain why this major company found it necessary to implement this policy. Provide TWO points.",
+          "marks": 4,
+          "memoText": "Any TWO valid and different points ✓✓ ✓✓ (part-marks for incomplete/partial):\n• Crime and fraud are a major problem, and people are afraid to come forward because they fear for their safety — protection and anonymity encourage them to report.\n• The company wants to show it is serious about combatting crime and unethical conduct.\n• It wants to learn about wrong-doing internally BEFORE it is exposed in the press or damages the business.\n• The policy itself deters wrong-doing — people know they are being watched and that culprits will be reported.\n• It is part of good corporate governance / the King Code / protects and improves the company's reputation / total quality management.\n\nTeaching point: An anonymous, independently run tip-off line is a recognised internal-control and governance tool — it surfaces fraud early, deters it, and signals to stakeholders that the company takes ethics seriously.",
+          "topic": "Corporate Governance - Whistle-blower Protection Policy",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

@@ -110,11 +110,11 @@ poetry question; describe it in `questionText` if so, don't block the build.
 | P2 | 2023 | `English HL P2 Nov 2023.pdf` | `English HL P2 Nov 2023 MG.pdf` | `eng-hl-p2-nov-2023.json` | [ ] |
 | P2 | 2024 | `English HL P2 Nov 2024.pdf` | `English HL P2 Nov 2024 MG.pdf` | `eng-hl-p2-nov-2024.json` | [ ] |
 | P2 | 2025 | `English HL P2 Nov 2025.pdf` | *(not in Downloads — source before building)* | `eng-hl-p2-nov-2025.json` | [ ] |
-| P3 | 2021 | `English HL P3 Nov 2021.pdf` | `English HL P3 Nov 2021 MG.pdf` | `eng-hl-p3-nov-2021.json` | [ ] |
-| P3 | 2022 | `English HL P3 Nov 2022.pdf` | `English HL P3 Nov 2022 MG.pdf` | `eng-hl-p3-nov-2022.json` | [ ] |
-| P3 | 2023 | `English HL P3 Nov 2023.pdf` | `English HL P3 Nov 2023 MG.pdf` | `eng-hl-p3-nov-2023.json` | [ ] |
-| P3 | 2024 | `English HL P3 Nov 2024.pdf` | `English HL P3 Nov 2024 MG.pdf` | `eng-hl-p3-nov-2024.json` | [ ] |
-| P3 | 2025 | `English HL P3 Nov 2025.pdf` | *(not in Downloads — source before building)* | `eng-hl-p3-nov-2025.json` | [ ] |
+| P3 | 2021 | `English HL P3 Nov 2021.pdf` | `English HL P3 Nov 2021 MG.pdf` | `eng-hl-p3-nov-2021.json` | [x] already built |
+| P3 | 2022 | `English HL P3 Nov 2022.pdf` | `English HL P3 Nov 2022 MG.pdf` | `eng-hl-p3-nov-2022.json` | [x] already built |
+| P3 | 2023 | `English HL P3 Nov 2023.pdf` | `English HL P3 Nov 2023 MG.pdf` | `eng-hl-p3-nov-2023.json` | [x] already built |
+| P3 | 2024 | `English HL P3 Nov 2024.pdf` | `English HL P3 Nov 2024 MG.pdf` | `eng-hl-p3-nov-2024.json` | [x] already built |
+| P3 | 2025 | `English HL P3 Nov 2025.pdf` | `English HL P3 Nov 2025 MG.pdf` (IS in Downloads) | `eng-hl-p3-nov-2025.json` | [x] built 2026-08-28 |
 
 ### Afrikaans FAL — P2 (Literature) — only 2025 is built, 2021–2024 missing
 Images: **no** — P1 and P3 of the same subject already built 5 years each

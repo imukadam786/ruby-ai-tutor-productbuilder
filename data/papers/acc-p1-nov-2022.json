@@ -1,0 +1,274 @@
+{
+  "id": "acc-p1-nov-2022",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P1",
+  "year": 2022,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Company Financial Statements — Statement of Comprehensive Income and Statement of Financial Position (Laysano Ltd)",
+      "totalMarks": 60,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2022-1-1",
+          "label": "1.1",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — LAYSANO LTD\n\nThe information relates to Laysano Ltd for the financial year ended 28 February 2022.\n\nRefer to Information B (i). Calculate the cost of the stock that was damaged.\n\nINFORMATION B (i) — Stock records:\n• The business sells sports shirts. The weighted-average method is used to value the shirts.\n                                UNITS     UNIT PRICE     TOTAL (R)\n  Stock balance: 1 Mar. 2021    1 900     R660           1 254 000\n  Purchases during the year     7 100     R750           5 325 000\n  Total available for sale      9 000                     6 579 000\n  Stock balance: 28 Feb. 2022   1 185     ?             ?\n  Units sold                    7 750\n\nNOTE: Damaged shirts were not included in the closing stock figure. The damaged shirts must be written off as a loss.",
+          "marks": 5,
+          "memoText": "COST OF STOCK DAMAGED — LAYSANO LTD\n\nWeighted-average cost per unit = 6 579 000 ÷ 9 000 = R731 ✓✓\n\nDamaged units = total available for sale − units sold − closing stock on hand\n= 9 000 − 7 750 − 1 185 = 65 units ✓✓\n\nCost of stock damaged = 65 × R731 = R47 515 ☑ (one part correct)\n\nAnswer: R47 515\n\n(OR, ledger format: total available R6 579 000; cost of sales = 7 750 × R731 = R5 665 250; closing stock = 1 185 × R731 = R866 235; damaged = 6 579 000 − 5 665 250 − 866 235 = R47 515.)\n\nTeaching point: Under the weighted-average method every unit carries the SAME cost (total value ÷ total units). Once that unit cost is known, the damaged quantity is whatever is left after accounting for units sold and units still on hand — the 'missing' units. This R47 515 is written off as a stock loss in 1.3.1.",
+          "topic": "Company Financial Statements - Weighted-Average Stock Loss",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2022-1-2-1",
+          "label": "1.2.1",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — LAYSANO LTD\n\nRefer to Information B (ii). Calculate the profit/loss on the sale of the delivery vehicle.\n\nINFORMATION B (ii) — Fixed assets:\n• Vehicles are depreciated at 20% p.a. on the diminishing-balance method.\n• An old delivery vehicle, with a carrying value of R170 000 on 1 March 2021, was sold for R140 000 on 1 December 2021.",
+          "marks": 5,
+          "memoText": "PROFIT / LOSS ON SALE OF THE DELIVERY VEHICLE — LAYSANO LTD\n\nDepreciation on the vehicle for the current year (1 March 2021 → 1 December 2021 = 9 months):\n  170 000 × 20% × 9/12 = R25 500 ✓✓\n\nCarrying value at the date of sale = 170 000 − 25 500 = R144 500\n(workings: 170 000 ✓ − 25 500 ✓✓ − 140 000 ✓ = 4 500)\n\nProfit / Loss = selling price − carrying value = 140 000 − 144 500 = R(4 500) ☑ (one part correct)\n\nAnswer: LOSS of R4 500\n\nTeaching point: Before working out profit or loss on a disposal you must first bring depreciation up to the DATE OF SALE (here, 9 months of the year). The vehicle was sold for R140 000 but its carrying value had only dropped to R144 500 — selling for less than carrying value is a LOSS. This R4 500 loss goes to operating expenses in 1.3.1, and the R25 500 depreciation feeds into 1.2.2.",
+          "topic": "Company Financial Statements - Profit/Loss on Disposal",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2022-1-2-2",
+          "label": "1.2.2",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — LAYSANO LTD\n\nRefer to Information B (ii). Calculate the total depreciation for the year.\n\nINFORMATION B (ii) — Fixed assets:\n• Vehicles are depreciated at 20% p.a. on the diminishing-balance method; equipment at 15% p.a. on cost.\n• The bookkeeper calculated the total depreciation as R328 200 before taking the following into account:\n  – Vehicles: an old delivery vehicle (carrying value R170 000 on 1 March 2021) was sold on 1 December 2021. Depreciation on it for the year = R25 500 (see 1.2.1).\n  – Equipment: an alarm system costing R48 000 was installed on 1 August 2021.",
+          "marks": 4,
+          "memoText": "TOTAL DEPRECIATION FOR THE YEAR — LAYSANO LTD\n\n  Depreciation before adjustments ............... R328 200\n  Depreciation on the vehicle sold ............. R25 500 ☑ (see 1.2.1: 170 000 × 20% × 9/12)\n  Depreciation on the alarm system ............. R4 200 ✓✓\n    Working: 48 000 × 15% × 7/12 (1 August 2021 → 28 February 2022 = 7 months) = R4 200\n  TOTAL DEPRECIATION ........................... R357 900 ☑ (one part correct)\n\nAnswer: R357 900\n\nTeaching point: The bookkeeper's R328 200 left out two things — the part-year depreciation on the vehicle that was sold partway through the year, and the part-year depreciation on the newly installed alarm system. Both must be time-apportioned (× months ÷ 12). The total, R357 900, is the depreciation figure used in 1.3.1.",
+          "topic": "Company Financial Statements - Total Depreciation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2022-1-3-1",
+          "label": "1.3.1",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — LAYSANO LTD\n\nComplete the Statement of Comprehensive Income for the year ended 28 February 2022.\n\nNOTE: Some amounts are provided in the ANSWER BOOK.\n\nINFORMATION A — Extract: balances/totals from the records on 28 February 2022:\n  Debtors' control ............................. R2 746 300\n  Provision for bad debts (28 Feb 2021) ....... R85 840\n  Sales ....................................... R9 355 250\n  Cost of sales ............................... R5 665 250\n  Directors' fees ............................. R1 124 000\n  Audit fees .................................. R83 000\n  Salaries and wages (including contributions) . R1 381 500\n  Commission income ........................... R4 560\n  Rent income ................................. R183 600\n  Security expenses ........................... R72 500\n  Interest on loan ............................ R142 250\n  Depreciation (per bookkeeper) ............... R328 200\n  Dividends on ordinary shares (interim) ...... R207 000\n\nINFORMATION B — Adjustments and additional information:\n(i)/(ii) Stock loss (damaged shirts) = R47 515 (see 1.1). Total depreciation for the year = R357 900 (see 1.2.2). Loss on sale of the delivery vehicle = R4 500 (see 1.2.1).\n(iii) R33 700 received from a debtor whose account had previously been written off as irrecoverable was posted in error to the Debtors' Control Account — this must be corrected (the R33 700 is bad debts recovered income, and the Debtors' Control balance goes back up to R2 780 000). The provision for bad debts must then be adjusted to 3% of the corrected Debtors' Control balance.\n(iv) An annual security premium of R32 400 for the period ended 31 July 2022 was paid in full on 1 August 2021 (i.e. it covers 12 months, August 2021 to July 2022).\n(v) The entire February 2022 salary of an employee was incorrectly debited to Sundry Expenses and must be moved to Salaries and Wages: net salary R11 525; SARS: PAYE deduction R3 235; Pension Fund deduction R990. The business contributes R2 for every R1 deducted for the Pension Fund. EFT payments have already been processed.\n(vi) A tenant has leased office space since March 2020 and has paid rent until 30 April 2022. The monthly rent was reduced by R1 350 with effect from 1 January 2022.\n(vii) Income tax for the year is 30% of the net profit. The net profit after tax is R356 300 after adjustments.\n\nProvided in the ANSWER BOOK: some other-income items; Interest income and the profit-before-interest-expense / net-profit-before-tax lines are balancing figures.",
+          "marks": 28,
+          "memoText": "STATEMENT OF COMPREHENSIVE INCOME — LAYSANO LTD (year ended 28 February 2022)\n\nSales = R9 355 250 (given)\nCost of sales = (R5 665 250) (given)\nGross profit = 9 355 250 − 5 665 250 = R3 690 000 ✓ (operation)\n\nOther income = R200 000 ☑ (one part correct)\n  Commission income = R4 560 (given)\n  Rent income = 183 600 − 24 300 = R159 300 ☑ (one part correct)\n    Working: rent is paid up to 30 April 2022, so March + April 2022 (2 months) are received in advance. Those months fall after the 1 January 2022 rent decrease, so the reduced monthly rent applies: R12 150 × 2 = R24 300 received in advance (a current liability, see 1.3.2).\n  Bad debts recovered = R33 700 ✓ (the amount wrongly posted to Debtors' Control is reclassified as income)\n  Provision for bad debts adjustment = 85 840 − 83 400 = R2 440 ✓✓ (must be shown as INCOME — the provision decreased)\n    Working: corrected Debtors' Control = 2 746 300 + 33 700 = R2 780 000; new provision = 3% × 2 780 000 = R83 400; old provision R85 840; decrease R2 440.\n\nGross operating income = 3 690 000 + 200 000 = R3 890 000 ✓ (operation)\n\nOperating expenses = (R3 315 000) ☑ (gross operating income − operating profit)\n  Directors' fees = R1 124 000 (given)\n  Audit fees = R83 000 (given)\n  Salaries and wages and contributions = R1 399 230 ☑ (one part correct)\n    Working: 1 381 500 + 11 525 (net salary) + 3 235 (PAYE) + 990 (pension deduction) + 1 980 (employer's pension contribution = 2 × 990) = R1 399 230. The employee's gross salary (11 525 + 3 235 + 990 = R15 750) plus the R1 980 employer contribution must be moved from Sundry Expenses into this line.\n  Security expenses = 72 500 − 13 500 = R59 000 ☑ (one part correct)\n    Working: R32 400 ÷ 12 = R2 700 per month; the premium runs to 31 July 2022, so 5 months (March–July 2022) are prepaid: 5 × 2 700 = R13 500 (a current asset). Expense for the year = 72 500 − 13 500 = R59 000.\n  Trading stock deficit / stock written off = R47 515 ☑ (see 1.1)\n  Depreciation = R357 900 ☑ (see 1.2.2)\n  Loss on sale of asset = R4 500 ☑ (see 1.2.1)\n  Sundry expenses = R239 855 ☑ (BALANCING FIGURE only — do not accept figures for other specified items)\n\nOperating profit = 3 890 000 − 3 315 000 = R575 000 ✓ (operation)\n\nInterest income = R76 250 ☑ (balancing figure: profit before interest expense − operating profit)\nProfit before interest expense = 509 000 + 142 250 = R651 250 ☑ (net profit before tax + interest expense)\nInterest expense = (R142 250) (given)\nNet profit before tax = 356 300 + 152 700 = R509 000 ☑ (net profit after tax + income tax)\nIncome tax = (R152 700) ✓✓\n  Working: net profit after tax (R356 300) is 70% of net profit before tax, so net profit before tax = 356 300 ÷ 0,70 = R509 000; income tax = 509 000 × 30% = R152 700 (or 356 300 × 30/70).\nNet profit after tax = R356 300 (given)\n\nPENALTIES: −1 foreign items (max −2); −1 placement/presentation (max −2).\n\nTeaching points:\n• A debtor's account written off and then later paid must NOT go back through Debtors' Control — the receipt is 'bad debts recovered' income. Reversing the wrong posting pushes the Debtors' Control balance back up, which then changes the 3% provision for bad debts.\n• A premium 'paid in full' that covers months beyond year end is part prepaid — split it by the monthly rate and carry the future months to the Statement of Financial Position.\n• When net profit after tax and the tax rate are given, work backwards: net profit before tax = net profit after tax ÷ (1 − tax rate). Interest income is then the balancing figure between operating profit and profit before interest expense.",
+          "topic": "Company Financial Statements - Statement of Comprehensive Income",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-p1-nov-2022-1-3-2",
+          "label": "1.3.2",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — LAYSANO LTD\n\nComplete the EQUITY AND LIABILITIES section of the Statement of Financial Position as at 28 February 2022.\n\nNOTE: Some amounts are provided in the ANSWER BOOK.\n\nINFORMATION A (relevant balances on 28 February):\n  Ordinary share capital ....................... R6 670 000\n  Loan: Saturn Bank — 28 Feb 2022 R1 159 000; 28 Feb 2021 R1 280 750\n  Creditors' control .......................... R428 000\n  SARS: Income tax (provisional tax payments) .. R130 000\n\nCARRIED FORWARD:\n  Income tax for the year (see 1.3.1): R152 700\n  Rent income received in advance (see 1.3.1): R24 300\n\nINFORMATION B — additional information:\n(vii) Income tax for the year is 30% of net profit; net profit after tax is R356 300.\n(viii) Loan: Saturn Bank — all loan transactions were recorded; interest of R142 250 on the loan is capitalised; a fixed monthly instalment (including interest) was paid in full; the capital portion of the repayments will increase by 10% over the next financial year.\n(ix) Shares and dividends — 1 150 000 shares were in issue on 28 February 2022; a final dividend was declared on 28 February 2022; total dividends for the year amounted to R345 000 (interim dividends paid R207 000).\n(x) Net asset value per share (NAV), after all adjustments, was correctly calculated as 675 cents per share.",
+          "marks": 18,
+          "memoText": "STATEMENT OF FINANCIAL POSITION (EQUITY AND LIABILITIES) — LAYSANO LTD (as at 28 February 2022)\n\nORDINARY SHAREHOLDERS' EQUITY = R7 762 500 ✓✓\n  Working: NAV per share × number of shares in issue = 675 cents × 1 150 000 = R7 762 500.\n  Ordinary share capital = R6 670 000 (given)\n  Retained income = 7 762 500 − 6 670 000 = R1 092 500 ☑ (shareholders' equity − ordinary share capital)\n\nNON-CURRENT LIABILITIES = R1 025 075\n  Mortgage loan = 1 159 000 − 133 925 = R1 025 075 ☑ (one part correct)\n    Working: capital repaid during the year = 1 280 750 − 1 159 000 = R121 750 (this equals the annual instalment of R264 000 less the R142 250 interest). The capital portion increases by 10% next year, so the current portion of the loan = 121 750 × 1,1 = R133 925. Non-current portion = total loan 1 159 000 − 133 925 = R1 025 075.\n\nCURRENT LIABILITIES = R746 925 ☑ (one part correct)\n  Trade and other payables = 428 000 + 24 300 = R452 300 ☑ (one part correct)\n    = Creditors' control 428 000 ✓ + rent income received in advance 24 300 ☑ (see 1.3.1)\n  Current portion of loan = R133 925 ☑ (see the loan working above)\n  Shareholders for dividends = R138 000 ✓✓\n    Working: total dividends for the year R345 000 − interim dividends paid R207 000 = final dividend declared R138 000.\n  SARS: Income tax = 152 700 − 130 000 = R22 700 ☑☑\n    = income tax for the year 152 700 (see 1.3.1) − provisional tax payments 130 000 = amount owed to SARS.\n\nTOTAL EQUITY AND LIABILITIES = 7 762 500 + 1 025 075 + 746 925 = R9 534 500 ☑\n\nTOTAL MARKS: 60 (Question 1)\n\nPENALTIES: −1 foreign items (max −2); −1 presentation (max −2 if no appropriate details).\n\nTeaching points:\n• NAV per share can be used in REVERSE to find shareholders' equity: equity = NAV × number of shares in issue.\n• The 'current portion of a loan' is the CAPITAL that will be repaid in the next 12 months. Here it is this year's capital repayment (R121 750) grown by the stated 10% increase — not the interest, which is never part of the loan balance.\n• A closing SARS credit balance = tax still owed = a current liability; it equals the tax expense for the year less the provisional payments already made.",
+          "topic": "Company Financial Statements - Statement of Financial Position (Equity and Liabilities)",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Cash Flow Statement and Financial Indicators (Eagle Ltd)",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2022-2-1",
+          "label": "2.1",
+          "questionText": "CASH FLOW STATEMENT AND FINANCIAL INDICATORS\n\nChoose the correct word from those given in brackets. Write only the word next to the question numbers (2.1.1 to 2.1.3).\n\n2.1.1  (Solvency / Liquidity) is the ability of the business to pay off all debts using existing assets.\n2.1.2  Effective control of income and expenses is a reflection of the (risk / profitability).\n2.1.3  The use of loans to finance a company is known as (returns / gearing).",
+          "marks": 3,
+          "memoText": "2.1.1  Solvency ✓\n2.1.2  Profitability ✓\n2.1.3  Gearing ✓\n\nTeaching point: Solvency compares TOTAL assets to TOTAL liabilities (can the business cover everything it owes if wound up?). Profitability is about controlling income and expenses to produce profit. Gearing is the extent to which a company is financed by borrowed money rather than owners' equity.",
+          "topic": "Financial Indicators - Terminology",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2022-2-2-1",
+          "label": "2.2.1",
+          "questionText": "CASH FLOW STATEMENT AND FINANCIAL INDICATORS — EAGLE LTD\n\nThe information relates to Eagle Ltd for the financial year ended 28 February 2022. The company is registered with an authorised share capital of 1 800 000 shares.\n\nPrepare the Retained Income Note on 28 February 2022.\n\nINFORMATION A — Extract from the Statement of Comprehensive Income:\n  Net profit after tax .... R908 400\n\nINFORMATION B — from the Statement of Financial Position on 28 February:\n                              2022 (R)      2021 (R)\n  Retained income ......... 382 800         ?\n\nINFORMATION C — Ordinary shares:\n  Shares in issue on 1 March 2021 ......................... 1 180 000\n  Shares issued on 1 July 2021 at R9,30 each ............. 300 000\n  Shares repurchased on 1 January 2022 at R1,40 above the average share price ... 120 000\n  Shares in issue on 28 February 2022 ................... 1 360 000\n\nINFORMATION D — Dividends:\n  • Interim dividends of R710 400 were paid on 31 August 2021.\n  • A final dividend of 12 cents per share was declared to all shareholders on the share register on 28 February 2022.",
+          "marks": 7,
+          "memoText": "RETAINED INCOME NOTE — EAGLE LTD (28 February 2022)\n\n  Balance on 1 March 2021 ................................ R516 000 ☑ (balancing figure)\n  Net profit after tax .................................. R908 400 ✓\n  Shares repurchased (120 000 × R1,40) ................. (R168 000) ✓✓\n  Ordinary share dividends ............................. (R873 600) ☑ (operation)\n    Interim dividends .................................. R710 400 (given)\n    Final dividends (1 360 000 × 12 cents) ............ R163 200 ✓✓\n  Balance on 28 February 2022 .......................... R382 800 ☑ (given)\n\nWorkings:\n• Only the amount paid ABOVE the average share price is charged against retained income on a repurchase: 120 000 × R1,40 = R168 000.\n• Final dividend: all 1 360 000 shares in issue at year end qualify: 1 360 000 × 12c = R163 200.\n• Opening balance is the balancing figure: 382 800 (closing) + 873 600 (dividends) + 168 000 (repurchase) − 908 400 (net profit after tax) = R516 000.\n\nTeaching point: The retained income note is a mini reconciliation — open, add profit, subtract everything paid out to shareholders (dividends AND the premium on any share buy-back), and close. Work backwards to the opening balance when it is the only unknown.",
+          "topic": "Cash Flow Statement - Retained Income Note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-p1-nov-2022-2-2-2a",
+          "label": "2.2.2 (Income tax paid)",
+          "questionText": "CASH FLOW STATEMENT AND FINANCIAL INDICATORS — EAGLE LTD\n\nCalculate the income tax paid (for the Cash Flow Statement) for the year ended 28 February 2022.\n\nINFORMATION A — Income tax (Statement of Comprehensive Income): R389 300.\nINFORMATION B — SARS: Income tax: 28 Feb 2022 R14 400 Cr; 28 Feb 2021 R21 300 Dr.",
+          "marks": 4,
+          "memoText": "INCOME TAX PAID — EAGLE LTD\n\nWorking: 389 300 ✓ − 21 300 ✓ − 14 400 ✓ = R353 600 ☑ (one part correct)\n  OR: −389 300 + 21 300 + 14 400 (reversed sign convention)\n\nAnswer: R353 600\n\nTeaching point: Start with the tax EXPENSE for the year (R389 300). An opening DEBIT balance (R21 300 Dr) means tax was overpaid last year — subtract it. A closing CREDIT balance (R14 400 Cr) means some of this year's tax is still owed and has not been paid in cash — subtract it too. Both adjustments reduce the actual cash paid to SARS.",
+          "topic": "Cash Flow Statement - Income Tax Paid",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2022-2-2-2b",
+          "label": "2.2.2 (Funds used to repurchase shares)",
+          "questionText": "Calculate the funds used to repurchase shares (for the Cash Flow Statement) for the year ended 28 February 2022.\n\nINFORMATION C — 120 000 shares were repurchased on 1 January 2022 at R1,40 above the average share price. Shares in issue before the repurchase = 1 180 000 (1 March 2021) + 300 000 (issued 1 July 2021) = 1 480 000. Ordinary share capital on 28 February 2022 = R11 968 000.",
+          "marks": 5,
+          "memoText": "FUNDS USED TO REPURCHASE SHARES — EAGLE LTD\n\nAverage share price = R8,80 (ordinary share capital of R13 024 000 just before the repurchase ÷ 1 480 000 shares; R13 024 000 = closing OSC R11 968 000 + the R1 056 000 average-price portion removed on the buy-back).\n\nRepurchase price per share = R8,80 + R1,40 = R10,20\n\nFunds used = 120 000 × R10,20 = R1 224 000 ☑ (both parts must be added; one part correct)\n  = 120 000 × R8,80 (average price) = R1 056 000 (three marks) + 120 000 × R1,40 (premium, see 2.2.1) = R168 000\n\nAnswer: R1 224 000\n\nTeaching point: A share buy-back costs the average price PLUS whatever premium is paid on top. The full R1 224 000 cash leaves under financing activities; only the R168 000 premium is charged against retained income (see 2.2.1), and the R1 056 000 average-price portion reduces ordinary share capital.",
+          "topic": "Cash Flow Statement - Funds Used to Repurchase Shares",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2022-2-2-2c",
+          "label": "2.2.2 (Net change in cash and cash equivalents)",
+          "questionText": "Calculate the net change in cash and cash equivalents (for the Cash Flow Statement) for the year ended 28 February 2022.\n\nINFORMATION B — on 28 February:\n                              2022 (R)    2021 (R)\n  Bank ..................... 36 700       0\n  Petty cash .............. 8 000        8 000\n  Bank overdraft ......... 0            133 000",
+          "marks": 4,
+          "memoText": "NET CHANGE IN CASH AND CASH EQUIVALENTS — EAGLE LTD\n\nClosing cash and cash equivalents (28 Feb 2022) = 36 700 + 8 000 = R44 700\nOpening cash and cash equivalents (28 Feb 2021) = 0 + 8 000 − 133 000 = R(125 000)\n\nNet change = 44 700 − (−125 000) = 44 700 ✓ + 133 000 ✓ − 8 000 ✓ = R169 700 ☑ (one part correct; must be positive)\n\nAnswer: R169 700 (inflow)\n\nTeaching point: 'Cash and cash equivalents' is the NET position — favourable bank plus petty cash MINUS any bank overdraft. The company moved from a R125 000 overdrawn position to R44 700 positive, a R169 700 improvement.",
+          "topic": "Cash Flow Statement - Net Change in Cash and Cash Equivalents",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2022-2-2-3a",
+          "label": "2.2.3 (Debt-equity ratio)",
+          "questionText": "CASH FLOW STATEMENT AND FINANCIAL INDICATORS — EAGLE LTD\n\nCalculate the debt-equity ratio on 28 February 2022.\n\nINFORMATION B — on 28 February 2022: Loan: Lilly Bank R2 886 000; Shareholders' equity R12 350 800.",
+          "marks": 3,
+          "memoText": "DEBT-EQUITY RATIO — EAGLE LTD\n\nWorking: 2 886 000 ✓ : 12 350 800 ✓ = 0,2 : 1 ☑ (one part correct; must be in the form x : 1)\n\nAnswer: 0,2 : 1\n\nTeaching point: The debt-equity ratio compares non-current (long-term) borrowings with shareholders' equity. At 0,2 : 1 the company is low-geared — it relies far more on owners' funds than on debt, which means low financial risk.",
+          "topic": "Financial Indicators - Debt-Equity Ratio",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2022-2-2-3b",
+          "label": "2.2.3 (% return on average capital employed)",
+          "questionText": "Calculate the % return on average capital employed for the year ended 28 February 2022.\n\nINFORMATION A — Net profit before tax R1 297 700; Interest on loan R382 000.\nINFORMATION B — Total capital employed (shareholders' equity + loan): 28 Feb 2022 R15 236 800; 28 Feb 2021 R14 450 000.",
+          "marks": 5,
+          "memoText": "% RETURN ON AVERAGE CAPITAL EMPLOYED (ROTCE) — EAGLE LTD\n\nWorking: (1 297 700 + 382 000) ÷ [½ × (15 236 800 + 14 450 000)] × 100\n  = 1 679 700 ✓✓ ÷ 14 843 400 × 100\n  = 11,3% ☑ (one part correct; must use the average ½; the numerator must include profit + interest on loans)\n\nAnswer: 11,3%\n\nTeaching point: ROTCE measures the return the business earns on ALL the long-term money it uses (equity + loans), so the numerator adds back interest on loans to net profit before tax (that interest is a return TO the lenders). It is always measured against AVERAGE capital employed.",
+          "topic": "Financial Indicators - % Return on Average Capital Employed",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2022-2-2-3c",
+          "label": "2.2.3 (Dividends per share)",
+          "questionText": "Calculate the dividends per share for the year ended 28 February 2022.\n\nINFORMATION C/D — Interim dividends of R710 400 were paid on 31 August 2021, when 1 480 000 shares were in issue (1 180 000 + 300 000 issued 1 July 2021). A final dividend of 12 cents per share was declared on 28 February 2022.",
+          "marks": 4,
+          "memoText": "DIVIDENDS PER SHARE — EAGLE LTD\n\nInterim dividend per share = 710 400 ÷ 1 480 000 × 100 = 48 cents ✓✓\nFinal dividend per share = 12 cents ✓ (given)\n\nDividends per share for the year = 48 + 12 = 60 cents ☑ (one part correct; must be interim + final dividends)\n\nAnswer: 60 cents\n\nTeaching point: Dividends per share for the year adds the interim and the final dividend per share. The interim rate uses the number of shares in issue WHEN IT WAS PAID (1 480 000 on 31 August 2021) — the 120 000 repurchase only happened later, on 1 January 2022.",
+          "topic": "Financial Indicators - Dividends Per Share",
+          "type": "calculation"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Interpretation of Financial Statements (Jessie Ltd)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2022-3-1",
+          "label": "3.1",
+          "questionText": "INTERPRETATION OF FINANCIAL STATEMENTS\n\nChoose the appropriate item from the list to fit EACH purpose below. Write only the letter (A–D) next to the question numbers (3.1.1 to 3.1.3).\n\nList of items that would appear in a company's annual report:\n  A  Statement of Comprehensive Income (Income Statement)\n  B  Statement of Financial Position (Balance Sheet)\n  C  Cash Flow Statement\n  D  Directors' Report\n\nPURPOSE:\n  3.1.1  To reflect the effects of operating, investing and financing activities\n  3.1.2  To provide a written explanation of the financial performance of a company\n  3.1.3  To reflect the performance of a company in terms of its gross, operating and net profit",
+          "marks": 3,
+          "memoText": "3.1.1  C ✓  (Cash Flow Statement — reflects the effects of operating, investing and financing activities)\n3.1.2  D ✓  (Directors' Report — a written explanation of the financial performance)\n3.1.3  A ✓  (Statement of Comprehensive Income — shows gross, operating and net profit)\n\nTeaching point: Each statement answers a different question — the Cash Flow Statement tracks where cash came from and went, the Directors' Report is the narrative, and the Statement of Comprehensive Income works down from gross profit to net profit after tax.",
+          "topic": "Interpretation - Purpose of Financial Statements",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2022-3-2-1",
+          "label": "3.2.1",
+          "questionText": "JESSIE LTD\n\nThe information relates to Jessie Ltd for the financial year ended 28 February 2022. Mike Stuurman was appointed as chief financial officer (CFO) on 1 March 2021 on the strength of his track record of improved performance at other companies. He is not a shareholder of Jessie Ltd.\n\nNOTE: Provide figures, trends, financial indicators or calculations in EACH case to support your comments and explanations.\n\nProfitability: Mike has informed the board that he has identified and rectified a number of incidents of fruitless and wasteful expenditure in the company's records. Provide TWO financial indicators that justify the success of Mike's strategies. Quote figures and trends.\n\nINFORMATION A — Financial indicators on 28 February:\n                                  2022      2021\n  Mark-up % achieved             70%        60%\n  % operating expenses on sales  14,8%      27,8%\n  % net profit on sales          24,7%      10,3%",
+          "marks": 4,
+          "memoText": "Any TWO financial indicators with figures and trends ✓✓ ✓✓ (indicator + figures/trend):\n• % operating expenses on sales has DECREASED / improved (from 27,8%) to 14,8% / by 13 percentage points / by 46,8%.\n• % net profit on sales has INCREASED / improved (from 10,3%) to 24,7% / by 14,4 percentage points / by 139,8%.\n\n(Mark-up % is a deliberate pricing decision, not evidence of controlling wasteful expenditure — ignore it if mentioned. −1 for superfluous additional indicators.)\n\nTeaching point: 'Fruitless and wasteful expenditure' is an operating-cost problem, so the indicator that best shows Mike fixed it is % operating expenses on sales (nearly halved). The jump in % net profit on sales confirms the saving flowed through to the bottom line.",
+          "topic": "Interpretation - Profitability and Expense Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2022-3-2-2a",
+          "label": "3.2.2 (Change in dividend pay-out rate)",
+          "questionText": "Dividends: Explain whether the change in the dividend pay-out rate in 2022 will benefit the company or not. Quote figures and trends.\n\nINFORMATION A — Dividend pay-out rate: 2022 46,6%; 2021 97,6%.",
+          "marks": 3,
+          "memoText": "Figures and trend ✓:\n• The dividend pay-out rate DECREASED (from 97,6%) to 46,6% / by 51 percentage points / by 52,3%.\n• OR: the company retained 53,4% of earnings this year (against only 2,4% last year) / retained 51% more than last year.\n\nExplanation ✓✓ (part-marks for incomplete/partial/unclear):\n• Benefit to the company: funds have been retained for future expansion / to increase productivity and maintain the growth achieved this year.\n• (If argued as NO benefit: award marks for a valid reason, e.g. investors may be discouraged from investing, which could depress the market price of the shares.)\n\nTeaching point: A lower pay-out rate means the company keeps more profit inside the business. That is generally GOOD for the company (more funds for growth, stronger cash position), even if some income-focused shareholders would have preferred a bigger dividend.",
+          "topic": "Interpretation - Dividend Pay-out Policy",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2022-3-2-2b",
+          "label": "3.2.2 (Sue Lee's satisfaction)",
+          "questionText": "Sue Lee, a shareholder who owns 5 000 shares, is satisfied with the dividends she has received despite the change in the dividend policy. Explain why she feels this way. Quote figures and trends.\n\nINFORMATION A — Dividends per share: 2022 190 cents; 2021 120 cents. Earnings per share 2022: 408 cents. Net asset value per share 2022: 1 841 cents.\nINFORMATION B — Market price of shares: 2022 1 920 cents; 2021 1 540 cents.",
+          "marks": 3,
+          "memoText": "Explanation ✓ + figures and trends ✓✓ (candidates may quote other indicators to offset the lower pay-out rate; do not penalise superfluous indicators here):\n• The dividend per share of 190c in 2022 is higher than the 120c received in 2021 — 70 cents per share more / 58,3% more.\n• She earned R3 500 more this year (5 000 × 70c) — R9 500 in 2022 versus R6 000 in 2021.\n• The dividend yield was about 9,9%–10,3% (190 ÷ 1 920, or 190 ÷ 1 841) — a good return relative to the value of her shares.\n\nTeaching point: Even though the company paid out a SMALLER share of its profits (lower pay-out rate), profits grew so much that the actual dividend PER SHARE still rose. Sue judges her position by the cash she receives and the yield on her investment, not by the pay-out ratio.",
+          "topic": "Interpretation - Shareholder Satisfaction with Dividends",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2022-3-2-3",
+          "label": "3.2.3",
+          "questionText": "Risk and gearing: Some shareholders feel that Mike was reckless when he increased the loan by R3,35 million soon after his appointment as CFO. Explain why you do NOT agree with them. Provide TWO points, with financial indicators, figures and trends.\n\nINFORMATION A — on 28 February:\n                                        2022      2021\n  Debt-equity ratio                    0,3 : 1    0,2 : 1\n  % return on average capital employed  16,9%     7,5%\nINFORMATION B — Interest rate on loans: 2022 7,2%; 2021 8,5%.",
+          "marks": 6,
+          "memoText": "Any TWO points, each with an indicator, figures and trend ✓ ✓ (max −1 for superfluous additional indicators):\n\n• Debt-equity ratio: INCREASED (from 0,2 : 1) to 0,3 : 1 / by 0,1 : 1 — but the company is still LOWLY geared / low financial risk / it does not rely too much on borrowed capital.\n• % return on average capital employed (ROTCE): INCREASED / improved (from 7,5%) to 16,9% / by 9,4 percentage points / by 125,3% — the company enjoys POSITIVE gearing (ROTCE of 16,9% is far greater than the 7,2% interest rate on the loan), so the loan is being used effectively to generate profits.\n\nTeaching point: Borrowing is only 'reckless' if the ratio becomes dangerous OR the money earns less than it costs. Here neither is true: the debt-equity ratio stayed low (0,3 : 1) and the return on capital employed (16,9%) is more than double the loan interest rate (7,2%) — textbook positive gearing.",
+          "topic": "Interpretation - Risk and Gearing",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2022-3-2-4a",
+          "label": "3.2.4 (Brent's % shareholding)",
+          "questionText": "Share capital and % shareholding (refer to Information C and D):\n\nCalculate Brent's % shareholding on 28 February 2022.\n\nINFORMATION C — Issue and repurchase of shares:\n• Additional shares were issued to existing shareholders at R21,00 each; shareholders could buy 10 shares for every 40 they owned, and all exercised this right.\n• Shares in issue on 1 March 2021: 1 300 000; shares repurchased on 31 August 2021: 240 000; new shares issued on 28 February 2022: 265 000; shares in issue on 28 February 2022: 1 325 000.\n\nINFORMATION D — Brent Flower owned 300 000 shares on 1 March 2021. None of his shares were repurchased on 31 August 2021.",
+          "marks": 5,
+          "memoText": "BRENT'S % SHAREHOLDING ON 28 FEBRUARY 2022 — JESSIE LTD\n\nShares Brent bought in the rights issue = 300 000 ÷ 40 × 10 = 75 000 ✓✓\nBrent's total shares = 300 000 + 75 000 = 375 000 ✓\n\nBrent's % shareholding = 375 000 ÷ 1 325 000 ✓ × 100 = 28,3% ☑ (one part correct)\n\nAnswer: 28,3%\n\nTeaching point: Brent's holding only changed through the rights issue (10 for every 40 owned = his 300 000 ÷ 4 = 75 000 extra). His new percentage is his total shares over the TOTAL shares in issue at year end (1 325 000), which already reflects the 240 000 repurchased and the 265 000 issued.",
+          "topic": "Interpretation - Percentage Shareholding After a Rights Issue",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p1-nov-2022-3-2-4b",
+          "label": "3.2.4 (Reason for combining votes)",
+          "questionText": "Brent and Kerina decided that they would combine their votes at the upcoming annual general meeting (AGM). Explain ONE possible reason for this decision, with figures.\n\nINFORMATION D — Brent's % shareholding on 28 February 2022 = 28,3% (see above); Kerina Moss's % shareholding on 28 February 2022 = 26,4%.",
+          "marks": 3,
+          "memoText": "Figures ☑ + explanation ✓✓ (must state whether their combined shares are more than 50% or not):\n• Combining their shares gives them a clear MAJORITY of 54,7% (28,3% + 26,4%) — the other shareholders own only 45,3%.\n• They would then hold more than 50% of the voting rights / be in a position to control or heavily influence major decisions at the AGM.\n\nTeaching point: Individually, neither Brent (28,3%) nor Kerina (26,4%) controls the company. Pooled, they cross the 50% line (54,7%) and can outvote everyone else combined — that is the whole point of a voting bloc.",
+          "topic": "Interpretation - Combining Shareholder Votes",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2022-3-2-4c",
+          "label": "3.2.4 (Concern about their strategy)",
+          "questionText": "As an existing shareholder, explain why you would be concerned about the strategy of Brent and Kerina (combining their votes to form a majority bloc). Provide TWO points.",
+          "marks": 4,
+          "memoText": "Any TWO different valid concerns ✓✓ ✓✓ (this is open-ended; part-marks for partial/unclear answers):\n• Whether they will use their new voting power to benefit the company or have other (unethical) motives, e.g. corruption.\n• Whether they intend to gain financially, e.g. by pushing for high directors' fees in future.\n• Their lack of experience in directing a company — do they have the skills and knowledge?\n• Whether they understand the responsibilities and powers that come with a majority stake.\n• Their willingness to actually serve on the board and put in the time.\n• Whether this is an amicable move or an aggressive attempt to seize control / whether they will work with the CEO, CFO and other directors.\n• Instability risk: what happens to control and decision-making if one of them later sells out or breaks the coalition.\n\nTeaching point: A newly formed majority bloc concentrates power in two people who are not directors. The concerns all come back to the same thing — will they act in the interest of ALL shareholders and the company, or in their own?",
+          "topic": "Interpretation - Concerns About a Controlling Shareholder Bloc",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2022-3-2-5",
+          "label": "3.2.5",
+          "questionText": "Refer to Information A, B and C.\n\nMike received an offer for the post of CFO at Premier Ltd, at a much better remuneration package than his current one at Jessie Ltd. The directors of Jessie Ltd proposed offering him a better package than Premier Ltd's.\n\nExplain THREE points relating to the financial results of the company, BESIDES those mentioned in the earlier questions (% operating expenses on sales, % net profit on sales, dividend pay-out rate / DPS / EPS, debt-equity ratio, ROTCE), that the Remunerations Committee can use to justify offering Mike an improved package to remain at Jessie Ltd. Quote relevant financial indicators, figures and trends.\n\nINFORMATION A — on 28 February:\n                                          2022         2021\n  Mark-up % achieved                      70%          60%\n  Earnings per share                      408 cents    123 cents\n  % return on average shareholders' equity 20,7%       7,3%\n  Solvency ratio                          3,6 : 1      5,3 : 1\n  Net asset value per share               1 841 cents  1 685 cents\nINFORMATION B — Market price of shares: 2022 1 920 cents; 2021 1 540 cents. Interest rate on fixed deposits 2022: 4,5%.\nINFORMATION C — 265 000 new shares were issued to existing shareholders at R21,00 per share.",
+          "marks": 9,
+          "memoText": "Any THREE points, each with an indicator + figures/trend and an explanation ✓✓✓ + ✓✓ ✓✓ ✓✓ (part-marks for incomplete/partial/unclear; explanations may be common to different indicators):\n\n• Mark-up % achieved: increased (from 60%) to 70% and the company still grew gross profit / customers are confident in the product quality.\n• Earnings per share (EPS): increased (from 123c) to 408c / by 231,7% — a clear sign of improved productivity and profitability.\n• % return on average shareholders' equity (ROSHE): increased (from 7,3%) to 20,7% / by 13,4 percentage points / by 183,6% — shareholders are well rewarded, and the return far exceeds the 4,5% available on a fixed deposit.\n• Solvency ratio: although it declined (from 5,3 : 1) to 3,6 : 1, this is because large loans were taken and the funds were used productively in the company — it is still comfortably solvent.\n• Net asset value per share (NAV): improved (from 1 685c) to 1 841c / by 156c / by 9,3% — the underlying value of the company grew (assets rising faster than liabilities). (Treat as a separate point.)\n• Market price per share: increased (from 1 540c) to 1 920c / by 380c / by 24,7% — a clear sign of increased demand for the shares and investor confidence. (Treat as a separate point.)\n• Issue price of new shares: shares were issued at R21,00, ABOVE the market value — shareholders were willing to invest more in the company.\n• The rights issue: 265 000 shares at R21,00 raised about R5,6 million of additional capital / shareholders were confident of higher future returns / shares could be offered to Mike to motivate him to stay.\n\nTeaching point: The committee's case is that the company's turnaround under Mike is visible across almost every measure — pricing power (mark-up), bottom-line returns (EPS, ROSHE), company value (NAV, market price) and investor confidence (over-par share issue). Retaining the person associated with that improvement is worth a premium package.",
+          "topic": "Interpretation - Justifying an Improved Remuneration Package",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Corporate Governance (Mallo Ltd)",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "acc-p1-nov-2022-4-1a",
+          "label": "4.1 (Why list on the JSE)",
+          "questionText": "CORPORATE GOVERNANCE — MALLO LTD\n\nExtracts from local newspapers are provided below. Use the information and your knowledge of companies to answer the questions.\n\nARTICLE — JSE TAKES ACTION AGAINST FORMER NON-EXECUTIVE DIRECTORS OF MALLO LTD\nParagraph 1: Ben Jimo, Kim Lestin and Solly Prins were disqualified by the JSE from serving on the board of directors of any listed company for the next five years. The three directors failed to fulfil their oversight roles in relation to the financial statements. The JSE fined Mallo Ltd R6,5 million for publishing a 'number of sets of incorrect, false and misleading financial results'.\nParagraph 2: They were appointed as members of the Audit and Risk Committee in 2018 when Mallo Ltd was listed on the JSE. They resigned from the board after the company published its unaudited mid-year financial results in 2021. The independent auditors had issued a qualified report in 2019 and a disclaimer of opinion audit report in 2020.\nParagraph 3: Jimo, Lestin and Prins all admitted to having no knowledge of corporate governance or the rules and regulations governing the financial reporting of a JSE-listed company. They admitted that they were inexperienced directors and had not fulfilled their duty of ensuring that Mallo Ltd had proper financial reporting procedures in place.\n\nThe Johannesburg Securities Exchange (JSE): Refer to paragraph 1. Explain why companies might want to be listed on the JSE.",
+          "marks": 2,
+          "memoText": "ONE valid point ✓✓ (part-marks for incomplete/partial/unclear):\n• The public can participate in buying the company's shares / easier access to potential investors / tapping the global investment environment.\n• It adds to the prestige of the company (through the additional listing requirements and publicity).\n• It ensures compliance with the Companies Act and other regulations (e.g. BBBEE, audit requirements).\n• It is easier to raise additional funds by advertising a new share issue through JSE publications.\n• Shareholders can readily sell ('cash in') their shares to other investors / the JSE facilitates the transfer of shares.\n• The constantly updated share price signals investor confidence, demand for the shares and a good company image.\n\nTeaching point: A JSE listing turns shares into something easily bought and sold by the public, which makes it far easier for the company to raise capital — the trade-off is much stricter disclosure, governance and audit requirements.",
+          "topic": "Corporate Governance - Benefits of a JSE Listing",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2022-4-1b",
+          "label": "4.1 (Intolerance of false results)",
+          "questionText": "Explain why the JSE would not tolerate 'incorrect, false and misleading financial results' from companies that are listed. (See paragraph 1 of the Mallo Ltd article in 4.1.)",
+          "marks": 2,
+          "memoText": "Explanation ✓✓ (part-marks for incomplete/unclear):\n• It is the JSE's role to make sure sound business-management practices are in place — it will not allow the public to be deceived or doubts to be cast over listed companies' operations.\n• It wants to avoid legal action against the JSE for misleading shareholders / to protect its own reputation.\n• The JSE is vital for channelling capital that stimulates the economy and creates jobs — the public relies on credible information.\n• The JSE competes with international stock markets and must guard its integrity by enforcing its rules and regulations.\n\nTeaching point: The JSE's whole value depends on investors trusting that listed companies' numbers are reliable. False results destroy that trust, expose the JSE to legal and reputational damage, and undermine its economic role.",
+          "topic": "Corporate Governance - JSE Enforcement of Reliable Reporting",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2022-4-2",
+          "label": "4.2",
+          "questionText": "Audit reports: Refer to paragraph 2 (the auditors issued a qualified report in 2019 and a disclaimer of opinion audit report in 2020). Explain the difference between a qualified audit report and a disclaimer of opinion audit report.",
+          "marks": 2,
+          "memoText": "Qualified report ✓ / Disclaimer report ✓ (a combined or implied explanation is acceptable).\n\nCombined response (2 marks; part-marks for partial/unclear):\nA QUALIFIED report mentions only SPECIFIC items that are of concern to the auditor (the rest of the statements are fine); a DISCLAIMER of opinion means the auditors are REFUSING / unable to express an opinion at all.\n\nSeparate responses (1 mark each):\n• Qualified audit report: the external auditors identified a few areas of concern that prevent them from giving an unqualified report — e.g. weak internal control processes or deficient audit evidence for particular items.\n• Disclaimer report: the auditors could not obtain sufficient evidence to support any opinion / the company does not have reliable internal controls / management was incompetent at basic recording and reporting / the statements do not comply with GAAP and IFRS.\n\nTeaching point: The order of severity is unqualified (clean) → qualified (a specific problem) → disclaimer (auditor can't form an opinion) → adverse (statements are materially wrong). Mallo's slide from qualified (2019) to disclaimer (2020) shows the reporting problems were getting worse.",
+          "topic": "Corporate Governance - Qualified vs Disclaimer Audit Reports",
+          "type": "written"
+        },
+        {
+          "id": "acc-p1-nov-2022-4-3",
+          "label": "4.3",
+          "questionText": "Concerns of shareholders: Refer to paragraphs 1, 2 and 3 of the Mallo Ltd article (in 4.1). As a concerned shareholder, what questions would you raise at the AGM? Provide THREE different questions. In EACH case explain an appropriate reason.",
+          "marks": 9,
+          "memoText": "Any THREE different valid questions ✓✓ ✓✓ ✓✓ + any THREE appropriate reasons ✓ ✓ ✓ (part-marks for incomplete/unclear/partial; excellent = 2, satisfactory = 1). A reason may apply to more than one question or be taken from the scenario.\n\nExample QUESTION → REASON pairs:\n• Why do the disqualified directors have no skills or experience in governance? Why are there no criteria for directors' appointments? → A JSE-listed company requires highly qualified directors.\n• Why did the board not act immediately on the qualified (2019) and disclaimer (2020) audit reports? → Poor audit reports severely damage the company and the market price of its shares.\n• Why were disciplinary procedures not started against these directors before the JSE disqualified them? → The board should have acted promptly to prevent further problems.\n• Why were important roles (Audit and Risk Committee) given to these directors? → It is reckless to allocate critical tasks to directors who cannot carry them out.\n• Why do the board and other directors appear negligent in appointing / voting for unskilled directors at the AGM? → They expose the company to legal claims for failing to screen directors and do background checks.\n• Where will the money come from to pay the R6,5 million fine? → Profits or retained income will be reduced; the King Code requires transparency about this.\n• How has the company's financial stability and profitability been affected by this incident? → Fraud in the financial statements threatens the company's sustainability.\n• How will the vacant non-executive director posts be filled? → Shareholders and the board must not appoint directors who lack vital skills.\n• What measures will the board and the Audit and Risk Committee put in place to prevent this in future? → Transparency, accountability and stronger internal controls are needed.\n\nTeaching point: Good AGM questions target the governance failure itself (unqualified directors, ignored audit warnings, no discipline) and its consequences (the fine, the share price, future prevention) — each paired with a reason that explains WHY a shareholder should worry about it.",
+          "topic": "Corporate Governance - Shareholder Questions at the AGM",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}
