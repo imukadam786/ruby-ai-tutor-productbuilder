@@ -40,6 +40,7 @@ export const STUDY_GUIDE_FILES: Record<string, string[]> = {
     "his-p2-nov-2026-study-guide_compressed.pdf",
   ],
   hospitality: ["hospitality-p1-nov-2026-studyguide_compressed.pdf"],
+  lifeorientation: ["life-orientation-nov-2026-studyguide_compressed.pdf"],
   lifesci: [
     "life_sci_P1_study_guide_nov_2026_compressed.pdf",
     "life_sci_P2_study_guide_nov_2026_compressed.pdf",
@@ -70,6 +71,7 @@ export const STUDY_GUIDE_NAMES: Record<string, string> = {
   geo: "Geography",
   history: "History",
   hospitality: "Hospitality Studies",
+  lifeorientation: "Life Orientation",
   lifesci: "Life Sciences",
   mathslit: "Mathematical Literacy",
   math: "Mathematics",

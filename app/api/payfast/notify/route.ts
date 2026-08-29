@@ -184,11 +184,12 @@ async function handleStudyGuidePurchase(data: Record<string, string>): Promise<N
     email_address: email,
     custom_str2: school,
     custom_str4: guideIdsRaw,
+    custom_str5: voucherCode,
     pf_payment_id: pfPaymentId,
     amount_gross: amountGross,
   } = data;
 
-  console.log("[PayFast ITN] study-guides purchase", { payment_status, email, school, guideIdsRaw });
+  console.log("[PayFast ITN] study-guides purchase", { payment_status, email, school, guideIdsRaw, voucherCode });
 
   if (payment_status !== "COMPLETE") {
     return new NextResponse("OK", { status: 200 });
@@ -237,6 +238,16 @@ async function handleStudyGuidePurchase(data: Record<string, string>): Promise<N
       payfast_payment_id: pfPaymentId || null,
     });
   if (orderErr) console.error("[PayFast ITN] study_guide_orders insert error", orderErr);
+
+  // Best-effort voucher usage bump. RUBY20 and friends are broad promos with
+  // no per-code cap, so this is bookkeeping only — never block fulfilment on it.
+  if (voucherCode) {
+    const { error: vErr } = await supabaseAdmin.rpc("increment_voucher_use", {
+      voucher_code: voucherCode,
+    });
+    if (vErr) console.error("[PayFast ITN] study-guides increment_voucher_use error", vErr);
+    else console.log("[PayFast ITN] study-guides voucher use recorded", { voucherCode });
+  }
 
   const { error } = await resend.emails.send({
     from: "Ruby AI Tutor <guides@rubyaitutor.com>",

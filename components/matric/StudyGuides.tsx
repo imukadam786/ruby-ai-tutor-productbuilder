@@ -401,6 +401,17 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Life Orientation",
+    thumbnail: "/thumbnails/life-skills.webp",
+    guides: [
+      {
+        label: "Common Assessment Task (Nov 2026)",
+        description: "Careers and the world of work, democracy and human rights, and social and environmental responsibility",
+        filename: "life-orientation-nov-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
     label: "Life Sciences",
     thumbnail: "/thumbnails/life-sciences.webp",
     guides: [

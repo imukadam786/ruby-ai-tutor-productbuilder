@@ -1,9 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
 import {
     generateSignature,
     PAYFAST_PROCESS_URL,
 } from "@/lib/payfast";
 import { VALID_STUDY_GUIDE_IDS } from "@/lib/study-guides";
+
+// Read-only voucher lookups run through the anon client, exactly like
+// /api/vouchers/validate and /api/payfast/checkout.
+const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+);
+
+// The "plan" key a voucher must allow for it to apply to a study-guide
+// purchase. A voucher with an empty applicable_plans list applies to
+// everything, including this.
+const STUDY_GUIDE_VOUCHER_PLAN = "study-guides";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Configuration
@@ -110,10 +123,12 @@ export async function POST(
             email,
             school,
             guideIds,
+            voucherCode,
         } = body as {
             email?: string;
             school?: string;
             guideIds?: string[];
+            voucherCode?: string;
         };
 
         // ─────────────────────────────────────────────────────────────────────
@@ -328,8 +343,81 @@ export async function POST(
             );
         }
 
+        // ─────────────────────────────────────────────────────────────────────
+        // Apply a voucher, if one was entered at checkout
+        //
+        // Mirrors app/api/payfast/checkout/route.ts: the server re-validates
+        // the code against the vouchers table and computes the discounted
+        // amount itself. An invalid, expired or used-up code silently falls
+        // back to full price so a race never blocks the sale.
+        // ─────────────────────────────────────────────────────────────────────
+
+        let finalPrice = price;
+        let appliedVoucherCode = "";
+
+        const submittedVoucher =
+            typeof voucherCode === "string"
+                ? voucherCode.trim().toUpperCase()
+                : "";
+
+        if (submittedVoucher) {
+            const { data: voucher } = await supabase
+                .from("vouchers")
+                .select(
+                    "discount_type, discount_value, applicable_plans, max_uses, used_count, expires_at, is_active"
+                )
+                .eq("code", submittedVoucher)
+                .single();
+
+            const applicablePlans: string[] = Array.isArray(
+                voucher?.applicable_plans
+            )
+                ? voucher!.applicable_plans
+                : [];
+
+            const voucherIsValid =
+                voucher &&
+                voucher.is_active &&
+                (!voucher.expires_at ||
+                    new Date(voucher.expires_at) >= new Date()) &&
+                (voucher.max_uses === null ||
+                    voucher.used_count < voucher.max_uses) &&
+                (applicablePlans.length === 0 ||
+                    applicablePlans.includes(STUDY_GUIDE_VOUCHER_PLAN));
+
+            if (voucherIsValid) {
+                const dv = parseFloat(voucher!.discount_value);
+
+                const discounted =
+                    voucher!.discount_type === "percentage"
+                        ? price * (1 - dv / 100)
+                        : price - dv;
+
+                finalPrice = Math.max(
+                    0,
+                    Math.round(discounted * 100) / 100
+                );
+
+                appliedVoucherCode = submittedVoucher;
+
+                console.log(
+                    "[PayFast study-guides] voucher applied",
+                    {
+                        code: appliedVoucherCode,
+                        price,
+                        finalPrice,
+                    }
+                );
+            } else {
+                console.log(
+                    "[PayFast study-guides] voucher rejected — charging full price",
+                    { code: submittedVoucher }
+                );
+            }
+        }
+
         const amount =
-            price.toFixed(2);
+            finalPrice.toFixed(2);
 
         // ─────────────────────────────────────────────────────────────────────
         // Generate unique PayFast payment ID
@@ -401,6 +489,13 @@ export async function POST(
             // math,science
             custom_str4:
                 uniqueGuideIds.join(","),
+
+            // Voucher code that was applied, if any — read back by the ITN
+            // webhook to record the redemption. Omitted entirely when no
+            // voucher applied so it never enters the signature.
+            ...(appliedVoucherCode
+                ? { custom_str5: appliedVoucherCode }
+                : {}),
         };
 
         // ─────────────────────────────────────────────────────────────────────
@@ -469,6 +564,9 @@ export async function POST(
 
             custom_str4:
                 params.custom_str4,
+
+            custom_str5:
+                params.custom_str5 ?? "",
 
             signature:
                 params.signature,
