@@ -1,0 +1,321 @@
+{
+  "id": "acc-p2-nov-2021",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P2",
+  "year": 2021,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Debtors' Reconciliation and Age Analysis (Zig Zag Traders)",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2021-1-1",
+          "label": "1.1",
+          "questionText": "Zig Zag Traders sells ladies' clothing on credit. Debtors are allowed a credit term of 30 days to settle their accounts.\n\nREQUIRED: Provide TWO documents that Zig Zag Traders will need from potential debtors before they will be allowed to open accounts.",
+          "marks": 2,
+          "memoText": "Any TWO documents (accept recognisable abbreviations):\n\n• Identity document (ID)\n• Salary advice slip / proof of income / proof of registration (student)\n• Proof of residence (municipal bill / bank statement) / residential address\n• References / credit history / not listed on the credit bureau / credit score / Income Tax certificate (ITC)\n• Bank statement (3 months)\n• Criminal record (police clearance certificate)\n\nTeaching point: Before granting credit, the business needs to confirm WHO the person is (ID, proof of address), whether they CAN pay (income, bank statements) and whether they have PAID others in the past (credit bureau, references).",
+          "topic": "Debtors - Internal Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-1-2-a",
+          "label": "1.2 (a)",
+          "questionText": "ZIG ZAG TRADERS\n\nREQUIRED: Calculate the correct closing balance of the Debtors' Control Account on 30 September 2021. Indicate changes with '+' for an increase, '–' for a decrease or '0' for no change.\n\nINFORMATION:\nA. Balances on 30 September 2021, before taking into account the errors and omissions in Information B:\n  • Debtors' Control Account: R228 000\n  • Extract from the debtors' list: A Barnes (D10) R13 500; C Davis (D23) R25 000; E Foley (D35) R18 300\n\nB. The following errors and omissions must be taken into account:\n  (i) An invoice for R1 750 issued to A Barnes was not recorded in the books of Zig Zag Traders.\n  (ii) A direct deposit of R2 500 by E Foley was correctly recorded in the journal but incorrectly posted to the account of E Foges (another debtor) in the Debtors' Ledger.\n  (iii) The total of the Debtors' Journal, R62 500, was incorrectly recorded as R65 200 in the Debtors' Control Account.\n  (iv) Merchandise sold to C Davis, R3 500, was treated as a return of goods and recorded in the Debtors' Allowances Journal.\n  (v) R5 200, received from D Klein, a debtor whose outstanding balance was written off six months ago, was recorded in the Cash Receipts Journal as a receipt from a debtor.\n  (vi) Merchandise returned by A Barnes was recorded in the relevant journal as R250 instead of R700 and posted accordingly.\n  (vii) An EFT for R7 850, received from E Foley as part payment of his account, was entered correctly in the relevant journal but no entries were made in the Debtors' Ledger.",
+          "marks": 9,
+          "memoText": "DEBTORS' CONTROL ACCOUNT — correct closing balance on 30 September 2021\n\nProvisional balance:  228 000\n(i)   + 1 750 ✓        — an omitted credit sale increases the Control balance.\n(ii)  0                — the journal was correct; posting to the wrong debtor affects only the Debtors' List.\n(iii) − 2 700 ✓✓       — the DJ total R62 500 was posted as R65 200, so the Control is overstated by R2 700 (62 500 − 65 200).\n(iv)  + 7 000 ✓✓       — a R3 500 sale was put through as a R3 500 return; add R3 500 to reverse the return and R3 500 to record the sale.\n(v)   + 5 200 ✓        — D Klein's balance was written off, so there is no debtor account; the R5 200 should be 'bad debts recovered', not a reduction of debtors, so add it back.\n(vi)  − 450 ✓✓         — returns recorded as R250 instead of R700, so returns are understated by R450 and the Control is overstated by R450 (250 − 700).\n(vii) 0                — the EFT was in the journal; only the Debtors' Ledger posting was missed.\n\nCorrect balance:  228 000 + 1 750 − 2 700 + 7 000 + 5 200 − 450  =  R238 800 ☑  (one part correct; must include the provisional balance)\n\nAccept brackets for the − sign; if no sign is shown, assume positive.  −1 for foreign entries (max −2) — see (ii) and (vii).\n\nTeaching point: Only errors touching the General Ledger (a journal cast wrongly, an omitted sale, a sale mis-classified as a return, a recovery wrongly treated as a debtor receipt, understated returns) change the Control balance. Posting to the wrong debtor or missing a subsidiary-ledger posting changes only the Debtors' List.",
+          "topic": "Debtors - Reconciliation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-1-2-b",
+          "label": "1.2 (b)",
+          "questionText": "ZIG ZAG TRADERS\n\nUse the same information as in 1.2 (a) (opening balances A Barnes R13 500, C Davis R25 000, E Foley R18 300, and the errors and omissions B(i)–(vii)).\n\nREQUIRED: Calculate the correct amounts owed by the following debtors only:\n• A Barnes\n• C Davis\n• E Foley",
+          "marks": 9,
+          "memoText": "CORRECT AMOUNTS OWED\n\nA Barnes:  13 500 + 1 750 ✓ (omitted invoice — i) − 450 ✓ (extra returns, 700 − 250 — vi)  =  R14 800 ☑*\n\nC Davis:   25 000 + 3 500 ✓ + 3 500 ✓  =  R32 000 ☑*\n           (the R3 500 sale was recorded as a return, so his account was reduced by R3 500 — add R3 500 to cancel the return and R3 500 to record the sale — iv)\n\nE Foley:   18 300 − 2 500 ✓ (deposit posted to E Foges instead — ii) − 7 850 ✓ (EFT never posted to his ledger account — vii)  =  R7 950 ☑*\n\n* one part correct.  Pre-printed opening balances are not regarded as 'one part correct'.\n\nTeaching point: Each subsidiary-ledger error from Information B lands on exactly one of these three debtors. Fix A Barnes for the omitted invoice and the understated return; give C Davis both halves of the mis-classified sale; take off E Foley's two payments that never reached his account.",
+          "topic": "Debtors - Reconciliation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-1-3",
+          "label": "1.3",
+          "questionText": "ZIG ZAG TRADERS\n\nREQUIRED: Refer to Information C. Explain THREE different problems highlighted by the debtors' age analysis. Provide the name of a debtor and/or the figure(s) in EACH case.\n\nINFORMATION C — Age analysis compiled on 30 September 2021:\n  DEBTOR      | CREDIT LIMIT | BALANCE  | CURRENT | 30 DAYS | 60 DAYS | MORE THAN 90 DAYS\n  J Blom      | 52 000       | 45 000   | 18 000  | 7 000   | 20 000  |\n  Z Phi       | 22 000       | 29 000   | 3 000   | 26 000  |         |\n  S Sah       | 16 000       | 12 500   | 12 500  |         |         |\n  O Mach      | 6 000        | 6 000    | 2 000   |         |         | 4 000\n  Other debtors|             | 146 300  | 55 244  | 48 192  | 30 148  | 12 716\n  TOTALS      |              | R238 800 | R90 744 | R81 192 | R50 148 | R16 716\n  %           |              | 100%     | 38%     | 34%     | 21%     | 7%",
+          "marks": 6,
+          "memoText": "THREE different problems, each with a debtor name and/or figures (2 marks each: problem ✓ + name/figure ✓):\n\nPROBLEM 1 — Debtors not adhering to the 30-day credit terms / slow payers:\n• J Blom — R20 000 more than 30 days old\n• O Mach — R4 000 more than 90 days old\n• Other debtors — R42 864 more than 60 days old\n• 28% of debtors do not comply with the terms (66 864 / 238 800)\n\nPROBLEM 2 — Debtors exceeding their credit limits:\n• Z Phi — exceeds the credit limit by R7 000 (limit R22 000; balance R29 000)\n\nPROBLEM 3 — Poor / ineffective internal control over debtors (defaulting debtors and debtors over their limit are still allowed to buy on credit):\n• O Mach — a current purchase of R2 000 while R4 000 of the balance is more than 90 days old\n• J Blom — a current purchase of R18 000 while R20 000 of the balance is more than 60 days old\n• Other debtors — current purchases of R55 244 while R30 148 is more than 60 days old and R12 716 is more than 90 days old\n\nTeaching point: An age analysis exposes three things at once — customers who pay late, customers over their credit limit, and the control failure of continuing to sell on credit to both groups.",
+          "topic": "Debtors - Age Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-1-4",
+          "label": "1.4",
+          "questionText": "ZIG ZAG TRADERS\n\nREQUIRED: Refer to Information D. Provide TWO points to support the internal auditor's concern that Susan's job description could lead to potential fraud.\n\nINFORMATION D — Susan, a member of the sales staff, is also responsible for:\n• Collecting cash from customers who choose to pay in this way\n• Receiving goods returned and issuing credit notes to customers who return goods\nThe internal auditor is not happy with Susan's job description as he feels it has the potential for fraud, which could lead to loss of cash and trading stock.",
+          "marks": 4,
+          "memoText": "Any TWO separate / different points (2 marks each):\n\n• Too many related functions are performed by one person — this could compromise efficiency / the job is not done well.\n• Lack of supervision could lead to negligence / rolling over of cash / theft / no authorisation for returns / the returns policy not being applied effectively.\n• No division of duties — the temptation to engage in fraudulent transactions / manipulate sales or returns / create false documents / mismanagement / poor record-keeping (stock sheets, debtors).\n• No continuity of tasks — tasks may not get done / fall behind if Susan is on leave or absent.\n• Cash is easily stolen (not using electronic payments / credit cards / EFT).\n\nTeaching point: Susan controls both the cash coming in and the credit notes going out, with no one checking her. She could pocket cash and cover it with a fake 'return', losing the business both money and stock.",
+          "topic": "Debtors - Internal Control",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Cost Accounting (Prudy Manufacturers & Rosemary's Toy Factory)",
+      "totalMarks": 45,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2021-2-1-1",
+          "label": "2.1.1",
+          "questionText": "PRUDY MANUFACTURERS\n\nThe information relates to the financial year ended 28 February 2021. The business produces one style of travelling bag. The owner is Prudy Sithole.\n\nREQUIRED: Complete the Production Cost Statement for the year ended 28 February 2021.\n\nINFORMATION:\nA. Stock balances — Finished goods stock: 28 Feb 2021 R96 000; 1 March 2020 R72 000. There is no work-in-progress at the beginning or end of the year.\nB. Raw material issued to the factory for production, R1 494 000.\nC. Production wages:  Net wages paid to production workers R647 400;  Total deductions 22% of gross wages.\nD. The bookkeeper calculated the following costs for the year ended 28 February 2021: Factory overhead cost R520 280; Selling and distribution cost R224 960; Administration cost R187 760.\n  It was discovered that she did not take the following into account:\n  • The telephone account of R22 400 was posted in error to the factory overhead cost. This expense relates to the office.\n  • The entire amount of rent expense, R98 400, was posted to the factory overhead cost. This expense should have been split in the ratio 7 : 2 : 1 between the factory, sales and administration departments.\n  • The insurance expense of R26 400 was divided equally between the factory overhead cost and the sales department in error. 60% of this expense relates to the factory and the balance applies to the sales department.\nE. Sales: Total sales for the year amounted to R4 433 600.",
+          "marks": 10,
+          "memoText": "PRODUCTION COST STATEMENT FOR THE YEAR ENDED 28 FEBRUARY 2021\n\n  Direct material cost                                    1 494 000\n  Direct labour cost                                        830 000 ✓☑   [647 400 × 100/78 — deductions are 22%, so net wages are 78% of gross]\n  PRIME COST (DMC + DLC)                                  2 324 000 ☑\n  Factory overhead cost                                     471 000 ☑\n    [520 280 − 22 400 ✓ (telephone → office)\n            − 29 520 ✓✓ (rent: remove the 3/10 belonging to sales + admin — 98 400 × 3/10)\n            + 2 640 ✓✓ (insurance: correct factory share 60% = R15 840 vs R13 200 already there)]\n  COST OF PRODUCTION OF FINISHED GOODS (PC + FOHC)        2 795 000 ☑\n\n  (one part correct on each shaded figure)\n\nWorkings for factory overhead cost:\n• Telephone R22 400 belongs to the office — deduct.\n• Rent R98 400 was all charged to the factory; the factory's correct share is 7/10 (R68 880), so the 2/10 + 1/10 = 3/10 (R29 520) for sales and admin must be removed.\n• Insurance R26 400 was split 50/50 (R13 200 to factory); the correct factory share is 60% (R15 840), so add R2 640.\n\nTeaching point: Direct labour must be shown at GROSS wages (net ÷ 78%). Then correct each bookkeeper error in the factory overhead line before adding prime cost and factory overhead to get the cost of production.",
+          "topic": "Cost Accounting - Production Cost Statement",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-2-1-2",
+          "label": "2.1.2",
+          "questionText": "PRUDY MANUFACTURERS\n\nUse the same information as in 2.1.1. The cost of production of finished goods (from 2.1.1) is R2 795 000. Opening finished goods stock R72 000; closing finished goods stock R96 000. Total sales R4 433 600.\n\nCorrections still to be applied to the other cost lines:\n• Selling and distribution cost R224 960 (bookkeeper): add the rent share (98 400 × 2/10) and remove the insurance over-allocation of R2 640.\n• Administration cost R187 760 (bookkeeper): add the telephone R22 400 and the rent share (98 400 × 1/10).\n\nREQUIRED: Complete the Abridged Statement of Comprehensive Income (Income Statement) for the year ended 28 February 2021.",
+          "marks": 11,
+          "memoText": "ABRIDGED STATEMENT OF COMPREHENSIVE INCOME FOR THE YEAR ENDED 28 FEBRUARY 2021\n\n  Sales                                          4 433 600\n  Cost of sales                                  (2 771 000) ☑☑*   [72 000 + 2 795 000 (see 2.1.1) − 96 000]\n  Gross profit (Sales − COS)                      1 662 600 ☑\n  Other expenses                                   (462 000) ☑*\n    Selling and distribution costs                  242 000 ☑*   [224 960 + 19 680 ✓ (98 400 × 2/10) − 2 640 ☑]\n    Administration cost                             220 000 ☑*   [187 760 + 22 400 ✓ (telephone) + 9 840 ☑ (98 400 × 1/10)]\n  Net profit for the year (GP − OE)               1 200 600 ☑\n\n* one part correct.  Pre-adjustment figures are not regarded as 'one part correct'.\n\nWorkings:\n• Cost of sales = opening finished goods 72 000 + cost of production 2 795 000 − closing finished goods 96 000 = R2 771 000.\n• Selling and distribution = 224 960 + rent 2/10 (R19 680) − insurance over-allocation (R2 640) = R242 000.\n• Administration = 187 760 + telephone R22 400 + rent 1/10 (R9 840) = R220 000.\n• Net profit = 1 662 600 − (242 000 + 220 000) = R1 200 600.\n\nTeaching point: The same three errors that reduced the factory overhead now INCREASE the selling and admin costs — the telephone and the rent slices land here, and the insurance over-charge is taken out of selling costs.",
+          "topic": "Cost Accounting - Production Cost Statement",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-2-2-1",
+          "label": "2.2.1",
+          "questionText": "PRUDY MANUFACTURERS — CONTROL OF RAW MATERIAL\n\nAfter completing the statements in QUESTION 2.1, the internal auditor of Prudy Manufacturers suspects that the raw material (fabric) is not being controlled well in the storeroom and the factory.\n\nREQUIRED: Calculate the metres of fabric missing from the storeroom and the metres of fabric wasted in the factory. Apart from installing cameras, provide a specific strategy to improve internal control in the storeroom and in the factory. In EACH case, provide a different point.\n\nINFORMATION:\nA. Raw material (fabric) — issued to the factory from the storeroom as required:\n                                    | METRES | TOTAL AMOUNT\n  Raw material issued to factory    | 12 450 | R1 494 000\n  Balance on 1 March 2020           | 2 700  | R324 000\n  Purchase of fabric during the year| 10 800 | R1 296 000\n  Balance on 28 February 2021       | 850    | R102 000\n\nB. Additional information:\n  • Fabric is purchased at a fixed cost price of R120 per metre.\n  • It takes 1,5 metres of fabric to make one travel bag.\n  • 7 800 bags were produced during the financial year.",
+          "marks": 6,
+          "memoText": "METRES MISSING FROM THE STOREROOM:\n  Fabric available = opening 2 700 + purchases 10 800 = 13 500 m\n  Should be left in the storeroom = 13 500 − 12 450 issued = 1 050 m; actual balance = 850 m\n  Missing = 1 050 − 850  =  200 metres ✓☑  (one part correct)\n\nMETRES WASTED IN THE FACTORY:\n  Fabric that should have been used = 7 800 bags × 1,5 m = 11 700 m\n  Wasted = 12 450 issued − 11 700  =  750 metres ✓☑  (one part correct)\n  OR  12 450 ÷ 1,5 = 8 300 bags possible − 7 800 actual = 500 × 1,5 m\n\nINTERNAL CONTROL STRATEGY (one for the storeroom, one for the factory; do NOT accept 'install cameras'):\nStoreroom: physical counts / random inspections / keep detailed stock records / control and monitor the movement of fabric / rotation or division of duties / storeroom manager to be accountable / improve security at receipt and dispatch points / limit access to the storeroom / storeroom staff to have lockers (no bags in the storeroom).\nFactory: improve training / use cutting patterns or technology / improve supervision / use or buy good-quality material / effective use of off-cuts / incentives for minimising wastage / regular servicing of machines.\n\nTeaching point: Two separate losses — fabric that left the storeroom but not to the factory (missing, likely theft) and fabric issued to the factory but not turned into bags (wasted in cutting). Each needs its own control.",
+          "topic": "Cost Accounting - Internal Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-2-2-2",
+          "label": "2.2.2",
+          "questionText": "PRUDY MANUFACTURERS — CONTROL OF RAW MATERIAL\n\nUse the same information as in 2.2.1. 200 metres are missing from the storeroom and 750 metres were wasted in the factory. Fabric costs R120 per metre.\n\nREQUIRED: Calculate the total cost of fabric lost and wasted, and explain how this loss should be shown in the statements mentioned in QUESTION 2.1.",
+          "marks": 3,
+          "memoText": "TOTAL COST OF FABRIC LOST AND WASTED\n\n  (200 + 750) 950 m × R120  =  R114 000 ☑☑  (two marks or nothing; if the metres were calculated in 2.2.1, multiply by R120)\n  OR  (200 × R120) + (750 × R120)  =  24 000 + 90 000  =  R114 000\n\nHOW THE LOSS SHOULD BE SHOWN (any valid answer):\n• As an expense item on the (Abridged) Statement of Comprehensive Income.\n• Examples: loss due to theft / administration cost / selling and distribution cost / an increase in direct material cost / an adjustment to factory overhead cost / cost of sales.\n\nTeaching point: Fabric that was paid for but produced nothing is a loss — it belongs in the Income Statement as an expense, not hidden in the cost of production.",
+          "topic": "Cost Accounting - Internal Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-2-3-1",
+          "label": "2.3.1",
+          "questionText": "ROSEMARY'S TOY FACTORY\n\nThis factory manufactures toy teddy bears. There is no work-in-progress stock at the beginning or end of each year. The financial year ends on 31 December. Rosemary decided to address the problem of low profits made in 2020 by making some changes to improve sales and production.\n\n                              | 31 Dec 2021        | 31 Dec 2020\n  Direct material cost        | R490 000 (R100,00/unit) | R320 000 (R80,00/unit)\n  Direct labour cost         | R274 400 (R56,00/unit)  | R288 000 (R72,00/unit)\n  Selling and distribution cost | R176 400 (R36,00/unit) | R96 000 (R24,00/unit)\n  VARIABLE COST              | R940 800 (R192,00/unit) | R704 000 (R176,00/unit)\n  Factory overhead costs     | R160 000 (R32,65/unit)  | R160 000 (R40,00/unit)\n  Administration cost        | R64 000 (R13,06/unit)   | R64 000 (R16,00/unit)\n  FIXED COST                 | R224 000 (R45,71/unit)  | R224 000 (R56,00/unit)\n  Selling price per unit     | R255                    | R240\n  Units produced and sold    | 4 900 units             | 4 000 units\n  Break-even point           | 3 556 units             | 3 500 units\n\nREQUIRED: Provide a calculation to confirm that the break-even point for the 2021 financial year is correct.",
+          "marks": 3,
+          "memoText": "BREAK-EVEN POINT — 2021\n\n        Total fixed costs                 224 000 ✓\n  ------------------------------------  =  ---------------  =  3 556 units\n  Selling price − variable cost/unit         255 ✓ − 192 ✓        (63 — two marks)\n\n  OR:  Sales at BEP (255 × 3 555,55) 906 665  −  Total fixed cost 224 000  −  Variable cost at BEP (192 × 3 555,55) 682 665  =  0   (one mark each)\n\nMark the numerator and denominator as such.\n\nTeaching point: Break-even units = total fixed costs ÷ contribution per unit. Contribution = R255 − R192 = R63. R224 000 ÷ R63 = 3 556 units — the given figure is confirmed.",
+          "topic": "Cost Accounting - Break-even Analysis",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2021-2-3-2",
+          "label": "2.3.2",
+          "questionText": "ROSEMARY'S TOY FACTORY\n\nUse the same information as in 2.3.1. 2021: produced and sold 4 900 units, break-even 3 556, contribution R63/unit. 2020: produced and sold 4 000 units, break-even 3 500, contribution R64/unit. Sales revenue: 2020 R960 000; 2021 R1 249 500.\n\nREQUIRED: Explain why Rosemary is pleased with the production level, sales and break-even point. Quote figures.",
+          "marks": 4,
+          "memoText": "Valid comparison ✓✓ + figures ✓✓ (must mention production/sales AND break-even point for four marks):\n\n• Produced and sold 1 344 units above the break-even point (4 900 − 3 556) — making a profit on 1 344 units, compared to only 500 units (4 000 − 3 500) in 2020 / a profit on an additional 844 units (168,8%).\n• Profit was R84 672 (1 344 × R63) in 2021 versus R32 000 (500 × R64) in 2020 — an increase of R52 763 (164,8%).\n• Sales / production increased by 900 units (4 900 − 4 000) / by 22,5%, whereas the break-even point rose by only 56 units (3 556 − 3 500) / by 1,6% — good control over costs.\n\nTwo-mark options (ONE of): revenue rose from R960 000 to R1 249 500 (R289 500 / 30,2%); comparison of units only (900 more); comparison of break-even only (56 more).\n\nTeaching point: Rosemary is pleased because output grew far faster (22,5%) than the break-even point (1,6%), so the margin of safety and the profit both jumped.",
+          "topic": "Cost Accounting - Break-even Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-2-3-3",
+          "label": "2.3.3",
+          "questionText": "ROSEMARY'S TOY FACTORY\n\nUse the same information as in 2.3.1. Total fixed cost was R224 000 in both years; units produced and sold rose from 4 000 to 4 900; fixed cost per unit fell from R56,00 to R45,71.\n\nREQUIRED: Explain to Rosemary why the fixed cost per unit decreased from R56,00 to R45,71.",
+          "marks": 2,
+          "memoText": "ONE point that mentions or explains economies of scale (two marks or nothing):\n\n• Economies of scale — as more units are produced, the fixed cost per unit decreases.\n• Increased production (by 900 units) spread the fixed cost over more units; the total fixed cost stays fairly constant and is not influenced by the level of production.\n• The average fixed cost per unit falls as units produced rise — a constant total fixed cost is divided by a larger number of units.\n\nTeaching point: The total fixed cost did not change (R224 000). Dividing an unchanged total by 4 900 units instead of 4 000 gives a smaller cost per unit — that is economies of scale.",
+          "topic": "Cost Accounting - Break-even Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-2-3-4",
+          "label": "2.3.4",
+          "questionText": "ROSEMARY'S TOY FACTORY\n\nUse the same information as in 2.3.1. Per-unit variable costs changed as follows: direct material R80,00 → R100,00; direct labour R72,00 → R56,00; selling and distribution R24,00 → R36,00.\n\nREQUIRED: Rosemary made deliberate decisions regarding variable costs to improve the business. Explain the decisions that she might have taken on these costs and how these could have had positive effects on the business. Quote figures.",
+          "marks": 6,
+          "memoText": "Comment (with figure) ✓ + positive effect ✓ for EACH of the three variable-cost items (compare UNIT costs, not totals):\n\nDIRECT MATERIAL COST — increased from R80 to R100 per unit / by R20 / 25%:\n• Improved quality of the teddy bears; justifies the price increase.\n• Better quality → satisfied customers → fewer returns → improved sales → higher profits.\n\nDIRECT LABOUR COST — decreased from R72 to R56 per unit / by R16 / 22,2%:\n• Improved efficiency through training.\n• Better supervision of normal-time targets / more control over overtime.\n• A shift from physical labour to machines.\n\nSELLING AND DISTRIBUTION COST — increased from R24 to R36 per unit / by R12 / 50%:\n• More advertising increased sales.\n• Delivering to a wider area / offered free delivery.\n• Commission to motivate salespersons.\n\nTeaching point: Rosemary deliberately spent MORE on materials (quality) and selling (reach), and LESS on labour (efficiency). Each move had a business rationale that showed up in higher sales and profit.",
+          "topic": "Cost Accounting - Unit Cost Analysis",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Budgeting (Shepstone Traders)",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2021-3-1",
+          "label": "3.1",
+          "questionText": "SHEPSTONE TRADERS\n\nShepstone Traders sell household appliances for cash and on credit. They also charge fees for repairing appliances, but only for cash. The business owner is Brian Johns. The information relates to the budget period November 2021 to January 2022.\n\nREQUIRED: Calculate the amounts denoted by (a)–(c) on the Debtors' Collection Schedule.\n\nINFORMATION:\n• Credit sales: 40% of total sales are on credit.\n• Debtors pay according to the following trend: 30% in the month of sale (with a 5% discount); 45% in the month following the month of sale; 22% in the second month following the month of sale; bad debts are taken into account in the third month.\n\nDebtors' Collection Schedule:\n  Month     | Credit sales R | December 2021 R | January 2022 R | Bad debts\n  Oct 2021  | 308 000        | 67 760          |                | (a)\n  Nov 2021  | 319 200        | 143 640         | 70 224         |\n  Dec 2021  | 364 000        | 103 740         | (b)            |\n  Jan 2022  | 352 800        |                 | (c)            |\n  Totals    |                | 315 140         |                |",
+          "marks": 6,
+          "memoText": "(a) BAD DEBTS on October 2021 credit sales:\n    R13 860 ✓\n    (the portion of October's R308 000 credit sales not received in cash — the 3% written off, R9 240, plus the 5% discount on the 30% month-of-sale portion, R4 620:  308 000 − [308 000 × 30% × 95%] − [308 000 × 45%] − [308 000 × 22%] = 13 860)\n\n(b) December 2021 credit sales collected in January 2022:\n    R245 700 ✓✓\n\n(c) January 2022 credit sales collected in January 2022 (month of sale):\n    R150 822 ✓✓  (352 800 × 45% × 95%)\n\nFinal total (Cash from debtors, December column):  67 760 + 143 640 + 103 740 = R315 140 ☑*  (one part correct)\n\nAccept correct figures placed in the wrong rows of the December column. Ignore workings or correct figures not reflected in the December column.\n\nNote: the marking guideline's figures for (b) and (c) are 1,5× the values that a strict 40%-credit-sales reading gives; the memo's own working for (c) is 352 800 × 45% × 95%. The values above are the marking-guideline answers.\n\nTeaching point: Each month's credit sales are collected over three months (30% × 95% now, 45% next, 22% after), with the rest written off as bad debts. Read down each diagonal to fill the January column.",
+          "topic": "Budgeting - Debtors Collection Schedule",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-3-2-a",
+          "label": "3.2 (a)",
+          "questionText": "SHEPSTONE TRADERS\n\nUse the same information as in 3.1.\n• Information E: Rent income will be increased by 9% p.a., effective from 1 January 2022.\n• Rent income in the Cash Budget: January 2022 — R20 056.\n\nREQUIRED: Calculate the rent income for December 2021 (amount (a) on the Cash Budget).",
+          "marks": 3,
+          "memoText": "RENT INCOME — DECEMBER 2021\n\n  20 056 × 100/109   OR   20 056 − 1 656   =   R18 400 ✓☑  (one part correct)\n\nReasoning: The January 2022 rent income of R20 056 is 109% of the December figure (a 9% increase from 1 January). December rent income = 20 056 ÷ 1,09 = R18 400.\n\nTeaching point: To reverse a 9% increase, divide by 1,09 (× 100/109).",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2021-3-2-b",
+          "label": "3.2 (b)",
+          "questionText": "SHEPSTONE TRADERS\n\nUse the same information as in 3.1.\n• Information A: Cost of sales — November 2021 R456 000.\n• Information D: 80% of the stock is purchased on credit. Stock sold is replaced in the month of sales. Creditors are paid two months after the purchase month.\n\nREQUIRED: Calculate the payment to creditors in January 2022 (amount (b) on the Cash Budget).",
+          "marks": 3,
+          "memoText": "PAYMENT TO CREDITORS — JANUARY 2022\n\n  Creditors are paid two months after purchase, so January pays for NOVEMBER purchases.\n  Stock sold is replaced in the month of sale → November purchases = November cost of sales = R456 000.\n  80% is on credit:  456 000 ✓ × 80% ✓  =  R364 800 ☑  (one part correct)\n\n  OR  456 000 − 91 200 (20% of 456 000)  =  R364 800\n\nTeaching point: 'Two months after the purchase month' is a two-month lag — January settles November. Only the 80% credit portion is a payment to creditors.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2021-3-2-c",
+          "label": "3.2 (c)",
+          "questionText": "SHEPSTONE TRADERS\n\nUse the same information as in 3.1.\n• Information E: Shepstone Traders undertake special and extensive cleaning and sanitisation during December each year. This increases the cleaning services budget by 65%, in December only. The normal monthly fee is expected to increase by 5% p.a. commencing on 1 January 2022.\n• Cleaning services in the Cash Budget: December 2021 — R15 510.\n\nREQUIRED: Calculate the payment for cleaning services in January 2022 (amount (c) on the Cash Budget).",
+          "marks": 3,
+          "memoText": "PAYMENT FOR CLEANING SERVICES — JANUARY 2022\n\n  Normal monthly fee = 15 510 ✓ × 100/165 ✓ = R9 400   (December includes the 65% once-off increase)\n  January fee = 9 400 × 105/100 ✓ = R9 870 ☑  (one part correct)\n\n  OR  15 510 × 105/165  =  R9 870\n\nAccept: R9 400 as a final answer — three marks;  R9 400 + R470 — four marks;  R9 400 + any other amount — three marks only.\n\nReasoning: December's R15 510 is 165% of the normal fee (100% + 65% December extra), so the normal fee is R9 400. From 1 January the normal fee rises 5% → R9 870.\n\nTeaching point: Strip out the December-only 65% first (÷ 1,65), then apply the ongoing 5% increase (× 1,05).",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2021-3-3-a",
+          "label": "3.3 (a)",
+          "questionText": "SHEPSTONE TRADERS — WORKLOAD OF EMPLOYEES\n\nRefer to Information G. Brian is concerned about the workload of his staff. He plans to reduce the sales staff by one person. The other sales staff members are not happy with this plan.\n\nINFORMATION G (November 2021):\n  Number of sales employees, including the driver: 5;  Number of repairs employees: 2\n                              | BUDGETED | ACTUAL\n  Number of customers: Sales  | 230      | 175\n  Number of customers: Repairs| 70       | 136\n  Total sales                 | R798 000 | R707 000\n  Salaries: Sales staff       | R82 000  | R82 000  (basic rate R16 400 per worker)\n\nREQUIRED: Provide TWO points that Brian can explain to his sales staff to justify his plan. Quote figures.",
+          "marks": 4,
+          "memoText": "TWO points with figures (2 marks each):\n\n• He budgeted for 230 customers but only 175 were recorded / 55 fewer (23,9%) / 76%.\n• Sales were less than budgeted (798 000 − 707 000) / by R91 000 / by 11,4%.\n• Salaries are set at a basic rate of R16 400 per worker — this costs the business when budgeted sales are not achieved.\n\nAssuming 5 workers (including the driver):\n• Each worker was expected to serve 46 customers (230/5); the actual average is 35 (175/5) / 11 fewer / 23,9%. Retrenching one person still leaves the remaining 4 with an average of only 44 (175/4), below the expected 46.\n\nAssuming 4 sales staff (excluding the driver):\n• Each was expected to serve 58 (230/4) but served only 44 (175/4) / 14 fewer / 24%. If one is retrenched, the average becomes 58 (175/3) — the same as the expected 58.\n\nTeaching point: Brian's case is that actual customers and sales fell well below budget, so the current headcount is not fully used; after cutting one person the workload per worker still matches (or stays below) what was originally expected.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-3-3-b",
+          "label": "3.3 (b)",
+          "questionText": "SHEPSTONE TRADERS — WORKLOAD OF EMPLOYEES\n\nUse Information G from 3.3 (a). Repairs: 2 employees; customers budgeted 70, actual 136. Fee income (cash only): budgeted R32 000, actual R66 000. Wages: repairs staff budgeted R11 000, actual R11 000 (basic rate R5 500 per worker).\n\nREQUIRED: Explain why the repair staff members are not satisfied with their workload. Quote figures.",
+          "marks": 3,
+          "memoText": "ONE point ✓ + figures ✓✓:\n\n• They are over-worked — customers rose from 70 expected to 136 actual / 66 more than expected / 94% more / 194%. (Customers prefer to repair rather than buy.)\n• They were expected to serve 35 customers per worker but served 68 — an average of 33 extra customers each.\n• Fee income is R34 000 more than expected (66 000 − 32 000) / 106% more.\n• Wages are fixed at a basic rate of R5 500 per worker — not influenced by workload / no commission — and R10 900 less than a sales worker.\n\nTeaching point: The repair staff handled almost double the expected customers and generated far more fee income, yet their fixed wage is well below the sales staff's — more work, no extra reward.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-3-3-c",
+          "label": "3.3 (c)",
+          "questionText": "SHEPSTONE TRADERS — WORKLOAD OF EMPLOYEES\n\nUse Information G from 3.3 (a) and 3.3 (b).\n\nREQUIRED: What suggestions can you offer to solve the problem of the workload of employees? Provide TWO points.",
+          "marks": 4,
+          "memoText": "TWO different points (2 marks each):\n\n• Train the sales staff member(s) to do repairs (so staff can shift where the demand is).\n• Offer incentive bonuses / overtime pay.\n• Negotiate a better wage package / commission.\n• Train staff to work in other departments / job rotation.\n• Employ temporary staff / casual workers / employ more workers.\n\nTeaching point: The imbalance is too many sales staff and too few repair staff, so the answers are about moving people between the two (cross-training, rotation) or adding capacity where it is short, and rewarding the overloaded team.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-3-4",
+          "label": "3.4",
+          "questionText": "SHEPSTONE TRADERS — SALES TRENDS\n\nRefer to Information G. Budgeted vs actual for November 2021: cash sales R478 800 / R142 000; credit sales R319 200 / R565 000; total sales R798 000 / R707 000.\n\nREQUIRED: Comment on the cash and credit sales figures for November 2021. Explain why Brian is concerned. Quote figures.",
+          "marks": 3,
+          "memoText": "Comment on BOTH cash sales AND credit sales (with a comparison of budgeted and actual figures) ✓✓✓:\n\n• Cash sales are lower than expected by R336 800 / 70,3% (478 800 − 142 000), whilst credit sales are higher than expected by R245 800 / 77% (565 000 − 319 200).\n• Cash sales are now only 20% of total sales (142 000 / 707 000) — expected 60%; credit sales are now 80% of total sales (565 000 / 707 000) — expected 40%.\n\n(Concern: far more of the trade is on credit than planned, which starves the business of cash and raises the risk of bad debts.)\n\nTeaching point: The cash/credit mix flipped — from a planned 60/40 in favour of cash to an actual 20/80 in favour of credit. That is a cash-flow and bad-debt problem even though total sales are only slightly down.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-3-5",
+          "label": "3.5",
+          "questionText": "SHEPSTONE TRADERS — VARIANCES\n\nThe budgeted and actual figures for November 2021 are provided.\n\n                                  | BUDGETED R | ACTUAL R | VARIANCE\n  Sales                           | 798 000    | 707 000  | − 91 000\n  Fee income                      | 32 000     | 66 000   | + 34 000\n  Fuel for leased delivery vehicle| 20 800     | 19 900   | − 900\n  Consumable stores for repairs   | 8 000      | 12 100   | + 4 100\n\nREQUIRED: Comment on the control over fuel for the delivery vehicle and the consumable stores used for repairs. Quote figures.",
+          "marks": 6,
+          "memoText": "Compare each expense to the relevant activity level (2 marks explanation + 2 marks figures per expense; allocate ONE mark for the relevant total amounts of EACH expense).\n\nFUEL FOR THE DELIVERY VEHICLE — not well controlled (assuming all customers require delivery):\n• Budgeted at 2,6% of total sales (20 800 / 798 000); actual was 2,8% of actual sales (19 900 / 707 000).\n• Total sales fell by 11,4% / R91 000, but fuel fell by only 4,3% / R900 — fuel did not drop in line with the drop in sales.\n\nCONSUMABLE STORES FOR REPAIRS — efficient / well controlled / minimal wastage:\n• Budgeted to spend 25% of fee income (8 000 / 32 000); actual usage was 18,3% (12 100 / 66 000).\n• Fee income rose by 106% / R34 000, but consumable stores rose by only 51,3% / R4 100.\n\nTeaching point: Judge a variable cost against the activity that drives it. Fuel should track sales/deliveries — it barely fell while sales fell sharply (poor control). Consumables should track repair fee income — they grew far slower than fee income (good control).",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Inventories and Fixed Assets (Justime Footwear)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2021-4-1-1",
+          "label": "4.1.1",
+          "questionText": "JUSTIME FOOTWEAR (PTY) LTD — INVENTORIES\n\nJustime Footwear (Pty) Ltd sells one brand of running shoes. The business uses the weighted-average method to value these shoes. The periodic inventory system is used.\n\nREQUIRED: Calculate the value of the closing stock on 28 February 2021, the financial year-end.\n\nINFORMATION (running shoes):\nA. Balances:\n  DATE             | QUANTITY (PAIRS) | TOTAL VALUE (INCLUDING CARRIAGE)\n  1 March 2020     | 206              | R101 090\n  28 February 2021 | 420              | ?\n\nB. Purchases during the year:\n                    | NUMBER OF ITEMS | COST PRICE PER ITEM | TOTAL AMOUNT\n  Purchases         | 2 490           |                     | R2 236 700\n  15 April 2020     | 560             | R820                | R459 200\n  20 September 2020 | 1 120           | R900                | R1 008 000\n  5 January 2021    | 810             | R950                | R769 500\n\nC. Carriage on purchases: A fixed cost of R25 per unit is paid for each pair delivered to the shop. This rate was unchanged during the year. This is NOT included above.\nD. Returns: 60 pairs were returned from the September 2020 purchase. A refund of the cost price was received from the supplier. The carriage on purchases was not refunded.\nE. Sales: 2 216 units were sold at R1 400 each, R3 102 400.\nNOTE: There were no stolen items.",
+          "marks": 7,
+          "memoText": "CLOSING STOCK — WEIGHTED-AVERAGE METHOD\n\nStep 1 — Total cost of stock available for sale:\n  Opening 101 090 ✓ + Purchases 2 236 700 ✓ − Returns 54 000 ✓ (60 × R900, carriage not refunded) + Carriage on purchases 62 250 ✓ (2 490 × R25)\n  =  R2 346 040\n\nStep 2 — Total units available for sale:\n  206 + 2 490 − 60  =  2 636 units ☑\n\nStep 3 — Weighted-average cost per unit:\n  2 346 040 ÷ 2 636  =  R890\n\nStep 4 — Closing stock:\n  420 units × R890  =  R373 800 ☑  (one part correct; must be × 420)\n\nOR:  R890 [six marks] × 420\n\nNumerator and denominator must be marked as such.\n\nTeaching point: Carriage of R25/unit is part of the cost of the stock, so add it to the cost pool (on the units actually delivered, not on returns). The 60 returned pairs come out of both the cost pool (at R900) and the unit count, but their R25 carriage stays because it was not refunded.",
+          "topic": "Stock Valuation - Weighted Average",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2021-4-1-2",
+          "label": "4.1.2",
+          "questionText": "JUSTIME FOOTWEAR (PTY) LTD — INVENTORIES\n\nUse the same information as in 4.1.1. Opening stock: 206 pairs / R101 090. Closing stock: 420 pairs / R373 800. Cost of stock available for sale R2 346 040. Units sold 2 216.\n\nREQUIRED: Calculate the stock turnover rate on 28 February 2021.",
+          "marks": 4,
+          "memoText": "STOCK TURNOVER RATE\n\nUsing units:\n  Units sold ÷ average stock (units)\n  =  2 216 ✓  /  [½ ✓ (206 + 420)]\n  =  2 216 / 313  =  7,1 times ☑  (one part correct; accept 7 times)\n\nUsing amounts:\n  Cost of sales ÷ average stock (rands)\n  =  (2 346 040 − 373 800)  1 972 240  /  [½ (101 090 + 373 800)]  237 445\n  =  8,3 times ☑  (one part correct; accept 8 times)\n\nMark the numerator and denominator as such.\n\nTeaching point: Stock turnover rate = how many times the average stock was sold during the year. Do it in units (units sold ÷ average units) or in rands (cost of sales ÷ average stock value) — either is acceptable here.",
+          "topic": "Stock Valuation - Financial Indicators",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2021-4-1-3",
+          "label": "4.1.3",
+          "questionText": "JUSTIME FOOTWEAR (PTY) LTD — INVENTORIES\n\nJustime (Pty) Ltd trades in three types of footwear. The directors are satisfied with the management of running shoes but not with the boots and sandals:\n• The boots are imported and Justime (Pty) Ltd is the only business in town selling these boots.\n• The sandals are locally made and all competitors sell them at R480 each.\n\n                              | RUNNING SHOES | BOOTS      | SANDALS\n  Mark-up %                   | 57,3%         | 80%        | 33⅓%\n  Selling price               | R1 400        | R2 900     | R480\n  Average cost price          | R890          | R1 610     | R360\n  Gross profit per pair       | R510          | R1 290     | R120\n  Total gross profit          | R1 130 160    | R1 122 300 | R1 368 000\n  Orders received from customers | 2 216 pairs | 870 pairs  | 15 000 pairs\n  Sales                       | 2 216 pairs   | 870 pairs  | 11 400 pairs\n  Items on hand at year-end   | 420 pairs     | 440 pairs  | 150 pairs\n  Stock on hand at year-end   | ?             | R708 400   | R54 000\n  Stock turnover rate         | ?             | 2 times    | 76 times\n\nREQUIRED: Comment on the stock turnover rates for boots and sandals and identify the major problem relating to EACH product. Quote figures.",
+          "marks": 6,
+          "memoText": "BOOTS — comment (with figures) ✓✓:\n• A stock turnover rate of 2 (stock sells on average every 6 months) — slow sales, although it still generates good gross profit (R1 122 300).\n• The 80% mark-up may be too high / expensive for customers (an exclusive clientele).\nMajor problem ✓: Too much stock on hand (R708 400 — about 62% of total closing stock) / money tied up in stock → impacts liquidity / also a security risk / theft / can become obsolete.\n\nSANDALS — comment (with figures) ✓✓:\n• A stock turnover rate of 76 (stock sells about every 5 days) — the low 33⅓% mark-up makes them very affordable / in demand, so sandals are a good seller.\nMajor problem ✓: The business is not meeting the orders — 3 600 pairs not supplied (15 000 − 11 400) / not enough stock on hand to meet orders / may run out of stock / lost revenue of R1 728 000 (which could negatively affect liquidity).\n\nTeaching point: Opposite problems. Boots: turnover far too slow, cash locked up in unsold imported stock. Sandals: turnover so fast that stock runs out and orders (and R1,7m of sales) are lost.",
+          "topic": "Stock Valuation - Interpretation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-4-2-1",
+          "label": "4.2.1",
+          "questionText": "JUSTIME FOOTWEAR (PTY) LTD — FIXED ASSETS\n\nThe following information relates to the fixed/tangible assets of Justime Footwear (Pty) Ltd. The financial year ended on 28 February 2021.\n\nREQUIRED: List THREE points for good internal control over movable fixed assets.",
+          "marks": 3,
+          "memoText": "Any THREE valid points (accept short, specific statements; do NOT accept 'good management' or 'division of duties'):\n\n• Maintain an updated fixed asset register (depreciation, carrying value, condition).\n• Regular physical inspection / count the items / use identification tags (barcodes).\n• Service and maintenance plans, and ensure they are carried out regularly.\n• An insurance plan to cover loss / damage / accidents.\n• Keep a log book and mileage / install tracking devices.\n• Record drivers / users in a register / require authorisation for use / record time in and out.\n• Only trained personnel to use technical equipment.\n• Cameras to monitor the use of equipment.\n• Secure premises for storage / a locked garage / an alarm system.\n\nTeaching point: 'Movable' assets (vehicles, equipment) can walk out the door, so controls focus on knowing what you own (register, tags, counts), knowing who is using it (log books, registers, authorisation) and protecting it (insurance, secure storage, maintenance).",
+          "topic": "Fixed Assets",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-4-2-2",
+          "label": "4.2.2",
+          "questionText": "JUSTIME FOOTWEAR (PTY) LTD — FIXED ASSETS\n\nRefer to Information A and B.\n\nINFORMATION A — Land and buildings (Balance Sheet accounts section): 2021 R6 250 000; 2020 R5 500 000.\nINFORMATION B — Glamour Construction provided an invoice on 31 August 2020 after completing the new storage facilities. The full invoice amount was paid and debited to land and buildings. However, the auditor found that repairs to the old storeroom, R60 000, were included in the invoice. This has not been corrected.\n\nREQUIRED: Calculate the cost of land and buildings purchased on 31 August 2020.",
+          "marks": 3,
+          "memoText": "COST OF LAND AND BUILDINGS PURCHASED ON 31 AUGUST 2020\n\n  (6 250 000 − 5 500 000)  R750 000 ✓  −  60 000 ✓ (repairs — not a capital item)  =  R690 000 ✓\n\nReasoning: Land and buildings increased by R750 000 during the year. The invoice included R60 000 of repairs to the old storeroom, which is an expense, not part of the cost of the new facility. Cost of land and buildings purchased = 750 000 − 60 000 = R690 000.\n\nTeaching point: Only the amount that adds a new asset (or improves one) is capitalised. Repairs — restoring an existing asset to working order — are an expense and must be stripped out of the invoice.",
+          "topic": "Fixed Assets",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2021-4-2-3",
+          "label": "4.2.3",
+          "questionText": "JUSTIME FOOTWEAR (PTY) LTD — FIXED ASSETS\n\nRefer to Information A and C.\n\nINFORMATION A — Vehicle: 2021 R480 000; 2020 R480 000. Accumulated depreciation on vehicles: 2020 R450 000.\nINFORMATION C — The company has only one vehicle. The depreciation rate is 25% p.a. on cost.\n\nREQUIRED: Calculate the depreciation on the vehicle for the year ended 28 February 2021.",
+          "marks": 2,
+          "memoText": "DEPRECIATION ON THE VEHICLE — year ended 28 February 2021\n\n  R480 000 × 25% = R120 000;  BUT the carrying value is only R30 000 (480 000 − 450 000).\n  Maximum permitted:  R30 000 − R1  =  R29 999 ✓✓  (no part marks)\n\nReasoning: 25% on cost gives R120 000, but the vehicle has only R30 000 of carrying value left. Depreciation cannot reduce the carrying value below R1, so it is limited to R30 000 − R1 = R29 999.\n\nTeaching point: An asset can never be depreciated past a R1 book value. When the formula gives more than the remaining carrying value, cap the depreciation at carrying value − R1.",
+          "topic": "Fixed Assets",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2021-4-2-4-a",
+          "label": "4.2.4 (a)",
+          "questionText": "JUSTIME FOOTWEAR (PTY) LTD — FIXED ASSETS\n\nRefer to Information A and D. The business depreciates equipment at 30% p.a. on the diminishing-balance method. On 30 November 2020 they traded in a photocopy machine for a new model.\n\nINFORMATION D — A photocopy machine was traded in on 30 November 2020 for R88 000 for a better model. Fixed asset register:\n  Category: Photocopy machine | Model: Clearfont X23 | Date purchased: 1 March 2019 | Cost price: R320 000 | Depreciation rate: 30% on the diminishing-balance method\n  Date             | Depreciation | Carrying value\n  28 February 2020 | R96 000      | R224 000\n  30 November 2020 | ?            | ?\n\nREQUIRED: Calculate the loss on the photocopy machine that was traded in on 30 November 2020.",
+          "marks": 6,
+          "memoText": "LOSS ON THE PHOTOCOPY MACHINE TRADED IN ON 30 NOVEMBER 2020\n\nStep 1 — Depreciation for 1 March 2020 to 30 November 2020 (9 months):\n  224 000 × 30% × 9/12  =  R50 400 ✓☑\n\nStep 2 — Accumulated depreciation at disposal:\n  96 000 ✓ + 50 400  =  R146 400\n\nStep 3 — Carrying value at disposal:\n  320 000 − 146 400  =  R173 600\n\nStep 4 — Loss on disposal:\n  Carrying value 173 600 − trade-in value 88 000 ✓  =  R85 600 ☑  (one part correct)\n\n  320 000 ✓ − (96 000 ✓ + 50 400 ✓☑) − 88 000 ✓  =  R85 600 ☑\n\nAsset Disposal account:  Dr Equipment 320 000;  Cr Accumulated depreciation 146 400, Creditor (trade-in) 88 000, Loss on sale 85 600.\n\nTeaching point: Depreciate up to the disposal date first (9 months here). Then compare the carrying value to what you actually got for the machine — a trade-in of R88 000 against a carrying value of R173 600 is an R85 600 loss.",
+          "topic": "Fixed Assets",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2021-4-2-4-b",
+          "label": "4.2.4 (b)",
+          "questionText": "JUSTIME FOOTWEAR (PTY) LTD — FIXED ASSETS\n\nRefer to Information A and D. Equipment is depreciated at 30% p.a. on the diminishing-balance method.\n\n• The cost price of the new photocopy machine, delivered on 1 December 2020, was R410 000.\n• Equipment at cost: 2020 R2 100 000 (this includes the traded-in machine at R320 000).\n• Accumulated depreciation on equipment: 2020 R1 440 000 (this includes R96 000 on the traded-in machine).\n\nREQUIRED: Calculate the depreciation on the new photocopy machine and on the remaining old equipment for the year ended 28 February 2021.",
+          "marks": 7,
+          "memoText": "DEPRECIATION FOR THE YEAR ENDED 28 FEBRUARY 2021\n\nNew photocopy machine (1 December 2020 to 28 February 2021 = 3 months):\n  R410 000 × 30% × 3/12  =  R30 750 ✓☑  (one part correct)\n\nRemaining old equipment (excluding the traded-in machine):\n  Cost of remaining equipment  =  2 100 000 − 320 000  =  R1 780 000 ✓☑\n  Accumulated depreciation on remaining equipment  =  1 440 000 − 96 000  =  R1 344 000 ✓☑\n  Carrying value  =  1 780 000 − 1 344 000  =  R436 000\n  Depreciation  =  436 000 × 30%  =  R130 800 ☑  (one part correct)\n\n  OR:  (2 100 000 − 1 440 000) × 30% = 198 000;  (320 000 − 96 000) × 30% = 67 200;  198 000 − 67 200 = R130 800\n\nTeaching point: Split the equipment into the new machine (3 months only) and everything else. For the old equipment, remove the traded-in machine's cost AND its accumulated depreciation before applying 30% to the remaining carrying value.",
+          "topic": "Fixed Assets",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2021-4-2-5",
+          "label": "4.2.5",
+          "questionText": "JUSTIME FOOTWEAR (PTY) LTD — FIXED ASSETS\n\nThe CEO feels that the land and buildings are worth at least R10 000 000 and wants to adjust the figure in the Statement of Financial Position (Balance Sheet) accordingly.\n\nREQUIRED: Explain why the auditor does NOT agree.",
+          "marks": 2,
+          "memoText": "Any valid reason (2 marks):\n\n• The historical cost rule — assets should be shown at their original cost price / the prudence concept — be conservative in reflecting assets on the financial statements.\n• Profit can only be recognised / realised on disposal, not on a hoped-for market value.\n• It is unethical to manipulate figures in the financial statements / to inflate values.\n• The CEO's opinion is not based on clear evidence — it would need a proper valuation / an appraiser.\n\nTeaching point: Property stays in the books at cost (less any depreciation on buildings), not at what the owner thinks it is worth. Writing it up to R10m would recognise an unrealised gain and breach the historical-cost and prudence principles.",
+          "topic": "Fixed Assets",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

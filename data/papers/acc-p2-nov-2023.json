@@ -1,0 +1,369 @@
+{
+  "id": "acc-p2-nov-2023",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P2",
+  "year": 2023,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Reconciliations (Mango Traders & SEB Traders)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2023-1-1-1a",
+          "label": "1.1.1 (a)",
+          "questionText": "BANK RECONCILIATION — MANGO TRADERS\n\nThe information relates to Mango Traders for June 2023. The business uses the official bank statement which is received on the 26th of each month.\n\nREQUIRED: Calculate the correct totals for the Cash Journals (CRJ and CPJ) on 30 June 2023. Show whether each amount is added to or subtracted from the provisional totals.\n\nINFORMATION:\nA. The Bank Reconciliation Statement on 31 May 2023 showed the following:\n  Favourable balance on the Bank Statement: R27 600\n  Outstanding deposits: 18 May 2023 — R30 000; 30 May 2023 — R18 200\n  Outstanding EFTs: EFT 816 (to Ace Stationers) — R7 400; EFT 817 (to Spark Wholesalers) — R19 300\n  Favourable balance on the Bank Account in the Ledger: R49 100\n  NOTE: The cashier reported that the cash to be deposited on 18 May was stolen while she was on her way to the bank. This amount must be written off.\n\nB. Cash Journal totals on 30 June 2023 before receiving the Bank Statement:\n  Cash Receipts Journal — R81 300 | Cash Payments Journal — R80 620\n\nC. Extract from the June Bank Statement:\n  DETAILS                        | DEBIT  | CREDIT\n  Ace Stationers (EFT 816)       | 4 700  |\n  Spark Wholesalers (EFT 817)    | 19 300 |\n  BK Builders (EFT 792)          | 6 200  |\n  Deposit (30 May)               |        | 18 200\n  Cash deposit fee               | 320    |\n  Direct deposit: G Glen         |        | 14 600\n  VX Garage (EFT 818)            | 3 780  |\n  Interest                       |        | 240\n  Transaction fees               | 540    |\n  Transaction fees               | 540    |\n\n  • EFT 816 (to Ace Stationers) is correct on the Bank Statement.\n  • EFT 792 (to BK Builders) was incorrectly recorded in the June Cash Receipts Journal (CRJ).\n  • The direct deposit by G Glen was for monthly rent.\n  • EFT 818 (to VX Garage) was for repairs to the company vehicle. The owner neglected to submit the transaction record slip to the bookkeeper. No entry was made in the books.\n  • The monthly transaction fees were duplicated on the bank statement.\n\nD. Entries in the Cash Journals for June 2023 that do not agree with the June Bank Statement:\n  • Deposit on 27 June: R31 500 | EFT 944: R9 700 | EFT 945: R13 300\n\nE. The owner withdrew R11 000 from an ATM to pay wages on 29 June 2023, but did not inform the bookkeeper.\n\nF. Bank Statement balance on 30 June 2023: R? (to be determined)",
+          "marks": 12,
+          "memoText": "CORRECT CASH JOURNAL TOTALS ON 30 JUNE 2023\n\nCASH RECEIPTS JOURNAL (provisional total R81 300):\n• + 2 700 ✓✓  — EFT 816 was outstanding from May at R7 400, but the Bank Statement shows the correct amount R4 700 (and the note confirms the bank is correct). The R7 400 − R4 700 = R2 700 over-recorded payment must be added back in the CRJ.\n• + 14 600 ✓  — direct deposit by G Glen for rent (rent income received, not yet recorded).\n• + 240 ✓  — interest received per the Bank Statement.\n  Correct CRJ total:  81 300 + 2 700 + 14 600 + 240  =  R98 840\n\nCASH PAYMENTS JOURNAL (provisional total R80 620):\n• + 30 000 ✓  — the 18 May deposit never reached the bank (stolen); write it off as a loss.\n• + 12 400 ✓✓  — EFT 792 (BK Builders, R6 200) was wrongly entered in the CRJ. Add R6 200 to the CPJ for the payment, plus R6 200 to cancel the incorrect CRJ receipt (6 200 + 6 200).\n• + 3 780 ✓  — EFT 818 to VX Garage for vehicle repairs, not yet recorded.\n• + 320 ✓  — cash deposit fee.\n• + 540 ✓  — transaction fees (ONE set only; the second R540 is a bank duplication and is NOT journalised — it goes on the Bank Reconciliation Statement).\n• + 11 000 ✓  — ATM withdrawal by the owner to pay wages, not yet recorded.\n  Correct CPJ total:  80 620 + 30 000 + 12 400 + 3 780 + 320 + 540 + 11 000  =  R138 660\n\nBoth totals ☑ — one part correct; the answer must include the provisional totals.  −1 (max −1) for foreign / superfluous items only if a mark is earned elsewhere for the same figure.\n\nTeaching point: Only journalise (a) bank items not yet in your books (interest, fees, direct deposits, the debit-card / ATM payment) and (b) corrections of your own recording errors (EFT 792 in the wrong journal, EFT 816 over-recorded, the stolen deposit). A bank's own error (the duplicated fee) is fixed on the reconciliation statement, not in the journals.",
+          "topic": "Bank Reconciliation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-1-1-1b",
+          "label": "1.1.1 (b)",
+          "questionText": "BANK RECONCILIATION — MANGO TRADERS\n\nUse the same information as in 1.1.1 (a). The Bank Account balance in the Ledger on 31 May 2023 was R49 100 (favourable). The corrected Cash Receipts Journal total is R98 840 and the corrected Cash Payments Journal total is R138 660.\n\nREQUIRED: Calculate the Bank Account balance in the General Ledger of the business on 30 June 2023.",
+          "marks": 4,
+          "memoText": "BANK ACCOUNT BALANCE IN THE GENERAL LEDGER ON 30 JUNE 2023\n\n  Opening balance + corrected CRJ − corrected CPJ\n  =  49 100 ✓  +  98 840 ☑ (see CRJ)  −  138 660 ☑ (see CPJ)\n  =  R9 280 ☑  (one part correct)\n\n  (98 840 − 138 660 = −39 820; −39 820 + 49 100 = R9 280 favourable)\n\nTeaching point: The Bank account in the General Ledger works like a running total — start with the opening favourable balance, add the corrected receipts, subtract the corrected payments. The R9 280 is what the Bank account should show, and it becomes the 'balance as per bank account' on the reconciliation statement.",
+          "topic": "Bank Reconciliation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-1-1-2",
+          "label": "1.1.2",
+          "questionText": "BANK RECONCILIATION — MANGO TRADERS\n\nUse the same information as in 1.1.1 (a). The Bank Account balance in the General Ledger on 30 June 2023 is R9 280 (from 1.1.1 b).\n\nRelevant figures:\n• Bank Statement balance on 30 June 2023: unknown (balancing figure)\n• Deposit not yet on the Bank Statement (27 June 2023): R31 500\n• EFTs not yet on the Bank Statement: EFT 944 — R9 700; EFT 945 — R13 300\n• ATM withdrawal for wages on 29 June 2023 (not yet on the Bank Statement): R11 000\n• Duplicated transaction fee to be corrected by the bank: R540\n\nREQUIRED: Prepare the Bank Reconciliation Statement on 30 June 2023.",
+          "marks": 8,
+          "memoText": "BANK RECONCILIATION STATEMENT ON 30 JUNE 2023\n\nTWO-COLUMN METHOD:\n                                              Debit R    Credit R\nBalance as per bank statement                             11 240 ☑☑  (balancing figure — two marks or nothing; do NOT accept R27 600)\nOutstanding deposit                                        31 500 ✓\nOutstanding EFTs   No. 944                       9 700 ✓\n                   No. 945                      13 300 ✓\nATM withdrawal for wages                        11 000 ✓\nCredit incorrect amount (duplicated fee)                     540 ✓\nBalance as per bank account                      9 280 ☑  (Dr or Cr as per 1.1.1 b; do NOT accept R49 100)\n                                              -------    -------\n                                              43 280     43 280\n\nOR — ONE-COLUMN METHOD:\nBalance as per bank statement                    11 240 ☑☑\nOutstanding deposit                              31 500 ✓\nOutstanding EFT   No. 944                        (9 700) ✓\n                 No. 945                        (13 300) ✓\nATM withdrawal for wages                        (11 000) ✓\nCredit incorrect amount                             540 ✓\nBalance as per bank account                       9 280 ☑\n\n−1 presentation (max −1); −1 foreign / superfluous items (max −1) if a mark is earned elsewhere for the same figure.\n\nTeaching point: Because the bank statement is received on the 26th, anything after that date (the 27 June deposit, EFT 944/945, the 29 June ATM withdrawal) is in the business's books but not yet on the statement — those are the reconciling items. Add the duplicated fee back because the bank over-charged. The bank statement balance is whatever makes the two columns equal.",
+          "topic": "Bank Reconciliation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-1-1-3",
+          "label": "1.1.3",
+          "questionText": "BANK RECONCILIATION — MANGO TRADERS\n\nUse the same information as in 1.1.1 (a). Cash to be deposited on 18 May 2023 (R30 000) was stolen on the way to the bank.\n\nREQUIRED: Explain TWO strategies that the business can use to address the problem of missing cash.",
+          "marks": 4,
+          "memoText": "Any TWO strategies (2 marks each). Do NOT accept 'install cameras'. 'Division of duties' on its own = one mark.\n\n• The receiving and banking of cash should be done by different people / divide, delegate or rotate duties to prevent mismanagement of cash that can lead to missing money or theft.\n• Request SMS notifications from the bank / check bank statements (mini statements on the App) regularly to ensure the correct amounts are deposited.\n• Outsource the transportation of cash to security companies (for large amounts).\n• The person depositing cash should be accompanied / escorted by a security guard.\n• Encourage customers to pay online (EFTs) / move towards cashless or minimal cash handling.\n• Do deposits regularly, at different times, using different routes / train employees on security and emergency responses.\n• Alarm systems or GPS tracking on vehicles used to transport cash.\n• Background checks on staff who handle cash — reliable, trustworthy.\n\nTeaching point: Missing cash points to weak custody controls. Good answers reduce the amount of cash handled (encourage EFTs), split the receiving/banking duties, secure the transport of cash, and monitor deposits against bank confirmations.",
+          "topic": "Internal Control - Cash",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-1-2-1",
+          "label": "1.2.1",
+          "questionText": "CREDITORS' RECONCILIATION — SEB TRADERS\n\nThe information relates to SEB Traders for August 2023.\n\nREQUIRED: Taking into account the errors and omissions, calculate the correct balance of the Creditors' Control Account and the Creditors' List. Indicate changes with '+' for an increase and '–' for a decrease.\n\nINFORMATION:\nA. Balances and totals on 31 August 2023 (before correcting the errors and omissions):\n  Creditors' Control Account balance: R175 940\n  Creditors' List total in the Creditors' Ledger: R186 350\n  LIST OF CREDITORS: Phuto Wholesalers — R64 950; Planet Suppliers — R27 200; Mish Dealers — R51 800; Arial Suppliers — R42 400\n\nB. Errors or omissions:\n  (i) The total of the Creditors' Allowances Journal (CAJ) was understated by R3 600.\n  (ii) A payment of R14 250 made to Phuto Wholesalers was in error posted as R15 240 to the Creditors' Ledger Account. The posting to the General Ledger was correct.\n  (iii) An invoice received from Planet Suppliers, R9 540, and recorded in the Creditors' Journal (CJ), was posted in error to the account of Phuto Wholesalers in the Creditors' Ledger.\n  (iv) Goods returned to Mish Dealers, R7 500, and recorded in the CAJ, was posted to their account in the Creditors' Ledger as an invoice.\n  (v) SEB Traders recorded a purchase of R13 280 from Arial Suppliers in the CJ after deducting a trade discount of 20%. However, Arial Suppliers informed them that the trade discount agreed on was only 10%.",
+          "marks": 9,
+          "memoText": "                         Creditors' Control   Creditors' List\nProvisional balances     175 940              186 350\n(i)                      − 3 600 ✓            0\n(ii)                     0                    + 990 ✓✓   [15 240 − 14 250 — two marks]\n(iii)                    0                    0\n(iv)                     0                    − 15 000 ✓✓  (− 7 500 − 7 500)\n(v)                      + 1 660 ✓✓           + 1 660 ☑   [see Creditors' Control — three marks in total; the amount may fall in either column]\n                         -------              -------\n                         174 000 ☑*           174 000\n\n* one part correct.  Both totals must include the provisional balances; they could be different amounts. Accept brackets for the − sign; if no sign, assume positive.\n\nWorkings / reasoning:\n(i) The CAJ (creditors' allowances / returns) was understated by R3 600, so purchases returns were understated and the Control balance is overstated. Subtract R3 600 from the Control. The individual accounts were posted correctly, so the List is unchanged.\n(ii) A payment of R14 250 was posted to Phuto's ledger account as R15 240 (ledger only — the GL was correct). Phuto's balance was reduced by R990 too much, so add R990 to the List.\n(iii) Planet's invoice of R9 540 was credited to Phuto instead of Planet. This moves R9 540 from one creditor to another — the List total does not change (Phuto − 9 540, Planet + 9 540). The Control is unaffected.\n(iv) Returns of R7 500 to Mish were posted to Mish's account as an invoice (an increase) instead of a decrease. Mish's account is overstated by 2 × R7 500 = R15 000. Subtract R15 000 from the List. The Control is unaffected (the CAJ total was correct for this item).\n(v) The purchase from Arial was recorded at R13 280 after a 20% trade discount, so the list price = 13 280 ÷ 80% = R16 600. With the correct 10% discount it should be 16 600 × 90% = R14 940. Understated by R14 940 − R13 280 = R1 660 — add R1 660 to BOTH the Control and the List (Arial).\n\nTeaching point: Ask for each error 'does this affect the General Ledger control account, the subsidiary ledger, or both?' Journal-casting and purchase-amount errors hit the Control; a posting to the wrong creditor or the wrong side or the wrong amount in one account hits only the List.",
+          "topic": "Creditors' Reconciliation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-1-2-2",
+          "label": "1.2.2",
+          "questionText": "CREDITORS' RECONCILIATION — SEB TRADERS\n\nUse the same information as in 1.2.1. Phuto Wholesalers' balance in the Creditors' List before corrections is R64 950. Errors affecting Phuto: (ii) his account was reduced by R990 too much when a payment was posted as R15 240 instead of R14 250; (iii) Planet Suppliers' invoice of R9 540 was wrongly credited to Phuto's account.\n\nREQUIRED: SEB Traders intend settling the account of Phuto Wholesalers on 31 August 2023. Calculate the amount due to them.",
+          "marks": 3,
+          "memoText": "AMOUNT DUE TO PHUTO WHOLESALERS\n\n  64 950  +  990 ☑ (see 1.2.1 (ii) on the Creditors' List)  −  9 540 ✓ (see 1.2.1 (iii))\n  =  R56 400 ☑  (one part correct, with the correct signs)\n\nTeaching point: Take Phuto's opening balance, add back the R990 by which his account was over-reduced, and remove the R9 540 invoice that actually belongs to Planet Suppliers. The R56 400 is what SEB Traders owes Phuto.",
+          "topic": "Creditors' Reconciliation",
+          "type": "calculation"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Cost Accounting (T2Fit Manufacturers & Lighting Kings)",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2023-2-1-1",
+          "label": "2.1.1",
+          "questionText": "T2FIT MANUFACTURERS\n\nThe business, owned by Mark Fit, manufactures T-shirts. The financial year ended on 28 February 2023.\n\nREQUIRED: Calculate the direct material cost. Refer to Information A.\n\nINFORMATION A(i) — Raw material (fabric to manufacture T-shirts):\n• Fabric is issued from the storeroom to the factory for production.\n• The weighted-average method is used to determine the value of the fabric.\nNOTE: 1,2 metres of fabric is required to make one T-shirt.\n\n                                    | METRES   | AMOUNT R\n  Stock balance on 1 March 2022     | 1 600 m  | 64 800\n  Purchases                         | 18 800 m | 894 000\n    April 2022                      | 6 400 m  | 288 000\n    August 2022                     | 7 000 m  | 336 000\n    January 2023                    | 5 400 m  | 270 000\n  Available for use                 | 20 400 m | 958 800\n  Raw material issued to the factory| 18 900 m | ?\n  Stock balance on 28 February 2023 | 1 500 m  | ?",
+          "marks": 4,
+          "memoText": "DIRECT MATERIAL COST\n\n  Weighted-average cost per metre = [958 800 ÷ 20 400]  =  R47 ✓✓ per metre\n  Fabric issued to the factory:  R47 × 18 900 m ✓  =  R888 300 ☑  (one part correct)\n\n  OR:  [64 800 + 894 000]  958 800 [one mark]  −  70 500 [1 500 m × R47 — two marks]  =  R888 300\n\nTeaching point: Under the weighted-average method every metre carries the same average cost — total value R958 800 ÷ total metres 20 400 = R47/m. The direct material cost is the fabric actually issued to production: 18 900 m × R47 = R888 300 (equivalently, cost available R958 800 less closing stock of 1 500 m × R47).",
+          "topic": "Cost Accounting - Direct Material Cost",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-2-1-2",
+          "label": "2.1.2",
+          "questionText": "T2FIT MANUFACTURERS\n\nUse the same business as in 2.1.1.\n\nREQUIRED: Calculate the factory overhead costs for the year by completing the table in the ANSWER BOOK.\n\nINFORMATION B — Factory overhead costs:\nThe bookkeeper calculated the factory overheads as R600 000. However, he made the following errors which must be corrected:\n  (i) The closing stock of factory indirect material, R7 000, was omitted.\n  (ii) The total water and electricity cost for the year, R84 000, was included in factory overheads. This should be allocated as follows: Office 15%; Selling and distribution 25%; Factory 60%.\n  (iii) Factory insurance of R45 000 (the factory's share, being 3 of the 6 parts under the old ratio of 3 : 1 : 2 for factory, sales and office) should instead be allocated according to floor space, as follows: Factory 1 500 m²; Sales 300 m²; Office 600 m².",
+          "marks": 7,
+          "memoText": "FACTORY OVERHEAD COSTS FOR THE YEAR\n\nIncorrect total:                          600 000\n\nIndirect material:  (7 000) ✓\n  The closing stock of factory indirect material must be deducted from factory overheads.\n\nWater and electricity:  (33 600) ✓☑*\n  Only 60% belongs to the factory; remove the other 40%:  84 000 × 40% = R33 600 to deduct.\n  OR  12 600 + 21 000 [15% + 25% of 84 000]  OR  −84 000 + R50 400.\n\nInsurance:  11 250 ☑*  (add)\n  R45 000 = 3 parts, so total insurance = 45 000 × 6/3 = R90 000.\n  Correct factory share by floor space (1 500 : 300 : 600 = 5 : 1 : 2, total 8) = 90 000 × 5/8 = R56 250.\n  Adjustment = 56 250 − 45 000 = R11 250 to add.\n  OR  90 000 × 1/8   OR  45 000 × ¼   OR  28 125 − 16 875  =  R11 250.\n\nCorrect total for factory overhead costs:\n  600 000 − 7 000 − 33 600 + 11 250  =  R570 650 ☑*  (the answer must include the R600 000)\n\n* one part correct. Ignore brackets or signs; if incorrect, lose the method mark on the final answer. Ignore foreign items.\n\nTeaching point: Fix each of the bookkeeper's errors as an adjustment to his R600 000: remove the omitted closing stock, strip out the non-factory portion of water and electricity (keep only 60%), and re-split insurance on floor area (the factory's share rises from ½ to ⅝).",
+          "topic": "Cost Accounting - Factory Overhead Cost",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-2-1-3",
+          "label": "2.1.3",
+          "questionText": "T2FIT MANUFACTURERS\n\nUse the same business as in 2.1.1.\n• Direct material costs (from 2.1.1): R888 300\n• Direct labour cost (Information C): R408 600\n• Factory overhead costs (from 2.1.2): R570 650\n• Work-in-progress stock: 1 March 2022 — R0; 28 February 2023 — R235 500\n\nREQUIRED: Prepare the Production Cost Statement for the year ended 28 February 2023.",
+          "marks": 5,
+          "memoText": "PRODUCTION COST STATEMENT FOR THE YEAR ENDED 28 FEBRUARY 2023\n\n  Direct material costs (see 2.1.1)                888 300 ☑\n  Direct labour costs                             408 600\n  PRIME COST (DMC + DLC)                          1 296 900 ☑\n  Factory overhead costs (see 2.1.2)              570 650 ☑\n  TOTAL COST OF PRODUCTION                        1 867 550\n  Work-in-progress (beginning of year)                    0\n                                                 1 867 550\n  Work-in-progress (end of year)                  (235 500) ✓\n  COST OF PRODUCTION OF FINISHED GOODS            1 632 050 ☑\n  (Prime cost + Factory overhead cost + opening WIP − closing WIP)\n\n−1 foreign items (max −1).\n\nTeaching point: Prime cost = direct materials + direct labour. Add factory overheads to get total manufacturing cost, then adjust for work-in-progress (add opening, subtract closing) to reach the cost of production of finished goods — here R235 500 of unfinished work is carried forward, reducing this year's completed cost.",
+          "topic": "Cost Accounting - Production Cost Statement",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-2-1-4",
+          "label": "2.1.4",
+          "questionText": "T2FIT MANUFACTURERS\n\nUse the same business as in 2.1.1.\n• 1,2 metres of fabric is required to make one T-shirt.\n• Number of T-shirts manufactured (Information C): 15 000 units.\n• Raw material issued to the factory: 18 900 m.\n• Weighted-average cost per metre (from 2.1.1): R47.\n\nREQUIRED: Calculate the cost of the wastage of raw materials.",
+          "marks": 4,
+          "memoText": "COST OF WASTAGE OF RAW MATERIALS\n\n  Fabric that should have been used:  15 000 T-shirts × 1,2 m = 18 000 m ✓✓\n  Fabric actually issued:  18 900 m ✓\n  Wastage:  18 900 − 18 000 = 900 m  ×  R47 (see 2.1.1)  =  R42 300 ☑  (one part correct, if multiplied by the weighted-average rate)\n\n  OR:  [15 000 × 1,2 × R47]  846 000  vs  888 300 (see 2.1.1)  →  888 300 − 846 000 = R42 300\n\nTeaching point: Standard usage is 15 000 × 1,2 m = 18 000 m. Anything issued above that (900 m) is wastage, valued at the same R47/m weighted-average cost = R42 300.",
+          "topic": "Cost Accounting - Direct Material Cost",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-2-1-5",
+          "label": "2.1.5",
+          "questionText": "T2FIT MANUFACTURERS\n\nUse the same business as in 2.1.1.\n\nREQUIRED: Mark is concerned about the increase in the cost of raw materials over the financial year. Provide TWO strategies that Mark can use to address the problem of wastage.",
+          "marks": 2,
+          "memoText": "Any TWO valid strategies (1 mark each; accept short statements):\n\n• Improve the training of factory workers.\n• Use cutting patterns / cutting technology / cutting machines / order pre-cut fabric.\n• Use material of a better quality / a cheaper supplier / change suppliers.\n• Regular servicing and maintenance of machines.\n• Use offcuts effectively for related products, e.g. caps, hoodies.\n• Pay incentives / bonuses for minimising wastage; encourage efficiency.\n• Increase supervision / monitor production so workers are not careless.\n\nTeaching point: Wastage strategies target how fabric is cut (patterns, machinery, pre-cut), the quality of the input, worker skill and supervision, and re-using offcuts rather than scrapping them.",
+          "topic": "Cost Accounting - Internal Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-2-2-1",
+          "label": "2.2.1",
+          "questionText": "LIGHTING KINGS (PTY) LTD\n\nThe business manufactures light bulbs. Richard Smith, the CEO, intended to reduce the production cost of Orion bulbs due to technological changes and to introduce the new Starlet bulbs by setting up a new factory.\n\n                                  | FACTORY A — ORION 2023 | ORION 2022 | FACTORY B — STARLET 2023\n  Number of units produced and sold| 163 000               | 198 860    | 225 000\n  Total cost of production per unit| R36,00                | R28,54     | R49,04\n  Break-even units                | 149 145               | 124 808    | 122 104\n  Total sales (R)                 | 7 498 000             | 8 352 120  | 15 300 000\n  Selling price per unit          | R46,00                | R42,00     | R68,00\n  Variable costs per unit         | R26,00                | R18,10     | R40,90\n  Total fixed cost (R)            | 2 982 900             | 2 982 900  | 3 309 000\n  Fixed cost per unit             | R18,30                | R15,00     | R14,71\n\nREQUIRED: Do a calculation to confirm that the 2023 break-even point of 149 145 units for Orion bulbs is correct.",
+          "marks": 3,
+          "memoText": "BREAK-EVEN POINT — ORION 2023\n\n        Total fixed costs                 [163 000 × R18,30]      2 982 900 ✓\n  ------------------------------------  =  --------------------  =  --------------  =  149 145 units\n  Selling price − variable cost/unit         R46 ✓ − R26 ✓             R20  (two marks)\n\n  OR:  [R46 × 149 145]  6 860 670  −  [R26 × 149 145]  3 877 770  −  2 982 900  =  0   (one mark each)\n\nMark the numerator and denominator as such.\n\nTeaching point: Break-even units = total fixed costs ÷ contribution per unit. Contribution = selling price R46 − variable cost R26 = R20. R2 982 900 ÷ R20 = 149 145 units — the given figure is confirmed.",
+          "topic": "Cost Accounting - Break-even Analysis",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-2-2-2",
+          "label": "2.2.2",
+          "questionText": "LIGHTING KINGS (PTY) LTD\n\nUse the same information as in 2.2.1. The total cost of production per unit of Orion bulbs increased from R28,54 (2022) to R36,00 (2023).\n\nPer-unit cost detail for Orion:\n  Direct labour cost per unit: R6,70 (2022) → R11,20 (2023)\n  Factory overhead cost per unit: R11,64 (2022) → R14,20 (2023)  [total factory overhead cost R2 314 600 in both years]\n\nNOTE: The current inflation rate is 7%.\n\nREQUIRED: Identify and explain TWO cost items (with figures) that may have contributed to the increase in the cost of production per unit. Provide a reason in each case.",
+          "marks": 6,
+          "memoText": "Do NOT accept direct material cost, selling & distribution cost or administration cost as the main points.\nCost with figures ✓✓ + trend with figures ✓✓ + reason ✓✓ (two points × 3 marks).\n\nPOINT 1 — Direct labour cost per unit increased (from R6,70) to R11,20 / by R4,50 / by 67,2% (well above the 7% inflation rate).\n  Reason: poor supervision / excessive overtime (linked to load shedding or other disruptions, or to meet targets) / inflationary wage increases not linked to production / poor or a lack of effective training / poor recruitment policy / lack of motivation (no incentives or rewards for effort).\n\nPOINT 2 — Factory overhead cost per unit increased (from R11,64) to R14,20 / by R2,56 / by 22%.\n  Reason: diseconomies of scale / production dropped while total factory overhead cost stayed constant at R2 314 600, so economies of scale were not achieved / poor management or supervision of the production process leading to a drop in production.\n  (Do NOT accept increases in specific expenses such as rent or electricity — total factory overhead cost was unchanged over the two years.)\n\nTeaching point: The cost of production PER UNIT rose partly because a per-unit cost (direct labour) genuinely jumped 67,2%, and partly because a FIXED total (factory overhead R2 314 600) was spread over fewer units (163 000 vs 198 860), pushing the per-unit figure up.",
+          "topic": "Cost Accounting - Unit Cost Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-2-2-3",
+          "label": "2.2.3",
+          "questionText": "LIGHTING KINGS (PTY) LTD\n\nUse the same information as in 2.2.1. In 2023 the new Starlet bulbs (Factory B) produced and sold 225 000 units at R68,00 each (total sales R15 300 000), with a break-even point of 122 104 units and a fixed cost per unit of R14,71. Orion (Factory A) sold 163 000 units at R46,00 (total sales R7 498 000), break-even 149 145 units, fixed cost per unit R18,30.\n\nREQUIRED: Explain whether the new Starlet bulbs were a good idea or not. Provide TWO points. Quote figures.",
+          "marks": 4,
+          "memoText": "Any TWO valid points ✓✓ with comparative figures ✓✓ — Starlet is better than / exceeds Orion:\n\n• Better sales revenue: by R7 802 000 (15 300 000 − 7 498 000) / by 104%.\n• More units sold: by 62 000 units (225 000 − 163 000) / by 38%.\n• Better profit: sold 102 896 units above its break-even point (225 000 − 122 104), against Orion's 13 855 above BEP / better contribution per unit of R27,10 (68,00 − 40,90) vs R20,00 / higher profit by about R2 511 382.\n• Fewer units needed to break even: by 27 041 (149 145 − 122 104).\n• Enjoys economies of scale: fixed cost per unit of R14,71 vs R18,30 for Orion.\n\n(Negative trends are in ORION, not Starlet: Orion's BEP rose by 24 337 units, production/sales fell by 35 860 units / 18%, and sales revenue fell by R854 120 / 10,2%.)\n\nTeaching point: Judge the new product on comparative evidence — Starlet outsells Orion, breaks even on far fewer units, earns a bigger margin per unit and benefits from economies of scale. It was a good idea.",
+          "topic": "Cost Accounting - Break-even Analysis",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Budgeting (Sunday Stores)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2023-3-1-a",
+          "label": "3.1 (a)",
+          "questionText": "SUNDAY STORES (PTY) LTD\n\nThe information relates to Sunday Stores (Pty) Ltd. The business is owned by Adam Stevens.\n\nThe bookkeeper's Cash Budget for November and December 2023 (Information B) lists the following line items: Cash sales; Cash from debtors; Interest on savings; Interest on fixed deposit; Discount received; Payments to creditors; Salaries of salespeople; Rent expense; Delivery expenses; Maintenance of vehicles; Audit fees; Bad debts; Depreciation.\n\nREQUIRED: Refer to Information B. Identify TWO items that were incorrectly recorded in the Cash Budget.",
+          "marks": 2,
+          "memoText": "Any TWO valid items (1 mark each):\n\n• Discount received\n• Bad debts\n• Depreciation\n\nTeaching point: A Cash Budget records only cash flowing in or out of the bank. Discount received is a bookkeeping reduction of a creditor (no separate cash flow), and bad debts and depreciation are non-cash expenses — none of them belong in a Cash Budget.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-3-1-b",
+          "label": "3.1 (b)",
+          "questionText": "SUNDAY STORES (PTY) LTD\n\nUse the same information as in 3.1 (a).\n\nREQUIRED: Identify TWO items in the Cash Budget that would NOT appear in a Projected Statement of Comprehensive Income.",
+          "marks": 2,
+          "memoText": "Any TWO valid items (1 mark each):\n\n• Cash from debtors\n• Payment to creditors\n\nTeaching point: The Projected Statement of Comprehensive Income shows income earned and expenses incurred, not cash movements. Collecting cash from debtors and paying creditors are settlements of balance-sheet accounts — they hit the Cash Budget only.",
+          "topic": "Budgeting - Cash Budget vs Projected Income Statement",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-3-2",
+          "label": "3.2",
+          "questionText": "SUNDAY STORES (PTY) LTD\n\nUse the same information as in 3.1 (a).\n\nINFORMATION C — Sales and collection from debtors:\n• Credit sales comprise 60% of total sales.\n• Debtors pay according to the following trends:\n    – 40% is collected in the month of sale. They receive a 5% discount.\n    – 50% is collected in the month following the month of sale.\n    – 8% is collected two months after the sale.\n    – 2% is written off as irrecoverable in the third month after the sale.\n\nCredit sales: September R535 500; October R640 500; November R651 000; December R682 500.\n\nREQUIRED: Complete the Debtors' Collection Schedule for December 2023.",
+          "marks": 8,
+          "memoText": "DEBTORS' COLLECTION SCHEDULE\n\n  Month of      | Credit sales | November | December\n  credit sale   | R            | R        | R\n  September     | 535 500      | 42 840   | (superfluous — lose the method mark on the total if entered)\n  October       | 640 500      | 320 250  | 51 240 ✓✓        (640 500 × 8%)\n  November      | 651 000      | 247 380  | 325 500 ✓✓       (651 000 × 50%)\n  December      | 682 500      | (× 40% × 95%) | 259 350 ✓✓☑*  (682 500 × 40% × 95%)\n  CASH FROM DEBTORS |          | 610 470  | 636 090 ☑*\n\n* one part correct. Accept correct figures placed in the wrong rows of the December column. Ignore workings or correct figures not reflected in the December column.\n\nWorkings:\n• October credit sales R640 500 → 8% collected in December = R51 240.\n• November credit sales R651 000 → 50% collected in December = R325 500.\n• December credit sales R682 500 → 40% collected in the month of sale less a 5% discount = 682 500 × 40% × 95% = R259 350.\n• Total December collection = 51 240 + 325 500 + 259 350 = R636 090.\n\nTeaching point: For the December column, pick up the tail of October's sales (8%), half of November's (50%) and the discounted current-month slice of December's (40% × 95%). The 5% discount applies only to the portion paid in the month of sale.",
+          "topic": "Budgeting - Debtors Collection Schedule",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-3-3-i",
+          "label": "3.3 (i)",
+          "questionText": "SUNDAY STORES (PTY) LTD\n\nUse the same information as in 3.1 (a) and 3.2. November 2023 credit sales are R651 000. Debtors who pay in the month of sale (40% of credit sales) receive a 5% discount.\n\nREQUIRED: Calculate the discount allowed in November 2023 (amount (i) in the Projected Statement of Comprehensive Income).",
+          "marks": 3,
+          "memoText": "DISCOUNT ALLOWED — NOVEMBER 2023\n\n  651 000 ✓  ×  [40% × 5%] ✓  (2% — one mark)\n  =  R13 020 ☑  (one part correct)\n\n  OR  260 400 − 247 380   (one mark each)\n  OR  247 380 × 5/95\n\nReasoning: Of the November credit sales of R651 000, 40% is paid in the month of sale and those debtors get a 5% discount. Discount allowed = 651 000 × 40% × 5% = R13 020.\n\nTeaching point: The discount is 5% of only the portion actually paid in the month of sale (40% of credit sales), not 5% of all credit sales.",
+          "topic": "Budgeting - Projected Income Statement",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-3-3-ii",
+          "label": "3.3 (ii)",
+          "questionText": "SUNDAY STORES (PTY) LTD\n\nUse the same information as in 3.1 (a).\n• Interest on savings in the Cash Budget: November 2023 — R1 200.\n• Information F: The savings account will be increased by R84 000 on 1 December 2023. Interest at 4% p.a. is not capitalised and is receivable at the end of each month.\n\nREQUIRED: Calculate the interest on the savings account in December 2023 (amount (ii) in the Cash Budget).",
+          "marks": 4,
+          "memoText": "INTEREST ON SAVINGS ACCOUNT — DECEMBER 2023\n\n  1 200 ✓  +  280  =  R1 480 ☑  (one part correct)\n  [280 = 84 000 × 4% × 1/12 — the extra month's interest on the R84 000 deposited on 1 December]\n\n  OR  [84 000 + 360 000]  444 000 [two marks]  ×  4% × 1/12 [one mark]  =  R1 480\n  (opening savings balance = 1 200 × 12/4 × 100 = R360 000; + R84 000 = R444 000)\n\nNote: '4%' on its own does not constitute 'one part correct'.\n\nReasoning: November interest of R1 200 is one month at 4% p.a., so the savings balance was R360 000. From 1 December it becomes R444 000, giving December interest of 444 000 × 4% ÷ 12 = R1 480 (or R1 200 + the R280 extra on the new R84 000).\n\nTeaching point: Because interest is not capitalised, each month's interest is simply the monthly rate (4% ÷ 12) on that month's balance. Adding R84 000 adds R280 of monthly interest.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-3-3-iii",
+          "label": "3.3 (iii)",
+          "questionText": "SUNDAY STORES (PTY) LTD\n\nUse the same information as in 3.1 (a).\n• Information A: October 2023 sales R1 067 500.\n• Information D: The mark-up percentage is 75% on cost. Stock is replaced in the month of sale (a base stock is maintained). All purchases of stock are on credit. Creditors are paid in full two months after purchase.\n\nREQUIRED: Calculate the payments to creditors in December 2023 (amount (iii) in the Cash Budget).",
+          "marks": 3,
+          "memoText": "PAYMENTS TO CREDITORS — DECEMBER 2023\n\n  Creditors are paid two months after purchase, so December pays for OCTOBER purchases.\n  October cost of sales = October sales × 100/175 = 1 067 500 ✓ × 100/175 ✓ = R610 000\n  Stock is replaced monthly, so purchases = cost of sales = R610 000 (all on credit).\n  Payments to creditors in December = R610 000 ☑  (one part correct)\n\nReasoning: With a 75% mark-up on cost, cost of sales = selling price × 100/175. October's R1 067 500 sales give cost of sales (and therefore credit purchases) of R610 000, which is settled two months later in December.\n\nTeaching point: 'Two months after purchase' is a two-month lag — December settles October. Base stock means purchases each month equal that month's cost of sales.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-3-3-iv",
+          "label": "3.3 (iv)",
+          "questionText": "SUNDAY STORES (PTY) LTD\n\nUse the same information as in 3.1 (a).\n• Rent expense in the Cash Budget: December 2023 — R31 640.\n• Information E: Rent expenses are expected to increase by 13% from 1 December 2023.\n\nREQUIRED: Calculate the rent expense for November 2023 (amount (iv) in the Cash Budget).",
+          "marks": 2,
+          "memoText": "RENT EXPENSE — NOVEMBER 2023\n\n  31 640 × 100/113  =  R28 000 ✓✓  (no part marks)\n\nReasoning: December's rent of R31 640 is November's rent plus 13%. Work backwards: 31 640 ÷ 1,13 = R28 000.\n\nTeaching point: When a figure has already been increased by 13%, divide by 1,13 (i.e. × 100/113) to recover the amount before the increase.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-3-4-1a",
+          "label": "3.4.1 (a)",
+          "questionText": "SUNDAY STORES (PTY) LTD\n\nRefer to Information G (budgeted and actual figures for November 2023):\n                        | BUDGETED | ACTUAL\n  Average number of customers | 480  | 640\n  Cash sales            | R434 000 | R341 800\n  Credit sales          | R651 000 | R1 068 700\n  Total sales           | R1 085 000 | R1 410 500\n  Salaries: Salespeople | R165 000 | R20 000\n  Commission: Salespeople | R0     | R141 050\n  Delivery expenses     | R43 400  | R79 300\n\nIn order to increase sales, Adam decided to change the way in which the salespeople are paid each month from 1 November 2023. The salespeople agreed to the change.\n\nREQUIRED: Explain the changes that Adam made.",
+          "marks": 2,
+          "memoText": "Any valid explanation (2 marks; figures not required):\n\n• He introduced a commission for the sales staff / decided on a smaller (reduced) fixed salary.\n\n(Budgeted salaries R165 000 with no commission became actual salaries of only R20 000 plus commission of R141 050.)\n\nTeaching point: Compare the salary and commission lines before and after — Adam cut the guaranteed salary sharply and added performance-based commission.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-3-4-1b",
+          "label": "3.4.1 (b)",
+          "questionText": "SUNDAY STORES (PTY) LTD\n\nUse Information G from 3.4.1 (a). Previously the salespeople earned R165 000 in salaries. In November 2023 they earned salaries of R20 000 plus commission of R141 050.\n\nREQUIRED: Explain why some of the salespeople regretted their decision to agree to these changes. Quote figures or show calculations.",
+          "marks": 3,
+          "memoText": "Comment ✓ + comparative figures ✓✓:\n\n• The fixed salary plus commission of R161 050 (20 000 + 141 050) is less than the R165 000 they earned previously — R3 950 less than the previous month.\n• Their contribution to total sales is R325 500 (30%) above the budgeted sales (1 410 500 − 1 085 000), yet they now earn less.\n• They attracted 160 (33,3%) more customers than budgeted (640 − 480), yet earned less.\n\nTeaching point: The salespeople did more (higher sales, more customers) but took home R3 950 less than before — the new package left the high performers worse off.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-3-4-1c",
+          "label": "3.4.1 (c)",
+          "questionText": "SUNDAY STORES (PTY) LTD\n\nUse Information G from 3.4.1 (a). Budgeted: total sales R1 085 000, credit sales R651 000, cash sales R434 000, 480 customers, budgeted profit R465 000. Actual: total sales R1 410 500, credit sales R1 068 700, cash sales R341 800, 640 customers, actual profit R604 500.\n\nREQUIRED: Adam feels that the decision has benefitted the company, while the sales manager, Milly, is concerned that it did not benefit the company. Provide ONE point (with figures or calculations) to support EACH of these opinions.",
+          "marks": 4,
+          "memoText": "ADAM (point ✓ + figure ✓) — the decision benefitted the company:\n• Total sales is above budget by R325 500 (1 410 500 − 1 085 000) / by 30%.\n• Attracted 160 more customers than expected (640 − 480) / by 33,3%.\n• Profit exceeds budget by R139 500 (604 500 − 465 000) / by 30%.\n• (one-mark option) may lead to improved sales in future / good for advertising.\n\nMILLY (point ✓ + figure ✓) — it did not benefit the company:\n• Credit sales are above budget by R417 700 (1 068 700 − 651 000) / by 64,2%.\n• Credit sales are 76% of total sales (cash sales R341 800 are only 24%).\n• Lower cash sales — R92 200 less than budget (434 000 − 341 800) — causing cash-flow problems.\n• (one-mark option) this compromises liquidity / may cause extra admin work / possible bad debts / delivery control needed.\n\n(Note: delivery expenses are not relevant to the decision on commission.)\n\nTeaching point: The same result reads two ways — Adam sees higher total sales, more customers and higher profit; Milly sees that the growth came from CREDIT sales while cash sales fell, which strains cash flow and raises bad-debt risk.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-3-4-2a",
+          "label": "3.4.2 (a)",
+          "questionText": "SUNDAY STORES (PTY) LTD\n\nAdam is concerned about the escalating rent expenses and plans to purchase the property.\n\nINFORMATION H — relevant to the purchase of the property (Adam will finance it with a loan and the fixed deposit that matures):\n  Cost of the property: R2 500 000\n  Fixed deposit to mature on 1 January 2024: R1 000 000\n  New loan from BK Bank on 1 January 2024: R1 500 000\n  Interest on loan for January 2024: R18 750\n  Monthly maintenance, rates and insurance: R12 500\n  Rent expense that would otherwise be paid (see 3.3 iv, December): R31 640 per month\n  Interest on fixed deposit that would otherwise be received: R7 500 per month\n\nREQUIRED: Calculate the net effect of this purchase on the receipts and payments in the Cash Budget.",
+          "marks": 5,
+          "memoText": "NET EFFECT ON THE CASH BUDGET\n\nOPTION 1:\n  [+ 1 000 000 (fixed deposit matures) + 1 500 000 (new loan) − 2 500 000 (property)]\n  − 18 750 (loan interest) ✓  − 12 500 (maintenance, rates, insurance) ✓  + 31 640 (rent no longer paid) ✓  − 7 500 (fixed-deposit interest no longer received) ✓\n  =  − R7 110 ☑  (one part correct)\n\nOR (signs reversed): [− 1 000 000 − 1 500 000 + 2 500 000] + 18 750 + 12 500 − 31 640 + 7 500 = + R7 110 (method mark).\n\n−1 (max −1) for figures that are not relevant to the calculation. Mark each line consistently.\n\nReasoning: The R1 000 000 fixed deposit plus the R1 500 000 loan exactly fund the R2 500 000 property (net zero). After that, the business gains by no longer paying rent (+R31 640) but loses by paying loan interest (−R18 750), maintenance/rates/insurance (−R12 500) and forgoing fixed-deposit interest (−R7 500). Net = −R7 110 (a small monthly decrease in the bank).\n\nTeaching point: Only bring in what actually changes in the Cash Budget — the financing and purchase net to zero, so the real effect is the swap of rent paid for the new ownership costs plus the lost interest income.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-3-4-2b",
+          "label": "3.4.2 (b)",
+          "questionText": "SUNDAY STORES (PTY) LTD\n\nUse the same information as in 3.4.2 (a). The net effect of the purchase on the Cash Budget is a decrease of about R7 110 per month.\n\nREQUIRED: Give ONE reason why Adam has decided to go ahead with this purchase.",
+          "marks": 2,
+          "memoText": "Any ONE valid point (2 marks; figures not necessary):\n\n• Capital growth (the property will appreciate) / the business acquires a fixed asset.\n• Long-term stability / the future of the business may be more secure (sustainability).\n• Savings on escalating rent expenses (rent rises 13% each period, ownership costs are more predictable).\n\nTeaching point: A small short-term cash decrease can be worth it for a long-term benefit — owning an appreciating asset and escaping rent that keeps climbing.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Stock Valuation and Fixed Assets (Clearview Electronics & Thembeka)",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2023-4-1-1",
+          "label": "4.1.1",
+          "questionText": "Choose the correct cost concept from those given in brackets:\n\n\"The (periodic / perpetual) stock system records the cost of goods sold at the point of sale.\"",
+          "marks": 1,
+          "memoText": "perpetual ✓\n\nTeaching point: The perpetual (continuous) system updates the trading-stock account and records cost of sales with every sale. The periodic system only works out cost of sales at year-end from a physical stock count.",
+          "topic": "Stock Valuation - Concepts",
+          "type": "mcq",
+          "options": { "A": "periodic", "B": "perpetual" }
+        },
+        {
+          "id": "acc-p2-nov-2023-4-1-2",
+          "label": "4.1.2",
+          "questionText": "Choose the correct cost concept from those given in brackets:\n\n\"The (first-in first-out / weighted-average) method is more relevant for low-cost stock items purchased on a more regular basis.\"",
+          "marks": 1,
+          "memoText": "weighted-average ✓ (accept WA or WAM)\n\nTeaching point: For many low-value items bought frequently at slightly different prices, it is impractical to track each batch — the weighted-average method pools them into one average cost.",
+          "topic": "Stock Valuation - Concepts",
+          "type": "mcq",
+          "options": { "A": "first-in first-out", "B": "weighted-average" }
+        },
+        {
+          "id": "acc-p2-nov-2023-4-1-3",
+          "label": "4.1.3",
+          "questionText": "Choose the correct cost concept from those given in brackets:\n\n\"The (first-in first-out / weighted-average) stock valuation method will value closing stock at the most current stock prices.\"",
+          "marks": 1,
+          "memoText": "first-in first-out ✓ (accept FIFO)\n\nTeaching point: FIFO assumes the oldest stock is sold first, so what remains in closing stock is valued at the most recent purchase prices.",
+          "topic": "Stock Valuation - Concepts",
+          "type": "mcq",
+          "options": { "A": "first-in first-out", "B": "weighted-average" }
+        },
+        {
+          "id": "acc-p2-nov-2023-4-2-1",
+          "label": "4.2.1",
+          "questionText": "INVENTORY VALUATION — CLEARVIEW ELECTRONICS\n\nClearview Electronics is owned by Sipho Cossa. The business sells two models of printers, Hawi and Yama. The specific identification method is used to value their stock. Their financial year ended on 28 February 2023. Good internal controls ensured that there were no stock shortages.\n\nINFORMATION:\n  Stock records | Model | Units purchased | Cost price | Total R\n  Opening stock | Hawi  | 90              | R3 800     | 342 000\n  Purchases     |       | 835             |            | 3 969 950\n                | Hawi  | 340             | R3 800     | 1 292 000\n                | Yama  | 495             | R5 410     | 2 677 950\n  Returns       | Hawi  | 5               | R3 800     | 19 000\n\n  Sale of printers:\n  Model | Units sold | Selling price\n  Hawi  | 300        | R5 700\n  Yama  | 430        | R7 300\n\nREQUIRED: Calculate the value of the closing stock on 28 February 2023. Use the specific identification method.",
+          "marks": 6,
+          "memoText": "CLOSING STOCK — SPECIFIC IDENTIFICATION\n\nHAWI:  [90 + 340 − 5]  425 units available  −  300 sold  =  125 units ✓☑  ×  R3 800 ✓  =  R475 000  (three marks)\n  OR  [342 000 + 1 292 000 − 19 000]  1 615 000 [one mark]  −  1 140 000 [300 × R3 800 — two marks]  =  R475 000\n\nYAMA:  495 purchased  −  430 sold  =  65 units ✓  ×  R5 410 ✓  =  R351 650  (two marks)\n  OR  2 677 950  −  2 326 300 [430 × R5 410]  =  R351 650\n\nCLOSING STOCK:  475 000 + 351 650  =  R826 650 ☑  (one part correct; must include the components of each model)\n\nTeaching point: With specific identification, each model keeps its own cost. Hawi: 90 + 340 − 5 = 425 available, less 300 sold = 125 left at R3 800. Yama: 495 − 430 = 65 left at R5 410. Add the two models.",
+          "topic": "Stock Valuation - Specific Identification",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-4-2-2",
+          "label": "4.2.2",
+          "questionText": "INVENTORY VALUATION — CLEARVIEW ELECTRONICS\n\nUse the same information as in 4.2.1. Closing stock of Hawi printers is 125 units (R475 000). 300 Hawi printers were sold during the year at a cost price of R3 800 each.\n\nREQUIRED: Calculate how long (in days) it will take to sell the closing stock of the Hawi printers.",
+          "marks": 4,
+          "memoText": "DAYS TO SELL CLOSING STOCK OF HAWI PRINTERS\n\n  Closing stock ÷ cost of sales × 365\n  =  R475 000 ☑ (see 4.2.1)  /  1 140 000 ✓✓ [300 × R3 800]  ×  365\n  =  152,1 days ☑  (one part correct, if multiplied by 365)\n\n  OR (using units):  125 [one m. mark]  /  300 [two marks]  ×  365  =  152,1 days\n\nMark the numerator and denominator as such.\n\nTeaching point: Stockholding period = stock ÷ throughput × 365. Hawi's cost of sales is 300 × R3 800 = R1 140 000, so 475 000 / 1 140 000 × 365 ≈ 152 days — more than five months of stock still on hand.",
+          "topic": "Stock Valuation - Financial Indicators",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-4-2-3",
+          "label": "4.2.3",
+          "questionText": "INVENTORY VALUATION — CLEARVIEW ELECTRONICS\n\nUse the same information as in 4.2.1. The stockholding period of the Hawi printers is 152,1 days; the stockholding period of the Yama printers is 55,2 days. (5 Hawi printers were returned to the supplier during the year.)\n\nREQUIRED: Explain whether Sipho should be concerned about the stockholding periods of the Hawi and Yama printers. Quote figures. Give possible reasons for the difference in the holding periods of the two models.",
+          "marks": 6,
+          "memoText": "HAWI (explanation ✓ + figure ✓):\n• On the shelves for 152,1 days (more than 3 months) — slow sales / not popular / an older model (units were returned) / possible obsolescence.\n• OR: the printers are durable and can still be sold in future.\n\nYAMA (explanation ✓ + figure ✓):\n• On the shelves for only 55,2 days (less than 2 months) — although more expensive, sales are steadier / there is good demand.\n\nFOR FOUR MARKS — a combined answer comparing both models:\n• Hawi sits on the shelves about 97 days (≈3 months) longer than Yama / Yama sells roughly 97 days faster than Hawi even though it is more expensive.\n\nPOSSIBLE REASON FOR THE DIFFERENCE (✓):\n• Yama is a later model / offers the latest, up-to-date technology / is compatible with the latest computer programs / is better quality with more features.\n\nTeaching point: Sipho should be concerned about Hawi — over five months of stock tied up, with returns suggesting a fading model. Yama turns over quickly despite its higher price, most likely because it is the newer, more capable model.",
+          "topic": "Stock Valuation - Interpretation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-4-3-1a",
+          "label": "4.3.1 (a)",
+          "questionText": "FIXED ASSETS — THEMBEKA (PTY) LTD\n\nThe information relates to the fixed/tangible assets of Thembeka (Pty) Ltd. The CEO is Lee Klou. The financial year ended on 28 February 2023.\n\nINFORMATION:\nB. Balances — Vehicles:  2023 — R930 000;  2022 — R? (cost price)\nC. A vehicle was traded in for a new one on 1 June 2022, the new vehicle costing R260 000. The vehicle disposed of (Hyundai XL) had a cost price of R180 000.\n\nREQUIRED: Calculate the cost price of vehicles on 1 March 2022.",
+          "marks": 3,
+          "memoText": "COST PRICE OF VEHICLES ON 1 MARCH 2022\n\n  930 000  −  260 000 ✓ (new vehicle bought during the year)  +  180 000 ✓ (old vehicle sold, at cost)\n  =  R850 000 ☑  (one part correct; accept R930 000 as 'one part correct')\n\nTeaching point: Work backwards from the closing cost of vehicles. Remove what was bought during the year and add back the cost of what was sold to get the opening cost.",
+          "topic": "Fixed Assets",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-4-3-1b",
+          "label": "4.3.1 (b)",
+          "questionText": "FIXED ASSETS — THEMBEKA (PTY) LTD\n\nUse the same information as in 4.3.1 (a).\n\nINFORMATION C — extract from the Fixed Asset Register for the vehicle disposed of on 1 June 2022:\n  Asset: Hyundai XL | Date purchased: 1 March 2020 | Cost price: R180 000\n  Depreciation rate: 20% p.a. on the diminishing-balance method\n  Date              | Depreciation | Accumulated depreciation\n  28 February 2021  | R36 000      | R36 000\n  28 February 2022  | R28 800      | R64 800\n  1 June 2022       | R?           | R?\n  NOTE: The profit on the disposal of this vehicle was R5 560.\n\nREQUIRED: Calculate the trade-in value received on the vehicle disposed of on 1 June 2022.",
+          "marks": 5,
+          "memoText": "TRADE-IN VALUE — VEHICLE DISPOSED OF ON 1 JUNE 2022\n\nStep 1 — Depreciation for 1 March 2022 to 1 June 2022 (3 months):\n  (180 000 − 64 800) × 20% × 3/12  =  115 200 × 20% × 3/12  =  R5 760\n\nStep 2 — Accumulated depreciation at disposal:\n  64 800 + 5 760  =  R70 560 ✓✓\n\nStep 3 — Carrying value at disposal:\n  180 000 − 70 560  =  R109 440\n\nStep 4 — Trade-in value (Asset Disposal account):\n  Cost 180 000 + profit on disposal 5 560 ✓ − accumulated depreciation 70 560\n  =  R115 000 ☑  (one part correct)\n\nAsset Disposal account:\n  Dr: Vehicle 180 000; Profit on disposal 5 560   |   Cr: Accumulated depreciation 70 560; Trade-in (balancing) 115 000\n\nTeaching point: A profit on disposal means the trade-in value exceeded the carrying value by that profit. Carrying value R109 440 + profit R5 560 = trade-in value R115 000. Remember the 3 months of extra depreciation up to the disposal date.",
+          "topic": "Fixed Assets",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2023-4-3-2",
+          "label": "4.3.2",
+          "questionText": "FIXED ASSETS — THEMBEKA (PTY) LTD\n\nINFORMATION:\nA. Depreciation policy — Computers: 25% p.a. on cost.\nB. Balances — Computers: R300 000 (2023 and 2022); Accumulated depreciation on computers: R262 500 (2022).\n\nThe bookkeeper calculated the depreciation of the computers as: R300 000 × 25% = R75 000.\n\nREQUIRED: Explain why his method is incorrect and provide a calculation to support your explanation.",
+          "marks": 4,
+          "memoText": "EXPLANATION ✓✓:\n• The bookkeeper has not realised that the computers are almost fully depreciated.\n• The R75 000 cannot be correct as it would push the carrying value below zero (negative).\n• A fully depreciated asset must retain a book value of R1 for disclosure purposes.\n\nCALCULATION ✓✓ (no part marks):\n  Carrying value = 300 000 − 262 500 = R37 500\n  Maximum depreciation = 37 500 − 1  =  R37 499\n\nTeaching point: Depreciation can never reduce the carrying value below R1. With only R37 500 of carrying value left, depreciation this year is limited to R37 499, not the R75 000 the 25%-on-cost formula gives.",
+          "topic": "Fixed Assets",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2023-4-3-3",
+          "label": "4.3.3",
+          "questionText": "FIXED ASSETS — THEMBEKA (PTY) LTD\n\nThe CEO, Lee Klou, wants to improve the company's image by donating the old computers to a local school in March 2023. He also plans to upgrade the software on these computers at an extra cost of R20 000. The shareholders feel that the old computers should be sold at a profit.\n\nREQUIRED: Explain TWO possible arguments that the CEO can use to support his decision.",
+          "marks": 4,
+          "memoText": "Any TWO valid reasons (2 marks each):\n\n• The donation to a school in the community is part of the company's compliance with corporate social responsibility (triple-bottom-line / King Code).\n• It promotes a good image of the company / good publicity / will attract more customers.\n• Giving back to the community that supports the business.\n• It is a tax-deductible donation.\n• The computers may be close to their residual value / fully depreciated / no longer productive / not compatible with the company's new programs.\n\nTeaching point: The CEO's case rests on social responsibility and reputation, the tax deduction, and the fact that the computers are near end-of-life for the business anyway — so little real profit is being given up.",
+          "topic": "Fixed Assets",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

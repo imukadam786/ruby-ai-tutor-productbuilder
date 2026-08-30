@@ -1,0 +1,414 @@
+{
+  "id": "acc-p2-nov-2024",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P2",
+  "year": 2024,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Debtors' Reconciliation, Age Analysis and VAT (Matsamo Traders, Timo Traders & Zaba Stores)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2024-1-1-1",
+          "label": "1.1.1",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE:\n\n\"EFT payments by debtors should be recorded in the CRJ, only after receiving proof of payment or an entry on the business' bank statement.\"",
+          "marks": 1,
+          "memoText": "True ✓\n\nTeaching point: A debtor's EFT is only recognised as a receipt once there is objective proof — a payment confirmation from the debtor or the deposit appearing on the bank statement — because until then the cash has not actually reached the business.",
+          "topic": "Debtors - Internal Control",
+          "type": "mcq",
+          "options": { "A": "True", "B": "False" }
+        },
+        {
+          "id": "acc-p2-nov-2024-1-1-2",
+          "label": "1.1.2",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE:\n\n\"Output VAT is regarded as an asset.\"",
+          "marks": 1,
+          "memoText": "False ✓\n\nTeaching point: Output VAT is the VAT a business charges on its sales and owes to SARS — it is a liability (part of VAT payable / the VAT control account), not an asset. Input VAT (VAT paid on purchases, recoverable from SARS) is the asset side.",
+          "topic": "VAT (Value-Added Tax)",
+          "type": "mcq",
+          "options": { "A": "True", "B": "False" }
+        },
+        {
+          "id": "acc-p2-nov-2024-1-1-3",
+          "label": "1.1.3",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE:\n\n\"VAT on bad debts will decrease VAT payable to SARS.\"",
+          "marks": 1,
+          "memoText": "True ✓\n\nTeaching point: When a debt is written off as irrecoverable, the business never collected the output VAT it originally charged and paid over on that sale. Writing off the bad debt lets the business claw back that VAT, which reduces the amount of VAT payable to SARS.",
+          "topic": "VAT (Value-Added Tax)",
+          "type": "mcq",
+          "options": { "A": "True", "B": "False" }
+        },
+        {
+          "id": "acc-p2-nov-2024-1-2-1",
+          "label": "1.2.1",
+          "questionText": "MATSAMO TRADERS\n\nThe information relates to Matsamo Traders for August 2024. The business sells goods for cash and on credit.\n\nREQUIRED: Calculate the correct balance of the Debtors' Control account on 31 August 2024. Provide figures and a plus (+) or minus (–) sign for each correction. If there is no change to the balance, indicate with (0).\n\nINFORMATION:\nA. Balances on 31 August 2024 before taking the errors and omissions below into account:\n  (i) Debtors' Control Account balance in the General Ledger: R359 100\n  (ii) List of debtors' balances as per Debtors' Ledger:\n      N Naidoo — 63 000\n      S Sibiya — 69 000\n      V Esterhuizen — 114 000\n      J Nyoka — 95 700\n      W du Plessis — 11 500\n      Total — 353 200\n\nB. Errors and omissions:\n  (i) No entry was made for the credit sale invoice issued to N Naidoo, R4 500.\n  (ii) Merchandise sold on credit to S Sibiya for R18 000 was incorrectly posted to the account of V Esterhuizen.\n  (iii) The debtors' allowances column in the DAJ was undercast by R11 000.\n  (iv) An EFT payment of R5 700 was made by W du Plessis. This was correctly recorded in the relevant journal, but was posted as R7 500 to his account in the Debtors' Ledger.\n  (v) Credit sales to V Esterhuizen, R5 200, were incorrectly recorded as R2 500 in the Debtors' Journal and posted as such to the Debtors' Control Account and Esterhuizen's account in the Debtors' Ledger.\n  (vi) Goods returned by J Nyoka, R3 450, were posted to the wrong side of his account in the Debtors' Ledger.",
+          "marks": 5,
+          "memoText": "DEBTORS' CONTROL ACCOUNT — correct balance on 31 August 2024\n\nBalance before errors and omissions:  R359 100\n(i)   + 4 500 ✓        — omitted credit sale to N Naidoo increases the Control balance.\n(ii)  0                — posting between two debtors' accounts; the Control total is unaffected.\n(iii) − 11 000 ✓       — the DAJ (debtors' allowances) was undercast, so allowances were understated; correcting it reduces the amount owed by debtors.\n(iv)  0                — the journal was correct; the R7 500 vs R5 700 error is only in the Debtors' Ledger, not the Control account.\n(v)   + 2 700 ✓✓       — credit sales recorded as R2 500 instead of R5 200 (in BOTH the journal and the Control account); understated by R5 200 − R2 500 = R2 700. [two marks for both figures; the R2 700 must be positive]\n(vi)  0                — posting to the wrong side of a debtor's account in the Debtors' Ledger only; the Control total is unaffected.\n\nCorrect balance of Debtors' Control Account:  359 100 + 4 500 − 11 000 + 2 700  =  R355 300 ☑  (one part correct; the answer must include the R359 100 opening balance)\n\nA superfluous entry (a figure placed against an item that should be 0) loses the method mark on the total.\n\nTeaching point: Only errors that affect the General Ledger (sales, allowances, casting of a journal that posts to Control) change the Debtors' Control balance. Errors that are purely within the Debtors' Ledger — a wrong debtor, a wrong side, a wrong amount posted only to a subsidiary account — change the Debtors' List but NOT the Control account.",
+          "topic": "Debtors - Reconciliation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-1-2-2",
+          "label": "1.2.2",
+          "questionText": "MATSAMO TRADERS\n\nUse the same information as in 1.2.1 (Information A and the errors and omissions B(i)–(vi)).\n\nREQUIRED: Complete the correct Debtors' List on 31 August 2024. The pre-adjustment figures have been entered:\n  N Naidoo — 63 000\n  S Sibiya — 69 000\n  V Esterhuizen — 114 000\n  J Nyoka — 95 700\n  W du Plessis — 11 500\n  Total — 353 200",
+          "marks": 14,
+          "memoText": "CORRECT DEBTORS' LIST ON 31 AUGUST 2024\n\nN Naidoo:      63 000 + 4 500  =  67 500 ✓✓        (add the omitted credit sale)\nS Sibiya:      69 000 + 18 000  =  87 000 ✓✓       (add the R18 000 sale that was wrongly posted to Esterhuizen)\nV Esterhuizen: 114 000 − 18 000 ✓ + 2 700 ☑  =  98 700 ☑*\n               (remove the R18 000 that belongs to Sibiya; add the R2 700 understatement of his own credit sales — see 1.2.1(v): 5 200 − 2 500)\nJ Nyoka:       95 700 − 3 450 − 3 450  =  88 800 ☑*   (− 6 900 — two marks; the R3 450 returns were posted to the wrong side, so the account is overstated by 2 × R3 450)\nW du Plessis:  11 500 + 7 500 ✓ − 5 700 ✓  =  13 300 ☑*   (reverse the incorrect R7 500 posting, then post the correct EFT of R5 700 — net + R1 800; 1 800 — two marks)\n\nCorrect total of Debtors' List:  67 500 + 87 000 + 98 700 + 88 800 + 13 300  =  R355 300 ☑*\n\n* one part correct.  The corrected total (R355 300) must agree with the corrected Debtors' Control balance from 1.2.1.\n\nTeaching point: Work debtor by debtor. Each ledger-only error from Information B lands on exactly one (or two) debtors here — a wrong debtor moves an amount between two accounts, a wrong side doubles the error, and a wrong amount posted only to the subsidiary account is fixed by reversing and re-posting.",
+          "topic": "Debtors - Reconciliation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-1-3-1",
+          "label": "1.3.1",
+          "questionText": "DEBTORS' AGE ANALYSIS — TIMO TRADERS\n\nThe information relates to Timo Traders. Their credit terms are 60 days and it is expected that at least 90% of debtors will adhere to these terms.\n\nDebtors' Age Analysis on 31 August 2024:\n  Total       | Current month | 30 days | 60 days | 90 days | 90 +\n  R240 000    | R118 000      | R36 000 | R38 000 | R29 200 | R18 800\n\nREQUIRED: Provide a calculation or figures to show why Timo Traders should not be satisfied with the figures in the Debtors' Age Analysis.",
+          "marks": 4,
+          "memoText": "Debtors within the 60-day credit terms = Current month + 30 days + 60 days:\n\n  (118 000 + 36 000 + 38 000) / 240 000 × 100  =  192 000 ✓✓ / 240 000 ✓ × 100  =  80% ☑*  (one part correct)\n  OR  49,2% + 15% + 15,8%  =  80%\n\nOR — debtors OUTSIDE the terms (90 days + 90+):\n\n  (29 200 + 18 800) / 240 000 × 100  =  48 000 / 240 000 × 100  =  20%  (one part correct)\n  OR  12,2% + 7,8%  =  20%\n\nAccept 'the business is 10% below its target'. Do NOT accept an answer expressed as 'R'. '× 100' on its own does not count as one part correct.\n\nTeaching point: Only 80% of debtors are paying within the 60-day terms, against a target of at least 90% — so 20% of debtors (R48 000) are overdue. Timo Traders should not be satisfied because too much money is tied up in slow-paying accounts, which weakens cash flow and raises the bad-debt risk.",
+          "topic": "Debtors - Age Analysis",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-1-3-2",
+          "label": "1.3.2",
+          "questionText": "DEBTORS' AGE ANALYSIS — TIMO TRADERS\n\nUse the same information as in 1.3.1.\n\nNOTE:\n• Maximum discount is granted to debtors who settle their accounts timeously.\n• Interest at the accepted rate is being charged.\n\nREQUIRED: Explain TWO points of advice that you will offer to the owner.",
+          "marks": 4,
+          "memoText": "Any TWO valid points (2 marks each). Do NOT accept 'offer discounts' or 'charge interest' (the NOTE states these are already in place).\n\n• Encourage customers to pay using a debit order to avoid delayed payments.\n• Implement an automated reminder system (SMS, email and phone calls) to notify customers of upcoming due dates, overdue accounts and payment confirmation.\n• Proper screening of debtors / a background check to assess a debtor's financial status before credit is offered.\n• Decrease the credit limit of customers who are not adhering to credit terms / assess creditworthiness (credit score / credit history) regularly and adjust credit limits accordingly.\n• Offer various payment options / payment plans to debtors not adhering to credit terms.\n• Suspend / block / freeze the accounts of debtors who fail to pay on time.\n• Utilise a debt-collection service / hand over to debt collectors / take legal action.\n\nTeaching point: Because discount and interest are already being used, the advice must focus on collection methods, screening before granting credit, and consequences (limits, suspension, hand-over) for debtors who break the terms.",
+          "topic": "Debtors - Age Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-1-4-a",
+          "label": "1.4 (A)",
+          "questionText": "VALUE-ADDED TAX — ZABA STORES\n\nThe following information relates to the financial records of Zaba Stores for the VAT period ended 31 August 2024. 15% VAT is applicable. Certain items are zero-rated.\n\nREQUIRED: Analyse the transaction under the headings provided in the ANSWER BOOK. Indicate the effect of the answer on the amount payable to SARS (increase / +, or decrease / –).\n\nEXAMPLE (already completed): The owner took stock for private use, cost price R5 200 (excluding VAT). → 5 200 × 15/100 = R780 → Increase.\n\nTRANSACTION A: Received a discount of R17 250 when settling the account of the supplier.",
+          "marks": 2,
+          "memoText": "TRANSACTION A\n\n  17 250 × 15/115  =  R2 250 ✓\n  Effect on VAT payable to SARS:  Increase / + ✓\n\nTeaching point: A discount received reduces the cost of purchases, so the input VAT the business had claimed on that amount must be reversed — less input VAT means MORE VAT payable to SARS. The R17 250 is VAT-inclusive, so use the 15/115 fraction.",
+          "topic": "VAT (Value-Added Tax)",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-1-4-b",
+          "label": "1.4 (B)",
+          "questionText": "VALUE-ADDED TAX — ZABA STORES\n\nUse the same information as in 1.4 (A). 15% VAT is applicable; certain items are zero-rated.\n\nREQUIRED: Analyse the transaction and indicate the effect on the amount payable to SARS.\n\nTRANSACTION B: Merchandise amounting to R139 200 (VAT exclusive), including zero-rated items for R9 200, were sold on credit.",
+          "marks": 4,
+          "memoText": "TRANSACTION B\n\n  [139 200 × 15/100]  20 880 ✓  −  [9 200 × 15/100]  1 380 ✓  =  R19 500 ☑*\n  OR  [139 200 − 9 200]  130 000 × 15/100  =  R19 500   (two marks for 130 000)\n  OR  149 500 − 130 000  =  R19 500\n\n  Effect on VAT payable to SARS:  Increase / + ✓\n\n* one part correct (× 15/100 if the candidate used that rate).\n\nTeaching point: Output VAT is charged only on the standard-rated portion. Strip out the R9 200 of zero-rated goods first, then apply 15% to the remaining R130 000. Output VAT on sales increases the amount owed to SARS.",
+          "topic": "VAT (Value-Added Tax)",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-1-4-c",
+          "label": "1.4 (C)",
+          "questionText": "VALUE-ADDED TAX — ZABA STORES\n\nUse the same information as in 1.4 (A). 15% VAT is applicable.\n\nREQUIRED: Analyse the transaction and indicate the effect on the amount payable to SARS.\n\nTRANSACTION C: Bought merchandise on credit from the supplier. The invoice received totalled R23 000 (VAT inclusive). Trade discount of 10% was incorrectly omitted from the invoice.",
+          "marks": 4,
+          "memoText": "TRANSACTION C\n\n  23 000 × [90/100 × 15/115]  =  R2 700 ☑*\n  OR  20 000 × [90/100 × 15/100]  =  R2 700\n  OR  20 700 − 18 000  =  R2 700\n\n  Effect on VAT payable to SARS:  Decrease / – ✓\n\n* one part correct.\n\nTeaching point: Once the 10% trade discount is applied, the invoice should have been R23 000 × 90% = R20 700 (VAT inclusive). The input VAT the business may claim is R20 700 × 15/115 = R2 700. More input VAT claimed means LESS VAT payable to SARS — a decrease.",
+          "topic": "VAT (Value-Added Tax)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Stock Valuation (Sunglass City & Slim-Line Boutique)",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2024-2-1-1",
+          "label": "2.1.1",
+          "questionText": "SUNGLASS CITY\n\nNosisa is the owner of Sunglass City, selling one type of popular branded sunglasses. The financial year ended on 29 February 2024.\n\nNOTE: Where comments or explanations are required, quote calculations, figures and/or trends, and give a reason or an explanation in EACH case.\n\nREQUIRED: Calculate the weighted average cost of ONE pair of sunglasses.\n\nINFORMATION:\nA. Stock records (one 'unit' refers to one pair of sunglasses):\n                              | UNITS | TOTAL (R)\n  Opening stock (1 March 2023)| 620   | 1 719 000\n  Closing stock (29 Feb 2024) | 840   | ?\n\nB. Purchases and returns during the financial year:\n                | UNITS | UNIT PRICE (R) | TOTAL (R)\n  May 2023      | 855   | 3 200          | 2 736 000\n  August 2023   | 800   | 3 750          | 3 000 000\n  November 2023 | 745   | 4 200          | 3 129 000\n  December 2023 | (20)  | 4 200          | (84 000)\n  TOTALS        | 2 380 |                | 8 781 000\n\nC. Sales: 2 050 pairs of sunglasses were sold during the year at R5 600 per pair.",
+          "marks": 5,
+          "memoText": "WEIGHTED AVERAGE COST PER PAIR\n\n        Cost of opening stock + net cost of purchases        [1 719 000 + 8 781 000]      10 500 000 ✓✓\n  ------------------------------------------------------  =  ------------------------  =  --------------  =  R3 500 ☑\n        Units in opening stock + net units purchased            [620 + 2 380]                3 000 ✓✓\n\n  (one part correct)\n\nNumerator and denominator must be marked as such. Do not award marks for any operation done on 10 500 000 or 3 000 alone.\n\nTeaching point: The weighted-average method pools ALL units available for sale (opening stock + purchases − returns) and ALL their costs into one average. Here the December return of 20 units is already netted off in Information B's totals, so use R10 500 000 ÷ 3 000 units = R3 500 per pair.",
+          "topic": "Stock Valuation - Weighted Average",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-2-1-2a",
+          "label": "2.1.2 (a)",
+          "questionText": "SUNGLASS CITY\n\nUse the same information as in 2.1.1. Nosisa suspects that some sunglasses were stolen during the year.\n\nREQUIRED: Calculate the number of sunglasses stolen.",
+          "marks": 4,
+          "memoText": "NUMBER OF SUNGLASSES STOLEN / MISSING\n\n  Units available for sale − units sold − closing stock\n  =  [620 + 2 380]  3 000 ✓  −  2 050 ✓  −  840 ✓\n  =  110 ☑  (one part correct)\n\nTeaching point: Units available for sale = opening stock + net purchases = 620 + 2 380 = 3 000. Of these, 2 050 were sold and 840 should still be on hand, leaving 110 units unaccounted for — the theft/shrinkage.",
+          "topic": "Stock Valuation - Internal Control",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-2-1-2b",
+          "label": "2.1.2 (b)",
+          "questionText": "SUNGLASS CITY\n\nUse the same information as in 2.1.1 and 2.1.2 (a). The weighted average cost per pair is R3 500 and 110 pairs are missing.\n\nREQUIRED: Calculate the rand value of the sunglasses stolen, using the weighted-average stock valuation method.",
+          "marks": 2,
+          "memoText": "RAND VALUE OF SUNGLASSES STOLEN (weighted average)\n\n  R3 500 (see 2.1.1)  ×  110 units (see 2.1.2 a)  =  R385 000 ☑☑\n\n  (two method marks or nothing — the answer must be the product of 2.1.1 × 2.1.2 a)\n\nTeaching point: Value the missing units at the same weighted-average cost used for the rest of the stock: 110 × R3 500 = R385 000 of stock lost to theft.",
+          "topic": "Stock Valuation - Internal Control",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-2-1-3",
+          "label": "2.1.3",
+          "questionText": "SUNGLASS CITY\n\nUse the same information as in 2.1.1.\n\nREQUIRED: Calculate the value of the closing stock using the first-in-first-out (FIFO) method.",
+          "marks": 5,
+          "memoText": "CLOSING STOCK — FIFO METHOD\n\nClosing stock = 840 units, valued at the MOST RECENT purchase prices.\n\nNovember 2023: 745 − 20 returns = 725 units ✓ × R4 200 ✓  =  R3 045 000\nRemaining from August 2023: 840 − 725 = 115 units ☑ × R3 750 ✓  =  R431 250\n\nClosing stock = 3 045 000 + 431 250  =  R3 476 250 ☑  (one part correct; both figures must be added)\n\n* For the method mark, the two quantities must add up to 840.\n\nTeaching point: FIFO assumes the oldest stock sells first, so closing stock is made up of the latest purchases working backwards. Take all 725 remaining November units (after the 20 returns) at R4 200, then top up to 840 with 115 units from the August batch at R3 750.",
+          "topic": "Stock Valuation - FIFO",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-2-1-4a",
+          "label": "2.1.4 (a)",
+          "questionText": "SUNGLASS CITY\n\nA whistle-blower has informed Nosisa that Micha (sales person) and Jack (supplier's delivery driver) have conspired to sell sunglasses at a reduced price. During an investigation it was discovered that the sunglasses sold were invoiced to the business. Nosisa has confirmed that the sunglasses were missing.\n\nREQUIRED: Explain how Nosisa could have proven Jack and Micha guilty of the theft of the stock. Provide ONE point.",
+          "marks": 2,
+          "memoText": "Any valid comment (2 marks):\n\n• Use the whistle-blower's statement as evidence and confirm the findings.\n• Compare the supplier's invoice with order forms / delivery notes to check for discrepancies.\n• Verify stock records through a physical stock count upon delivery.\n• Request tracking evidence of the delivery route and compare it with delivery dates.\n• Check CCTV footage for unusual activity when stock is delivered.\n\nTeaching point: Proof needs an evidence trail — matching invoices to what was actually received, physical counts on delivery, route/CCTV records — that ties the missing stock to the two individuals.",
+          "topic": "Stock Valuation - Internal Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-2-1-4b",
+          "label": "2.1.4 (b)",
+          "questionText": "SUNGLASS CITY\n\nUse the same information as in 2.1.4 (a).\n\nREQUIRED: What action should have been taken against Micha and Jack? Provide ONE point for EACH person.",
+          "marks": 4,
+          "memoText": "MICHA (salesperson) — any ONE point (2 marks):\n• Conduct a fair disciplinary hearing / suspend Micha pending the outcome of the hearing.\n• Audit / investigate the supplier's past transactions for other possible misconduct or fraud.\n• File a criminal complaint against him.\n• Deduct the money from his salary / demand repayments from Micha to recover the losses.\n• Demote the salesperson / restrict him from working in similar roles within the business.\n\nJACK (supplier's driver) — any ONE point (2 marks):\n• Inform the (supplier) owner of his involvement and request that action be taken against him.\n• Jack should not be assigned to deal with the business anymore / prohibit Jack from entering the business property.\n• File criminal charges against him.\n• Pursue compensation from him if evidence confirms his involvement.\n• Update contracts with the supplier to include penalties for future unethical behaviour.\n\nTeaching point: Micha is an employee, so internal disciplinary steps plus recovery/criminal action apply. Jack works for the supplier, so the response runs through the supplier relationship — reporting him, barring him from the premises, contract penalties — plus criminal charges.",
+          "topic": "Stock Valuation - Internal Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-2-2-1a",
+          "label": "2.2.1 (a)",
+          "questionText": "SLIM-LINE BOUTIQUE — TROUSERS\n\nThe information relates to Slim-Line Boutique, owned by Mike Ndlela, for the year ended 29 February 2024. The business sold trousers and casual shirts throughout the year and introduced and sold formal shirts only from 1 November 2023.\n\n                              | Trousers | Casual shirts | Formal shirts\n  Opening stock in units      | 140      | 200           | 0\n  Purchases during the year   | 720      | 1 300         | 980\n  Closing stock               | 285      | 100           | 125\n  Returns                     | 15       | 120           | 0\n  Total units sold            | 560      | 1 280         | 855\n    On-site                   | 344      | 560           | 855\n    Online                    | 216      | 720           | 0\n  Stock holding period        | 186 days | 29 days       | ?\n  Mark-up percentage per item | ?        | 55%           | 25%\n  Cost price per item         | R500     | R400          | R680\n  Cost of sales               | R280 000 | R512 000      | R581 400\n  Selling price per item      | R920     | R620          | R850\n  Total cash sales banked     | R515 200 | R793 600      | R726 750\n\nREQUIRED: Calculate the mark-up percentage achieved for trousers.",
+          "marks": 3,
+          "memoText": "MARK-UP PERCENTAGE — TROUSERS\n\n  (Selling price − cost price) / cost price × 100\n  =  [920 − 500]  420 ✓  /  500 ✓  × 100\n  =  84% ☑  (one part correct)\n\n  OR  [515 200 − 280 000]  235 200 / 280 000 × 100  =  84%\n\nNumerator and denominator must be marked as such; do not mix rands with units. '× 100' does not count as one part correct.\n\nTeaching point: Mark-up % = gross profit expressed as a percentage of COST. Per unit that is (R920 − R500) ÷ R500 = 84%; on the totals it is gross profit (R235 200) ÷ cost of sales (R280 000) = 84%.",
+          "topic": "Stock Valuation - Interpretation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-2-2-1b",
+          "label": "2.2.1 (b)",
+          "questionText": "SLIM-LINE BOUTIQUE — TROUSERS\n\nUse the same information as in 2.2.1 (a). The mark-up percentage achieved for trousers is 84% (against 55% on casual shirts and 25% on formal shirts). The stock holding period for trousers is 186 days.\n\nREQUIRED: Comment on whether the mark-up percentage would benefit the business or not.",
+          "marks": 2,
+          "memoText": "Any valid explanation (2 marks):\n\n• Customers will not buy / will not pay the higher price for the product.\n• Price-sensitive customers may choose competitors offering similar trousers for less, leading to lower sales.\n• Regular customers may be discouraged from making repeated purchases.\n• A decrease in sales volume could negatively affect cash flow.\n• The stock holding period of 186 days (6,2 months) indicates lower demand which resulted in high stock levels / slow sales can lead to stock going out of fashion.\n\nTeaching point: An 84% mark-up is far above the other lines. Combined with a 186-day stock holding period, it points to a price so high that it is choking demand — good answers link the high mark-up to slow sales, high stock levels and cash-flow strain.",
+          "topic": "Stock Valuation - Interpretation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-2-2-2",
+          "label": "2.2.2",
+          "questionText": "SLIM-LINE BOUTIQUE — CASUAL SHIRTS\n\nUse the same information as in 2.2.1 (a). 120 casual shirts were returned during the year (against 1 280 units sold).\n\nREQUIRED: Comment on how the return of 120 casual shirts would affect the business negatively. Provide ONE point.",
+          "marks": 2,
+          "memoText": "Any valid explanation (2 marks):\n\n• High returns will make the business lose revenue / a high return rate may lead to decreased future sales (customers).\n• It leads to lower sales revenue / a decrease in demand / lower gross profit.\n• It can negatively affect the business's reputation (image).\n• Preparing returned shirts for reselling at the original selling price can lead to additional cost.\n\nTeaching point: 120 returns against 1 280 sold is a high return rate (about 9%). The negatives are lost revenue and gross profit, reputational damage, and the extra cost of getting returned stock ready to sell again.",
+          "topic": "Stock Valuation - Interpretation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-2-2-3a",
+          "label": "2.2.3 (a)",
+          "questionText": "SLIM-LINE BOUTIQUE — FORMAL SHIRTS\n\nUse the same information as in 2.2.1 (a). Formal shirts were introduced and sold only from 1 November 2023 (i.e. for the last 4 months / 120 days of the financial year ending 29 February 2024). Closing stock of formal shirts is 125 units; total units sold is 855; cost of sales is R581 400; cost price per item is R680.\n\nREQUIRED: Calculate how long (in days) it will take Mike to sell the closing stock of the formal shirts.",
+          "marks": 4,
+          "memoText": "DAYS TO SELL CLOSING STOCK OF FORMAL SHIRTS\n\n  Closing stock / units sold × trading days\n  =  125 ✓ / 855  ×  120 days ✓✓   (formal shirts traded for only 120 days — 1 Nov 2023 to 29 Feb 2024)\n  =  17,5 days ☑  (one part correct; accept 17,7 days / 18 days / 121 days used instead of 120)\n\n  OR  [R680 × 125]  85 000  /  581 400  ×  120 days  =  17,5 days   (85 000 one mark; × 120 days two marks)\n\nNumerator and denominator must be marked as such; do not mix rands with units.\n\nTeaching point: Stock holding period = stock ÷ throughput × trading days. Because formal shirts only existed for the last 120 days of the year, use 120 (not 365) as the trading period: 125 ÷ 855 × 120 ≈ 17,5 days.",
+          "topic": "Stock Valuation - Financial Indicators",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-2-2-3b",
+          "label": "2.2.3 (b)",
+          "questionText": "SLIM-LINE BOUTIQUE — FORMAL SHIRTS\n\nUse the same information as in 2.2.3 (a). Formal shirts are sold on-site only (855 on-site, 0 online) at a 25% mark-up.\n\nREQUIRED: Comment on ONE other point that might concern Mike about the formal shirts.",
+          "marks": 2,
+          "memoText": "Any valid comment (2 marks):\n\n• There are no online sales for formal shirts / formal shirts are not currently available for online sale (all 855 units were sold on-site).\n• He is charging a low mark-up % (25%) which may need to increase, risking the loss of customers.\n• The business can suffer losses in profit if suppliers increase their prices while it still maintains a low mark-up %.\n• There could be a stock shortage in future as the closing stock may sell out quicker (17,5 days).\n\nTeaching point: Beyond the fast turnover, the concerns are the missed online sales channel, the thin 25% mark-up leaving little room to absorb cost increases, and the risk of running out of stock.",
+          "topic": "Stock Valuation - Interpretation",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Budgeting (Cash Budget entries & Jesary Superspares)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2024-3-1-1",
+          "label": "3.1.1",
+          "questionText": "Show the amounts for the transaction below in the appropriate columns of the Cash Budget (Receipt / Payment) and the Projected Statement of Comprehensive Income (Income / Expense) for December 2024.\n\nEXAMPLE (already completed): Monthly insurance premium for December 2024, R5 000, will be paid. → Payment R5 000; Expense R5 000.\n\nTRANSACTION: Expected cash sales for December 2024, R132 000. Cost of sales, R101 000.",
+          "marks": 3,
+          "memoText": "CASH BUDGET:      Receipt  R132 000 ✓   (the cash from the sale)\nPROJECTED STATEMENT OF COMPREHENSIVE INCOME:\n                  Income   R132 000 ✓   (sales)\n                  Expense  R101 000 ✓   (cost of sales)\n\n  OR (net effect on the Projected Statement): +R31 000 (two marks)\n\nTeaching point: A cash sale is real cash in, so R132 000 goes to Receipts in the Cash Budget. In the Projected Statement it is recognised as sales income of R132 000 with the matching cost of sales of R101 000 as an expense — a R31 000 gross profit.",
+          "topic": "Budgeting - Cash Budget vs Projected Income Statement",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-3-1-2",
+          "label": "3.1.2",
+          "questionText": "Show the amounts for the transaction below in the appropriate columns of the Cash Budget (Receipt / Payment) and the Projected Statement of Comprehensive Income (Income / Expense) for December 2024.\n\nTRANSACTION: Drawings by the owner budgeted for December 2024, R40 000. This includes R34 000 cash and the remainder for merchandise.",
+          "marks": 1,
+          "memoText": "CASH BUDGET:  Payment  R34 000 ✓   (only the cash portion of the drawings)\n\nThe R6 000 merchandise portion of the drawings is not a cash flow and does not appear in the Cash Budget; drawings are also not an expense, so nothing goes to the Projected Statement of Comprehensive Income.\n\nTeaching point: The Cash Budget records movements of cash only. Of the R40 000 drawings, just the R34 000 taken in cash is a payment; goods taken by the owner never touch the bank.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-3-1-3",
+          "label": "3.1.3",
+          "questionText": "Show the amounts for the transaction below in the appropriate columns of the Cash Budget (Receipt / Payment) and the Projected Statement of Comprehensive Income (Income / Expense) for December 2024.\n\nTRANSACTION: A fixed deposit of R245 000 will mature on 31 December 2024. A direct deposit of R264 600 (inclusive of interest) will be made into the current banking account of the business on this date. Interest is not capitalised.",
+          "marks": 2,
+          "memoText": "CASH BUDGET:  Receipt  R264 600 ✓   (the full amount deposited into the bank)\nPROJECTED STATEMENT OF COMPREHENSIVE INCOME:\n              Income  R19 600 ✓        (interest earned = 264 600 − 245 000)\n\nTeaching point: The whole R264 600 lands in the bank, so it is a Cash Budget receipt. Only the interest portion (R19 600) is income for the Projected Statement — the R245 000 is the return of the business's own capital, not income.",
+          "topic": "Budgeting - Cash Budget vs Projected Income Statement",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-3-2-1a",
+          "label": "3.2.1 (a)",
+          "questionText": "JESARY SUPERSPARES\n\nThe information relates to the budget period ending 31 December 2024. The business is owned by Bluey Summers.\n\nRelevant information:\n• 60% of total sales is cash sales.\n• Goods are sold at a mark-up of 25% on cost.\n• Trading stock on hand is maintained through monthly purchases.\n• The business buys merchandise only on credit.\n• Budgeted cash sales: November 2024 — R103 200.\n\nREQUIRED: Calculate the credit purchases for November 2024.",
+          "marks": 4,
+          "memoText": "CREDIT PURCHASES — NOVEMBER 2024\n\n  103 200 ✓  ×  100/60 ✓  ×  100/125 ✓   →   172 000 (two marks) → cost of sales\n  =  R137 600 ☑  (one part correct)\n\n  OR  [103 200 × 100/125]  82 560 (two marks)  ×  100/60 (one mark)  =  R137 600\n\nReasoning: November cash sales R103 200 are 60% of total sales, so total sales = 103 200 × 100/60 = R172 000. With a 25% mark-up on cost, cost of sales = 172 000 × 100/125 = R137 600. Because stock is maintained by monthly purchases, purchases = cost of sales = R137 600, and all purchases are on credit.\n\nTeaching point: Work back from cash sales to total sales (÷ 60%), then from selling price to cost (× 100/125 for a 25% mark-up). Constant stock means whatever is sold is replaced, so purchases equal cost of sales.",
+          "topic": "Budgeting - Creditors Payment Schedule",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-3-2-1b",
+          "label": "3.2.1 (b)",
+          "questionText": "JESARY SUPERSPARES\n\nUse the same information as in 3.2.1 (a).\n• Creditors are paid: 75% in the month after the date of purchase (to qualify for a 3% discount); the balance is paid in the month thereafter.\n• Credit purchases: October 2024 — R132 800; November 2024 — R137 600 (from 3.2.1 a).\n\nREQUIRED: Complete the Creditors' Payment Schedule for December 2024.",
+          "marks": 5,
+          "memoText": "CREDITORS' PAYMENT SCHEDULE FOR DECEMBER 2024\n\n  Month of      | Credit purchases | November | December\n  purchase      | R                | R        | R\n  September     | 147 200          | 36 800   | (superfluous — lose the method mark on the total if entered)\n  October       | 132 800          | 96 612   | 33 200 ✓            (132 800 × 25% — the balance, no discount)\n  November      | 137 600 ☑ (see 3.2.1 a) |   | 100 104 ☑☑          (137 600 × 75% × 97%)\n                |                  | 133 412  | 133 304 ☑*\n\n* one part correct.  (Three marks for R100 104 if the R137 600 credit-purchases figure is not shown.)\n\nReasoning: In December the business pays (a) the remaining 25% of October's purchases — 132 800 × 25% = R33 200 (this portion earns no discount), and (b) 75% of November's purchases less the 3% early-payment discount — 137 600 × 75% × 97% = R100 104. December payment to creditors = 33 200 + 100 104 = R133 304.\n\nTeaching point: Each month's purchases are settled over the next two months — 75% (net of 3% discount) first, then the 25% balance. For December, combine the 25%-balance of October with the discounted 75% of November.",
+          "topic": "Budgeting - Creditors Payment Schedule",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-3-2-2i",
+          "label": "3.2.2 (i)",
+          "questionText": "JESARY SUPERSPARES\n\nUse the same information as in 3.2.1 (a).\n• The business rents premises in a shopping centre.\n• Rent will increase by 6% during December 2024.\n• Rent expense in the Cash Budget: November 2024 — R29 000.\n\nREQUIRED: Calculate the rent expense for December 2024.",
+          "marks": 2,
+          "memoText": "RENT EXPENSE — DECEMBER 2024\n\n  29 000 × 106/100  =  R30 740 ✓✓  (two marks or nothing)\n  OR  29 000 + 1 740  (1 740 = 29 000 × 6%)  =  R30 740\n\nTeaching point: A 6% increase means multiply the previous month's rent by 1,06 (or add 6% of it): R29 000 × 1,06 = R30 740.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-3-2-2ii",
+          "label": "3.2.2 (ii)",
+          "questionText": "JESARY SUPERSPARES\n\nUse the same information as in 3.2.1 (a).\n• Part of the loan from Diamond Bank (R60 000) will be repaid on 1 December 2024.\n• Interest at 14% p.a. is paid at the end of each month. Interest is not capitalised.\n• Interest on loan in the Cash Budget: November 2024 — R3 500.\n\nREQUIRED: Calculate the interest on loan for December 2024.",
+          "marks": 4,
+          "memoText": "INTEREST ON LOAN — DECEMBER 2024\n\n  3 500 ✓  −  700 ✓☑  =  R2 800 ☑  (one part correct)\n  [700 = 60 000 × 14/100 × 1/12 — the monthly interest no longer payable on the R60 000 repaid]\n\n  OR  [300 000 − 60 000]  240 000  ×  [14/100 × 1/12]  =  R2 800\n  (loan balance = 3 500 × 12/14 × 100 = R300 000; less R60 000 repaid on 1 Dec = R240 000)\n\nReasoning: The November interest of R3 500 is one month's interest at 14% p.a. on the outstanding loan, so the loan was R300 000. After the R60 000 repayment on 1 December, the balance is R240 000, and December's interest = 240 000 × 14% ÷ 12 = R2 800.\n\nTeaching point: Because interest is not capitalised, it is simply the monthly rate (14% ÷ 12) applied to whatever the loan balance is that month. Repaying R60 000 cuts the monthly interest by R700.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-3-2-2iii",
+          "label": "3.2.2 (iii)",
+          "questionText": "JESARY SUPERSPARES\n\nUse the same information as in 3.2.1 (a).\n• New computers will be installed and operational from 30 November 2024.\n• A 20% cash deposit must be paid on 30 November 2024.\n• The balance will be repaid in 36 equal monthly instalments from 31 December 2024.\n• Instalment for new computers in the Cash Budget: December 2024 — R9 800.\n\nREQUIRED: Calculate the deposit to be paid on 30 November 2024 for the new computers installed.",
+          "marks": 3,
+          "memoText": "DEPOSIT ON 30 NOVEMBER 2024 — NEW COMPUTERS\n\n  [9 800 × 36]  352 800 ✓  ×  20/80 ✓  =  R88 200 ☑  (one part correct)\n\n  OR  [352 800 × 100/80]  441 000  −  352 800 [9 800 × 36]  =  R88 200   (one mark each)\n  OR  441 000  ×  20/100  =  R88 200   (one mark each)\n\nReasoning: The 36 instalments of R9 800 repay the 80% balance: 36 × R9 800 = R352 800. Total cost = 352 800 ÷ 80% = R441 000. Deposit = 20% of R441 000 = R88 200 (or R352 800 × 20/80).\n\nTeaching point: The instalments cover 80% of the price, so gross that up to 100% and take 20% for the deposit.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-3-2-2iv",
+          "label": "3.2.2 (iv)",
+          "questionText": "JESARY SUPERSPARES\n\nUse the same information as in 3.2.1 (a).\n• The current monthly insurance premium on the existing computers is R4 500. This monthly premium will increase by 28% from 1 December 2024 to get additional insurance cover on the new computers installed.\n• The renewal period of other items insured will only come into effect next year.\n• Insurance in the Cash Budget: November 2024 — R17 500.\n\nREQUIRED: Calculate the insurance for December 2024.",
+          "marks": 3,
+          "memoText": "INSURANCE — DECEMBER 2024\n\n  17 500 ✓  +  1 260 ✓  =  R18 760 ☑  (one part correct)\n  [1 260 = 4 500 × 28/100 — the increase on the computer portion of the premium]\n\n  OR  [4 500 × 128/100]  5 760  +  13 000 [17 500 − 4 500]  =  R18 760   (one mark each)\n\nReasoning: Of the November insurance of R17 500, R4 500 relates to the computers' premium. From 1 December that R4 500 rises by 28%, an increase of R1 260. Only that portion changes (other items renew next year), so December insurance = R17 500 + R1 260 = R18 760.\n\nTeaching point: Increase only the part of the premium that actually changes. R4 500 × 28% = R1 260 added to the unchanged R13 000 balance.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-3-2-2v",
+          "label": "3.2.2 (v)",
+          "questionText": "JESARY SUPERSPARES\n\nUse the same information as in 3.2.1 (a).\n• The business has 9 employees who earn the same monthly salary.\n• 5 of the employees will receive a bonus of 70% of the normal monthly salary during December 2024.\n• Salaries in the Cash Budget: December 2024 — R143 750.\n\nREQUIRED: Calculate the salaries for November 2024.",
+          "marks": 3,
+          "memoText": "SALARIES — NOVEMBER 2024\n\n  143 750 ✓  ×  9/12,5 ✓  =  R103 500 ☑  (one part correct)\n\n  OR  143 750  −  40 250 [8 050 × 5]  =  R103 500   (one mark each; 8 050 = 11 500 × 70%)\n  OR  [143 750 × 4/12,5]  46 000  ×  9/4  =  R103 500   (one mark each)\n\nReasoning: December's R143 750 covers 9 normal salaries plus 5 bonuses of 70% each = 9 + (5 × 0,7) = 12,5 salary-equivalents. One salary = 143 750 ÷ 12,5 = R11 500. November has no bonuses, so 9 × R11 500 = R103 500.\n\nTeaching point: Convert the bonus month into 'salary units' (9 + 3,5 = 12,5), solve for one salary, then multiply by the 9 salaries paid in a normal month.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-3-2-3a",
+          "label": "3.2.3 (a)",
+          "questionText": "JESARY SUPERSPARES — SALES POLICY\n\nBluey effected changes to the sales policy from October 2024.\n\nINFORMATION I — Figures for September 2024 (budgeted) and October 2024 (budgeted and actual):\n                        | SEPT 2024 BUDGETED | OCT 2024 BUDGETED | OCT 2024 ACTUAL\n  Number of customers   | 520                | 540               | 729\n  Sales                 | R145 000           | R160 000          | R221 000\n    Cash sales          | 58 000             | 96 000            | 76 000\n    Credit sales        | 87 000             | 64 000            | 145 000\n  Gross profit          | 54 375             | 60 000            | 82 875\n  Delivery expenses     | 21 750             | 24 000            | 33 150\n  Packing materials     | 13 050             | 14 400            | 26 520\n\nREQUIRED: Explain the change in the sales policy effected by Bluey in compiling his budget for October 2024. Provide ONE point with figures.",
+          "marks": 2,
+          "memoText": "A change in the cash-sales / credit-sales mix ✓✓:\n\n• Cash sales changed (from 40%) to 60% / (from R58 000) to R96 000 / by R38 000 / by 65,5% / by 20 percentage points.\n  OR\n• Credit sales changed (from 60%) to 40% / (from R87 000) to R64 000 / by R23 000 / by 26,4% / by 20 percentage points.\n\n(September budget: cash sales R58 000 ÷ R145 000 = 40%. October budget: cash sales R96 000 ÷ R160 000 = 60%.)\n\nTeaching point: Compare the budgeted cash-to-total ratio in September with October — Bluey shifted the policy to push more sales onto a cash basis (40% → 60%), reducing reliance on credit.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-3-2-3b",
+          "label": "3.2.3 (b)",
+          "questionText": "JESARY SUPERSPARES — SALES POLICY\n\nUse Information I from 3.2.3 (a). The actual credit sales for October 2024 (R145 000) were higher than the budgeted credit sales (R64 000).\n\nREQUIRED: Explain why Bluey should not be concerned. Provide TWO points with figures.",
+          "marks": 4,
+          "memoText": "Any TWO valid explanations ✓✓ with figures ✓✓ (compare October actual to October budget — do NOT accept comparison to September):\n\n• The number of customers grew (from 540) to 729 / by 189 / by 35%.\n• Gross profit has improved (from R60 000) to R82 875 / by R22 875 / by 38,1%.\n• Total sales has improved (from R160 000) to R221 000 / by R61 000 / by 38%.\n\nTeaching point: More credit sales are not a problem when overall trading is stronger than budgeted — more customers, higher total sales and higher gross profit all show the business grew, not that credit ran out of control.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-3-2-3c",
+          "label": "3.2.3 (c)",
+          "questionText": "JESARY SUPERSPARES — SALES POLICY\n\nUse Information I from 3.2.3 (a).\n\nREQUIRED: Comment on the control over delivery expenses and packing materials for October 2024. Quote figures.",
+          "marks": 4,
+          "memoText": "Any valid comment (with figures) for EACH item — must be compared to sales; do NOT accept comparison to September (2 marks each):\n\nDELIVERY EXPENSES — well controlled:\n• Budgeted at 15% of sales (24 000 ÷ 160 000) and actual is also 15% of sales (33 150 ÷ 221 000) — 100% utilised / in line.\n• Overspent by R9 150 / (from R24 000) to R33 150 / by 38,1%, but total sales also increased by 38,1% (from R160 000 to R221 000), so the overspend is proportionate.\n\nPACKING MATERIAL — not well controlled:\n• Actual exceeded the sales-related budget by 33,3% / budgeted at 9% of sales but 12% was spent.\n• Overspent by R12 120 (from R14 400) to R26 520 / by 84,2%, while total sales increased by only 38,1%.\n\nTeaching point: Judge a variable cost against sales, not against the rand budget alone. Delivery rose exactly in step with sales (both up 38,1%) — controlled. Packing rose 84,2% while sales rose 38,1% — out of control.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Cost Accounting (Flowerpots Manufacturers & Timepiece Manufacturers)",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2024-4-1-1",
+          "label": "4.1.1",
+          "questionText": "FLOWERPOTS MANUFACTURERS\n\nThe business manufactures large concrete flowerpots. Their financial year ended on 29 February 2024.\n\nREQUIRED: Calculate the direct/raw material cost. Refer to Information A.\n\nINFORMATION A — Direct/Raw materials cost:\nThe business uses a high-quality concrete mix to make the pots.\nProduction requirements:\n• 4 800 units were produced and sold during the financial year.\n• Each complete pot requires 1,4 packets of direct materials (concrete mix).\n• The business allows for wastage of 10% of direct materials (concrete mix).\n• The cost price of concrete mix was maintained at R125 per packet for the financial year.",
+          "marks": 4,
+          "memoText": "DIRECT / RAW MATERIAL COST\n\n  [4 800 × 1,4]  6 720 ✓✓  ×  1,1 ✓  ×  R125  =  R924 000 ☑  (if multiplied by R125)\n  (6 720 packets + 10% wastage = 7 392 packets → three marks)\n\n  OR  (6 720 [two marks]  +  672 [one mark])  ×  R125\n  OR  4 800  ×  1,54 [two marks]  ×  R125\n\nReasoning: 4 800 pots × 1,4 packets each = 6 720 packets needed for the pots. Add 10% for wastage → 6 720 × 1,1 = 7 392 packets bought. At R125 per packet, direct material cost = 7 392 × R125 = R924 000.\n\nTeaching point: Wastage is added ON TOP of the packets that end up in the product, so multiply by 1,1 (not 0,9). Only then apply the price per packet.",
+          "topic": "Cost Accounting - Direct Material Cost",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2024-4-1-2",
+          "label": "4.1.2",
+          "questionText": "FLOWERPOTS MANUFACTURERS\n\nUse the same business as in 4.1.1.\n\nREQUIRED: Calculate the direct labour cost. Refer to Information B.\n\nINFORMATION B — Direct labour cost:\n• Direct labour budgeted for the year amounted to R1 117 200.\n• The business has 7 direct workers. Each worker is required to work 1 680 hours per year and is paid the same hourly rate.\nThe following items have not yet been recorded:\n• One worker resigned on 31 October 2023. This worker did not work overtime.\n• Three of the direct workers were required to work overtime of 60 hours each during the year. Overtime rate is 1,6 times the normal hourly rate.",
+          "marks": 7,
+          "memoText": "DIRECT LABOUR COST\n\nDirect labour budgeted for the year:  R1 117 200\n\nResigned worker (adjustment — deduct):\n  1 117 200 × 4/84   OR   159 600 × 4/12   OR   159 600 − 106 400   OR   (1 680 × 4/12 = 560) × 95\n  =  (R53 200) ✓☑*   (ignore brackets)\n  [one worker's annual cost = 1 117 200 ÷ 7 = R159 600; the worker left on 31 Oct 2023, so 4 of the 12 budgeted months (Nov–Feb) fall away]\n\nOvertime (adjustment — add):\n  (3 × 60)  180 ✓  ×  R95 ☑  ×  1,6 ✓  =  R27 360 ☑*\n  [normal hourly rate = 159 600 ÷ 1 680 = R95]\n  OR  (3 × 60 × 1,6)  288 [two marks]  ×  R95  =  R27 360\n\nDirect labour cost:\n  1 117 200 − 53 200 + 27 360  =  R1 091 360 ☑*\n  (check operation: resigned worker subtracted, overtime added; the answer must include the R1 117 200)\n\n* one part correct.\n\nTeaching point: Start from the budgeted figure, then remove the over-provision for the worker who left (4 months of one salary) and add the overtime that was not budgeted (hours × normal rate × 1,6).",
+          "topic": "Cost Accounting - Direct Labour Cost",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-4-1-3",
+          "label": "4.1.3",
+          "questionText": "FLOWERPOTS MANUFACTURERS\n\nUse the same business as in 4.1.1.\n\nREQUIRED: Complete the Factory Overhead Cost Note. Refer to Information C.\n\nINFORMATION C — Extract of pre-adjustment amounts on 29 February 2024:\nThe bookkeeper calculated the factory overhead cost as R1 132 700.\nOther pre-adjustment amounts on 29 February 2024:\n  Office salaries — R247 800\n  Advertising — R27 450\n  Rental of sales department property — R25 200\n  Bad debts — R18 700\n\nAdjustments to factory overheads:\n• The clerk was paid a salary of R9 200 per month, which was recorded as an administration cost. 20% must be allocated to the office and the rest to production.\n• Rent of R126 000 was shared and recorded according to the following floor area by the bookkeeper:\n    TOTAL 600 m² | FACTORY 400 m² | OFFICE 80 m² | SALES 120 m²\n• However, since the beginning of the financial year, the annual rent has increased to R157 500 as the size of the factory has increased. The bookkeeper did not consider the increased rent of R157 500 and the following adjusted floor areas:\n    TOTAL 800 m² | FACTORY 600 m² | OFFICE 80 m² | SALES 120 m²",
+          "marks": 8,
+          "memoText": "FACTORY OVERHEAD COST NOTE\n\nIncorrect factory overheads (per bookkeeper):  R1 132 700\n\nFactory indirect labour:  88 320 ✓✓\n  [clerk's salary 9 200 × 12 = R110 400 for the year; 80% to production = 110 400 × 80% = R88 320 — add]\n\nFactory rental:  [157 500 × 600/800]  118 125 ✓✓  −  [126 000 × 400/600]  84 000 ✓✓  =  34 125 ☑\n  [correct factory rent R118 125 less the R84 000 the bookkeeper already charged = R34 125 to add]\n\nCorrect factory overhead cost:  1 132 700 + 88 320 + 34 125  =  R1 255 145 ☑*\n  (the answer must include the R1 132 700)\n\n* one part correct.\n\nTeaching point: Two things were wrong. The clerk's salary sat in admin — 80% of the full-year cost belongs in the factory. And the bookkeeper used the old rent (R126 000) and old floor areas; recompute the factory's share on the correct rent (R157 500) and new areas (600/800), then add only the difference already recorded.",
+          "topic": "Cost Accounting - Factory Overhead Cost",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-4-2-1",
+          "label": "4.2.1",
+          "questionText": "TIMEPIECE MANUFACTURERS\n\nThe business manufactures watches and is owned by Jabu Tallies. The financial year ended on 31 August 2024.\n\nNOTE: Where comments or explanations are required, quote calculations, figures and/or trends, and give an explanation or a reason in each case.\n\n                                  | 31 Aug 2024 | 31 Aug 2023\n  Total sales                     | R3 712 800  | R2 880 900\n  Gross profit                    | R1 237 600  | R960 300\n  Total variable cost             | R2 748 200  | R2 217 420\n  Total fixed cost                | R1 820 000  | R1 820 000\n  Variable cost per unit          | R755        | R762\n    Direct material cost          | R450        | R520\n    Direct labour cost            | R185        | R132\n    Selling and distribution cost | R120        | R110\n  Number of units produced and sold | 3 640     | 2 910\n  Break-even point                | 6 868       | 7 983\n  Selling price per unit          | R1 020      | R990\n\nREQUIRED: Comment on the level of production and the break-even point on 31 August 2024.",
+          "marks": 4,
+          "memoText": "Any valid point ✓✓ with figures ✓✓.\n\nFOR FOUR MARKS:\n• Produced and sold 3 640 units, which is below the break-even point of 6 868 / the business made a loss on 3 228 units.\n• The loss on 3 228 units (R1 845 000 approx.) has improved compared to the 2023 loss on 5 073 units.\n\nFOR TWO MARKS (max):\n• The break-even point decreased by 1 115 units / (from 7 983) to 6 868 / by 14%.\n• Units produced and sold increased by 730 units / (from 2 910) to 3 640 / by 25%.\n\nTeaching point: Production of 3 640 is still well under the break-even of 6 868, so the business is trading at a loss — but the gap has narrowed since 2023 (BEP down, units up), so the position is improving even though it is not yet profitable.",
+          "topic": "Cost Accounting - Break-even Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-4-2-2",
+          "label": "4.2.2",
+          "questionText": "TIMEPIECE MANUFACTURERS\n\nUse the same information as in 4.2.1.\n\nREQUIRED: Comment on the gross profit earned by the business and the price charged for the watches. In your opinion, explain if Jabu's customers found the 2024 price reasonable. Provide figures.",
+          "marks": 4,
+          "memoText": "Comparison of gross profit ✓ + figures ✓ AND comparison of selling price ✓ + figures ✓:\n\n• Gross profit has increased (from R960 300) to R1 237 600 / by R277 300 / by 28,9%.\n• The number of units sold increased (from 2 910) to 3 640 / by 730 units / by 25% / total sales increased (from R2 880 900) to R3 712 800 / by R831 900 / by 28,9%.\n• The selling price increased (from R990) to R1 020 / by R30 / by 3%, which is reasonable for customers and within the inflation rate.\n\nFOR FOUR MARKS (comments may be combined):\n• Price increased by only 3%, yet 25% more units were sold and gross profit rose by 28,9%.\n\nTeaching point: A small 3% price rise, well within inflation, did not put customers off — they bought 25% more watches — and gross profit climbed 28,9%. So yes, customers found the 2024 price reasonable.",
+          "topic": "Cost Accounting - Unit Cost Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-4-2-3",
+          "label": "4.2.3",
+          "questionText": "TIMEPIECE MANUFACTURERS\n\nUse the same information as in 4.2.1.\n\nREQUIRED: Identify the TWO main costs that would have a positive effect on the selling price. In each case, provide a strategy that Jabu would have implemented.",
+          "marks": 4,
+          "memoText": "Main costs ✓✓ + strategies ✓✓ (any TWO of the following):\n\nDIRECT MATERIAL COST (fell from R520 to R450 per unit):\n• Changed to a cheaper supplier / local suppliers / bulk purchases at a lower price.\n• Less wastage due to improved supervision / better-trained workers / technology used.\n\nTOTAL FIXED COST (per unit fell because the same R1 820 000 was spread over more units):\n• Economies of scale — total fixed cost stayed at R1 820 000 even though more units were produced.\n\nSELLING AND DISTRIBUTION COST:\n• Offer more reliable distribution systems to increase customer satisfaction.\n• Additional advertising / free delivery contributed to increased sales.\n\nTeaching point: 'Positive effect on the selling price' means a cost was reduced (or spread thinner), letting Jabu keep the price rise small. Direct material per unit dropped R70, and fixed cost per unit dropped simply because volume rose — both eased the pressure to raise the price.",
+          "topic": "Cost Accounting - Unit Cost Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2024-4-2-4",
+          "label": "4.2.4",
+          "questionText": "TIMEPIECE MANUFACTURERS\n\nUse the same information as in 4.2.1. The variable cost per unit is R755 and total fixed cost is maintained at R1 820 000.\n\nREQUIRED: Jabu wishes to increase his profit by R300 000 during the next financial year, while maintaining the costs. Calculate the price that he would have to charge his customers in order to produce 400 extra units.",
+          "marks": 4,
+          "memoText": "PRICE TO CHARGE FOR THE EXTRA 400 UNITS\n\n  [300 000 / 400]  750 ✓✓  +  755 ✓  =  R1 505 ☑  (one part correct)\n\n  OR  [400 × 755]  →  R300 000 [one mark]  +  R302 000 [one mark]  ÷  400 [one mark]  =  R1 505\n\nReasoning: The extra profit required per additional unit = R300 000 ÷ 400 = R750. Each extra unit still carries its variable cost of R755 (fixed costs are unchanged and already covered, so they add nothing per extra unit). Selling price = R750 + R755 = R1 505.\n\nTeaching point: When total fixed cost is held constant, extra units carry only their variable cost. So the price on those units just needs to cover the variable cost plus the target profit per unit.",
+          "topic": "Cost Accounting - Break-even Analysis",
+          "type": "calculation"
+        }
+      ]
+    }
+  ]
+}

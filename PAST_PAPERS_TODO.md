@@ -71,11 +71,11 @@ Use `data/papers/PROMPT_for_future_acc_papers.md` for the authoring rules
 | P1 | 2023 | `Accounting P1 Nov 2023 Eng.pdf` | `Accounting P1 Nov 2023 MG Eng.pdf` | `acc-p1-nov-2023.json` | [ ] |
 | P1 | 2024 | `Accounting P1 Nov 2024 Eng.pdf` | `Accounting P1 Nov 2024 MG Eng.pdf` | `acc-p1-nov-2024.json` | [ ] |
 | P1 | 2025 | `Accounting P1 Nov 2025 Eng.pdf` | `Accounting P1 Nov 2025 MG Eng.pdf` | `acc-p1-nov-2025.json` | [ ] |
-| P2 | 2021 | `Accounting P2 Nov 2021 Eng.pdf` (or `(1).pdf`) | `Accounting P2 Nov 2021 MG Eng.pdf` | `acc-p2-nov-2021.json` | [ ] |
-| P2 | 2022 | `Accounting P2 Nov 2022 Eng.pdf` | `Accounting P2 Nov 2022 MG Eng.pdf` | `acc-p2-nov-2022.json` | [ ] |
-| P2 | 2023 | `Accounting P2 Nov 2023 Eng.pdf` | `Accounting P2 Nov 2023 MG Eng.pdf` | `acc-p2-nov-2023.json` | [ ] |
-| P2 | 2024 | `Accounting P2 Nov 2024 Eng.pdf` | `Accounting P2 Nov 2024 MG Eng.pdf` | `acc-p2-nov-2024.json` | [ ] |
-| P2 | 2025 | `Accounting P2 Nov 2025 Eng.pdf` | `Accounting P2 Nov 2025 MG Eng.pdf` | `acc-p2-nov-2025.json` | [ ] |
+| P2 | 2021 | `Accounting P2 Nov 2021 Eng.pdf` (or `(1).pdf`) | `Accounting P2 Nov 2021 MG Eng.pdf` | `acc-p2-nov-2021.json` | [x] built, text-first, tsc clean, indexed — uncommitted |
+| P2 | 2022 | `Accounting P2 Nov 2022 Eng.pdf` | `Accounting P2 Nov 2022 MG Eng.pdf` | `acc-p2-nov-2022.json` | [x] built, text-first, tsc clean, indexed — uncommitted |
+| P2 | 2023 | `Accounting P2 Nov 2023 Eng.pdf` | `Accounting P2 Nov 2023 MG Eng.pdf` | `acc-p2-nov-2023.json` | [x] built, text-first, tsc clean, indexed — uncommitted |
+| P2 | 2024 | `Accounting P2 Nov 2024 Eng.pdf` | `Accounting P2 Nov 2024 MG Eng.pdf` | `acc-p2-nov-2024.json` | [x] built, text-first, tsc clean, indexed — uncommitted |
+| P2 | 2025 | `Accounting P2 Nov 2025 Eng.pdf` | `Accounting P2 Nov 2025 MG Eng.pdf` | `acc-p2-nov-2025.json` | [x] built, text-first, tsc clean, indexed — uncommitted |
 
 ### Agricultural Sciences — P1 & P2 (no Nov papers exist yet — only May/June is built)
 Images: **likely yes** — Agri Sci regularly tests diagrams (organism anatomy,
