@@ -6,6 +6,8 @@ import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
 import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreAfrikaans } from "@/lib/afrikaans-scoring";
+import { topicFeedbackProps } from "@/lib/topic-feedback";
+import { TOPIC_EXAMPLES } from "@/lib/afrikaans-topic-feedback";
 import Button from "@/components/ui/Button";
 
 // Cloned from components/life-skills/LifeSkillsSession.tsx — the learner taps /
@@ -104,6 +106,9 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
   const [question, setQuestion] = useState<AfrikaansGeneratedQuestion | null>(null);
   const [result, setResult] = useState<AfrikaansSubmitAnswerResponse | null>(null);
   const [answer, setAnswer] = useState<string>("");
+  // Exact submitted answer — tap inputs bypass `answer`; used for the feedback
+  // card's answer-vs-correct line.
+  const [lastAnswer, setLastAnswer] = useState<string>("");
   const [sequenceOrder, setSequenceOrder] = useState<string[]>([]);
   const [submitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -382,6 +387,8 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer) return;
 
+      setLastAnswer(rawAnswer);
+
       // Instant path: every Afrikaans item is deterministic (tap / choose /
       // listen), so it's scored client-side (the answer ships with the
       // question) and feedback shows immediately. The server call still runs in
@@ -565,6 +572,27 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
           isCorrect={result.is_correct}
           note={result.is_correct ? result.memo : undefined}
           whyOverride={result.is_correct ? undefined : result.memo}
+          {...(() => {
+            const fs = skillId ? findSkill(skillId) : null;
+            return topicFeedbackProps({
+              isCorrect: result.is_correct,
+              subjectSlug: "afrikaans",
+              topic: fs
+                ? {
+                    recovery_strategy: fs.skill.recovery_strategy,
+                    grade: fs.level.grade,
+                    caps_term: fs.skill.caps_term,
+                    strand: fs.tier.title,
+                    title: fs.skill.title,
+                  }
+                : null,
+              examples: TOPIC_EXAMPLES,
+              skillId,
+              inputType: question.input_type,
+              lastAnswer,
+              correctAnswer: question.expected_answer,
+            });
+          })()}
           footer={
           <FeedbackFooter
             isCorrect={result.is_correct}

@@ -1089,6 +1089,263 @@ function mlFamilyOf(code: string): MLFamilyKey {
   return "numbers";
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// PHYSICAL SCIENCES LAYER
+// ─────────────────────────────────────────────────────────────────────────────
+//
+// The matric Physical Sciences banks label each item with 1–3 finely-split
+// ERR_* codes (~1000 distinct across mechanics, waves, electricity & magnetism,
+// matter & materials, and every chemistry topic). Each item also ships an
+// authored per-question `explanation`, which the card uses as the "why". So this
+// layer only needs to classify a code into its topic FAMILY and supply the
+// label / what / how / example / where. Grade 10–12 register.
+
+type PhysSciFamilyKey =
+  | "kinematics" | "newton" | "gravitation" | "momentum" | "energy"
+  | "waves" | "optics" | "electrostatics" | "circuits" | "electrodynamics"
+  | "atomic" | "bonding" | "stoichiometry" | "rate_equilibrium"
+  | "acids_bases" | "redox" | "organic" | "energy_changes" | "skills";
+
+const PHYSSCI_FAMILIES: Record<PhysSciFamilyKey, ErrorExplanation> = {
+  kinematics: {
+    label: "Motion (kinematics) slip",
+    what: "Something in the motion set-up went wrong — a wrong equation for the unknown, a sign on displacement/velocity, or distance and displacement treated as the same thing.",
+    why: "Kinematics needs the right equation for what you're solving for, and a chosen positive direction that every vector sticks to.",
+    how: "List what you're given and what you want, then pick the equation of motion that contains only those. Choose one positive direction and give every quantity going the other way a minus sign.",
+    example: "Falling from rest, taking down as positive: v = u + at with u = 0 gives v = at. Distance is how far travelled; displacement is straight-line from start to finish, with a direction.",
+    where: "Every motion problem — free fall, projectiles, motion graphs — and the vertical projectile-motion question in Paper 1.",
+  },
+  newton: {
+    label: "Forces / Newton's laws slip",
+    what: "A force was handled wrongly — the wrong one of the three laws chosen, a force left off or given the wrong sign in Fnet, friction pointing the wrong way, or sin/cos swapped on an incline.",
+    why: "Newton's second law is Fnet = ma along one chosen direction, so every force must be resolved along that line with the correct sign, and friction always opposes the motion.",
+    how: "Draw a free-body diagram, resolve forces along the direction of motion, add them with signs to get Fnet, then apply Fnet = ma. On an incline, the weight component along the slope is mg sin θ and into the slope is mg cos θ.",
+    example: "A 2 kg block pulled by 10 N against 4 N of friction: Fnet = 10 − 4 = 6 N, so a = 6 ÷ 2 = 3 m·s⁻². For a system of connected bodies, find the system acceleration first, then look at one body.",
+    where: "Newton's laws questions, connected bodies, inclines and lifts — a large part of Paper 1 mechanics.",
+  },
+  gravitation: {
+    label: "Newton's law of universal gravitation slip",
+    what: "The gravitation formula was misused — wrong inverse-square scaling, or the wrong formula for g on a planet.",
+    why: "The force is F = Gm₁m₂/r², so doubling the separation divides the force by four, not two; the surface gravity of a planet is g = GM/r².",
+    how: "Substitute into F = Gm₁m₂/r² carefully. For a scaling question, write the ratio and see what power of r changes. For g on a planet, use g = GM/r² with that planet's mass and radius.",
+    example: "If the distance between two masses triples, the gravitational force becomes 1/3² = 1/9 of what it was.",
+    where: "The gravitation question in Paper 1 — force between masses, and comparing gravity on different planets.",
+  },
+  momentum: {
+    label: "Momentum & impulse slip",
+    what: "Momentum was worked out wrongly — change in momentum taken as m(v + u) instead of m(v − u), or conservation of momentum applied without keeping directions consistent.",
+    why: "Momentum is a vector: p = mv. Change in momentum is the final vector minus the initial vector, Δp = m(v − u), and in a collision the total momentum before equals the total after.",
+    how: "Pick a positive direction. Write each object's momentum with its sign. For impulse, Δp = m(v − u) — subtract, don't add. For a collision, set total momentum before = total momentum after, signs included.",
+    example: "A 0,5 kg ball hits a wall at 4 m·s⁻¹ and bounces back at 3 m·s⁻¹. Taking 'towards the wall' as positive: Δp = 0,5(−3 − 4) = −3,5 kg·m·s⁻¹.",
+    where: "The momentum and impulse question in Paper 1 — collisions, explosions, and force from rate of change of momentum.",
+  },
+  energy: {
+    label: "Work, energy & power slip",
+    what: "A work-energy quantity was mishandled — a wrong substitution into ½mv² or mgh, or P = W/t multiplied instead of divided.",
+    why: "Work done by a force is W = F·d·cos θ; mechanical energy (KE + PE) is conserved when only gravity does work; power is the rate of doing work, P = W/t.",
+    how: "For energy conservation, set total mechanical energy at one point equal to that at another: ½mv₁² + mgh₁ = ½mv₂² + mgh₂. For power, divide the work (or energy) by the time.",
+    example: "A 2 kg object falls 5 m from rest. Energy conservation: mgh = ½mv², so v = √(2gh) = √(2 × 9,8 × 5) ≈ 9,9 m·s⁻¹.",
+    where: "The work-energy-power question in Paper 1, and the work-energy theorem applied to inclines and friction.",
+  },
+  waves: {
+    label: "Waves & sound slip",
+    what: "A wave relationship was misused — v = fλ rearranged wrongly, or the Doppler formula with numerator and denominator swapped, or the red/blue shift direction reversed.",
+    why: "For any wave, v = fλ. In the Doppler effect the observed frequency rises when source and observer move together and falls when they move apart; light from a receding object is red-shifted, from an approaching object blue-shifted.",
+    how: "For v = fλ, rearrange to the quantity you want. For Doppler, write fL = fs(v ± vL)/(v ∓ vs) and choose the signs by asking whether the motion raises or lowers the pitch. Red shift = moving away; blue shift = moving closer.",
+    example: "A siren of 400 Hz on an approaching car: the observer hears a higher frequency, so the top sign (add vL, subtract vs where they close the gap) applies.",
+    where: "The Doppler effect question (sound and light) in Paper 1, and echo/wave-speed calculations.",
+  },
+  optics: {
+    label: "Refraction & optics slip",
+    what: "A light-bending relationship was misused — Snell's law rearranged wrongly, or the condition for total internal reflection misapplied.",
+    why: "Snell's law is n₁ sin θ₁ = n₂ sin θ₂. Total internal reflection only happens when light travels from a denser to a less dense medium AND the angle of incidence exceeds the critical angle.",
+    how: "For refraction, substitute into n₁ sin θ₁ = n₂ sin θ₂ and solve for the unknown angle or index. For TIR, first check the light is going into a less dense medium, then compare the angle to the critical angle where sin θc = n₂/n₁.",
+    example: "Light going from glass (n = 1,5) into air (n = 1) with a critical angle near 42°: at 50° it totally internally reflects; at 30° it refracts out.",
+    where: "The refraction question in Paper 1, and optical-fibre / prism scenarios.",
+  },
+  electrostatics: {
+    label: "Electrostatics slip",
+    what: "A charge or field quantity was mishandled — F = qE misapplied, field-line arrows drawn the wrong way, or charge not shared equally between identical touching spheres.",
+    why: "Coulomb's law gives the force between point charges, F = kQ₁Q₂/r². Field lines point away from positive and towards negative charge. Two identical conducting spheres in contact share their total charge equally.",
+    how: "For force, substitute into F = kQ₁Q₂/r². For the force on a charge in a field, F = qE. When two identical spheres touch, add their charges and split the total in half before separating them.",
+    example: "A +6 nC sphere touches an identical −2 nC sphere: total = +4 nC, so each carries +2 nC after they separate.",
+    where: "The electrostatics question in Paper 1 — Coulomb's law, electric fields, and charged-sphere problems.",
+  },
+  circuits: {
+    label: "Electric circuits slip",
+    what: "A circuit relationship was misused — V = IR rearranged wrongly, the internal resistance left out of the total, or series/parallel combined incorrectly.",
+    why: "Ohm's law is V = IR. The emf of a cell equals the total 'lost volts' plus terminal voltage: ε = I(R + r), so the internal resistance r must be included in the total resistance.",
+    how: "Add series resistors directly; for parallel, use 1/Rp = 1/R₁ + 1/R₂. Include the internal resistance r in the total. Then apply ε = I(R + r) or V_terminal = ε − Ir.",
+    example: "A 6 V cell with r = 0,5 Ω drives a 2,5 Ω resistor: I = ε ÷ (R + r) = 6 ÷ 3 = 2 A, and the terminal voltage is 6 − (2 × 0,5) = 5 V.",
+    where: "The electric circuits question in Paper 1 — internal resistance, series/parallel networks, and power in circuits.",
+  },
+  electrodynamics: {
+    label: "Electrodynamics slip",
+    what: "An AC or machine relationship was misused — V_rms = V_max/√2 rearranged wrongly, or a generator/motor's energy conversion stated backwards.",
+    why: "A generator turns mechanical energy into electrical (AC via slip rings, DC via a commutator); a motor does the reverse. RMS values relate to the peak by a factor of √2: V_rms = V_max/√2.",
+    how: "For RMS, divide the maximum by √2 (or multiply an RMS value by √2 to get the peak). For a machine question, state the input and output energy the right way round and name the part that makes it AC or DC.",
+    example: "A supply with V_max = 340 V has V_rms = 340 ÷ √2 ≈ 240 V — the value quoted for household mains.",
+    where: "The electrodynamics question in Paper 1 — generators, motors, and AC (RMS voltage, current and power).",
+  },
+  atomic: {
+    label: "Atomic structure / matter slip",
+    what: "An atomic-scale idea was mixed up — electron configuration, an ion's charge, or how line emission spectra arise.",
+    why: "Electrons fill energy levels from the lowest up; an atom becomes an ion by losing or gaining electrons; a line spectrum is produced when electrons drop between fixed energy levels, each drop giving one wavelength.",
+    how: "Write the electron configuration level by level. For an ion, adjust the electron count by the charge. For a spectrum, link each line to one specific energy-level transition.",
+    example: "A sodium atom (11 electrons) is 1s² 2s² 2p⁶ 3s¹; losing the lone 3s electron gives the Na⁺ ion.",
+    where: "Paper 2 — atomic combinations and the historical models / emission-spectrum material.",
+  },
+  bonding: {
+    label: "Bonding & intermolecular forces slip",
+    what: "A structure or intermolecular-force idea went wrong — a molecular shape, bond polarity, the wrong overall force between molecules, or hydrogen bonding claimed without H bonded to N, O or F.",
+    why: "Molecular shape follows the number of bonding and lone pairs (VSEPR). The intermolecular forces present depend on polarity: London forces in all molecules, dipole–dipole in polar ones, and hydrogen bonding only when H is bonded directly to N, O or F.",
+    how: "Draw the Lewis structure, count bonding pairs and lone pairs to get the shape, decide if the molecule is polar, then list its intermolecular forces. Only tick hydrogen bonding if you can point to an H–N, H–O or H–F bond.",
+    example: "Water has H bonded to O, so it hydrogen-bonds — which is why its boiling point is much higher than H₂S, where H is bonded only to S.",
+    where: "Paper 2 — molecular structure, shapes, and the intermolecular-forces / physical-properties questions.",
+  },
+  stoichiometry: {
+    label: "Stoichiometry / the mole slip",
+    what: "A mole calculation went wrong — molar mass, n = m/M, molar volume at STP, a unit not converted, or an unbalanced equation used for the ratio.",
+    why: "Amount in moles is n = m/M; at STP one mole of any gas occupies 22,4 dm³; concentration is c = n/V. The mole ratio comes from the balanced equation, so it must be balanced first.",
+    how: "Balance the equation. Convert every mass to moles with n = m/M and every gas volume with the molar volume. Use the balanced coefficients as the ratio, then convert the answer back to the units asked for (watch cm³ vs dm³).",
+    example: "How many moles in 18 g of water? M(H₂O) = 18 g·mol⁻¹, so n = 18 ÷ 18 = 1 mol, which is 22,4 dm³ if it were a gas at STP.",
+    where: "Paper 2 — quantitative aspects of chemical change, and any calculation built on a balanced equation.",
+  },
+  rate_equilibrium: {
+    label: "Reaction rate / equilibrium slip",
+    what: "A rate or equilibrium idea went wrong — an ICE table laid out incorrectly, a stoichiometric coefficient left out of the change row, the wrong rate ratio between species, or Le Chatelier applied the wrong way.",
+    why: "Rate depends on how often particles collide successfully (collision theory). At equilibrium the forward and reverse rates are equal; Kc is fixed at a given temperature; a stress (concentration, pressure, temperature) shifts the position to partly oppose the change.",
+    how: "For an ICE table, put initial amounts in row 1, the change (× the coefficient) in row 2, and the equilibrium amounts in row 3, then substitute into the Kc expression. For a shift, ask which direction reduces the imposed stress.",
+    example: "For N₂ + 3H₂ ⇌ 2NH₃, if x mol of N₂ reacts then 3x mol of H₂ reacts and 2x mol of NH₃ forms — the coefficients scale the change row.",
+    where: "Paper 2 — rate of reaction and chemical equilibrium (Kc calculations and Le Chatelier predictions).",
+  },
+  acids_bases: {
+    label: "Acids & bases slip",
+    what: "An acid-base idea went wrong — a conjugate acid-base pair misidentified, pH/pOH mixed up, or a strong/weak or titration relationship misused.",
+    why: "A conjugate pair differs by exactly one H⁺. pH = −log[H₃O⁺] and pH + pOH = 14 at 25 °C. In a titration, moles of acid H⁺ equal moles of base OH⁻ at the equivalence point.",
+    how: "For a conjugate pair, add or remove one H⁺. For pH, take −log of the hydronium concentration; get pOH from 14 − pH. For a titration, use n = cV on both sides and the balanced ratio.",
+    example: "NH₃ + H₂O ⇌ NH₄⁺ + OH⁻: NH₃ and NH₄⁺ are a conjugate pair (differ by one H⁺); so are H₂O and OH⁻.",
+    where: "Paper 2 — acids and bases (conjugate pairs, pH calculations, titrations and hydrolysis of salts).",
+  },
+  redox: {
+    label: "Redox & electrochemistry slip",
+    what: "A redox or cell idea went wrong — a half-reaction not balanced for atoms or charge, oxidation and reduction mixed up, or E°_cell = E°_cathode − E°_anode rearranged incorrectly.",
+    why: "Oxidation is loss of electrons (at the anode); reduction is gain (at the cathode). Half-reactions must balance for both atoms and charge. The cell emf is E°_cell = E°_cathode − E°_anode.",
+    how: "Balance each half-reaction (atoms first, then charge with electrons). Identify which species is oxidised (anode) and which is reduced (cathode). Subtract: E°_cell = E°(cathode) − E°(anode).",
+    example: "A Zn/Cu cell: Zn is oxidised (anode, E° = −0,76 V), Cu²⁺ is reduced (cathode, E° = +0,34 V), so E°_cell = 0,34 − (−0,76) = 1,10 V.",
+    where: "Paper 2 — electrochemical reactions (galvanic and electrolytic cells, standard electrode potentials).",
+  },
+  organic: {
+    label: "Organic chemistry slip",
+    what: "An organic idea went wrong — an IUPAC name (wrong suffix for the functional group, or the chain numbered from the wrong end), an isomer, or the wrong reaction type.",
+    why: "The functional group fixes the suffix (-ane, -ene, -ol, -oic acid, …). The parent chain is the longest containing the functional group, numbered so the group (then substituents) gets the lowest possible number. Reaction type depends on the functional groups: addition, elimination, substitution, esterification, combustion, cracking.",
+    how: "Find the longest chain through the functional group, number from the end that gives it the lowest locant, name substituents alphabetically with their numbers, and add the suffix for the group. For a reaction, match reactant and product groups to a named reaction type.",
+    example: "CH₃CH₂CH₂OH: three-carbon chain with an –OH on carbon 1, so it's propan-1-ol. An alkene + water → alcohol is an addition (hydration) reaction.",
+    where: "Paper 2 — organic molecules (naming, structural isomers) and organic reactions.",
+  },
+  energy_changes: {
+    label: "Energy changes in reactions slip",
+    what: "An enthalpy idea went wrong — a reaction labelled exothermic instead of endothermic (or the reverse), or activation energy and heat of reaction confused.",
+    why: "An exothermic reaction releases energy (ΔH negative, products lower than reactants on the energy profile); endothermic absorbs it (ΔH positive). Activation energy is the barrier to get the reaction started, separate from the overall ΔH.",
+    how: "Compare the energy of the products to the reactants: lower products = exothermic (ΔH < 0), higher = endothermic (ΔH > 0). On a profile, read the peak height above the reactants as the activation energy and the reactant-to-product step as ΔH.",
+    example: "Combustion of methane releases heat, so it's exothermic and ΔH is negative — the products sit lower on the energy diagram than the reactants.",
+    where: "Paper 2 — energy and chemical change (exothermic/endothermic reactions and energy profile diagrams).",
+  },
+  skills: {
+    label: "Calculation or data-handling slip",
+    what: "The physics or chemistry was right, but a step in the working slipped — a unit not converted, a formula rearranged wrongly, a vector added as if it were a scalar, or a graph feature misread.",
+    why: "Science calculations need consistent SI units, correct rearrangement, and vectors combined by direction — not just by adding sizes.",
+    how: "Convert all quantities to SI units first. Rearrange the formula before substituting. For perpendicular vectors, combine with Pythagoras; for a graph, read the axis labels and use the gradient or area as the question requires.",
+    example: "Two perpendicular forces of 3 N and 4 N give a resultant of √(3² + 4²) = 5 N, not 7 N.",
+    where: "Any calculation in either paper — the marks for method and units are separate from the marks for the final number.",
+  },
+};
+
+// A few sharp entries for the highest-frequency Physical Sciences codes.
+const PHYSSCI_ERROR_EXPLANATIONS: Record<string, ErrorExplanation> = {
+  ERR_KINEMATIC_EQUATION_SELECT: {
+    label: "Wrong equation of motion chosen",
+    what: "You picked an equation of motion that doesn't contain the right mix of known and unknown quantities.",
+    example: "To find final velocity from u, a and displacement (no time), use v² = u² + 2as — not v = u + at, which needs the time.",
+  },
+  ERR_INCLINE_COMPONENT_TRIG: {
+    label: "sin and cos swapped on the incline",
+    what: "The weight components on the slope were resolved with sine and cosine the wrong way round.",
+    example: "On an incline of angle θ, the weight component ALONG the slope is mg sin θ and the component INTO the slope (the normal direction) is mg cos θ.",
+  },
+  ERR_DOPPLER_NUMER_DENOM: {
+    label: "Doppler formula flipped",
+    what: "The numerator and denominator of the Doppler equation were swapped.",
+    example: "fL = fs (v ± vL) / (v ∓ vs): the listener's speed goes on top, the source's speed on the bottom. Choose signs by asking whether the motion raises or lowers the pitch.",
+  },
+  ERR_IMPULSE_M_DELTA_V: {
+    label: "Change in momentum added instead of subtracted",
+    what: "Δp was worked out as m(v + u) instead of m(v − u).",
+    example: "A ball hitting a wall at +4 m·s⁻¹ and rebounding at 3 m·s⁻¹ has final velocity −3 m·s⁻¹, so Δp = m(−3 − 4), not m(−3 + 4).",
+  },
+  ERR_HBONDING_REQUIREMENTS: {
+    label: "Hydrogen bonding claimed without H–N/O/F",
+    what: "Hydrogen bonding was applied to a molecule where hydrogen isn't bonded directly to nitrogen, oxygen or fluorine.",
+    example: "H₂S has H bonded to sulfur, so it CANNOT hydrogen-bond; H₂O has H bonded to oxygen, so it can — which is why water boils far higher.",
+  },
+  ERR_ICE_CHANGE_COEFFICIENT: {
+    label: "Stoichiometric coefficient left out of the ICE table",
+    what: "The 'change' row of the ICE table wasn't multiplied by each species' balancing coefficient.",
+    example: "For N₂ + 3H₂ ⇌ 2NH₃, if the change in N₂ is −x, then H₂ changes by −3x and NH₃ by +2x.",
+  },
+  ERR_EMF_FORMULA: {
+    label: "E°_cell formula rearranged wrongly",
+    what: "E°_cell = E°_cathode − E°_anode was set up the wrong way round.",
+    example: "Cathode +0,34 V, anode −0,76 V: E°_cell = 0,34 − (−0,76) = 1,10 V — cathode minus anode, keeping the signs.",
+  },
+  ERR_INTERNAL_R_FORGOT_IN_TOTAL: {
+    label: "Internal resistance left out of the total",
+    what: "The cell's internal resistance r wasn't included when finding the total circuit resistance.",
+    example: "A 6 V cell (r = 0,5 Ω) with a 2,5 Ω external resistor: I = 6 ÷ (2,5 + 0,5) = 2 A. Leaving out r gives the wrong current.",
+  },
+  ERR_IUPAC_NUMBERING: {
+    label: "Carbon chain numbered from the wrong end",
+    what: "The parent chain was numbered so a substituent or the functional group got a higher number than it needed to.",
+    example: "In CH₃–CH(CH₃)–CH₂–CH₃, number from the right so the methyl branch is on carbon 2, not carbon 3 — giving 2-methylbutane.",
+  },
+  ERR_N2_DIVISION_ORDER: {
+    label: "F = ma rearranged upside down",
+    what: "Acceleration was found by dividing mass by force instead of force by mass.",
+    example: "Fnet = 6 N on a 2 kg object: a = Fnet ÷ m = 6 ÷ 2 = 3 m·s⁻², not 2 ÷ 6.",
+  },
+};
+
+/**
+ * Classify any Physical Sciences error code into its topic family. Order
+ * matters — the more specific chemistry topics are checked before the broad
+ * 'skills' fallback, and electrochemistry (cathode/anode) before circuits.
+ */
+function physSciFamilyOf(code: string): PhysSciFamilyKey {
+  const c = code.toUpperCase();
+  const has = (...ks: string[]) => ks.some((k) => c.includes(k));
+  // Electrochemistry before circuits (both use "EMF"), and before the generic
+  // "ELECTRO" catch.
+  if (has("CATHODE", "ANODE", "OXIDATION", "REDUCTION", "HALF_REACTION", "REDOX", "GALVANIC", "ELECTROLYTIC", "ELECTROLYSIS", "ELECTROLYTE", "E_CELL", "EMF_FORMULA", "EMF_SPONTAN", "OXIDISING", "REDUCING", "OXIDATION_NUMBER", "ELECTRODE_POTENTIAL", "STANDARD_POTENTIAL", "CELL_NOTATION", "ELECTRON_CANCEL", "EXTRACTION_", "SPONTANE", "SACRIFICIAL", "CORROSION", "REDUCTION_TABLE", "SPECTATOR", "DISPROPORTION")) return "redox";
+  if (has("KINEMATIC", "DISPLACEMENT", "DISTANCE", "PROJECTILE", "FREEFALL", "FREE_FALL", "MOTION_GRAPH", "GRAPH_MOTION", "ACCEL", "DECELERAT", "VELOCITY_TIME", "POSITION_TIME", "XT_GRAPH", "VT_GRAPH", "AT_GRAPH", "BOUNCE_", "AT_TOP", "FLIGHT_SYMMETRY", "TIME_OF_FLIGHT", "GRAPH_AREA", "GRAPH_GRADIENT", "GRADIENT_MEANING", "AREA_MEANING", "TERMINAL_VELOCITY", "RETARD", "SPEED_VELOCITY", "UNIFORM_ACCEL")) return "kinematics";
+  if (has("NEWTON", "N1_", "N2_", "N3_", "LAW_IDENTIFICATION", "LAW_IDENT", "NET_FORCE", "FNET", "FRICTION", "INCLINE", "COMPONENT_TRIG", "COMPONENT_SIZE", "SYSTEM_VS_INDIVIDUAL", "FREE_BODY", "FBD", "NORMAL_FORCE", "TENSION", "APPLIED_FORCE", "ATWOOD", "APPARENT_WEIGHT", "FORCE_PAIR", "FORCE_COMPARISON", "ACTION_REACTION", "LIFT_FORCE", "RESOLVE_FORCE")) return "newton";
+  if (has("GRAV", "INVERSE_SQUARE", "G_PLANET", "WEIGHT_MASS", "UNIVERSAL_GRAV", "FIELD_G", "BIG_G")) return "gravitation";
+  if (has("MOMENTUM", "IMPULSE", "DELTA_V", "COLLISION", "DELTA_P", "P_CONSERV", "RECOIL", "EXPLOSION", "COM_", "CONSERVATION_OF_MOMENT", "STICKY", "FT_AREA", "F_DELTA_T")) return "momentum";
+  if (has("WORK", "ENERGY_CONSERV", "CME", "MECHANICAL_ENERGY", "CONSERVATIVE", "KE_", "EK_", "PE_", "EP_", "MGH", "HALF_MV", "POWER_FORMULA", "WORK_ENERGY", "EFFICIENCY", "P_EQUALS_W", "ENERGY_FORMULA", "ENERGY_CONVERSION", "ENERGY_DESTROYED", "ENERGY_TRANSFER", "ENERGY_SOLVE", "NON_CONSERVATIVE")) return "energy";
+  if (has("DOPPLER", "RED_BLUE", "RED_SHIFT", "BLUE_SHIFT", "RED_DEFINITION", "BLUE_DEFINITION", "WAVE_SPEED", "WAVELENGTH", "FREQUENCY", "PERIOD", "AMPLITUDE", "CREST", "TROUGH", "COMPRESSION_RAREFACTION", "RAREFACTION", "F_LAMBDA", "SOUND", "PITCH", "ECHO", "V_EQUALS_F", "HARMONIC", "STANDING_WAVE", "DIFFRACTION", "ANGULAR_FREQ", "TRANSVERSE", "LONGITUDINAL", "EXPANDING_UNIVERSE", "HUBBLE", "EM_SPEED", "EM_NATURE", "EM_ORDER", "EM_USES", "EM_DANGER", "EM_DUAL", "EM_SPECTRUM", "PHOTON", "PHOTOELECTRIC", "THRESHOLD", "WORK_FUNCTION", "ABSORPTION_D", "EMISSION_D", "ABSORPTION_DIR", "EMISSION_DIR")) return "waves";
+  if (has("REFRACT", "SNELL", "TIR", "CRITICAL_ANGLE", "REFRACTIVE_INDEX", "TOTAL_INTERNAL", "LENS", "PRISM", "ANGLE_FROM_NORMAL", "BEND_DIRECTION", "ARCSIN", "OPTICAL_FIBRE")) return "optics";
+  if (has("COULOMB", "E_FIELD", "E_VS_Q", "E_VS_INVERSE", "FIELD_LINE", "F_EQUALS_EQ", "CHARGE_SHARING", "POINT_CHARGE", "ELECTRON_TRANSFER", "CHARGE_SIGN", "ELECTROSTATIC", "CHARGE_QUANT", "CHARGE_KINDS", "CHARGE_UNIT", "CHARGE_FORCE", "CHARGE_CONSERV", "ELECTRON_CHARGE", "CONDUCTOR_INSULATOR", "FIELD_DEF", "FIELD_DIRECTION", "FIELD_PATTERN", "FIELD_STRENGTH", "FIELD_VECTOR", "FIELD_FORMULA", "FIELD_FORCE", "FIELD_PROPORTION", "FIELD_VISUALISE", "FIELD_EVIDENCE", "FIELD_SOURCE")) return "electrostatics";
+  if (has("OHM", "RESISTANCE", "RESISTOR", "INTERNAL_R", "EMF_EQN", "EMF_DEF", "EMF_FACTORS", "EMF_TERMINAL", "EMF_REARRANGE", "EMF_PRACTICAL", "SERIES", "PARALLEL", "TERMINAL_VOLT", "CIRCUIT", "CURRENT_DIVID", "V_EQUALS_IR", "POWER_DISSIP", "CELL_EMF", "AMMETER", "VOLTMETER", "CURRENT_DEF", "CURRENT_UNIT", "CURRENT_USED_UP", "CONVENTIONAL_CURRENT", "ELECTRON_FLOW", "CHARGE_CURRENT_TIME", "LOST_VOLTS", "POTENTIAL_DIFFERENCE")) return "circuits";
+  if (has("RMS", "GENERATOR", "MOTOR", "ALTERNATING", "SLIP_RING", "COMMUTATOR", "BRUSH", "AC_DC", "AC_WAVEFORM", "AC_AVG", "V_MAX", "I_MAX", "ELECTRODYNAMIC", "FARADAY", "FLUX", "BACK_EMF", "ELECTROMAGNET", "INDUCTION", "INDUCED_EMF", "MAGNETIC_FIELD", "EARTH_FIELD", "EARTH_POLES", "COMPASS", "FIELD_REVERSAL", "CURRENT_FIELD", "SOLENOID", "RIGHT_HAND")) return "electrodynamics";
+  if (has("ELECTRON_CONFIG", "AUFBAU", "ISOTOPE", "ION_CHARGE", "IONISATION", "IONIZATION", "EMISSION_SPECTRUM", "EMISSION_COLOUR", "ATOMIC_MODEL", "ATOMIC_NUMBER", "MASS_NUMBER", "PERIODIC_TREND", "PERIODIC_TABLE", "QUANTUM", "ENERGY_LEVEL", "ENERGY_QUANTIZ", "ORBITAL", "CONFIG_", "ELECTRON_COUNT", "VALENCE_ELECTRON", "NEUTRON", "PROTON_NUMBER", "SUBATOMIC", "GROUND_STATE", "EXCITED_STATE")) return "atomic";
+  if (has("HBONDING", "H_BOND", "IMF", "DIPOLE", "LONDON", "VAN_DER_WAAL", "VSEPR", "MOLECULAR_SHAPE", "MOLECULAR_STRUCTURE", "LEWIS", "LONE_PAIR", "BONDING_PAIR", "BONDING_ELECTRON", "BOND_ELECTRON", "BOND_PAIR", "BOND_TYPE", "BOND_PREDICT", "BOND_STRENGTH", "DATIVE_BOND", "DOUBLE_BOND", "TRIPLE_BOND", "DIATOMIC", "POLARITY", "POLAR_MOLECULE", "ELECTRONEGATIV", "COVALENT", "IONIC_BOND", "IONIC_LATTICE", "METALLIC_BOND", "VS_BP", "VAPOUR_PRESSURE", "BOILING_POINT", "MELTING_POINT", "CHAIN_LENGTH", "BRANCHING_BP", "VISCOSITY", "SURFACE_TENSION", "COOLING_CURVE", "HEATING_CURVE", "STATE_CHANGE", "EVAPORATION", "SUBLIMATION", "CONDUCTIVITY_IONS")) return "bonding";
+  if (has("MOLE", "MOLAR", "BALANC", "LIMITING", "YIELD", "EMPIRICAL", "MOLECULAR_FORMULA", "CONCENTRATION", "CONC_FROM", "VOLUME_UNIT", "STOICH", "PERCENT_COMPOSITION", "PERCENT_YIELD", "PERCENT_PURITY", "AVOGADRO", "N_EQUALS_M", "GAS_VOLUME", "MOLAR_VOLUME", "ATOM_CONSERV", "ATOM_COUNT", "ATOM_ECONOMY", "CHANGE_SUBSCRIPT", "FORMULA_CONVERSION", "FORMULA_RECALL", "ELEMENT_DEF", "COMPOUND_DEF", "FREE_ELEMENT", "CHEMICAL_CHANGE", "BOYLE", "CHARLES", "GAS_LAW", "COMBINED_GAS", "ABSOLUTE_ZERO", "IDEAL_GAS", "KELVIN_CONVER", "CONTACT_PROCESS", "HABER", "REDUCTION_ROAST", "TITRATION_CALC")) return "stoichiometry";
+  if (has("RATE", "COLLISION_THEORY", "CATALYST", "ICE_", "ICE_SETUP", "KC_", "EQUILIBRIUM", "LE_CHATELIER", "REACTION_QUOTIENT", "EQ_CONSTANT", "ACTIVATED_COMPLEX", "DYNAMIC_NATURE", "EQUAL_VS_CONSTANT", "REVERSIBLE", "FORWARD_REVERSE", "YIELD_SHIFT", "CONC_TIME_GRAPH")) return "rate_equilibrium";
+  if (has("ACID", "BASE", "PH_", "POH", "CONJUGATE", "AMPHOL", "AMPHIPROT", "AMPHOTER", "ARRHENIUS", "BRONSTED", "NEUTRALIS", "TITRAT", "ENDPOINT", "EQUIV_POINT", "EQUIVALENCE", "INDICATOR", "KA_", "KB_", "KW_", "HYDROLYSIS", "STRONG_WEAK", "DIPROTIC", "MONOPROTIC", "PROTON_DONOR", "PROTON_ACCEPT", "DILUTION_PH", "BURETTE", "FLASK_WATER", "SALT_HYDROLYSIS", "OXIDE_ACIDIC")) return "acids_bases";
+  if (has("IUPAC", "ISOMER", "FUNCTIONAL_GROUP", "ALKANE", "ALKENE", "ALKYNE", "ALCOHOL", "ALDEHYDE", "KETONE", "ESTER", "ETHER", "AMINE", "HALOALKANE", "HALOGENOALKANE", "CARBOXYLIC", "ADDITION_RXN", "ADDITION_PRODUCT", "HYDRATION", "HYDROHALOGEN", "HALOGENATION", "HYDROGENATION", "ELIMINATION", "DEHYDRATION", "DEHYDROHALOGEN", "SUBSTITUTION", "ESTERIFICATION", "REACTION_TYPE", "SUFFIX", "PREFIX", "HOMOLOGOUS", "SATURATED", "UNSATURATED", "CRACKING", "COMBUSTION_PRODUCT", "ORGANIC", "MACRO_PROPERT", "MARKOVNIKOV", "STRUCTURAL_FORMULA", "CONDENSED_FORMULA", "BIFUNCTIONAL", "POLYMER", "MONOMER", "PLASTIC")) return "organic";
+  if (has("EXO", "ENDO", "ENTHALPY", "DELTA_H", "ACTIVATION_ENERGY", "BOND_ENERGY", "HEAT_OF_REACTION", "ENERGY_PROFILE", "ENERGY_DIAGRAM", "ENERGY_CHANGE_SIGN", "POTENTIAL_ENERGY_DIAGRAM")) return "energy_changes";
+  return "skills";
+}
+
 /**
  * Resolve the best plain-language explanation for a question's error codes.
  * Two layers: a sharp authored entry for the code if one exists, otherwise the
@@ -1098,7 +1355,7 @@ function mlFamilyOf(code: string): MLFamilyKey {
  */
 export function resolveErrorExplanation(
   codes?: string[] | null,
-  namespace: "maths" | "maths-literacy" = "maths"
+  namespace: "maths" | "maths-literacy" | "physical-sciences" = "maths"
 ): ErrorExplanation | null {
   if (!codes || codes.length === 0) return null;
 
@@ -1111,6 +1368,18 @@ export function resolveErrorExplanation(
       if (hit) return { ...ML_FAMILIES[mlFamilyOf(code)], ...hit };
     }
     return ML_FAMILIES[mlFamilyOf(codes[0])];
+  }
+
+  // Physical Sciences has ~1000 finely-split codes across mechanics, waves,
+  // electricity, matter and all of chemistry — far too many for bespoke entries.
+  // Its per-question `explanation` already covers the "why", so this map only
+  // needs the misconception family for label / what / how / example / where.
+  if (namespace === "physical-sciences") {
+    for (const code of codes) {
+      const hit = PHYSSCI_ERROR_EXPLANATIONS[code];
+      if (hit) return { ...PHYSSCI_FAMILIES[physSciFamilyOf(code)], ...hit };
+    }
+    return PHYSSCI_FAMILIES[physSciFamilyOf(codes[0])];
   }
 
   // Prefer a sharp, code-specific entry from any of the listed codes. Layer it

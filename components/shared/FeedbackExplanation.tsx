@@ -42,7 +42,7 @@ export interface FeedbackExplanationProps {
    * core maths map; Maths Literacy passes "maths-literacy" so its own 248 codes
    * resolve to Maths-Lit explanations instead of a mis-picked maths family.
    */
-  errorNamespace?: "maths" | "maths-literacy";
+  errorNamespace?: "maths" | "maths-literacy" | "physical-sciences";
   /** Numbered worked solution, if the subject authors one (shown as "How"). */
   workingSteps?: string[];
   /** Optional extra text from the server (e.g. partial-credit note). */

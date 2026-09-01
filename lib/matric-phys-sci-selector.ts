@@ -103,6 +103,7 @@ export function itemToGenerated(
     unit: item.unit,
     marks: item.marks,
     explanation: item.explanation,
+    errorSignals: item.errorSignals ?? [],
   };
 }
 

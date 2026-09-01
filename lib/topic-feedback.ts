@@ -35,9 +35,10 @@ export const SUBJECT_LABEL: Record<string, string> = {
   "afrikaans": "Afrikaans First Additional Language",
 };
 
-// "G7 T1" / "G10 T3" → "Term 1"; "G7" or missing → "".
+// "G7 T1" / "G10 T3" → "Term 1"; "G7", "T1-T4" (a range) or missing → "".
 function termPhrase(capsTerm?: string): string {
-  const m = capsTerm?.match(/T\s*([1-4])/i);
+  if (!capsTerm || /T\s*[1-4]\s*[-–]\s*T?\s*[1-4]/i.test(capsTerm)) return "";
+  const m = capsTerm.match(/T\s*([1-4])/i);
   return m ? `Term ${m[1]}` : "";
 }
 
