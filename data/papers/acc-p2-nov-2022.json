@@ -1,0 +1,346 @@
+{
+  "id": "acc-p2-nov-2022",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P2",
+  "year": 2022,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Cost Accounting (Weza Stitches)",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2022-1-1",
+          "label": "1.1",
+          "questionText": "Choose an example from COLUMN B that matches a cost category in COLUMN A. Write only the letter (A–E) next to the question number.\n\nCOLUMN A:\n1.1.1  Administration\n1.1.2  Direct material\n1.1.3  Selling and distribution\n1.1.4  Factory overhead\n\nCOLUMN B:\nA  carriage on raw material purchased\nB  salary of the factory foreman\nC  rent expense for the office building\nD  workers in production\nE  commission paid to sales staff",
+          "marks": 4,
+          "memoText": "1.1.1  Administration          →  C  (rent expense for the office building) ✓\n1.1.2  Direct material         →  A  (carriage on raw material purchased) ✓\n1.1.3  Selling and distribution →  E  (commission paid to sales staff) ✓\n1.1.4  Factory overhead        →  B  (salary of the factory foreman) ✓\n\n(Option D, 'workers in production', is direct LABOUR, not one of the four categories asked — it is the distractor.)\n\nTeaching point: Factory overhead is any factory cost that is not direct material or direct labour — the foreman supervises but does not build the product. Carriage on raw materials is added to the cost of the material itself.",
+          "topic": "Cost Accounting - Cost Concepts",
+          "type": "match-group",
+          "matchRows": [
+            { "label": "1.1.1", "term": "Administration" },
+            { "label": "1.1.2", "term": "Direct material" },
+            { "label": "1.1.3", "term": "Selling and distribution" },
+            { "label": "1.1.4", "term": "Factory overhead" }
+          ],
+          "matchOptions": {
+            "A": "carriage on raw material purchased",
+            "B": "salary of the factory foreman",
+            "C": "rent expense for the office building",
+            "D": "workers in production",
+            "E": "commission paid to sales staff"
+          }
+        },
+        {
+          "id": "acc-p2-nov-2022-1-2-1a",
+          "label": "1.2.1 (a)",
+          "questionText": "WEZA STITCHES\n\nWeza Stitches, owned by Annie Brown, manufactures bathroom towel sets. Annie buys fabric from local suppliers. The information relates to the financial year ended 30 June 2022. There were no work-in-progress stock balances.\n\nREQUIRED: Calculate the direct labour cost for the financial year ended 30 June 2022.\n\nINFORMATION A — Direct labour cost:\n• Six workers were employed in production in 2021 and 2022.\n• Each of them worked 1 840 hours normal time during the year at R40 per hour.\n• The overtime register reflected a combined total of 230 hours worked at 1,6 times the normal time rate.\n• Production staff received a production bonus of 8% of the normal time wages.",
+          "marks": 7,
+          "memoText": "DIRECT LABOUR COST\n\nNormal time wages:  6 workers × 1 840 hours × R40  =  R441 600 ✓✓\nOvertime:  230 hours × R64 [R40 × 1,6]  =  R14 720 ✓✓✓\nProduction bonus:  R441 600 × 8%  =  R35 328 ☑☑  (bonus is 8% of NORMAL time wages only)\n\nDirect labour cost = 441 600 + 14 720 + 35 328  =  R491 648 ☑  (one part correct)\n\nOR:  (441 600 × 108%)  476 928 [four marks]  +  14 720 [two marks]  =  R491 648\n\nTeaching point: Build direct labour in three parts — normal hours at the normal rate, overtime hours at the enhanced rate (1,6 × R40 = R64), and the bonus, which the question ties to the NORMAL time wages (R441 600), not the total.",
+          "topic": "Cost Accounting - Direct Labour Cost",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2022-1-2-1b",
+          "label": "1.2.1 (b)",
+          "questionText": "WEZA STITCHES\n\nUse the same business as in 1.2.1 (a).\n\nREQUIRED: Calculate the factory overhead cost for the financial year ended 30 June 2022.\n\nINFORMATION B — Factory overhead cost:\nThe bookkeeper calculated the factory overhead cost as R541 600. However, he made the following errors, which must still be adjusted:\n• He included the entire insurance expense of R32 500 in the factory overhead cost, instead of only 60% of this expense.\n• He allocated R54 000 to factory water and electricity using the ratio 3 : 2 : 2 for factory, sales and office respectively. This expense should have been split in the ratio 2 : 1 : 1.",
+          "marks": 6,
+          "memoText": "FACTORY OVERHEAD COST\n\nTotal before corrections:                541 600\n\nInsurance:  (13 000) ✓☑*\n  Only 60% of the R32 500 belongs to the factory; remove the other 40%:  32 500 × 40% = R13 000 to deduct.\n  (OR −32 500 + 19 500)\n\nWater and electricity:  + 9 000 ☑*\n  The R54 000 he charged the factory is 3 parts of the 3 : 2 : 2 ratio, so total water and electricity = 54 000 × 7/3 = R126 000.\n  Correct factory share (ratio 2 : 1 : 1, total 4) = 126 000 × 2/4 = R63 000.\n  Adjustment:  −54 000 (remove) + 63 000 (add correct)  =  + R9 000.\n\nCorrect factory overhead cost:  541 600 − 13 000 + 9 000  =  R537 600 ☑  (the answer must include the R541 600)\n\n* one part correct.\n\nTeaching point: Treat each bookkeeper error as an adjustment to his R541 600. Insurance: keep only the 60% factory share. Water and electricity: re-derive the total from what he allocated, then re-split it on the correct ratio and adjust for the difference.",
+          "topic": "Cost Accounting - Factory Overhead Cost",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-1-2-1c",
+          "label": "1.2.1 (c)",
+          "questionText": "WEZA STITCHES\n\nUse the same business as in 1.2.1 (a). Direct material cost is R652 800. Direct labour cost (from 1.2.1 a) is R491 648. Factory overhead cost (from 1.2.1 b) is R537 600. There were no work-in-progress stock balances.\n\nREQUIRED: Calculate the total cost of production for 2022.",
+          "marks": 4,
+          "memoText": "TOTAL COST OF PRODUCTION FOR 2022\n\n  Direct material  652 800 ✓\n  + Direct labour  491 648 ☑ (see 1.2.1 a)\n  + Factory overhead  537 600 ☑ (see 1.2.1 b)\n  =  R1 682 048 ☑  (one part correct)\n\nTeaching point: Total cost of production = direct material + direct labour + factory overhead. With no work-in-progress, this equals the cost of production of finished goods.",
+          "topic": "Cost Accounting - Production Cost Statement",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2022-1-2-2",
+          "label": "1.2.2",
+          "questionText": "WEZA STITCHES\n\nUse the same business as in 1.2.1 (a).\n\nINFORMATION C (after all corrections):\n                              | 30 June 2022 | 30 June 2021\n  Fixed costs (total)         | R806 400     | R792 750\n  Fixed cost per unit         | R126         | R151\n  Number of units produced and sold | 6 400  | 5 250\n  Break-even point            | 6 156 units  | 6 954 units\n\nREQUIRED: Annie is concerned that fixed costs increased to R806 400. Explain why she should not be concerned. Provide TWO points. Quote figures.",
+          "marks": 4,
+          "memoText": "TWO points ✓✓ with comparative figures ✓✓ (the points should mention or imply economies of scale):\n\n• Economies of scale were achieved — production increased by 1 150 units / from 5 250 to 6 400 / by 21,9%.\n• Fixed cost PER UNIT decreased by R25 / from R151 to R126 / by 16,6% (fixed costs stay relatively stable and are not influenced by the level of production).\n• Total fixed cost increased by only R13 650 / from R792 750 to R806 400 / by 1,7%, which is below the inflation rate.\n\nTeaching point: A higher total fixed cost is not a worry when output rises faster — the fixed cost is spread over more units, so the fixed cost PER UNIT (the figure that matters for profitability) actually fell 16,6%.",
+          "topic": "Cost Accounting - Break-even Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-1-2-3",
+          "label": "1.2.3",
+          "questionText": "WEZA STITCHES\n\nUse the same business as in 1.2.1 (a). Refer to Information C.\n\nComparative figures:\n  Production: 5 250 (2021) → 6 400 units (2022);  Break-even point: 6 954 → 6 156 units\n  Direct material cost per unit: R128 → R102;  Direct labour cost per unit: R95,00 → R76,82\n  Variable cost per unit: R251 → R244;  Overtime hours worked: 230 (of the normal-time hours)\n  Last year the business made a loss on 1 704 units (R194 256); this year a profit on 244 units (R31 964).\n\nREQUIRED: Comment on whether the production staff deserves the production bonus that they received. Provide THREE points, with figures.",
+          "marks": 6,
+          "memoText": "THREE points ✓✓✓ with comparison figures ✓✓✓ (more than one point may appear in one statement):\n\nPOINT 1 — Output / break-even:\n• Production increased from 5 250 to 6 400 units / by 1 150 units / by 21,9%.\n• The break-even point decreased from 6 954 to 6 156 / by 798 units / by 11,5%.\n• The business made a profit on 244 units (R31 964), compared to a loss on 1 704 units (R194 256) last year.\n\nPOINT 2 — Cost per unit:\n• Direct material cost per unit decreased from R128 to R102 / by R26 / by 20,3% — good control / less wastage / efficiency / better training.\n• Direct labour cost per unit decreased from R95,00 to R76,82 / by R18,18 / by 19,1% — well managed; targets met during normal time.\n\nPOINT 3 — Overtime / variable costs:\n• Overtime was limited to only 230 hours / 12,5% of normal time — a small proportion, saving the company on overtime rates.\n• Total variable cost decreased from R251 per unit to R244 / by R7,00 / by 2,8%.\n\nTeaching point: The bonus is deserved — the staff produced more, wasted less material, kept labour cost per unit down, held overtime low and moved the business from a loss to a profit.",
+          "topic": "Cost Accounting - Unit Cost Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-1-2-4",
+          "label": "1.2.4",
+          "questionText": "WEZA STITCHES\n\nUse the same business as in 1.2.1 (a). Selling price per unit is R375; variable cost per unit is R244; total fixed costs are maintained.\n\nREQUIRED: Annie wants to improve her profit by R50 000 during the next financial year while maintaining costs. Calculate the additional units that must be produced to achieve this target.",
+          "marks": 4,
+          "memoText": "ADDITIONAL UNITS\n\n  Additional profit ÷ contribution per unit\n  =  50 000 ✓  /  (375 ✓ − 244 ✓)\n  =  50 000 / 131  (131 — two marks)\n  =  382 units ☑  (one part correct; accept 381,7 units)\n\nMark the numerator and denominator as such. One mark for the R50 000 only as a stand-alone figure — any adjustment (+, −, ×) to it makes the numerator incorrect.\n\nTeaching point: Because fixed costs are held constant, each extra unit only has to cover its variable cost (R244); the remaining R131 of contribution is pure extra profit. R50 000 ÷ R131 ≈ 382 units.",
+          "topic": "Cost Accounting - Break-even Analysis",
+          "type": "calculation"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "VAT and Inventory Valuation (Nomhle Traders & Pitten Sports Shop)",
+      "totalMarks": 45,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2022-2-1",
+          "label": "2.1",
+          "questionText": "VAT — NOMHLE TRADERS\n\nThe information relates to Nomhle Traders. The business is registered for VAT. The standard VAT rate is 15%. Nomhle also sells zero-rated goods.\n\nREQUIRED: Calculate the VAT amount that must be paid to SARS for the VAT period ended 31 May 2022.\n\nINFORMATION:\nA. Harry, the clerk, calculated the VAT amount due to SARS as R55 785. However, he did not take the following into account:\n  (i) VAT on goods returned to suppliers: R5 070\n  (ii) VAT on expenses paid: R6 240\n  (iii) VAT on goods taken by Nomhle for personal use: R5 400\nB. VAT on discount allowed must also be taken into account. The total discount allowed amounted to R18 860.\nC. VAT on sales was incorrectly recorded. Certain goods with a selling price of R31 200 (excluding VAT) should have been recorded as zero-rated items.",
+          "marks": 9,
+          "memoText": "VAT PAYABLE TO SARS — period ended 31 May 2022\n\n  55 785 ✓  + 5 070 ✓  − 6 240 ✓  + 5 400 ✓  − 2 460 ✓✓  − 4 680 ✓✓\n  =  R52 875 ☑  (one part correct)\n\n  OR  −55 785 − 5 070 + 6 240 − 5 400 + 2 460 + 4 680  (amounts may be shown in brackets in the opposite column)\n\nWorkings / reasoning:\n• Start: R55 785 owed to SARS.\n• (i) VAT on goods returned to suppliers, R5 070 — reverses input VAT the business claimed → VAT payable INCREASES: + R5 070.\n• (ii) VAT on expenses paid, R6 240 — input VAT not yet claimed → VAT payable DECREASES: − R6 240.\n• (iii) VAT on goods taken for personal use, R5 400 — a deemed sale, so output VAT → VAT payable INCREASES: + R5 400.\n• (B) VAT on discount allowed:  18 860 × 15/115 = R2 460 — discount allowed reduces sales, so output VAT reverses → DECREASES: − R2 460.\n• (C) Sales of R31 200 charged VAT in error (should be zero-rated):  31 200 × 15% = R4 680 output VAT to reverse → DECREASES: − R4 680.\n• VAT payable = 55 785 + 5 070 − 6 240 + 5 400 − 2 460 − 4 680 = R52 875.\n\nTeaching point: Decide for each item whether it adds to what the business OWES SARS (output VAT, or reversing an input claim) or reduces it (input VAT, or reversing an output charge). Discount allowed is VAT-inclusive (use 15/115); the zero-rating correction is on a VAT-exclusive figure (use 15%).",
+          "topic": "VAT (Value-Added Tax)",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-2-2-1",
+          "label": "2.2.1",
+          "questionText": "STOCK VALUATION — PITTEN SPORTS SHOP (MOUNTAIN BIKES)\n\nPitten Sports Shop is owned by Milo Slav. The financial year ended on 28 February 2022. The stock of mountain bikes is valued using the specific identification stock valuation method.\n\nStock records of mountain bikes:\n                              | KING     | PALO      | GAMA\n  Units on hand: 1 March 2021 | 128      | 62        | 40\n  Units purchased during the year | 400   | 250       | 220\n  Units returned to suppliers | 54       | 2         | 0\n  Units sold                  | 286      | 245       | 242\n  Units on hand: 28 Feb 2022  | 148      | ?         | 18\n  Cost price per unit         | R4 500   | R5 200    | ?\n  Value of closing stock      | R666 000 | ?         | ?\n  Selling price per unit      | R6 750   | R7 800    | R9 600\n  Total sales amount (in rands)| R1 930 500 | R1 911 000 | R2 323 200\n  Mark-up %                   | 50%      | 50%       | 60%\n\nREQUIRED: Calculate the value of the closing stock on 28 February 2022, using the specific identification method.",
+          "marks": 9,
+          "memoText": "CLOSING STOCK — SPECIFIC IDENTIFICATION\n\nKING:  R666 000 (given)\n\nPALO:  [62 + 250 − 2]  310  −  245 sold  =  65 units ✓✓  ×  R5 200 ✓  =  R338 000 ☑  (one part correct)\n\nGAMA:  Cost price per unit = R9 600 × 100/160 = R6 000 ✓✓  (60% mark-up)\n       18 units ✓  ×  R6 000  =  R108 000 ☑  (one part correct)\n\nTOTAL:  666 000 + 338 000 + 108 000  =  R1 112 000 ☑  (one part correct; must include the R666 000)\n\nTeaching point: Each model keeps its own cost. PALO units on hand = 62 + 250 − 2 − 245 = 65. GAMA's cost price is not given, so work it back from the R9 600 selling price at a 60% mark-up (× 100/160 = R6 000).",
+          "topic": "Stock Valuation - Specific Identification",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2022-2-2-2",
+          "label": "2.2.2",
+          "questionText": "STOCK VALUATION — PITTEN SPORTS SHOP (MOUNTAIN BIKES)\n\nUse the same information as in 2.2.1. A whistle-blower (informant) reported to Milo that the purchasing manager is stealing mountain bikes purchased by the business. An investigation revealed that 40 units of the King model, missing from the stock records, was supplied to Easy Rides, a competitor. There were no other stock shortages.\n\nREQUIRED: Explain TWO different examples of how the division of duties could prevent an incident such as this from occurring again in the future.",
+          "marks": 4,
+          "memoText": "Any TWO valid examples of duties that can be divided or delegated so that one person acts as a check for another (2 marks each). An explanation of 'division of duties' on its own is incomplete.\n\nAllocate each of these tasks to different employees:\n• Ordering and receiving stock.\n• Dispatching to sales and recording sales.\n• Follow-up on documentation and authorisation.\n• Physical stock counts and reconciling to the stock records.\n• Inspecting all physical stock leaving the premises against documentation (order forms, invoices, delivery notes).\n• Controlling access to the storage facilities / stock or store room.\n\nTeaching point: The purchasing manager could steal because he controlled ordering, receiving and dispatch with no independent check. Split those tasks so no one person can move stock in and out without someone else verifying it.",
+          "topic": "Stock Valuation - Internal Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-2-2-3",
+          "label": "2.2.3",
+          "questionText": "STOCK VALUATION — PITTEN SPORTS SHOP (MOUNTAIN BIKES)\n\nUse the same information as in 2.2.1. GAMA bikes: 0 units returned to suppliers, 60% mark-up, total sales R2 323 200, 242 of 260 available units sold, 18 units (R108 000) on hand.\n\nREQUIRED: Provide TWO points that show that Milo and his customers are happy with the quality of the Gama Bikes. Quote figures.",
+          "marks": 4,
+          "memoText": "TWO valid points ✓✓ with figures ✓✓:\n\n• No (0) returns to suppliers (King had 54, Palo 2) — an indication of good quality.\n• The higher mark-up of 60% does not deter customers / they are prepared to pay a higher price / it appeals to a select market (the other models use a 50% mark-up).\n• Highest sales revenue of R2 323 200 (Palo R1 911 000; King R1 930 500 — about R412 000 more than Palo, R392 500 more than King).\n• Lowest closing stock value, R108 000 (see 2.2.1) / only 18 units on hand / 7% of available stock / 242 of 260 units (93%) were sold.\n• High turnover rate (about 13 times a year / every 27 days) prevents stock from becoming obsolete, damaged or stolen, and keeps cash from being tied up in stock.\n\nTeaching point: 'Happy with quality' shows up as zero returns, strong demand at a premium price, the highest sales of the three models and the fastest stock turnover.",
+          "topic": "Stock Valuation - Interpretation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-2-2-4",
+          "label": "2.2.4",
+          "questionText": "STOCK VALUATION — PITTEN SPORTS SHOP (POWDERED ENERGY DRINKS, 1 kg TUBS)\n\nThe periodic inventory system and the first-in first-out (FIFO) stock valuation method is applicable. These items have a shelf life of 66 days.\n\nINFORMATION:\nA. Stock balances (number of tubs):  1 March 2021 — 130;  28 February 2022 — 235\n\nB. Purchases during the financial year:\n                | NUMBER OF UNITS | UNIT PRICE R | CARRIAGE R | TOTAL R\n  Apr–Sept 2021 | 550             | 420         | 4 400      | 235 400\n  Nov 2021      | 330             | 460         | 2 640      | 154 440\n  Jan 2022      | 180             | 475         | 1 440      | 86 940\n  TOTAL         | 1 060           |             | 8 480      | 476 780\n\nC. Carriage on purchases: a fixed rate of R8 per tub delivered to the store.\nD. Returns to suppliers: 30 damaged tubs from the January 2022 purchases were returned. The supplier reversed the total cost price paid, excluding carriage on purchases.\nE. Sales and cost of sales: 925 units were sold. Cost of sales amounts to R404 140, after all adjustments.\n\nREQUIRED: Calculate the value of the closing stock on 28 February 2022, using the FIFO stock valuation method.",
+          "marks": 6,
+          "memoText": "CLOSING STOCK — FIFO METHOD\n\nClosing stock = 235 tubs, valued at the MOST RECENT purchases (carriage stays on the units that remain).\n\nJanuary 2022:  [180 − 30 returned]  150 tubs ✓✓  ×  R483 ✓  =  R72 450   [R483 = R475 + R8 carriage]\nNovember 2021:  [235 − 150]  85 tubs ☑  ×  R468 ✓  =  R39 780   [R468 = R460 + R8 carriage]\n\nClosing stock = 72 450 + 39 780  =  R112 230 ☑  (one part correct)\n\nOR:  R71 250 (150 × 475) + R39 100 (85 × 460) + R1 880 carriage (235 × R8)  =  R112 230\n\nTeaching point: FIFO values closing stock at the newest invoice prices working backwards. The 30 returned tubs come out of the January batch, leaving 150 January tubs; the other 85 come from November. Each tub also carries R8 of carriage.",
+          "topic": "Stock Valuation - FIFO",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2022-2-2-5",
+          "label": "2.2.5",
+          "questionText": "STOCK VALUATION — PITTEN SPORTS SHOP (POWDERED ENERGY DRINKS)\n\nUse the same information as in 2.2.4. Closing stock value is R112 230 (235 tubs). Cost of sales is R404 140. 925 units were sold.\n\nREQUIRED: Calculate the stockholding period (in days) on 28 February 2022. Use the closing stock figure.",
+          "marks": 3,
+          "memoText": "STOCKHOLDING PERIOD (CLOSING STOCK)\n\n  R112 230 ☑ (see 2.2.4)  /  404 140 ✓  ×  365  =  101,4 days ☑  (one part correct, if × 365; accept 101 days)\n\n  OR (using units):  235 [one mark]  /  925 [one mark]  ×  365  =  92,7 days   (accept 93 days)\n\nMark the numerator and denominator as such; do not mix rands with units.\n\nTeaching point: Stockholding period = closing stock ÷ cost of sales × 365 (or, in units, closing units ÷ units sold × 365). It tells you how many days of sales are sitting in stock — here more than three months.",
+          "topic": "Stock Valuation - Financial Indicators",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2022-2-2-6",
+          "label": "2.2.6",
+          "questionText": "STOCK VALUATION — PITTEN SPORTS SHOP (POWDERED ENERGY DRINKS)\n\nUse the same information as in 2.2.4 and 2.2.5. The stockholding period on 28 February 2022 is about 101,4 days (or 92,7 days using units). The stockholding period for 2021 was 58 days. The shelf life is 66 days.\n\nREQUIRED: Comment on your findings above. Provide TWO points, with figures.",
+          "marks": 4,
+          "memoText": "TWO valid comments ✓✓ (1 mark each) + figures / trend ✓✓ (2 marks):\n\nComments:\n• The product is not selling / stock is selling at a slower rate than last year.\n• Cash is tied up in stock / working capital / the business may have liquidity issues.\n• This is a health product with a limited shelf-life / perishable / it will end up being disposed of or wasted.\n\nFigures / trend:\n• The stockholding period increased from 58 days to 101,4 days / by 43,4 days (or from 58 to 92,7 days / by 34,7 days).\n• More than 3 months on the shelves.\n• The stockholding period is 35,4 days (or 26,7 days) above the shelf-life of 66 days.\n\nTeaching point: The stockholding period has almost doubled and now exceeds the 66-day shelf life, so some stock will pass its sell-by date before it can be sold — a real loss risk plus cash tied up.",
+          "topic": "Stock Valuation - Interpretation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-2-2-7",
+          "label": "2.2.7",
+          "questionText": "STOCK VALUATION — PITTEN SPORTS SHOP (POWDERED ENERGY DRINKS)\n\nUse the same information as in 2.2.4. Closing stock of 235 tubs is made up of 150 tubs from the January 2022 purchase and 85 tubs from the November 2021 purchase. The shelf life is 66 days (as at 28 February 2022).\n\nREQUIRED: Milo has noticed that some of the stock of energy drinks has exceeded the shelf life (sell-by date). Identify the value of stock that Milo is referring to.",
+          "marks": 2,
+          "memoText": "  R39 780 ☑☑  (see the workings in 2.2.4 — two marks or nothing)\n\nThis is the cost of the 85 tubs still on hand from the NOVEMBER 2021 purchase (85 × R468).\n\nTeaching point: Under FIFO the oldest stock left is the November batch. By 28 February 2022 those tubs are well over 66 days old, so the R39 780 of November stock has passed its sell-by date.",
+          "topic": "Stock Valuation - Internal Control",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2022-2-2-8",
+          "label": "2.2.8",
+          "questionText": "STOCK VALUATION — PITTEN SPORTS SHOP (POWDERED ENERGY DRINKS)\n\nUse the same information as in 2.2.7. The outdated stock is valued at R39 780.\n\nREQUIRED: Milo wants to sell the outdated stock at half the cost price. What advice would you offer him about this proposal? Provide TWO points.",
+          "marks": 4,
+          "memoText": "TWO points of advice ✓✓ ✓✓:\n\n• Do not sell these products — it may create a poor image of the business and is hazardous to customers; consider the well-being and reaction of customers before making such a proposal.\n• The business must absorb (write off) these products as a loss / destroy or dispose of the outdated stock, considering environmental issues.\n• Consider the long-term consequences of unethical or illegal action (legal action / loss of customer support / drop in sales / loss of trading licence / criminal charges for malpractice).\n• Customers must be informed of the sell-by date if the goods are to be sold or donated, or the goods must be judged genuinely not harmful first.\n• (for ONE mark) Improve internal control measures to identify such cases earlier in future.\n\nTeaching point: Selling expired consumables — even cheaply — is unsafe and unethical. The right response is to write the stock off and tighten stock rotation, not to pass the risk to customers.",
+          "topic": "Stock Valuation - Internal Control",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Budgeting (JR Sanitisers)",
+      "totalMarks": 45,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2022-3-1",
+          "label": "3.1",
+          "questionText": "JR SANITISERS (PTY) LTD\n\nThe information relates to JR Sanitisers (Pty) Ltd. The CEO is Juanita Rose. James Peter is the bookkeeper.\n\nINFORMATION A — cost of sales: October R354 000; November R390 000; December R262 000.\nINFORMATION B — Purchases of stock and payment to creditors:\n• A base stock is maintained. Stock sold is replaced in the same month.\n• Cash purchases comprise 15% of total purchases.\n• Creditors are paid: 80% in the month of purchases to receive a 5% discount; 20% in the month after purchases.\n\nCredit purchases: October R300 900; November R331 500.\n\nREQUIRED: Complete the Creditors' Payment Schedule for December 2022.",
+          "marks": 7,
+          "memoText": "CREDITORS' PAYMENT SCHEDULE FOR DECEMBER 2022\n\n  Month of      | Credit purchases | November | December\n  purchase      | R                | R        | R\n  October       | 300 900          | 60 180   | —\n  November      | 331 500          | 251 940  | 66 300 ✓✓          (331 500 × 20%)\n  December      | 222 700 ✓✓       |          | 169 252 ☑☑         (222 700 × 80% × 95%)\n                |                  | 312 120  | 235 552 ☑\n\n  (one part correct)\n\nWorkings:\n• December credit purchases = December cost of sales × 85%  =  262 000 × 85%  =  R222 700  (stock replaced in the same month; 15% of purchases are for cash).\n• December pays 20% of November's credit purchases:  331 500 × 20% = R66 300.\n• December pays 80% of December's credit purchases, less the 5% discount:  222 700 × 80% × 95% = R169 252.\n• Total December payment to creditors = 66 300 + 169 252 = R235 552.\n\nTeaching point: Each month's credit purchases are settled over two months — 80% (net of 5% discount) in the month of purchase, 20% the next month. For December, combine 20% of November with the discounted 80% of December.",
+          "topic": "Budgeting - Creditors Payment Schedule",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-3-2-i",
+          "label": "3.2 (i)",
+          "questionText": "JR SANITISERS (PTY) LTD\n\nUse the same information as in 3.1.\n• Total sales: November R643 500; December R432 300.\n• Cash sales comprise 30% of total sales. Debtors settle their accounts in the month following the month of sales.\n• Cash sales in the Cash Budget: November R193 050; December R129 690.\n\nREQUIRED: Calculate the collection from debtors in December 2022 (figure (i) in the Cash Budget).",
+          "marks": 2,
+          "memoText": "COLLECTION FROM DEBTORS — DECEMBER 2022\n\n  643 500 × 70%   OR   193 050 × 70/30   =   R450 450 ✓✓\n\nReasoning: Debtors pay in the month after the sale, so December collects November's credit sales. Credit sales are 70% of total sales (cash is 30%): 643 500 × 70% = R450 450.\n\nTeaching point: One-month lag — December's debtor receipts are last month's credit sales.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2022-3-2-ii",
+          "label": "3.2 (ii)",
+          "questionText": "JR SANITISERS (PTY) LTD\n\nUse the same information as in 3.1.\n• Rent income in the Cash Budget: November R15 000.\n• Information C: Storage space is rented at a fixed rate per square metre. An existing tenant occupies 60 m² (lease expires 30 June 2023). A new tenant has signed a lease for 1 December 2022 to 30 November 2023 and will occupy a 75 m² storage area.\n\nREQUIRED: Calculate the rent income in December 2022 (figure (ii) in the Cash Budget).",
+          "marks": 4,
+          "memoText": "RENT INCOME — DECEMBER 2022\n\n  Rate per m² = R15 000 ÷ 60 m² = R250/m²\n  New tenant (from 1 December): 75 m² × R250 = R18 750 ✓✓\n  December rent income = 15 000 ✓ + 18 750 = R33 750 ☑  (one part correct)\n\n  OR  15 000 + (15 000 × 75/60)  OR  15 000 × 225%  OR  R250 × 135 m²\n\nTeaching point: Find the fixed rate per m² from the existing tenant (R15 000 ÷ 60 = R250), then add the new tenant's 75 m² at the same rate from 1 December.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2022-3-2-iii",
+          "label": "3.2 (iii)",
+          "questionText": "JR SANITISERS (PTY) LTD\n\nUse the same information as in 3.1.\n• Salaries in the Cash Budget: December R55 595.\n• Information D: A new employee will be appointed from 1 December 2022, earning R14 840 per month. All other employees will receive an increase of 4,5% p.a., effective from 1 December 2022.\n\nREQUIRED: Calculate the salaries in November 2022 (figure (iii) in the Cash Budget).",
+          "marks": 4,
+          "memoText": "SALARIES — NOVEMBER 2022\n\n  Existing employees' December salaries = 55 595 − 14 840 (new employee) = R40 755 ✓✓\n  This is 104,5% of the November figure (a 4,5% increase applied from 1 December).\n  November salaries = 40 755 × 100/104,5 = R39 000 ☑  (one part correct)\n\n  OR  40 755 − 1 755\n\nTeaching point: Strip out the new employee's R14 840 (only from December), then remove the 4,5% increase (÷ 1,045) to get back to the November figure.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2022-3-3-1",
+          "label": "3.3.1",
+          "questionText": "JR SANITISERS (PTY) LTD\n\nRefer to Information E and G.\n\nINFORMATION E — Purchase of company vehicle for the CEO:\n• A new company vehicle will be purchased on 1 December 2022. A deposit of 25% of the cost of the vehicle, excluding interest, will be paid on this date.\n• The remaining balance will be paid in equal monthly instalments of R20 800 over 24 months, including interest, with effect from 31 December 2022.\n• Interest calculated for the full two-year period is R45 600.\n\nREQUIRED: Calculate the deposit that will be paid for the purchase of the company vehicle during December 2022.",
+          "marks": 5,
+          "memoText": "DEPOSIT ON THE COMPANY VEHICLE\n\n  Total instalments:  24 × R20 800  =  R499 200  (includes R45 600 interest)\n  Cash value of the financed balance:  499 200 − 45 600  =  R453 600 ✓✓✓\n  This R453 600 is 75% of the vehicle cost (the deposit is 25%):\n  Deposit  =  453 600 × 25/75 ✓  =  R151 200 ☑  (one part correct)\n\n  OR  453 600 × 100/75 = 604 800;  604 800 − 453 600 = R151 200\n\nTeaching point: The 24 instalments repay the balance PLUS interest, so subtract the R45 600 interest to get the cash amount financed (R453 600 = 75% of cost). The deposit is 25%, i.e. 453 600 × 25/75.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2022-3-3-2",
+          "label": "3.3.2",
+          "questionText": "JR SANITISERS (PTY) LTD\n\nRefer to Information E and G. The budgeted cash deficit on 31 December 2022 is R120 000. If the vehicle purchase is moved to January 2023, the December 2022 Cash Budget would no longer include: the deposit of R151 200 (see 3.3.1); the monthly instalment of R20 800; fuel for the company vehicle of R7 500; and the extra insurance for the new vehicle of R3 200 (December insurance R9 700 less November R6 500).\n\nREQUIRED: Juanita is concerned about the cash position for December 2022. She proposes moving the purchase of the vehicle to January 2023. Show the effect of this proposal on the December 2022 Cash Budget.",
+          "marks": 6,
+          "memoText": "EFFECT ON THE DECEMBER 2022 CASH BUDGET\n\n  Budgeted deficit on 31 December 2022                    (120 000)\n  Add back: Deposit on vehicle (see 3.3.1)                 151 200 ☑\n  Add back: Monthly instalment                              20 800 ✓\n  Add back: Fuel for company vehicle                         7 500 ✓\n  Add back: Insurance (increase for the new vehicle)         3 200 ✓✓\n  Cash deficit/surplus after the proposed move             62 700 ☑  (a surplus; one part correct; must include the (120 000))\n\n  (−120 000 + 151 200 + 20 800 + 7 500 + 3 200 = R62 700)\n\nTeaching point: Moving the purchase out of December removes every December cash flow tied to the new vehicle — deposit, instalment, fuel and the insurance increase. Adding them all back turns the R120 000 deficit into a R62 700 surplus.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-3-4",
+          "label": "3.4",
+          "questionText": "JR SANITISERS (PTY) LTD\n\nRefer to Information H — budgeted and actual figures for October 2022:\n                              | BUDGET | ACTUAL | VARIANCE\n  Number of units sold        | 7 080  | 11 470 | + 4 390\n  Mark-up %                   | 65%    | 45%    | −20%\n  Sales                       | R584 100 | R831 546 | + R247 446\n  Cost of sales               | R354 000 | R573 480 | + R219 480\n  Gross profit                | R230 100 | R258 066 | + R27 966\n  Advertising                 | R40 000  | R28 000  | − R12 000\n\nREQUIRED: Juanita is concerned about her decisions in October 2022 to adjust the mark-up % and the amount actually spent on advertising. Provide TWO points to indicate whether these were wise decisions or not. Quote figures and/or calculations.",
+          "marks": 4,
+          "memoText": "ONE point on sales / gross profit ✓ + figure/s ✓;  ONE point on advertising ✓ + figure/s ✓.\n\nPOINT 1 — Reducing the mark-up % (65% → 45%):\n• Sales were 4 390 units more than budgeted / units rose from 7 080 to 11 470 / by 62%.  OR sales exceeded the budget by R247 446 (R584 100 → R831 546 / by 42,4%).\n• Gross profit is R27 966 / 12,2% more than budgeted (R230 100 → R258 066), even though cost of sales was higher (by R219 480) because of the extra volume.  → A WISE decision: the lower price drove enough extra volume to lift total gross profit.\n\nPOINT 2 — Advertising:\n• Underspent by R12 000 (R40 000 → R28 000) / by 30% — the budget was 6,8% of sales but only 3,4% of sales was actually spent.\n• Sales still grew strongly, so the underspend did not hurt — though it could be argued sales might have been even higher with more advertising.\n\nTeaching point: Judge each decision by its result. The mark-up cut worked (more volume, more total gross profit). The advertising underspend did no visible harm, but leaves an open question about missed upside.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-3-5-1",
+          "label": "3.5.1",
+          "questionText": "JR SANITISERS (PTY) LTD\n\nRefer to Information H. Repairs and maintenance for October 2022: budgeted R30 000; actual R8 000; variance −R22 000.\n\nREQUIRED: Explain why Juanita should be concerned about the actual amount spent on repairs and maintenance during October 2022. Quote a figure and/or a calculation.",
+          "marks": 2,
+          "memoText": "Figure (comparison) ✓:\n• Underspent on maintenance by R22 000 / only R8 000 of the R30 000 budget was spent / 26,6% of the budget was used / 73,3% of the budget was not used.\n\nExplanation for concern ✓ (accept short statements):\n• This could affect the long-run productivity of the assets / neglecting maintenance may cause disruptions to operations / short-term cash savings may lead to fixed assets breaking down or deteriorating, causing greater expenses in future.\n\nTeaching point: An underspend is not automatically good — skipping maintenance now risks bigger repair bills and downtime later.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-3-5-2",
+          "label": "3.5.2",
+          "questionText": "JR SANITISERS (PTY) LTD\n\nRefer to Information H:\n  Number of units sold: budget 7 080; actual 11 470 (+ 62%).  Sales: budget R584 100; actual R831 546 (+ 42,4%).\n  Delivery expenses (Aldo Deliveries): budget R35 046; actual R42 896; variance + R7 850.\n  Packing material: budget R23 364; actual R37 850; variance + R14 486.\n\nREQUIRED: James feels that there has been a lack of control over the amounts spent on delivery expenses and packing material. Explain whether James' opinion is correct or not. Provide calculations.",
+          "marks": 8,
+          "memoText": "Explanation (comparison with sales) ✓✓ + figures ✓✓ for EACH of the two costs. Award only ONE mark per cost if only the rand variance is quoted without comparison to sales.\n\nDELIVERY EXPENSES — well controlled (James is NOT correct):\n• Delivery expenses are 22,4% more than budgeted, but units sold are 62% more and sales are 42,4% more than budgeted.\n• Delivery cost per unit is R3,74, compared to the R4,95 budgeted.\n• Budgeted at 6% of sales; actual was 5,2% of sales.\n• (one-mark option, no comparison) Delivery expenses are over budget by R7 850.\n\nPACKING MATERIAL — efficiently managed (James is NOT correct):\n• Packing material is 62% more than budgeted, and units sold are also 62% more / sales are 42,4% more / cost of sales is 62% more.\n• Unit cost of packing material was maintained at R3,30.\n• Budgeted at 4% of sales; actual was 4,6% of sales.\n• (one-mark option) Packing material is over budget by R14 486.\n\nCONCLUSION: James' opinion is NOT correct — both costs rose because sales volume was far higher than budgeted, not because of poor control; per-unit costs were held or improved.\n\nTeaching point: Always test a variable cost against the level of activity. A cost that is 22–62% over its rand budget is still under control if sales rose by a similar or greater percentage and the cost per unit did not increase.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-3-6",
+          "label": "3.6",
+          "questionText": "JR SANITISERS (PTY) LTD\n\nJuanita wants to use social media to create an on-line shopping platform to increase her sales from January 2023.\n\nREQUIRED: Name THREE additional payments that must be included in the January 2023 budget.",
+          "marks": 3,
+          "memoText": "Any THREE valid examples of additional payments (1 mark each):\n\n• Establishment of a call centre / telephone lines\n• Additional courier services / transport and carriage costs\n• Additional delivery vehicles\n• Computers, computer hardware, file server\n• Generator / inverter / UPS / solar panels\n• Increased salaries for drivers, assistants, an IT technician\n• Packaging costs / packing material\n• Insurance\n• Staff training\n• Data costs, fibre installation, internet cost\n• Software construction costs, website design\n• Additional advertising\n• IT maintenance\n\nTeaching point: An online store adds costs across IT (website, data, hardware, back-up power), logistics (couriers, delivery vehicles, packaging), people (drivers, IT staff, training) and marketing.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Bank Reconciliation (Surprise Stores)",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2022-4-1-1",
+          "label": "4.1.1",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE:\n\n\"Debit card fees form part of bank charges.\"",
+          "marks": 1,
+          "memoText": "True ✓\n\nTeaching point: Debit-card transaction fees, cash-deposit fees, service fees and account fees are all types of bank charges — an expense recorded in the Cash Payments Journal.",
+          "topic": "Bank Reconciliation",
+          "type": "mcq",
+          "options": { "A": "True", "B": "False" }
+        },
+        {
+          "id": "acc-p2-nov-2022-4-1-2",
+          "label": "4.1.2",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE:\n\n\"Interest on overdraft is recorded in the Cash Receipts Journal.\"",
+          "marks": 1,
+          "memoText": "False ✓\n\nTeaching point: Interest on a bank overdraft is a finance cost the business PAYS, so it is recorded in the Cash Payments Journal. Interest EARNED (e.g. on a favourable balance or savings) goes in the Cash Receipts Journal.",
+          "topic": "Bank Reconciliation",
+          "type": "mcq",
+          "options": { "A": "True", "B": "False" }
+        },
+        {
+          "id": "acc-p2-nov-2022-4-1-3",
+          "label": "4.1.3",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE:\n\n\"A debit balance on the Bank Statement reflects a favourable balance.\"",
+          "marks": 1,
+          "memoText": "False ✓\n\nTeaching point: The Bank Statement is written from the bank's point of view, so it is the mirror image of the business's books. A DEBIT balance on the Bank Statement means the business owes the bank — an overdraft, i.e. UNfavourable. A credit balance on the statement is favourable.",
+          "topic": "Bank Reconciliation",
+          "type": "mcq",
+          "options": { "A": "True", "B": "False" }
+        },
+        {
+          "id": "acc-p2-nov-2022-4-2-1",
+          "label": "4.2.1",
+          "questionText": "BANK RECONCILIATION — SURPRISE STORES\n\nThe information provided relates to Surprise Stores. The business is owned by Themba Zwane.\n• Themba receives the official Bank Statement on the 26th day of each month. He uses this to do the bank reconciliation.\n• EFTs are renumbered according to date order.\n\nREQUIRED: Use the table provided in the ANSWER BOOK to calculate the final totals of the Cash Journals on 31 July 2022.\n\nINFORMATION:\nA. On 1 July 2022, the Bank Account in the ledger reflected a favourable balance of R53 800.\n\nB. The Bank Reconciliation Statement prepared on 30 June 2022 showed the following outstanding deposits and EFTs:\n  Deposit dated 15 June 2022 — R19 500\n  Deposit dated 29 June 2022 — R12 800\n  EFT 297 — R9 600\n  EFT 298 — R12 300\n  NOTE:\n  (i) The deposit on 15 June 2022 appeared on the July Bank Statement as R15 500. An investigation revealed that the cashier at that time has resigned. The outstanding amount must be written off.\n  (ii) EFT 297 was correctly reflected as R6 900 on the July Bank Statement.\n  (iii) The other outstanding amounts from the previous month appeared on the July Bank Statement.\n\nC. Before receiving the July 2022 Bank Statement, the Cash Journals reflected the following provisional totals:\n  Cash Receipts Journal — R101 200 | Cash Payments Journal — R135 215\n\nD. The following items on the July Bank Statement must still be recorded:\n  (i) A debit card payment of R1 400 for petrol for the business vehicle. Themba neglected to submit the transaction document to the bookkeeper.\n  (ii) The direct deposit received from debtor D Singwane, R5 800, in settlement of his account of R6 000.\n  (iii) A debit order to Palm Insurers for the business insurance, R1 800.\n  (iv) A direct deposit of R72 000 from Unitech College. This is an error on the statement as it does not apply to Surprise Stores. The bank was notified of this error.\n  (v) Total bank charges, R825.\n  (vi) Interest earned on savings account, R260.\n\nE. Entries in the Cash Journals after 26 July 2022:\n  Deposit on 29 July 2022 — R29 500\n  EFT 350 to PN Stationers, dated 28 July 2022 — R4 200\n  EFT 351 to PF Couriers, dated 30 July 2022 — R3 800\n\nF. Bank Statement balance on 31 July 2022: R? (to be determined)",
+          "marks": 10,
+          "memoText": "FINAL TOTALS OF THE CASH JOURNALS ON 31 JULY 2022\n\nCASH RECEIPTS JOURNAL (provisional total R101 200):\n• + 2 700 ✓✓  — EFT 297 was outstanding at R9 600 but is correctly R6 900 on the statement; the R9 600 − R6 900 = R2 700 over-recorded payment is added back in the CRJ.\n• + 5 800 ✓  — direct deposit received from debtor D Singwane.\n• + 260 ✓  — interest earned on the savings account.\n  Final CRJ total:  101 200 + 2 700 + 5 800 + 260  =  R109 960\n\nCASH PAYMENTS JOURNAL (provisional total R135 215):\n• + 4 000 ✓✓  — the 15 June deposit shortfall (R19 500 − R15 500) written off as a loss (cashier resigned).\n• + 1 400 ✓  — debit-card payment for petrol, not yet recorded.\n• + 1 800 ✓  — debit order to Palm Insurers.\n• + 825 ✓  — total bank charges.\n  Final CPJ total:  135 215 + 4 000 + 1 400 + 1 800 + 825  =  R143 240\n\nBoth totals ☑ — one part correct; must include the provisional totals.  −1 (max −1) for foreign / superfluous items.\n\nItems NOT journalised: the R72 000 Unitech College deposit (a bank error — goes on the reconciliation statement); the 29 July deposit and EFT 350/351 (already in the journals, they are the new reconciling items); EFT 298 and the 29 June deposit (cleared).\n\nTeaching point: Journalise only what the bank has done that the business has not recorded (bank charges, debit order, interest, debit-card petrol, debtor's deposit) and corrections of the business's own errors (the over-recorded EFT 297, the stolen deposit shortfall).",
+          "topic": "Bank Reconciliation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2022-4-2-2",
+          "label": "4.2.2",
+          "questionText": "BANK RECONCILIATION — SURPRISE STORES\n\nUse the same information as in 4.2.1. The Bank Account in the ledger had a favourable opening balance of R53 800 on 1 July 2022. The final Cash Receipts Journal total is R109 960 and the final Cash Payments Journal total is R143 240.\n\nREQUIRED: Calculate the correct bank balance in the ledger on 31 July 2022.",
+          "marks": 4,
+          "memoText": "CORRECT BANK BALANCE IN THE LEDGER ON 31 JULY 2022\n\n  53 800 ✓  +  109 960 ☑ (see CRJ)  −  143 240 ☑ (see CPJ)\n  =  R20 520 ☑  (one part correct)\n\n  (109 960 − 143 240 = −33 280;  53 800 − 33 280 = R20 520 favourable)\n\nTeaching point: Opening ledger balance + final receipts − final payments = the closing balance the Bank account in the General Ledger should show — R20 520 favourable.",
+          "topic": "Bank Reconciliation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2022-4-2-3",
+          "label": "4.2.3",
+          "questionText": "BANK RECONCILIATION — SURPRISE STORES\n\nUse the same information as in 4.2.1. The correct bank balance in the ledger on 31 July 2022 is R20 520 (from 4.2.2).\n\nRelevant reconciling items:\n• Deposit on 29 July 2022 (not yet on the Bank Statement): R29 500\n• EFT 350 (28 July) — R4 200; EFT 351 (30 July) — R3 800 (not yet on the Bank Statement)\n• Direct deposit of R72 000 from Unitech College — a bank error to be reversed\n• Bank Statement balance on 31 July 2022: unknown (balancing figure)\n\nREQUIRED: Prepare the Bank Reconciliation Statement on 31 July 2022.",
+          "marks": 8,
+          "memoText": "BANK RECONCILIATION STATEMENT ON 31 JULY 2022\n\nTWO-COLUMN METHOD:\n                                              Debit R    Credit R\nBalance as per Bank Statement                             71 020 ☑☑  (balancing figure; could be a Dr balance)\nOutstanding deposit (30 July)                             29 500 ✓\nOutstanding EFT   No. 350                       4 200 ✓\n                  No. 351                       3 800 ✓\nCorrection: Unitech College (bank error)      72 000 ✓✓\nBalance as per bank account                    20 520 ☑  (could be Cr)\n                                              -------    -------\n                                             100 520    100 520\n\nOR — ONE-COLUMN METHOD:\nBalance as per Bank Statement                    71 020 ☑☑\nOutstanding deposit                              29 500 ✓\nOutstanding EFT   No. 350                        (4 200) ✓\n                  No. 351                        (3 800) ✓\nCorrection: Unitech College                    (72 000) ✓✓\nBalance as per bank account                      20 520 ☑\n\n−1 presentation (max −1); −1 foreign / superfluous items (max −1).\n\nTeaching point: The 29 July deposit and EFT 350/351 (dated 28–30 July) fall after the 26th statement date, so they are outstanding. The R72 000 Unitech College deposit is the bank's error — subtract it because the bank will reverse it. The bank statement balance is the figure that balances the two columns.",
+          "topic": "Bank Reconciliation",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,357 @@
+{
+  "id": "acc-p2-nov-2025",
+  "subject": "Accounting",
+  "subjectCode": "acc",
+  "paperCode": "P2",
+  "year": 2025,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Reconciliations (Duma Stores & PG Stores)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2025-1-1-1",
+          "label": "1.1.1",
+          "questionText": "BANK RECONCILIATION — DUMA STORES\n\nThe information relates to Duma Stores on 31 July 2025. The business is owned by Duma Mathupha. They use the official Bank Statement, received on the 28th of each month, to reconcile their Cash Journals.\n\nREQUIRED: Complete the table provided in the ANSWER BOOK by showing the entries that must be recorded in the Cash Journals (CRJ and CPJ) on 31 July 2025. Show whether each amount is added to or subtracted from the provisional totals.\n\nINFORMATION:\nA. Extract from the Bank Reconciliation Statement on 30 June 2025:\n  Outstanding deposits: Dated 29 June 2025 — R132 000; Dated 30 June 2025 — R18 600\n  Outstanding EFTs: EFT 124 (Typek Stationers) — R5 310; EFT 125 (Cola Stores) — R9 990\n\nB. Provisional totals in the Cash Journals on 31 July 2025 before receiving the Bank Statement:\n  Cash Receipts Journal — R162 000 | Cash Payments Journal — R55 200\n\nC. Items on the Bank Statement that do not agree with the July 2025 Cash Journals:\n  Date        | Details                        | Debit R | Credit R\n  2025 Jun 29 | Deposit                        |         | 132 000\n  Jun 30      | Deposit                        |         |   8 600\n  2025 Jul 3  | EFT 124 (Typek Stationers)     |   3 150 |\n  Jul 5       | EFT 125 (Cola Stores)          |   9 990 |\n  Jul 10      | Direct deposit (Q Ngcobo)      |         |  16 500\n  Jul 15      | Debit order (Prime Insurers)   |   2 700 |\n  Jul 15      | Debit order (Prime Insurers)   |   2 700 |\n  Jul 25      | Interest                       |     975 |\n  Jul 25      | Service fees                   |     605 |\n  Jul 28      | A–Z Suppliers                  |  12 000 |\n\n  (i) The internal auditor discovered that the supporting cash slips for the deposit on 30 June 2025 amounted to R18 600. The shortfall is irrecoverable because the cashier at that time has resigned.\n  (ii) EFT 124 on 3 July 2025 (Typek Stationers) is correct on the Bank Statement.\n  (iii) The direct deposit on 10 July 2025 by Q Ngcobo (a tenant) was recorded incorrectly in the Cash Payments Journal.\n  (iv) The debit order on 15 July 2025 to Prime Insurers for the business insurance was processed twice due to insufficient funds in June. The amounts covered payments for both June and July 2025 to bring the account up to date.\n  (v) A bank transfer on 28 July 2025 in favour of A–Z Suppliers was overstated by R11 000 by the bank clerk. The bank was notified and will correct the error in August 2025.\n\nD. Entries in the Cash Journals for July 2025 that were not reflected on the July 2025 Bank Statement:\n  Deposit on 30 July 2025: R41 850 | EFT 207: R7 650 | EFT 208: R10 800\n\nE. Duma, the owner, used a business debit card on 29 July 2025 for the payment of R13 000 to Star Motors for repairs to the company vehicle, but he neglected to submit the transaction slip to the bookkeeper.\n\nF. The Bank Statement on 28 July 2025 showed a favourable balance of R119 080.",
+          "marks": 10,
+          "memoText": "CASH JOURNALS ON 31 JULY 2025\n\nCASH RECEIPTS JOURNAL (provisional total R162 000):\n• + 2 160 ✓✓  — EFT 124 was recorded by Duma at R5 310 but the correct (Bank Statement) amount is R3 150. The overpayment of R5 310 − R3 150 = R2 160 must be added back in the CRJ.\n• + 33 000 ✓✓  — Q Ngcobo's direct deposit of R16 500 was wrongly entered in the CPJ. Add R16 500 to the CRJ to record the receipt, plus a further R16 500 to cancel the incorrect CPJ payment entry (16 500 one mark + 16 500 one mark).\n\nCASH PAYMENTS JOURNAL (provisional total R55 200):\n• + 10 000 ✓  — The 30 June deposit was recorded at R18 600 but only R8 600 was credited by the bank. The shortfall of R10 000 is irrecoverable (cashier resigned) and is written off as an expense.\n• + 5 400 ✓✓  — Prime Insurers debit order processed twice: R2 700 + R2 700 (2 700 one mark + 2 700 one mark). Both are valid payments that cleared.\n• + 13 000 ✓  — Debit-card payment to Star Motors on 29 July for vehicle repairs, not yet recorded.\n• + 975 ✓  — Interest charged by the bank.\n• + 605 ✓  — Service fees / bank charges.\n\n−1 for foreign items (max −1) only if marks are scored elsewhere for the same figure. −1 for superfluous items (max −1); ensure the candidate does not get full marks for including any incorrect figure/s.\n\nItems that are NOT journal entries: the R132 000 deposit (29 June) simply clears against the outstanding deposit; EFT 125 (Cola Stores, R9 990) clears against the outstanding EFT; the A–Z Suppliers R11 000 bank error is corrected by the bank and goes on the Bank Reconciliation Statement, not the journals.\n\nTeaching point: When you reconcile Cash Journals to a Bank Statement, you only journalise (a) items the bank has processed that you have not yet recorded — bank charges, interest, debit orders, direct deposits, debit-card payments — and (b) corrections of your own recording errors. Timing differences that will clear on their own (outstanding deposits, outstanding EFTs) and errors the bank itself will fix are NOT journal entries — they belong on the Bank Reconciliation Statement.",
+          "topic": "Bank Reconciliation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-1-1-2",
+          "label": "1.1.2",
+          "questionText": "BANK RECONCILIATION — DUMA STORES\n\nUse the same information as in 1.1.1.\n\nREQUIRED: Prepare the Bank Reconciliation Statement on 31 July 2025.\n\nRelevant figures:\n• Bank Statement balance on 28 July 2025: R119 080 (favourable)\n• Deposit not yet on the Bank Statement (30 July 2025): R41 850\n• EFTs not yet on the Bank Statement: EFT 207 — R7 650; EFT 208 — R10 800\n• Bank transfer to A–Z Suppliers overstated by the bank clerk by R11 000 (bank will correct in August 2025)\n• Owner's debit-card payment to Star Motors on 29 July 2025: R13 000 (bank has already processed this)",
+          "marks": 7,
+          "memoText": "BANK RECONCILIATION STATEMENT ON 31 JULY 2025\n\nTWO-COLUMN METHOD:\n                                              Debit R    Credit R\nBalance as per Bank Statement                             119 080 ✓\nOutstanding deposit                                        41 850 ✓\nOutstanding EFTs   No. 207                       7 650 ✓\n                   No. 208                      10 800 ✓\nIncorrect EFT (bank error, A–Z Suppliers)                  11 000 ✓\nDebit card on 29 July 2025 (Star Motors)        13 000 ✓\nBalance as per bank account                    140 480 ☑ (could be a credit balance; Dr and Cr totals must be equal)\n                                              -------    -------\n                                              171 930    171 930\n\nOR — ONE-COLUMN METHOD:\nBalance as per bank statement                    119 080 ✓\nOutstanding deposit                              41 850 ✓\nOutstanding EFT   No. 207                        (7 650) ✓\n                 No. 208                        (10 800) ✓\nIncorrect EFT                                    11 000 ✓\nDebit card on 29 July 2025                      (13 000) ✓\nBalance as per bank account                      140 480 ☑\n\n−1 presentation (max −1) for inappropriate/no details. −1 for foreign items (max −2) if marks are awarded elsewhere. For the 2-column method, figures must be in the correct column to earn marks. For the 1-column method, the correct sign (positive/negative) must be shown. When awarding the method mark for the balancing bank-account figure, ensure the candidate does not get full marks if any incorrect figure is included (indicate with ⊠).\n\nTeaching point: Start with the closing Bank Statement balance and adjust for everything the bank does not yet know about (deposits and EFTs still in transit) plus errors the bank still has to fix. The balancing figure is what the business's Bank account in the General Ledger should show once the journals from 1.1.1 have been posted.",
+          "topic": "Bank Reconciliation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-1-1-3",
+          "label": "1.1.3",
+          "questionText": "BANK RECONCILIATION — DUMA STORES\n\nUse the same information as in 1.1.1.\n\nREQUIRED: Identify TWO problems (with figures) with the management of cash in Duma Stores. In EACH case, provide a different solution for how these problems can be prevented in future.",
+          "marks": 6,
+          "memoText": "Any TWO problems, each with a figure and a DIFFERENT solution (3 marks each: problem ✓ + figure ✓ + solution ✓).\n\n• Missing / stolen cash of R10 000 (30 June deposit shortfall).\n  Solution: Outsource the collection of cash to security companies / encourage EFT or card payments by customers / implement dual authorisation for cash deposits / separation of duties / conduct unannounced cash counts or surprise checks / request bank notifications.\n\n• Incorrect recording of transactions in the Cash Journals, R16 500 (Q Ngcobo) / R5 310 (EFT 124).\n  Solution: Double-check the recording of financial transactions / perform daily cash reconciliation.\n\n• Poor budgeting for debit orders / cash-flow problems / unpaid debit order, R2 700 (Prime Insurers).\n  Solution: Keep sufficient cash to pay debit orders / automate alerts and reminders for debit orders.\n\n• Ineffective keeping of financial records, R13 000 (Star Motors debit-card slip not submitted).\n  Solution: Submit financial documents timeously to the bookkeeper.\n\nTeaching point: Each 'problem' must be backed by a specific rand figure from the question, and each solution must be a genuine internal-control measure that would stop that specific problem — a vague 'be more careful' does not earn the solution mark.",
+          "topic": "Internal Control - Cash",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-1-2-1",
+          "label": "1.2.1",
+          "questionText": "CREDITORS' RECONCILIATION — PG STORES\n\nPG Stores is owned by Portia Gina and she buys goods on credit from Matsulu Suppliers. The statement of account received from Matsulu Suppliers reflected a balance of R287 600 for June 2025.\n\nREQUIRED: Use the table provided in the ANSWER BOOK to indicate how the relevant balances will change when preparing the Creditors' Reconciliation. Indicate the amount, as well as a (+) for increase and a (–) for decrease.\n\nINFORMATION:\nA. Creditors' Ledger of PG Stores — Matsulu Suppliers (account CL... ):\n  Date (2025) | Details            | Debit R  | Credit R  | Balance R\n  June 1      | Balance b/d        |          |           | 135 000\n  June 12     | Invoice 320        |          | 162 000   |\n  June 14     | EFT                | 67 500   |           |\n  June 19     | Debit Note 785     | 13 680   |           |\n  June 20     | Invoice 412        |          | 50 000    |\n  June 23     | Invoice 471        |          | 100 500   |\n  June 24     | Debit Note 1106    |          | 16 200    |\n  June 28     | Invoice 681        |          | 42 000    |\n  June 29     | EFT and discount   | 154 380  |           | 270 140\n\nB. When comparing the Creditors' Ledger to the statement of account received from Matsulu Suppliers, the following differences were noted:\n  (i) Debit Note 785 was incorrectly recorded in the Creditors' Ledger. The statement shows the correct amount of R17 280.\n  (ii) Invoice 471 was incorrectly recorded on the statement from Matsulu Suppliers as R40 500.\n  (iii) The transaction on 24 June 2025 in the Creditors' Ledger is for merchandise returned to Matsulu Suppliers.\n  (iv) The statement showed interest charged at R1 080. The correct amount of interest is R1 410. No entry was made into the Creditors' Ledger.\n  (v) The statement reflects transactions up to 25 June 2025.\n  (vi) All other transactions recorded in the Creditors' Ledger appeared correctly in the statement of account received from Matsulu Suppliers.",
+          "marks": 11,
+          "memoText": "                         Creditors' Ledger Account of   Statement of\n                         Matsulu Suppliers              Account\nIncorrect balance        270 140                        287 600\n(i)                      − 3 600 ✓✓  [−17 280 + 13 680]\n(ii)                                                    + 60 000 ✓✓  [100 500 − 40 500]\n(iii)                    − 32 400 ✓✓  (−16 200 one mark − 16 200 one mark)\n(iv)                     + 1 410 ✓                       + 330 ✓\n(v)                                                     + 42 000 ✓\n(vi)                                                    − 154 380 ✓\n                         -------                        -------\n                         235 550 ☑*                     235 550\n\n* 'One part correct' for both totals; must include the opening balances; the two amounts may differ. Accept brackets for a negative sign; if no sign is shown, assume positive. Accept correct identifiable amounts presented in the wrong line/s. Foreign entries: −1 per line if a mark has been scored on that line.\n\nWorkings / reasoning:\n(i) Debit Note 785 was entered at R13 680; the correct amount is R17 280. A debit note reduces the amount owed to the creditor, so an extra R17 280 − R13 680 = R3 600 must be subtracted from the ledger balance.\n(ii) Invoice 471 appears on the statement as R40 500 but should be R100 500. The statement is understated by R60 000, so add R60 000.\n(iii) The 24 June entry (R16 200) is merchandise returned to Matsulu, but PG Stores recorded it in the credit column (increasing the creditor). Reverse the R16 200 and record it correctly as a reduction: −16 200 − 16 200 = −R32 400.\n(iv) Interest is understated in both records. The ledger has no interest entry, so add R1 410. The statement shows R1 080 instead of R1 410, so add the R330 difference.\n(v) The statement stops at 25 June, so Invoice 681 (28 June, R42 000) is missing from it — add R42 000 to the statement.\n(vi) The EFT and discount of R154 380 (29 June) is also after 25 June and missing from the statement — subtract R154 380 from the statement (it is a payment that reduces the balance).\n\nTeaching point: Work down each numbered difference and ask 'which record is wrong, and by how much?' Only adjust the record that contains the error (or omission). Both columns must reconcile to the same final figure.",
+          "topic": "Creditors' Reconciliation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-1-2-2a",
+          "label": "1.2.2 (a)",
+          "questionText": "CREDITORS' RECONCILIATION — PG STORES\n\nThe purchasing manager of PG Stores ordered six chairs for the offices. His friend, Mike, the sales manager of Comfy Suppliers, invoiced PG Stores at R30 000 per chair on the purchasing manager's request. The internal auditor has discovered that the chairs are trading at an actual price of R7 500 each.\n\nREQUIRED: Explain how the business can prevent this problem from happening in the future, excluding separation of duties. Provide TWO points.",
+          "marks": 4,
+          "memoText": "Any TWO valid points (2 marks each). Do NOT accept 'separation of duties'.\n\n• Orders and payments must be authorised by senior personnel.\n• Establish a procurement committee / obtain multiple quotations per order / ensure supplier reliability and fair pricing through a proper vetting process.\n• Regularly compare competitor prices using updated catalogues.\n• Conduct frequent audits of purchasing transactions.\n• Employees must disclose personal ties with suppliers to avoid bias.\n\nTeaching point: The chairs were bought at four times the market price from a manager's friend — a conflict-of-interest / kickback risk. Prevention measures should target the authorisation of orders, competitive quoting, and disclosure of relationships.",
+          "topic": "Internal Control - Creditors",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-1-2-2b",
+          "label": "1.2.2 (b)",
+          "questionText": "CREDITORS' RECONCILIATION — PG STORES\n\nUse the same information as in 1.2.2 (a) (the purchasing manager who had six office chairs invoiced at R30 000 each from his friend Mike, against an actual price of R7 500 each).\n\nREQUIRED: What action should be taken against the purchasing manager, besides dismissing him? Provide ONE point.",
+          "marks": 2,
+          "memoText": "Any ONE valid point (2 marks). Do NOT accept 'dismiss the purchasing manager'.\n\n• Hold a disciplinary hearing / issue a verbal or written warning / temporary suspension / lay charges against him.\n• Recover the excess amount added during the purchase of the chairs / deduct the money from his salary to recover the financial loss.\n• Reassign the purchasing manager to a different section or department / demote him to another position.\n• Limit the purchasing manager's contact with suppliers to prevent misconduct.\n• Blacklist the purchasing manager from future employment in a similar position.",
+          "topic": "Internal Control - Creditors",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Stock Valuation (Supersavers, Bandura Printers & Madrid Electric Fans)",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2025-2-1-1",
+          "label": "2.1.1",
+          "questionText": "SUPERSAVERS SUPERMARKET\n\nThe following information was taken from the accounting records of Supersavers Supermarket in respect of flavoured juices (2-litre bottles) that they trade with. The first-in-first-out (FIFO) stock valuation method is applicable. The business is managed by Bryan Mills. The financial year ended on 28 February 2025.\n\nREQUIRED: Calculate the value of the closing stock on 28 February 2025, using the FIFO method.\n\nINFORMATION:\nA. Balances:\n  Date              | Number of units | Total R\n  1 March 2024      | 630             | (not required)\n  28 February 2025  | 980             | ?\n\nB. Purchases and returns during the year:\n                        | Number of units | Unit price R | Total R\n  Purchases             | 10 500          |              | 358 250\n    March–November 2024  | 6 900           | 32           | 220 800\n    December 2024        | 2 600           | 37           | 96 200\n    January 2025        | 150             | 37           | 5 550\n    February 2025       | 850             | 42           | 35 700\n  Returns               | 32              | ?            | 1 344\n\nC. Sales: 10 118 units were sold at R47 per bottle: R475 546",
+          "marks": 7,
+          "memoText": "CLOSING STOCK — FIFO METHOD\n\nClosing stock = 980 units, valued at the MOST RECENT purchase prices.\n\nFebruary 2025 purchases: 850 units @ R42, less the 32 returns @ R42 (R1 344 ÷ 32 = R42):\n  850 − 32 = 818 units ✓✓  ×  R42 ✓  =  R34 356\nRemaining units from January 2025: 980 − 818 = 162 units ✓☑  ×  R37 ✓  =  R5 994\n  (162 = 150 January units + 12 December units — December price is also R37)\n\nClosing stock = 34 356 + 5 994 = R40 350 ☑  (one part correct; both amounts added)\n\nOR:  (35 700 − 1 344) + (5 550 + 444)  =  34 356 + 5 994  =  R40 350\n\nMark only ONE option consistently. Do not award marks for stand-alone figures.\n\nTeaching point: FIFO assumes the oldest stock is sold first, so whatever is left in closing stock is valued at the newest invoice prices — work backwards from the last purchase. Returns to the supplier come out of the batch they were bought from (here February @ R42), reducing both the units and the cost of that batch.",
+          "topic": "Stock Valuation - FIFO",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2025-2-1-2",
+          "label": "2.1.2",
+          "questionText": "SUPERSAVERS SUPERMARKET\n\nUse the same information as in 2.1.1. The closing stock on 28 February 2025 (FIFO) is 980 units, made up of 818 units from the February 2025 purchase (@ R42) and 162 units from earlier purchases (@ R37), of which 150 units are from January 2025 and 12 units are from December 2024.\n\nREQUIRED: Bryan has noticed that some of the stock of flavoured juices has exceeded its shelf life (sell-by date) of 65 days. Identify the value of stock that Bryan is referring to, using the FIFO stock valuation method.",
+          "marks": 2,
+          "memoText": "Stock older than 65 days as at 28 February 2025 = the 12 units from the December 2024 purchase that are still in closing stock (162 units at the 'January' price − 150 actual January units = 12 December units).\n\n  12 × R37  =  R444 ✓☑  (one part correct)\n\nOR:  96 200 − 95 756  =  R444\nOR:  5 994 − 5 550  =  R444\n\nTeaching point: With FIFO, the only 'old' stock left at year-end is the small tail that was not cleared by sales. Here 12 December bottles are still on the shelf, and at over 65 days past purchase they are past their sell-by date — a R444 potential write-off.",
+          "topic": "Stock Valuation - FIFO",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2025-2-1-3",
+          "label": "2.1.3",
+          "questionText": "SUPERSAVERS SUPERMARKET\n\nUse the same information as in 2.1.1.\n\nREQUIRED: How can Bryan manage the stock of flavoured juices to avoid losses incurred by the business? Provide TWO points.",
+          "marks": 4,
+          "memoText": "Any TWO relevant points (2 marks each):\n\n• Purchase stock more frequently instead of buying in bulk.\n• Identify old stock close to its expiry date and offer it to customers at a reduced price / use inventory software to monitor sales and expiry dates of stock / perform routine inventory checks regularly to reconcile records.\n• Train employees to understand proper rotation of stock / arrange stock in the supermarket to position new stock correctly (so older stock sells first).\n\nTeaching point: The loss here is perishable stock passing its sell-by date. Good answers address buying smaller quantities more often, first-in-first-out shelf packing, and monitoring expiry dates.",
+          "topic": "Stock Valuation - Internal Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-2-2-1",
+          "label": "2.2.1",
+          "questionText": "BANDURA PRINTERS\n\nBandura Printers sells different models of printers. The business is owned by Moses Banda. Moses decided to introduce a new model (Clear View) in February 2025. The printers are valued using the specific identification method. The financial year ended on 30 June 2025.\n\nREQUIRED: Calculate the value of the closing stock of the Rotrim model on 30 June 2025 using the specific identification method.\n\nINFORMATION:\nA. Opening stock (1 July 2024):\n  Model    | Units | Unit price R | Total R\n  Rotrim   | 30    | 15 500       | 465 000\n  Punchies | 25    | 22 300       | 557 500\n\nB. Purchases and returns:\n  Purchases:\n    Sept 2024 | Rotrim     | 90  | 15 500 | 1 395 000\n    Nov 2024  | Punchies   | 110 | 22 300 | 2 453 000\n    Feb 2025  | Clear View | 90  | 35 000 | 3 150 000\n  Returns:\n    Feb 2025  | Clear View | 15  | 35 000 | (525 000)\n  Net purchases: R6 473 000\n\nC. Sales for the year ended 30 June 2025:\n  Model      | Units | Unit price R | Total R\n  Rotrim     | 79    | 21 700       | 1 714 300\n  Punchies   | ?     |              | 3 108 000\n  Clear View | 65    | 49 000       | 3 185 000\n  Total sales: R8 007 300\n\nD. Closing stock (30 June 2025):\n  Rotrim     | ?\n  Punchies   | 780 500\n  Clear View | 350 000",
+          "marks": 4,
+          "memoText": "ROTRIM CLOSING STOCK — SPECIFIC IDENTIFICATION\n\nUnits: 30 (opening) + 90 (purchased Sept) − 79 (sold) = 41 units ☑\n  41 units ✓  ×  R15 500 ✓  =  R635 500 ☑  (one part correct; must be multiplied by R15 500)\n\nOR:  465 000 + 1 395 000 − 1 224 500  =  R635 500\n     (one mark + one mark + one mark; 1 224 500 = 79 × R15 500)\n\nMark only ONE option consistently.\n\nTeaching point: All Rotrim units — opening and purchased — cost exactly R15 500, so specific identification here is just: units in minus units sold, times the single unit cost.",
+          "topic": "Stock Valuation - Specific Identification",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2025-2-2-2a",
+          "label": "2.2.2 (a)",
+          "questionText": "BANDURA PRINTERS — PUNCHIES MODEL\n\nUse the same information as in 2.2.1.\n\nRelevant figures for the Punchies model:\n• Opening stock (1 July 2024): 25 units — R557 500\n• Purchases (Nov 2024): 110 units — R2 453 000\n• Closing stock (30 June 2025): R780 500\n\nREQUIRED: Calculate the stockholding period (in days) using the closing stock.",
+          "marks": 5,
+          "memoText": "STOCKHOLDING PERIOD (CLOSING STOCK) — PUNCHIES\n\n        Closing stock              780 500 ✓\n  --------------------------  ×  365/1  =  ------------------------------------------  ×  365/1\n     Cost of sales               (557 500 ✓ + 2 453 000 ✓ − 780 500 ✓)\n\n  =  780 500 / 2 230 000  ×  365   (2 230 000 = three marks)\n  =  127,8 days ☑  (one part correct; accept 128 days / 127 days; '× 365' on its own is not 'one part correct')\n\nOR:  35 units / 100 units  ×  365/1   (35 = 25 + 110 − 100 closing units; 100 = units sold; three marks for the denominator)\n\nNumerator and denominator must be clearly marked as such. Do not award a mark for any operation done on R780 500 or on 35 units alone. Mark only ONE option consistently.\n\nTeaching point: Stockholding period = how many days of sales are sitting in stock. Using CLOSING stock: closing stock ÷ cost of sales × 365. Cost of sales for Punchies = opening + purchases − closing = 557 500 + 2 453 000 − 780 500 = R2 230 000.",
+          "topic": "Stock Valuation - Financial Indicators",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2025-2-2-2b",
+          "label": "2.2.2 (b)",
+          "questionText": "BANDURA PRINTERS — PUNCHIES MODEL\n\nUse the same information as in 2.2.2 (a). The stockholding period for the Punchies model (using closing stock) is 127,8 days for the year ended 30 June 2025. The stockholding period for the year ended 30 June 2024 was 69 days.\n\nREQUIRED: Comment on the stockholding period. Provide ONE point, with figures.",
+          "marks": 2,
+          "memoText": "Comparison with figures ✓ + comment ✓ (2 marks).\n\n• The stockholding period has increased (from 69 days) to 127,8 days / by 58,8 days.\n• Effect / concern: other printer models may become outdated due to improved technology on the Clear View printer / stock is moving slowly (pilling) due to delayed sales / there will be increased storage costs, decreasing profitability / increased risk of printers being stolen / cash is tied up in stock instead of being available for other expenses.\n\nTeaching point: A comment question needs BOTH a trend backed by a figure AND a reason or consequence — 'it went up' alone is not enough.",
+          "topic": "Stock Valuation - Financial Indicators",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-2-2-3a",
+          "label": "2.2.3 (a)",
+          "questionText": "BANDURA PRINTERS — CLEAR VIEW MODEL\n\nUse the same information as in 2.2.1. The Clear View model was introduced in February 2025. 90 units were purchased (@ R35 000) and 15 units were returned. 65 units were sold at R49 000 each (R3 185 000). Closing stock is R350 000 (10 units).\n\nComparative figures: Rotrim sold 79 units (R1 714 300) with 41 units (R635 500) left; Punchies sold 100 units (R3 108 000) with 35 units (R780 500) left.\n\nREQUIRED: Although the Clear View model had units returned, Moses is very pleased with his decision to introduce it as a new model. Provide TWO points (with figures) to explain why Moses is pleased.",
+          "marks": 4,
+          "memoText": "Compare Clear View with the other printers, with figures — any TWO points (2 marks each):\n\n• Each Clear View printer is sold at a profit of R14 000 (total gross profit R910 000), higher than that of the other two printers.\n• Sold an average of 13 printers per month (65 units over 5 months), surpassing Rotrim (≈7) and Punchies (≈8) per month.\n• Sold 86,7% of available printers (65 of 75), compared to 65,8% for Rotrim or 74,1% for Punchies / sold 65 units in 5 months, compared to Rotrim (79 units) and Punchies (100 units) over 12 months.\n• Achieved the highest sales of R3 185 000, exceeding Rotrim (R1 714 300) and Punchies (R3 108 000).\n• Only 10 units (R350 000) are left, compared to 41 units (R635 500 — Rotrim) and 35 units (R780 500 — Punchies). [Note: the marking guidelines quote these two closing figures the other way around; accept either where the point is otherwise valid.]\n• The stockholding period is only about 23,1 days, compared to 127,8 days for Punchies and 124,7 days for Rotrim.\n\nTeaching point: 'Why is Moses pleased' needs comparative evidence — Clear View outperforms the older models on profit per unit, sell-through rate, total sales and stock turnover, which more than offsets the returns.",
+          "topic": "Stock Valuation - Interpretation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-2-2-3b",
+          "label": "2.2.3 (b)",
+          "questionText": "BANDURA PRINTERS — CLEAR VIEW MODEL\n\nUse the same information as in 2.2.3 (a). 15 of the 90 Clear View units purchased were returned to the supplier.\n\nREQUIRED: Moses wants to reduce the number of units being returned to the suppliers. Give ONE suggestion on how this can be achieved.",
+          "marks": 2,
+          "memoText": "Any relevant suggestion (2 marks):\n\n• Ensure that the printer is in working condition when it is bought (inspect on delivery).\n• Change supplier to boost reliability and customer satisfaction of Clear View.\n• Request guarantee / warranty terms from suppliers.\n• Train staff on handling procedures / store printers correctly to prevent damage.",
+          "topic": "Stock Valuation - Internal Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-2-3-1a",
+          "label": "2.3.1 (a)",
+          "questionText": "MADRID ELECTRIC FANS SUPPLIERS — ELECTRIC FANS\n\nYou are provided with information from the books of Madrid Electric Fans Suppliers. The business is owned by Robin Madrid. They sell electric fans and fridges to households in Middelburg. The financial year ended on 30 September 2025.\n\nINFORMATION:\n                          | ELECTRIC FANS 2025 | 2024   | FRIDGES 2025 | 2024\n  Total sales             | R137 700           | R112 000 | R2 418 750 | R5 161 500\n  Gross profit            | R61 200            | R42 000  | R806 250   | R1 720 500\n  Selling price per unit  | R270               | R200     | R5 625     | R6 975\n  Cost price per unit     | R150               | R125     | R3 750     | R4 650\n  Units available for sale| 750                | 600      | 960        | 820\n  Units sold              | 510                | 560      | 430        | 740\n  Mark-up %               | 80%                | 60%      | 50%        | 50%\n\nREQUIRED: Identify the decision that Robin implemented about the electric fans.",
+          "marks": 1,
+          "memoText": "Decision (figures not required for the mark, but expected in a full answer):\n\n• Increased the mark-up % (from 60% to 80%) / by 33,3% / by 20 percentage points.\n• Increased the selling price per unit (from R200 to R270) / by R70 / by 35%.",
+          "topic": "Stock Valuation - Interpretation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-2-3-1b",
+          "label": "2.3.1 (b)",
+          "questionText": "MADRID ELECTRIC FANS SUPPLIERS — ELECTRIC FANS\n\nUse the same information as in 2.3.1 (a). Robin increased the mark-up on electric fans from 60% (2024) to 80% (2025) and the selling price from R200 to R270 per unit.\n\nREQUIRED: Explain how this decision had a positive result for the business. Provide ONE point, with figures.",
+          "marks": 2,
+          "memoText": "Any relevant point ✓ + figure/s ✓ (2 marks):\n\n• Gross profit has increased (from R42 000) to R61 200 / by R19 200 / by 45,7%.\n• Despite selling fewer units (510 vs 560), total sales increased (from R112 000) to R137 700 / by R25 700 / by 22,9%, showing that the price increase boosted overall revenue.\n\nTeaching point: The mark-up increase raised profit per unit enough that total gross profit and total sales both rose even though volume fell — a successful price decision.",
+          "topic": "Stock Valuation - Interpretation",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-2-3-2",
+          "label": "2.3.2",
+          "questionText": "MADRID ELECTRIC FANS SUPPLIERS — FRIDGES\n\nUse the same information as in 2.3.1 (a).\n\nREQUIRED: Robin changed the brand of fridges that he was selling. Provide ONE point, with figures, to show that this was not a good idea.",
+          "marks": 2,
+          "memoText": "Any relevant point ✓ + figures ✓ (2 marks):\n\n• The number of units sold has decreased (from 740) to 430 / by 310 / by 41,9%.\n• Sales have decreased (from R5 161 500) to R2 418 750 / by R2 742 750 / by 53,1%.\n• Gross profit has decreased (from R1 720 500) to R806 250 / by R914 250 / by 53,1%.\n• Units on hand / unsold increased (from 80) to 530 / by 450 / by 562,5%.\n• Sold 90,2% (740 of 820) in 2024, compared to 44,8% (430 of 960) in 2025.\n\nTeaching point: The new fridge brand sells far fewer units at a lower price, so sales, gross profit and sell-through all collapsed and unsold stock ballooned — clear evidence the brand change backfired.",
+          "topic": "Stock Valuation - Interpretation",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Cost Accounting (Locksmith Manufacturers & Picaso Manufacturers)",
+      "totalMarks": 35,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2025-3-1-1",
+          "label": "3.1.1",
+          "questionText": "LOCKSMITH MANUFACTURERS\n\nThe business manufactures security jackets. Their financial year ended on 28 February 2025.\n\nREQUIRED: Complete the Factory Overhead Cost Note.\n\nINFORMATION:\nA. Extract from balances:\n                                          | 28 Feb 2025 R | 29 Feb 2024 R\n  Factory equipment                       | 5 400 000     | ?\n  Accumulated depreciation on factory equipment | ?      | 1 680 000\n  Work-in-progress stock                  | 93 000        | 125 000\n\nB. Summary of totals for the year ended 28 February 2025:\n  Prime cost              | 6 025 000\n  Water and electricity   | 915 000\n  Insurance               | 78 000\n  Rent expense            | 240 400\n  Advertising             | 380 000\n  Other factory expenses  | 737 010\n\nC. Additional information and adjustments:\n  • 75% of the water and electricity must be allocated to the factory. The remainder must be shared equally between the other departments.\n  • Insurance includes an additional premium of R10 800 paid for the period 1 December 2024 to 30 November 2025. This expense is allocated between the factory and the sales department in the ratio 3 : 2.\n  • Locksmith Manufacturers rent their premises from Dynamic Properties at a fixed rate per m². Due to expansion, they rented additional space for the factory only, from 1 October 2024, at the same fixed rate per m². Floor space for the year ended 28 February 2025:\n                        | 1 Mar 2024 to 30 Sept 2024 | 1 Oct 2024 to 28 Feb 2025\n      Factory           | 200 m²                     | 225 m²\n      Other departments | 40 m²                      | 40 m²\n      Total             | 240 m²                     | 265 m²\n  • Provide for depreciation on factory equipment at 20% p.a. on the diminishing-balance method.\n    NOTE: New factory equipment costing R684 000 was installed on 1 November 2024. This was properly recorded.",
+          "marks": 16,
+          "memoText": "FACTORY OVERHEAD COST NOTE — for the year ended 28 February 2025\n\nWater and electricity:  915 000 × 75%  =  686 250 ✓✓\n\nInsurance:  41 940 ☑*\n  Prepaid portion of the extra premium: R10 800 × 9/12 = R8 100 (only 1 Dec 2024–28 Feb 2025 = 3 months belong to this year).\n  Adjusted insurance: 78 000 − 8 100 = R69 900.\n  Factory share (3/5):  69 900 ✓ × 3/5 ✓  =  R41 940\n  OR 46 800 − 4 860  OR  69 900 − 27 960  =  41 940 ☑\n\nRent expense:  202 000 ☑*\n  Factory m²-months: (200 × 7) + (225 × 5) = 1 400 + 1 125 = 2 525.\n  Total m²-months: (240 × 7) + (265 × 5) = 1 680 + 1 325 = 3 005.\n  240 400 ✓ × 2 525 ✓ / 3 005 ✓✓  =  R202 000\n  OR 112 000 + 90 000  OR  240 400 − 38 400  =  202 000 ☑\n\nDepreciation: factory equipment:  652 800 ☑*\n  New equipment: 684 000 × 20/100 × 4/12 = R45 600 ✓☑  (1 Nov 2024–28 Feb 2025 = 4 months).\n  Existing equipment: carrying value = (5 400 000 − 684 000) − 1 680 000 = 3 036 000; 3 036 000 × 20/100 = R607 200 ✓✓.\n  45 600 + 607 200  =  R652 800 ☑\n\nOther factory expenses:  737 010 (given)\n\nTOTAL FACTORY OVERHEAD COST:\n  686 250 + 41 940 + 202 000 + 652 800 + 737 010  =  2 320 000 ☑#\n  (one part correct; must include Other factory expenses; if Advertising is included, lose the mark on the final total)\n\nTeaching point: Every factory-overhead line is the FACTORY SHARE of a shared cost. Split each cost on its stated basis — a percentage (water and electricity), a ratio after removing a prepaid amount (insurance), floor-area weighted by the months occupied (rent), or diminishing-balance depreciation with the new asset apportioned for the months it was owned.",
+          "topic": "Cost Accounting - Factory Overhead Cost",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-3-1-2",
+          "label": "3.1.2",
+          "questionText": "LOCKSMITH MANUFACTURERS\n\nUse the same information as in 3.1.1.\n• Prime cost: R6 025 000\n• Factory overhead cost (from 3.1.1): R2 320 000\n• Work-in-progress stock: 1 March 2024 — R125 000; 28 February 2025 — R93 000\n\nREQUIRED: Calculate the cost of production of finished goods for the year ended 28 February 2025.",
+          "marks": 4,
+          "memoText": "COST OF PRODUCTION OF FINISHED GOODS\n\n  6 025 000 ✓  +  2 320 000 ☑ (see 3.1.1)  +  [125 000 − 93 000]  \n  =  6 025 000 + 2 320 000 + 32 000 ✓\n  =  R8 377 000 ☑  (one part correct)\n\nTeaching point: Cost of production of finished goods = Prime cost + Factory overhead cost + Opening work-in-progress − Closing work-in-progress. WIP fell by R32 000, so R32 000 of last year's unfinished work was completed and added this year.",
+          "topic": "Cost Accounting - Production Cost Statement",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2025-3-2-1",
+          "label": "3.2.1",
+          "questionText": "PICASO MANUFACTURERS — CELLPHONE CASES\n\nPicaso Manufacturers is a business producing cellphone screen covers and cases. The business is owned by Dawn Mthembu. The financial year ends on 31 August each year.\n\nREQUIRED: Calculate the break-even point on 31 August 2025.\n\nINFORMATION (per unit, unless stated otherwise):\n                              | CELLPHONE CASES 31 Aug 2025 | 31 Aug 2024\n  Break-even point            | ?                           | 20 000\n  Units produced and sold     | 28 750                      | 25 000\n  Selling price per unit      | R265                        | R250\n  Total fixed cost per unit   | R80                         | R92\n  Total variable cost per unit| R146                        | R135\n    Direct material cost      | R73                         | R67\n    Direct labour cost        | R52                         | R49\n    Selling and distribution cost | R21                     | R19\n\nNOTE: No workers were retrenched and no overtime was worked.",
+          "marks": 4,
+          "memoText": "BREAK-EVEN POINT ON 31 AUGUST 2025\n\n        Total fixed costs                 [28 750 × R80]      2 300 000 ✓\n  ------------------------------------  =  ---------------  =  -----------------------\n  Selling price − variable cost/unit         265 ✓ − 146 ✓          119\n\n  =  19 328 units ☑  (one part correct; accept 19 327,7; do not accept an answer < 1)\n\nNumerator and denominator must be marked as such.\n\nTeaching point: Break-even units = total fixed costs ÷ contribution per unit. Total fixed costs = fixed cost per unit (R80) × units made (28 750) = R2 300 000. Contribution per unit = selling price R265 − variable cost R146 = R119. At 19 328 units the business exactly covers its fixed costs.",
+          "topic": "Cost Accounting - Break-even Analysis",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2025-3-2-2",
+          "label": "3.2.2",
+          "questionText": "PICASO MANUFACTURERS — CELLPHONE CASES\n\nUse the same information as in 3.2.1. The break-even point on 31 August 2025 is 19 328 units (2024: 20 000 units). Units produced and sold: 28 750 (2024: 25 000).\n\nNOTE: Where comments or explanations are required, you should quote calculations, figures and/or trends, and give a reason or explanation in EACH case.\n\nREQUIRED: Comment on whether Dawn should be satisfied with the number of units produced and sold. Provide ONE point, with figures.",
+          "marks": 2,
+          "memoText": "Valid explanation ✓✓ — comparison of units produced and sold with the BEP, with figures (2 marks):\n\n• Units produced (28 750) are above the BEP of 19 328 / exceed the BEP by 9 422 units / the business is making a profit on 9 422 units (R1 121 218).\n• More units were produced and sold, resulting in a higher profit — a profit on 9 422 units in 2025 compared to 5 000 units in 2024.\n\nFOR ONE MARK:\n• Units produced increased (from 25 000) to 28 750 / by 3 750 units, and/or the BEP decreased (from 20 000) to 19 328 / by 672 units.\n\nTeaching point: 'Satisfied?' is answered by comparing units sold to the break-even point. Selling 28 750 against a BEP of 19 328 means a healthy margin of safety of 9 422 units — yes, Dawn should be satisfied.",
+          "topic": "Cost Accounting - Break-even Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-3-2-3",
+          "label": "3.2.3",
+          "questionText": "PICASO MANUFACTURERS — CELLPHONE CASES\n\nUse the same information as in 3.2.1.\n\nFixed costs per unit (cellphone cases): Total fixed cost R80 (2025) vs R92 (2024), made up of:\n  Factory overhead cost | R34 (2025) | R50 (2024)\n  Administration cost   | R46 (2025) | R42 (2024)\n\nNOTE: Quote calculations, figures and/or trends, and give a reason or explanation.\n\nREQUIRED: Dawn is concerned about a fixed-cost item that has been poorly controlled, despite the decrease in fixed cost per unit in 2025. Identify the fixed-cost item (with figures) that has been poorly controlled. Give a possible reason for this concern.",
+          "marks": 3,
+          "memoText": "COST ITEM (cost ✓ + trend with figures ✓):\n• Administration cost per unit increased by R4,00 (R42,00 → R46,00) / by 9,5%.\n\nREASON FOR CONCERN ✓:\n• Abuse of administration cost items / an increase in office or administrative expenses / additional administrative staff.\n\nTeaching point: Even though TOTAL fixed cost per unit dropped (mainly because factory overhead per unit fell from R50 to R34), administration cost per unit rose — and per-unit fixed costs should fall as output rises, so an increase points to weak control of that item.",
+          "topic": "Cost Accounting - Unit Cost Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-3-2-4a",
+          "label": "3.2.4 (a)",
+          "questionText": "PICASO MANUFACTURERS — CELLPHONE SCREEN COVERS\n\nUse the information below for the cellphone screen covers.\n\n                              | SCREEN COVERS 31 Aug 2025 | 31 Aug 2024\n  Selling price per unit      | R152                      | R140\n  Total fixed cost per unit   | R78                       | R63\n  Total variable cost per unit| R68                       | R55\n    Direct material cost      | R38                       | R24\n    Direct labour cost        | R20                       | R22\n    Selling and distribution cost | R10                   | R9\n\nNOTE: Quote calculations, figures and/or trends, and give a reason or explanation in EACH case.\n\nREQUIRED: Identify the variable-cost item (with figures) that has been poorly controlled. Give advice on how to improve control over this cost item.",
+          "marks": 3,
+          "memoText": "COST ITEM (cost ✓ + trend with figures ✓):\n• Direct materials cost per unit increased by R14,00 (R24,00 → R38,00) / by 58,3%.\n\nADVICE ✓:\n• Train workers to minimise wastage.\n• Reduce wastage by buying quality materials / use accurate cutting machinery to ensure precise phone-cover shapes.\n• Change to a cheaper supplier / buy from local suppliers / buy in bulk to earn a discount.\n• Increase supervision.\n\nTeaching point: Variable costs per unit should stay roughly constant. A 58,3% jump in direct materials per unit signals wastage, price increases or poor purchasing — the advice must target one of those causes.",
+          "topic": "Cost Accounting - Unit Cost Analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-3-2-4b",
+          "label": "3.2.4 (b)",
+          "questionText": "PICASO MANUFACTURERS — CELLPHONE SCREEN COVERS\n\nUse the same information as in 3.2.4 (a).\n\nNOTE: Quote calculations, figures and/or trends, and give a reason or explanation in EACH case.\n\nREQUIRED: Identify the variable-cost item (with figures) that has been well controlled. Explain how this item was well controlled.",
+          "marks": 3,
+          "memoText": "COST ITEM (cost ✓ + trend with figures ✓):\n• Direct labour cost per unit decreased by R2,00 (R22,00 → R20,00) / by 9,1%.\n\nREASON ✓ (do NOT accept 'no overtime worked' or retrenchment):\n• Due to proper supervision, workers were more efficient / labour hours were scheduled according to production needs.\n• Better trained / qualified workers.\n• There were no power interruptions, e.g. load shedding.\n\nTeaching point: Direct labour per unit fell, which is good control. The explanation must be a genuine efficiency reason — the question note and memo specifically rule out 'no overtime' and 'retrenchment'.",
+          "topic": "Cost Accounting - Unit Cost Analysis",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Budgeting and Problem-solving (Vivan Traders & Warmbad Traders)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-p2-nov-2025-4-1-1",
+          "label": "4.1.1",
+          "questionText": "VIVAN TRADERS\n\nInformation is provided for the budget period ending 31 January 2026.\n\nREQUIRED: Complete the Debtors' Collection Schedule for January 2026.\n\nINFORMATION:\nA. Sales and purchases:\n                | NOVEMBER   | DECEMBER   | JANUARY\n  Total sales   | R1 925 000 | R1 995 000 | R2 030 000\n  Cost of sales | R1 203 125 | R1 246 875 | ?\n\n  • Credit sales account for 75% of total sales.\n  • Debtors pay according to the following trends:\n      – 30% in the month of sales, subject to a 4% discount\n      – 50% in the month following the month of sales\n      – 14% two months after the month of sales\n      – the remaining amount is written off as irrecoverable in the third month after sales\n  • The mark-up is 60% on cost.\n  • Stock is replaced in the month of sales. A fixed-base stock level is maintained.\n  • 20% of stock is bought for cash.\n  • Creditors are paid in full in the second month after the month of purchases.\n\n(The schedule in the ANSWER BOOK also lists October 2025 credit sales of R1 417 500. October is only relevant to the December column here — it is a superfluous entry for the January column.)",
+          "marks": 6,
+          "memoText": "DEBTORS' COLLECTION SCHEDULE\n\n  Month of      | Credit sales | December 2025 | January 2026\n  credit sale   | R            | R             | R\n  Oct 2025      | 1 417 500    | 198 450       | (superfluous — lose the method mark on the total if included)\n  Nov 2025      | 1 443 750    | 721 875       | 202 125 ✓        (1 443 750 × 14%)\n  Dec 2025      | 1 496 250    | 430 920       | 748 125 ✓        (1 496 250 × 50%)\n  Jan 2026      | 1 522 500 ✓* |               | 438 480 ✓☑*     (1 522 500 × 30% × 96%)\n  RECEIPTS FROM DEBTORS |       | 1 351 245     | 1 388 730 ☑*\n\n* one part correct.  If the credit sales of R1 522 500 is not shown but R438 480 is correct, award three marks.\n\nWorkings:\n• January credit sales = R2 030 000 × 75% = R1 522 500.\n• From November (1 925 000 × 75% = 1 443 750): 14% falls in January = R202 125.\n• From December (1 995 000 × 75% = 1 496 250): 50% falls in January = R748 125.\n• From January (1 522 500): 30% in the month of sale, less 4% cash discount = 1 522 500 × 30% × 96% = R438 480.\n• Total January receipts = 202 125 + 748 125 + 438 480 = R1 388 730.\n\nTeaching point: Each month's credit sales are collected across four months on the given pattern. For the January column, pick up the 14% slice of November, the 50% slice of December and the discounted 30% slice of January. The 4% discount applies ONLY to the portion paid in the month of sale.",
+          "topic": "Budgeting - Debtors Collection Schedule",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-4-1-2",
+          "label": "4.1.2",
+          "questionText": "VIVAN TRADERS\n\nUse the same information as in 4.1.1.\n\nREQUIRED: Calculate the amounts denoted by (i) to (iv) in the extract of the Projected Statement of Comprehensive Income.\n\nB. Extract from the Projected Statement of Comprehensive Income:\n                          | Dec 2025 R | Jan 2026 R\n  Sales                   | 1 995 000  | 2 030 000\n  Bad debts               | 78 600     | (i)\n  Salary: sales manager   | 29 000     | (ii)\n  Salaries: assistants    | (iii)      | 88 000\n  Advertising             | (iv)       | 182 700\n  Interest on fixed deposit | 0        | 5 440\n\nC. Additional information:\n  • The sales manager is paid for 20 days per month at a fixed daily rate. She will apply for four days' unpaid leave in January 2026.\n  • The assistants will receive a 60% bonus in December 2025.\n    NOTE: All assistants will receive their annual salary increase of 10% on 1 January 2026.\n  • Advertising is budgeted at a fixed percentage of the monthly sales.\n  • Bad debts arise from the debtors' collection pattern in 4.1.1 (the balance of credit sales written off in the third month after the sale). October 2025 credit sales were R1 417 500.",
+          "marks": 13,
+          "memoText": "(i) BAD DEBTS IN JANUARY 2026:\n  1 417 500 × 6%  OR  1 417 500 − 1 332 450  =  R85 050 ✓☑  (one part correct)\n  (October 2025 credit sales; 100% − 30% − 50% − 14% = 6% written off in the third month after the sale = January.)\n\n(ii) SALARY: SALES MANAGER FOR JANUARY 2026:\n  29 000 − 5 800   [5 800 = 29 000 / 20 × 4]   OR   29 000 × 16/20  =  R23 200 ☑  (one part correct)\n  (Four of the 20 paid days are unpaid leave, so she is paid for 16/20 of the December figure.)\n\n(iii) SALARIES: ASSISTANTS FOR DECEMBER 2025:\n  80 000 + 48 000   [48 000 = 80 000 × 60% bonus]   OR   80 000 × 1,6   OR   88 000 × 160/110  =  R128 000 ☑  (one part correct)\n  (January 2026 = R88 000 AFTER the 10% increase, so December base = 88 000 × 100/110 = R80 000; the alternative answer R80 000 earns one method mark.)\n\n(iv) ADVERTISING FOR DECEMBER 2025:\n  Fixed % of sales = 182 700 / 2 030 000 × 100 = 9%\n  1 995 000 ✓ × 9% ✓✓  =  R179 550 ☑  (one part correct)\n\nTOTAL: 13 marks.\n\nTeaching point: Budget figures are built by adjusting a known month. Bad debts follow the collection pattern; the sales-manager salary is pro-rated for unpaid leave; the assistants' December salary is the January figure stripped of the 10% increase, plus the December bonus; advertising is a fixed percentage of that month's sales.",
+          "topic": "Budgeting - Projected Income Statement",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-4-1-3a",
+          "label": "4.1.3 (a)",
+          "questionText": "VIVAN TRADERS\n\nUse the same information as in 4.1.1.\n• January 2026 total sales: R2 030 000\n• Mark-up is 60% on cost\n• Stock is replaced in the month of sales (fixed-base stock level maintained)\n• 20% of stock is bought for cash\n\nREQUIRED: Calculate the cash purchases of trading stock for January 2026.",
+          "marks": 3,
+          "memoText": "CASH PURCHASES OF TRADING STOCK — JANUARY 2026\n\n  January cost of sales = 2 030 000 × 100/160 = R1 268 750\n  Stock is replaced in the month of sale, so purchases = cost of sales = R1 268 750.\n  Cash portion (20%):  1 268 750 × 20/100  =  R253 750 ☑  (one part correct)\n\n  OR:  2 030 000 × [100/160 × 20/100]  =  R253 750\n  OR:  1 268 750 − 1 015 000  =  R253 750\n\nTeaching point: With a 60% mark-up on cost, cost of sales = selling price × 100/160. Because stock is replaced monthly, purchases equal cost of sales, and only 20% of that is paid in cash.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2025-4-1-3b",
+          "label": "4.1.3 (b)",
+          "questionText": "VIVAN TRADERS\n\nUse the same information as in 4.1.1.\n• Cost of sales: November 2025 — R1 203 125; total sales November 2025 — R1 925 000\n• 20% of stock is bought for cash (80% on credit)\n• Creditors are paid in full in the second month after the month of purchases\n\nREQUIRED: Calculate the payments to creditors for January 2026.",
+          "marks": 2,
+          "memoText": "PAYMENTS TO CREDITORS — JANUARY 2026\n\n  Creditors are paid two months after purchase, so January pays for NOVEMBER 2025 credit purchases.\n  November purchases = November cost of sales = R1 203 125 (stock replaced monthly).\n  Credit portion (80%):  1 203 125 × 80%  =  R962 500 ✓☑  (one part correct)\n\n  OR:  1 925 000 × 80/160  =  R962 500\n\nTeaching point: 'Second month after' means a two-month lag — January's creditor payment settles November's credit purchases (80% of that month's purchases, since 20% was for cash).",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2025-4-1-4",
+          "label": "4.1.4",
+          "questionText": "VIVAN TRADERS\n\nUse the same information as in 4.1.1.\n• A fixed deposit, including the quarterly interest, will mature on 31 January 2026.\n• The interest rate is 8% p.a., receivable quarterly. Interest is not capitalised.\n• Interest on fixed deposit budgeted for January 2026: R5 440.\n\nREQUIRED: Calculate the amount of the fixed deposit which will mature on 31 January 2026.",
+          "marks": 4,
+          "memoText": "FIXED DEPOSIT MATURING ON 31 JANUARY 2026\n\n  The R5 440 is one quarter's (3 months') interest.\n  Annual interest = 5 440 ✓ × 12/3 ✓ = R21 760\n  Fixed deposit = 21 760 × 100/8 ✓  =  R272 000 ☑  (one part correct)\n\n  OR:  5 440 / 2%  =  R272 000   (2% = 8% ÷ 4 quarters)\n\n  OR (accepted as one method mark): 5 440 × 12/1 × 100/8 = R816 000.\n\nTeaching point: Quarterly interest is 3 months of an 8% annual rate, i.e. 2% per quarter. Divide the quarterly interest by 2% (or gross it up to a full year and divide by 8%) to recover the capital amount.",
+          "topic": "Budgeting - Cash Budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2025-4-2-1",
+          "label": "4.2.1",
+          "questionText": "WARMBAD TRADERS\n\nThe business sells gas stoves and the information relates to the period September and October 2025.\n\nDozer Moyo, the manager, is impressed with the performance of Warmbad Traders. The business has consistently outperformed its only competitor in the area, Woodlands Traders, due to a bigger client base and being competitive. Woodlands Traders decided to close their business in September 2025. As a result, Warmbad Traders became the only gas-stove supplier in the area.\n\nREQUIRED: Explain why it is important to compare the budgeted figures with the actual figures. Provide ONE point.",
+          "marks": 2,
+          "memoText": "Any valid point ✓✓ (2 marks):\n\n• To check if the budget is realistic / it helps to refine and create more realistic future budgets.\n• To detect variances on receipts and payments.\n• To anticipate how the bank balance will be affected.\n• To assess how well the business achieved its financial targets.\n• To encourage responsible financial behaviour by monitoring how funds are used / to ensure spending and income are managed within limits and to prevent overspending.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-4-2-2a",
+          "label": "4.2.2 (a)",
+          "questionText": "WARMBAD TRADERS — LOSS OF SALES\n\nExtract from the Cash Budget:\n                        | Sept 2025 Budgeted R | Sept Actual R | Oct 2025 Budgeted R | Oct Actual R\n  Units sold            | 90                   | 124           | 90                  | 61\n  Selling price per unit | R1 600              | R1 600        | R2 480              | R2 480\n\nNOTE: Quote figures.\n\nREQUIRED: The number of units sold in October has decreased. Give a reason, with figures, for this decrease.",
+          "marks": 2,
+          "memoText": "Any valid point ✓✓ (2 marks):\n\n• The selling price increased (from R1 600) to R2 480 / by R880 / by 55%, which reduced demand.\n\nTeaching point: Actual October units (61) fell well below both the September actual (124) and the budgeted 90 — the obvious driver is the 55% price hike from R1 600 to R2 480.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-4-2-2b",
+          "label": "4.2.2 (b)",
+          "questionText": "WARMBAD TRADERS — LOSS OF SALES\n\nUse the same information as in 4.2.2 (a):\n• Units sold: September 2025 (actual) — 124; October 2025 (actual) — 61\n• Selling price per unit: October 2025 — R2 480\n\nREQUIRED: Provide a calculation to show the amount of cash that was lost in October 2025 sales when compared to September 2025 sales.",
+          "marks": 2,
+          "memoText": "CASH LOST IN OCTOBER 2025 SALES (vs September 2025)\n\n  Fewer units sold: 124 − 61 = 63 units\n  63 × R2 480  =  R156 240 ✓☑  (one part correct)\n\n  OR:  307 520 − 151 280  =  R156 240   (124 × 2 480 − 61 × 2 480)\n\nTeaching point: Value the drop in volume (63 units) at the October selling price of R2 480 to get the lost revenue of R156 240.",
+          "topic": "Budgeting - Budget Control",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-p2-nov-2025-4-2-3",
+          "label": "4.2.3",
+          "questionText": "WARMBAD TRADERS\n\nExtract from the Cash Budget — Payments to creditors:\n  Sept 2025: Budgeted R320 000 | Actual R306 000\n  Oct 2025: Budgeted R306 000 | Actual R61 200\n\nAdditional information: Creditors are paid one month after purchase, subject to a 4% discount.\n\nREQUIRED: State TWO benefits that Warmbad Traders will forfeit by failing to meet its financial obligations with suppliers in October 2025.",
+          "marks": 2,
+          "memoText": "Any TWO valid points (1 mark each):\n\n• Forfeit the early-repayment (4%) discount.\n• Lose the advantage of trade discounts for loyal customers / forfeit bulk-buying discounts and priority deals.\n• The credit score or rating will decrease, affecting future credit applications / the reputation of the business will be tarnished.\n• The future credit limit will be affected / reduced.\n• Suppliers might switch to a cash-only policy, affecting the business's cash flow.\n\nTeaching point: October's actual creditor payment (R61 200) is far below the R306 000 budgeted, so the business did not pay suppliers as agreed — the cost is lost discounts, a weaker credit rating and tighter future terms.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-4-2-4a",
+          "label": "4.2.4 (a)",
+          "questionText": "WARMBAD TRADERS — REMUNERATION TO EMPLOYEES\n\nExtract from the Cash Budget:\n                        | Sept 2025 Budgeted R | Sept Actual R | Oct 2025 Budgeted R | Oct Actual R\n  Salaries              | 38 400               | 38 400        | 27 000              | 27 000\n  Commission on sales   | 0                    | 3 900         | 4 500               | 4 500\n  Cash surplus/deficit  | 63 800               | 98 950        | 80 120              | (72 400)\n  Units sold            | 90                   | 124           | 90                  | 61\n  Selling price per unit | R1 600              | R1 600        | R2 480              | R2 480\n\nAdditional information: The business has three employees. Dozer decided to introduce commission on sales and, from October 2025 onwards, a reduced monthly salary.\n\nREQUIRED: Give ONE reason for Dozer awarding his employees with commission during September 2025. Quote figures.",
+          "marks": 2,
+          "memoText": "Any ONE valid point ✓ + figure/s ✓ (2 marks):\n\n• The number of units sold increased (from 90 budgeted) to 124 / by 34 units / by 37,8%.\n• Sales increased by R54 400 (34 × R1 600) / by 37,8%.\n• The cash surplus increased (from R63 800 budgeted) to R98 950 / by 55,1%.\n\nTeaching point: Commission is a reward for exceeding targets. In September the team beat the 90-unit budget by 34 units and lifted the cash surplus well above budget, which justifies the R3 900 commission.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        },
+        {
+          "id": "acc-p2-nov-2025-4-2-4b",
+          "label": "4.2.4 (b)",
+          "questionText": "WARMBAD TRADERS — REMUNERATION TO EMPLOYEES\n\nUse the same information as in 4.2.4 (a):\n• Salaries: September R38 400; October R27 000. Commission: September R3 900; October R4 500.\n• The business has three employees.\n• From October 2025 onwards Dozer introduced commission on sales together with a reduced monthly salary.\n\nREQUIRED: Give ONE reason why the employees will not be satisfied with the revised remuneration policy. Quote figures.",
+          "marks": 2,
+          "memoText": "Any ONE valid point (with figures) ✓✓ (2 marks):\n\n• Total earnings for October of R31 500 (R10 500 per employee) is lower than the September salaries of R38 400 (R12 800 per employee) / by R6 900 (by R2 300 per employee) / by 18%.\n• Total salaries and commission in September of R42 300 is more than the total salaries and commission in October of R31 500 / by R10 800 (R3 600 per employee).\n\nTeaching point: The 'reduced salary + commission' package left staff worse off — October's salary + commission (R27 000 + R4 500 = R31 500) is below September's salary alone (R38 400), a real pay cut.",
+          "topic": "Budgeting - Budget Control",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}
