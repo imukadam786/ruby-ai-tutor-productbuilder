@@ -37,6 +37,12 @@ export interface FeedbackExplanationProps {
   correctAnswer?: string;
   /** Question misconception codes — drive the why/how/example. */
   errorSignals?: string[];
+  /**
+   * Which authored error-code map the `errorSignals` belong to. Defaults to the
+   * core maths map; Maths Literacy passes "maths-literacy" so its own 248 codes
+   * resolve to Maths-Lit explanations instead of a mis-picked maths family.
+   */
+  errorNamespace?: "maths" | "maths-literacy";
   /** Numbered worked solution, if the subject authors one (shown as "How"). */
   workingSteps?: string[];
   /** Optional extra text from the server (e.g. partial-credit note). */
@@ -62,8 +68,20 @@ export interface FeedbackExplanationProps {
   whyOverride?: string;
   /** Optional misconception label under the heading (paired with whyOverride). */
   labelOverride?: string;
-  /** Overrides the map's "how to fix it" text (e.g. ruby's LLM re-teaching). */
+  /** Overrides the map's "how to fix it" text (e.g. ruby's LLM re-teaching, or a
+   *  content subject's per-topic recovery strategy). */
   howOverride?: string;
+  /**
+   * Subject-authored "think of it like this" analogy. Used by content subjects
+   * whose error codes are per-question fact-labels (no shared misconception
+   * taxonomy), so there is no error-code map to draw an example from.
+   */
+  exampleOverride?: string;
+  /**
+   * Subject-authored "where you'll see this" line (e.g. built from a topic's
+   * CAPS strand + grade + term). Overrides the error-code map's `where`.
+   */
+  whereOverride?: string;
   /** Optional control rendered in the card header (e.g. a play-audio button). */
   headerAction?: ReactNode;
   /** The next/continue control, supplied by the subject. */
@@ -81,6 +99,7 @@ export default function FeedbackExplanation({
   studentAnswer,
   correctAnswer,
   errorSignals,
+  errorNamespace = "maths",
   workingSteps,
   serverFeedback,
   diagnosis,
@@ -90,6 +109,8 @@ export default function FeedbackExplanation({
   whyOverride,
   labelOverride,
   howOverride,
+  exampleOverride,
+  whereOverride,
   headerAction,
   footer,
   gemColor = RUBY,
@@ -136,7 +157,7 @@ export default function FeedbackExplanation({
   // that instead hand us a ready `whyOverride` (their own memo) pass no codes, so
   // the map stays empty for them and there is no risk of a mismatched example —
   // whyOverride still wins for the "why" either way.
-  const explanation = resolveErrorExplanation(errorSignals);
+  const explanation = resolveErrorExplanation(errorSignals, errorNamespace);
   const student = studentAnswer?.trim();
   const correct = correctAnswer?.trim();
   const showComparison = !!student && !!correct && student !== correct;
@@ -151,8 +172,8 @@ export default function FeedbackExplanation({
   const whyText = whyOverride || explanation?.why || (diagnosisText ? undefined : serverFeedback);
   const hasWorking = !!workingSteps && workingSteps.length > 0;
   const howText = hasWorking ? undefined : howOverride || explanation?.how;
-  const exampleText = explanation?.example;
-  const whereText = explanation?.where;
+  const exampleText = exampleOverride || explanation?.example;
+  const whereText = whereOverride || explanation?.where;
 
   return (
     <div className={`rounded-2xl border-2 overflow-hidden ${CONCEPT_C ? "border-rose-200 bg-rose-50" : "border-orange-200 bg-orange-50"}`}>

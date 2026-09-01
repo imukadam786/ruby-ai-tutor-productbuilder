@@ -95,6 +95,9 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
   const [question, setQuestion] = useState<NstGeneratedQuestion | null>(null);
   const [result, setResult] = useState<NstSubmitAnswerResponse | null>(null);
   const [answer, setAnswer] = useState<string>("");
+  // The exact submitted answer — tap buttons (choice/true-false) bypass `answer`,
+  // so capture it here for the feedback card's "What went wrong" line.
+  const [lastAnswer, setLastAnswer] = useState<string>("");
   const [sequenceOrder, setSequenceOrder] = useState<string[]>([]);
   const [submitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -360,13 +363,15 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer) return;
 
+      setLastAnswer(rawAnswer);
+
       // Instant path: NST is fully deterministic (the expected answer ships
       // with the question), so score client-side and show feedback at once.
       const isCorrect = scoreNst(question.input_type, rawAnswer, question.expected_answer);
       finalizeAttempt(
         {
           is_correct: isCorrect,
-          error_signals: [],
+          error_signals: question.error_signals ?? [],
           feedback: isCorrect ? "Correct." : "Not quite — let's look at this.",
           memo: question.memo ?? "",
           mastery_update: {
@@ -523,6 +528,9 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
           isCorrect={result.is_correct}
           note={result.is_correct ? result.memo : undefined}
           whyOverride={result.is_correct ? undefined : result.memo}
+          errorSignals={result.is_correct ? undefined : result.error_signals}
+          studentAnswer={question.input_type === "sequence" ? undefined : lastAnswer}
+          correctAnswer={question.input_type === "sequence" ? undefined : String(question.expected_answer)}
           footer={
             <FeedbackFooter
               isCorrect={result.is_correct}

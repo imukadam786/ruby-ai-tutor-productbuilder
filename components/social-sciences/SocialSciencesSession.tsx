@@ -16,6 +16,8 @@ import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
 import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreSocialSciences } from "@/lib/social-sciences-scoring";
+import { topicFeedbackProps } from "@/lib/topic-feedback";
+import { TOPIC_EXAMPLES } from "@/lib/social-sciences-topic-feedback";
 import {
   getDomainForSkill,
   selectQuestion,
@@ -95,6 +97,9 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
   const [question, setQuestion] = useState<SocialSciencesGeneratedQuestion | null>(null);
   const [result, setResult] = useState<SocialSciencesSubmitAnswerResponse | null>(null);
   const [answer, setAnswer] = useState<string>("");
+  // Exact submitted answer — tap inputs bypass `answer`; used for the feedback
+  // card's answer-vs-correct line.
+  const [lastAnswer, setLastAnswer] = useState<string>("");
   const [sequenceOrder, setSequenceOrder] = useState<string[]>([]);
   const [submitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -359,6 +364,8 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer) return;
 
+      setLastAnswer(rawAnswer);
+
       // ── Instant path: every Social Sciences type is deterministic, so the
       // answer is scored client-side (the expected answer ships with the
       // question) and feedback shows immediately. The server call still runs in
@@ -528,6 +535,16 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
           isCorrect={result.is_correct}
           note={result.is_correct ? result.memo : undefined}
           whyOverride={result.is_correct ? undefined : result.memo}
+          {...topicFeedbackProps({
+            isCorrect: result.is_correct,
+            subjectSlug: "social-sciences",
+            topic: skillId ? bank.topics[skillId] : null,
+            examples: TOPIC_EXAMPLES,
+            skillId,
+            inputType: question.input_type,
+            lastAnswer,
+            correctAnswer: question.expected_answer,
+          })}
           footer={
             <FeedbackFooter
               isCorrect={result.is_correct}

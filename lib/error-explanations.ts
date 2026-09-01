@@ -26,10 +26,18 @@ export interface ErrorExplanation {
    * misconception family so every resolved explanation carries all five parts.
    */
   what?: string;
-  /** WHY it happened — one sentence */
-  why: string;
-  /** HOW to fix it — the corrective step */
-  how: string;
+  /**
+   * WHY it happened — one sentence. Optional on the sharp per-code entries:
+   * the resolver backfills it from the code's misconception family, so every
+   * resolved explanation carries it.
+   */
+  why?: string;
+  /**
+   * HOW to fix it — the corrective step. Optional on the sharp per-code entries
+   * (backfilled from the family); also skipped by the card when the question
+   * ships its own worked steps.
+   */
+  how?: string;
   /** Layman's example — everyday analogy. DRAFT, pending head-of-ed review. */
   example: string;
   /**
@@ -340,6 +348,129 @@ export const ERROR_EXPLANATIONS: Record<string, ErrorExplanation> = {
     how: "Check the order: start from what you're given and work towards what's asked.",
     example: "Getting dressed: socks before shoes. Do the steps in the right order or it won't come out right.",
   },
+
+  // ── Life Skills (Grades 1–6) ──────────────────────────────────────────────
+  // Seven broad codes that name the KIND of thinking a question checks, not a
+  // fine-grained slip. The question-specific "why" is the item's own memo
+  // (passed as whyOverride), so these entries carry the what/how/example/where.
+  // Pitched to the younger end of the grade range: short, concrete, everyday.
+  ERR_LS_FACT: {
+    label: "Mixed up a fact",
+    what: "You picked an answer that doesn't match what this topic teaches — the choice you made is really about something else.",
+    why: "The facts in a Life Skills topic sit close together, so one that sounds right can belong to a different question.",
+    how: "Think back to what you learned about this topic, then check each choice against it. Say the fact out loud in your own words before you tap.",
+    example: "If you're asked which body part you smell with, the answer is your nose — your mouth is for tasting. Match the job to the right part.",
+    where: "You use these facts in Life Skills lessons and every day: knowing how your body works, keeping clean, and staying safe at home and school.",
+  },
+  ERR_LS_VOCAB: {
+    label: "Mixed up a word",
+    what: "You chose an answer that doesn't fit the word in the question — that word means something different.",
+    why: "Some Life Skills words look or sound alike, so the wrong one can feel right.",
+    how: "Learn each new word with a picture or an example you know. When you see the word again, picture that example before you answer.",
+    example: "\"Cousin\" means the child of your aunt or uncle. Picture your own cousin at a family gathering and you won't swap it for \"friend\" or \"neighbour\".",
+    where: "New words come up in every topic — family, feelings, health, rights — and knowing them helps you follow your teacher and your books.",
+  },
+  ERR_LS_SAFETY: {
+    label: "Safer choice missed",
+    what: "You picked an answer that isn't the safe or healthy thing to do in this situation.",
+    why: "The unsafe choice can look quicker or easier, so it's tempting to pick it.",
+    how: "Ask yourself: does this choice keep me and other people safe and well? If not, look for the option that does.",
+    example: "If you feel sick at school, the safe choice is to tell a teacher — not to hide it and keep playing. Telling a grown-up gets you help.",
+    where: "You'll use this thinking whenever something goes wrong: a fire drill, a hurt knee, a stranger, or feeling unwell.",
+  },
+  ERR_LS_SEQ: {
+    label: "Steps in the wrong order",
+    what: "You had the right steps but put them in the wrong order.",
+    why: "When you know all the steps, it's easy to forget which one has to come first.",
+    how: "Picture yourself actually doing it. Ask what must happen before the next step can work.",
+    example: "Washing hands: wet first, then soap, then rinse, then dry. You can't rinse off soap you haven't put on yet.",
+    where: "Order matters in daily routines — washing, getting ready for school, crossing the road, following a recipe.",
+  },
+  ERR_LS_CLASS: {
+    label: "Sorted into the wrong group",
+    what: "You put something in a group it doesn't belong to.",
+    why: "Things can share a feature or two, which makes it easy to group them together even when they belong apart.",
+    how: "Name the rule for the group first — what do all its members have in common? Then check whether the thing really fits that rule.",
+    example: "Your face parts are eyes, nose, ears and mouth. A knee is a body part too, but it's not on your face — so it goes in a different group.",
+    where: "Sorting into groups helps you understand family types, healthy and unhealthy habits, feelings, and the jobs people do.",
+  },
+  ERR_LS_EMPATHY: {
+    label: "Kinder choice missed",
+    what: "You picked an answer that doesn't show care for how someone else feels.",
+    why: "It's easy to think about what's easiest for you and forget to picture the other person.",
+    how: "Stop and imagine you are the other person. How would this choice make them feel? Pick the option that treats them the way you'd want to be treated.",
+    example: "If a friend is sad because their pet died, the kind thing is to listen and sit with them — not to tell them to stop crying.",
+    where: "You use empathy every day — with friends, family, and classmates, especially anyone who is upset, left out, or different from you.",
+  },
+  ERR_LS_CONTEXT: {
+    label: "Didn't match it to the situation",
+    what: "Your answer could be right on its own, but it doesn't fit the situation the question describes.",
+    why: "When you answer from memory instead of reading the whole situation, you can miss the detail that changes the answer.",
+    how: "Read the whole story in the question. Note who it's about and what they need, then pick the answer that fits that.",
+    example: "If someone loves acting out stories, the club that fits is drama — not chess. Match the choice to what that person actually enjoys.",
+    where: "Matching your answer to the situation matters in group work, choosing activities, and sorting out disagreements.",
+  },
+
+  // ── Natural Sciences & Technology (Grades 4–6) ────────────────────────────
+  // Same shape as Life Skills: seven broad codes naming the KIND of thinking.
+  // The per-question memo is the "why"; these carry what/how/example/where.
+  // Grade 4–6 register — plain, with science terms restated in everyday words.
+  ERR_NST_FACT: {
+    label: "Mixed up a fact",
+    what: "You chose an answer that doesn't match what this topic teaches — it's a fact about something else.",
+    why: "Science facts in the same topic sit close together, so a wrong one can sound reasonable.",
+    how: "Recall what the topic taught, then test each option against it. If you can't explain why an option is true, it probably isn't the answer.",
+    example: "All living things share seven life processes — feeding, growing, reproducing, breathing, excreting, sensing and moving. A rock does none of these, so it is non-living.",
+    where: "These facts run through every Natural Sciences topic — living things, materials, energy, the Earth — and through your test questions.",
+  },
+  ERR_NST_VOCAB: {
+    label: "Mixed up a science word",
+    what: "You picked an answer that doesn't fit the science word in the question.",
+    why: "Science words are often new and look similar, so the wrong one can feel right.",
+    how: "Tie each term to a clear example when you learn it. When the word comes up, bring that example to mind before you answer.",
+    example: "\"Sense organs\" are body parts like eyes, ears and the nose that pick up what's around you. They are not \"limbs\" — limbs are arms and legs.",
+    where: "Every strand has its own words — organism, material, conductor, evaporation, orbit — and you need them to follow lessons and answer questions.",
+  },
+  ERR_NST_CLASS: {
+    label: "Sorted into the wrong group",
+    what: "You put something in a group it doesn't belong to.",
+    why: "Two things can share a feature and still belong in different groups, which makes sorting tricky.",
+    how: "State the rule for the group first — what must every member have? Then check the item against that exact rule.",
+    example: "A dry leaf on the ground was once alive but has stopped all its life processes, so it's \"once living, now dead\" — not the same group as a pebble, which was never alive.",
+    where: "Sorting is a core science skill — living vs non-living, natural vs manufactured materials, solids vs liquids, conductors vs insulators.",
+  },
+  ERR_NST_DESIGN: {
+    label: "Design step missed",
+    what: "Your answer skips the design thinking the question asks for — it picks a detail instead of the reason.",
+    why: "It's easy to jump to what a thing looks like and skip what it needs to do and why.",
+    how: "Start with the purpose: what must this thing do? Then judge each choice by whether it helps the thing do that job.",
+    example: "When designing a chicken coop, the first thing to decide is its purpose — keeping chickens safe and dry. The colour comes much later, if at all.",
+    where: "You use this in every design question — shelters, containers, tools, structures — and in explaining why a design works.",
+  },
+  ERR_NST_SAFETY: {
+    label: "Safety point missed",
+    what: "You picked an answer that isn't the safe choice for this situation.",
+    why: "The unsafe option can seem simpler or more interesting, so it's tempting.",
+    how: "Ask what could cause harm here — to a person, an animal, or the environment — and choose the option that prevents it.",
+    example: "In a noisy place like a workshop or a concert, wearing earplugs protects your hearing. Shouting louder does not — your ears can't repair loud-noise damage.",
+    where: "Safety comes up with electricity, heat, chemicals, loud noise, and caring for animals — in class experiments and in real life.",
+  },
+  ERR_NST_SEQ: {
+    label: "Steps or flow in the wrong order",
+    what: "You had the right parts but put them in the wrong order or direction.",
+    why: "When you know all the parts of a process, it's easy to lose track of what comes first.",
+    how: "Find the starting point, then follow the process one step at a time, checking each step makes the next one possible.",
+    example: "An energy chain always starts with the Sun: Sun → plant → animal. The plant has to trap the Sun's energy before an animal can get it by eating the plant.",
+    where: "Order and direction matter in energy chains, food chains, the water cycle, life cycles, and the steps of an experiment.",
+  },
+  ERR_NST_PROCESS: {
+    label: "Process or recipe mixed up",
+    what: "You chose the wrong materials or the wrong step for how this thing is made or how it works.",
+    why: "Different processes use everyday-sounding ingredients, so the wrong combination can look familiar.",
+    how: "Picture the process from start to finish: which materials go in, what is done to them, and what comes out.",
+    example: "Concrete is made by mixing sand, gravel, cement and water, which then sets hard. Flour, sugar and butter make something you bake — a completely different process.",
+    where: "You'll meet this with mixtures and materials — making concrete, bread, jelly, bricks — and with separating mixtures later on.",
+  },
 };
 
 // ─── Family fallback layer ───────────────────────────────────────────────────
@@ -606,6 +737,358 @@ function familyOf(code: string): FamilyKey {
   return "generic";
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// MATHS LITERACY LAYER
+// ─────────────────────────────────────────────────────────────────────────────
+//
+// Maths Literacy's question banks use their OWN 248-code vocabulary (finance,
+// tariffs, rates, measurement, data-handling, graphs) — not the maths codes
+// above. Each question also ships a one-line `_error_signal_vocabulary` string
+// as its "why" (passed to the card as whyOverride) and, usually, `workingSteps`
+// that fill the "How to fix it" slot. So this layer supplies the parts the card
+// would otherwise miss: the misconception LABEL and the what / example / where.
+//
+// Same two-layer shape as the maths map: a family classifier that covers every
+// code, plus sharp entries for the highest-frequency ones. `how` is a light
+// fallback here (working steps normally cover it). Grade 10–12 register, South
+// African contexts (municipal tariffs, VAT, bank statements, rand/dollar, maps).
+
+type MLFamilyKey =
+  | "interest" | "statement" | "percent" | "tax" | "rates" | "currency"
+  | "ratio" | "conversion" | "area" | "volume" | "scale" | "timecalc"
+  | "tariff" | "rounding" | "probability" | "data" | "graphs" | "breakeven"
+  | "health" | "numbers";
+
+const ML_FAMILIES: Record<MLFamilyKey, ErrorExplanation> = {
+  interest: {
+    label: "Simple vs compound growth",
+    what: "The money was grown the wrong way — most likely as a flat amount each year (simple) when it should compound, or the growth was applied to the wrong balance.",
+    why: "Simple interest adds the same amount every year; compound interest adds a percentage of the new, larger balance each time, so it grows faster.",
+    how: "For compound growth, multiply by (1 + rate) once for every year — each year works on the previous year's total, not the starting amount.",
+    example: "R1 000 at 5% compound: after year 1 it's 1 000 × 1,05 = R1 050; after year 2 it's 1 050 × 1,05 = R1 102,50 — not R1 100, because the second year's interest is earned on R1 050.",
+    where: "Savings accounts, fixed deposits, home loans and hire-purchase agreements all use compound interest — it's the core of the finance section.",
+  },
+  statement: {
+    label: "Reading a running balance",
+    what: "A line on the statement was added, subtracted or read in the wrong direction, so the running balance came out wrong.",
+    why: "Money in and money out move the balance opposite ways, and it's easy to lose track down a long column or to net a repayment before the interest is added.",
+    how: "Work one row at a time: start from the opening balance, add every credit (money in), subtract every debit (money out), in date order.",
+    example: "Opening R2 000, credits R14 000, debits R850 + R700: closing = 2 000 + 14 000 − 1 550 = R14 450. Do the credits and debits as separate totals first.",
+    where: "Bank and account statements, loan schedules and municipal accounts — reading them correctly is a standard exam task and a real-life skill.",
+  },
+  percent: {
+    label: "Working with percentages",
+    what: "The percentage was converted or applied wrongly — a wrong decimal, the wrong base amount, or a markup added on instead of multiplied.",
+    why: "\"Per cent\" means \"out of 100\", and the base (the amount the percentage is OF) has to be the right one — the original price, not the new one.",
+    how: "Turn the percentage into a decimal by dividing by 100, then multiply it by the correct base. For a % increase, multiply the base by (1 + the decimal).",
+    example: "25% = 25 ÷ 100 = 0,25. A R80 item marked up 25% costs 80 × 1,25 = R100 — you multiply, you don't just tack \"25\" onto the price.",
+    where: "VAT, discounts, markups, tips, inflation, interest and test scores — percentages run through the whole subject.",
+  },
+  tax: {
+    label: "Income tax and payslips",
+    what: "A step in the tax or payslip calculation was misread — the wrong bracket, the rebate handled wrongly, or a deduction like UIF left out or mis-rated.",
+    why: "Income tax is worked out in bands with a rebate subtracted afterwards, and a payslip has several separate deductions, so it's easy to miss or misplace one.",
+    how: "Find the correct bracket for the annual taxable income, apply that row's formula, subtract the rebate, then take off UIF (1%) and any other deductions.",
+    example: "UIF is 1% of gross salary, so on R12 000 it's R120 — not R1 200. Small rate, easy to slip a decimal place.",
+    where: "Payslips, SARS tax tables and take-home-pay calculations — a guaranteed part of the finance section and something you'll do for real.",
+  },
+  rates: {
+    label: "Rates and proportion",
+    what: "The rate was applied with the wrong operation, or the two quantities were divided the wrong way round.",
+    why: "A rate links two units (rand per litre, km per hour, price per kg). To use it you multiply or divide depending on which unit you're given and which you want.",
+    how: "Write the rate with its units (e.g. R23,50 / litre). To get the total cost, multiply by the number of litres; to get a unit price, divide the total by the quantity.",
+    example: "60 litres at R23,50 per litre: 60 × 23,50 = R1 410. If instead you're told 60 litres cost R1 410, the unit price is 1 410 ÷ 60 = R23,50.",
+    where: "Fuel, groceries, wages, phone data, recipes and fees — comparing \"per unit\" prices is everyday maths.",
+  },
+  currency: {
+    label: "Currency exchange",
+    what: "The conversion went the wrong way — multiplied when it should have divided, or vice versa — or two prices were compared without putting them in the same currency.",
+    why: "An exchange rate is a rate like any other: which way you use it depends on whether you're going from rand to the foreign currency or back.",
+    how: "Write the rate as \"1 unit = R…\". To turn that currency into rand, multiply by the rate; to turn rand into that currency, divide by the rate.",
+    example: "At $1 = R18,50, then 100 US dollars = 100 × 18,50 = R1 850. Going the other way, R1 850 ÷ 18,50 = $100.",
+    where: "Travel budgets, online shopping, import prices and news about the rand — all need currency conversion.",
+  },
+  ratio: {
+    label: "Sharing in a ratio",
+    what: "The ratio was handled wrongly — one part treated as a fraction of the whole, the parts not added to find the total shares, or the order reversed.",
+    why: "A ratio like 2 : 3 means 5 equal shares in total, not 2 out of 3. You need the total number of parts before you can split anything.",
+    how: "Add the parts to get the total shares, divide the amount by that total to get one share, then multiply by each side's number of parts.",
+    example: "Split R500 in the ratio 2 : 3. Total parts = 5, so one share = 500 ÷ 5 = R100. The two people get R200 and R300.",
+    where: "Sharing money or profit, mixing fuel, concrete, paint or cordial, and scaling recipes up or down.",
+  },
+  conversion: {
+    label: "Converting units",
+    what: "The measurement was converted the wrong way, or by the wrong factor — moving the decimal in the wrong direction, or forgetting that area and volume units scale differently.",
+    why: "Going to a smaller unit gives a bigger number, and going to a bigger unit gives a smaller number. For area it's ×100 per step, for volume ×1 000.",
+    how: "Decide first whether the answer should be bigger or smaller, then apply the factor: 1 m = 100 cm, 1 m² = 10 000 cm², 1 m³ = 1 000 ℓ.",
+    example: "1,5 km to metres: metres are smaller, so the number gets bigger — 1,5 × 1 000 = 1 500 m, not 150 m.",
+    where: "Recipes, building plans, distances on maps, fuel and water volumes, and medicine doses.",
+  },
+  area: {
+    label: "Perimeter and area",
+    what: "The wrong formula was used, or a formula was applied without the brackets — perimeter and area got mixed up, or a composite shape wasn't split correctly.",
+    why: "Perimeter is the distance around the edge; area is the space inside, in squares. They use different formulas, and P = 2(l + b) only works if you add before you double.",
+    how: "Name what's asked, pick the matching formula, and do brackets first. For an odd shape, cut it into rectangles, find each area, then add.",
+    example: "A field 12 m by 8 m: perimeter = 2 × (12 + 8) = 2 × 20 = 40 m. The area would be 12 × 8 = 96 m² — a different question with a different unit.",
+    where: "Flooring, paint, fencing, paving, fabric and land — anything you measure out or buy by the square metre.",
+  },
+  volume: {
+    label: "Volume and surface area",
+    what: "The wrong solid's formula was used, the radius and diameter were swapped, or volume and surface area got mixed up.",
+    why: "Volume is the space inside (cubic units); surface area is the skin around it (square units). Each solid — box, cylinder, prism — has its own formula.",
+    how: "Identify the solid, write its formula, and check you're using the radius (half the diameter). Volume answers end in m³ or ℓ; surface area in m².",
+    example: "A cylinder's volume is π × r² × height. If the diameter is 10 cm, the radius is 5 cm — using 10 makes the answer four times too big.",
+    where: "Tanks, pipes, packaging, tins of paint, swimming pools and shipping — working out capacity and how much material wraps a shape.",
+  },
+  scale: {
+    label: "Scale, maps and plans",
+    what: "The scale was used the wrong way round, a scale was chosen that doesn't fit the page or material, or a feature on the plan was misread.",
+    why: "A scale like 1 : 100 means every 1 unit on the drawing is 100 real units. Going from drawing to real life you multiply; from real life to drawing you divide.",
+    how: "Write the scale as \"drawing : real\". Multiply a drawing measurement by the scale number to get the real size; divide a real size to get the drawing size.",
+    example: "On a 1 : 100 plan, a wall drawn 5 cm long is really 5 × 100 = 500 cm = 5 m.",
+    where: "House plans, maps, seating layouts, packing diagrams and model-building.",
+  },
+  timecalc: {
+    label: "Working with time",
+    what: "A time calculation slipped — treating an hour as 100 minutes, mishandling a span that crosses midnight, or reading the wrong row of a timetable.",
+    why: "Time isn't decimal: an hour is 60 minutes, so 1,5 hours is 1 h 30 min, not 1 h 5 min. Spans over midnight need to be split at 24:00.",
+    how: "Split the journey at midnight if needed, work each part in hours and minutes, then add. Convert to minutes only by multiplying whole hours by 60.",
+    example: "22:15 to 00:45: from 22:15 to midnight is 1 h 45 min (105 min), then 45 min more, so 150 minutes total.",
+    where: "Bus and train timetables, flight times, work shifts, cooking times and event planning.",
+  },
+  tariff: {
+    label: "Tariffs and stepped bills",
+    what: "A stepped (block) tariff was treated as one flat rate, a free allowance was ignored, the fixed monthly charge was left off, or the wrong band was read.",
+    why: "Utility bills charge different rates for different blocks of use, often after a free allowance and on top of a fixed monthly fee — so it's not just rate × amount.",
+    how: "Charge each block at its own rate up to its limit, add the fixed monthly charge, then add VAT if the tariff is quoted excluding it. Subtract any free allowance first.",
+    example: "First 350 units at R2,80 = R980; the next 50 units at R3,40 = R170; subtotal = R1 150 — before the fixed charge and VAT.",
+    where: "Electricity, water, phone and data bills, and bank fee structures — comparing options is a classic exam question.",
+  },
+  rounding: {
+    label: "Rounding to fit the situation",
+    what: "The answer was rounded the wrong way for the context — down when the job needs at least that much, or left as a fraction of a thing that only comes whole.",
+    why: "The maths rounding rule isn't always right in real life: if you need enough paint or enough taxis, you must round UP even when the rule says down.",
+    how: "Ask what the number counts. Tins, taxis, seats and people can't be fractions — round up if you need to cover the amount, down if it's a limit you can't exceed.",
+    example: "A job needs 4,2 tins of paint. You can't buy 0,2 of a tin, and 4 isn't enough — so you buy 5.",
+    where: "Buying materials, hiring transport, seating people, and packaging — anywhere the answer has to be a whole, usable amount.",
+  },
+  probability: {
+    label: "Probability and expected value",
+    what: "The probability was set up or scaled wrongly — the wrong count of outcomes, a very small chance misread, or expected value not weighted by its probabilities.",
+    why: "Probability is (wanted outcomes) ÷ (all possible outcomes), a number between 0 and 1. Expected value multiplies each payoff by its probability, then adds.",
+    how: "Count the total possible outcomes and the ones you want, then divide. For expected value, do probability × payoff for every outcome and sum them.",
+    example: "One red ball among 20 gives P = 1 ÷ 20 = 0,05 — a small chance, but not zero. Over 200 draws you'd expect about 0,05 × 200 = 10 reds.",
+    where: "Games of chance, insurance premiums, weather forecasts, quality control and medical testing.",
+  },
+  data: {
+    label: "Data handling and statistics",
+    what: "A summary value or reading was taken wrongly — an average worked out the wrong way, a value read off the wrong part of a chart or table, or a sampling problem missed.",
+    why: "Mean, median and mode each measure the \"middle\" differently, and a chart or table only gives the right value if you read the correct row, column and axis.",
+    how: "For the mean, add all values and divide by how many. For the median, sort first then take the middle. Check the axis labels and units before reading a graph.",
+    example: "The mean of 4, 6, 8, 10 is (4 + 6 + 8 + 10) ÷ 4 = 7. The median is the middle of the sorted list — here halfway between 6 and 8, so also 7.",
+    where: "Reports, surveys, sports statistics, price comparisons and news graphics — plus spotting when a graph is designed to mislead.",
+  },
+  graphs: {
+    label: "Reading graphs and relationships",
+    what: "A feature of the graph was misread — the wrong axis or intercept, the wrong crossover point, or the type of relationship (straight-line, inverse, compound) misjudged.",
+    why: "Every graph has a story: where it starts (the y-intercept, often a fixed cost), how steep it is (the rate), and where two lines cross (where the options are equal).",
+    how: "Read coordinates as (across, up). The y-intercept is the value when x = 0; the point where two graphs meet is the break-even or crossover point.",
+    example: "If a cost line starts at R500 when x = 0 and an income line starts at R0, the point where they cross is where income finally covers the R500 of costs.",
+    where: "Cost and income graphs, phone-contract comparisons, distance-time travel graphs and growth curves.",
+  },
+  breakeven: {
+    label: "Cost, income and break-even",
+    what: "The cost, income or profit relationship was set up wrongly — fixed and variable costs mixed up, profit not taken as income minus costs, or break-even misread.",
+    why: "Profit = income − total costs. Total costs = fixed costs (paid no matter what) + variable costs (per item). Break-even is where income exactly equals total costs, so profit is zero.",
+    how: "Write total cost = fixed + (variable per unit × number), write income = price × number, then set them equal to find the break-even number.",
+    example: "Fixed cost R500, each item costs R10 to make and sells for R15. Each item earns R5 towards the fixed cost, so break-even is 500 ÷ 5 = 100 items.",
+    where: "Small businesses, fundraising, event budgets and any \"how many must we sell\" question.",
+  },
+  health: {
+    label: "Health formulas",
+    what: "A health formula was misapplied — dividing by height instead of height squared for BMI, or getting the per-kilogram medicine dose the wrong way round.",
+    why: "These formulas have a fixed structure. BMI = mass ÷ height², and a dose is millilitres per kilogram × the person's mass — the order and the squaring matter.",
+    how: "Substitute carefully, one value at a time, and square the height before dividing. For a dose, multiply the per-kg amount by the body mass.",
+    example: "A person 1,7 m tall weighing 72 kg: BMI = 72 ÷ (1,7 × 1,7) = 72 ÷ 2,89 ≈ 24,9 — divide by the square, not by 1,7.",
+    where: "BMI and health-risk categories, medicine dosages, growth charts and fitness targets.",
+  },
+  numbers: {
+    label: "Number sense and calculation",
+    what: "A number was read, written or calculated wrongly — a place-value or decimal slip, a carry or borrow dropped, or the order of operations not followed.",
+    why: "Large numbers, decimal commas and mixed operations leave a lot of room for a small slip that throws the whole answer out.",
+    how: "Work one step at a time, keep the decimal commas lined up, do brackets and × ÷ before + −, and estimate first so a wildly wrong answer stands out.",
+    example: "2 + 3 × 4 is 2 + 12 = 14, not 5 × 4 = 20 — the multiplication happens before the addition.",
+    where: "Every calculation in the subject, and every till slip, bill and measurement in daily life.",
+  },
+};
+
+// Sharp, code-specific entries for the highest-frequency Maths-Lit codes. Each
+// is layered over its family (family fills any part left out here).
+const ML_ERROR_EXPLANATIONS: Record<string, ErrorExplanation> = {
+  ERR_COMPOUND_AS_SIMPLE: {
+    label: "Grew the money as simple, not compound",
+    what: "You added the same amount of interest each year instead of letting it build on the growing balance.",
+    example: "R1 000 at 5% compound for 2 years: 1 000 × 1,05 = R1 050, then 1 050 × 1,05 = R1 102,50 — the second year earns 5% of R1 050, not of R1 000.",
+    where: "Fixed deposits, savings, home loans and inflation over several years.",
+  },
+  ERR_BALANCE_RUNNING: {
+    label: "Running balance doesn't add up",
+    what: "A credit or debit was added the wrong way, or one line was missed, so the closing balance is out.",
+    example: "Opening R2 000, credits R14 000, debits R850 + R700: closing = 2 000 + 14 000 − 1 550 = R14 450. Total the credits and debits separately first.",
+    where: "Bank statements, loan schedules and municipal accounts.",
+  },
+  ERR_RATE_USE_OPERATION: {
+    label: "Wrong operation for the rate",
+    what: "You divided when the rate needed multiplying, or the reverse.",
+    example: "60 litres at R23,50 per litre is a total, so multiply: 60 × 23,50 = R1 410. You'd only divide if you had the total and wanted the price per litre.",
+    where: "Fuel, groceries, wages, data bundles and any \"per unit\" price.",
+  },
+  ERR_PERCENT_TO_DECIMAL: {
+    label: "Percentage-to-decimal slip",
+    what: "The percentage wasn't turned into the right decimal before being used.",
+    example: "25% = 25 ÷ 100 = 0,25. 5% = 0,05, not 0,5 — watch the leading zero.",
+    where: "VAT, discounts, interest rates and inflation figures.",
+  },
+  ERR_BRACKET_MISSING_FORMULA: {
+    label: "Skipped the brackets in the formula",
+    what: "You applied P = 2(l + b) without adding the length and breadth first.",
+    example: "A 12 m by 8 m field: P = 2 × (12 + 8) = 2 × 20 = 40 m. Doing 2 × 12 + 8 = 32 misses the brackets.",
+    where: "Perimeter of rooms and plots, and any formula with brackets.",
+  },
+  ERR_PROBABILITY_FORMULA: {
+    label: "Probability set up wrongly",
+    what: "The wanted outcomes and the total outcomes weren't put into (wanted ÷ total) correctly.",
+    example: "Drawing 1 red from 20 balls: P = 1 ÷ 20 = 0,05. Count every possible outcome for the bottom of the fraction.",
+    where: "Games of chance, insurance, weather forecasts and quality checks.",
+  },
+  ERR_SCALE_DIRECTION: {
+    label: "Used the scale the wrong way",
+    what: "You divided by the scale when going from the drawing to real life (or multiplied when going the other way).",
+    example: "On a 1 : 100 map, 5 cm on paper is 5 × 100 = 500 cm in real life. Drawing to real: multiply.",
+    where: "Maps, house plans, seating layouts and models.",
+  },
+  ERR_UNIT_CONVERSION_DIRECTION: {
+    label: "Converted area units the wrong way",
+    what: "You used ×100 instead of ×10 000 (or the wrong direction) between cm² and m².",
+    example: "1 m² = 100 cm × 100 cm = 10 000 cm². So 2,5 m² = 25 000 cm².",
+    where: "Tiling, flooring, paint coverage and plan measurements.",
+  },
+  ERR_ROUND_DIRECTION_CONTEXT: {
+    label: "Rounded the wrong way for the job",
+    what: "You rounded down when the task needs at least the calculated amount.",
+    example: "4,2 tins of paint means you buy 5 — 4 tins won't finish the job, and you can't buy 0,2 of a tin.",
+    where: "Buying paint, tiles, bricks, and hiring taxis or tables.",
+  },
+  ERR_BALANCE_GROWTH_BASE: {
+    label: "Interest on the wrong balance",
+    what: "The interest was worked out on the opening balance instead of the balance after that period's change.",
+    example: "If R1 000 grows to R1 050 in year 1, year 2's interest is 5% of R1 050 = R52,50, not 5% of R1 000.",
+    where: "Compound savings, loan balances and instalment agreements.",
+  },
+  ERR_24H_TIME_CALC: {
+    label: "Time-span calculation slip",
+    what: "The total time was worked out wrongly, often across midnight or by treating an hour as 100 minutes.",
+    example: "22:15 to 00:45: 1 h 45 min to midnight, then 45 min more — 150 minutes in total.",
+    where: "Timetables, shifts, flight times and cooking times.",
+  },
+  ERR_UNIT_PRICE_INVERSION: {
+    label: "Unit price the wrong way round",
+    what: "You divided quantity by price instead of price by quantity (or the reverse).",
+    example: "If 60 litres cost R1 410, the unit price is 1 410 ÷ 60 = R23,50 per litre — total ÷ quantity.",
+    where: "Comparing pack sizes and \"which is the better buy\" questions.",
+  },
+  ERR_CURRENCY_DIRECTION: {
+    label: "Currency converted the wrong way",
+    what: "You multiplied when you should have divided by the exchange rate, or the reverse.",
+    example: "At $1 = R18,50: 100 dollars = 100 × 18,50 = R1 850. To go from rand to dollars you'd divide by 18,50.",
+    where: "Travel money, online shopping and import prices.",
+  },
+  ERR_SCALE_FIT: {
+    label: "Chose a scale that doesn't fit",
+    what: "The scale picked makes the drawing too big or too small for the page or material.",
+    example: "A 6 m wall on an A4 page needs about 1 : 50 (12 cm) — 1 : 10 would be 60 cm and run off the page.",
+    where: "Drawing plans to size and planning packing or cutting layouts.",
+  },
+  ERR_PERCENT_BASE_INVERTED: {
+    label: "Percentage of the wrong amount",
+    what: "The percentage was taken of the new or wrong amount instead of the original base.",
+    example: "An item is R120 after a 20% increase. The original is 120 ÷ 1,2 = R100 — you don't just subtract 20% of R120.",
+    where: "Reversing VAT or markup, and working back to an original price.",
+  },
+  ERR_TARIFF_BAND_BOUNDARY: {
+    label: "Stepped tariff band handled wrongly",
+    what: "The free allowance or the boundary between blocks wasn't applied correctly.",
+    example: "First 350 units at R2,80 = R980; the next 50 at R3,40 = R170; subtotal R1 150. Only the units above 350 get the higher rate.",
+    where: "Electricity, water and data bills with rising block rates.",
+  },
+  ERR_AREA_FORMULA: {
+    label: "Wrong area formula",
+    what: "The area was found with the wrong formula for the shape or layout.",
+    example: "A rectangle's area is length × breadth. A triangle's is ½ × base × height — forgetting the ½ doubles the answer.",
+    where: "Flooring, paint, paving, fabric and land area.",
+  },
+  ERR_TARIFF_BLOCK_FLAT: {
+    label: "Treated a stepped tariff as flat",
+    what: "One rate was applied to the whole amount instead of charging each block at its own rate.",
+    example: "400 units isn't 400 × the top rate. It's 350 at the lower rate plus 50 at the higher rate, then the fixed charge.",
+    where: "Electricity and water bills, and phone plans with a daily cap.",
+  },
+  ERR_VOLUME_FORMULA: {
+    label: "Wrong volume formula",
+    what: "The volume was found with the wrong solid's formula.",
+    example: "A rectangular tank is length × breadth × height. A cylinder is π × r² × height — different shape, different formula.",
+    where: "Tanks, pipes, pools, packaging and containers.",
+  },
+  ERR_SA_FORMULA: {
+    label: "Wrong surface-area formula",
+    what: "Surface area was worked out with the wrong formula, or mixed up with volume.",
+    example: "A closed box's surface area is 2(lb + bh + lh) — six faces in three pairs. The answer is in m², not m³.",
+    where: "Paint or wrapping needed for a box, tank or tin.",
+  },
+  ERR_SPEED_TIME_DISTANCE: {
+    label: "Speed, time and distance mixed up",
+    what: "The speed × time = distance relationship was rearranged the wrong way.",
+    example: "A 240 km trip at 80 km/h takes 240 ÷ 80 = 3 hours. Distance ÷ speed = time.",
+    where: "Travel planning, fuel estimates and average-speed questions.",
+  },
+  ERR_BREAKEVEN_EQUATION: {
+    label: "Break-even equation set up wrongly",
+    what: "Income and total cost weren't written correctly before setting them equal.",
+    example: "Fixed R500, R10 to make, sells for R15: set 15n = 500 + 10n, so 5n = 500, n = 100 items.",
+    where: "Small-business, fundraising and event-budget questions.",
+  },
+};
+
+/**
+ * Classify any Maths-Lit error code into its family. Order matters — the more
+ * distinctive contexts (interest, tariffs, tax, currency) are checked before
+ * broader ones so a shared word like "RATE" or "SCALE" lands in the right place.
+ */
+function mlFamilyOf(code: string): MLFamilyKey {
+  const c = code.toUpperCase();
+  const has = (...ks: string[]) => ks.some((k) => c.includes(k));
+  if (has("TARIFF")) return "tariff";
+  if (has("COMPOUND", "INTEREST", "LOAN", "REPAY", "ANNUALIS", "POWER_OF_FACTOR", "REAL_VS_NOMINAL", "NOMINAL", "BALANCE_GROWTH", "SIMPLE_VS_COMPOUND", "RATE_PERIODIC", "RATE_DIRECTION")) return "interest";
+  if (has("BALANCE_RUNNING", "DEBIT_CREDIT", "TOTAL_VS_INTEREST", "STATEMENT")) return "statement";
+  if (has("TAX", "REBATE", "UIF", "NET_PAY", "GROSS", "COMMISSION", "MARGINAL_RATE", "BRACKET_PICK", "BRACKET_EXCESS", "BRACKET_BAND")) return "tax";
+  if (has("CURRENCY", "_FX", "FX_", "RATE_COMPARE")) return "currency";
+  if (has("BMI", "DOSE", "GROWTH_CHART")) return "health";
+  if (has("PROBABILITY", "EXPECTED_VALUE", "EXPECTED_OUTCOMES", "SAMPLE_SPACE", "FAIR_GAME", "CONVERGENCE", "GAMBLER", "CONDITIONAL_PROB", "REPLACEMENT", "RISK_BAND", "TREE_DIAGRAM", "PROBABILITY_AND", "PROBABILITY_OR")) return "probability";
+  if (has("BREAKEVEN", "PROFIT", "INCOME_FORMULA", "INCOME_VS", "CONTRIBUTION", "BUDGET", "COST_PRICE", "EXPENSE_CLASSIFY", "FIXED_VS_VARIABLE", "FIXED_COST_SPLIT", "VARIANCE", "MARGIN_VS_MARKUP")) return "breakeven";
+  if (has("SCALE", "MAP", "PLAN", "ELEVATION", "LAYOUT", "DOCUMENT_FIELD", "MEASURE_ZERO", "INSTRUMENT_PICK", "COMPASS", "DIRECTIONS_FOLLOW", "SIGNED_VALUE", "DIRECTIONS")) return "scale";
+  if (has("CONVERSION", "M3_TO_L", "POWER_OF_10", "HM_TO", "_TO_MIN", "_TO_TIME", "24H_12H", "PIE_DEGREES")) return "conversion";
+  if (has("TIME", "TIMETABLE", "MIDNIGHT", "TIMEZONE", "OVERS")) return "timecalc";
+  if (has("ROUND", "PAINT_ROUND", "CAPACITY_ROUND")) return "rounding";
+  if (has("PERCENT", "MARKUP", "MARGIN", "_VAT", "VAT_")) return "percent";
+  if (has("RATIO")) return "ratio";
+  if (has("SLOPE", "INTERCEPT", "INTERSECTION", "AXIS", "GRAPH", "CROSSOVER", "EQUATION_SOLVE", "INDEP_DEP", "RELATIONSHIP_TYPE", "TYPE_OF_PROPORTION", "INVERSE_PRODUCT", "INVERSE_AS_DIRECT", "TABLE_PATTERN", "TABLE_LOOKUP", "INTERPOLAT", "TREND", "SCATTER", "PREDICTION", "CONVERGENCE")) return "graphs";
+  if (has("AREA", "PERIM", "CIRCLE", "TRIANGLE", "TRAPEZIUM", "SQUARE_VS_DOUBLE", "RADIUS_VS_DIAMETER", "BRACKET_MISSING", "BRACKET_FORMULA", "COMPOSITE")) return "area";
+  if (has("VOLUME", "SA_FORMULA", "SA_CYLINDER", "CYLINDER", "M3_TO", "RADIUS_VS")) return "volume";
+  if (has("RATE", "PROPORTION", "UNIT_PRICE", "SPEED", "RECIPE_SCALE", "AVG_SPEED", "DIRECT_PROPORTION", "INVERSE_OPERATION", "INVERSE_PRODUCT_CONSTANT")) return "rates";
+  if (has("MEAN", "MEDIAN", "MODE", "RANGE", "IQR", "QUARTILE", "BOX_PLOT", "WEIGHTED_MEAN", "AVERAGE", "CHART", "TALLY", "INTERVAL", "DATA_TYPE", "SAMPLE", "REL_FREQ", "TWOWAY_TABLE", "FREQ_READ", "QUESTION", "QUESTIONNAIRE", "BIAS", "MISLEADING", "FREQUENCY")) return "data";
+  return "numbers";
+}
+
 /**
  * Resolve the best plain-language explanation for a question's error codes.
  * Two layers: a sharp authored entry for the code if one exists, otherwise the
@@ -614,9 +1097,22 @@ function familyOf(code: string): FamilyKey {
  * priority order (primary misconception first), so the first usable one wins.
  */
 export function resolveErrorExplanation(
-  codes?: string[] | null
+  codes?: string[] | null,
+  namespace: "maths" | "maths-literacy" = "maths"
 ): ErrorExplanation | null {
   if (!codes || codes.length === 0) return null;
+
+  // Maths Literacy carries its own 248-code vocabulary (finance, tariffs, rates,
+  // measurement, data). Those codes are meaningless to the maths family map, so
+  // resolve them against the Maths-Lit map + family classifier instead.
+  if (namespace === "maths-literacy") {
+    for (const code of codes) {
+      const hit = ML_ERROR_EXPLANATIONS[code];
+      if (hit) return { ...ML_FAMILIES[mlFamilyOf(code)], ...hit };
+    }
+    return ML_FAMILIES[mlFamilyOf(codes[0])];
+  }
+
   // Prefer a sharp, code-specific entry from any of the listed codes. Layer it
   // over its misconception family so the sharp label/why/how/example win, but
   // any part the sharp entry omits (typically `what` / `where`) is backfilled
