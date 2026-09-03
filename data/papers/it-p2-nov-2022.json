@@ -1,0 +1,1303 @@
+{
+  "id": "it-p2-nov-2022",
+  "subject": "Information Technology",
+  "subjectCode": "information-technology",
+  "paperCode": "P2",
+  "year": 2022,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Short Questions",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2022-1-1-1",
+          "label": "1.1.1",
+          "questionText": "Choose the answer and write down only the letter (A–D).\n\nA process where a single program is broken up into multiple parts that can be processed simultaneously and independently:",
+          "marks": 1,
+          "memoText": "Correct answer: C – Multithreading (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "Multitasking",
+            "B": "Multiprocessing",
+            "C": "Multithreading",
+            "D": "Multiflow"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-1-2",
+          "label": "1.1.2",
+          "questionText": "The following is a type of volatile memory:",
+          "marks": 1,
+          "memoText": "Correct answer: B – Disk cache (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "Solid-state disk",
+            "B": "Disk cache",
+            "C": "Flash disk",
+            "D": "Blue-ray disk"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-1-3",
+          "label": "1.1.3",
+          "questionText": "A … is a file which includes visual media and is made available for download.",
+          "marks": 1,
+          "memoText": "Correct answer: C – Vodcast (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "Media repository",
+            "B": "RSS feed",
+            "C": "Vodcast",
+            "D": "Broadcast"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-1-4",
+          "label": "1.1.4",
+          "questionText": "A programming language used exclusively for manipulating data in a database:",
+          "marks": 1,
+          "memoText": "Correct answer: A – SQL (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "SQL",
+            "B": "AJAX",
+            "C": "DELPHI",
+            "D": "PHP"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-1-5",
+          "label": "1.1.5",
+          "questionText": "Given the following statement:\n\n    iAnswer := 12 + 4/2 * 2/(9 MOD 2);\n\nThe value of iAnswer will be …",
+          "marks": 1,
+          "memoText": "Correct answer: C or D is accepted (1 mark). The arithmetic evaluates to 16 (9 MOD 2 = 1; 4/2 = 2; 2 * 2 = 4; 4 / 1 = 4; 12 + 4 = 16), but assigning a real result from the / operator to the integer variable iAnswer causes a type error, so 'Error' is also accepted.",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "12",
+            "B": "13",
+            "C": "Error",
+            "D": "16"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-2-1",
+          "label": "1.2.1",
+          "questionText": "Choose a term from COLUMN B that matches the description in COLUMN A. Write only the letter (A–R).\n\nCOLUMN B: A copyright; B user rights; C scalability; D artificial intelligence; E driver; F AUP; G phishing; H transaction; I JavaScript; J backdoor; K array; L modulator; M string; N convergence; O synchronisation; P C++; Q class; R Python.\n\nCOLUMN A (1.2.1): Any activity regarding creating, editing or deleting of data managed by a database management system (DBMS).",
+          "marks": 1,
+          "memoText": "Correct answer: H – transaction (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "copyright",
+            "B": "user rights",
+            "C": "scalability",
+            "D": "artificial intelligence",
+            "E": "driver",
+            "F": "AUP",
+            "G": "phishing",
+            "H": "transaction",
+            "I": "JavaScript",
+            "J": "backdoor",
+            "K": "array",
+            "L": "modulator",
+            "M": "string",
+            "N": "convergence",
+            "O": "synchronisation",
+            "P": "C++",
+            "Q": "class",
+            "R": "Python"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-2-2",
+          "label": "1.2.2",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A copyright; B user rights; C scalability; D artificial intelligence; E driver; F AUP; G phishing; H transaction; I JavaScript; J backdoor; K array; L modulator; M string; N convergence; O synchronisation; P C++; Q class; R Python.\n\nCOLUMN A (1.2.2): A data structure that stores a set of values of the same data type.",
+          "marks": 1,
+          "memoText": "Correct answer: K – array (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "copyright",
+            "B": "user rights",
+            "C": "scalability",
+            "D": "artificial intelligence",
+            "E": "driver",
+            "F": "AUP",
+            "G": "phishing",
+            "H": "transaction",
+            "I": "JavaScript",
+            "J": "backdoor",
+            "K": "array",
+            "L": "modulator",
+            "M": "string",
+            "N": "convergence",
+            "O": "synchronisation",
+            "P": "C++",
+            "Q": "class",
+            "R": "Python"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-2-3",
+          "label": "1.2.3",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A copyright; B user rights; C scalability; D artificial intelligence; E driver; F AUP; G phishing; H transaction; I JavaScript; J backdoor; K array; L modulator; M string; N convergence; O synchronisation; P C++; Q class; R Python.\n\nCOLUMN A (1.2.3): A method used to bypass the normal authentication procedure on a network in order to obtain unauthorised access.",
+          "marks": 1,
+          "memoText": "Correct answer: J – backdoor (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "copyright",
+            "B": "user rights",
+            "C": "scalability",
+            "D": "artificial intelligence",
+            "E": "driver",
+            "F": "AUP",
+            "G": "phishing",
+            "H": "transaction",
+            "I": "JavaScript",
+            "J": "backdoor",
+            "K": "array",
+            "L": "modulator",
+            "M": "string",
+            "N": "convergence",
+            "O": "synchronisation",
+            "P": "C++",
+            "Q": "class",
+            "R": "Python"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-2-4",
+          "label": "1.2.4",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A copyright; B user rights; C scalability; D artificial intelligence; E driver; F AUP; G phishing; H transaction; I JavaScript; J backdoor; K array; L modulator; M string; N convergence; O synchronisation; P C++; Q class; R Python.\n\nCOLUMN A (1.2.4): A programming language that can be used to add interactivity to a website.",
+          "marks": 1,
+          "memoText": "Correct answer: I – JavaScript (also accept R – Python) (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "copyright",
+            "B": "user rights",
+            "C": "scalability",
+            "D": "artificial intelligence",
+            "E": "driver",
+            "F": "AUP",
+            "G": "phishing",
+            "H": "transaction",
+            "I": "JavaScript",
+            "J": "backdoor",
+            "K": "array",
+            "L": "modulator",
+            "M": "string",
+            "N": "convergence",
+            "O": "synchronisation",
+            "P": "C++",
+            "Q": "class",
+            "R": "Python"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-2-5",
+          "label": "1.2.5",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A copyright; B user rights; C scalability; D artificial intelligence; E driver; F AUP; G phishing; H transaction; I JavaScript; J backdoor; K array; L modulator; M string; N convergence; O synchronisation; P C++; Q class; R Python.\n\nCOLUMN A (1.2.5): Protection for any published work that helps to prevent that work from being used without permission from the author.",
+          "marks": 1,
+          "memoText": "Correct answer: A – copyright (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "copyright",
+            "B": "user rights",
+            "C": "scalability",
+            "D": "artificial intelligence",
+            "E": "driver",
+            "F": "AUP",
+            "G": "phishing",
+            "H": "transaction",
+            "I": "JavaScript",
+            "J": "backdoor",
+            "K": "array",
+            "L": "modulator",
+            "M": "string",
+            "N": "convergence",
+            "O": "synchronisation",
+            "P": "C++",
+            "Q": "class",
+            "R": "Python"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-2-6",
+          "label": "1.2.6",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A copyright; B user rights; C scalability; D artificial intelligence; E driver; F AUP; G phishing; H transaction; I JavaScript; J backdoor; K array; L modulator; M string; N convergence; O synchronisation; P C++; Q class; R Python.\n\nCOLUMN A (1.2.6): The process of having sets of the same data file on separate devices automatically being updated to the latest copy.",
+          "marks": 1,
+          "memoText": "Correct answer: O – synchronisation (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "copyright",
+            "B": "user rights",
+            "C": "scalability",
+            "D": "artificial intelligence",
+            "E": "driver",
+            "F": "AUP",
+            "G": "phishing",
+            "H": "transaction",
+            "I": "JavaScript",
+            "J": "backdoor",
+            "K": "array",
+            "L": "modulator",
+            "M": "string",
+            "N": "convergence",
+            "O": "synchronisation",
+            "P": "C++",
+            "Q": "class",
+            "R": "Python"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-2-7",
+          "label": "1.2.7",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A copyright; B user rights; C scalability; D artificial intelligence; E driver; F AUP; G phishing; H transaction; I JavaScript; J backdoor; K array; L modulator; M string; N convergence; O synchronisation; P C++; Q class; R Python.\n\nCOLUMN A (1.2.7): A program that enables the operating system to control a device.",
+          "marks": 1,
+          "memoText": "Correct answer: E – driver (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "copyright",
+            "B": "user rights",
+            "C": "scalability",
+            "D": "artificial intelligence",
+            "E": "driver",
+            "F": "AUP",
+            "G": "phishing",
+            "H": "transaction",
+            "I": "JavaScript",
+            "J": "backdoor",
+            "K": "array",
+            "L": "modulator",
+            "M": "string",
+            "N": "convergence",
+            "O": "synchronisation",
+            "P": "C++",
+            "Q": "class",
+            "R": "Python"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-2-8",
+          "label": "1.2.8",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A copyright; B user rights; C scalability; D artificial intelligence; E driver; F AUP; G phishing; H transaction; I JavaScript; J backdoor; K array; L modulator; M string; N convergence; O synchronisation; P C++; Q class; R Python.\n\nCOLUMN A (1.2.8): Advanced settings for shared files, used by the server administrator to manage the type of access to the files.",
+          "marks": 1,
+          "memoText": "Correct answer: B – user rights (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "copyright",
+            "B": "user rights",
+            "C": "scalability",
+            "D": "artificial intelligence",
+            "E": "driver",
+            "F": "AUP",
+            "G": "phishing",
+            "H": "transaction",
+            "I": "JavaScript",
+            "J": "backdoor",
+            "K": "array",
+            "L": "modulator",
+            "M": "string",
+            "N": "convergence",
+            "O": "synchronisation",
+            "P": "C++",
+            "Q": "class",
+            "R": "Python"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-2-9",
+          "label": "1.2.9",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A copyright; B user rights; C scalability; D artificial intelligence; E driver; F AUP; G phishing; H transaction; I JavaScript; J backdoor; K array; L modulator; M string; N convergence; O synchronisation; P C++; Q class; R Python.\n\nCOLUMN A (1.2.9): A field of computer science that usually involves data analytics, machine learning and rule-based decision-making to create the ability of automated decision-making.",
+          "marks": 1,
+          "memoText": "Correct answer: D – artificial intelligence (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "copyright",
+            "B": "user rights",
+            "C": "scalability",
+            "D": "artificial intelligence",
+            "E": "driver",
+            "F": "AUP",
+            "G": "phishing",
+            "H": "transaction",
+            "I": "JavaScript",
+            "J": "backdoor",
+            "K": "array",
+            "L": "modulator",
+            "M": "string",
+            "N": "convergence",
+            "O": "synchronisation",
+            "P": "C++",
+            "Q": "class",
+            "R": "Python"
+          }
+        },
+        {
+          "id": "it-p2-nov-2022-1-2-10",
+          "label": "1.2.10",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A copyright; B user rights; C scalability; D artificial intelligence; E driver; F AUP; G phishing; H transaction; I JavaScript; J backdoor; K array; L modulator; M string; N convergence; O synchronisation; P C++; Q class; R Python.\n\nCOLUMN A (1.2.10): The ability of a system to increase or decrease its resources depending on the number of users.",
+          "marks": 1,
+          "memoText": "Correct answer: C – scalability (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "copyright",
+            "B": "user rights",
+            "C": "scalability",
+            "D": "artificial intelligence",
+            "E": "driver",
+            "F": "AUP",
+            "G": "phishing",
+            "H": "transaction",
+            "I": "JavaScript",
+            "J": "backdoor",
+            "K": "array",
+            "L": "modulator",
+            "M": "string",
+            "N": "convergence",
+            "O": "synchronisation",
+            "P": "C++",
+            "Q": "class",
+            "R": "Python"
+          }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Systems Technologies",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2022-2-1-1-a",
+          "label": "2.1.1(a)",
+          "questionText": "The local recycling club runs a gaming centre to raise funds. You have been tasked with the buying of computers for online gaming purposes. Computers are built with slots that hold the RAM. Give the acronym for the slots that hold the RAM.",
+          "marks": 1,
+          "memoText": "DIMM ✓ – slots (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-1-1-b",
+          "label": "2.1.1(b)",
+          "questionText": "What is the base unit of measurement used to measure the size of the RAM?",
+          "marks": 1,
+          "memoText": "Bytes / MB / GB ✓ (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Give TWO hardware specifications that should be considered when choosing a GPU.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): speed / number of cores / type of processor; speed / size / type of RAM; slot type of the GPU.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-1-3-a",
+          "label": "2.1.3(a)",
+          "questionText": "A motherboard houses and connects the components of a computer. What is the component on the motherboard called that houses the CPU?",
+          "marks": 1,
+          "memoText": "ZIF ✓ – socket (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-1-3-b",
+          "label": "2.1.3(b)",
+          "questionText": "Explain why a point-to-point connection is used to connect the CPU to the RAM, rather than a bus as used for other components.",
+          "marks": 2,
+          "memoText": "Concepts (2 marks): the CPU needs to transfer large amounts of data / higher workload to and from RAM; a point-to-point connection is dedicated ✓ for a single component OR a bus is shared amongst many components.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-2-1",
+          "label": "2.2.1",
+          "questionText": "A specific operating system has been recommended for use at the centre. Define the term operating system.",
+          "marks": 1,
+          "memoText": "Software that manages / controls ✓ all the activities of a computer system. (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-2-2",
+          "label": "2.2.2",
+          "questionText": "State any TWO functions of an operating system.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): provides a user interface; manages processes and tasks; manages memory; manages input and output / peripherals / hardware and software; manages storage; manages security.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-3-1",
+          "label": "2.3.1",
+          "questionText": "The CPU is dependent on the RAM to process applications. What is the memory called that is created when the operating system reserves a portion of the storage to be used as memory (RAM)?",
+          "marks": 1,
+          "memoText": "Virtual memory ✓ (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-3-2",
+          "label": "2.3.2",
+          "questionText": "Explain how the process of artificially increasing the RAM is used to ensure the smooth functioning of the computer system.",
+          "marks": 2,
+          "memoText": "When more applications are opened the system runs out of available RAM ✓. Processes not actively being used are moved to virtual memory (special storage) ✓ to open up space in RAM for other applications. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-4-1",
+          "label": "2.4.1",
+          "questionText": "A software bug was found while testing software. What is a software bug?",
+          "marks": 1,
+          "memoText": "A software bug is an error ✓ in software. (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-4-2",
+          "label": "2.4.2",
+          "questionText": "Give a practical example of how the software bug could be revealed to the user when running the software.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): incorrect / inaccurate calculated values; system crash / run-time error; system malfunction.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-5",
+          "label": "2.5",
+          "questionText": "The club management noticed an increase in unauthorised access to their computers and programs. What can be done to prevent unauthorised access to software at the centre?",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): use passwords / access control; install anti-malware / anti-spyware; set up a firewall; physically restricting access (locking up, etc.).",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-6-1",
+          "label": "2.6.1",
+          "questionText": "Mobile technologies have revolutionised the computing world. Some of the software used at the centre has been designed for use on mobile devices. Give TWO limitations related to the use of mobile devices when compared to devices such as PCs and laptops.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): small screen; small keyboard; limited processing power; limited storage; limited mobile OS; mobile devices are not expandable / upgradeable.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-6-2",
+          "label": "2.6.2",
+          "questionText": "Smartphones have the functions and abilities of many different devices built into a single device. What is the term used for this design approach?",
+          "marks": 1,
+          "memoText": "Convergence ✓ (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-7-1",
+          "label": "2.7.1",
+          "questionText": "The programmers at the club need to develop a system to manage the recycling centre. They have decided to use a programming language which uses an interpreter instead of a compiler. What is the common goal of a compiler and an interpreter?",
+          "marks": 1,
+          "memoText": "They both convert programs into machine code ✓. (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-7-2",
+          "label": "2.7.2",
+          "questionText": "Motivate why a compiler would be a better choice than an interpreter for programming in general.",
+          "marks": 2,
+          "memoText": "Any TWO reasons ✓✓ (2 marks): a compiler compiles the whole program at once, whilst the interpreter does it one line at a time; a compiler provides a list of errors whilst the interpreter stops at the first error; a compiled program does not need the compiler to execute, whilst the interpreter is needed to run (creates an executable file).",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-8-1",
+          "label": "2.8.1",
+          "questionText": "The implementation of good computer management techniques is essential for the maintenance of a computer. Why is it necessary to clean up and arrange the items on a desktop computer?",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): easy to locate programs; better organisation; avoid clutter; increase storage space / remove unnecessary files.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-2-8-2",
+          "label": "2.8.2",
+          "questionText": "Explain why an operating system requires a file extension.",
+          "marks": 2,
+          "memoText": "For the operating system to select the correct application ✓ to open the file with ✓. Also accept: for the operating system to identify the type of file (1), to be able to view the file (1). (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Communication and Network Technologies",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2022-3-1-1-a",
+          "label": "3.1.1(a)",
+          "questionText": "The Smart Energy Company uses network consultants to advise them regarding their network, which needs to be upgraded. Name the most suitable medium with which to connect thirty computers at the company's computer centre to form a local area network.",
+          "marks": 1,
+          "memoText": "UTP / Ethernet cables ✓. Also accept: fibre. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-1-1-b",
+          "label": "3.1.1(b)",
+          "questionText": "Name the most suitable medium with which to connect mobile devices to the company's network.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): radio waves; Wi-Fi; microwaves.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-1-2",
+          "label": "3.1.2",
+          "questionText": "State TWO advantages of installing a wireless network.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): mobility; no cables used; cost saving; easy to set up / connect.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-1-3",
+          "label": "3.1.3",
+          "questionText": "State a function that a local network can still perform even when there is a faulty connection between the internet and the network.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): transfer files / communication between computers; sharing of files / applications / software resources; share hardware / mention a specific hardware device.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-2-1",
+          "label": "3.2.1",
+          "questionText": "A consultant suggested that a peer-to-peer network will work better than a client-server network. The comparison diagram shows a CLIENT-SERVER network (a central Server with terminals connected to it) and a PEER-TO-PEER network (five PCs connected via a switch marked X). Give TWO reasons why a peer-to-peer network is less suitable for a company with many users.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): less secure in terms of managing access to resources; difficult to manage a large number of computers; does not provide centralised storage / services; more prone to spread of malware.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-2-2",
+          "label": "3.2.2",
+          "questionText": "Name a peer-to-peer file transfer protocol used for sharing large files over the internet.",
+          "marks": 1,
+          "memoText": "BitTorrent ✓ (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-2-3",
+          "label": "3.2.3",
+          "questionText": "State ONE possible role of a server in a server-based network.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): a server provides resources (software, storage, etc.); serves as a log-on controller; manages security settings on the network.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-2-4",
+          "label": "3.2.4",
+          "questionText": "The peer-to-peer network uses a switch (marked X). State ONE disadvantage when using a switch in a network.",
+          "marks": 1,
+          "memoText": "When a switch fails, all the computers connected to the switch will not be able to access the network ✓ (single point of failure). (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-3-1-a",
+          "label": "3.3.1(a)",
+          "questionText": "According to the consultant, a protocol is a set of rules for encoding and decoding data for transmission across a network. State the purpose of the hypertext transfer protocol.",
+          "marks": 1,
+          "memoText": "HTTP is the protocol that defines how web pages, and their content, are transferred across the Web ✓. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-3-1-b",
+          "label": "3.3.1(b)",
+          "questionText": "Why has HTTP been extended to the HTTPS protocol?",
+          "marks": 1,
+          "memoText": "HTTPS provides for secure / encrypted transfer of web content ✓. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-3-2",
+          "label": "3.3.2",
+          "questionText": "Explain why data needs to be encoded before being transmitted over the internet.",
+          "marks": 2,
+          "memoText": "To change the format of data ✓ for transmission over different mediums ✓. (2 marks)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-4-1",
+          "label": "3.4.1",
+          "questionText": "The company requires assistance to market themselves on the internet. Explain the difference between a website and a web page.",
+          "marks": 1,
+          "memoText": "A website is a collection of related web pages ✓. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-4-2-a",
+          "label": "3.4.2(a)",
+          "questionText": "The company decided to use search engine optimisation (SEO) to promote their website. What is the purpose of SEO?",
+          "marks": 1,
+          "memoText": "To ensure high ranking in search results / increase the amount of traffic on a website ✓ by changing the design of webpages. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-4-2-b",
+          "label": "3.4.2(b)",
+          "questionText": "State ONE way in which SEO can be applied in the design of their webpages.",
+          "marks": 1,
+          "memoText": "Adding specific keywords / phrases ✓ that relate to the way in which search engines do content search. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-5",
+          "label": "3.5",
+          "questionText": "The consultant advised that a good way to save time when designing and updating the website is to use CSS language. Explain how CSS works.",
+          "marks": 2,
+          "memoText": "CSS separates the formatting of the HTML and gathers all of it in one place, in a .css file ✓. When you want to make a change in the formatting of your website, you only change the CSS file and all the web pages get updated ✓.\nConcepts (2 marks): formatting is placed in a single .css file / style sheet; formatting is applied to all web pages.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-6-1",
+          "label": "3.6.1",
+          "questionText": "A person can gain access to the network at his/her workplace using a VPN service while connecting from a public hotspot. State TWO security risks that may be encountered when using a public hotspot.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): the network might not be secured / encrypted; exposure to hacking; possible risk of malware spread; shoulder surfing; signal / hotspot spoofing.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-6-2",
+          "label": "3.6.2",
+          "questionText": "Explain the process a VPN service follows to give access to a workplace network.",
+          "marks": 3,
+          "memoText": "A VPN creates an encrypted connection ✓ to a private network over a public network / internet ✓ to gain access with the same security as a direct local connection ✓.\nConcepts (3 marks): communication is encrypted; connecting to a private network over a public network / internet; same security as a local connection / secure connection.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-7-1",
+          "label": "3.7.1",
+          "questionText": "The internet has evolved to where Web 3.0 (semantic web) is used increasingly. Explain why companies have not abandoned static web pages completely for their websites.",
+          "marks": 1,
+          "memoText": "The company will have information on the website that stays the same over time / no need to be regularly updated ✓. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-7-2",
+          "label": "3.7.2",
+          "questionText": "Dynamic web pages are created by software running on a web server each time the page is accessed. State TWO advantages for the users of dynamic web pages when compared to static web pages.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): they can receive relevant / customised versions of webpages; the webpage will allow interaction with users; content is more likely to be up to date; users can now also be contributors of content.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-7-3-a",
+          "label": "3.7.3(a)",
+          "questionText": "The semantic web uses metadata to conduct searches. What is metadata?",
+          "marks": 1,
+          "memoText": "A set of data that describes and gives additional information on other data ✓. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-3-7-3-b",
+          "label": "3.7.3(b)",
+          "questionText": "Explain how a semantic search would take place.",
+          "marks": 2,
+          "memoText": "A search will take place using the metadata of the relevant content on the internet and will relate it to the user's contextual information ✓ to present a search result uniquely suited to the user ✓.\nConcepts (2 marks): the metadata is matched to the user's search request / query; providing the user with tailored / suitable results.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Data and Information Management",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2022-4-1-1",
+          "label": "4.1.1",
+          "questionText": "The company named Reduce e-waste collects data from users to make informed business decisions. A loyalty program at stores is a way in which invisible data capturing can take place. Give another example of invisible data captured about a customer during purchases, other than their personal details such as name, surname and address.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): purchasing habits / preferences; shopping hour preferences; gender / family composition; whether the person has pets. OR any other valid example.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-1-2",
+          "label": "4.1.2",
+          "questionText": "Give ONE reason why a company would want to capture invisible data on the purchases made by cardholders.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): to predict / plan other products to stock; anticipate the needs of the clients; target marketing. OR any other valid example.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-1-3",
+          "label": "4.1.3",
+          "questionText": "Except for card readers and credit cards, name TWO other mechanisms of invisible data capturing.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): forms – completing forms; e-toll – passing through e-toll gates; cell phone logging; online activities (web searches, online purchases, etc.); GPS navigation (using Google Maps, etc.); security camera footage (biometrics, etc.); background voice capturing by devices; access control system (entering a premises / site); smart devices / IoT; RFID.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-2-1",
+          "label": "4.2.1",
+          "questionText": "The company uses a database to store details of their customers. State TWO ways of ensuring the validity of captured data.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): format check; data type check; range check; presence check; check digit; uniqueness check.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-2-2",
+          "label": "4.2.2",
+          "questionText": "How can two customers with the same name and surname be distinguished in the database?",
+          "marks": 1,
+          "memoText": "A unique value, a primary key, will be allocated to each customer ✓. OR any correct example of a unique field related to the customer. (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-3-1-a",
+          "label": "4.3.1(a)",
+          "questionText": "The company attempted to improve the design of their database. It was found that some of the data was repeated in the database. What is the term given to the unnecessary repetition of data across multiple records?",
+          "marks": 1,
+          "memoText": "Data redundancy ✓ (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-3-1-b",
+          "label": "4.3.1(b)",
+          "questionText": "An update anomaly can occur when data is repeated unnecessarily. Explain how an update anomaly takes place.",
+          "marks": 2,
+          "memoText": "An update anomaly occurs when a record cannot be changed at a single entry ✓ but has to be changed at multiple entries ✓. (2 marks)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-3-2-a",
+          "label": "4.3.2(a)",
+          "questionText": "A relationship between tables can be created rather than repeating data in different tables. Identify the type of relationship presented in the following diagram: an entity 'Worker' is joined to an entity 'Job' through a 'has a' relationship, with 'one' (single-bar) notation shown on BOTH ends of the relationship.",
+          "marks": 1,
+          "memoText": "One-to-One ✓ (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-3-2-b",
+          "label": "4.3.2(b)",
+          "questionText": "Identify the type of relationship presented in the following diagram: an entity 'Company' is joined to an entity 'Customers' through a 'has' relationship, with 'one' (single-bar) notation on the Company end and 'many' (crow's-foot) notation on the Customers end.",
+          "marks": 1,
+          "memoText": "One-to-Many ✓ (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-4-1",
+          "label": "4.4.1",
+          "questionText": "The database CollectionDB used by the recycling company consists of two related tables, tblClients and tblCollections. The details of collections are saved in table tblCollections, which has the fields ClientID (Short Text – the ID of the client dropping off items for recycling), CollectionDate (Date/Time), CollectionTime (Date/Time) and CollectionWeight (Number), with ClientID, CollectionDate and CollectionTime together forming the primary key. Name the type of key formed when multiple fields are used together as the primary key.",
+          "marks": 1,
+          "memoText": "Composite / Compound ✓ (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-4-2",
+          "label": "4.4.2",
+          "questionText": "Suggest another key field that can be created in tblCollections instead of using the three fields as the primary key.",
+          "marks": 1,
+          "memoText": "CollectionNumber ✓ OR any other suitable new field. Also accept: Autonumber field. (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-4-3",
+          "label": "4.4.3",
+          "questionText": "The field ClientID also serves as the foreign key in table tblCollections. What will the data type of the primary key field in table tblClients be?",
+          "marks": 1,
+          "memoText": "Short Text ✓ (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-4-4",
+          "label": "4.4.4",
+          "questionText": "Referential integrity is enforced between the two tables tblCollections and tblClients. Explain the term referential integrity.",
+          "marks": 1,
+          "memoText": "The data contained in the field of a foreign key must already exist as an entry in the table where the field is the primary key ✓. OR: no record in the secondary / many table may refer / link to a record in the primary / one table that does not exist. (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-4-5-a",
+          "label": "4.4.5(a)",
+          "questionText": "The accounts department uses parallel data sets to store the data they work with. Indicate whether the following statement related to parallel data sets is TRUE or FALSE:\n\nMultiple copies of the data are kept.",
+          "marks": 1,
+          "memoText": "True ✓ (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-4-5-b",
+          "label": "4.4.5(b)",
+          "questionText": "Indicate whether the following statement related to parallel data sets is TRUE or FALSE:\n\nDowntime is expected when a data set gets damaged.",
+          "marks": 1,
+          "memoText": "False ✓ (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-4-5-c",
+          "label": "4.4.5(c)",
+          "questionText": "Indicate whether the following statement related to parallel data sets is TRUE or FALSE:\n\nParallel data sets use less storage than distributed databases.",
+          "marks": 1,
+          "memoText": "False ✓ (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-4-4-5-d",
+          "label": "4.4.5(d)",
+          "questionText": "Indicate whether the following statement related to parallel data sets is TRUE or FALSE:\n\nParallel data sets are used when mining data.",
+          "marks": 1,
+          "memoText": "False ✓ (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Solution Development",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2022-5-1-1",
+          "label": "5.1.1",
+          "questionText": "Procedures and functions are coding constructs often used as part of modular programming. Give a reason for the use of modular programming.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): avoids repetition of code; methods can be called and used easily in more than one class; enhances readability; easier to debug; collaboration between programmers.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-1-2",
+          "label": "5.1.2",
+          "questionText": "State ONE difference between a procedure and a function.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): a procedure does not necessarily return a value, whilst a function must return a value; a function has a data type associated with the function name, that acts as a variable for the return value, whilst a procedure does not have that; a procedure is an independent call, whilst a function must form part of another statement.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-2-1",
+          "label": "5.2.1",
+          "questionText": "State whether the following statement is valid or invalid:\n\n    X := Y = 2;\n\nwhere the data type of X is Boolean and Y is integer.",
+          "marks": 1,
+          "memoText": "Valid ✓ (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-2-2",
+          "label": "5.2.2",
+          "questionText": "State whether the following statement is valid or invalid:\n\n    If Name1 > Name2 then\n    .....\n\nwhere Name1 and Name2 are declared as string type variables.",
+          "marks": 1,
+          "memoText": "Valid ✓ (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-3-1",
+          "label": "5.3.1",
+          "questionText": "Many programmers use defensive programming techniques in their code. Explain what defensive programming is.",
+          "marks": 2,
+          "memoText": "Defensive programming uses code to avoid / handle errors ✓ that will prevent the normal execution of a program ✓. (2 marks)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-3-2-a",
+          "label": "5.3.2(a)",
+          "questionText": "While the program was running, an error caused the program to stop executing. The following error message was displayed:\n\n    'Execution halted – an overflow error occurred'\n\nGive a possible reason for an overflow error.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): when a value to be stored in a variable is outside the range of the data type / is too large; endless loop.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-3-2-b",
+          "label": "5.3.2(b)",
+          "questionText": "State a way in which programming code can be used to prevent a runtime error.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): data validation; exception handling techniques; any example of defensive programming, e.g. testing for division by zero.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-4-1",
+          "label": "5.4.1",
+          "questionText": "The following class was designed using object-oriented programming (OOP) principles:\n\n    RecycleCompany\n    Attributes:\n      - CompanyNum\n      - CompanyName\n      - Address\n      + ContactNumber\n      + NumberOfEmployees\n    Methods:\n      + Constructor(CompanyNum, CompanyName, Address, ContactNumber)\n      + getCompanyName():String\n      + isValidContactNumber():Boolean\n      + toString():String\n\nState the purpose of a constructor method.",
+          "marks": 1,
+          "memoText": "Instantiate / Create / Initialise an object ✓ (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-4-2",
+          "label": "5.4.2",
+          "questionText": "Identify an accessor method from the RecycleCompany class diagram.",
+          "marks": 1,
+          "memoText": "getCompanyName ✓ (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-4-3-a",
+          "label": "5.4.3(a)",
+          "questionText": "Mutator methods will be required for the object. For which attribute will the use of a mutator method be the LEAST applicable?",
+          "marks": 1,
+          "memoText": "CompanyNum ✓ (1 mark). ALSO ACCEPT: CompanyName, with a correct motivation in (b).",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-4-3-b",
+          "label": "5.4.3(b)",
+          "questionText": "Motivate your answer to QUESTION 5.4.3(a).",
+          "marks": 1,
+          "memoText": "The company number uniquely identifies the company ✓ and should not be changed. (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-4-4-a",
+          "label": "5.4.4(a)",
+          "questionText": "OOP classes use both private and public access specifiers. State where in the class diagram the access specified to methods/attributes violates the recommended/allowed access to methods/attributes.",
+          "marks": 1,
+          "memoText": "Some of the attributes are declared public / attributes should be private ✓. OR indicating specific examples (+ ContactNumber + NumberOfEmployees). (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-4-4-b",
+          "label": "5.4.4(b)",
+          "questionText": "Explain why the incorrect access to methods/attributes identified in QUESTION 5.4.4(a) might cause a problem when working with an object of this class.",
+          "marks": 2,
+          "memoText": "Declaring an attribute public means it is directly accessible from outside the class ✓ which could have unintended / unforeseen effects ✓. (2 marks)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-5-1",
+          "label": "5.5.1",
+          "questionText": "A company randomly selects one of 10 bins for paper recycling, excluding bins that are already full. Presently bins 5 and 8 are already full. A random number must be generated repeatedly until a bin number other than 5 or 8 is identified to be used for the next load of recycling paper. When would a sentinel-controlled/conditional loop be preferred to other loops?",
+          "marks": 1,
+          "memoText": "The number of repetitions is not known in advance ✓. (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-5-5-2",
+          "label": "5.5.2",
+          "questionText": "The following code was used to generate a random number in the range 1 to 10, excluding numbers 5 and 8:\n\n    Repeat\n        iNumber := RandomRange(1,11);\n    Until (iNumber <> 5) AND (iNumber <> 8);\n\nRewrite the code using a WHILE loop.",
+          "marks": 4,
+          "memoText": "iNumber := RandomRange(1,11); ✓\nWhile (iNumber = 5) ✓ OR (iNumber = 8) ✓ do\n    iNumber := RandomRange(1,11); ✓\n(4 marks)",
+          "topic": "Solution development",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Integrated Scenario",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2022-6-1-1",
+          "label": "6.1.1",
+          "questionText": "A company named e-Waste Technologies Africa specialises in the recycling of electronic waste. Recycling in the 21st century plays a critical role to save our planet. Define the term electronic waste.",
+          "marks": 1,
+          "memoText": "Electronic waste refers to electronic devices or items related to electronics that are obsolete / no longer needed ✓. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-1-2",
+          "label": "6.1.2",
+          "questionText": "Give ONE reason why electronic waste is often hazardous to the environment.",
+          "marks": 1,
+          "memoText": "Contains toxic / harmful materials ✓. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-1-3",
+          "label": "6.1.3",
+          "questionText": "State TWO ways to reduce electronic waste.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): keep old devices / replace only if necessary; extend the life of your electronics (buy a case, keep your device clean, avoid overcharging the battery); donate / sell used electronics; recycle electronics and batteries; refill toner cartridges.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-1-4",
+          "label": "6.1.4",
+          "questionText": "Explain what should be done with regard to a user's privacy with any electronic storage device before it is recycled/discarded.",
+          "marks": 1,
+          "memoText": "The drive must be formatted / cleared / factory reset (or any way to permanently destroy access to data) ✓ so any personal information cannot be accessed / retrieved by others. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-2-1-a",
+          "label": "6.2.1(a)",
+          "questionText": "Large recycling companies require internet connection for all the staff working at the different branches and depots. The employees use e-mail for daily communication. Differentiate between the POP protocol and the IMAP protocol used for e-mail.",
+          "marks": 2,
+          "memoText": "With POP your emails are downloaded to your device ✓ and deleted from the server (unless you change the default settings). With IMAP, emails 'reside' on the server ✓, and you can easily read and interact with emails from multiple devices. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-2-1-b",
+          "label": "6.2.1(b)",
+          "questionText": "Spam is a problem for the employees at the company. State ONE way in which spam affects the company negatively.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): spam clogs the Internet / generates unnecessary traffic (impacts speed); it impacts employee productivity / employees must sift through 'junk mail' to find what they really want; spam could contain malware that infects devices.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-2-1-c",
+          "label": "6.2.1(c)",
+          "questionText": "Fake news usually spreads rapidly over the internet and has the potential to cause chaos. Suggest TWO possible ways how to identify fake news.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): consider the source of the news; check the references of the author; apply common sense (recognise unrealistic news); cross-reference the content with reputable news sites / the citations and references given / fact-checking websites / experts in the field.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-2-2-a",
+          "label": "6.2.2(a)",
+          "questionText": "An employee attempted to send an e-mail with an attachment, but an error message appeared stating that the attachment is too large (the file, MFC-L2700DW-inst-D1-EU.EXE, is 165.6 MB, larger than 25 MB). State another way in which to send the attachment successfully over the internet.",
+          "marks": 1,
+          "memoText": "The file should be uploaded to cloud storage / service ✓ and shared. OR any valid example of a cloud storage / service that allows this, e.g. Google Drive, OneDrive, WeTransfer, TeamViewer, etc. / FTP. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-2-2-b",
+          "label": "6.2.2(b)",
+          "questionText": "State ONE risk of sending the attachment when using your suggested method in QUESTION 6.2.2(a).",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): limited storage available on free versions of services; the service might not have good security practices; the service might not have good backup policies; the service might 'oversell' their services.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-2-2-c",
+          "label": "6.2.2(c)",
+          "questionText": "Explain what a media repository is.",
+          "marks": 1,
+          "memoText": "An online storage location for the sharing / downloading / streaming of files ✓. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-2-2-d",
+          "label": "6.2.2(d)",
+          "questionText": "Define the term ubiquity in terms of the way in which we work with files on the internet.",
+          "marks": 1,
+          "memoText": "The cloud / files can be accessed from anywhere and at any time ✓. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-3-1-a",
+          "label": "6.3.1(a)",
+          "questionText": "It is important for staff working in the finance department to remain up to date with current threats and scams. A RAT (remote access Trojan) was detected on one of the computers connected to the company's network. Briefly explain what a RAT is.",
+          "marks": 1,
+          "memoText": "It is software that appears to be useful / innocent, that is then installed ✓ and then allows an attacker to remotely control the infected computer. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-3-1-b",
+          "label": "6.3.1(b)",
+          "questionText": "State TWO ways in which a user's computer could be infected with Trojan malware.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): open an infected attachment in an email; download / install a Trojan file; download / install a Trojan file from a malicious site; react on spoofed chat messages; open / install a Trojan file from an infected removable storage device.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-3-2",
+          "label": "6.3.2",
+          "questionText": "Give TWO reasons why websites are often hacked.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): steal users' personal information (email addresses, passwords, credit card information) for identity theft; deface the website or place political messages on the website; reroute traffic from the website to a phishing website.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-4-1",
+          "label": "6.4.1",
+          "questionText": "The company uses a distributed database as their clients are spread over a large geographical area. Explain what a distributed database is.",
+          "marks": 2,
+          "memoText": "A distributed database is where a database is spread / stored ✓ across servers in separate locations ✓. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-4-2",
+          "label": "6.4.2",
+          "questionText": "What is the main difference between the Duplication model and the Partitioning model in terms of the data that they store?",
+          "marks": 2,
+          "memoText": "Duplication is when every separate site has a copy of the entire / complete database ✓. Partitioning is when each site manages / stores only its own data that it works with ✓. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-4-3",
+          "label": "6.4.3",
+          "questionText": "Discuss why there is a need for regular data synchronisation when a distributed database model is used.",
+          "marks": 2,
+          "memoText": "When data is duplicated, each site works with its own copy of the data and data sets will start to differ over time ✓. Synchronisation will ensure that changes are replicated ✓ over all data sets to prevent problems. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-5-1",
+          "label": "6.5.1",
+          "questionText": "The recycling company is also actively involved in finding solutions to the challenges posed by pollution. The company uses a system that gathers information from a variety of sources, analyses it and presents it in a structured format to support decision-making. What is such a system called?",
+          "marks": 1,
+          "memoText": "Decision Support System / DSS ✓ (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-5-2",
+          "label": "6.5.2",
+          "questionText": "Explain how an expert system/knowledge-based system can be used in conjunction with the system in QUESTION 6.5.1 to ensure quick automated decision-making.",
+          "marks": 2,
+          "memoText": "Human expertise is coded into software ✓ to create a rule-based system that can make decisions based on the input obtained ✓ from a system such as mentioned in Question 6.5.1. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-6-1",
+          "label": "6.6.1",
+          "questionText": "The employees at the company were provided with notebook computers with an open-source operating system to work from home. What does open-source refer to?",
+          "marks": 1,
+          "memoText": "Software that is available with access to the source code ✓ which can be modified and adapted by a user. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-6-2",
+          "label": "6.6.2",
+          "questionText": "The notebook computers quickly ran out of storage space due to the amount of data employees store on the hard drives. It was suggested that the disk clean-up utility be used to free up storage space. Name ONE type of file that the disk clean-up program will identify and remove during scanning.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): temporary / redundant files; cached webpages.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-6-3-a",
+          "label": "6.6.3(a)",
+          "questionText": "The digital divide results in some employees not being able to work from home. Define the term digital divide.",
+          "marks": 1,
+          "memoText": "The gap between those who have access to computers and the internet, and those who do not ✓. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-6-3-b",
+          "label": "6.6.3(b)",
+          "questionText": "State TWO factors that contribute to the digital divide.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): lack of financial resources to acquire technology; difference in educational levels; the age gaps; disabilities; lack of supporting infrastructure; fear of ICT.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-7-1",
+          "label": "6.7.1",
+          "questionText": "Hyper-automation and robotics process automation (RPA) are some of the new emerging technologies that have the potential to maximise the efficiency of company operations around the world. Explain the difference between hyper-automation and RPA.",
+          "marks": 2,
+          "memoText": "RPA – used for repetitive, rule-based processes using robotics ✓. Hyper-automation – AI decides on the best strategy ✓ for tasks. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-7-2",
+          "label": "6.7.2",
+          "questionText": "An analysis of the demographics of most developed countries shows an aging population. Discuss how RPA will help solve this problem in order to keep factories running.",
+          "marks": 2,
+          "memoText": "Any TWO concepts ✓✓ (2 marks): robots can replace workers; robots can improve worker productivity; robots can do tasks that require strength and good health; robots can take over dangerous tasks.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-8-1",
+          "label": "6.8.1",
+          "questionText": "Extended reality is a broad term that includes virtual reality, augmented reality and mixed reality. Differentiate between virtual reality and augmented reality.",
+          "marks": 2,
+          "memoText": "Virtual reality replaces reality ✓ with software. Augmented reality enhances reality ✓ by adding onto the real-world experience using software. Also accept examples of each. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2022-6-8-2",
+          "label": "6.8.2",
+          "questionText": "How is mixed reality a further improvement on the realities named in QUESTION 6.8.1?",
+          "marks": 1,
+          "memoText": "Mixed reality superimposes computer-generated objects that users can interact with ✓. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        }
+      ]
+    }
+  ]
+}

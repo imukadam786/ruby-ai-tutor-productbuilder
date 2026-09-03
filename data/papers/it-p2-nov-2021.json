@@ -1,0 +1,1197 @@
+{
+  "id": "it-p2-nov-2021",
+  "subject": "Information Technology",
+  "subjectCode": "information-technology",
+  "paperCode": "P2",
+  "year": 2021,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Short Questions",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2021-1-1-1",
+          "label": "1.1.1",
+          "questionText": "Choose the answer and write down only the letter (A–D).\n\nSoftware that translates programming instructions written in a high-level language into an executable file is called a …",
+          "marks": 1,
+          "memoText": "Correct answer: A – compiler (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "compiler.",
+            "B": "assembler.",
+            "C": "driver.",
+            "D": "interpreter."
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-1-2",
+          "label": "1.1.2",
+          "questionText": "Which data type for variable x in the following expression is CORRECT?\n\n    x := 13 mod 3 = 0;",
+          "marks": 1,
+          "memoText": "Correct answer: C – Boolean (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "Integer",
+            "B": "Real",
+            "C": "Boolean",
+            "D": "Char"
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-1-3",
+          "label": "1.1.3",
+          "questionText": "An update to correct a specific bug in software is called a …",
+          "marks": 1,
+          "memoText": "Correct answer: B – patch (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "purge.",
+            "B": "patch.",
+            "C": "backup.",
+            "D": "rollback."
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-1-4",
+          "label": "1.1.4",
+          "questionText": "… refers to the simulation of human thinking in machines that are programmed to think like humans and mimic their actions.",
+          "marks": 1,
+          "memoText": "Correct answer: C – Artificial intelligence (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "A simulator",
+            "B": "A learning algorithm",
+            "C": "Artificial intelligence",
+            "D": "Human-computer interaction"
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-1-5",
+          "label": "1.1.5",
+          "questionText": "What value will be displayed?\n\n    iCount ← 9\n    While iCount < 10 do\n      iCount ← iCount + 1\n    End While\n    Display iCount",
+          "marks": 1,
+          "memoText": "Correct answer: B – 10 (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "9",
+            "B": "10",
+            "C": "11",
+            "D": "Nothing will be displayed"
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-2-1",
+          "label": "1.2.1",
+          "questionText": "Choose a term from COLUMN B that matches the description in COLUMN A. Write only the letter (A–T).\n\nCOLUMN B: A social engineering; B CMOS; C edit box; D information overload; E IRQ; F check digit; G virtual memory; H virtual reality; I BitTorrent; J string-grid; K identity theft; L ROM; M runtime error; N RFID; O logical error; P record locking; Q spin edit; R research; S rollback; T SEO.\n\nCOLUMN A (1.2.1): Used to help detect errors in manually entered data, such as bank account numbers.",
+          "marks": 1,
+          "memoText": "Correct answer: F – check digit (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "social engineering",
+            "B": "CMOS",
+            "C": "edit box",
+            "D": "information overload",
+            "E": "IRQ",
+            "F": "check digit",
+            "G": "virtual memory",
+            "H": "virtual reality",
+            "I": "BitTorrent",
+            "J": "string-grid",
+            "K": "identity theft",
+            "L": "ROM",
+            "M": "runtime error",
+            "N": "RFID",
+            "O": "logical error",
+            "P": "record locking",
+            "Q": "spin edit",
+            "R": "research",
+            "S": "rollback",
+            "T": "SEO"
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-2-2",
+          "label": "1.2.2",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A social engineering; B CMOS; C edit box; D information overload; E IRQ; F check digit; G virtual memory; H virtual reality; I BitTorrent; J string-grid; K identity theft; L ROM; M runtime error; N RFID; O logical error; P record locking; Q spin edit; R research; S rollback; T SEO.\n\nCOLUMN A (1.2.2): A peer-to-peer protocol used to share large files over the internet.",
+          "marks": 1,
+          "memoText": "Correct answer: I – BitTorrent (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "social engineering",
+            "B": "CMOS",
+            "C": "edit box",
+            "D": "information overload",
+            "E": "IRQ",
+            "F": "check digit",
+            "G": "virtual memory",
+            "H": "virtual reality",
+            "I": "BitTorrent",
+            "J": "string-grid",
+            "K": "identity theft",
+            "L": "ROM",
+            "M": "runtime error",
+            "N": "RFID",
+            "O": "logical error",
+            "P": "record locking",
+            "Q": "spin edit",
+            "R": "research",
+            "S": "rollback",
+            "T": "SEO"
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-2-3",
+          "label": "1.2.3",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A social engineering; B CMOS; C edit box; D information overload; E IRQ; F check digit; G virtual memory; H virtual reality; I BitTorrent; J string-grid; K identity theft; L ROM; M runtime error; N RFID; O logical error; P record locking; Q spin edit; R research; S rollback; T SEO.\n\nCOLUMN A (1.2.3): Storage space used by the operating system when there is insufficient RAM.",
+          "marks": 1,
+          "memoText": "Correct answer: G – virtual memory (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "social engineering",
+            "B": "CMOS",
+            "C": "edit box",
+            "D": "information overload",
+            "E": "IRQ",
+            "F": "check digit",
+            "G": "virtual memory",
+            "H": "virtual reality",
+            "I": "BitTorrent",
+            "J": "string-grid",
+            "K": "identity theft",
+            "L": "ROM",
+            "M": "runtime error",
+            "N": "RFID",
+            "O": "logical error",
+            "P": "record locking",
+            "Q": "spin edit",
+            "R": "research",
+            "S": "rollback",
+            "T": "SEO"
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-2-4",
+          "label": "1.2.4",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A social engineering; B CMOS; C edit box; D information overload; E IRQ; F check digit; G virtual memory; H virtual reality; I BitTorrent; J string-grid; K identity theft; L ROM; M runtime error; N RFID; O logical error; P record locking; Q spin edit; R research; S rollback; T SEO.\n\nCOLUMN A (1.2.4): A component that is best suited to display the content of a two-dimensional array with multiple rows and columns.",
+          "marks": 1,
+          "memoText": "Correct answer: J – string-grid (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "social engineering",
+            "B": "CMOS",
+            "C": "edit box",
+            "D": "information overload",
+            "E": "IRQ",
+            "F": "check digit",
+            "G": "virtual memory",
+            "H": "virtual reality",
+            "I": "BitTorrent",
+            "J": "string-grid",
+            "K": "identity theft",
+            "L": "ROM",
+            "M": "runtime error",
+            "N": "RFID",
+            "O": "logical error",
+            "P": "record locking",
+            "Q": "spin edit",
+            "R": "research",
+            "S": "rollback",
+            "T": "SEO"
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-2-5",
+          "label": "1.2.5",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A social engineering; B CMOS; C edit box; D information overload; E IRQ; F check digit; G virtual memory; H virtual reality; I BitTorrent; J string-grid; K identity theft; L ROM; M runtime error; N RFID; O logical error; P record locking; Q spin edit; R research; S rollback; T SEO.\n\nCOLUMN A (1.2.5): An error that causes a break or termination in the running of a program.",
+          "marks": 1,
+          "memoText": "Correct answer: M – runtime error (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "social engineering",
+            "B": "CMOS",
+            "C": "edit box",
+            "D": "information overload",
+            "E": "IRQ",
+            "F": "check digit",
+            "G": "virtual memory",
+            "H": "virtual reality",
+            "I": "BitTorrent",
+            "J": "string-grid",
+            "K": "identity theft",
+            "L": "ROM",
+            "M": "runtime error",
+            "N": "RFID",
+            "O": "logical error",
+            "P": "record locking",
+            "Q": "spin edit",
+            "R": "research",
+            "S": "rollback",
+            "T": "SEO"
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-2-6",
+          "label": "1.2.6",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A social engineering; B CMOS; C edit box; D information overload; E IRQ; F check digit; G virtual memory; H virtual reality; I BitTorrent; J string-grid; K identity theft; L ROM; M runtime error; N RFID; O logical error; P record locking; Q spin edit; R research; S rollback; T SEO.\n\nCOLUMN A (1.2.6): Data capturing technique that stores more data and is more interactive than conventional barcode systems.",
+          "marks": 1,
+          "memoText": "Correct answer: N – RFID (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "social engineering",
+            "B": "CMOS",
+            "C": "edit box",
+            "D": "information overload",
+            "E": "IRQ",
+            "F": "check digit",
+            "G": "virtual memory",
+            "H": "virtual reality",
+            "I": "BitTorrent",
+            "J": "string-grid",
+            "K": "identity theft",
+            "L": "ROM",
+            "M": "runtime error",
+            "N": "RFID",
+            "O": "logical error",
+            "P": "record locking",
+            "Q": "spin edit",
+            "R": "research",
+            "S": "rollback",
+            "T": "SEO"
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-2-7",
+          "label": "1.2.7",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A social engineering; B CMOS; C edit box; D information overload; E IRQ; F check digit; G virtual memory; H virtual reality; I BitTorrent; J string-grid; K identity theft; L ROM; M runtime error; N RFID; O logical error; P record locking; Q spin edit; R research; S rollback; T SEO.\n\nCOLUMN A (1.2.7): When a record in a database is open, either for editing or for inserting, the record is flagged as 'in use'.",
+          "marks": 1,
+          "memoText": "Correct answer: P – record locking (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "social engineering",
+            "B": "CMOS",
+            "C": "edit box",
+            "D": "information overload",
+            "E": "IRQ",
+            "F": "check digit",
+            "G": "virtual memory",
+            "H": "virtual reality",
+            "I": "BitTorrent",
+            "J": "string-grid",
+            "K": "identity theft",
+            "L": "ROM",
+            "M": "runtime error",
+            "N": "RFID",
+            "O": "logical error",
+            "P": "record locking",
+            "Q": "spin edit",
+            "R": "research",
+            "S": "rollback",
+            "T": "SEO"
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-2-8",
+          "label": "1.2.8",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A social engineering; B CMOS; C edit box; D information overload; E IRQ; F check digit; G virtual memory; H virtual reality; I BitTorrent; J string-grid; K identity theft; L ROM; M runtime error; N RFID; O logical error; P record locking; Q spin edit; R research; S rollback; T SEO.\n\nCOLUMN A (1.2.8): People are manipulated to divulge confidential information.",
+          "marks": 1,
+          "memoText": "Correct answer: A – social engineering (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "social engineering",
+            "B": "CMOS",
+            "C": "edit box",
+            "D": "information overload",
+            "E": "IRQ",
+            "F": "check digit",
+            "G": "virtual memory",
+            "H": "virtual reality",
+            "I": "BitTorrent",
+            "J": "string-grid",
+            "K": "identity theft",
+            "L": "ROM",
+            "M": "runtime error",
+            "N": "RFID",
+            "O": "logical error",
+            "P": "record locking",
+            "Q": "spin edit",
+            "R": "research",
+            "S": "rollback",
+            "T": "SEO"
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-2-9",
+          "label": "1.2.9",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A social engineering; B CMOS; C edit box; D information overload; E IRQ; F check digit; G virtual memory; H virtual reality; I BitTorrent; J string-grid; K identity theft; L ROM; M runtime error; N RFID; O logical error; P record locking; Q spin edit; R research; S rollback; T SEO.\n\nCOLUMN A (1.2.9): Part of the memory that stores user preferences for the boot-up sequence.",
+          "marks": 1,
+          "memoText": "Correct answer: B – CMOS (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "social engineering",
+            "B": "CMOS",
+            "C": "edit box",
+            "D": "information overload",
+            "E": "IRQ",
+            "F": "check digit",
+            "G": "virtual memory",
+            "H": "virtual reality",
+            "I": "BitTorrent",
+            "J": "string-grid",
+            "K": "identity theft",
+            "L": "ROM",
+            "M": "runtime error",
+            "N": "RFID",
+            "O": "logical error",
+            "P": "record locking",
+            "Q": "spin edit",
+            "R": "research",
+            "S": "rollback",
+            "T": "SEO"
+          }
+        },
+        {
+          "id": "it-p2-nov-2021-1-2-10",
+          "label": "1.2.10",
+          "questionText": "Choose a term from COLUMN B that matches the description. COLUMN B: A social engineering; B CMOS; C edit box; D information overload; E IRQ; F check digit; G virtual memory; H virtual reality; I BitTorrent; J string-grid; K identity theft; L ROM; M runtime error; N RFID; O logical error; P record locking; Q spin edit; R research; S rollback; T SEO.\n\nCOLUMN A (1.2.10): Providing large amounts of data that may leave the user confused and unable to make decisions.",
+          "marks": 1,
+          "memoText": "Correct answer: D – information overload (1 mark)",
+          "topic": "Short questions",
+          "type": "matching",
+          "options": {
+            "A": "social engineering",
+            "B": "CMOS",
+            "C": "edit box",
+            "D": "information overload",
+            "E": "IRQ",
+            "F": "check digit",
+            "G": "virtual memory",
+            "H": "virtual reality",
+            "I": "BitTorrent",
+            "J": "string-grid",
+            "K": "identity theft",
+            "L": "ROM",
+            "M": "runtime error",
+            "N": "RFID",
+            "O": "logical error",
+            "P": "record locking",
+            "Q": "spin edit",
+            "R": "research",
+            "S": "rollback",
+            "T": "SEO"
+          }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Systems Technologies",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2021-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Journalists are issued with laptops when they start working at a magazine publishing company. The company only uses free open-source software (FOSS). Explain the concept open source in the context of FOSS.",
+          "marks": 2,
+          "memoText": "The source code of the software is available / accessible ✓ to view and is editable ✓.\nTwo marks for editable (implies accessible); one mark for accessible / view / available. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Give ONE example of a free operating system the company could install on a laptop.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): Linux (Red Hat, Ubuntu); Chrome OS.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-1-3",
+          "label": "2.1.3",
+          "questionText": "State TWO disadvantages of using free open-source software.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): lack of formal support; no one to hold accountable for errors; possible bugs / unstable versions / malware; different versions; not regularly updated.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-2-1",
+          "label": "2.2.1",
+          "questionText": "The laptops are equipped with either an HDD or an SSD. Users of laptops equipped with HDDs are advised to defragment the HDD regularly. Briefly explain what defragmentation is.",
+          "marks": 2,
+          "memoText": "Defragmentation rearranges files ✓ that are fragmented / scattered ✓ on the HDD disc. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-2-2",
+          "label": "2.2.2",
+          "questionText": "Write out the abbreviation SSD in full.",
+          "marks": 1,
+          "memoText": "Solid State Drive ✓ (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-2-3",
+          "label": "2.2.3",
+          "questionText": "Explain why an SSD accesses the data faster than an HDD.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): an SSD is electronic; no moving / mechanical parts; no increased latency due to read-write heads having to find the correct sectors / tracks.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-3-1",
+          "label": "2.3.1",
+          "questionText": "The journalists can access their data remotely using virtualisation or Software as a Service (SaaS). Define the term virtualisation.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): virtualisation refers to creating an entity (referred to as a virtual machine) that only exists in software; it is a machine that runs on the host machine, running a different operating system as a guest operating system using the hardware of the host.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-3-2-a",
+          "label": "2.3.2(a)",
+          "questionText": "Office365 is an example of SaaS. Except for remote data access, state TWO benefits of using SaaS.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): minimal setup required / not necessary to install the software on your machine; use less space / resources on your machine; pay a licence fee instead of buying the software / minimal initial cost; software is updated automatically on the cloud computers; new features are regularly added; ubiquity – use it on any device at any time; easy to collaborate or share information with other users; scalability.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-3-2-b",
+          "label": "2.3.2(b)",
+          "questionText": "Describe how the license model of SaaS works.",
+          "marks": 2,
+          "memoText": "You pay a subscription fee ✓ and gain access to the software / use of the service ✓. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-4-1",
+          "label": "2.4.1",
+          "questionText": "The company takes precautionary measures to protect the magazine's data. An incremental backup strategy has been implemented to safeguard data. Explain how an incremental backup strategy works.",
+          "marks": 2,
+          "memoText": "A full backup is made initially ✓ and, on set intervals, all the changes that have been made to the data get backed up ✓. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-4-2",
+          "label": "2.4.2",
+          "questionText": "The company considers installing biometric readers on all the laptops. How would a biometric reader help safeguard the data on a laptop?",
+          "marks": 1,
+          "memoText": "Prevents unauthorised access ✓ OR an acceptable explanation. (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-5-1",
+          "label": "2.5.1",
+          "questionText": "Power outages and power surges are often experienced in rural areas where journalists work. What device can be used to ensure that journalists are not affected by unexpected power outages?",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): Uninterrupted Power Supply (UPS) / power bank; inverter with battery / generator / solar power; use a mobile device (laptop / tablet) / a device with a built-in battery.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-5-2",
+          "label": "2.5.2",
+          "questionText": "If the USB ports of a laptop are damaged due to a power surge, how could a user get his/her peripheral devices to connect to the laptop?",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): WiFi / connect wirelessly / Bluetooth; LAN / network cable / wired connection. Also accept HDMI / examples of cables.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-6-1",
+          "label": "2.6.1",
+          "questionText": "The journalists use their laptops for word processing, research and to upload articles to the company's electronic database only. Would you classify these journalists as power users or SOHO users?",
+          "marks": 1,
+          "memoText": "SOHO ✓ (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-6-2",
+          "label": "2.6.2",
+          "questionText": "Explain how multithreading is applied in a word processor.",
+          "marks": 2,
+          "memoText": "Concepts: a suitable example from using a word processor; more than one process running at the same time.\nExample: the word processor will be able to type, spell check, auto save, etc. ✓ at the same time ✓. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-2-6-3",
+          "label": "2.6.3",
+          "questionText": "The processing speed of the computers at head office is very low. Explain why installing more RAM could improve a computer's performance.",
+          "marks": 2,
+          "memoText": "More RAM can store more applications / data ✓. Faster access from RAM ✓.\nOR: leads to less use of virtual memory; RAM is faster than virtual memory. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Communication and Network Technologies",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2021-3-1-1",
+          "label": "3.1.1",
+          "questionText": "The magazine publishing company has branches all around the world that operate on a large scale. Having a large computer network presents potential challenges. Describe what a computer network is.",
+          "marks": 2,
+          "memoText": "A collection of computers or other computing devices connected via some sort of communication medium to allow users to share software, hardware, data and information ✓✓.\nConcepts: multiple devices; connected with a communication medium; ability to communicate / transfer / share software, hardware, data and information. (2 marks)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-1-2",
+          "label": "3.1.2",
+          "questionText": "What type of network could be used by an international company such as this?",
+          "marks": 1,
+          "memoText": "WAN / Internet ✓. Also accept: GAN. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-1-3",
+          "label": "3.1.3",
+          "questionText": "State TWO disadvantages of using a computer network.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): administrator required / high expertise; sophisticated security required; malware can spread; cost implications. Also accept: device / server / network malfunction can disrupt the network; loss of data due to device / server / network crashing.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-2-1",
+          "label": "3.2.1",
+          "questionText": "It was decided that a network with a star topology will be installed in their building at head office. Define the term topology.",
+          "marks": 1,
+          "memoText": "The layout / arrangement of devices ✓ in a network. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-2-2",
+          "label": "3.2.2",
+          "questionText": "Explain what a star topology entails.",
+          "marks": 2,
+          "memoText": "Star topology requires each of the nodes / devices to be connected ✓ to a central hub / switch ✓ (independently / individually / with its own cable). (2 marks)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-3-1",
+          "label": "3.3.1",
+          "questionText": "It was suggested that VoIP technology be utilised by the company when communicating with clients. Give TWO reasons why a company would benefit from using VoIP technology.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): lower call cost; software is generally free; allows video conferencing / calls; allows you to display / transfer documents, images and videos all while simultaneously engaging in a conversation.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-3-2",
+          "label": "3.3.2",
+          "questionText": "Besides the device you are using, state ONE other requirement needed to make a phone call using VoIP software.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): internet connection; same software installed on both devices; purchase credits to make a phone call to certain numbers; have speakers, webcam and mic / headset.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-4-1-a",
+          "label": "3.4.1(a)",
+          "questionText": "Journalists need to use the internet to do research for their articles. What is the purpose of a web browser?",
+          "marks": 1,
+          "memoText": "A browser simply displays web pages ✓. Also accept: used to view web pages; a web browser is used to run the search engine. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-4-1-b",
+          "label": "3.4.1(b)",
+          "questionText": "Why can a web browser not be used on its own when searching for information?",
+          "marks": 1,
+          "memoText": "You need a search engine to search for content ✓. Also accept: with a search engine you do not need to know the URLs; a web browser can only view pages, not search. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-4-2-a",
+          "label": "3.4.2(a)",
+          "questionText": "Cookies are used to improve the browsing experience of users. What is a cookie in this context?",
+          "marks": 2,
+          "memoText": "A cookie is a small text file ✓ used to store the preferences / settings of a website visited ✓. (2 marks)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-4-2-b",
+          "label": "3.4.2(b)",
+          "questionText": "Explain how a cookie will enhance the browsing experience of users.",
+          "marks": 1,
+          "memoText": "When visiting the same website again, it 'remembers' your profile and applies your preferences automatically ✓. Any answer that implies user preferences being stored and used. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-4-3",
+          "label": "3.4.3",
+          "questionText": "While browsing the internet, a journalist discovered that smaller magazine companies get many more likes on social media than bigger, more popular magazine companies. This could be due to the activities of click farms. Explain what a click farm is.",
+          "marks": 2,
+          "memoText": "Click farms are companies that pay workers / bots / botnets to repeatedly click on website elements / generate 'likes' ✓ to artificially 'increase' / 'boost' the status of a product or web page ✓.\nConcepts: clicks being generated; artificially create a status / likes / popularity for a web page. (2 marks)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-5-1",
+          "label": "3.5.1",
+          "questionText": "The company needs to renew their contract with their internet service provider (ISP). They need to evaluate the range and bandwidth provided by their current ISP. Differentiate between the terms range and bandwidth.",
+          "marks": 2,
+          "memoText": "Range: the measurement of how far data or a signal can be transmitted and received / distance that can be covered ✓.\nBandwidth: how much data you can send through the network per time unit / speed of connection ✓. (2 marks)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-5-2",
+          "label": "3.5.2",
+          "questionText": "The ISP implements practices that could affect internet access, such as shaping and throttling. Differentiate between shaping and throttling in this context.",
+          "marks": 3,
+          "memoText": "Shaping occurs when an online activity gets prioritised over other activities ✓ when the network / Internet is busy ✓ – only certain online activities are restricted during peak times.\nThrottling reduces bandwidth ✓ to all activities when the network is strained or once you have exceeded your monthly limit.\nConcepts (3 marks): both happen when there is congestion / high traffic / excessive data usage; shaping – limit bandwidth to specific prioritised activities; throttling – limit bandwidth on all activities.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-6-1",
+          "label": "3.6.1",
+          "questionText": "The company requires a digital certificate, issued by a certificate authority (CA), before launching their website. Explain the purpose of a digital certificate when SSL encryption is used.",
+          "marks": 1,
+          "memoText": "A digital certificate is used to verify the validity / authenticity of a person or organisation ✓. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-6-2",
+          "label": "3.6.2",
+          "questionText": "How would you identify a website that is encrypted with a secure connection?",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): there will be an 's' in the URL of the website, e.g. https://www.Google.co.za; there will be a lock symbol in the address bar.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-7-1",
+          "label": "3.7.1",
+          "questionText": "Using the internet presents dangers such as being subjected to hacking and computer worms. Define the term computer worm.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): a type of malware that exploits weaknesses in an application / operating system / network in order to spread; spreads copies or replicates itself without interaction; spreads itself over a network.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-7-2",
+          "label": "3.7.2",
+          "questionText": "State ONE activity performed by your electronic device that indicates that the device could be infected with a computer worm.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): hard drive space decreases even though no extra files have been loaded on the HDD; performance of the computer decreases; files are missing but not deleted by the user / new files on the HDD that were not added by the user; anti-virus software detects a worm and requests a user response to delete the file; emails sent out from computers without the user's knowledge.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-7-3",
+          "label": "3.7.3",
+          "questionText": "Briefly explain how a firewall can protect a network from being hacked.",
+          "marks": 2,
+          "memoText": "A firewall is a network security device / software that monitors incoming and outgoing network traffic ✓ and decides whether to allow or block specific traffic ✓ based on a defined set of security rules.\nConcepts (2 marks): monitoring of traffic; blocking of unwanted traffic.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-3-7-4",
+          "label": "3.7.4",
+          "questionText": "Give the term used to describe a person that is hired by a company to hack into the company's network to test their level of security.",
+          "marks": 1,
+          "memoText": "A white hat / ethical hacker / security analyst ✓. Also accept: penetration tester / PEN tester. (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Data and Information Management",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2021-4-1-1",
+          "label": "4.1.1",
+          "questionText": "A media company is responsible for managing the publishing of a wide variety of local and international magazines. An MS Access database is used with two tables:\n\ntblPublishers — PublisherID (PK, Text); PublisherName (Text); Address (Text); PublisherContactNo (Text).\n\ntblMagazines — MagazineCode (PK, Text, e.g. MC001); Title (Text); Type (Text – sport/business/fashion/leisure/other); NumPrinted (Text); ReleaseDate (Text); Price (Text); eMagazine (Text – true if the magazine is available in e-format, false if not); PublisherID (FK, Text).\n\nWhat is a relational database?",
+          "marks": 1,
+          "memoText": "A database containing multiple tables linked together in a relationship ✓. Also accept: a database containing tables that are linked with primary and foreign keys. (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-4-1-2",
+          "label": "4.1.2",
+          "questionText": "Name and explain ONE anomaly that can occur in an operational database if the database is not normalised.",
+          "marks": 2,
+          "memoText": "Any ONE anomaly ✓ with explanation ✓ (2 marks):\n• Insertion anomaly – the database has been created in such a way that the required data cannot be added unless another piece of unavailable / unrelated data is also added\n• Deletion anomaly – the legitimate deletion of a record of data can cause the deletion of some required data\n• Update / modification anomaly – incorrect data may have to be changed, which could involve many records having to be changed, leading to the possibility of some changes being made incorrectly",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-4-2",
+          "label": "4.2",
+          "questionText": "Identify THREE fields in the table tblMagazines that require more suitable data types. Suggest a more suitable field name and data type for EACH field that you identified.",
+          "marks": 3,
+          "memoText": "Any THREE fields with correct data type ✓✓✓ (3 marks): ReleaseDate: Date/Time / TDate; Price: Currency / Real / Double; eMagazine: Boolean / Yes-No; NumPrinted: Number / Integer / ShortInt / LongInt.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-4-3",
+          "label": "4.3",
+          "questionText": "Draw an ERD of tblPublishers and tblMagazines showing the relationship type between the entities and a suitable action verb describing the relationship.",
+          "marks": 3,
+          "memoText": "Publisher —('Publishes')→ Magazine, a one-to-many relationship (one Publisher publishes many Magazines).\nConcepts (3 marks): correct entities / table names included and displayed on the diagram ✓; correct relationship type indicated (one-to-many) ✓ (any acceptable notation indicating the correct relationship); correct / acceptable action verb describing the relationship ✓.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-4-4-1",
+          "label": "4.4.1",
+          "questionText": "Many database management systems (DBMSs) have built-in integrity controls that help to maintain the data integrity in the database. Explain what data integrity entails.",
+          "marks": 2,
+          "memoText": "Any TWO aspects of data integrity ✓✓ (2 marks): completeness of data; accuracy / correctness / reliability of data; consistency of data; validity.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-4-4-2",
+          "label": "4.4.2",
+          "questionText": "Apart from normalisation, state ONE other way to ensure data integrity in a database.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): ensuring referential integrity; including validation in your database design; verify that all the data is correct.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-4-5",
+          "label": "4.5",
+          "questionText": "State TWO ways in which the company can benefit from the use of a database management system.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): improves the organisational structure / storage of data; reduces redundancy; improves data transfer; enhances data security; improved data integration; minimises data inconsistency; faster data access; better decision-making; increased end-user productivity; many operations like insertion, deletion or creation of file or data are easy to implement; prevents anomalies through a correct structure. Accept any other applicable and correct answer.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-4-6",
+          "label": "4.6",
+          "questionText": "Human error results in many issues when entering information into a database. Suggest ONE way to minimise user input.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): default values; GUI controls / components / examples of components; importing data from other systems / automated input; barcode scanner / reader; RFID.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-4-7",
+          "label": "4.7",
+          "questionText": "Explain why using a server-based database instead of a desktop database management system would be the better option for a company.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): ideal to accommodate large numbers of users; to work simultaneously on the database; from many different locations.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-4-8",
+          "label": "4.8",
+          "questionText": "Data warehousing plays an important role in data maintenance. How does data warehousing affect the size and speed of a database?",
+          "marks": 2,
+          "memoText": "Data warehousing will decrease the size ✓ of a database and increase the speed ✓.\nOR: increasing the size of the data warehouse decreases the speed of the data warehouse. (2 marks)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-4-9",
+          "label": "4.9",
+          "questionText": "The company's database is used for data mining. State the role of a human in the data mining process.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): selecting and preparing data sets; developing data mining software and algorithms; interpreting / verifying results delivered by the data mining software.",
+          "topic": "Data and information management",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Solution Development",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2021-5-1-1",
+          "label": "5.1.1",
+          "questionText": "Applicants for a software engineering position at the magazine company need to answer some questions on software development. Indicate whether the following statement is TRUE or FALSE:\n\nAn array can only store elements of the same data type.",
+          "marks": 1,
+          "memoText": "True ✓ (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-5-1-2",
+          "label": "5.1.2",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE:\n\nThe index value for the first element in a Delphi array is always one.",
+          "marks": 1,
+          "memoText": "False ✓ (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-5-1-3",
+          "label": "5.1.3",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE:\n\nThe value 23 will be displayed in the rich edit component when the following code is executed:\n\n    var\n      arrNumbers : array[1..5] of Integer = (4,2,3,1,8);\n      iValue : Integer;\n    begin\n      iValue := arrNumbers[2]+ arrNumbers[3];\n      redOutput.Lines.Add(intToStr(iValue));\n    end;",
+          "marks": 1,
+          "memoText": "False ✓ (1 mark)  [arrNumbers[2] + arrNumbers[3] = 2 + 3 = 5, not 23]",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-5-2-1",
+          "label": "5.2.1",
+          "questionText": "The following algorithm written in pseudocode has been provided to enter integer values into variable A and B, swap the contents of the two variables and display the values:\n\n    Input A\n    Input B\n    A ← B\n    B ← A\n    Display A\n    Display B\n\nWhat will be displayed if the value of 5 is entered into variable A and the value of 6 is entered into variable B?",
+          "marks": 2,
+          "memoText": "6 ✓ 6 ✓. Also accept any description that indicates both values to be 6. (2 marks)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-5-2-2",
+          "label": "5.2.2",
+          "questionText": "Rewrite the algorithm so that the content of the variables will be swapped correctly.",
+          "marks": 3,
+          "memoText": "Input A\nInput B\nTemp ← A ✓\nA ← B\nB ← Temp ✓\n(all three assignment statements above in the correct order ✓)\nDisplay A\nDisplay B\nAccept any variable used as a temporary holder. (3 marks)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-5-3-1",
+          "label": "5.3.1",
+          "questionText": "A group of friends throws a six-sided dice three times to decide what type of meal they will have. Rules: if the first throw is larger than the second throw, they eat chicken; else if the third throw is less than the first throw, they eat fish; else they eat burgers. The following incomplete Delphi solution is provided:\n\n    var\n      iFirst, iSecond, iThird : Integer;\n      sMeal : string;\n    begin\n      iFirst  := Inputbox('Enter value of first throw', '', '');\n      iSecond := Inputbox('Enter value of second throw', '', '');\n      iThird  := Inputbox('Enter value of third throw', '', '');\n      // Complete the program (Question 5.3.2)\n      showMessage(sMeal);\n    end.\n\nExplain why a syntax error will be displayed when the provided part of the program is executed.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): a string value is assigned to an integer type variable; add the StrToInt function; type cast from a String to an integer.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-5-3-2",
+          "label": "5.3.2",
+          "questionText": "Complete the missing part for the program provided, to assign the correct type of meal to the sMeal variable according to the rules in the scenario (assume the syntax error in QUESTION 5.3.1 has been corrected): if the first throw is larger than the second, sMeal is 'chicken'; else if the third throw is less than the first, sMeal is 'fish'; else sMeal is 'burgers'.",
+          "marks": 5,
+          "memoText": "if iFirst > iSecond ✓\n    then sMeal := 'chicken' ✓\n    Else if iThird < iFirst ✓\n        then sMeal := 'fish' ✓\n        Else sMeal := 'burgers' ✓\nConcepts (5 marks): if and condition; assign the correct value to sMeal; else-if and condition; assign the correct value to sMeal; else assign the correct value to sMeal / initialise sMeal at the start.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-5-3-3",
+          "label": "5.3.3",
+          "questionText": "Which sequence of throws (A, B, C or D) will result in the group of friends having burgers as a meal? A table shows dice-face dot patterns for four options A–D across Throw 1, Throw 2 and Throw 3: Option A shows 6, 6, 2; Option B shows 3, 3, 3; Option C shows 5, 4, 1; Option D shows 3, 4, 1.",
+          "marks": 2,
+          "memoText": "B ✓✓ (Throw 1 = 3, Throw 2 = 3, Throw 3 = 3: first is not larger than second, and third is not less than first, so burgers).\nIf a list of options is given: only mark the first answer (2 marks); subtract 1 mark for every incorrect answer added. (2 marks)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-5-4-1",
+          "label": "5.4.1",
+          "questionText": "The following UML (unified modelling language) class diagram represents a magazine object:\n\n    Magazine\n      - fMagazineID : Integer\n      - fTitle : string\n      - fPublisher : string\n      - fDatePublished : TDate\n      - fNumCopies : Integer\n      + calculateCost()\n      + setNumCopies()\n\nGive TWO reasons why a UML diagram is an important OOP modelling tool.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): specifies the structure or behaviour of an object / helps to visualise an object; provides a template as a guide to constructing an object; breaks down a complex object into simple parts; to list attributes / data types; to indicate accessibility of attributes / methods; UML is generic, it can be interpreted by any programmer.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-5-4-2",
+          "label": "5.4.2",
+          "questionText": "What is the purpose of an accessor method?",
+          "marks": 1,
+          "memoText": "Returns the current value of an attribute ✓ of an object. (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-5-4-3",
+          "label": "5.4.3",
+          "questionText": "Give an example of a mutator method in the given class diagram.",
+          "marks": 1,
+          "memoText": "setNumCopies() ✓ (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Integrated Scenario",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2021-6-1-1",
+          "label": "6.1.1",
+          "questionText": "A magazine company needs to stay up to date with the latest trends in technology. The company has an online version of their magazine hosted on a website. Users can interact with videos and dynamic content which can be customised for each user. Local and server-side scripting, CSS and SQL are used on the website. Give ONE example of a local or server-side scripting language.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): PHP; JavaScript; ASP.NET; Node.js; Ruby; Perl; Python; Lua; HTML 5.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-1-2",
+          "label": "6.1.2",
+          "questionText": "Explain the main purpose of running a CSS on a website.",
+          "marks": 2,
+          "memoText": "It allows web developers to design the layout and appearance of web pages once ✓ and then automatically updates the design changes done on other web pages ✓.\nConcepts (2 marks): design the layout and appearance once; automatically updates / implements on all web pages.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-1-3",
+          "label": "6.1.3",
+          "questionText": "What is the purpose of using SQL statements on a website?",
+          "marks": 2,
+          "memoText": "SQL is used to interact with the database ✓ and make the website more interactive ✓.\nConcepts (2 marks): interaction with the database / store and retrieve / extract data; makes the website more interactive.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-1-4-a",
+          "label": "6.1.4(a)",
+          "questionText": "As magazine readers are from different countries, they can access the website conveniently from any location. Name the type of computing which refers to software that is based on a user's location.",
+          "marks": 1,
+          "memoText": "Location-based ✓ computing (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-1-4-b",
+          "label": "6.1.4(b)",
+          "questionText": "What satellite technology will enable an application to automatically update information displayed on a device based on the location of the user?",
+          "marks": 1,
+          "memoText": "GPS ✓ (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-2-1",
+          "label": "6.2.1",
+          "questionText": "The company regularly upgrades some of its devices. Name TWO hardware components on the motherboard of a computer that can be upgraded.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): RAM; CPU; graphics card / GPU; I/O cards. Also accept: HDD / SSD.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-2-2",
+          "label": "6.2.2",
+          "questionText": "Some offices are equipped with desktop computers instead of laptops. State TWO benefits of using desktop computers over laptops.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): larger screens; supports modular design / custom design; easily expandable / upgradeable; easier to repair; affordability / lower cost.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-2-3",
+          "label": "6.2.3",
+          "questionText": "After defragmenting their hard disks, some staff members complained that their computers are still functioning at a low speed. Suggest a way, other than defragmenting the hard disks, to improve the speed of the computers without adding additional hardware components.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): disable specific features; run system clean-up; clock manipulation; removing malware; updating of software; closing some applications. Also accept examples that apply to the above.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-2-4",
+          "label": "6.2.4",
+          "questionText": "Some of the devices replaced by the company need to be disposed of responsibly. Suggest TWO ways in which the computers can be disposed of in an eco-friendly manner.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): recycle the material; dispose at an approved e-waste site; reuse components; donating computers; sell working parts of computers / computers.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-3-1",
+          "label": "6.3.1",
+          "questionText": "Office automation has not been very popular amongst many workers in the magazine industry. What is office automation?",
+          "marks": 1,
+          "memoText": "Process whereby certain routine office processes are carried out without human intervention ✓ / process done by a computer / machine. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-3-2",
+          "label": "6.3.2",
+          "questionText": "State TWO advantages of office automation to workers.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): saves time / complete repetitive tasks faster; more accurate; manages digital processes effectively; decrease the workload of workers.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-4-1",
+          "label": "6.4.1",
+          "questionText": "The company is setting up a computer network at a new branch. How would the employees be able to connect to the company's Wi-Fi network?",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): hotspot / access point / Wi-Fi modem; naming a specific device / setting that can be used to connect to Wi-Fi; Network Interface Card (NIC) on the user's device.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-4-2-a",
+          "label": "6.4.2(a)",
+          "questionText": "Attenuation can be a problem in a cabled network. Why is attenuation a problem in networking?",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): attenuation causes loss of signal strength in networking; limits the distance that signals can be transmitted.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-4-2-b",
+          "label": "6.4.2(b)",
+          "questionText": "What type of communication medium can be used to limit attenuation?",
+          "marks": 1,
+          "memoText": "Fibre optic cable ✓ (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-4-3",
+          "label": "6.4.3",
+          "questionText": "Give TWO reasons why WiMAX technology is considered to be more suitable than Wi-Fi technology.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): wider range; more secure; faster speed / higher bandwidth.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-5-1",
+          "label": "6.5.1",
+          "questionText": "The development of mobile technologies and devices promoted the use of social media and microblogging sites. Describe the concept microblogging.",
+          "marks": 2,
+          "memoText": "Posting of short ✓ text / pictures / audios / videos ✓. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-5-2",
+          "label": "6.5.2",
+          "questionText": "The excessive use of social media can impact negatively on the health of users. State TWO potential health problems caused by the extensive use of social media.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): anxiety; depression; addiction; overweight / obesity; eye strain; wrist aches / carpal tunnel syndrome (CTS); back aches; repetitive strain injury (RSI). Also accept any appropriate / relevant health issue.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-6-1",
+          "label": "6.6.1",
+          "questionText": "IoT is one of the technologies that is investigated by the company to be used more effectively in future. Expand the abbreviation IoT.",
+          "marks": 1,
+          "memoText": "Internet of Things ✓ (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-6-2",
+          "label": "6.6.2",
+          "questionText": "State TWO ways in which IoT devices connect to the internet.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): Wi-Fi / wirelessly; Bluetooth; cellular; satellite; physical connection / wired; sensors.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-7-1",
+          "label": "6.7.1",
+          "questionText": "Distributed computing is being investigated by the company for possible implementation. What is distributed computing?",
+          "marks": 2,
+          "memoText": "The processing power of many computers is combined to work together ✓ to solve a single problem ✓. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-7-2",
+          "label": "6.7.2",
+          "questionText": "Give ONE example where distributed computing could be used.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): counting the number of stars in the galaxies; finding a solution / cure for the Ebola virus; finding a solution / cure for certain strains of childhood cancer; finding new prime numbers; categorising galaxies; searching for alien life; fight AIDS; weather modelling; genetic research. Accept any other applicable example.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-8",
+          "label": "6.8",
+          "questionText": "The company decided to do research on the blockchain technology. Define the concept blockchain technology.",
+          "marks": 2,
+          "memoText": "A growing list of records / entries / transactions ✓ that are linked using cryptography / difficult or impossible to alter / change / incorruptible ✓.\nConcepts (2 marks): a list of records / entries / open ledger / transactions that are linked; difficult or impossible to change / incorruptible.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-9",
+          "label": "6.9",
+          "questionText": "A multi-factor authentication system is used to log onto a website to make payments for services rendered. Explain how a multi-factor authentication system works.",
+          "marks": 2,
+          "memoText": "More than one level / factor / technique of authentication ✓. An explanation / example to justify the above ✓.\nAlso accept for two marks: naming TWO different techniques of security checks with appropriate examples (a password / OTP / SMS / Email / Biometrics / QR code). (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-10",
+          "label": "6.10",
+          "questionText": "Why does electronic media use DRM?",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): encryption / technique to control access to the content / protection of rights; encryption / technique to prevent unlawful copying / piracy.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-11-1",
+          "label": "6.11.1",
+          "questionText": "A shared folder with permissions has been created. The folder Properties (Security tab) shows the permissions for the group SYSTEM as: Full control, Modify, Read & execute, List folder contents, Read and Write (all Allowed). State TWO tasks that can be performed with files in the folder with Read permissions.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): list; read / access / open files; copy / download files; Save As; execute.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2021-6-11-2",
+          "label": "6.11.2",
+          "questionText": "Who would usually be allocated the 'Full control' permission?",
+          "marks": 1,
+          "memoText": "Administrator ✓. Concept: any person in charge of the files in the folder. (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        }
+      ]
+    }
+  ]
+}
