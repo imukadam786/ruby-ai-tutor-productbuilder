@@ -1,0 +1,548 @@
+{
+  "id": "math-ieb-p2-nov-2022",
+  "subject": "Mathematics IEB",
+  "subjectCode": "mathematics-ieb",
+  "paperCode": "P2",
+  "year": 2022,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Statistics — Ogives, Box-and-Whisker & Outliers",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-1-a-1",
+          "label": "1(a)(1)",
+          "questionText": "A jewellery manufacturer measured the diameters of 400 gold spheres produced by machine A and another 400 produced by machine B. The results are shown as cumulative frequency (ogive) curves (diameter in mm on the horizontal axis, cumulative frequency on the vertical axis).\n\nDetermine the interquartile range for the diameters of gold spheres produced by machine A.",
+          "marks": 3,
+          "memoText": "From the machine A ogive: lower quartile $Q_1 = 5{,}8$ mm; upper quartile $Q_3 = 6{,}0$ mm.\n$\\text{IQR} = 6{,}0 - 5{,}8 = 0{,}2$ mm",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-1-a-2",
+          "label": "1(a)(2)",
+          "questionText": "Determine the 50th percentile for the diameters of gold spheres produced by machine A.",
+          "marks": 1,
+          "memoText": "$P_{50}$: $50\\% \\times 400 = 200$th value $\\Rightarrow P_{50} = 5{,}9$ mm",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-1-a-3",
+          "label": "1(a)(3)",
+          "questionText": "If the gold spheres with diameters less than or equal to 5,9 mm are considered defective, determine the percentage of defective gold spheres produced by machine B.",
+          "marks": 1,
+          "memoText": "From the machine B ogive, $100$ spheres have diameter $\\leq 5{,}9$ mm.\n$\\dfrac{100}{400} \\times 100\\% = 25\\%$ defective",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-1-b-1",
+          "label": "1(b)(1)",
+          "questionText": "In a school, learners were surveyed about the time they spent on the internet over a weekend. The results are shown as a box-and-whisker plot (minimum $\\approx 1$, $Q_1 = 2$, median $= 5$, $Q_3 = 6$, maximum $= 7$ hours).\n\nIs the data positively or negatively skewed?",
+          "marks": 1,
+          "memoText": "Negatively skewed.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-1-b-2",
+          "label": "1(b)(2)",
+          "questionText": "Consider the statement: 'The percentage of learners that spent from 2 to 5 hours on the internet is almost three times as much as the percentage of learners that spent from 6 to 7 hours on the internet.'\n\nIs the statement true or false?",
+          "marks": 1,
+          "memoText": "False. $25\\%$ of the data lies between $Q_1$ and the median (2 to 5 hours) and $25\\%$ lies between $Q_3$ and the maximum (6 to 7 hours) — the percentages are equal, not a factor of three apart.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-1-b-3",
+          "label": "1(b)(3)",
+          "questionText": "One of the learners was not included in the data represented in the box-and-whisker plot above. If the learner spent 10 hours on the internet over the weekend, determine whether the learner is an outlier or not. Use the formula $Q_3 + 1{,}5 \\times \\text{IQR}$.",
+          "marks": 3,
+          "memoText": "From the box plot: $Q_1 = 2$, $Q_3 = 6$, so $\\text{IQR} = 4$.\n$Q_3 + 1{,}5 \\times \\text{IQR} = 6 + 1{,}5 \\times 4 = 12$\nSince $10 < 12$, the learner is not an outlier.",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Analytical Geometry — Parallel & Perpendicular Lines; Isosceles Triangle",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-2-a",
+          "label": "2(a)",
+          "questionText": "In the diagram, $A(-3; 10)$ and B (in the first quadrant) are points on quadrilateral ABCD. The equation of line DC is $y = -\\dfrac{1}{3}x - 1$, and DC forms an angle $\\theta$ with the $x$-axis as indicated.\n\nDetermine the size of $\\theta$.",
+          "marks": 2,
+          "memoText": "$\\tan\\theta = \\left|-\\dfrac{1}{3}\\right|$\n$\\theta = 18{,}4°$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-2-b",
+          "label": "2(b)",
+          "questionText": "Determine the equation of the line AB if AB // DC.",
+          "marks": 3,
+          "memoText": "$m_{AB} = -\\dfrac{1}{3}$\n$y = -\\dfrac{1}{3}x + c$; using $A(-3; 10)$: $10 = -\\dfrac{1}{3}(-3) + c = 1 + c \\Rightarrow c = 9$\n$y = -\\dfrac{1}{3}x + 9$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-2-c",
+          "label": "2(c)",
+          "questionText": "Determine the equation of the line AD if AD $\\perp$ DC.",
+          "marks": 3,
+          "memoText": "$m_{AD} = 3$ (perpendicular to DC).\n$y = 3x + c$; using $A(-3; 10)$: $10 = 3(-3) + c \\Rightarrow c = 19$\n$y = 3x + 19$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-2-d-1",
+          "label": "2(d)(1)",
+          "questionText": "Determine the coordinates of D and hence calculate the length of AD.",
+          "marks": 5,
+          "memoText": "D is the intersection of $y = 3x + 19$ and $y = -\\dfrac{1}{3}x - 1$:\n$3x + 19 = -\\dfrac{1}{3}x - 1 \\Rightarrow \\dfrac{10}{3}x = -20 \\Rightarrow x = -6$; $y = 3(-6) + 19 = 1$, so $D(-6; 1)$.\n$AD = \\sqrt{(-3 - (-6))^2 + (10 - 1)^2} = \\sqrt{9 + 81} = \\sqrt{90} = 3\\sqrt{10} \\approx 9{,}5$ units.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-2-d-2",
+          "label": "2(d)(2)",
+          "questionText": "If it is further given that the equation of the line BC is $x = 6$, show that $\\triangle$ABD is isosceles.",
+          "marks": 4,
+          "memoText": "B is on AB with $x = 6$: $y = -\\dfrac{1}{3}(6) + 9 = 7$, so $B(6; 7)$.\n$AB = \\sqrt{(6 - (-3))^2 + (7 - 10)^2} = \\sqrt{81 + 9} = \\sqrt{90} = 3\\sqrt{10}$.\n$AD = 3\\sqrt{10}$ (from (d)(1)).\nSince $AB = AD$, $\\triangle$ABD is isosceles.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Statistics — Median, Standard Deviation & Regression",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-3-a-1",
+          "label": "3(a)(1)",
+          "questionText": "The test scores of 5 students are given in ascending order as $\\{25; x + 3; x + 6; x + 9; x + 13\\}$. The median is 41.\n\nDetermine the value of $x$.",
+          "marks": 2,
+          "memoText": "The median is the 3rd value: $x + 6 = 41 \\Rightarrow x = 35$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-3-a-2",
+          "label": "3(a)(2)",
+          "questionText": "Determine the standard deviation of the scores using your answer to (a)(1).",
+          "marks": 2,
+          "memoText": "Scores: $\\{25; 38; 41; 44; 48\\}$.\nUsing a calculator: SD $= 7{,}8$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-3-a-3",
+          "label": "3(a)(3)",
+          "questionText": "How many scores will lie within one standard deviation from the mean? Show your working.",
+          "marks": 3,
+          "memoText": "Mean $= 39{,}2$.\nOne SD from the mean: $39{,}2 - 7{,}8 \\leq x \\leq 39{,}2 + 7{,}8$, i.e. $31{,}4 \\leq x \\leq 47$.\nScores in this range: $38$, $41$, $44$ $\\Rightarrow$ 3 scores.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-3-b-1",
+          "label": "3(b)(1)",
+          "questionText": "The minimum overnight temperatures ($T$ °C) and the number of service calls ($S$) to a company that supplies gas heaters were recorded over 8 days. The least squares regression line is $S = -1{,}8T + 22{,}7$.\n\nState whether the data represents a positive or negative correlation.",
+          "marks": 1,
+          "memoText": "Negative.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-3-b-2",
+          "label": "3(b)(2)",
+          "questionText": "Use the regression line to predict the number of service calls made for an overnight temperature of 10 °C.",
+          "marks": 2,
+          "memoText": "$S = -1{,}8(10) + 22{,}7 = 4{,}7$, i.e. about 4 or 5 calls.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-3-b-3",
+          "label": "3(b)(3)",
+          "questionText": "The correlation coefficient for the 8-day period is $-0{,}95$. On the 9th day, the number of service calls was 8 and the minimum overnight temperature was 3 °C. If the 9th day data is included, what effect will it have on the correlation coefficient? Explain.",
+          "marks": 2,
+          "memoText": "The regression line predicts $S = -1{,}8(3) + 22{,}7 = 17{,}3$ calls, but the actual value is $8$ — this point lies far from the line. The correlation will still be negative but weaker (less negative).",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Trigonometric Graphs",
+      "totalMarks": 6,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-4-a",
+          "label": "4(a)",
+          "questionText": "Given $f(x) = \\sin 3x$ and $g(x) = \\cos(x - 30°)$ for $x \\in [0°; 180°]$.\n\nDetermine the period of the graph of $f$.",
+          "marks": 1,
+          "memoText": "Period $= \\dfrac{360°}{3} = 120°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-4-b",
+          "label": "4(b)",
+          "questionText": "Determine the range of the graph of $g$.",
+          "marks": 2,
+          "memoText": "Over $x \\in [0°; 180°]$, $\\cos(x - 30°)$ reaches its maximum $1$ (at $x = 30°$) and its minimum $\\cos(180° - 30°) = -\\dfrac{\\sqrt{3}}{2}$ (at $x = 180°$).\nRange $= \\left[-\\dfrac{\\sqrt{3}}{2}; 1\\right]$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-4-c",
+          "label": "4(c)",
+          "questionText": "Show on your graph (using capital letters), for $x \\in [0°; 180°]$, the solution(s) to $\\sin 3x = \\cos(x - 30°)$.",
+          "marks": 1,
+          "memoText": "$\\sin 3x = \\cos(x - 30°)$ at Points A and B — the points where the graphs of $f$ and $g$ intersect.",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-4-d",
+          "label": "4(d)",
+          "questionText": "Use your graph to determine the solution(s) to $\\cos(x - 30°) \\geq \\sin 3x$ for $x \\in [0°; 180°]$.",
+          "marks": 2,
+          "memoText": "$0° \\leq x \\leq 120°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Circle Geometry — Angles & Isosceles Triangles",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-5-a",
+          "label": "5(a)",
+          "questionText": "A, D, B and C lie on the circle with centre O, and DB = BC.\n\nIf $\\hat{A} = x$, state, with reasons, two other angles equal to $x$.",
+          "marks": 3,
+          "memoText": "$\\hat{C}_2 = x$ (angles in the same segment — subtended by chord DB).\n$\\hat{D}_3 = x$ (isosceles $\\triangle$BDC — DB = BC, angles opposite equal sides).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-5-b-1",
+          "label": "5(b)(1)",
+          "questionText": "Given $\\hat{O}_1 = 94°$, determine $\\hat{D}_2$.",
+          "marks": 2,
+          "memoText": "In $\\triangle$OCD: $\\hat{C}_1 + \\hat{D}_2 = 180° - 94°$ (interior angles of $\\triangle$).\n$\\hat{C}_1 = \\hat{D}_2$ (CO and OD are radii; angles opposite equal sides).\n$\\therefore \\hat{D}_2 = \\dfrac{180° - 94°}{2} = 43°$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-5-b-2",
+          "label": "5(b)(2)",
+          "questionText": "Determine $\\hat{B}_1 + \\hat{B}_2$.",
+          "marks": 3,
+          "memoText": "$\\hat{O}_2 = 360° - 94° = 266°$ (angles around a point).\n$\\hat{B}_1 + \\hat{B}_2 = \\dfrac{266°}{2} = 133°$ (angle at centre $= 2 \\times$ angle at circle).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-5-b-3",
+          "label": "5(b)(3)",
+          "questionText": "Hence or otherwise determine $x$.",
+          "marks": 2,
+          "memoText": "$2x + 133° = 180°$ (interior angles of $\\triangle$)\n$x = 23\\tfrac{1}{2}°$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Circle Geometry — Semicircle, Cyclic Quadrilateral & Chord",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-6-a",
+          "label": "6(a)",
+          "questionText": "A, B, C, D and E lie on the circle with centre O. AC is perpendicular to OB and they intersect at F. AOE is a straight line. $\\hat{A}_1 = 38°$.\n\nDetermine $\\hat{C}_1$.",
+          "marks": 2,
+          "memoText": "$\\hat{C}_1 = 90°$ (angle in a semicircle — AOE is a diameter).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-6-b",
+          "label": "6(b)",
+          "questionText": "Determine $\\hat{D}$.",
+          "marks": 2,
+          "memoText": "$\\hat{D} = 180° - 38° = 142°$ (opposite angles of cyclic quadrilateral ABCD).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-6-c",
+          "label": "6(c)",
+          "questionText": "Determine $A\\hat{B}C$.",
+          "marks": 3,
+          "memoText": "$\\hat{E}_1 = 180° - (38° + 90°) = 52°$ (interior angles of $\\triangle$ACE).\n$\\hat{B} = 180° - 52° = 128°$ (opposite angles of cyclic quadrilateral).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-6-d",
+          "label": "6(d)",
+          "questionText": "If AC = 8 cm and BC = 5 cm, determine the length of BF.",
+          "marks": 3,
+          "memoText": "$AF = FC$ (line from centre perpendicular to a chord bisects it), so $AF = FC = 4$.\n$BC = 5$ (given).\n$BF^2 = BC^2 - FC^2 = 25 - 16 = 9$ (Pythagoras)\n$\\therefore BF = 3$ units",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Area Rule Proof & Surface Area of a Prism",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-7-a",
+          "label": "7(a)",
+          "questionText": "Prove the area rule stating that Area $\\triangle PQR = \\dfrac{1}{2}pq\\sin\\hat{R}$ for any acute-angled triangle $\\triangle PQR$.",
+          "marks": 4,
+          "memoText": "Draw the perpendicular (altitude) from P to QR; let its length be $h$.\nIn the right-angled triangle formed, $\\sin\\hat{R} = \\dfrac{h}{PR} = \\dfrac{h}{q}$, so $h = q\\sin\\hat{R}$.\nArea $\\triangle PQR = \\dfrac{1}{2} \\times \\text{base} \\times \\text{height} = \\dfrac{1}{2} \\times p \\times h = \\dfrac{1}{2}q(p\\sin\\hat{R}) = \\dfrac{1}{2}pq\\sin\\hat{R}$.",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-7-b",
+          "label": "7(b)",
+          "questionText": "A solid right triangular prism has equilateral triangular ends with sides 8 cm and a height (length) of 15 cm.\n\nCalculate the total surface area of the prism.",
+          "marks": 4,
+          "memoText": "Area of one triangular end $= \\dfrac{1}{2}(8)(8)\\sin 60° = 16\\sqrt{3}$ cm$^2$ (equilateral $\\triangle$).\nTotal surface area $= 3 \\times (15 \\times 8) + 2 \\times (16\\sqrt{3}) = 360 + 32\\sqrt{3} \\approx 415{,}4$ cm$^2$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Trigonometric Equations & Simplification",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-8-a",
+          "label": "8(a)",
+          "questionText": "Solve for $x$, correct to one decimal place, in the given interval:\n\n$$1 - 2\\sin^2 x = -\\dfrac{1}{7} \\quad \\text{for } x \\in [-180°; 90°]$$",
+          "marks": 5,
+          "memoText": "$\\cos 2x = -\\dfrac{1}{7}$; reference angle $98{,}2°$.\n$2x = \\pm 98{,}2° + k\\cdot 360°$, $k \\in \\mathbb{Z}$\n$x = \\pm 49{,}1° + k\\cdot 180°$, $k \\in \\mathbb{Z}$\nIn $[-180°; 90°]$: $x \\in \\{-49{,}1°;\\ 49{,}1°;\\ -130{,}9°\\}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-8-b",
+          "label": "8(b)",
+          "questionText": "Simplify the following to its simplest form:\n\n$$-\\cos(\\theta) \\cdot \\cos^3(90° + \\theta) - \\tan(180° - \\theta) \\cdot \\cos(\\theta) \\cdot \\cos^3(-\\theta)$$",
+          "marks": 5,
+          "memoText": "$\\cos(90° + \\theta) = -\\sin\\theta$, so $\\cos^3(90° + \\theta) = -\\sin^3\\theta$; $\\tan(180° - \\theta) = -\\tan\\theta$; $\\cos(-\\theta) = \\cos\\theta$.\n$= -\\cos\\theta(-\\sin^3\\theta) - (-\\tan\\theta)(\\cos\\theta)(\\cos^3\\theta)$\n$= \\cos\\theta\\sin^3\\theta + \\dfrac{\\sin\\theta}{\\cos\\theta}\\cos^4\\theta$\n$= \\cos\\theta\\sin^3\\theta + \\sin\\theta\\cos^3\\theta$\n$= \\sin\\theta\\cos\\theta(\\sin^2\\theta + \\cos^2\\theta)$\n$= \\sin\\theta\\cos\\theta$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Analytical Geometry — Circle, Chords & Touching Circles",
+      "totalMarks": 22,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-9-a",
+          "label": "9(a)",
+          "questionText": "A, B, D and the origin O lie on the circle with centre C. The equation of the circle is $x^2 + y^2 + 6x - 8y = 0$, and the equation of line AB is $x - 2y + 21 = 0$.\n\nDetermine the centre and the radius of the circle.",
+          "marks": 4,
+          "memoText": "$x^2 + 6x + y^2 - 8y = 0$\n$(x + 3)^2 + (y - 4)^2 = 9 + 16 = 25$\nCentre $C(-3; 4)$; radius $= 5$.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-9-b",
+          "label": "9(b)",
+          "questionText": "Determine the co-ordinates of A and B.",
+          "marks": 6,
+          "memoText": "Substitute $x = 2y - 21$ into the circle equation:\n$(2y - 21)^2 + y^2 + 6(2y - 21) - 8y = 0$\n$4y^2 - 84y + 441 + y^2 + 12y - 126 - 8y = 0$\n$5y^2 - 80y + 315 = 0 \\Rightarrow y^2 - 16y + 63 = 0 \\Rightarrow (y - 7)(y - 9) = 0$\n$y = 7$ or $y = 9$, giving $B(-7; 7)$ and $A(-3; 9)$.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-9-c-1",
+          "label": "9(c)(1)",
+          "questionText": "Determine the midpoint of AD.",
+          "marks": 4,
+          "memoText": "D is on the circle with $y = 0$: $x^2 + 6x = 0 \\Rightarrow x(x + 6) = 0 \\Rightarrow x = 0$ or $x = -6$, so $D(-6; 0)$.\nMidpoint of AD $= \\left(\\dfrac{-3 - 6}{2}; \\dfrac{9 + 0}{2}\\right) = \\left(-\\dfrac{9}{2}; \\dfrac{9}{2}\\right)$.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-9-c-2",
+          "label": "9(c)(2)",
+          "questionText": "Determine whether CB passes through the midpoint of line AD.",
+          "marks": 4,
+          "memoText": "$m_{CB} = \\dfrac{4 - 7}{-3 - (-7)} = -\\dfrac{3}{4}$.\n$m_{C,\\text{midpt}} = \\dfrac{\\frac{9}{2} - 4}{-\\frac{9}{2} - (-3)} = \\dfrac{\\frac{1}{2}}{-\\frac{3}{2}} = -\\dfrac{1}{3}$.\nSince $m_{CB} \\neq m_{C,\\text{midpt}}$, the points are not collinear, so CB does not pass through the midpoint of AD.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-9-d",
+          "label": "9(d)",
+          "questionText": "A second circle with equation $(x - 3)^2 + (y + 4)^2 = 25$ is drawn on the same set of axes. A student claims that the two circles touch each other in one point. Is the student correct? Show all working.",
+          "marks": 4,
+          "memoText": "Circle 1: centre $(-3; 4)$, $r = 5$. Circle 2: centre $(3; -4)$, $r = 5$.\nDistance between centres $= \\sqrt{(3 - (-3))^2 + (-4 - 4)^2} = \\sqrt{36 + 64} = 10$.\nSum of radii $= 5 + 5 = 10$.\nSince the distance between the centres equals the sum of the radii, the circles touch at one point. The student is correct.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Trigonometry — Swinging Door (Cosine Rule)",
+      "totalMarks": 7,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-10",
+          "label": "10",
+          "questionText": "ABCD represents a closed door 1,2 metres wide and 2,2 metres in length. When the door is opened $42°$ along its hinge AD, its new position is represented by AEFD.\n\nDetermine the size of $F\\hat{A}C$.",
+          "marks": 7,
+          "memoText": "In $\\triangle DCF$: $DC = DF = 1{,}2$ m (door width).\nCosine rule: $CF^2 = (1{,}2)^2 + (1{,}2)^2 - 2(1{,}2)(1{,}2)\\cos 42° = 0{,}7397 \\Rightarrow CF = 0{,}86$ m.\nIn $\\triangle ADF$: $AF^2 = (2{,}2)^2 + (1{,}2)^2$ (Pythagoras) $\\Rightarrow AF = 2{,}506$; and $AF = AC$ (both diagonals of the door).\nIn $\\triangle ACF$: $\\cos F\\hat{A}C = \\dfrac{(2{,}506)^2 + (2{,}506)^2 - (0{,}86)^2}{2(2{,}506)(2{,}506)} = 0{,}9411$\n$F\\hat{A}C \\approx 19{,}8°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Trigonometric Identity & Validity",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-11-a",
+          "label": "11(a)",
+          "questionText": "Prove the following identity:\n\n$$\\dfrac{1 + \\sin 2x + \\sin^2 x - \\cos^2 x}{1 + 2\\sin x\\cos x + \\cos 2x} = \\tan x$$",
+          "marks": 5,
+          "memoText": "Numerator: $1 + 2\\sin x\\cos x + \\sin^2 x - \\cos^2 x = (\\sin^2 x + \\cos^2 x) + 2\\sin x\\cos x + \\sin^2 x - \\cos^2 x = 2\\sin^2 x + 2\\sin x\\cos x = 2\\sin x(\\sin x + \\cos x)$.\nDenominator: $1 + 2\\sin x\\cos x + (\\cos^2 x - \\sin^2 x) = (\\sin^2 x + \\cos^2 x) + 2\\sin x\\cos x + \\cos^2 x - \\sin^2 x = 2\\cos^2 x + 2\\sin x\\cos x = 2\\cos x(\\cos x + \\sin x)$.\nLHS $= \\dfrac{2\\sin x(\\sin x + \\cos x)}{2\\cos x(\\cos x + \\sin x)} = \\dfrac{\\sin x}{\\cos x} = \\tan x = $ RHS.",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-11-b",
+          "label": "11(b)",
+          "questionText": "Determine the values of $x$ for which the identity given in (a) is not valid.",
+          "marks": 6,
+          "memoText": "The identity is undefined where the denominator $2\\cos x(\\cos x + \\sin x) = 0$:\n- $\\cos x = 0$ (and $\\tan x$ undefined): $x = 90° + k\\cdot 180°$, $k \\in \\mathbb{Z}$.\n- $\\cos x + \\sin x = 0 \\Rightarrow \\tan x = -1 \\Rightarrow x = -45° + k\\cdot 180°$ (i.e. $x = 135° + k\\cdot 180°$), $k \\in \\mathbb{Z}$.",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Proportionality in a Triangle",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-12-a",
+          "label": "12(a)",
+          "questionText": "$\\triangle$ABC is given with E and G on AB and D on AC, with AG = GB and ED // GC. F is on CG and D on AC with DF // AB.\n\nProve: $\\dfrac{CF}{FG} = \\dfrac{GE}{EA}$.",
+          "marks": 3,
+          "memoText": "$\\dfrac{CF}{FG} = \\dfrac{CD}{DA}$ (line DF // AG — line parallel to one side of $\\triangle$CGA).\n$\\dfrac{CD}{DA} = \\dfrac{GE}{EA}$ (line ED // GC — line parallel to one side of $\\triangle$AGC).\n$\\therefore \\dfrac{CF}{FG} = \\dfrac{GE}{EA}$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-12-b",
+          "label": "12(b)",
+          "questionText": "If $\\dfrac{CF}{FG} = \\dfrac{2}{1}$, determine the ratio of GE : GA.",
+          "marks": 2,
+          "memoText": "$\\dfrac{GE}{EA} = \\dfrac{2}{1}$ (from (a)). With $EA = \\dfrac{1}{3}GA$:\n$\\dfrac{EG}{\\frac{1}{3}GA} = \\dfrac{2}{1} \\Rightarrow GE = \\dfrac{2}{3}GA$\n$\\therefore GE : GA = 2 : 3$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-12-c",
+          "label": "12(c)",
+          "questionText": "Determine the numerical value of DF : AB.",
+          "marks": 4,
+          "memoText": "$GE = \\dfrac{2}{3}GA$ (proven).\nG is the midpoint of AB, so $GA = \\dfrac{1}{2}AB$: $GE = \\dfrac{2}{3}\\left(\\dfrac{1}{2}AB\\right) = \\dfrac{1}{3}AB$.\n$DF = EG$ (opposite sides of the parallelogram DEGF), so $DF = \\dfrac{1}{3}AB$.\n$\\therefore DF : AB = 1 : 3$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Circle Geometry — Tangents & Similar Triangles",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-13-a",
+          "label": "13(a)",
+          "questionText": "The circumscribed circle for $\\triangle$BCF is given. AB and AC are tangents to the circle at B and C respectively. FE, FG and FD are perpendiculars from F to AB, F to BC and F to AC.\n\nProve: $\\triangle$FEB is similar to $\\triangle$FGC.",
+          "marks": 4,
+          "memoText": "In $\\triangle$FEB and $\\triangle$FGC:\n$\\hat{E}_2 = \\hat{G}_1$ (both $= 90°$, given — FE $\\perp$ AB, FG $\\perp$ BC).\n$\\hat{B}_1 = \\hat{C}_2$ (tan-chord theorem).\n$\\therefore \\triangle$FEB $\\;|||\\;$ $\\triangle$FGC ($\\angle$; $\\angle$; $\\angle$).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-13-b",
+          "label": "13(b)",
+          "questionText": "Prove: $FG^2 = FE \\times FD$.",
+          "marks": 6,
+          "memoText": "In $\\triangle$FDC and $\\triangle$FGB:\n$\\hat{D}_2 = \\hat{G}_2$ (both $= 90°$, given).\n$\\hat{C}_1 = \\hat{B}_2$ (tan-chord theorem).\n$\\therefore \\triangle$FDC $\\;|||\\;$ $\\triangle$FGB, so $\\dfrac{FD}{FG} = \\dfrac{DC}{GB} = \\dfrac{FC}{FB}$ (similar triangles, sides in proportion).\nFrom (a): $\\dfrac{FE}{FG} = \\dfrac{EB}{GC} = \\dfrac{FB}{FC}$.\nSo $\\dfrac{FD}{FG} = \\dfrac{FC}{FB}$ and $\\dfrac{FG}{FE} = \\dfrac{FC}{FB}$, giving $\\dfrac{FD}{FG} = \\dfrac{FG}{FE}$.\n$\\therefore FG^2 = FE \\times FD$.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Trigonometry — R-form & Maximum Value",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2022-14-a",
+          "label": "14(a)",
+          "questionText": "If $2\\cos 2\\alpha + \\sin 2\\alpha = R\\cos(2\\alpha - \\beta)$ where $R > 0$ and $\\beta$ is an acute angle, determine $R$ and $\\beta$.",
+          "marks": 6,
+          "memoText": "RHS $= R(\\cos 2\\alpha\\cos\\beta + \\sin 2\\alpha\\sin\\beta) = R\\cos\\beta\\cos 2\\alpha + R\\sin\\beta\\sin 2\\alpha$.\nComparing coefficients: $R\\cos\\beta = 2$ and $R\\sin\\beta = 1$.\nSquare and add: $R^2(\\cos^2\\beta + \\sin^2\\beta) = 4 + 1 = 5 \\Rightarrow R^2 = 5 \\Rightarrow R = \\sqrt{5}$ (since $R > 0$).\n$\\sin\\beta = \\dfrac{1}{\\sqrt{5}} \\Rightarrow \\beta = 26{,}6°$.",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2022-14-b",
+          "label": "14(b)",
+          "questionText": "Hence, or otherwise, determine the maximum value of $4\\cos^2\\alpha + \\sin 2\\alpha$.",
+          "marks": 2,
+          "memoText": "$4\\cos^2\\alpha + \\sin 2\\alpha = 2(\\cos 2\\alpha + 1) + \\sin 2\\alpha = 2\\cos 2\\alpha + \\sin 2\\alpha + 2 = \\sqrt{5}\\cos(2\\alpha - \\beta) + 2$.\nThe maximum of $\\sqrt{5}\\cos(2\\alpha - \\beta)$ is $\\sqrt{5}$, so the maximum value is $\\sqrt{5} + 2$.",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,480 @@
+{
+  "id": "math-ieb-p1-nov-2021",
+  "subject": "Mathematics IEB",
+  "subjectCode": "mathematics-ieb",
+  "paperCode": "P1",
+  "year": 2021,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Algebra & Equations",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2021-1-a-1",
+          "label": "1(a)(1)",
+          "questionText": "Use the formula $x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ to solve for $x$ correct to two decimal places if $3x^2 - 5x = 3$.",
+          "marks": 4,
+          "memoText": "Write the equation in standard form: $3x^2 - 5x - 3 = 0$.\n$x = \\dfrac{-(-5) \\pm \\sqrt{(-5)^2 - 4(3)(-3)}}{2(3)}$\n$x = 2{,}14$ or $x = -0{,}47$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-1-a-2",
+          "label": "1(a)(2)",
+          "questionText": "Hence, solve for $x$ if $3x^2 - 5x - 3 > 0$.",
+          "marks": 2,
+          "memoText": "$x < -0{,}47$ or $x > 2{,}14$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-1-b",
+          "label": "1(b)",
+          "questionText": "Solve for $x$ and $y$ if $2y - 24x = 0$ and $y = x^2 + 5x$.",
+          "marks": 5,
+          "memoText": "From $2y - 24x = 0$: $y = 12x$.\n$12x = x^2 + 5x$\n$0 = x^2 - 7x$\n$x = 0$ or $x = 7$\n$y = 0$ or $y = 84$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-1-c",
+          "label": "1(c)",
+          "questionText": "Solve for $x$ if $6 + \\sqrt{x + 7} = x + 1$.",
+          "marks": 5,
+          "memoText": "$\\sqrt{x + 7} = x - 5$\n$x + 7 = x^2 - 10x + 25$\n$0 = x^2 - 11x + 18$\n$0 = (x - 9)(x - 2)$\n$x = 9$ or $x = 2$ (N/A — does not satisfy the original equation)\n$\\therefore x = 9$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-1-d",
+          "label": "1(d)",
+          "questionText": "If the first three terms of a geometric series are $2 + 6 + 18 + \\ldots$ then what is the value of $n$ if $S_n = 177\\,146$?",
+          "marks": 4,
+          "memoText": "$a = 2$, $r = 3$.\n$177\\,146 = \\dfrac{2(3^n - 1)}{3 - 1}$\n$177\\,147 = 3^n$\n$n = 11$",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Differentiation — First Principles, Rules & Tangents",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2021-2-a",
+          "label": "2(a)",
+          "questionText": "Using first principles find $f'(x)$ if $f(x) = x^2 - 5x$.",
+          "marks": 5,
+          "memoText": "$f'(x) = \\displaystyle\\lim_{h \\to 0} \\dfrac{(x + h)^2 - 5(x + h) - (x^2 - 5x)}{h}$\n$= \\displaystyle\\lim_{h \\to 0} \\dfrac{x^2 + 2xh + h^2 - 5x - 5h - x^2 + 5x}{h}$\n$= \\displaystyle\\lim_{h \\to 0} \\dfrac{2xh + h^2 - 5h}{h}$\n$= \\displaystyle\\lim_{h \\to 0} \\dfrac{h(2x + h - 5)}{h}$\n$= \\displaystyle\\lim_{h \\to 0} (2x + h - 5)$\n$f'(x) = 2x - 5$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-2-b",
+          "label": "2(b)",
+          "questionText": "Find $g'(x)$ if $g(x) = \\sqrt[3]{x} + \\dfrac{6}{x}$.",
+          "marks": 4,
+          "memoText": "$g(x) = x^{\\frac{1}{3}} + 6x^{-1}$\n$g'(x) = \\dfrac{1}{3}x^{-\\frac{2}{3}} - 6x^{-2}$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-2-c",
+          "label": "2(c)",
+          "questionText": "If $h(x) = -x + p$ is a tangent to $f(x) = -x^2 + 3x + 4$ then find the value of $p$.",
+          "marks": 5,
+          "memoText": "$f'(x) = -2x + 3$\nAt the point of tangency the gradient equals $-1$: $-2x + 3 = -1$\n$x = 2$\n$f(2) = -(2)^2 + 3(2) + 4 = 6$, so the point of contact is $(2; 6)$.\n$6 = -(2) + p$\n$p = 8$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Exponential & Related Graphs",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2021-3-a-1",
+          "label": "3(a)(1)",
+          "questionText": "The graph of $f(x) = 3^x - 2$ is drawn on a set of axes, with horizontal asymptote $y = -2$ and $y$-intercept at $(0; -1)$.\n\nWrite down the domain of $f$.",
+          "marks": 1,
+          "memoText": "$x \\in (-\\infty; \\infty)$  or  $x \\in \\mathbb{R}$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-3-a-2",
+          "label": "3(a)(2)",
+          "questionText": "Write down the range of $f$.",
+          "marks": 1,
+          "memoText": "$y \\in (-2; \\infty)$  or  $\\{y : y > -2\\}$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-3-a-3",
+          "label": "3(a)(3)",
+          "questionText": "Write down the equation of the graph that is a reflection of $f$ in the $x$-axis.",
+          "marks": 1,
+          "memoText": "$y = -3^x + 2$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-3-a-4",
+          "label": "3(a)(4)",
+          "questionText": "Determine the values of $x$ for which $f(x) \\geq 0$.",
+          "marks": 3,
+          "memoText": "$3^x - 2 = 0$\n$3^x = 2$\n$x = \\log_3 2$\n$x = 0{,}63$\n$\\therefore x \\geq 0{,}63$  (accept $x \\geq 0{,}6$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-3-b-1",
+          "label": "3(b)(1)",
+          "questionText": "On the same set of axes sketch $g(x) = -2^x + 4$.",
+          "marks": 3,
+          "memoText": "Decreasing exponential curve reflected in the $x$-axis and shifted up 4.\n$y$-intercept: $(0; 3)$.\n$x$-intercept: $-2^x + 4 = 0 \\Rightarrow 2^x = 4 \\Rightarrow x = 2$, i.e. $(2; 0)$.\nHorizontal asymptote $y = 4$ (curve lies below it, decreasing to the right).\nMarks: $y$-intercept; $x$-intercept; shape (note the asymptote).",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-3-b-2",
+          "label": "3(b)(2)",
+          "questionText": "Determine the equation of the resulting graph if $g$ is shifted 3 units vertically up.",
+          "marks": 1,
+          "memoText": "$y = -2^x + 7$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-3-b-3",
+          "label": "3(b)(3)",
+          "questionText": "Show on your graph where you would read off the solution to $3^x + 2^x = 6$.",
+          "marks": 2,
+          "memoText": "Set $f(x) = g(x)$: $3^x - 2 = -2^x + 4$, which rearranges to $3^x + 2^x = 6$.\nThe solution is read off at the $x$-value of the point of intersection of $f$ and $g$ (point A).",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Hyperbola & Logarithmic Function",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2021-4-a",
+          "label": "4(a)",
+          "questionText": "In the diagram $f(x) = \\dfrac{5}{x - p} + q$ and $g(x) = \\log_3 x$ are drawn. $x = 2$ is a vertical asymptote for $f$, and $y = 1$ is a horizontal asymptote for $f$ (and passes through C on $g$). A and B are $x$-intercepts (A on $f$, B on $g$).\n\nIf $h(x) = x + t$ is an axis of symmetry for $f(x)$, then determine the value of $t$.",
+          "marks": 2,
+          "memoText": "The axis of symmetry with gradient $+1$ passes through the point of intersection of the asymptotes $(2; 1)$.\n$1 = (2) + t$\n$t = -1$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-4-b",
+          "label": "4(b)",
+          "questionText": "Calculate the $x$-coordinate of C (the point where $g$ meets the line $y = 1$).",
+          "marks": 1,
+          "memoText": "$\\log_3 x = 1$\n$x = 3$, so $C(3; 1)$.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-4-c",
+          "label": "4(c)",
+          "questionText": "Find the length of AB (A is the $x$-intercept of $f$, B is the $x$-intercept of $g$).",
+          "marks": 5,
+          "memoText": "A: $0 = \\dfrac{5}{x - 2} + 1 \\Rightarrow -1(x - 2) = 5 \\Rightarrow x = -3$, so $A(-3; 0)$.\nB: $0 = \\log_3 x \\Rightarrow 3^0 = x \\Rightarrow x = 1$, so $B(1; 0)$.\n$AB = 1 - (-3) = 4$ units.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-4-d",
+          "label": "4(d)",
+          "questionText": "Write the equation for $g^{-1}(x)$ in the form $y = \\ldots$",
+          "marks": 2,
+          "memoText": "$g: y = \\log_3 x$. Swap $x$ and $y$: $x = \\log_3 y$.\n$y = 3^x$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-4-e",
+          "label": "4(e)",
+          "questionText": "For what values of $x$ is $f(x) \\cdot g(x) < 0$?",
+          "marks": 2,
+          "memoText": "$x \\in (1; 2)$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Quadratic Number Pattern",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2021-5-a",
+          "label": "5(a)",
+          "questionText": "Refer to the pattern: $4 + 9 + 18 + 31 + 48 + \\ldots + 949$.\n\nDetermine $T_n$.",
+          "marks": 4,
+          "memoText": "First differences: $5, 9, 13, 17, \\ldots$; second difference $= 4$.\n$2a = 4 \\Rightarrow a = 2$\n$3a + b = 5 \\Rightarrow 3(2) + b = 5 \\Rightarrow b = -1$\n$a + b + c = 4 \\Rightarrow 2 - 1 + c = 4 \\Rightarrow c = 3$\n$T_n = 2n^2 - n + 3$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-5-b",
+          "label": "5(b)",
+          "questionText": "Determine the number of terms in the series.",
+          "marks": 3,
+          "memoText": "$2n^2 - n + 3 = 949$\n$2n^2 - n - 946 = 0$\n$n = 22$  or  $n = -\\dfrac{43}{2}$ (N/A)\n$\\therefore$ there are $22$ terms.",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-5-c",
+          "label": "5(c)",
+          "questionText": "Represent the series $4 + 9 + 18 + 31 + 48 + \\ldots + 949$ using sigma notation.",
+          "marks": 2,
+          "memoText": "$\\displaystyle\\sum_{n=1}^{22} (2n^2 - n + 3)$",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Financial Mathematics — Future Value Annuity",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2021-6-a",
+          "label": "6(a)",
+          "questionText": "An investment with Phantom Investment House requires monthly payments of R5 000 at the end of each month. The interest rate offered is 15% per annum compounded monthly.\n\nWhat will the value of your investment be at the end of 3 years?",
+          "marks": 4,
+          "memoText": "$F_v = \\dfrac{5000\\left[\\left(1 + \\dfrac{0{,}15}{12}\\right)^{36} - 1\\right]}{\\dfrac{0{,}15}{12}}$\n$F_v = \\text{R}225\\,577{,}53$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-6-b",
+          "label": "6(b)",
+          "questionText": "What is the minimum number of months required for your investment to reach a value greater than R2 500 000?",
+          "marks": 5,
+          "memoText": "$2\\,500\\,000 = \\dfrac{5\\,000\\left[\\left(1 + \\dfrac{0{,}15}{12}\\right)^{n} - 1\\right]}{\\dfrac{0{,}15}{12}}$\nSolving for $n$: $n = 160$ months.",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Financial Mathematics — Loan Repayments & Outstanding Balance",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2021-7-a",
+          "label": "7(a)",
+          "questionText": "You approach a bank for a home loan of R850 000, to be paid off monthly over 20 years. The interest rate offered is 9% per annum compounded monthly.\n\nWhat are the minimum monthly payments required to pay off the loan over the 20-year period?",
+          "marks": 4,
+          "memoText": "$850\\,000 = \\dfrac{x\\left[1 - \\left(1 + \\dfrac{0{,}09}{12}\\right)^{-240}\\right]}{\\dfrac{0{,}09}{12}}$\n$x = \\text{R}7\\,647{,}67$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-7-b",
+          "label": "7(b)",
+          "questionText": "If the monthly payment is changed to R9 000 per month, what will the balance outstanding on your loan be at the end of 12 years? (This is directly after the payment is made at the end of 12 years.)",
+          "marks": 5,
+          "memoText": "Balance $=$ (accumulated value of the loan) $-$ (accumulated value of the payments made):\n$850\\,000\\left(1 + \\dfrac{0{,}09}{12}\\right)^{144} - \\dfrac{9\\,000\\left[\\left(1 + \\dfrac{0{,}09}{12}\\right)^{144} - 1\\right]}{\\dfrac{0{,}09}{12}}$\nBalance outstanding $= \\text{R}173\\,507{,}13$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Logarithms, Series & Arithmetic Application",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2021-8-a",
+          "label": "8(a)",
+          "questionText": "The first two terms of an arithmetic sequence are $\\log_3(x - 5)$ and $\\log_3 x$. If the common difference of the sequence is 1, what is the value of $x$?",
+          "marks": 4,
+          "memoText": "$\\log_3 x - \\log_3(x - 5) = 1$\n$\\log_3 \\dfrac{x}{x - 5} = 1$\n$\\dfrac{x}{x - 5} = 3$\n$x = 3x - 15 \\Rightarrow x = \\dfrac{15}{2} = 7{,}5$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-8-b",
+          "label": "8(b)",
+          "questionText": "A converging geometric series is such that the second term is $-24$ and the sum of the third and fourth terms is $-18$. Determine the common ratio.",
+          "marks": 5,
+          "memoText": "$ar = -24$ and $ar^2 + ar^3 = -18$.\n$a = \\dfrac{-24}{r}$\n$-24r - 24r^2 = -18$\n$0 = 4r^2 + 4r - 3$\n$0 = (2r + 3)(2r - 1)$\n$r = -\\dfrac{3}{2}$ or $r = \\dfrac{1}{2}$\nThe series is converging, therefore $r = \\dfrac{1}{2}$.",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-8-c-1",
+          "label": "8(c)(1)",
+          "questionText": "A soccer tournament is held at a stadium with one match per day for 12 consecutive days. A maximum of 25 000 spectators are allowed at the first game. For each subsequent game the number of spectators increases by a constant amount so that the last game can have 58 000 spectators. Assume the maximum number of spectators attends each match.\n\nDetermine the increase in the number of spectators between any two consecutive days of the tournament.",
+          "marks": 3,
+          "memoText": "$T_{12} = a + (n - 1)d$\n$58\\,000 = 25\\,000 + (12 - 1)d$\n$33\\,000 = 11d$\n$d = 3\\,000$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-8-c-2",
+          "label": "8(c)(2)",
+          "questionText": "If a spectator pays R25 for a ticket each day, what is the total amount of income that can be generated from ticket sales if all the rules and regulations above were followed?",
+          "marks": 3,
+          "memoText": "$S_{12} = \\dfrac{12}{2}\\left(2(25\\,000) + (12 - 1)(3\\,000)\\right)$\n$S_{12} = 498\\,000$ spectators\nTotal income $= \\text{R}25 \\times 498\\,000 = \\text{R}12\\,450\\,000$",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Parabola Application & Quadratic Sketch",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2021-9-a",
+          "label": "9(a)",
+          "questionText": "Two throws of a heavy object are modelled on parabolas. The first throw starts at O(0; 0), reaches its maximum height at H and lands at M on the $x$-axis. The second throw starts at O(0; 0), reaches its maximum height at point A(4; 2) and then lands at N on the $x$-axis. The second throw is two metres further than the first throw.\n\nWhat are the coordinates of point H?",
+          "marks": 7,
+          "memoText": "The second throw's turning point is A(4; 2), so by symmetry it lands at $N = 8$.\nThe second throw is 2 m further than the first, so the first throw lands at $M = 6$.\nFirst throw: $y = ax(x - 6)$. Using the point $(4; 2)$: $2 = a(4)(4 - 6) \\Rightarrow a = -\\dfrac{1}{4}$.\nH is the turning point of the first throw, at $x = 3$ (midway between $0$ and $6$):\n$y = -\\dfrac{1}{4}(3)(3 - 6) = \\dfrac{9}{4}$\n$\\therefore H(3; 2{,}25)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-9-b",
+          "label": "9(b)",
+          "questionText": "A quadratic function $f(x) = ax^2 + bx + c$ has the following properties:\n\n- $f(6 - p) = f(6 + p)$ for all real values of $p$\n- $f\\left(-\\dfrac{b}{2a}\\right) = 2$\n- $b^2 < 4ac$\n\nDraw a rough sketch graph of $f(x)$, labelling the turning point clearly.",
+          "marks": 4,
+          "memoText": "$f(6 - p) = f(6 + p)$ means the axis of symmetry is $x = 6$, so the turning point is at $x = 6$.\n$f\\left(-\\dfrac{b}{2a}\\right) = 2$ gives the turning point $y$-value $= 2$, so the turning point is $(6; 2)$.\n$b^2 < 4ac$ means there are no real roots; with the turning point at $(6; 2)$ above the $x$-axis, the parabola must open upwards.\nSketch: an upward parabola with turning point $(6; 2)$ and any $y$-intercept above the turning point (e.g. $(0; 5)$).\nMarks: $y$-intercept above the turning point; turning point $x$-value; turning point $y$-value; shape.",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Cubic Functions & Calculus",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2021-10-a",
+          "label": "10(a)",
+          "questionText": "In the diagram $f(x) = x^3 - 5x^2 + 3x + 9$ and $g(x) = 3x + 9$, and $f$ and $g$ intersect at A (the intersection point with the larger $x$-value). $h(x)$ is a tangent to $f$ at A.\n\nCalculate the coordinates of B, the $x$-intercept of $h$.",
+          "marks": 9,
+          "memoText": "Intersection: $x^3 - 5x^2 + 3x + 9 = 3x + 9$\n$x^3 - 5x^2 = 0$\n$x^2(x - 5) = 0$\n$x = 0$ or $x = 5$; A is at $x = 5$.\n$y = 3(5) + 9 = 24$, so $A(5; 24)$.\n$f'(x) = 3x^2 - 10x + 3$\n$f'(5) = 3(25) - 50 + 3 = 28$  (gradient of $h$)\n$y = 28x + c$; $24 = 28(5) + c \\Rightarrow c = -116$\n$h: y = 28x - 116$\nFor B: $0 = 28x - 116 \\Rightarrow x = \\dfrac{29}{7}$\n$\\therefore B\\left(\\dfrac{29}{7}; 0\\right)$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-10-b-1",
+          "label": "10(b)(1)",
+          "questionText": "The following information is given about a function $f$:\n\n- $f'(x) = (x + 1)^2 - 4$\n- $f(x) = 0$ has one negative real solution\n\nFor what values of $x$ is $f(x)$ increasing?",
+          "marks": 4,
+          "memoText": "$f(x)$ is increasing where $f'(x) \\geq 0$.\n$0 = (x + 1)^2 - 4$\n$0 = x^2 + 2x - 3$\n$0 = (x + 3)(x - 1)$\n$x = -3$ or $x = 1$\n$f(x)$ is increasing when $x \\in (-\\infty; -3] \\cup [1; \\infty)$.",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-10-b-2",
+          "label": "10(b)(2)",
+          "questionText": "Use the information above to sketch $f(x)$. Label the $x$-value(s) of the turning point(s) and the $x$-value of the point of inflection.",
+          "marks": 5,
+          "memoText": "From $f'(x)$: local maximum at $x = -3$, local minimum at $x = 1$.\nPoint of inflection where $f''(x) = 0$: $f''(x) = 2(x + 1) = 0 \\Rightarrow x = -1$.\n$f(x) = 0$ has one negative real solution (one $x$-intercept, negative).\nSketch: cubic with positive leading coefficient — up on the right; local max at $x = -3$, local min at $x = 1$, inflection at $x = -1$; a single (negative) $x$-intercept.\nMarks: turning point at $x = -3$; turning point at $x = 1$; inflection at $x = -1$; one negative intercept; shape.",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Optimisation — Minimum Fencing",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2021-11-a",
+          "label": "11(a)",
+          "questionText": "A farmer fences two adjacent fields. Field A is a square with a width of $x$. Field B is rectangular with a width of $y$ (and the same height as Field A). Area of Field A + Area of Field B $= 1000$ units$^2$. NR is the only fence shared by both fields.\n\nFind $y$ in terms of $x$.",
+          "marks": 3,
+          "memoText": "$x(x + y) = 1000$  or  $x^2 + xy = 1000$\n$y = \\dfrac{1000}{x} - x$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-11-b",
+          "label": "11(b)",
+          "questionText": "Calculate the value of $x$ so that the minimum amount of fencing is used.",
+          "marks": 5,
+          "memoText": "Total fencing $F = 5x + 2y$.\n$F = 5x + 2\\left(\\dfrac{1000}{x} - x\\right) = 5x + \\dfrac{2000}{x} - 2x = 3x + \\dfrac{2000}{x}$\n$\\dfrac{dF}{dx} = 3 - \\dfrac{2000}{x^2}$\n$3 - \\dfrac{2000}{x^2} = 0$\n$x = \\sqrt{\\dfrac{2000}{3}} = 25{,}82$ units",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Counting Principle & Probability",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2021-12-a-1",
+          "label": "12(a)(1)",
+          "questionText": "Five cards labelled 1, 2, 3, A and B are used to create five-digit codes (e.g. 1A2B3; AB132; B2A13). No repetition is allowed.\n\nHow many unique five-digit codes can be created?",
+          "marks": 1,
+          "memoText": "$5! = 120$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-12-a-2",
+          "label": "12(a)(2)",
+          "questionText": "How many unique five-digit codes starting with a number can be created?",
+          "marks": 2,
+          "memoText": "$3 \\times 4! = 72$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-12-a-3",
+          "label": "12(a)(3)",
+          "questionText": "What is the probability that the two letters will never be next to each other in the code?",
+          "marks": 4,
+          "memoText": "Number of codes with the two letters together $= 2 \\times 4! = 48$ (treat the letters as one block, $2$ internal arrangements).\n$P(\\text{letters together}) = \\dfrac{48}{120} = 0{,}4$\n$P(\\text{letters never together}) = 1 - 0{,}4 = 0{,}6$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2021-12-b",
+          "label": "12(b)",
+          "questionText": "You have three six-sided dice: one red, one blue and one green. The number on the red die is the first term of a geometric series. The value on the blue die divided by the value on the green die is the common ratio.\n\nWhat is the probability that, if you sum the series to infinity, it will converge on the number 10?",
+          "marks": 6,
+          "memoText": "$S_\\infty = \\dfrac{a}{1 - r} = 10$. Checking the possibilities where $a$ is a die value and $r$ is a ratio of two die values:\n- $a = 2$, $r = \\dfrac{4}{5}$ — (blue, green) $= (4, 5)$: 1 way\n- $a = 4$, $r = \\dfrac{3}{5}$ — (blue, green) $= (3, 5)$: 1 way\n- $a = 5$, $r = \\dfrac{1}{2}$ — (blue, green) $= (1,2), (2,4), (3,6)$: 3 ways\n- $a = 6$, $r = \\dfrac{2}{5}$ — (blue, green) $= (2, 5)$: 1 way\nTotal favourable outcomes $= 6$, each with probability $\\left(\\dfrac{1}{6}\\right)^3$.\n$P = 6 \\times \\left(\\dfrac{1}{6}\\right)^3 = \\dfrac{6}{216} = \\dfrac{1}{36}$",
+          "topic": "Probability",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,541 @@
+{
+  "id": "math-ieb-p1-nov-2025",
+  "subject": "Mathematics IEB",
+  "subjectCode": "mathematics-ieb",
+  "paperCode": "P1",
+  "year": 2025,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Equations & Inequalities",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-1-a-1",
+          "label": "1(a)(1)",
+          "questionText": "Solve for $x$: $3x(x - 2)(4x + 7) = 0$.",
+          "marks": 3,
+          "memoText": "$x = 0$  or  $x = 2$  or  $x = -\\dfrac{7}{4}$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-1-a-2",
+          "label": "1(a)(2)",
+          "questionText": "Solve for $x$, correct to two decimal places, by completing the square:\n\n$$x^2 - 2x - 2 = 0$$",
+          "marks": 4,
+          "memoText": "$x^2 - 2x + (-1)^2 = 2 + (-1)^2$\n$(x - 1)^2 = 3$\n$x - 1 = \\pm\\sqrt{3}$\n$x = 1 \\pm \\sqrt{3}$\n$x = 2{,}73$  or  $x = -0{,}73$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-1-a-3",
+          "label": "1(a)(3)",
+          "questionText": "Solve for $x$: $x^2 - 2x - 8 < 0$ if $x \\in \\mathbb{Z}$.",
+          "marks": 4,
+          "memoText": "$(x - 4)(x + 2) < 0$\n$-2 < x < 4$\n$\\therefore \\{-1; 0; 1; 2; 3\\}$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-1-b",
+          "label": "1(b)",
+          "questionText": "Show that the equation $x^2 - 2px = -p^2$ has equal roots for all values of $p$.",
+          "marks": 3,
+          "memoText": "$x^2 - 2px + p^2 = 0$\n$\\Delta = (-2p)^2 - 4(1)(p^2) = 4p^2 - 4p^2 = 0$ for all $p$, so the roots are equal.\n(Alternatively $(x - p)(x - p) = 0 \\Rightarrow x = p$.)",
+          "topic": "Algebra",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Exponents, Surds & Logarithms",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-2-a",
+          "label": "2(a)",
+          "questionText": "Solve for $x$ if $2^x + 2^{x+1} = 192$.",
+          "marks": 3,
+          "memoText": "$2^x(1 + 2) = 192$\n$2^x = 64 = 2^6$\n$x = 6$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-2-b",
+          "label": "2(b)",
+          "questionText": "Solve for $x$ if $\\sqrt{5 - x} + x + 1 = 0$.",
+          "marks": 5,
+          "memoText": "$\\sqrt{5 - x} = -x - 1$\n$5 - x = x^2 + 2x + 1$\n$0 = x^2 + 3x - 4$\n$0 = (x + 4)(x - 1)$\n$x = -4$  ($x \\neq 1$, rejected)",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-2-c",
+          "label": "2(c)",
+          "questionText": "If $\\log 2 = p$ and $\\log 3 = q$, determine the value of $\\log 1\\tfrac{1}{2}$ in terms of $p$ and $q$.",
+          "marks": 2,
+          "memoText": "$\\log \\dfrac{3}{2} = \\log 3 - \\log 2 = q - p$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-2-d",
+          "label": "2(d)",
+          "questionText": "If $\\log x + \\log z = \\log y^2$, show that $x$, $y$ and $z$ form a geometric sequence.",
+          "marks": 2,
+          "memoText": "$\\log xz = \\log y^2$\n$xz = y^2$\nSo $\\dfrac{y}{x} = \\dfrac{z}{y}$, i.e. the terms have a common ratio — they form a geometric sequence.",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Average Rate of Change, Derivatives & the Exponential Graph",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-3-a-1",
+          "label": "3(a)(1)",
+          "questionText": "Given that $f(x) = -2x^2 - 2$.\n\nDetermine $\\dfrac{f(x + h) - f(x)}{h}$, the average rate of change of $f$ over the interval $[x; x + h]$. Simplify your answer.",
+          "marks": 5,
+          "memoText": "$m_{\\text{ave}} = \\dfrac{-2(x + h)^2 - 2 - (-2x^2 - 2)}{h}$\n$= \\dfrac{-2x^2 - 4xh - 2h^2 - 2 + 2x^2 + 2}{h}$\n$= \\dfrac{-4xh - 2h^2}{h}$\n$= \\dfrac{h(-4x - 2h)}{h}$\n$= -4x - 2h$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-3-a-2",
+          "label": "3(a)(2)",
+          "questionText": "Hence, determine $\\displaystyle\\lim_{h \\to 0}\\dfrac{f(x + h) - f(x)}{h}$.",
+          "marks": 1,
+          "memoText": "$\\displaystyle\\lim_{h \\to 0}(-4x - 2h) = -4x$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-3-b",
+          "label": "3(b)",
+          "questionText": "Find $f'(x)$, if $f(x) = \\sqrt[3]{x^2} - \\dfrac{3}{x^5} + \\pi^2$.",
+          "marks": 4,
+          "memoText": "$f(x) = x^{\\frac{2}{3}} - 3x^{-5} + \\pi^2$\n$f'(x) = \\dfrac{2}{3}x^{-\\frac{1}{3}} + 15x^{-6} + 0$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-3-c-1",
+          "label": "3(c)(1)",
+          "questionText": "In the diagram $f(x) = p^x$, $A\\left(2; \\dfrac{25}{9}\\right)$ lies on the graph of $f$, and $f$ and $g$ are symmetrical about the line $y = x$.\n\nDetermine the value of $p$.",
+          "marks": 2,
+          "memoText": "$\\dfrac{25}{9} = p^2$\n$p = \\dfrac{5}{3}$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-3-c-2",
+          "label": "3(c)(2)",
+          "questionText": "Determine the equation of $g$.",
+          "marks": 2,
+          "memoText": "$g(x) = \\log_{\\frac{5}{3}} x$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-3-c-3",
+          "label": "3(c)(3)",
+          "questionText": "Write down the domain and range of $f$.",
+          "marks": 2,
+          "memoText": "Domain: $x \\in \\mathbb{R}$\nRange: $y > 0$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-3-c-4-i",
+          "label": "3(c)(4)(i)",
+          "questionText": "$h$ is formed if $f$ is moved two units to the right. Write down the equation of $h(x)$.",
+          "marks": 1,
+          "memoText": "$h(x) = \\left(\\dfrac{5}{3}\\right)^{x - 2}$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-3-c-4-ii",
+          "label": "3(c)(4)(ii)",
+          "questionText": "What is the equation of the asymptote of $h$?",
+          "marks": 1,
+          "memoText": "$y = 0$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Arithmetic Series",
+      "totalMarks": 5,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-4-a",
+          "label": "4(a)",
+          "questionText": "Given that $S_n = \\dfrac{n}{2}\\left[2a + (n - 1)d\\right]$.\n\nDetermine $a$ in terms of $S_n$, $n$ and $d$.",
+          "marks": 3,
+          "memoText": "$2S_n = n\\left[2a + (n - 1)d\\right]$\n$2S_n = 2an + n(n - 1)d$\n$2S_n - n(n - 1)d = 2an$\n$a = \\dfrac{2S_n - n(n - 1)d}{2n}$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-4-b",
+          "label": "4(b)",
+          "questionText": "In an arithmetic series, $S_{10} = 500$ and the common difference is $\\dfrac{100}{9}$.\n\nDetermine the first term.",
+          "marks": 2,
+          "memoText": "$a = \\dfrac{2(500) - 10(10 - 1)\\left(\\dfrac{100}{9}\\right)}{2(10)} = 0$\n(Alternatively $500 = \\dfrac{10}{2}\\left[2a + (10 - 1)\\dfrac{100}{9}\\right] \\Rightarrow a = 0$.)",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Cubic Function & Tangent",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-5-a",
+          "label": "5(a)",
+          "questionText": "In the diagram $g(x) = x^3 - 3x - 2$. A and C are the turning points of $g$; A and D are the $x$-intercepts; B is the $y$-intercept.\n\nDetermine the coordinates of B and C.",
+          "marks": 6,
+          "memoText": "$g(0) = -2$, so $B(0; -2)$.\n$g'(x) = 3x^2 - 3 = 0$\n$3(x^2 - 1) = 0$\n$(x - 1)(x + 1) = 0$\n$x = 1$ or $x = -1$; C is at $x = 1$.\n$g(1) = (1)^3 - 3(1) - 2 = -4$\n$C(1; -4)$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-5-b",
+          "label": "5(b)",
+          "questionText": "Find the $x$-coordinate(s) of the point(s) where $2y - 18x = k$ is a tangent to $g$.",
+          "marks": 5,
+          "memoText": "$2y = 18x + k \\Rightarrow y = 9x + \\dfrac{k}{2}$, so the tangent gradient is 9.\n$g'(x) = 3x^2 - 3 = 9$\n$3x^2 = 12$\n$x^2 = 4$\n$x = \\pm 2$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Financial Mathematics — Depreciation, Sinking Fund & Doubling Time",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-6-a-1",
+          "label": "6(a)(1)",
+          "questionText": "Tlhogi establishes a trucking company. The first truck he buys costs R750 000, and it depreciates at 25% per annum using a reducing-balance method. Due to inflation, the price of a new truck appreciates at a rate of 10% per annum.\n\nCalculate the depreciated value of the truck after 4 years.",
+          "marks": 2,
+          "memoText": "$A = P(1 - i)^n = 750\\,000(1 - 0{,}25)^4 = \\text{R}237\\,304{,}69$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-6-a-2",
+          "label": "6(a)(2)",
+          "questionText": "Calculate the value of a new truck in 4 years' time.",
+          "marks": 2,
+          "memoText": "$A = P(1 + i)^n = 750\\,000(1 + 0{,}1)^4 = \\text{R}1\\,098\\,075$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-6-a-3",
+          "label": "6(a)(3)",
+          "questionText": "Tlhogi plans to replace the original truck in 4 years, using it as a trade-in and paying the remaining amount in cash. To save up for the required cash amount he makes equal monthly payments into a sinking fund earning interest of 8,5% per annum, compounded monthly. He makes his first payment at the end of the first month of the 4 years and his last at the end of the 4 years.\n\nCalculate the value of each monthly instalment he pays into the sinking fund.",
+          "marks": 5,
+          "memoText": "Cash required $= 1\\,098\\,075 - 237\\,304{,}69 = \\text{R}860\\,770{,}31$.\n$860\\,770{,}31 = \\dfrac{x\\left[\\left(1 + \\dfrac{8{,}5}{1200}\\right)^{48} - 1\\right]}{\\dfrac{8{,}5}{1200}}$\n$x = \\text{R}15\\,119{,}40$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-6-b",
+          "label": "6(b)",
+          "questionText": "An amount invested at $x$% per annum, compounded monthly, doubles in 10 years. Determine the value of $x$.",
+          "marks": 4,
+          "memoText": "$2P = P\\left(1 + \\dfrac{x}{1200}\\right)^{10 \\times 12}$\n$2 = \\left(1 + \\dfrac{x}{1200}\\right)^{120}$\n$1 + \\dfrac{x}{1200} = \\sqrt[120]{2}$\n$x = 6{,}95\\%$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Quadratic Number Pattern & a Sigma Sum",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-7-a",
+          "label": "7(a)",
+          "questionText": "The first four terms of a quadratic number pattern are $4$, $7$, $x + 7$ and $x + y + 7$. If the fourth term is 58, determine the values of $x$ and $y$.",
+          "marks": 6,
+          "memoText": "$x + y + 7 = 58 \\Rightarrow x + y = 51$.\nFirst differences: $3$, $x$, $51 - x$. Second differences: $x - 3$ and $51 - 2x$, which must be equal:\n$x - 3 = 51 - 2x$\n$3x = 54$\n$x = 18$\n$y = 51 - 18 = 33$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-7-b",
+          "label": "7(b)",
+          "questionText": "Determine $\\displaystyle\\sum_{k=0}^{50}\\left((-3)^k + 3k\\right)$ correct to two decimal places. Show all working.",
+          "marks": 7,
+          "memoText": "$\\displaystyle\\sum_{k=0}^{50}(-3)^k = \\dfrac{1 - (-3)^{51}}{1 - (-3)} = \\dfrac{1 + 3^{51}}{4}$\n$\\displaystyle\\sum_{k=0}^{50}3k = 0 + 3 + 6 + \\ldots + 150 = \\dfrac{51}{2}\\left[2(0) + (51 - 1)(3)\\right] = 3\\,825$\n$\\displaystyle\\sum_{k=0}^{50}\\left((-3)^k + 3k\\right) = \\dfrac{1 + 3^{51}}{4} + 3\\,825$",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Infinite Converging Series as a Function",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-8-a",
+          "label": "8(a)",
+          "questionText": "Given that $f(x) = (x + 1) + (x + 1)^2 + (x + 1)^3 + \\ldots + (x + 1)^k + \\ldots$ and $f$ is a converging series.\n\nSimplify $f$ in terms of $x$.",
+          "marks": 3,
+          "memoText": "$f(x) = \\dfrac{x + 1}{1 - (x + 1)} = \\dfrac{x + 1}{1 - x - 1} = \\dfrac{x + 1}{-x}$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-8-b",
+          "label": "8(b)",
+          "questionText": "Determine the domain of $f$.",
+          "marks": 2,
+          "memoText": "$-1 < x + 1 < 1$\n$-2 < x < 0$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-8-c",
+          "label": "8(c)",
+          "questionText": "Determine $f'\\left(-\\dfrac{1}{2}\\right)$.",
+          "marks": 3,
+          "memoText": "$f(x) = \\dfrac{x + 1}{-x} = -1 - \\dfrac{1}{x}$\n$f'(x) = \\dfrac{1}{x^2}$\n$f'\\left(-\\dfrac{1}{2}\\right) = \\dfrac{1}{\\left(-\\tfrac{1}{2}\\right)^2} = 4$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Parabola & Hyperbola with Axes of Symmetry",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-9-a",
+          "label": "9(a)",
+          "questionText": "In the diagram $f(x) = a(x - m)^2 + k$ and $h(x) = \\dfrac{1}{x - p} + q$. The equations of the axes of symmetry of $h$ are $y = -x + 2$ and $y = x + 6$. D is the turning point of $f$ and lies on both axes of symmetry of $h$. C is a point of intersection of $h$ and the axis of symmetry $y = x + 6$. A and B are $x$-intercepts (of the axes of symmetry). The graph of $f$ passes through the origin.\n\nDetermine the domain of $h$.",
+          "marks": 3,
+          "memoText": "The asymptotes meet where the axes of symmetry meet: $-x + 2 = x + 6 \\Rightarrow -2x = 4 \\Rightarrow x = -2$, so $p = -2$.\nDomain: $x \\in \\mathbb{R}$, $x \\neq -2$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-9-b",
+          "label": "9(b)",
+          "questionText": "Determine the values of $a$, $m$ and $k$.",
+          "marks": 4,
+          "memoText": "D is the intersection of the axes of symmetry: $x = -2$, $y = -(-2) + 2 = 4$, so $D(-2; 4)$.\nD is the turning point of $f$, so $m = -2$ and $k = 4$.\n$f$ passes through the origin: $0 = a(0 + 2)^2 + 4 \\Rightarrow 0 = 4a + 4 \\Rightarrow a = -1$.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-9-c",
+          "label": "9(c)",
+          "questionText": "Find the coordinates of A and B.",
+          "marks": 3,
+          "memoText": "$0 = -x + 2 \\Rightarrow x = 2$, so $B(2; 0)$.\n$0 = x + 6 \\Rightarrow x = -6$, so $A(-6; 0)$.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-9-d",
+          "label": "9(d)",
+          "questionText": "Determine the area of $\\triangle$ABC.",
+          "marks": 6,
+          "memoText": "The asymptotes meet at $(-2; 4)$, so $q = 4$ and $h(x) = \\dfrac{1}{x + 2} + 4$.\nC is where $h$ meets $y = x + 6$:\n$\\dfrac{1}{x + 2} + 4 = x + 6$\n$1 + 4(x + 2) = (x + 6)(x + 2)$\n$1 + 4x + 8 = x^2 + 8x + 12$\n$0 = x^2 + 4x + 3 = (x + 3)(x + 1)$\n$x = -3$ or $x = -1$; C is at $x = -1$: $y = -1 + 6 = 5$, so $C(-1; 5)$.\n$\\triangle$ABC: base $AB = 2 - (-6) = 8$; height $= y_C = 5$.\n$\\text{Area} = \\dfrac{1}{2}(8)(5) = 20$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Reflected Exponential Graph & a Function from Ordered Pairs",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-10-a-1",
+          "label": "10(a)(1)",
+          "questionText": "If $g(x) = -a^{-x} + k$ then determine the coordinates of the $x$-intercept of the graph of $g$ in terms of $a$ and $k$.",
+          "marks": 3,
+          "memoText": "$0 = -a^{-x} + k$\n$k = a^{-x}$\n$-x = \\log_a k$\n$x = -\\log_a k$, so the $x$-intercept is $(-\\log_a k; 0)$.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-10-a-2",
+          "label": "10(a)(2)",
+          "questionText": "Sketch the graph of $y = g(x)$ if $0 < a < 1$ and $k > 2$.",
+          "marks": 3,
+          "memoText": "$g(x) = -a^{-x} + k$. Since $0 < a < 1$, $a^{-x}$ increases as $x$ increases, so $g$ is decreasing.\nHorizontal asymptote $y = k$ (with $k > 2$); the curve approaches $y = k$ from below as $x \\to -\\infty$ and decreases steeply for large $x$.\n$x$-intercept: $(-\\log_a k; 0)$; $y$-intercept: $(0; k - 1)$.\nMarks: asymptote; shape; intercept.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-10-b-1",
+          "label": "10(b)(1)",
+          "questionText": "Given that $f = \\{(-1; 2); (2; -1); (4; 7); (-3; 1); (5; 6)\\}$.\n\nIs $f$ a function? Explain.",
+          "marks": 2,
+          "memoText": "Yes. Each input ($x$-value) has exactly one output, so $f$ is a function.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-10-b-2",
+          "label": "10(b)(2)",
+          "questionText": "Give the domain of $f^{-1}$.",
+          "marks": 1,
+          "memoText": "$\\{2; -1; 7; 1; 6\\}$  (the range of $f$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-10-b-3",
+          "label": "10(b)(3)",
+          "questionText": "Determine $p$ if $f\\left[f^{-1}(2)\\right] = p$.",
+          "marks": 2,
+          "memoText": "$f^{-1}(2) = -1$\n$f(-1) = 2$\n$p = 2$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Interpreting the Derivative Graph",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-11-a",
+          "label": "11(a)",
+          "questionText": "In the diagram, the graph of $y = f'(x)$, the derivative of $y = f(x)$, is drawn. $x = -\\dfrac{1}{2}$ and $x = 5$ are the $x$-intercepts of $f'$ and $y = \\dfrac{5}{2}$ is the $y$-intercept of $f'$.\n\nDetermine the values of $x$ for which $f$ is increasing.",
+          "marks": 2,
+          "memoText": "$f$ is increasing where $f'(x) > 0$: $-\\dfrac{1}{2} < x < 5$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-11-b",
+          "label": "11(b)",
+          "questionText": "Determine the value of $x$ for which $f''(x) = 0$.",
+          "marks": 1,
+          "memoText": "$f''(x) = 0$ at the turning point of $f'$, midway between its roots:\n$x = \\dfrac{-\\tfrac{1}{2} + 5}{2} = \\dfrac{9}{4}$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-11-c",
+          "label": "11(c)",
+          "questionText": "Determine the equation of the tangent to the curve $f$ at the point $(0; 9)$.",
+          "marks": 2,
+          "memoText": "Gradient $= f'(0) = \\dfrac{5}{2}$ (the $y$-intercept of $f'$).\n$y = \\dfrac{5}{2}x + c$; through $(0; 9)$: $c = 9$.\n$y = \\dfrac{5}{2}x + 9$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-11-d",
+          "label": "11(d)",
+          "questionText": "For which value(s) of $x$ is $\\dfrac{f'(x)}{2x} \\leq 0$?",
+          "marks": 3,
+          "memoText": "The quotient is $\\leq 0$ where $f'(x)$ and $2x$ have opposite signs (or $f'(x) = 0$):\n$-\\dfrac{1}{2} \\leq x < 0$  or  $x \\geq 5$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Optimisation — Minimum Surface Area of a Can",
+      "totalMarks": 6,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-12",
+          "label": "12",
+          "questionText": "A local food packaging company produces canned food in the shape of cylinders, each with a fixed volume of $150\\pi$ cm$^3$. To reduce production costs, the company aims to minimise the total surface area of each can.\n\nGiven that $r$ represents the radius and $h$ the can's height, determine the radius which will result in minimum surface area.\n\nUseful formulae: $S = 2\\pi r^2 + 2\\pi rh$ and $V = \\pi r^2 h$.",
+          "marks": 6,
+          "memoText": "$\\pi r^2 h = 150\\pi \\Rightarrow h = \\dfrac{150}{r^2}$\n$S = 2\\pi r^2 + 2\\pi r\\left(\\dfrac{150}{r^2}\\right) = 2\\pi r^2 + \\dfrac{300\\pi}{r}$\n$\\dfrac{dS}{dr} = 4\\pi r - 300\\pi r^{-2}$\n$4\\pi r - 300\\pi r^{-2} = 0$\n$4r^3 = 300$\n$r^3 = 75$\n$r = \\sqrt[3]{75}$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Sets, Independence & Probability",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2025-13-a-1",
+          "label": "13(a)(1)",
+          "questionText": "In a group of 21 learners: 11 have taken History; 6 have taken History but not Geography.\n\nDetermine the number of students who have taken History and Geography.",
+          "marks": 1,
+          "memoText": "$H \\text{ and } G = 11 - 6 = 5$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-13-a-2",
+          "label": "13(a)(2)",
+          "questionText": "Determine the maximum number of students who have taken Geography but not History.",
+          "marks": 2,
+          "memoText": "The maximum is $21 - 11 = 10$ students.",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-13-a-3",
+          "label": "13(a)(3)",
+          "questionText": "If 7 students take Geography, are the events 'Taking History as a Subject' and 'Taking Geography as a Subject' independent or not?",
+          "marks": 3,
+          "memoText": "$P(H \\text{ and } G) = \\dfrac{5}{21}$\n$P(H) \\times P(G) = \\dfrac{11}{21} \\times \\dfrac{7}{21}$\n$P(H \\text{ and } G) \\neq P(H) \\times P(G)$\nThe events are NOT independent.",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-13-b",
+          "label": "13(b)",
+          "questionText": "A password uses two letters of the alphabet, followed by four digits from 0 to 9, where repetition of letters and digits is allowed. What is the probability that the code starts with a vowel and ends with an even digit greater than 4?",
+          "marks": 4,
+          "memoText": "$n(S) = 26 \\times 26 \\times 10 \\times 10 \\times 10 \\times 10$\n$n(E) = 5 \\times 26 \\times 10 \\times 10 \\times 10 \\times 2$ (5 vowels; last digit $\\in \\{6, 8\\}$)\n$P(E) = \\dfrac{5 \\times 26 \\times 10 \\times 10 \\times 10 \\times 2}{26 \\times 26 \\times 10 \\times 10 \\times 10 \\times 10} = \\dfrac{1}{26}$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2025-13-c",
+          "label": "13(c)",
+          "questionText": "Given that A and B are two events in a sample space S, with $n(S) = 10$ and $n(A) = 9$, and $P(B') = 0{,}2$.\n\nMasego argues that the probability of A and B is at least 70%. Do you agree with this claim? Justify your answer with reasoning and calculations.",
+          "marks": 5,
+          "memoText": "$P(A) = \\dfrac{9}{10} = 0{,}9$ and $P(B) = 1 - 0{,}2 = 0{,}8$.\n$P(A \\text{ and } B) = P(A) + P(B) - P(A \\text{ or } B) = 0{,}9 + 0{,}8 - P(A \\text{ or } B) = 1{,}7 - P(A \\text{ or } B)$.\nSince $0 \\leq P(A \\text{ or } B) \\leq 1$: $P(A \\text{ and } B) \\geq 1{,}7 - 1 = 0{,}7$.\nMasego's claim is correct.",
+          "topic": "Probability",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,480 @@
+{
+  "id": "math-ieb-p1-nov-2024",
+  "subject": "Mathematics IEB",
+  "subjectCode": "mathematics-ieb",
+  "paperCode": "P1",
+  "year": 2024,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Equations & Inequalities",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2024-1-a-1",
+          "label": "1(a)(1)",
+          "questionText": "Solve for $x$: $\\left(\\dfrac{x}{4} - 1\\right)(x + 2) = 0$.",
+          "marks": 2,
+          "memoText": "$x = 4$  or  $x = -2$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-1-a-2",
+          "label": "1(a)(2)",
+          "questionText": "Use the formula $x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ to solve for $x$ if $2x^2 - x = 12$. Show all working.",
+          "marks": 4,
+          "memoText": "$2x^2 - x - 12 = 0$\n$x = \\dfrac{1 \\pm \\sqrt{(-1)^2 - 4(2)(-12)}}{2(2)}$\n$x = -2{,}21$  or  $x = 2{,}71$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-1-a-3",
+          "label": "1(a)(3)",
+          "questionText": "Solve for $x$ if $x^2 + 2x \\leq 0$.",
+          "marks": 3,
+          "memoText": "$x(x + 2) \\leq 0$\nCritical values: $x = 0$ and $x = -2$\n$-2 \\leq x \\leq 0$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-1-b",
+          "label": "1(b)",
+          "questionText": "Determine the value(s) of $k$ for which the roots of $x\\left(\\dfrac{1}{2}x + 2\\right) = -k^2$ are equal.",
+          "marks": 4,
+          "memoText": "$\\dfrac{1}{2}x^2 + 2x + k^2 = 0$\n$\\Delta = (2)^2 - 4\\left(\\dfrac{1}{2}\\right)(k^2) = 0$\n$4 - 2k^2 = 0$\n$k^2 = 2$\n$k = \\pm\\sqrt{2}$  (two values)",
+          "topic": "Algebra",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Exponents, Surds & Logarithms",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2024-2-a",
+          "label": "2(a)",
+          "questionText": "Solve for $x$, in terms of $y$, if $3^{x + 2y} = \\dfrac{9^{3y}}{27}$.",
+          "marks": 3,
+          "memoText": "$3^{x + 2y} = \\dfrac{3^{6y}}{3^3} = 3^{6y - 3}$\n$x + 2y = 6y - 3$\n$x = 4y - 3$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-2-b",
+          "label": "2(b)",
+          "questionText": "Solve for $x$ if $\\sqrt{x + 8} - x = 2$.",
+          "marks": 5,
+          "memoText": "$\\sqrt{x + 8} = 2 + x$\n$x + 8 = (x + 2)^2 = x^2 + 4x + 4$\n$0 = x^2 + 3x - 4$\n$0 = (x + 4)(x - 1)$\n$x \\neq -4$, so $x = 1$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-2-c-1",
+          "label": "2(c)(1)",
+          "questionText": "If $\\log 6 = x$ and $\\log 3 = y$, determine $\\log 18$ in terms of $x$ and $y$.",
+          "marks": 2,
+          "memoText": "$\\log 18 = \\log(6 \\times 3) = \\log 6 + \\log 3 = x + y$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-2-c-2",
+          "label": "2(c)(2)",
+          "questionText": "Determine $\\log \\sqrt{3}$ in terms of $x$ and $y$.",
+          "marks": 2,
+          "memoText": "$\\log 3^{\\frac{1}{2}} = \\dfrac{1}{2}\\log 3 = \\dfrac{1}{2}y$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-2-c-3",
+          "label": "2(c)(3)",
+          "questionText": "Determine $\\log 2$ in terms of $x$ and $y$.",
+          "marks": 2,
+          "memoText": "$\\log 2 = \\log \\dfrac{6}{3} = \\log 6 - \\log 3 = x - y$",
+          "topic": "Algebra",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Differentiation & the Parabola",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2024-3-a",
+          "label": "3(a)",
+          "questionText": "Using first principles, find $f'(x)$ if $f(x) = x^2 + 1$.",
+          "marks": 5,
+          "memoText": "$f'(x) = \\displaystyle\\lim_{h \\to 0} \\dfrac{(x + h)^2 + 1 - (x^2 + 1)}{h}$\n$= \\displaystyle\\lim_{h \\to 0} \\dfrac{x^2 + 2xh + h^2 + 1 - x^2 - 1}{h}$\n$= \\displaystyle\\lim_{h \\to 0} \\dfrac{h(2x + h)}{h}$\n$f'(x) = 2x$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-3-b",
+          "label": "3(b)",
+          "questionText": "Find $f'(x)$, if $f(x) = 2x^4 + \\dfrac{1}{\\sqrt[4]{x}} - 4$.",
+          "marks": 4,
+          "memoText": "$f(x) = 2x^4 + x^{-\\frac{1}{4}} - 4$\n$f'(x) = 8x^3 - \\dfrac{1}{4}x^{-\\frac{5}{4}}$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-3-c-1",
+          "label": "3(c)(1)",
+          "questionText": "In the diagram $f(x) = x^2 - 3x - 4$; A and B are the $x$-intercepts of $f$ and D is the turning point of $f$.\n\nDetermine the coordinates of A and B.",
+          "marks": 3,
+          "memoText": "$x^2 - 3x - 4 = 0$\n$(x - 4)(x + 1) = 0$\n$x = 4$ or $x = -1$\n$A(-1; 0)$ and $B(4; 0)$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-3-c-2",
+          "label": "3(c)(2)",
+          "questionText": "Determine the coordinates of D.",
+          "marks": 3,
+          "memoText": "$f'(x) = 2x - 3 = 0 \\Rightarrow x = \\dfrac{3}{2}$\n$f\\left(\\dfrac{3}{2}\\right) = \\left(\\dfrac{3}{2}\\right)^2 - 3\\left(\\dfrac{3}{2}\\right) - 4 = -\\dfrac{25}{4}$\n$D\\left(\\dfrac{3}{2}; -\\dfrac{25}{4}\\right)$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-3-c-3",
+          "label": "3(c)(3)",
+          "questionText": "For which values of $x$ will the gradient of the tangent to $f$ be negative?",
+          "marks": 1,
+          "memoText": "$x < \\dfrac{3}{2}$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-3-c-4",
+          "label": "3(c)(4)",
+          "questionText": "Find all the values of $x$ for which the gradient of the tangent to $f$ will be parallel to the line $y = -4x + 4$.",
+          "marks": 4,
+          "memoText": "$m = -4$\n$2x - 3 = -4$\n$2x = -1$\n$x = -\\dfrac{1}{2}$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Arithmetic Sequence",
+      "totalMarks": 6,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2024-4-a",
+          "label": "4(a)",
+          "questionText": "Given that $5x - 1$, $3x + 1$ and $2x$ are the first three terms of an arithmetic sequence.\n\nFind the numerical values of the first three terms of the sequence.",
+          "marks": 4,
+          "memoText": "$(3x + 1) - (5x - 1) = 2x - (3x + 1)$\n$-2x + 2 = -x - 1$\n$-x = -3$\n$x = 3$\nFirst three terms: $14 ; 10 ; 6$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-4-b",
+          "label": "4(b)",
+          "questionText": "Write down the $n$th term of the sequence.",
+          "marks": 2,
+          "memoText": "$T_n = a + (n - 1)d = 14 + (n - 1)(-4) = 18 - 4n$",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Cubic Function & Point of Inflection",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2024-5-a",
+          "label": "5(a)",
+          "questionText": "In the diagram $f(x) = x^3 + px^2 + 3x - 9$. A and C are the turning points of $f$; A and B are the $x$-intercepts; $E\\left(-\\dfrac{5}{3}; y\\right)$ is the point of inflection.\n\nDetermine the value of $p$.",
+          "marks": 4,
+          "memoText": "$f'(x) = 3x^2 + 2px + 3$\n$f''(x) = 6x + 2p$\nAt the point of inflection $x = -\\dfrac{5}{3}$: $0 = 6\\left(-\\dfrac{5}{3}\\right) + 2p$\n$0 = -10 + 2p$\n$p = 5$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-5-b-1",
+          "label": "5(b)(1)",
+          "questionText": "If $p = 5$ then calculate the coordinates of the turning point at C.",
+          "marks": 4,
+          "memoText": "$f(x) = x^3 + 5x^2 + 3x - 9$\n$f'(x) = 3x^2 + 10x + 3 = 0$\n$(3x + 1)(x + 3) = 0$\n$x = -3$ or $x = -\\dfrac{1}{3}$; C is at $x = -\\dfrac{1}{3}$.\n$f\\left(-\\dfrac{1}{3}\\right) = -\\dfrac{256}{27}$\n$C\\left(-\\dfrac{1}{3}; -\\dfrac{256}{27}\\right)$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-5-b-2",
+          "label": "5(b)(2)",
+          "questionText": "Calculate the $x$-coordinate of B.",
+          "marks": 2,
+          "memoText": "$0 = x^3 + 5x^2 + 3x - 9 = (x - 1)(x + 3)^2$\n$x = 1$ or $x = -3$; B is at $x = 1$, so $B(1; 0)$.",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Financial Mathematics — Effective Rate & Home Loan",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2024-6-a",
+          "label": "6(a)",
+          "questionText": "An amount of money was invested at a rate of 6% p.a. compounded quarterly.\n\nCalculate the effective interest rate % per annum of the investment. Give your answer correct to two decimal places.",
+          "marks": 3,
+          "memoText": "$1 + i_{\\text{eff}} = \\left(1 + \\dfrac{0{,}06}{4}\\right)^4$\n$i_{\\text{eff}} = 0{,}06136$\n$\\therefore i_{\\text{eff}} = 6{,}14\\%$ p.a.",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-6-b-1",
+          "label": "6(b)(1)",
+          "questionText": "Masego buys a flat for R940 000. She pays a 25% deposit and secures a loan for the balance, to be repaid in equal monthly instalments over a period of 20 years.\n\nIf interest is calculated at 11,25% p.a. compounded monthly, what will her monthly instalment be, if payments start 1 month after the loan is granted and continue for the full 20 years?",
+          "marks": 4,
+          "memoText": "Deposit $= 0{,}25 \\times 940\\,000 = \\text{R}235\\,000$; loan $= \\text{R}705\\,000$.\n$705\\,000 = \\dfrac{x\\left[1 - \\left(1 + \\dfrac{0{,}1125}{12}\\right)^{-240}\\right]}{\\dfrac{0{,}1125}{12}}$\n$x = \\text{R}7\\,397{,}25$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-6-b-2",
+          "label": "6(b)(2)",
+          "questionText": "After 11 years, Masego has some financial problems and is unable to continue to pay her original instalments. Calculate the balance outstanding on Masego's loan immediately after she has made her payment at the end of the 11th year.",
+          "marks": 5,
+          "memoText": "$B.O. = 705\\,000\\left(1 + \\dfrac{0{,}1125}{12}\\right)^{132} - \\dfrac{7\\,397{,}25\\left[\\left(1 + \\dfrac{0{,}1125}{12}\\right)^{132} - 1\\right]}{\\dfrac{0{,}1125}{12}}$\n$B.O. = \\text{R}501\\,020{,}53$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Quadratic Sequence",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2024-7-a",
+          "label": "7(a)",
+          "questionText": "The first five terms of a quadratic sequence are $3 ; 9 ; 17 ; 27 ; 39 ; \\ldots$\n\nDetermine the $n$th term of the sequence.",
+          "marks": 4,
+          "memoText": "First differences: $6, 8, 10, 12$; second difference $= 2$.\n$2a = 2 \\Rightarrow a = 1$\n$3a + b = 6 \\Rightarrow b = 3$\n$a + b + c = 3 \\Rightarrow 1 + 3 + c = 3 \\Rightarrow c = -1$\n$T_n = n^2 + 3n - 1$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-7-b",
+          "label": "7(b)",
+          "questionText": "Tlhogi claims that 161 is a term of the sequence. Show if Tlhogi is correct or not.",
+          "marks": 4,
+          "memoText": "$n^2 + 3n - 1 = 161$\n$n^2 + 3n - 162 = 0$\n$\\Delta = (3)^2 - 4(1)(-162) = 657$, which is not a perfect square, so the roots are irrational and unequal.\n$n = \\dfrac{-3 \\pm \\sqrt{657}}{2} = 11{,}32$ or $-14{,}32$; $n$ is not a natural number.\n$\\therefore$ Tlhogi is incorrect.",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Infinite Geometric Series & Sequence of Circles",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2024-8-a-1",
+          "label": "8(a)(1)",
+          "questionText": "Given $\\displaystyle\\sum_{n=0}^{\\infty}\\left(\\dfrac{x + 2}{2}\\right)^n$.\n\nWrite down an expression for the sum of the first three terms.",
+          "marks": 2,
+          "memoText": "$1 + \\left(\\dfrac{x + 2}{2}\\right)^1 + \\left(\\dfrac{x + 2}{2}\\right)^2$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-8-a-2",
+          "label": "8(a)(2)",
+          "questionText": "For which values of $x$ will the given sum to infinity converge?",
+          "marks": 3,
+          "memoText": "$-1 < \\dfrac{x + 2}{2} < 1$\n$-2 < x + 2 < 2$\n$-4 < x < 0$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-8-a-3",
+          "label": "8(a)(3)",
+          "questionText": "If the sum converges find $\\displaystyle\\sum_{n=0}^{\\infty}\\left(\\dfrac{x + 2}{2}\\right)^n$ in terms of $x$. Simplify your answer.",
+          "marks": 3,
+          "memoText": "$S_\\infty = \\dfrac{1}{1 - \\left(\\dfrac{x + 2}{2}\\right)} = \\dfrac{1}{1 - \\left(1 + \\dfrac{x}{2}\\right)} = -\\dfrac{2}{x}$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-8-a-4",
+          "label": "8(a)(4)",
+          "questionText": "If $f(x) = \\displaystyle\\sum_{n=0}^{\\infty}\\left(\\dfrac{x + 2}{2}\\right)^n$, sketch the graph of $y = f(x)$.",
+          "marks": 3,
+          "memoText": "$f(x) = -\\dfrac{2}{x}$ for $-4 < x < 0$.\nOpen end point at $x = -4$, $\\left(-4; \\dfrac{1}{2}\\right)$; the curve rises steeply as $x \\to 0^-$ with the vertical asymptote $x = 0$.\nMarks: shape; restriction; asymptote (show a point that lies on the curve, or imply one).",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-8-b-1",
+          "label": "8(b)(1)",
+          "questionText": "In the diagram, a number of touching circles, with centres along the $x$-axis, are drawn. The left-most circle, with an area of $324\\pi$, touches the $y$-axis at the origin. The radius of the second circle is two-thirds of the radius of the first circle, the third circle's radius is two-thirds of the second, and so on. $f(x) = -\\dfrac{20}{11449}x^2 + 20$ is drawn for $0 \\leq x \\leq a$ where $A(a; 0)$ is a point on the $x$-axis.\n\nDetermine $a$.",
+          "marks": 2,
+          "memoText": "$0 = -\\dfrac{20}{11449}x^2 + 20$\n$x^2 = 11449$\n$x = \\pm 107$; since $x \\geq 0$: $a = 107$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-8-b-2",
+          "label": "8(b)(2)",
+          "questionText": "If circles are drawn touching each other as shown above, determine the maximum number of circles that can be drawn if the row of circles does not go beyond point A.",
+          "marks": 5,
+          "memoText": "First circle: $\\pi r^2 = 324\\pi \\Rightarrow r = 18$, so diameter $= 36$.\nThe diameters form a geometric series with ratio $r = \\dfrac{2}{3}$: $S_n = 36 + 24 + 16 + \\ldots$\nRequire $S_n \\leq 107$: $\\dfrac{36\\left[\\left(\\tfrac{2}{3}\\right)^n - 1\\right]}{\\tfrac{2}{3} - 1} \\leq 107 \\Rightarrow \\left(\\dfrac{2}{3}\\right)^n > \\dfrac{1}{108}$\n$n < 11{,}55$\n$\\therefore n = 11$ circles",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Parabola & Hyperbola; Logarithmic Function",
+      "totalMarks": 19,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2024-9-a-1",
+          "label": "9(a)(1)",
+          "questionText": "In the diagram $f(x) = a(x - p)^2 + q$ and $g(x) = \\dfrac{k}{x - 2} + m$. The range of $g$ is $y \\in \\mathbb{R}: y \\neq 3$. D is the turning point of $f$ and lies on both asymptotes of $g$. $A(3; 5)$ is a point of intersection of $f$ and $g$. B and C are $y$-intercepts (B on $g$, C on $f$).\n\nState the domain of $g$.",
+          "marks": 1,
+          "memoText": "$x \\in \\mathbb{R}$, $x \\neq 2$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-9-a-2",
+          "label": "9(a)(2)",
+          "questionText": "Determine the values of $a$, $p$ and $q$.",
+          "marks": 3,
+          "memoText": "D is the intersection of the asymptotes $(2; 3)$ and is the turning point of $f$, so $p = 2$ and $q = 3$: $f(x) = a(x - 2)^2 + 3$.\nUsing $A(3; 5)$: $5 = a(3 - 2)^2 + 3 \\Rightarrow a = 2$.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-9-a-3",
+          "label": "9(a)(3)",
+          "questionText": "Find the numerical length of BC.",
+          "marks": 6,
+          "memoText": "$g(x) = \\dfrac{k}{x - 2} + 3$; using $A(3; 5)$: $5 = \\dfrac{k}{3 - 2} + 3 \\Rightarrow k = 2$, so $g(x) = \\dfrac{2}{x - 2} + 3$.\nB ($y$-intercept of $g$): $g(0) = \\dfrac{2}{-2} + 3 = 2$, so $B(0; 2)$.\nC ($y$-intercept of $f$): $f(0) = 2(0 - 2)^2 + 3 = 11$, so $C(0; 11)$.\n$BC = 11 - 2 = 9$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-9-a-4",
+          "label": "9(a)(4)",
+          "questionText": "State the values of $x$ for which $f(x) \\cdot g(x) > 0$.",
+          "marks": 4,
+          "memoText": "$g$ has an $x$-intercept where $0 = \\dfrac{2}{x - 2} + 3 \\Rightarrow x = \\dfrac{4}{3}$.\n$f(x) > 0$ for all $x$ (minimum value 3). So $f(x) \\cdot g(x) > 0$ where $g(x) > 0$:\n$x < \\dfrac{4}{3}$  or  $x > 2$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-9-b",
+          "label": "9(b)",
+          "questionText": "Given that $h(x) = \\log_k(x + m)$ with $h(4) = 0$ and $h^{-1}(-1) = \\dfrac{31}{10}$.\n\nDetermine the value(s) of $m$ and $k$.",
+          "marks": 5,
+          "memoText": "$h(4) = 0$: $\\log_k(4 + m) = 0 \\Rightarrow 4 + m = k^0 = 1 \\Rightarrow m = -3$.\n$h^{-1}(-1) = \\dfrac{31}{10}$ means $h\\left(\\dfrac{31}{10}\\right) = -1$:\n$\\log_k\\left(\\dfrac{31}{10} - 3\\right) = -1 \\Rightarrow \\log_k\\left(\\dfrac{1}{10}\\right) = -1 \\Rightarrow \\dfrac{1}{10} = k^{-1} \\Rightarrow k = 10$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Two Parabolas with a Common Tangent",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2024-10-a",
+          "label": "10(a)",
+          "questionText": "Two functions $f$ and $g$ have a common tangent at $A(8; a)$ and B respectively.\n\n- $f(x) = x^2 - 14x + 43$\n- $g(x) = -x^2 + 10x - 19 + k$\n\nDetermine the equation of the common tangent.",
+          "marks": 5,
+          "memoText": "$f'(x) = 2x - 14$; $f'(8) = 2$ (gradient); $f(8) = 64 - 112 + 43 = -5$, so $A(8; -5)$.\n$y = 2x + c$; $-5 = 2(8) + c \\Rightarrow c = -21$\n$y = 2x - 21$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-10-b",
+          "label": "10(b)",
+          "questionText": "Determine the value of $k$.",
+          "marks": 4,
+          "memoText": "$g'(x) = -2x + 10$; setting the gradient equal to 2: $-2x + 10 = 2 \\Rightarrow x = 4$, so B is at $x = 4$.\nOn the tangent: $y = 2(4) - 21 = -13$, so $B(4; -13)$.\n$g(4) = -13$: $-13 = -(4)^2 + 10(4) - 19 + k$\n$-13 = 5 + k$\n$k = -18$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Optimisation — Largest Rectangle in a Triangle",
+      "totalMarks": 7,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2024-11",
+          "label": "11",
+          "questionText": "Rectangle ABCD is placed inside an isosceles triangle GEF. A and B lie on the equal sides GF and GE respectively. F, D, C and $E(k; 0)$ lie on the $x$-axis. The height of the triangle GEF is a third of the length of its base FE.\n\nCalculate the area of the largest possible rectangle ABCD in terms of $k$.",
+          "marks": 7,
+          "memoText": "With $E(k; 0)$ and $F(-k; 0)$: base $FE = 2k$ and height $OG = \\dfrac{1}{3}(2k) = \\dfrac{2k}{3}$, so $G\\left(0; \\dfrac{2k}{3}\\right)$.\nLine GE: $y = -\\dfrac{2}{3}x + \\dfrac{2}{3}k$.\nLet B be on GE at $x$; by symmetry the rectangle has width $2x$ and height $y$.\n$A = 2x\\left(-\\dfrac{2}{3}x + \\dfrac{2}{3}k\\right) = -\\dfrac{4}{3}x^2 + \\dfrac{4}{3}xk$\n$\\dfrac{dA}{dx} = -\\dfrac{8}{3}x + \\dfrac{4}{3}k = 0 \\Rightarrow 8x = 4k \\Rightarrow x = \\dfrac{1}{2}k$\n$A = 2 \\cdot \\dfrac{1}{2}k\\left(-\\dfrac{2}{3}\\cdot\\dfrac{1}{2}k + \\dfrac{2}{3}k\\right) = k\\left(-\\dfrac{1}{3}k + \\dfrac{2}{3}k\\right) = \\dfrac{1}{3}k^2$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Counting Principle, Probability & Venn Diagram",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2024-12-a-1",
+          "label": "12(a)(1)",
+          "questionText": "Every client of a certain bank has a personal identification number (PIN) which consists of four randomly chosen digits from 0 to 9.\n\nHow many unique four-digit PINs can be created, if repetition is not allowed?",
+          "marks": 2,
+          "memoText": "$10 \\times 9 \\times 8 \\times 7 = 5\\,040$  (i.e. $\\dfrac{10!}{6!}$ or $^{10}P_4$)",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-12-a-2",
+          "label": "12(a)(2)",
+          "questionText": "If a PIN is made by selecting four digits at random, and repetition is allowed, what is the probability that the PIN includes exactly two 9s?",
+          "marks": 5,
+          "memoText": "Choose the two positions for the 9s: $\\binom{4}{2} = 6$ ways. Each of the other two positions has 9 non-9 choices.\nFavourable $= 6 \\times 9 \\times 9$; total $= 10^4$.\n$P = \\dfrac{6 \\times 9 \\times 9}{10 \\times 10 \\times 10 \\times 10} = \\dfrac{243}{5\\,000} \\approx 0{,}05$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2024-12-b",
+          "label": "12(b)",
+          "questionText": "In the Venn diagram, A and B are two sets within a sample space S.\n\n- $n(S) = 80$\n- $n(B) = 20$ and $P(A) = \\dfrac{1}{2}$\n- $4P(B) = 5P(A \\cap B)$\n- $y$ is the number of elements in $A \\cap B$, $z$ the number in B only, and $x$ the number in neither A nor B.\n\nFind the values of $x$, $y$ and $z$.",
+          "marks": 7,
+          "memoText": "$P(B) = \\dfrac{20}{80} = \\dfrac{1}{4}$.\n$4\\left(\\dfrac{1}{4}\\right) = 5P(A \\cap B) \\Rightarrow P(A \\cap B) = \\dfrac{1}{5}$\n$y = n(A \\cap B) = \\dfrac{1}{5} \\times 80 = 16$\n$z + y = n(B) = 20 \\Rightarrow z = 4$\n$n(A) = \\dfrac{1}{2} \\times 80 = 40$; A only $= 40 - 16 = 24$.\n$x = n(S) - (\\text{A only} + y + z) = 80 - (24 + 16 + 4) = 36$\n$\\therefore x = 36$, $y = 16$, $z = 4$.",
+          "topic": "Probability",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

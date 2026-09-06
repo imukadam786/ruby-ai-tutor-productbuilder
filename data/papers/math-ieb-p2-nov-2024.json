@@ -1,0 +1,584 @@
+{
+  "id": "math-ieb-p2-nov-2024",
+  "subject": "Mathematics IEB",
+  "subjectCode": "mathematics-ieb",
+  "paperCode": "P2",
+  "year": 2024,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Circle Geometry — Reasons & the Tan-Chord Theorem",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-1-a",
+          "label": "1(a)",
+          "questionText": "O is the centre of the circle ABCDE. AF = FE. AG is a tangent to the circle at A. $O\\hat{A}E = 40°$.\n\nComplete the table by filling in the appropriate reason for each of the given statements, in the order given: OA = OE; $\\hat{E}_1 = 40°$; $\\hat{D} = 140°$; $\\hat{F}_1 = 90°$; $\\hat{A}_1 = 50°$; $\\hat{B} = 50°$; $A\\hat{O}E = 100°$.",
+          "marks": 7,
+          "memoText": "OA = OE — radii.\n$\\hat{E}_1 = 40°$ — angles opposite equal sides (radii).\n$\\hat{D} = 140°$ — opposite angles of a cyclic quadrilateral.\n$\\hat{F}_1 = 90°$ — line from the centre bisects a chord (perpendicular to the chord).\n$\\hat{A}_1 = 50°$ — tangent $\\perp$ radius.\n$\\hat{B} = 50°$ — tan-chord theorem.\n$A\\hat{O}E = 100°$ — angle at centre $= 2 \\times$ angle at circle (or interior angles of $\\triangle$).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-1-b",
+          "label": "1(b)",
+          "questionText": "Use the diagram below to prove the statement that says: 'The acute angle formed by a chord and a tangent at the point of contact is equal to the angle in the alternate segment.'\n\nRequired to prove: $\\hat{A}_1 = \\hat{B}$.",
+          "marks": 5,
+          "memoText": "Construction: draw radii OA and OC.\n$O\\hat{A}C = 90° - \\hat{A}_1$ (tangent $\\perp$ radius).\n$O\\hat{C}A = 90° - \\hat{A}_1$ (angles opposite equal sides — radii OA = OC).\n$A\\hat{O}C = 180° - (90° - \\hat{A}_1) - (90° - \\hat{A}_1) = 2\\hat{A}_1$ (interior angles of $\\triangle$).\n$\\hat{B} = \\dfrac{1}{2}A\\hat{O}C = \\hat{A}_1$ (angle at centre $= 2 \\times$ angle at circle).\n$\\therefore \\hat{A}_1 = \\hat{B}$.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Analytical Geometry — Rhombus",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-2-a",
+          "label": "2(a)",
+          "questionText": "PARM is a parallelogram with $P\\left(-3; \\dfrac{9}{2}\\right)$, $A(3; 2)$ and $M(-3; -2)$. The diagonals of the parallelogram intersect at the origin. $\\theta$ is the angle of inclination of line AM.\n\nDetermine the co-ordinates of R.",
+          "marks": 2,
+          "memoText": "R is opposite P, and the diagonals bisect at the origin, so $R = (3; -\\dfrac{9}{2})$.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-2-b",
+          "label": "2(b)",
+          "questionText": "Determine, in simplest surd form, the distance AM.",
+          "marks": 2,
+          "memoText": "$AM = \\sqrt{(-3 - 3)^2 + (-2 - 2)^2} = \\sqrt{36 + 16} = \\sqrt{52} = 2\\sqrt{13}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-2-c",
+          "label": "2(c)",
+          "questionText": "Determine the size of $\\theta$.",
+          "marks": 3,
+          "memoText": "$m_{MA} = \\dfrac{-2 - 2}{-3 - 3} = \\dfrac{2}{3}$\n$\\tan\\theta = \\dfrac{2}{3}$\n$\\theta = 33{,}69°$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-2-d",
+          "label": "2(d)",
+          "questionText": "Determine the equation of the line parallel to AM passing through P, in the form $y = mx + c$.",
+          "marks": 3,
+          "memoText": "$m = \\dfrac{2}{3}$\n$y - \\dfrac{9}{2} = \\dfrac{2}{3}(x + 3)$\n$y = \\dfrac{2}{3}x + \\dfrac{13}{2}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-2-e",
+          "label": "2(e)",
+          "questionText": "Prove that PARM is a rhombus. An appropriate reason must be given in the conclusion.",
+          "marks": 3,
+          "memoText": "$PM = \\sqrt{(-3 - (-3))^2 + \\left(\\dfrac{9}{2} - (-2)\\right)^2} = \\dfrac{13}{2} = 6{,}5$ units.\n$MR = \\sqrt{(-3 - 3)^2 + \\left(-2 - \\left(-\\dfrac{9}{2}\\right)\\right)^2} = \\sqrt{36 + \\dfrac{25}{4}} = 6{,}5$ units.\n$PM = MR$, so PARM is a rhombus (a parallelogram with adjacent sides equal).\n(Alternatively: $m_{PR} = \\dfrac{\\frac{9}{2} + \\frac{9}{2}}{-3 - 3} = -\\dfrac{3}{2}$; $m_{MA} \\times m_{PR} = \\dfrac{2}{3} \\times \\left(-\\dfrac{3}{2}\\right) = -1$, so the diagonals bisect at $90°$ — a parallelogram with perpendicular diagonals is a rhombus.)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Analytical Geometry — Circle & Tangent",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-3-a",
+          "label": "3(a)",
+          "questionText": "A circle with centre N has the equation $x^2 - 2x + y^2 + 2y - 3 = 0$. JK is a tangent at K.\n\nDetermine the centre and the radius length of circle N.",
+          "marks": 3,
+          "memoText": "$x^2 - 2x + 1 + y^2 + 2y + 1 = 3 + 1 + 1$\n$(x - 1)^2 + (y + 1)^2 = 5$\nCentre $N(1; -1)$; radius $= \\sqrt{5}$ units.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-3-b",
+          "label": "3(b)",
+          "questionText": "Determine the co-ordinate K (the point where the circle meets the $x$-axis on the negative side).",
+          "marks": 4,
+          "memoText": "With $y = 0$: $x^2 - 2x + (0)^2 + 2(0) - 3 = 0$\n$x^2 - 2x - 3 = 0 \\Rightarrow (x - 3)(x + 1) = 0 \\Rightarrow x = 3$ or $x = -1$.\n$K(-1; 0)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-3-c",
+          "label": "3(c)",
+          "questionText": "Determine the equation of the tangent JK.",
+          "marks": 3,
+          "memoText": "$m_{NK} = \\dfrac{-1 - 0}{1 - (-1)} = -\\dfrac{1}{2}$, so $m_{JK} = 2$ (perpendicular).\n$y = 2(x + 1)$\n$y = 2x + 2$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-3-d",
+          "label": "3(d)",
+          "questionText": "Determine the size of $K\\hat{L}M$. A relevant reason must be given.",
+          "marks": 3,
+          "memoText": "$\\tan\\theta = 2$ (gradient of the tangent JK / chord KM), so $\\theta = 63{,}43°$.\n$\\hat{L} = 63{,}43°$ (tan-chord theorem).",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Circle Geometry — Similar Triangles in a Semicircle",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-4-a",
+          "label": "4(a)",
+          "questionText": "Circle with centre O has a diameter of 8 units, LM = 4 units and $LN \\perp MP$.\n\nDetermine $\\hat{M}$.",
+          "marks": 2,
+          "memoText": "$\\hat{M} = 90°$ (angle in a semi-circle — LN is a diameter).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-4-b",
+          "label": "4(b)",
+          "questionText": "Prove: $\\triangle$LMN ||| $\\triangle$LPM.",
+          "marks": 3,
+          "memoText": "In $\\triangle$LMN and $\\triangle$LPM:\n$\\hat{L} = \\hat{L}$ (common).\n$\\hat{M} = \\hat{P}_1$ (both $= 90°$).\n$\\hat{M}_1 = \\hat{N}$ (third angle).\n$\\therefore \\triangle$LMN $\\;|||\\;$ $\\triangle$LPM (AAA).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-4-c",
+          "label": "4(c)",
+          "questionText": "Determine LP.",
+          "marks": 3,
+          "memoText": "$\\dfrac{LM}{LP} = \\dfrac{MN}{PM} = \\dfrac{LN}{LM}$ (similar triangles, sides in proportion).\n$LM^2 = LP \\times LN$\n$4^2 = LP \\times 8$\n$LP = 2$ units",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Trigonometric Graphs",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-5-a",
+          "label": "5(a)",
+          "questionText": "Sketched is the graph of $f(x) = \\sin bx$ for $x \\in [-180°; 180°]$, showing two complete waves.\n\nDetermine the value of $b$.",
+          "marks": 1,
+          "memoText": "Period $= \\dfrac{360°}{b} = 180° \\Rightarrow b = 2$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-5-b",
+          "label": "5(b)",
+          "questionText": "State the period of $f$.",
+          "marks": 1,
+          "memoText": "$180°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-5-c",
+          "label": "5(c)",
+          "questionText": "Sketch the graph of $g(x) = -2\\cos x$ on the same set of axes as $f$.",
+          "marks": 3,
+          "memoText": "$g$: reflected cosine curve, amplitude 2. Maximum $2$ at $x = \\pm 180°$; minimum $-2$ at $x = 0°$; $x$-intercepts at $x = \\pm 90°$; $y$-intercept $(0; -2)$.\nMarks: cos shape; consistent amplitude; correct $x$- and $y$-cuts.",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-5-d",
+          "label": "5(d)",
+          "questionText": "State the amplitude of $g$.",
+          "marks": 1,
+          "memoText": "$2$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-5-e",
+          "label": "5(e)",
+          "questionText": "State the general solution for $f(x) = g(x)$.",
+          "marks": 2,
+          "memoText": "$\\sin 2x = -2\\cos x \\Rightarrow 2\\sin x\\cos x + 2\\cos x = 0 \\Rightarrow 2\\cos x(\\sin x + 1) = 0$.\n$\\cos x = 0 \\Rightarrow \\theta = 90° + k\\cdot 180°$, $k \\in \\mathbb{Z}$ (the case $\\sin x = -1$ is included).",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-5-f-1",
+          "label": "5(f)(1)",
+          "questionText": "If $x \\in [-180°; 180°]$, determine the values for $x$ where $f(x) \\geq g(x)$.",
+          "marks": 1,
+          "memoText": "$x \\in [-90°; 90°]$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-5-f-2",
+          "label": "5(f)(2)",
+          "questionText": "If $x \\in [-180°; 180°]$, determine the values for $x$ where $\\dfrac{f(x)}{g(x)} < 0$.",
+          "marks": 2,
+          "memoText": "$x \\in (0°; 90°) \\cup (90°; 180°)$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-5-f-3",
+          "label": "5(f)(3)",
+          "questionText": "If $x \\in [-180°; 180°]$, determine the values for $x$ where $g'(x) > 0$.",
+          "marks": 2,
+          "memoText": "$g(x) = -2\\cos x$, so $g'(x) = 2\\sin x > 0$ where $\\sin x > 0$: $x \\in (0°; 180°)$.",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-5-g",
+          "label": "5(g)",
+          "questionText": "If $g$ is shifted 2 units up and 45° to the right, write down the new equation for $g$ in the form $y = \\ldots$",
+          "marks": 2,
+          "memoText": "$y = -2\\cos(x - 45°) + 2$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Compound Angles & the Cosine Rule",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-6-a-1",
+          "label": "6(a)(1)",
+          "questionText": "Given $\\sin 40° = \\dfrac{p}{4}$.\n\nDetermine $\\sin 50° \\cdot \\cos 10° - \\cos 50° \\cdot \\sin 10°$ in terms of $p$.",
+          "marks": 2,
+          "memoText": "$= \\sin(50° - 10°) = \\sin 40° = \\dfrac{p}{4}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-6-a-2",
+          "label": "6(a)(2)",
+          "questionText": "Determine $\\cos^2 20° - \\sin^2 20°$ in terms of $p$.",
+          "marks": 3,
+          "memoText": "$= \\cos 2(20°) = \\cos 40°$.\nWith $\\sin 40° = \\dfrac{p}{4}$ (opposite $= p$, hypotenuse $= 4$), the adjacent side is $\\sqrt{16 - p^2}$.\n$\\cos 40° = \\dfrac{\\sqrt{16 - p^2}}{4}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-6-a-3",
+          "label": "6(a)(3)",
+          "questionText": "Determine $\\tan 50°$ in terms of $p$.",
+          "marks": 1,
+          "memoText": "$\\tan 50° = \\dfrac{\\sin 50°}{\\cos 50°} = \\dfrac{\\cos 40°}{\\sin 40°} = \\dfrac{\\sqrt{16 - p^2}}{p}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-6-b",
+          "label": "6(b)",
+          "questionText": "In $\\triangle$ABC: AB = 10 units, BC = 12 units and $A\\hat{B}C = 60°$.\n\nDetermine the length of AC.",
+          "marks": 3,
+          "memoText": "$AC^2 = 10^2 + 12^2 - 2(10)(12)\\cos 60° = 100 + 144 - 120 = 124$\n$AC = \\sqrt{124} = 2\\sqrt{31}$ units",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Statistics — Regression, Correlation & Outliers",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-7-a",
+          "label": "7(a)",
+          "questionText": "The table shows the salaries of 10 employees, where $x$ is the number of years the employee has worked at the company and $y$ is the monthly salary in thousands of rands:\n\n| $x$ | 1 | 1 | 2 | 3 | 3 | 5 | 6 | 7 | 8 | 9 |\n| $y$ | 45 | 5 | 15 | 20 | 15 | 25 | 20 | 35 | 43 | 45 |\n\nUse your calculator to determine the equation of the line of best fit in the form $y = A + Bx$.",
+          "marks": 2,
+          "memoText": "$y = 13{,}98 + 2{,}85x$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-7-b",
+          "label": "7(b)",
+          "questionText": "Draw the line of best fit on the scatter plot above, showing the $y$-intercept and the co-ordinate $(\\bar{x}; \\bar{y})$.",
+          "marks": 4,
+          "memoText": "$(\\bar{x}; \\bar{y}) = (4{,}5;\\ 26{,}8)$; $y$-intercept at $(0; 13{,}98)$. Draw the line through both points.\nMarks: $\\bar{x}$; $\\bar{y}$; $y$-intercept; line through $(\\bar{x}; \\bar{y})$ and the $y$-intercept.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-7-c",
+          "label": "7(c)",
+          "questionText": "By using your answer in (b), determine the salary of an employee who has been working at the company for 4 years.",
+          "marks": 2,
+          "memoText": "$y = 13{,}98 + 2{,}85(4) = 25{,}38$, i.e. about R25 000 (25,38 thousand rands).",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-7-d",
+          "label": "7(d)",
+          "questionText": "Calculate the correlation coefficient for the above data.",
+          "marks": 1,
+          "memoText": "$r = 0{,}58$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-7-e",
+          "label": "7(e)",
+          "questionText": "Circle the outlier on the graph.",
+          "marks": 1,
+          "memoText": "The point $(1; 45)$ — an employee with 1 year of service earning R45 000. Circled on the diagram.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-7-f",
+          "label": "7(f)",
+          "questionText": "If this outlier is removed from the data, discuss the effect it will have on the correlation coefficient.",
+          "marks": 1,
+          "memoText": "$r$ will increase (the correlation becomes stronger / more positive).",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Statistics — Ogive, Skewness & Standard Deviation",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-8-a",
+          "label": "8(a)",
+          "questionText": "Study the cumulative frequency curve, which ends at a cumulative frequency of 120.\n\nIf the data for the class intervals above 70 are removed from the curve, determine the difference between the original median and the new median result.",
+          "marks": 3,
+          "memoText": "Original median at cumulative frequency $\\dfrac{120}{2} = 60$: read off $\\approx 62$.\nAfter removing the intervals above 70, the new total is 100; new median at cumulative frequency $\\dfrac{100}{2} = 50$: read off $\\approx 60$.\nDifference $= 62 - 60 = 2$.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-8-b",
+          "label": "8(b)",
+          "questionText": "Study the box-and-whisker plot. Will the mean be bigger or smaller than the median? Explain.",
+          "marks": 2,
+          "memoText": "The data is skewed left (negatively skewed), so the mean will be smaller than the median: $\\bar{x} < Q_2$.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-8-c",
+          "label": "8(c)",
+          "questionText": "Given three numbers 4, 8 and $p$. Using the table with $x$: $4$, $8$, $p$; $x - \\bar{x}$: $-3$, $\\ldots$; $(x - \\bar{x})^2$: $\\ldots$, determine the numerical value of $p$ and the standard deviation of the three numbers.",
+          "marks": 4,
+          "memoText": "$4 - \\bar{x} = -3 \\Rightarrow \\bar{x} = 7$.\n$\\dfrac{4 + 8 + p}{3} = 7 \\Rightarrow p = 9$.\n$x - \\bar{x}$: $-3$, $1$, $2$; $(x - \\bar{x})^2$: $9$, $1$, $4$.\n$\\sigma = \\sqrt{\\dfrac{9 + 1 + 4}{3}} = \\sqrt{\\dfrac{14}{3}} = 2{,}16$",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Circle Geometry — Two Semicircles & Congruent Triangles",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-9-a",
+          "label": "9(a)",
+          "questionText": "Two equal semi-circles are drawn. AC = CD = 26 units and AB = 10 units. AC and DC are tangents to circles CFD and ABC respectively. $GE \\perp FD$.\n\nProve that EG // FC.",
+          "marks": 3,
+          "memoText": "$D\\hat{F}E = 90°$ (angle in a semi-circle).\n$D\\hat{E}G = 90°$ (given — GE $\\perp$ FD).\nSo $D\\hat{F}E = D\\hat{E}G$.\n$\\therefore$ EG // FC (converse — corresponding angles equal).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-9-b",
+          "label": "9(b)",
+          "questionText": "Prove that $\\triangle$ABC $\\equiv$ $\\triangle$CFD and hence that CF is 10 units.",
+          "marks": 6,
+          "memoText": "In $\\triangle$ABC and $\\triangle$DFC:\n$\\hat{C}_1 = \\hat{D}$ (tan-chord theorem).\n$\\hat{C}_2 = \\hat{A}$ (tan-chord theorem).\nAC = CD = 26 (given).\n$\\therefore \\triangle$ABC $\\equiv$ $\\triangle$CFD (AAS).\n$\\therefore$ AB = CF = 10 units.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-9-c",
+          "label": "9(c)",
+          "questionText": "If it is further given that 3BA = 5DE, show that FE = 18 units.",
+          "marks": 2,
+          "memoText": "$3(10) = 5DE \\Rightarrow DE = 6$.\n$FD^2 = 26^2 - 10^2 = 576$ (Pythagoras), so $FD = 24$.\n$FE = FD - DE = 24 - 6 = 18$ units.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-9-d",
+          "label": "9(d)",
+          "questionText": "Determine the value of GC.",
+          "marks": 3,
+          "memoText": "$\\dfrac{CG}{26} = \\dfrac{18}{24}$ (proportion theorem — EG // FC)\n$CG = \\dfrac{18 \\times 26}{24} = 19{,}5$ units",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Circle Geometry — Converse Theorems",
+      "totalMarks": 5,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-10-a",
+          "label": "10(a)",
+          "questionText": "A, B, C, H and D all lie on the circumference of the circle. BGEHF is a straight line, and $\\dfrac{AC}{DF} = \\dfrac{CD}{FE} = \\dfrac{AD}{DE}$.\n\nGive a reason why $\\triangle$ACD ||| $\\triangle$DFE.",
+          "marks": 1,
+          "memoText": "The three pairs of corresponding sides are in proportion (SSS similarity).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-10-b",
+          "label": "10(b)",
+          "questionText": "Prove that DF is a tangent to the circle at D.",
+          "marks": 2,
+          "memoText": "$\\hat{D}_1 = \\hat{A}$ (equiangular — corresponding angles of the similar triangles $\\triangle$ACD ||| $\\triangle$DFE).\n$\\therefore$ DF is a tangent to the circle at D (converse of the tan-chord theorem).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-10-c",
+          "label": "10(c)",
+          "questionText": "Prove that GCFD is a cyclic quadrilateral.",
+          "marks": 2,
+          "memoText": "$\\hat{C} = \\hat{F}$ (equiangular — the similar triangles).\n$\\therefore$ GCFD is a cyclic quadrilateral (converse — angles in the same segment equal).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Trigonometry in Two & Three Dimensions",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-11-a",
+          "label": "11(a)",
+          "questionText": "$\\triangle$ABC is in the horizontal plane, with BC = 10 units, $A\\hat{C}B = 2\\theta - 90°$ and $A\\hat{B}C = 180° - \\theta$. The angle of inclination from A to D is $\\theta$. $\\triangle$ACD is in the vertical plane, with CD = 15 units.\n\nShow that $AC = 10\\tan\\theta$.",
+          "marks": 4,
+          "memoText": "$C\\hat{A}B = 180° - (2\\theta - 90°) - (180° - \\theta) = 90° - \\theta$ (interior angles of $\\triangle$).\nSine rule in $\\triangle$ABC: $\\dfrac{AC}{\\sin(180° - \\theta)} = \\dfrac{10}{\\sin(90° - \\theta)}$\n$AC = \\dfrac{10\\sin\\theta}{\\cos\\theta} = 10\\tan\\theta$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-11-b",
+          "label": "11(b)",
+          "questionText": "Hence, determine the size of $\\theta$ if $\\theta \\in [0°; 90°]$.",
+          "marks": 4,
+          "memoText": "In $\\triangle$ACD: $\\tan\\theta = \\dfrac{DC}{AC} = \\dfrac{15}{10\\tan\\theta}$\n$\\tan^2\\theta = \\dfrac{15}{10} = \\dfrac{3}{2}$\n$\\tan\\theta = \\pm 1{,}22\\ldots$\n$\\theta = 50{,}77°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Trigonometric Identity & General Solution",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-12-a",
+          "label": "12(a)",
+          "questionText": "Prove the following using the fundamental trigonometric identities:\n\n$$\\dfrac{\\cos(360° - 2x) - \\cos(180° + x)}{\\sin 2x - \\cos(90° - x)} = \\dfrac{\\cos x + 1}{\\sin x}$$",
+          "marks": 7,
+          "memoText": "Numerator: $\\cos(360° - 2x) - \\cos(180° + x) = \\cos 2x + \\cos x = (2\\cos^2 x - 1) + \\cos x = 2\\cos^2 x + \\cos x - 1 = (2\\cos x - 1)(\\cos x + 1)$.\nDenominator: $\\sin 2x - \\cos(90° - x) = 2\\sin x\\cos x - \\sin x = \\sin x(2\\cos x - 1)$.\nLHS $= \\dfrac{(2\\cos x - 1)(\\cos x + 1)}{\\sin x(2\\cos x - 1)} = \\dfrac{\\cos x + 1}{\\sin x}$ = RHS.",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-12-b",
+          "label": "12(b)",
+          "questionText": "Determine the general solution for:\n\n$$\\dfrac{\\cos 2x + 1}{\\sin 2x} = 1$$",
+          "marks": 7,
+          "memoText": "$\\dfrac{2\\cos^2 x - 1 + 1}{2\\sin x\\cos x} = 1$\n$\\dfrac{2\\cos^2 x}{2\\sin x\\cos x} = 1$\n$\\dfrac{\\cos x}{\\sin x} = 1 \\Rightarrow \\tan x = 1$\n$x = 45° + k\\cdot 180°$, $k \\in \\mathbb{Z}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Analytical Geometry — Touching Circles & a Tangent",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-13-a",
+          "label": "13(a)",
+          "questionText": "A circle with centre $C(a; b)$ and a circle with centre E and equation $(x - 9)^2 + (y - 10)^2 = r^2$ are drawn. CE = 25 units and is parallel to the $x$-axis. F is the point of tangency between the two circles.\n\nDetermine the co-ordinates of C.",
+          "marks": 3,
+          "memoText": "E is $(9; 10)$. Since CE = 25 and is parallel to the $x$-axis, C has the same $y$-coordinate: $b = 10$, and $a = 9 - 25 = -16$.\n$C(-16; 10)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-13-b",
+          "label": "13(b)",
+          "questionText": "If it is further given that ED = 20 units and is a tangent to the larger circle at D, determine the equation of the circle with centre C.",
+          "marks": 3,
+          "memoText": "$\\hat{D} = 90°$ (tangent $\\perp$ radius — CD $\\perp$ ED).\n$CD^2 = CE^2 - ED^2 = 25^2 - 20^2 = 225$ (Pythagoras), so $CD = 15$ (the radius of circle C).\n$(x + 16)^2 + (y - 10)^2 = 225$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-13-c",
+          "label": "13(c)",
+          "questionText": "Determine the possible values of the radius ($r$) of circle E, such that the two circles will not touch or intersect.",
+          "marks": 2,
+          "memoText": "Distance between centres $= 25$; radius of C $= 15$.\nThe circles do not touch or intersect when $15 + r < 25$ (separate) or $r - 15 > 25$ (E contains C):\n$r \\in (0; 10)$  or  $r \\in (40; \\infty)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Analytical Geometry — Stadium & Capsule",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2024-14-a",
+          "label": "14(a)",
+          "questionText": "A stadium (a rectangle with a semicircle on each of a pair of opposite sides) is drawn on the Cartesian plane. All points on the circumference of the stadium are $2\\sqrt{2}$ units from the line AB, with $A(4; 0)$ and $B(12; 8)$.\n\nDetermine the co-ordinates of P and Q, which lie on the circumference of the figure and are equidistant from A and B.",
+          "marks": 7,
+          "memoText": "P and Q lie on the perpendicular bisector of AB, at distance $2\\sqrt{2}$ from the midpoint $M_{AB}(8; 4)$.\n$m_{AB} = 1$, so $m_{PQ} = -1$: $y - 4 = -1(x - 8) \\Rightarrow y = -x + 12$.\n$MP^2 = (x - 8)^2 + (y - 4)^2 = (2\\sqrt{2})^2 = 8$; substituting $y = -x + 12$:\n$(x - 8)^2 + (-x + 8)^2 = 8 \\Rightarrow 2(x - 8)^2 = 8 \\Rightarrow (x - 8)^2 = 4 \\Rightarrow x = 10$ or $x = 6$.\n$P(6; 6)$ and $Q(10; 2)$.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2024-14-b",
+          "label": "14(b)",
+          "questionText": "A capsule (a cylinder with hemispherical ends) is created when the stadium in question (a) is revolved around the line AB. With the formula $V = \\dfrac{4}{3}\\pi r^3$ for a sphere, determine the volume in units cubed of this capsule.",
+          "marks": 4,
+          "memoText": "Radius $r = 2\\sqrt{2}$; cylinder length $H = AB = \\sqrt{(12 - 4)^2 + (8 - 0)^2} = \\sqrt{128} = 8\\sqrt{2}$.\n$V = \\pi r^2 H + \\dfrac{4}{3}\\pi r^3 = \\pi(2\\sqrt{2})^2 (8\\sqrt{2}) + \\dfrac{4}{3}\\pi(2\\sqrt{2})^3$\n$V \\approx 379{,}13$ units$^3$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,471 @@
+{
+  "id": "math-ieb-p1-nov-2022",
+  "subject": "Mathematics IEB",
+  "subjectCode": "mathematics-ieb",
+  "paperCode": "P1",
+  "year": 2022,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Equations & Inequalities",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2022-1-a-1",
+          "label": "1(a)(1)",
+          "questionText": "Solve for $x$, leaving answers correct to one decimal place if necessary:\n\n$$(3x - 1)(4 - x) = 0$$",
+          "marks": 2,
+          "memoText": "$x = \\dfrac{1}{3}$  or  $x = 4$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-1-a-2",
+          "label": "1(a)(2)",
+          "questionText": "Solve for $x$: $2^{3x} = 7$.",
+          "marks": 2,
+          "memoText": "$3x = \\log_2 7$\n$x = 0{,}9$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-1-a-3",
+          "label": "1(a)(3)",
+          "questionText": "Solve for $x$: $x(x - 1) < 20$.",
+          "marks": 4,
+          "memoText": "$x^2 - x - 20 < 0$\n$(x - 5)(x + 4) < 0$\n$-4 < x < 5$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-1-b",
+          "label": "1(b)",
+          "questionText": "Determine the value(s) of $p$ for which the roots of $x(x - 6) = 2p$ are real and equal.",
+          "marks": 4,
+          "memoText": "$x^2 - 6x - 2p = 0$\n$\\Delta = (-6)^2 - 4(1)(-2p) = 0$\n$36 + 8p = 0$\n$p = -4{,}5$\n(Alternatively: $x^2 - 6x - 2p = 0 \\Rightarrow -2p = 9$ to complete a perfect square $\\Rightarrow p = -4{,}5$.)",
+          "topic": "Algebra",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Equations — Exponents, Logs & Surds",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2022-2-a",
+          "label": "2(a)",
+          "questionText": "Solve for $x$ if $(x + 3)^{\\frac{1}{3}} = -2$.",
+          "marks": 2,
+          "memoText": "$x + 3 = (-2)^3 = -8$\n$x = -11$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-2-b",
+          "label": "2(b)",
+          "questionText": "Solve for $x$ if $\\log_3(x + 5) - \\log_3 x = 1$.",
+          "marks": 4,
+          "memoText": "$\\log_3 \\dfrac{x + 5}{x} = 1$\n$\\dfrac{x + 5}{x} = 3$\n$3x = x + 5$\n$2x = 5$\n$x = 2{,}5$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-2-c-1",
+          "label": "2(c)(1)",
+          "questionText": "If $w = \\sqrt{7 - x}$, then for what value(s) of $x$ is $w$ non-real?",
+          "marks": 2,
+          "memoText": "$w$ is non-real when $7 - x < 0$, i.e. $x > 7$.",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-2-c-2",
+          "label": "2(c)(2)",
+          "questionText": "Solve for $x$ if $w + 2 = x + 1$ (with $w = \\sqrt{7 - x}$).",
+          "marks": 5,
+          "memoText": "$\\sqrt{7 - x} + 2 = x + 1$\n$\\sqrt{7 - x} = x - 1$\n$7 - x = x^2 - 2x + 1$\n$0 = x^2 - x - 6$\n$0 = (x - 3)(x + 2)$\n$x = 3$  ($x \\neq -2$, rejected)",
+          "topic": "Algebra",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Differentiation & Tangents to a Parabola",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2022-3-a",
+          "label": "3(a)",
+          "questionText": "Using first principles, find $g'(x)$ if $g(x) = -3x^2$.",
+          "marks": 4,
+          "memoText": "$g'(x) = \\displaystyle\\lim_{h \\to 0} \\dfrac{-3(x + h)^2 - (-3x^2)}{h}$\n$= \\displaystyle\\lim_{h \\to 0} \\dfrac{-3x^2 - 6xh - 3h^2 + 3x^2}{h}$\n$= \\displaystyle\\lim_{h \\to 0} \\dfrac{h(-6x - 3h)}{h}$\n$g'(x) = -6x$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-3-b",
+          "label": "3(b)",
+          "questionText": "Find $f'(x)$ if $f(x) = \\dfrac{5}{3x} + \\sqrt[3]{x^5}$.",
+          "marks": 4,
+          "memoText": "$f(x) = \\dfrac{5}{3}x^{-1} + x^{\\frac{5}{3}}$\n$f'(x) = -\\dfrac{5}{3}x^{-2} + \\dfrac{5}{3}x^{\\frac{2}{3}}$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-3-c-1",
+          "label": "3(c)(1)",
+          "questionText": "In the diagram $f(x) = x^2 - 2x - 3$, A is the $y$-intercept and B is the positive $x$-intercept of $f$.\n\nCalculate the coordinates of A and B.",
+          "marks": 4,
+          "memoText": "A: $f(0) = -3$, so $A(0; -3)$.\nB: $x^2 - 2x - 3 = 0 \\Rightarrow (x - 3)(x + 1) = 0 \\Rightarrow x = -1$ or $x = 3$.\nFrom the diagram B is the positive $x$-intercept: $B(3; 0)$.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-3-c-2",
+          "label": "3(c)(2)",
+          "questionText": "Determine the coordinates of the point on $f$ where the tangent to $f$ is parallel to line AB.",
+          "marks": 5,
+          "memoText": "$m_{AB} = \\dfrac{0 - (-3)}{3 - 0} = 1$\n$f'(x) = 2x - 2 = 1$\n$x = \\dfrac{3}{2}$\n$y = \\left(\\dfrac{3}{2}\\right)^2 - 2\\left(\\dfrac{3}{2}\\right) - 3 = -\\dfrac{15}{4}$\nPoint: $\\left(\\dfrac{3}{2}; -\\dfrac{15}{4}\\right)$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Sequences & Series",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2022-4-a-1",
+          "label": "4(a)(1)",
+          "questionText": "The $n$th term of an arithmetic sequence is given by $T_n = 5n - 2$.\n\nDetermine the number of terms in the sequence if the last term is 198.",
+          "marks": 2,
+          "memoText": "$5n - 2 = 198$\n$5n = 200$\n$n = 40$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-4-a-2",
+          "label": "4(a)(2)",
+          "questionText": "Determine the sum of all the terms of the sequence.",
+          "marks": 3,
+          "memoText": "$S_{40} = \\dfrac{40}{2}\\left[2(3) + (40 - 1)(5)\\right] = 4\\,020$\n(Alternatively $S_{40} = \\dfrac{40}{2}(3 + 198) = 4\\,020$.)",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-4-b",
+          "label": "4(b)",
+          "questionText": "The sum of the first $n$ terms of a geometric series is given by $S_n = 8 - 2^{3 - n}$.\n\nDetermine the 9th term of the series.",
+          "marks": 4,
+          "memoText": "$S_9 = 8 - 2^{3 - 9} = 8 - 2^{-6} = 7\\dfrac{63}{64}$\n$S_8 = 8 - 2^{3 - 8} = 8 - 2^{-5} = 7\\dfrac{31}{32}$\n$T_9 = S_9 - S_8 = 7\\dfrac{63}{64} - 7\\dfrac{31}{32} = \\dfrac{1}{64}$\n(Alternatively $T_1 = S_1 = 8 - 4 = 4$, $T_2 = S_2 - S_1 = 6 - 4 = 2$, so $r = \\tfrac{1}{2}$ and $T_9 = 4\\left(\\tfrac{1}{2}\\right)^8 = \\dfrac{1}{64}$.)",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Cubic Function & Its Derivative",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2022-5-a",
+          "label": "5(a)",
+          "questionText": "In the diagram $g(x) = x^3 - 3x$. A and B are the turning points of $g$, and C, O and D are the three $x$-intercepts of $g$.\n\nDetermine the coordinates of A and B.",
+          "marks": 5,
+          "memoText": "$g'(x) = 3x^2 - 3$\n$3x^2 - 3 = 0$\n$(x + 1)(x - 1) = 0$\n$x = -1$ or $x = 1$\n$A(-1; 2)$  and  $B(1; -2)$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-5-b",
+          "label": "5(b)",
+          "questionText": "On the Cartesian plane above, sketch $g'(x)$.",
+          "marks": 3,
+          "memoText": "$g'(x) = 3x^2 - 3$ is an upward parabola.\n$x$-intercepts: $(-1; 0)$ and $(1; 0)$.\n$y$-intercept: $(0; -3)$.\nMarks: $x$-intercepts; $y$-intercept; shape.",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-5-c",
+          "label": "5(c)",
+          "questionText": "Determine the equation of the tangent to the original function $g(x) = x^3 - 3x$ at $x = 3$.",
+          "marks": 5,
+          "memoText": "$g'(x) = 3x^2 - 3$; $g'(3) = 3(3)^2 - 3 = 24$ (gradient).\n$g(3) = (3)^3 - 3(3) = 18$, so the point is $(3; 18)$.\n$y = 24x + c$; $18 = 24(3) + c \\Rightarrow c = -54$\n$y = 24x - 54$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Financial Mathematics — Inflation, Depreciation & Sinking Fund",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2022-6-a",
+          "label": "6(a)",
+          "questionText": "You start a business and buy a delivery truck for R450 000.\n\nIf the inflation rate is 6% per annum, how much will a new delivery truck cost in five years' time?",
+          "marks": 2,
+          "memoText": "$A = 450\\,000(1 + 0{,}06)^5$\n$A = \\text{R}602\\,201{,}51$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-6-b",
+          "label": "6(b)",
+          "questionText": "If you calculate depreciation at 20% per annum using the reducing-balance method, what will the value of your delivery truck be in five years' time?",
+          "marks": 2,
+          "memoText": "$A = 450\\,000(1 - 0{,}2)^5$\n$A = \\text{R}147\\,456$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-6-c",
+          "label": "6(c)",
+          "questionText": "You set up a sinking fund for the next 5 years so that you can trade in your delivery truck and buy a new one by financing the difference with the sinking fund. The bank offers an interest rate of 9% per annum compounded monthly.\n\nHow much should you put away at the end of each month so that you have enough to finance the difference between the new vehicle and the trade-in value of your delivery truck at the end of 5 years? The last payment into the sinking fund is made at the end of the 5 years.",
+          "marks": 5,
+          "memoText": "Difference to finance $= 602\\,201{,}51 - 147\\,456 = \\text{R}454\\,745{,}51$.\n$454\\,745{,}51 = \\dfrac{x\\left[\\left(1 + \\dfrac{0{,}09}{12}\\right)^{60} - 1\\right]}{\\dfrac{0{,}09}{12}}$\n$x = \\text{R}6\\,029{,}18$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Financial Mathematics — Loan & Outstanding Balance",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2022-7-a",
+          "label": "7(a)",
+          "questionText": "A person is able to pay R14 500 per month to pay off a loan. The bank offers the person an interest rate of 12% per annum compounded monthly.\n\nWhat is the maximum loan the person can get from the bank if it needs to be paid back over a period of 20 years? (Round down to the nearest hundred.)",
+          "marks": 3,
+          "memoText": "$A = \\dfrac{14\\,500\\left[1 - \\left(1 + \\dfrac{0{,}12}{12}\\right)^{-240}\\right]}{\\dfrac{0{,}12}{12}}$\nLoan amount $= \\text{R}1\\,316\\,800$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-7-b",
+          "label": "7(b)",
+          "questionText": "If the loan above is taken up by the person, what will the outstanding balance be at the end of the 8th year (immediately after the instalment has been made), if they made payments of R14 500 per month?",
+          "marks": 5,
+          "memoText": "Accumulated value of the loan: $A = 1\\,316\\,800\\left(1 + \\dfrac{0{,}12}{12}\\right)^{96} = \\text{R}3\\,422\\,722{,}59$\nFuture value of the payments: $F_v = \\dfrac{14\\,500\\left[\\left(1 + \\dfrac{0{,}12}{12}\\right)^{96} - 1\\right]}{\\dfrac{0{,}12}{12}} = \\text{R}2\\,318\\,945{,}74$\nBalance outstanding $= 3\\,422\\,722{,}59 - 2\\,318\\,945{,}74 = \\text{R}1\\,103\\,776{,}85$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Series & a Bouncing-Ball Model",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2022-8-a",
+          "label": "8(a)",
+          "questionText": "Calculate the value of $x$ if $\\displaystyle\\sum_{n=3}^{x}(3n + 5) = 711$.",
+          "marks": 6,
+          "memoText": "The series is $14 + 17 + 20 + 23 + \\ldots + (3x + 5) = 711$, an arithmetic series with $a = 14$, $d = 3$ and $n = x - 2$ terms.\n$711 = \\dfrac{n}{2}\\left(2(14) + (n - 1)(3)\\right) = \\dfrac{n}{2}(3n + 25)$\n$0 = 3n^2 + 25n - 1\\,422$\n$n = 18$  or  $n = -\\dfrac{79}{3}$ (N/A)\n$\\therefore x = n + 2 = 20$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-8-b-1",
+          "label": "8(b)(1)",
+          "questionText": "A ball bounces indefinitely along a path. The ball starts at A, where it is catapulted into the air before bouncing for the first time at B, then C, then D. The horizontal distance $BC = \\tfrac{3}{4}$ of $AB$ and $CD = \\tfrac{3}{4}$ of $BC$; this pattern continues indefinitely. Each bounce is modelled by $y = -\\tfrac{1}{2}(x - p)^2 + q$. If the ball continued to bounce, it would eventually converge with the horizontal 16 metres from point A.\n\nDetermine the length of AB.",
+          "marks": 3,
+          "memoText": "The horizontal distances form an infinite geometric series with first term $AB$ and ratio $\\tfrac{3}{4}$, converging to 16:\n$16 = \\dfrac{a}{1 - \\tfrac{3}{4}}$\n$16 = 4a$\n$AB = 4$ metres",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-8-b-2",
+          "label": "8(b)(2)",
+          "questionText": "What is the maximum height reached by the ball between points B and C?",
+          "marks": 5,
+          "memoText": "$BC = \\tfrac{3}{4}(4) = 3$ metres. B is at $x = 4$ and C is at $x = 7$.\nThe maximum height is at $x = \\dfrac{11}{2}$ (midway between B and C).\nUsing the factored form with roots at $x = 4$ and $x = 7$: $y = -\\dfrac{1}{2}\\left(\\dfrac{11}{2} - 4\\right)\\left(\\dfrac{11}{2} - 7\\right)$\n$y = \\dfrac{9}{8}$ metres $= 1{,}125$ metres (i.e. $1{,}1$ m to one decimal place).",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Hyperbola with Axes of Symmetry; Log & Inverse",
+      "totalMarks": 22,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2022-9-a-1",
+          "label": "9(a)(1)",
+          "questionText": "In the diagram, $w(x) = -x + 6$ and $t(x) = x - 4$ are the axes of symmetry for the graph $h$. $E(9; 2)$ lies on $h$. ABCD is a rectangle with AD on the $x$-axis, A the bottom-left vertex (an $x$-intercept of $h$) and C the top-right vertex (lying on $h$ and on $t$).\n\nIf $h(x) = \\dfrac{a}{x - p} + q$, find the values of $a$, $p$ and $q$.",
+          "marks": 6,
+          "memoText": "The asymptotes meet at the intersection of the axes of symmetry:\n$-x + 6 = x - 4 \\Rightarrow x = 5$, and $y = -(5) + 6 = 1$.\nSo $p = 5$ and $q = 1$: $h(x) = \\dfrac{a}{x - 5} + 1$.\nUsing $E(9; 2)$: $2 = \\dfrac{a}{9 - 5} + 1 \\Rightarrow a = 4$.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-9-a-2",
+          "label": "9(a)(2)",
+          "questionText": "Determine the area of rectangle ABCD.",
+          "marks": 7,
+          "memoText": "A is the $x$-intercept of $h$: $0 = \\dfrac{4}{x - 5} + 1 \\Rightarrow -x + 5 = 4 \\Rightarrow x = 1$, so $A(1; 0)$.\nC is where $h$ meets the axis of symmetry $t(x) = x - 4$:\n$x - 4 = \\dfrac{4}{x - 5} + 1$\n$x^2 - 9x + 20 = 4 + x - 5$\n$x^2 - 10x + 21 = 0$\n$(x - 7)(x - 3) = 0 \\Rightarrow x = 7$ or $x = 3$; take $x = 7$: $y = 7 - 4 = 3$, so $C(7; 3)$.\nWidth $AD = 7 - 1 = 6$; height $= 3$.\nArea $= 6 \\times 3 = 18$ units$^2$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-9-b-1",
+          "label": "9(b)(1)",
+          "questionText": "On a set of axes sketch $g(x) = \\log_2 x$ for $x \\leq 4$.",
+          "marks": 3,
+          "memoText": "Logarithmic curve for $0 < x \\leq 4$, with vertical asymptote $x = 0$.\n$x$-intercept: $(1; 0)$; also passes through $(2; 1)$; end point $(4; 2)$.\nMarks: $x$-intercept; end point $(4; 2)$; shape and asymptote.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-9-b-2",
+          "label": "9(b)(2)",
+          "questionText": "On the same set of axes, sketch the graph of $g^{-1}(x)$, the inverse of $g$.",
+          "marks": 3,
+          "memoText": "$g^{-1}(x) = 2^x$ for $x \\leq 2$ (reflection of $g$ in the line $y = x$).\n$y$-intercept $(0; 1)$; passes through $(1; 2)$; end point $(2; 4)$; horizontal asymptote $y = 0$.\nMarks: end point $(2; 4)$; shape and asymptote.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-9-b-3",
+          "label": "9(b)(3)",
+          "questionText": "Write down the domain of $g^{-1}(x)$.",
+          "marks": 1,
+          "memoText": "$x \\in (-\\infty; 2]$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-9-b-4",
+          "label": "9(b)(4)",
+          "questionText": "For what values of $x$ is $\\dfrac{g^{-1}(x) \\times g'(x)}{g(x)} \\leq 0$?",
+          "marks": 2,
+          "memoText": "$g'(x) > 0$ throughout the domain, and $g^{-1}(x) = 2^x > 0$ for all $x$. So the expression is $\\leq 0$ only where $g(x) < 0$, i.e. $\\log_2 x < 0$.\n$0 < x < 1$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Counting Principle & Probability",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2022-10-a-1",
+          "label": "10(a)(1)",
+          "questionText": "The numbers 1; 3; 6; 8 and 9 are used to create five-digit numbers.\n\nHow many unique five-digit numbers can be created if repetition is not allowed?",
+          "marks": 1,
+          "memoText": "$5! = 120$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-10-a-2",
+          "label": "10(a)(2)",
+          "questionText": "What is the probability that a unique five-digit number starts with an 8 and ends with a 3, if repetition is not allowed?",
+          "marks": 2,
+          "memoText": "Favourable: first and last digits fixed, the middle three arranged in $3! = 6$ ways.\n$P = \\dfrac{3!}{120} = \\dfrac{6}{120} = 0{,}05 = \\dfrac{1}{20}$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-10-a-3",
+          "label": "10(a)(3)",
+          "questionText": "How many unique even numbers greater than 65 000 can be created, if repetition is not allowed?",
+          "marks": 4,
+          "memoText": "The last digit must be even ($6$ or $8$) and the number must exceed $65\\,000$.\n- $6\\,9\\,\\_\\,\\_\\,8$: $2 \\times 1 = 2$\n- $8\\,\\_\\,\\_\\,\\_\\,6$: $3 \\times 2 \\times 1 = 6$\n- $9\\,\\_\\,\\_\\,\\_\\,6$: $3 \\times 2 \\times 1 = 6$\n- $9\\,\\_\\,\\_\\,\\_\\,8$: $3 \\times 2 \\times 1 = 6$\nTotal $= 2 + 6 + 6 + 6 = 20$ numbers.",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-10-b-1",
+          "label": "10(b)(1)",
+          "questionText": "In a factory that produces kettles, the probability of producing a defective kettle is $\\dfrac{1}{65}$.\n\nHow many kettles would you expect to be defective if 19 500 kettles were produced by the factory?",
+          "marks": 1,
+          "memoText": "$19\\,500 \\times \\dfrac{1}{65} = 300$ kettles",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-10-b-2",
+          "label": "10(b)(2)",
+          "questionText": "If you produced 150 kettles, what is the probability that none of these kettles would be defective? (Round off to four decimal places.)",
+          "marks": 2,
+          "memoText": "$P(\\text{none defective}) = \\left(\\dfrac{64}{65}\\right)^{150} = 0{,}0977$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-10-c",
+          "label": "10(c)",
+          "questionText": "It is given that $P(A) = x$; $P(B) = 0{,}6 + x$ and $P(A \\cap B) = 0{,}36 - x$. If the events $A$ and $B$ are independent, find the value of $x$.",
+          "marks": 4,
+          "memoText": "Independent: $P(A \\cap B) = P(A) \\cdot P(B)$.\n$x(0{,}6 + x) = 0{,}36 - x$\n$x^2 + 0{,}6x - 0{,}36 + x = 0$\n$x^2 + 1{,}6x - 0{,}36 = 0$\n$(x - 0{,}2)(x + 1{,}8) = 0$\n$x > 0$, therefore $x = 0{,}2$",
+          "topic": "Probability",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Drone Flight Paths — Parabola, Line & Optimisation",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2022-11-a",
+          "label": "11(a)",
+          "questionText": "C and D represent two drones on the ground. The drone at C has a flight path modelled by $f(x) = -x^2 + 2x + q$. The drone at D has a flight path modelled by $g(x) = mx + 5$. CD is 7 metres and AB is 2 metres, where A is the $y$-intercept of $f$ and B$(0; 5)$ is the $y$-intercept of $g$.\n\nIf point E is directly above C, calculate the length of EC. Show all your workings.",
+          "marks": 7,
+          "memoText": "$OB = 5$ and $AB = 2$, so $A(0; 3)$ and $q = 3$; $f(x) = -x^2 + 2x + 3$.\nC is the positive $x$-intercept of $f$: $-x^2 + 2x + 3 = 0 \\Rightarrow x^2 - 2x - 3 = 0 \\Rightarrow (x - 3)(x + 1) = 0 \\Rightarrow x = 3$, so $C(3; 0)$.\n$CD = 7$, so $D(10; 0)$.\n$g$ passes through $B(0; 5)$ and $D(10; 0)$: $m = \\dfrac{0 - 5}{10 - 0} = -\\dfrac{1}{2}$, so $g(x) = -\\dfrac{1}{2}x + 5$.\nE is on $g$ directly above C ($x = 3$): $y = -\\dfrac{1}{2}(3) + 5 = \\dfrac{7}{2}$.\n$EC = \\dfrac{7}{2} = 3\\dfrac{1}{2}$ metres.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2022-11-b",
+          "label": "11(b)",
+          "questionText": "A friend of yours says: 'The vertical distance between flight path DB and the parabolic flight path CA will never be less than 40 cm.'\n\nIs your friend's statement correct? (Show all working.)",
+          "marks": 6,
+          "memoText": "Vertical distance $V(x) = g(x) - f(x) = \\left(-\\dfrac{1}{2}x + 5\\right) - (-x^2 + 2x + 3)$\n$V(x) = x^2 - \\dfrac{5}{2}x + 2$\n$\\dfrac{dV}{dx} = 2x - \\dfrac{5}{2} = 0 \\Rightarrow x = \\dfrac{5}{4} = 1{,}25$\n$V_{\\min} = (1{,}25)^2 - \\dfrac{5}{2}(1{,}25) + 2 = 0{,}4375$ m $= 43{,}75$ cm.\nSince $43{,}75$ cm $> 40$ cm, your friend's statement is correct.",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Reconstructing a Cubic from its Derivative Graph",
+      "totalMarks": 6,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2022-12",
+          "label": "12",
+          "questionText": "Below is a sketch of $f'(x)$: a parabola with A$(-1; 54)$ and B$(5; 54)$ on it and C the turning point, which lies on the $x$-axis. It is given that $f(0) = -14$ and $f(2) = 2$.\n\nCalculate the $x$-intercept for $f(x)$.",
+          "marks": 6,
+          "memoText": "A and B are symmetric about $x = 2$, so C is at $x = 2$ and $f'(x) = a(x - 2)^2$. Then $f$ has a point of inflection at $x = 2$, and $f(2) = 2$, so $f(x) = a(x - 2)^3 + 2$.\n$-14 = a(0 - 2)^3 + 2$\n$-16 = -8a$\n$a = 2$\n$f(x) = 2(x - 2)^3 + 2$\n$0 = 2(x - 2)^3 + 2 \\Rightarrow (x - 2)^3 = -1 \\Rightarrow x = 1$\n(Alternatively: $f'(-1) = 54 \\Rightarrow a(9) = 54 \\Rightarrow a = 6$, so $f'(x) = 6x^2 - 24x + 24$ and $f(x) = 2x^3 - 12x^2 + 24x - 14$; $f(1) = 0 \\Rightarrow x = 1$.)",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,485 @@
+{
+  "id": "math-ieb-p2-nov-2021",
+  "subject": "Mathematics IEB",
+  "subjectCode": "mathematics-ieb",
+  "paperCode": "P2",
+  "year": 2021,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Statistics — Regression & Correlation",
+      "totalMarks": 7,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-1-a",
+          "label": "1(a)",
+          "questionText": "The table shows the time spent ($x$, in minutes) by shoppers at a clothing store and the amount of money ($y$, in Rands) they spent:\n\n| Time spent ($x$) | 27 | 41 | 45 | 51 | 60 | 53 | 35 |\n| Money spent ($y$) | 400 | 630 | 700 | 1 040 | 1 200 | 870 | 745 |\n\nUse your calculator to determine the equation for the line of best fit in the form $y = A + Bx$. Give your answer correct to 3 decimal places.",
+          "marks": 3,
+          "memoText": "$A = -160{,}645$ and $B = 21{,}505$\n$y = -160{,}645 + 21{,}505x$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-1-b",
+          "label": "1(b)",
+          "questionText": "Predict how much an individual would spend if they were in the clothing store for 90 minutes. Give your answer correct to 2 decimal places.",
+          "marks": 1,
+          "memoText": "$y = -160{,}645 + 21{,}505(90) = \\text{R}1\\,774{,}81$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-1-c",
+          "label": "1(c)",
+          "questionText": "Is the prediction in Question (b) a reliable one? Explain.",
+          "marks": 1,
+          "memoText": "No. It is not reliable — this is extrapolation (working outside the boundaries of the given data), which carries risks.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-1-d",
+          "label": "1(d)",
+          "questionText": "Calculate the correlation coefficient for the data. Give your answer correct to 3 decimal places.",
+          "marks": 1,
+          "memoText": "$r = 0{,}912$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-1-e",
+          "label": "1(e)",
+          "questionText": "What does the correlation coefficient suggest about the relationship between the time spent in a clothing store and the money spent by the individual?",
+          "marks": 1,
+          "memoText": "A very strong positive correlation.",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Statistics — Ogives, Box-and-Whisker & Skewness",
+      "totalMarks": 7,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-2-a",
+          "label": "2(a)",
+          "questionText": "The diagram gives the ogive (cumulative frequency) curves for the heights of two groups of plants: 200 plants in Environment A and 200 in Environment B. For Environment A, the minimum height is 2 cm and the maximum is 68 cm.\n\nDraw a box-and-whisker plot that represents the height of plants in Environment A.",
+          "marks": 5,
+          "memoText": "Reading the five-number summary from the Environment A ogive:\nMin $= 2$; $Q_1 = 30$; $Q_2$ (median) $= 44$; $Q_3 = 52$; Max $= 68$.\nDraw the box-and-whisker plot accordingly. (Maximum 2 marks if the box-and-whisker plot contains errors.)",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-2-b",
+          "label": "2(b)",
+          "questionText": "If the mean height of the plants in Environment B is given as 34 cm, describe the skewness of the data represented by the Environment B curve.",
+          "marks": 1,
+          "memoText": "Skewed left / negatively skewed.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-2-c",
+          "label": "2(c)",
+          "questionText": "Under which environment were the heights of the plants more spread out? Explain.",
+          "marks": 1,
+          "memoText": "Environment A. Since Range A > Range B and $\\text{IQR}_A > \\text{IQR}_B$, the heights of the plants grown in Environment A were more spread out.",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Analytical Geometry — Lengths, Gradients & Similar Triangles",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-3-a",
+          "label": "3(a)",
+          "questionText": "In the diagram, points $A(6; 16)$, $B(11; 12)$, $E(6; -11)$ and $D(-4; -3)$ are given. AE intersects DB at the point $C(6; k)$.\n\nCalculate the length of AB.",
+          "marks": 2,
+          "memoText": "$AB = \\sqrt{(11 - 6)^2 + (12 - 16)^2} = \\sqrt{25 + 16} = \\sqrt{41}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-3-b",
+          "label": "3(b)",
+          "questionText": "Show that AB // DE.",
+          "marks": 3,
+          "memoText": "$m_{AB} = \\dfrac{16 - 12}{6 - 11} = -\\dfrac{4}{5}$\n$m_{DE} = \\dfrac{-11 - (-3)}{6 - (-4)} = \\dfrac{-8}{10} = -\\dfrac{4}{5}$\nThe gradients are equal, so AB // DE.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-3-c",
+          "label": "3(c)",
+          "questionText": "Determine the value of $k$.",
+          "marks": 4,
+          "memoText": "$m_{DB} = \\dfrac{12 - (-3)}{11 - (-4)} = 1$\nEquation of DB: $y = x + c$; using $D(-4; -3)$: $-3 = -4 + c \\Rightarrow c = 1$, so $y = x + 1$.\nAt $x = 6$ (the $x$-coordinate of C): $y = 7$.\n$\\therefore k = 7$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-3-d",
+          "label": "3(d)",
+          "questionText": "Determine the size of $B\\hat{A}C$.",
+          "marks": 3,
+          "memoText": "$m_{AB} = -\\dfrac{4}{5}$; the acute angle its line makes with the horizontal is $\\theta \\approx 38{,}7°$ (from $\\tan\\theta = \\tfrac{4}{5}$).\nAE is vertical ($A$ and $E$ both have $x = 6$), so $AC \\perp$ $x$-axis, i.e. its inclination is $90°$.\n$B\\hat{A}C = 180° - (90° + 38{,}7°) = 51{,}3°$ (interior angles of the triangle).",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-3-e",
+          "label": "3(e)",
+          "questionText": "Determine $\\dfrac{\\text{Area of } \\triangle ABC}{\\text{Area of } \\triangle EDC}$.",
+          "marks": 5,
+          "memoText": "$\\triangle ABC \\;|||\\; \\triangle EDC$ (equiangular: $\\hat{D} = \\hat{B}$ — alternate angles, AB // DE; vertically opposite angles at C).\n$DE = \\sqrt{(6 - (-4))^2 + (-11 - (-3))^2} = \\sqrt{100 + 64} = \\sqrt{164} = 2\\sqrt{41}$.\n$\\dfrac{\\text{Area } \\triangle ABC}{\\text{Area } \\triangle EDC} = \\left(\\dfrac{AB}{DE}\\right)^2 = \\left(\\dfrac{\\sqrt{41}}{2\\sqrt{41}}\\right)^2 = \\dfrac{1}{4}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Analytical Geometry — Circles & Tangents",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-4-a-1",
+          "label": "4(a)(1)",
+          "questionText": "In the diagram, AB is a diameter of a circle with $A(2; 8)$ and $B(1; -1)$.\n\nDetermine the length of AB.",
+          "marks": 2,
+          "memoText": "$AB = \\sqrt{(2 - 1)^2 + (8 - (-1))^2} = \\sqrt{1 + 81} = \\sqrt{82}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-4-a-2",
+          "label": "4(a)(2)",
+          "questionText": "Determine the equation of the circle.",
+          "marks": 3,
+          "memoText": "Centre $=$ midpoint of AB $= \\left(\\dfrac{2 + 1}{2}; \\dfrac{8 - 1}{2}\\right) = \\left(\\dfrac{3}{2}; \\dfrac{7}{2}\\right)$.\n$r = \\dfrac{\\sqrt{82}}{2}$\n$\\left(x - \\dfrac{3}{2}\\right)^2 + \\left(y - \\dfrac{7}{2}\\right)^2 = \\dfrac{41}{2}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-4-a-3",
+          "label": "4(a)(3)",
+          "questionText": "Determine the equation of the tangent to the circle at A.",
+          "marks": 4,
+          "memoText": "$m_{\\text{diam}} = \\dfrac{8 - (-1)}{2 - 1} = 9$, so $m_{\\text{tan}} = -\\dfrac{1}{9}$.\n$y = -\\dfrac{1}{9}x + c$; using $A(2; 8)$: $8 = -\\dfrac{2}{9} + c \\Rightarrow c = 8\\dfrac{2}{9}$.\n$y = -\\dfrac{1}{9}x + 8\\dfrac{2}{9}$  (or $9y = -x + 74$)",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-4-b",
+          "label": "4(b)",
+          "questionText": "The circle $x^2 + y^2 = 100$ is drawn. M is the point $(13; 0)$ and MA is a tangent to the circle.\n\nDetermine the length of the tangent AM. Leave your answer in surd form.",
+          "marks": 4,
+          "memoText": "Construct OA. $OA = 10$ units (radius), and $OA \\perp AM$ (tangent $\\perp$ radius).\n$(AM)^2 = (13)^2 - (10)^2 = 69$  (Pythagoras)\n$AM = \\sqrt{69}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Trigonometric Graphs",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-5-a",
+          "label": "5(a)",
+          "questionText": "Given $f(x) = \\cos 2x$ and $g(x) = \\tan x + 2$ for $x \\in [-180°; 90°]$.\n\nSketch the graphs of $f$ and $g$ on the same set of axes. Label all intercepts with the axes, asymptotes, turning points and end points.",
+          "marks": 6,
+          "memoText": "$f(x) = \\cos 2x$: period $180°$, amplitude 1. Turning points at $x = -180°$ (max), $-90°$ (min), $0°$ (max), $90°$ (min). $x$-intercepts at $x = -135°, -45°, 45°$. $y$-intercept $(0; 1)$. End points $(-180°; 1)$ and $(90°; -1)$.\n$g(x) = \\tan x + 2$: vertical asymptote at $x = -90°$. $x$-intercept where $\\tan x = -2$, at $x \\approx -63{,}4°$. $y$-intercept $(0; 2)$. End point $(-180°; 2)$.\nMarks: $f$ shape and end points; $f$ turning points; $f$ $x$-intercepts; $g$ shape and end points; $g$ asymptote; $g$ $x$-intercept $(-63{,}4°)$. Do not penalise twice for incorrect end points.",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-5-b",
+          "label": "5(b)",
+          "questionText": "Use your graph to determine the approximate value(s) of $x \\in [-180°; 90°]$ for which $\\cos 2x - 2 \\leq \\tan x$.",
+          "marks": 2,
+          "memoText": "$\\cos 2x - 2 \\leq \\tan x$ rearranges to $\\cos 2x \\leq \\tan x + 2$, i.e. $f(x) \\leq g(x)$:\n$x \\in [-180°; -90°) \\cup [-70{,}1°; 90°)$\n(Allow a range of $[-65°; -75°]$ for the intersection point read from the graph.)",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Circle Geometry — Angle at the Centre; Tangents",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-6-a",
+          "label": "6(a)",
+          "questionText": "Use the diagram to prove the theorem that states that the angle subtended by a chord at the centre of a circle is twice the size of the angle that it subtends at the circle.\n\nRequired to prove: $A\\hat{O}C = 2 \\times A\\hat{B}C$.",
+          "marks": 6,
+          "memoText": "Construction: draw BO produced (B through the centre O).\nProof: $\\hat{O}_1 = \\hat{A}_1 + \\hat{B}_1$ (exterior angle of a triangle).\n$\\hat{A}_1 = \\hat{B}_1$ (isosceles triangle — radii equal).\n$\\therefore \\hat{O}_1 = 2\\hat{B}_1$.\nSimilarly, in the other triangle: $\\hat{O}_2 = 2\\hat{B}_2$.\nAdding: $A\\hat{O}C = \\hat{O}_1 + \\hat{O}_2 = 2(\\hat{B}_1 + \\hat{B}_2) = 2 \\times A\\hat{B}C$.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-6-b-1",
+          "label": "6(b)(1)",
+          "questionText": "A, B and C lie on the circle with centre O. TC and TA are tangents to the circle with $C\\hat{T}A = 62°$.\n\nDetermine $\\hat{A}_1$. State all relevant reasons with your statements.",
+          "marks": 3,
+          "memoText": "$\\hat{C}_1 = \\hat{A}_1$ (tangents from a common point / isosceles triangle TCA).\n$2\\hat{A}_1 + \\hat{T} = 180°$ (interior angles of $\\triangle$).\n$2\\hat{A}_1 + 62° = 180°$\n$\\hat{A}_1 = 59°$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-6-b-2",
+          "label": "6(b)(2)",
+          "questionText": "Determine $\\hat{O}_1$.",
+          "marks": 4,
+          "memoText": "$\\hat{A}_1 + \\hat{A}_2 = 90°$ (radius $\\perp$ tangent).\n$\\hat{A}_2 = 90° - 59° = 31°$.\n$\\hat{A}_2 = \\hat{C}_2$ (isosceles $\\triangle$; CO = AO radii).\n$\\therefore \\hat{O}_1 = 180° - 31° - 31° = 118°$ (interior angles of $\\triangle$).\n(Alternatively: $\\hat{A}_1 = \\hat{B}$ (tan-chord theorem); $\\hat{O}_1 = 2 \\times 59° = 118°$ — angle at centre $= 2 \\times$ angle at circle.)",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Proportionality in Triangles",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-7-a",
+          "label": "7(a)",
+          "questionText": "In the diagram, $\\triangle$AOC and $\\triangle$ABC are given. D lies on OA and E on AC with DE // OC. F lies on AB with EF // CB. H and G lie on AC with HF // GB. AO = 7 units and AD = 4 units.\n\nDetermine the ratio of AF : FB, giving reasons.",
+          "marks": 3,
+          "memoText": "$DO = 7 - 4 = 3$, so $AD : DO = 4 : 3$.\n$\\dfrac{AD}{DO} = \\dfrac{AE}{EC} = \\dfrac{AF}{FB}$ (proportion theorem — DE // OC and EF // CB).\n$\\therefore AF : FB = 4 : 3$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-7-b",
+          "label": "7(b)",
+          "questionText": "Determine the ratio of GB : HF, giving reasons.",
+          "marks": 3,
+          "memoText": "$\\triangle AHF \\;|||\\; \\triangle AGB$ (equiangular).\n$\\dfrac{AH}{AG} = \\dfrac{HF}{GB} = \\dfrac{AF}{AB}$ (similar triangles, sides in proportion).\nWith $AF = 4x$ and $FB = 3x$, $AB = 7x$, so $\\dfrac{HF}{GB} = \\dfrac{4x}{7x}$.\n$\\therefore GB : HF = 7 : 4$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-7-c",
+          "label": "7(c)",
+          "questionText": "If it is further given that G is the midpoint of EC, determine the ratio AE : EG, giving reasons.",
+          "marks": 2,
+          "memoText": "$AE : EC = 4 : 3$ (proportion theorem).\nWith $EC = 3k$: $EG = GC = 1\\tfrac{1}{2}k$ (G is the midpoint of EC).\n$\\therefore AE : EG = 4 : \\dfrac{3}{2}$  or  $8 : 3$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Trigonometric Equations",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-8-a",
+          "label": "8(a)",
+          "questionText": "Solve for $x$, correct to one decimal place, in the given interval:\n\n$$\\sin 3x = -\\dfrac{3}{4} \\quad \\text{for } x \\in [-90°; 0°]$$",
+          "marks": 4,
+          "memoText": "$3x = -48{,}6° + k\\cdot 360°$, $k \\in \\mathbb{Z}$  $\\Rightarrow$  $x = -16{,}2° + k\\cdot 120°$\nOR $3x = 180° - (-48{,}6°) + k\\cdot 360°$  $\\Rightarrow$  $x = 76{,}2° + k\\cdot 120°$\nIn $[-90°; 0°]$: $x \\in \\{-16{,}2°;\\ -43{,}8°\\}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-8-b",
+          "label": "8(b)",
+          "questionText": "Determine the general solution for $\\tan x = \\sin 2x$ if $\\sin x \\neq 0$.",
+          "marks": 7,
+          "memoText": "$\\dfrac{\\sin x}{\\cos x} = 2\\sin x\\cos x$\n$\\sin x = 2\\sin x\\cos^2 x$\n$2\\sin x\\cos^2 x - \\sin x = 0$\n$\\sin x(2\\cos^2 x - 1) = 0$\nSince $\\sin x \\neq 0$: $2\\cos^2 x - 1 = 0$, i.e. $\\cos 2x = 0$.\n$2x = \\pm 90° + k\\cdot 360°$, $k \\in \\mathbb{Z}$\n$\\therefore x = \\pm 45° + k\\cdot 180°$, $k \\in \\mathbb{Z}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Compound & Reduction Formulae",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-9-a",
+          "label": "9(a)",
+          "questionText": "If $\\sin\\hat{C} = \\dfrac{12}{13}$ where $0° < C < 90°$ and $\\tan\\hat{D} = -\\dfrac{4}{3}$ where $270° < D < 360°$, determine $\\sin(C - D)$ without the use of a calculator.",
+          "marks": 6,
+          "memoText": "$\\cos C = \\dfrac{5}{13}$ (C in Quadrant 1).\n$\\sin D = -\\dfrac{4}{5}$ and $\\cos D = \\dfrac{3}{5}$ (D in Quadrant 4).\n$\\sin(C - D) = \\sin C\\cos D - \\cos C\\sin D = \\left(\\dfrac{12}{13}\\right)\\left(\\dfrac{3}{5}\\right) - \\left(\\dfrac{5}{13}\\right)\\left(-\\dfrac{4}{5}\\right) = \\dfrac{56}{65}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-9-b",
+          "label": "9(b)",
+          "questionText": "Given $\\cos 58° = k$, express $\\cos 150° \\cdot \\cos(-28°) + \\cos 60° \\cdot \\cos 62°$ in terms of $k$ without the use of a calculator.",
+          "marks": 5,
+          "memoText": "$\\cos 150° = \\cos(90° + 60°) = -\\sin 60°$; $\\cos(-28°) = \\cos 28°$; $\\cos 62° = \\cos(90° - 28°) = \\sin 28°$.\nExpression $= -\\sin 60°\\cos 28° + \\cos 60°\\sin 28° = -(\\sin 60°\\cos 28° - \\cos 60°\\sin 28°) = -\\sin(60° - 28°) = -\\sin 32° = -\\cos 58° = -k$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Trigonometry in Two & Three Dimensions",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-10-a",
+          "label": "10(a)",
+          "questionText": "ACD is a triangular field on horizontal ground. E is a point on AD. BC is a vertical building. $AC = 80$ m and $ED = 53$ m. $C\\hat{A}E = 60°$ and $C\\hat{E}A = 45°$.\n\nCalculate the length of CD.",
+          "marks": 6,
+          "memoText": "In $\\triangle AEC$: $\\dfrac{EC}{\\sin 60°} = \\dfrac{80}{\\sin 45°}$\n$EC = \\dfrac{80\\sin 60°}{\\sin 45°} \\approx 98$ m.\nIn $\\triangle EDC$: $C\\hat{E}D = 180° - 45° = 135°$ (adjacent angles on a straight line).\n$(CD)^2 = (53)^2 + (97{,}98)^2 - 2(53)(97{,}98)\\cos 135°$\n$CD \\approx 140{,}5$ m",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-10-b",
+          "label": "10(b)",
+          "questionText": "If the angle of elevation of B from A is 37°, determine the angle of elevation of the midpoint of BC from D.",
+          "marks": 5,
+          "memoText": "In $\\triangle ACB$: $\\tan 37° = \\dfrac{BC}{AC} \\Rightarrow BC = 80\\tan 37° = 60{,}284$ m.\nLet M be the midpoint of BC: $MC = \\dfrac{1}{2}BC = 30{,}142$ m.\nIn $\\triangle DMC$: $\\tan(C\\hat{D}M) = \\dfrac{MC}{CD} = \\dfrac{30{,}142}{140{,}55}$\n$C\\hat{D}M \\approx 12{,}1°$\nThe angle of elevation of M from D is $12{,}1°$.",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Analytical Geometry — Two Circles in a Block",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-11-a",
+          "label": "11(a)",
+          "questionText": "$P(x; y)$ and $Q(9; 3)$ are the centres of two holes drilled into a rectangular piece of wood with base ABCO. The radii of the holes are equal. The equation of the circle with centre P is $x^2 + y^2 - 6x - 12y + 41 = 0$. The equations of AB and BC are $y = 10$ and $x = 14$ respectively.\n\nDetermine the centre and the radius of the hole with centre P.",
+          "marks": 4,
+          "memoText": "$x^2 - 6x + y^2 - 12y = -41$\n$(x - 3)^2 + (y - 6)^2 = -41 + 9 + 36 = 4$\nCentre: $P(3; 6)$; radius $= 2$ units.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-11-b",
+          "label": "11(b)",
+          "questionText": "Determine the shortest distance between the circles. Leave your answer in surd form.",
+          "marks": 3,
+          "memoText": "$PQ = \\sqrt{(9 - 3)^2 + (3 - 6)^2} = \\sqrt{45} = 3\\sqrt{5}$\nShortest distance $= PQ - (r_P + r_Q) = 3\\sqrt{5} - (2 + 2) = 3\\sqrt{5} - 4 \\approx 2{,}7$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-11-c",
+          "label": "11(c)",
+          "questionText": "Calculate the volume of the block with base ABCO and height 20 units.",
+          "marks": 4,
+          "memoText": "Volume of block $= lbh - 2 \\times (\\pi r^2 h)$\n$= (20 \\times 14 \\times 10) - 2\\left(\\pi(4)(20)\\right)$\n$= 2\\,800 - 160\\pi$\n$\\approx 2\\,297{,}3$ units$^3$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Statistics — Mean & Standard Deviation in Terms of Variables",
+      "totalMarks": 6,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-12-a",
+          "label": "12(a)",
+          "questionText": "A set of 10 numbers consists of five values equal to $a$ and five values equal to $b$, where $a > b$.\n\nDetermine the mean in terms of $a$ and $b$.",
+          "marks": 1,
+          "memoText": "$\\bar{x} = \\dfrac{5a + 5b}{10} = \\dfrac{a + b}{2}$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-12-b",
+          "label": "12(b)",
+          "questionText": "Determine the standard deviation in terms of $a$ and $b$.",
+          "marks": 5,
+          "memoText": "$\\sigma^2 = \\dfrac{5\\left(a - \\dfrac{a + b}{2}\\right)^2 + 5\\left(b - \\dfrac{a + b}{2}\\right)^2}{10} = \\dfrac{\\left(\\dfrac{a - b}{2}\\right)^2 + \\left(\\dfrac{b - a}{2}\\right)^2}{2} = \\dfrac{(a - b)^2}{4}$\n$\\sigma = \\dfrac{a - b}{2}$  (since $a > b$)",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Circle Geometry — Cyclic Quadrilaterals & Tangent Length",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-13-a",
+          "label": "13(a)",
+          "questionText": "O is the centre of the circle. Chords AD and CB intersect at E, and AC // BD.\n\nProve that AEOB is a cyclic quadrilateral.",
+          "marks": 7,
+          "memoText": "Let $\\hat{O}_1 = 2x$.\n$\\therefore \\hat{D} = x$ (angle at centre $= 2 \\times$ angle at circle).\n$\\therefore \\hat{A}_1 = x$ (alternate angles; AC // BD).\n$\\therefore \\hat{C} = x$ (angles in the same segment).\nIn $\\triangle CAE$: $\\hat{E}_1 = 180° - 2x$ (interior angles of $\\triangle$).\n$\\therefore \\hat{E}_2 = 2x$ (adjacent angles on a straight line).\nSince $\\hat{E}_2 = 2x = \\hat{O}_1$, and these angles are subtended by AB, AEOB is a cyclic quadrilateral (angles in the same segment equal).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-13-b",
+          "label": "13(b)",
+          "questionText": "A, B, C, D and E lie on the circle, with AE = CD.\n\nProve that $\\hat{B}_1 - \\hat{B}_2 = \\hat{A}_1$.",
+          "marks": 6,
+          "memoText": "Let $\\hat{D}_1 = x$.\n$\\therefore \\hat{B}_2 = x$ (equal chords subtend equal angles; AE = CD).\nLet $\\hat{E}_1 = y$.\n$\\therefore \\hat{B}_1 = y$ (exterior angle of cyclic quadrilateral $=$ interior opposite angle).\n$\\therefore \\hat{A}_1 = y - x$ (exterior angle of $\\triangle$ $=$ sum of interior opposite angles).\n$\\therefore \\hat{B}_1 - \\hat{B}_2 = y - x = \\hat{A}_1$.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-13-c",
+          "label": "13(c)",
+          "questionText": "P and Q are the centres of two circles. Circle P has a radius of 3 cm and circle Q has a radius of 5 cm. The two circles touch each other at T. AB is a common tangent to the circles at R and S.\n\nDetermine the length of RS.",
+          "marks": 7,
+          "memoText": "Draw a perpendicular from P to SQ; call it PU.\n$UQ = 5 - 3 = 2$ cm.\n$PQ = 3 + 5 = 8$ cm (P, T and Q are collinear).\n$(PU)^2 = (PQ)^2 - (UQ)^2 = (8)^2 - (2)^2 = 60$ (Pythagoras).\n$PU = \\sqrt{60} \\approx 7{,}7$ cm.\n$PU = RS$ (PRSU is a rectangle — $PR \\perp AB$ and $QS \\perp AB$, radii $\\perp$ tangent).\n$\\therefore RS = \\sqrt{60} \\approx 7{,}7$ cm",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Trigonometry — Rectangle in a Semicircle",
+      "totalMarks": 7,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2021-14-a",
+          "label": "14(a)",
+          "questionText": "Rectangle EBCF is inscribed in a semicircle with centre O and radius 8 cm, with E and F on the diameter. $B\\hat{O}C = 2\\theta$.\n\nIf the perimeter of the rectangle EBCF is represented by $P$, show that $P = 16\\cos\\theta + 32\\sin\\theta$.",
+          "marks": 4,
+          "memoText": "In $\\triangle BOC$: $\\hat{C} = 90° - \\theta$ (isosceles $\\triangle$; radii OB = OC; interior angles of $\\triangle$).\nIn $\\triangle OCF$: $\\hat{C}_2 = \\theta$.\n$\\dfrac{CF}{8} = \\cos\\theta \\Rightarrow CF = 8\\cos\\theta$; $OF = 8\\sin\\theta$.\n$P = 2 \\times CF + 4 \\times OF = 2(8\\cos\\theta) + 4(8\\sin\\theta)$\n$\\therefore P = 16\\cos\\theta + 32\\sin\\theta$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2021-14-b",
+          "label": "14(b)",
+          "questionText": "If it is further given that $P = 16\\sqrt{5}\\sin(\\theta + \\alpha)$ and $\\alpha$ is an acute angle, determine the value of $\\alpha$.",
+          "marks": 3,
+          "memoText": "$16\\sqrt{5}\\sin(\\theta + \\alpha) = 16\\sqrt{5}\\sin\\theta\\cos\\alpha + 16\\sqrt{5}\\cos\\theta\\sin\\alpha$\nComparing with $16\\cos\\theta + 32\\sin\\theta$:\n$16\\sqrt{5}\\sin\\alpha = 16$  and  $16\\sqrt{5}\\cos\\alpha = 32$\n$\\tan\\alpha = \\dfrac{16}{32} = \\dfrac{1}{2}$\n$\\alpha \\approx 26{,}6°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}
