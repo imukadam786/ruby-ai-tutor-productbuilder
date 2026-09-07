@@ -1117,7 +1117,12 @@ export default function Home() {
 
   if (appState === "trial-expired") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080] flex items-center justify-center p-4 overflow-y-auto">
+      // <html>/<body> are `overflow-hidden` for the app shell, so this screen
+      // must be its own scroll container (h-screen + overflow-y-auto). The inner
+      // min-h-full wrapper centres the card when it fits and lets the page
+      // scroll when the plans are taller than the viewport.
+      <div className="h-screen overflow-y-auto bg-gradient-to-br from-[#6B1020] via-[#C41930] to-[#FF6080]">
+        <div className="min-h-full flex flex-col items-center justify-center p-4">
         <div className="bg-white rounded-3xl shadow-xl w-full max-w-2xl my-4 overflow-hidden">
           <div className="text-center px-8 pt-8 pb-2">
             <div className="text-5xl mb-3">⏰</div>
@@ -1140,6 +1145,7 @@ export default function Home() {
               Log out / use a different account
             </button>
           </div>
+        </div>
         </div>
       </div>
     );
