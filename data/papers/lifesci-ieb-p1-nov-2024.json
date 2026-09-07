@@ -1,0 +1,634 @@
+{
+  "id": "lifesci-ieb-p1-nov-2024",
+  "subject": "Life Sciences IEB",
+  "subjectCode": "life-sciences-ieb",
+  "paperCode": "P1",
+  "year": 2024,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Question 1",
+      "totalMarks": 80,
+      "subQuestions": [
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-1",
+          "label": "1.1",
+          "questionText": "Select the term in Column B that best matches the description in Column A. Each letter may be used only once.\n\nCOLUMN A:\n(a) The individuals within a colony of social animals that perform a specialised role.\n(b) The type of competition between individuals of the same species.\n(c) A measure of how dependent humans are on natural resources.\n(d) The role an organism plays in a community.\n(e) The maximum population size of a species that can be sustained in a specific environment.\n(f) A resource that is in short supply.\n(g) A method of directly counting all individuals in a population.\n(h) The movement of individuals into a population.\n(i) The type of competition between individuals of different species.\n(j) A measure of the number of deaths in a population.\n\nCOLUMN B:\nA Limiting factor  B Ecological footprint  C Immigration  D Castes  E Mortality  F Census  G Interspecific  H Emigration  I Carrying capacity  J Ecological niche  K Intraspecific",
+          "marks": 10,
+          "memoText": "(a) D — castes\n(b) K — intraspecific\n(c) B — ecological footprint\n(d) J — ecological niche\n(e) I — carrying capacity\n(f) A — limiting factor\n(g) F — census\n(h) C — immigration\n(i) G — interspecific\n(j) E — mortality\n(1 mark each)",
+          "topic": "Population Ecology (terminology)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-2-1",
+          "label": "1.2.1",
+          "questionText": "Which concept describes evolution occurring at a slow, constant rate?\nA Macroevolution\nB Natural selection\nC Punctuated equilibrium\nD Gradualism",
+          "marks": 1,
+          "memoText": "D — gradualism (slow, continuous, constant change over long periods).",
+          "topic": "Evolution",
+          "type": "mcq",
+          "options": { "A": "Macroevolution", "B": "Natural selection", "C": "Punctuated equilibrium", "D": "Gradualism" }
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-2-2",
+          "label": "1.2.2",
+          "questionText": "Figure 1 shows an original population, an isolated population formed due to migration, and a resulting new population. Which option correctly describes the process shown in Figure 1?\nA Outbreeding\nB Microevolution\nC Founder effect\nD Convergent Evolution\n(Refer to Figure 1 in the question paper.)",
+          "marks": 1,
+          "memoText": "C — founder effect (a small group migrates and establishes a new population with a different, reduced sample of the original gene pool).",
+          "topic": "Evolution (genetic drift)",
+          "type": "mcq",
+          "options": { "A": "Outbreeding", "B": "Microevolution", "C": "Founder effect", "D": "Convergent Evolution" }
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-2-3",
+          "label": "1.2.3",
+          "questionText": "A phylogenetic tree shows species 1–10 evolving from a common ancestor, with branch points W, X, Y and Z. Which statement is TRUE regarding species 8?\nA Species 8 evolved after species 9.\nB Species 8 is extinct.\nC Species 8 is the closest relative to species 4.\nD Species 9 and 10 evolved from species 8.\n(Refer to the phylogenetic tree in the question paper.)",
+          "marks": 1,
+          "memoText": "B — species 8's branch ends before the present time, so species 8 is extinct.",
+          "topic": "Phylogenetics",
+          "type": "mcq",
+          "options": { "A": "Species 8 evolved after species 9.", "B": "Species 8 is extinct.", "C": "Species 8 is the closest relative to species 4.", "D": "Species 9 and 10 evolved from species 8." }
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-2-4",
+          "label": "1.2.4",
+          "questionText": "A new species (species 11) is discovered: it is closely related to species 7, and it evolved at the same time as species 1. At which point would scientists place species 11 on the phylogenetic tree?\nA W\nB X\nC Y\nD Z\n(Refer to the phylogenetic tree in the question paper.)",
+          "marks": 2,
+          "memoText": "B — X: the branch point that groups species 11 with species 7 while dating its origin to the same time as species 1.",
+          "topic": "Phylogenetics",
+          "type": "mcq",
+          "options": { "A": "W", "B": "X", "C": "Y", "D": "Z" }
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-2-5",
+          "label": "1.2.5",
+          "questionText": "Which statement best describes a relationship between the common ancestor and species 1 to 10 in the phylogenetic tree?\nA The common ancestor is most closely related to species 9 and species 10.\nB Species 1 to 10 will have exactly the same DNA as the common ancestor.\nC Species 8, 9 and 10 were the first species to evolve from the common ancestor.\nD The common ancestor will have segments of DNA that are also present in species 1 to 10.",
+          "marks": 2,
+          "memoText": "D — descendants inherit DNA from their ancestor, so the common ancestor's DNA contains segments still present in species 1 to 10.",
+          "topic": "Phylogenetics",
+          "type": "mcq",
+          "options": { "A": "The common ancestor is most closely related to species 9 and species 10.", "B": "Species 1 to 10 will have exactly the same DNA as the common ancestor.", "C": "Species 8, 9 and 10 were the first species to evolve from the common ancestor.", "D": "The common ancestor will have segments of DNA that are also present in species 1 to 10." }
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-2-6",
+          "label": "1.2.6",
+          "questionText": "Figure 2 shows the variation in running speed of a rat population (a normal distribution). The highest running speed of the rats' top predator is 10 km/h. Which statement describes the rats with running speeds of 12 km/h and higher?\nA These individuals are more likely to survive, reproduce and increase the number of rats with fast running speeds in the population.\nB These individuals are fast because the predator caused them to acquire mutations that increase running speed.\nC These individuals represent a very small number in the population.\nD These individuals only produce offspring with running speeds lower than 12 km/h.\n(Refer to Figure 2 in the question paper.)",
+          "marks": 2,
+          "memoText": "A — rats faster than the predator (12 km/h+) are more likely to escape, survive and reproduce, passing on the fast-running alleles, so fast runners increase in the population.",
+          "topic": "Evolution (natural selection)",
+          "type": "mcq",
+          "options": { "A": "These individuals are more likely to survive, reproduce and increase the number of rats with fast running speeds in the population.", "B": "These individuals are fast because the predator caused them to acquire mutations that increase running speed.", "C": "These individuals represent a very small number in the population.", "D": "These individuals only produce offspring with running speeds lower than 12 km/h." }
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-3-1",
+          "label": "1.3.1",
+          "questionText": "For each statement decide which item(s) relate to it, using: 1 — only item 1; 2 — only item 2; Both; None.\n(a) A genotype that increases genetic variation. Item 1: Heterozygous. Item 2: Homozygous.\n(b) A single set of chromosomes in a cell. Item 1: Haploid. Item 2: Diploid.\n(c) Possessing more than two complete sets of chromosomes. Item 1: Hybrid vigour. Item 2: Polygenic.\n(d) Scientist(s) that discovered the shape of the DNA molecule. Item 1: Gregor Mendel. Item 2: James Watson.\n(e) Vector used to deliver genetic material into an organism. Item 1: Plasmid. Item 2: Virus.",
+          "marks": 5,
+          "memoText": "(a) 1\n(b) 1\n(c) None\n(d) 2\n(e) Both\n(1 mark each)",
+          "topic": "Genetics (terminology)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-3-2",
+          "label": "1.3.2",
+          "questionText": "Use the key (Sugar, Nitrogenous base, Phosphate) to draw a diagram of a single unit (monomer) of DNA. Label all parts. Provide a heading to name the DNA monomer, and give the name of a nitrogenous base found only in DNA in your diagram.",
+          "marks": 3,
+          "memoText": "Marks (3): heading naming the monomer — nucleotide (1); label naming a base found only in DNA — thymine (1); the three molecules joined correctly, phosphate to sugar and sugar to base (1).",
+          "topic": "DNA and RNA",
+          "type": "drawing"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-4-1",
+          "label": "1.4.1",
+          "questionText": "Study Figure 3 (an infographic of three hominids and their skulls: Australopithecus africanus, brain 450 cm³, 3,5–2,5 mya; Homo neanderthalensis, brain 1 500 cm³, 150 000–35 000 years ago; Homo sapiens, brain 1 300 cm³, 120 000 years ago). For each statement decide whether it is A — supported, B — contradicted, or C — neither supported nor contradicted by the information:\n(a) Australopithecus africanus has longer arms than legs.\n(b) Homo neanderthalensis had the ability for language communication.\n(c) Homo neanderthalensis and Homo sapiens did not exist at the same time.\n(Refer to Figure 3 in the question paper.)",
+          "marks": 3,
+          "memoText": "(a) A\n(b) C\n(c) B\n(1 mark each)",
+          "topic": "Human Evolution (data interpretation)",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-4-2",
+          "label": "1.4.2",
+          "questionText": "(a) Bipedalism was a key factor that influenced hominid evolution. What is meant by the term bipedalism?\n(b) Describe and explain TWO features of a hominid skeleton that would indicate bipedalism.",
+          "marks": 5,
+          "memoText": "(a) The ability to walk (habitually) on two legs (1).\n(b) Any 2, each described + explained (2 marks each): foramen magnum positioned centrally / forward under the skull so the head balances on top of the spine; S-shaped spine to shift the centre of gravity above the feet and reduce muscular effort to stand upright; short, broad (bowl-shaped) pelvis to balance the upper body over the hip joints; femur angled inwards (valgus/bicondylar angle) so the feet fall under the body's centre of gravity; legs longer than arms giving better leverage and larger muscle attachment for walking; enlarged heel bone and an arched foot for weight-bearing and shock absorption; non-opposable big toe aligned with the other toes for an efficient push-off.",
+          "topic": "Human Evolution (bipedalism)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-5-1",
+          "label": "1.5.1",
+          "questionText": "From the list of cultural developments in hominid evolution:\nA Used only simple stone tools.\nB Wore clothing and made ornamental/symbolic objects.\nC Complex language.\nD First to use and control fire for cooking and hunting.\nFill in the table by writing TWO letters of the correct cultural developments that apply to each hominid. Each letter may be used only once.\nHomo sapiens: ?\nHomo erectus: ?",
+          "marks": 4,
+          "memoText": "Homo sapiens — B and C.\nHomo erectus — A and D.\n(1 mark per correct letter)",
+          "topic": "Human Evolution (culture)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-5-2",
+          "label": "1.5.2",
+          "questionText": "Why was the use and control of fire an important step in hominid cultural evolution?",
+          "marks": 4,
+          "memoText": "Any 4 (4 marks): fire gave warmth and light, allowing hominids to migrate into and inhabit colder climates and to have longer, more social evenings (storytelling, transfer of knowledge); it kept predators away, especially at night; it allowed cooking, making a wider range of foods (especially meat) edible and more nutritious, which supported brain development; it aided co-operative hunting (e.g. driving game); it allowed stronger tools and artefacts to be made and land to be cleared for farming.",
+          "topic": "Human Evolution (culture)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-6-1",
+          "label": "1.6.1",
+          "questionText": "Facts about the population of South Africa: population in 2023 = 60 710 077; this is equivalent to 0,75% of the world's population; the fertility rate was 6,16 in 1960, 2,32 in 2023, and is forecast to be 1,93 in 2050. Using the information provided, calculate the total world population. Show all working.",
+          "marks": 2,
+          "memoText": "0,0075 × (world population) = 60 710 077, so world population = 60 710 077 ÷ 0,0075 = 8 094 676 933,33 (≈ 8,09 billion) (working + answer = 2 marks).",
+          "topic": "Practical skills (calculation)",
+          "type": "calculation"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-6-2",
+          "label": "1.6.2",
+          "questionText": "Figure 4 shows three types of population pyramid (A, B and C). Write the letter of the pyramid that most accurately represents the population of South Africa in 2050 and in 1960 (fertility rate 6,16 in 1960, forecast 1,93 in 2050).\n(Refer to Figure 4 in the question paper.)",
+          "marks": 2,
+          "memoText": "2050 — C (a contracting / declining pyramid, narrow base, low fertility).\n1960 — A (an expanding pyramid, very wide base, high fertility).\n(1 mark each)",
+          "topic": "Human Population",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-7-1",
+          "label": "1.7.1",
+          "questionText": "Figure 5 shows a homologous chromosome pair (chromosomes A and B, each with chromatids), with red arrows marking where crossing over will occur. Name two types of molecules that make up the structure of a chromosome.",
+          "marks": 2,
+          "memoText": "DNA (nucleic acid) (1) and histones / proteins (1).",
+          "topic": "Genetics (chromosome structure)",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-7-2",
+          "label": "1.7.2",
+          "questionText": "List TWO criteria needed for two chromosomes to be considered a 'homologous chromosome pair'.",
+          "marks": 2,
+          "memoText": "Any 2 (1 mark each): they carry the same genes; the genes are in the same order / at the same loci; they are the same length / size.",
+          "topic": "Genetics (chromosomes)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-7-3",
+          "label": "1.7.3",
+          "questionText": "Name the process that occurs to form an identical chromatid of a chromosome.",
+          "marks": 1,
+          "memoText": "DNA replication.",
+          "topic": "Genetics",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-7-4",
+          "label": "1.7.4",
+          "questionText": "The red arrows in Figure 5 indicate the points where crossing over will occur.\n(a) Why is the process of crossing over important?\n(b) Draw the resultant homologous chromosome pair AFTER crossing over has taken place. (No heading required.)\n(c) Construct a flow chart to describe the sequence of events that occur in the chromosome pair after crossing over is completed, to the end of meiosis I only. (No drawings required.)\n(Refer to Figure 5 in the question paper.)",
+          "marks": 10,
+          "memoText": "(a) (1): it increases genetic variation by recombining genes / segments between homologous chromosomes, so gametes (and offspring) are genetically different.\n(b) (4): 2 chromosomes drawn (2 centromeres); 4 chromatids (2 per chromosome); shading showing that equivalent segments have been swapped between chromatids of the two chromosomes; crossing over shown on the inner chromatids.\n(c) Flow chart with heading, short statements separated by arrows — 3 facts + correct sequence of phases (5): the homologous pairs (bivalents) line up randomly on the equator (metaphase I); spindle fibres attach to the centromeres; the homologous chromosomes of each pair separate and move to opposite poles (centromeres do not divide) (anaphase I); the nuclear membrane reforms and two haploid daughter cells are formed (telophase I).",
+          "topic": "Meiosis",
+          "type": "drawing"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-8-1",
+          "label": "1.8.1",
+          "questionText": "During meiosis, errors can change the chromosome number in cells, leading to abnormalities such as Down's syndrome (an extra chromosome 21), which delays physical and intellectual development. In 1983 the life expectancy for people born with Down's syndrome was 25 years; today it is 55 years. Table 1: incidence 1 in 1000 live births (more developed countries), 1 in 650 (less developed), ~1 in 500 (South Africa). Give one reason why the life expectancy for people with Down's syndrome may have increased.",
+          "marks": 1,
+          "memoText": "Any one: improved medical access, interventions and care; better knowledge of supportive treatments; more research into the condition.",
+          "topic": "Genetics (chromosomal abnormalities)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-8-2",
+          "label": "1.8.2",
+          "questionText": "Suggest one way in which a person with Down's syndrome would be affected negatively in society.",
+          "marks": 1,
+          "memoText": "Any one: difficulty gaining employment / limited job opportunities; bullying or teasing; exclusion from sports teams; difficulty with transport; stares and social exclusion; depression.",
+          "topic": "Genetics (society)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-8-3",
+          "label": "1.8.3",
+          "questionText": "(a) Why would the South African health authorities be concerned about the data in Table 1?\n(b) Suggest one way this data affects the lives of people in South Africa that are impacted by Down's syndrome.",
+          "marks": 2,
+          "memoText": "(a) (1): the incidence of Down's syndrome live births is higher in South Africa (~1 in 500) than in less developed countries (1 in 650) and roughly double that of more developed countries (1 in 1000).\n(b) (1): less access to screening / prenatal diagnosis; less access to medical and supportive services; more women having children over the age of 40.",
+          "topic": "Genetics (society)",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-9-1",
+          "label": "1.9.1",
+          "questionText": "Ichthyosis is a genetic skin disorder (dry, scaly skin) caused by a recessive mutation in a gene on the X chromosome (X-linked recessive). Figure 6 is a pedigree showing its inheritance in a family. Which type of chromosome has the locus for the gene causing ichthyosis? Write the correct number.\n1 Autosome\n2 Gonosome",
+          "marks": 1,
+          "memoText": "2 — gonosome (the X chromosome is a sex chromosome / gonosome).",
+          "topic": "Genetics (sex-linked inheritance)",
+          "type": "mcq",
+          "options": { "1": "Autosome", "2": "Gonosome" }
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-9-2",
+          "label": "1.9.2",
+          "questionText": "Where are chromosomes located in a cell?",
+          "marks": 1,
+          "memoText": "In the nucleus.",
+          "topic": "Genetics",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-9-3",
+          "label": "1.9.3",
+          "questionText": "Complete the genetic cross between individuals G and H from the pedigree (Figure 6). Key: XA = normal, Xa = mutation for ichthyosis. G is an unaffected female who is a carrier; H is an unaffected male. Give the phenotype of each parent, their genotypes, and a Punnett diagram.\n(Refer to Figure 6 in the question paper.)",
+          "marks": 6,
+          "memoText": "Phenotype of Parent G: unaffected (normal) female (1).\nPhenotype of Parent H: unaffected (normal) male (1).\nGenotypes: G = XA Xa × H = XA Y (1).\nPunnett diagram gametes XA, Xa (from G) and XA, Y (from H) giving offspring XA XA, XA Xa, XA Y, Xa Y (2).\nOffspring: normal daughter, carrier daughter, normal son, affected (ichthyosis) son (1).",
+          "topic": "Genetics (sex-linked cross)",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-9-4",
+          "label": "1.9.4",
+          "questionText": "What is the probability of parents G and H having a child with ichthyosis?",
+          "marks": 1,
+          "memoText": "25% (1 in 4) — the Xa Y son.",
+          "topic": "Genetics",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-9-5",
+          "label": "1.9.5",
+          "questionText": "Explain why individual F in Figure 6 (a male) cannot pass ichthyosis on to any male children.",
+          "marks": 3,
+          "memoText": "3 marks: ichthyosis is X-linked — the allele occurs only on the X chromosome, not on the Y; a father passes his Y chromosome (not his X) to his sons; sons receive their X chromosome from their mother, so individual F's X-linked allele cannot reach his sons.",
+          "topic": "Genetics (sex-linked inheritance)",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-1-9-6",
+          "label": "1.9.6",
+          "questionText": "Individual A in Figure 6 is termed a 'carrier' of the ichthyosis gene. What is meant by the term 'carrier' in this example?",
+          "marks": 2,
+          "memoText": "Any 2 (2 marks): individual A carries one copy of the recessive ichthyosis allele but is not affected, because the allele is recessive and masked by the normal allele; she is heterozygous (XA Xa) and can pass the allele to her children.",
+          "topic": "Genetics (sex-linked inheritance)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Question 2",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "lifesci-ieb-p1-nov-2024-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Four scientists whose ideas contributed to evolutionary theory: Jean Baptiste Lamarck, Alfred Wallace, Charles Darwin, Erasmus Darwin. Write the name that best matches each role:\n(a) The scientist who first described that species changed over time and that all species share a common ancestor.\n(b) The scientist whose research on the geographic distribution of animals in Southeast Asia provided critical support for the theory of natural selection.\n(c) The scientist who described that species evolve due to the mechanism of natural selection after his studies on the Galápagos Islands.\n(d) The scientist who suggested that organisms can pass traits onto their offspring that are acquired during their lifetime.",
+          "marks": 4,
+          "memoText": "(a) Erasmus Darwin\n(b) Alfred Wallace\n(c) Charles Darwin\n(d) Jean Baptiste Lamarck\n(1 mark each)",
+          "topic": "Evolution (history)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-2-1-2",
+          "label": "2.1.2",
+          "questionText": "The ideas of these scientists were not well received by society or the scientific community at that time. Suggest why the following groups would have responded negatively:\n(a) society\n(b) the scientific community",
+          "marks": 4,
+          "memoText": "(a) Society (any 2 → 2 marks): the ideas conflicted with religious beliefs / creationism and were seen as blasphemous; there was church and religious backlash; people held long-standing beliefs that were now questioned; many lacked the education or scientific background to understand the ideas.\n(b) Scientific community (any 2 → 2 marks): the ideas were difficult to test and revolutionary; they contradicted the accepted belief that life was created once and had not changed; there was little supporting evidence and the fossil record was limited; little supporting literature existed; the church, which controlled much scientific work, could not be challenged; genetics and inheritance were poorly understood.",
+          "topic": "Evolution (nature of science)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-2-2-1",
+          "label": "2.2.1",
+          "questionText": "Table 2 gives the numbers of spotted hyena (predator) and impala (prey) in a small private game reserve: 2010 hyena 11 / impala 16; 2012 hyena 14 / impala 58; 2013 hyena 20 / impala 60; 2015 hyena 20 / impala 50; 2016 hyena 11 / impala 56; 2018 hyena 17 / impala 48; 2019 hyena 17 / impala 46. Complete the line graph using this data: plot the data points, add axis labels, complete the key, and provide a suitable heading.",
+          "marks": 7,
+          "memoText": "Marks (7): heading with the figure/graph number, both named animals and time (1); x-axis labelled \"Time (years)\" — not just \"Time\" (1); y-axis labelled \"Number of animals\" (1); line graph with all points joined (1); key with correct, distinct symbols for impala and spotted hyena (1); correct plotting of the remaining data points (2), especially the 2019 points.",
+          "topic": "Practical skills (graphing)",
+          "type": "drawing"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-2-2-2",
+          "label": "2.2.2",
+          "questionText": "Name the relationship that exists between the impala and spotted hyena that is shown in the graph.",
+          "marks": 1,
+          "memoText": "A predator–prey relationship (predation).",
+          "topic": "Population Ecology",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-2-2-3",
+          "label": "2.2.3",
+          "questionText": "From the plotted graph, give the number of impalas in the game reserve in 2011.",
+          "marks": 1,
+          "memoText": "Between 35 and 40 (read from the line joining the 2010 and 2012 points).",
+          "topic": "Practical skills (reading data)",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-2-2-4",
+          "label": "2.2.4",
+          "questionText": "Describe a strategy that a herd of impala may use to avoid predation.",
+          "marks": 2,
+          "memoText": "Any one described (2 marks): they gather in large herds so many eyes can detect predators — safety in numbers and a lower chance of any one individual being caught; the young and weaker members stay in the centre of the herd for protection; some members act as sentinels on the edge while others graze; herds favour open grassland where predators are easily seen and cannot ambush them.",
+          "topic": "Ecosystems (anti-predator behaviour)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-2-2-5",
+          "label": "2.2.5",
+          "questionText": "Why is it necessary for a country to have protected areas such as game reserves?",
+          "marks": 2,
+          "memoText": "Any 2 (2 marks): to conserve nature and habitats for future generations; to give wildlife a safe haven, control hunting and prevent extinction; to provide safe breeding areas so numbers can recover; to boost tourism, income and jobs; to provide sites for research and monitoring of natural populations; to maintain biodiversity and healthy ecosystems.",
+          "topic": "Biodiversity and Conservation",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-2-2-6",
+          "label": "2.2.6",
+          "questionText": "In the small game reserve there is potential for inbreeding to occur within the hyena population.\n(a) What is meant by the term inbreeding?\n(b) Describe the disadvantages of inbreeding.",
+          "marks": 6,
+          "memoText": "(a) (2 marks): the mating / breeding of closely related individuals to produce offspring.\n(b) Any 4 (4 marks): lowers genetic variation and increases homozygosity; raises the frequency of harmful recessive traits and genetic abnormalities; leads to poorer reproductive health (e.g. poor sperm quality) and higher offspring mortality; reduces hybrid vigour; increases susceptibility to disease; reduces the population's ability to adapt to a changing environment, making it more vulnerable to extinction.",
+          "topic": "Genetics (inbreeding)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-2-3-1",
+          "label": "2.3.1",
+          "questionText": "There are two subspecies of impala — the black-faced impala (Aepyceros melampus petersi) and the common impala (Aepyceros melampus melampus); both have 2n = 60. Black-faced impala occur as an isolated population in south-west Africa, over 900 km west of the common impala range, but common impala have been introduced into black-faced impala herds on Namibian farms, and breeding between the two groups has been reported in the mixed herds.\n(a) What evidence is given in the text to indicate that the black-faced impala and the common impala are not yet separate species?\n(b) What evidence from breeding experiments would biologists need to observe to conclude that common impala and black-faced impala have become two different species?",
+          "marks": 3,
+          "memoText": "(a) (1): they have the same chromosome number (2n = 60) and successfully interbreed in the mixed herds.\n(b) (2): that no breeding occurs between the two types, OR that any offspring produced between them are not viable / are infertile (sterile).",
+          "topic": "Speciation",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-2-3-2",
+          "label": "2.3.2",
+          "questionText": "The natural populations of the two subspecies are geographically isolated by the Kalahari Desert. Explain how this could lead to the two subspecies undergoing speciation / becoming two separate species.",
+          "marks": 5,
+          "memoText": "Any 5 (5 marks): this is allopatric speciation — the desert is a geographic barrier that reproductively isolates the two groups and prevents gene flow; the environments and selection pressures on the two sides differ; natural selection acts independently in each area; different mutations arise and accumulate in each group over time (genetically different individuals); eventually organisms from the two groups can no longer interbreed to produce fertile offspring — they are separate species.",
+          "topic": "Speciation",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-2-3-3",
+          "label": "2.3.3",
+          "questionText": "Figure 7 indicates that there are many fossil sites of impala ancestors.\n(a) How does the fossil record support the theory of evolution?\n(b) List any THREE other lines of evidence that support the theory of evolution.",
+          "marks": 5,
+          "memoText": "(a) Any 2 (2 marks): fossils provide evidence of species that existed in the past and show change (descent with modification) from ancestral to present-day forms; they can be dated to build a timeline, show increasing diversity and complexity, reveal transitional / intermediate forms, and help establish evolutionary relationships.\n(b) Any 3 (1 mark each): biogeography; DNA / genetic / molecular / biochemical similarities; comparative anatomy (homologous structures); comparative embryology; vestigial organs; artificial selection / modification by descent.",
+          "topic": "Evolution (evidence)",
+          "type": "diagram"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Question 3",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "lifesci-ieb-p1-nov-2024-3-1-1",
+          "label": "3.1.1",
+          "questionText": "Sea anemones are predatory, soft-bodied marine invertebrates that attach to hard surfaces and are mostly stationary. Two anemone species (X and Y) live on the rocky shores of a marine protected area and both feed on plankton and fish larvae. The quadrat method is used to estimate the two populations: the total area is 2 400 m² (80 m × 30 m), divided into a grid of quadrats each 100 m² (Figure 9). Why is sea anemone species X considered a 'population' in this context?",
+          "marks": 3,
+          "memoText": "3 marks: the species X anemones are all of the same species, living in the same area, at the same time, and are able to breed with one another.",
+          "topic": "Population Ecology",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-3-1-2",
+          "label": "3.1.2",
+          "questionText": "Why is the quadrat method suitable to estimate the population size of sea anemones?",
+          "marks": 3,
+          "memoText": "Any 3 (3 marks): sea anemones are small and mostly stationary (sessile), so they stay within a quadrat while it is being counted; there are too many to count individually (a direct count would be impractical); the quadrat method samples a portion and saves time; they are soft-bodied and live in water, so they cannot easily be marked or tagged for mark-recapture.",
+          "topic": "Practical skills (sampling)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-3-1-3",
+          "label": "3.1.3",
+          "questionText": "A biologist put letters A–H and numbers 1–3 into separate containers and asked a colleague to draw a letter then a number, three times, giving quadrats B3, E2 and G3. Refer to Figure 9.\n(a) Would you consider the selection of the quadrats to be random? Explain your decision.\n(b) What is the average number of species X for only the selected quadrats (B3, E2, G3), given counts of 2, 4 and 3?\n(c) Use the average from (b) to determine the estimated population size for species X. Show all working.\n(d) The actual number of species X in the total area is 40. Evaluate the accuracy of the quadrat method compared to the direct count of species X. Give a reason for your opinion.\n(Refer to Figure 9 in the question paper.)",
+          "marks": 8,
+          "memoText": "(a) (2 marks): Yes — the letters and numbers were drawn blindly from containers by someone other than the biologist, so selection bias was eliminated and the quadrats were chosen by chance. (Accept a reasoned \"No\".)\n(b) (2 + 4 + 3) ÷ 3 = 3 (1 mark).\n(c) Estimated population = average per quadrat × (total area ÷ quadrat area) = 3 × (2 400 ÷ 100) = 3 × 24 = 72 (2 marks — working + answer).\n(d) (3 marks): Not accurate — the estimate (72) is much higher than the actual direct count (40); the anemones are unevenly distributed, so the three sampled quadrats were not a true representation. (Accept a supported \"reasonably accurate\" answer noting that it is only an estimate and that averaging more samples would bring it closer.) Decision mark only if supported by 2 facts.",
+          "topic": "Practical skills (quadrat sampling)",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-3-1-4",
+          "label": "3.1.4",
+          "questionText": "(a) State TWO density-dependent factors for which individuals of species X would compete.\n(b) Although sea anemone species X and Y compete for resources, both species have healthy stable populations. Explain how they are able to coexist.",
+          "marks": 4,
+          "memoText": "(a) Any 2 (1 mark each): food; space (attachment sites on the rock); water; oxygen.\n(b) (2 marks): through resource partitioning / niche differentiation — the two species use the shared resources in different ways (e.g. feeding on different prey or living on different parts of the rocks), which reduces direct competition and allows competitive coexistence.",
+          "topic": "Ecosystems (competition)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-3-2-1",
+          "label": "3.2.1",
+          "questionText": "Illegal logging is the harvest, transport, purchase or sale of timber against a country's laws, and is prevalent in tropical rainforest countries with large mature trees. Figure 10 shows the percentage vegetation cover of an indigenous forest ecosystem over time, including ecological succession after illegal logging (time axis not to scale). What is meant by the term forest ecosystem?",
+          "marks": 2,
+          "memoText": "2 marks: all the living organisms (biotic factors) in a forest — e.g. trees, plants and animals — interacting with one another and with the non-living (abiotic) environment.",
+          "topic": "Ecosystems (terminology)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-3-2-2",
+          "label": "3.2.2",
+          "questionText": "The ecosystem was disturbed by illegal logging. During which numbered time period in Figure 10 did this disturbance occur?\n(Refer to Figure 10 in the question paper.)",
+          "marks": 1,
+          "memoText": "Time period 2 (where the vegetation cover drops sharply).",
+          "topic": "Ecosystems (succession)",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-3-2-3",
+          "label": "3.2.3",
+          "questionText": "The authorities planted tree seedlings and sowed seeds on the logged land to help the forest ecosystem return to a healthy condition.\n(a) Would this strategy be considered primary or secondary ecological succession? Give a reason for your answer.\n(b) In which time period (1, 2, 3, 4 or 5) on the graph would the most pioneer organisms be present after the disturbance of illegal logging?\n(Refer to Figure 10 in the question paper.)",
+          "marks": 4,
+          "memoText": "(a) Secondary succession (1) — soil, seeds and some organisms were still present after the disturbance (the land was not bare rock) (1).\n(b) Time period 3 (2 marks) — just after the disturbance, when pioneer species recolonise the disturbed land.",
+          "topic": "Ecosystems (succession)",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-3-2-4",
+          "label": "3.2.4",
+          "questionText": "Why is it ethically correct for governments of countries to make it illegal to cut down trees in indigenous forests?",
+          "marks": 3,
+          "memoText": "Any 3 (3 marks): governments have a duty to protect natural resources for sustainability and for future generations; indigenous forests provide unique habitats and sustain natural wildlife and biodiversity; species have a right to exist; protecting forests lowers the ecological footprint; forests contain plants of medicinal value and importance to indigenous knowledge systems.",
+          "topic": "Environmental Studies (ethics)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-3-2-5",
+          "label": "3.2.5",
+          "questionText": "Figures 11 and 12 show a forest ecosystem (Knysna forest) and a grassland ecosystem (South African grassland). Describe how the end point of ecological succession differs in a forest ecosystem and a grassland ecosystem in South Africa.",
+          "marks": 4,
+          "memoText": "Any 4, as comparisons (4 marks): the grassland climax is dominated by grasses with few trees, more open space, lower plant density and more grazing herbivores, and occurs where rainfall is lower; the forest climax is dominated by large (hardwood) trees at high density with layers/stratification of plants at many heights (ferns, mosses, creepers), fewer open spaces, and supports a greater diversity of plants and animals, occurring where rainfall is high.",
+          "topic": "Ecosystems (succession)",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-3-3-1",
+          "label": "3.3.1",
+          "questionText": "DNA analysis and forensic science can help fight environmental crimes such as illegal logging. A few DNA sequences (DNA markers) in each forest tree species' genome can distinguish individual trees, and DNA profiling from a small sample relies on the polymerase chain reaction (PCR). For each statement, give a term from the text that best describes it:\n• A nucleic acid.\n• An enzyme used in PCR.\n• An organism's complete set of genes.",
+          "marks": 3,
+          "memoText": "• A nucleic acid — DNA\n• An enzyme used in PCR — polymerase\n• An organism's complete set of genes — genome\n(1 mark each)",
+          "topic": "DNA Technology (terminology)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-3-3-2",
+          "label": "3.3.2",
+          "questionText": "Why is PCR used in the process of producing a DNA profile?",
+          "marks": 2,
+          "memoText": "2 marks: PCR amplifies the DNA — it makes many copies from a very small / limited sample, providing enough DNA to run the tests needed for a profile.",
+          "topic": "DNA Technology (PCR)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-3-3-3",
+          "label": "3.3.3",
+          "questionText": "Consider this statement from the text: 'DNA sequences located in the genome of each forest tree species can distinguish individual trees from one another.' Explain what this statement means.",
+          "marks": 3,
+          "memoText": "Any 3 (3 marks): the genome is the complete set of an organism's genes / DNA; there is variation in the DNA sequences between individuals, particularly in the non-coding regions; non-coding DNA is unique to each individual; this unique non-coding DNA is used to produce a DNA profile that identifies one individual tree from another.",
+          "topic": "DNA Technology (DNA profiling)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Question 4",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-1-1",
+          "label": "4.1.1",
+          "questionText": "Figure 13 shows where three antibiotics (1, 2 and 3) interfere with protein synthesis in bacterial cells, with structures labelled A, C and D. Identify the following structures shown in Figure 13:\n(a) D\n(b) A\n(c) C\n(Refer to Figure 13 in the question paper.)",
+          "marks": 3,
+          "memoText": "(a) D — tRNA (1).\n(b) A — amino acid / polypeptide (growing protein chain) (1).\n(c) C — ribosome (1).",
+          "topic": "Protein Synthesis",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-1-2",
+          "label": "4.1.2",
+          "questionText": "Name and describe the stage of protein synthesis that is shown in Figure 13.",
+          "marks": 5,
+          "memoText": "Translation (compulsory) (1) + any 4 (4): the mRNA attaches to the ribosome; tRNA carries an amino acid from the cytoplasm; the anticodon on the tRNA pairs with the complementary codon on the mRNA; this places the amino acids in the correct order for the polypeptide; peptide bonds form between adjacent amino acids to build the protein.",
+          "topic": "Protein Synthesis",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-1-3",
+          "label": "4.1.3",
+          "questionText": "For each statement give the NUMBER of the antibiotic shown in Figure 13 that best illustrates the inhibition process:\n(a) Antibiotic that will prevent the anticodon from linking with the codon.\n(b) Antibiotic that will prevent peptide bond formation.\n(Refer to Figure 13 in the question paper.)",
+          "marks": 2,
+          "memoText": "(a) 3 (1).\n(b) 2 (1).",
+          "topic": "Protein Synthesis",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-1-4",
+          "label": "4.1.4",
+          "questionText": "Why would taking antibiotic medications cure someone from a bacterial infection?",
+          "marks": 2,
+          "memoText": "2 marks: the antibiotic stops the bacteria from making proteins / enzymes that are essential for their growth, cell wall or membrane formation, reproduction and survival, so the bacteria die and the infection is cleared.",
+          "topic": "Protein Synthesis / disease",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-2-1",
+          "label": "4.2.1",
+          "questionText": "Tuberculosis (TB) is caused by bacteria that damage the lungs and is the leading cause of death in South Africa (~450 000 new cases a year). Failure to complete antibiotic courses has led to multi-drug resistant TB (MDR-TB) and extremely drug resistant TB (XDR-TB). Figure 14 shows a normal DNA sequence T A C G A C A G C and a mutated DNA sequence T A C G A C C G C that causes antibiotic resistance.\n(a) State one factor that can cause a mutation.\n(b) (i) Name the type of mutation in Figure 14.\n(ii) Why would the mutated sequence in Figure 14 not change the length of the protein produced?\n(c) Is this an example of a lethal, neutral or beneficial mutation for the TB bacteria? Explain your answer.\n(Refer to Figure 14 in the question paper.)",
+          "marks": 5,
+          "memoText": "(a) (1): any one — UV radiation / radioactive substances / X-rays / gamma rays / tobacco products / certain viruses / other mutagens or carcinogens.\n(b) (i) Substitution (point) mutation (1).\n(ii) (1): no base was added or deleted — one base is simply replaced by another, so the number of codons (and therefore the number of amino acids) stays the same.\n(c) (2): a beneficial mutation for the bacteria — it improves their ability to survive because it makes them resistant to the antibiotic.",
+          "topic": "Genetics (mutations)",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-2-2",
+          "label": "4.2.2",
+          "questionText": "(a) Complete the table to show the mRNA sequence transcribed from the normal DNA sequence T A C G A C A G C.\n(b) The total length of the mRNA sequence is 1824 bases. How many amino acids will there be in the protein? Show all working.",
+          "marks": 5,
+          "memoText": "(a) AUG CUG UCG (3 marks).\n(b) 1824 ÷ 3 = 608 amino acids (accept 607 if a stop codon is subtracted) (2 marks — working + answer).",
+          "topic": "Protein Synthesis",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-2-3",
+          "label": "4.2.3",
+          "questionText": "Use an mRNA codon table to answer:\n(a) State the amino acid coded for in the normal DNA sequence AGC.\n(b) State the changed amino acid coded for by the mutated DNA sequence CGC.",
+          "marks": 2,
+          "memoText": "(a) Serine (Ser) — DNA AGC → mRNA UCG → Ser (1).\n(b) Alanine (Ala) — DNA CGC → mRNA GCG → Ala (1).",
+          "topic": "Protein Synthesis",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-2-4",
+          "label": "4.2.4",
+          "questionText": "Table 3 shows the amino acid sequence for a gene in three genetic variants of TB bacteria:\nNormal: His – Val – Leu – Pro – Val\nMDR-TB: His – Val – Arg – Glu – Val\nXDR-TB: His – Val – Arg – Glu – Phe\nBased on these sequences, identify the cladogram (A, B or C) that best represents the evolutionary relationship between the three forms. Circle the correct letter.\n(Refer to the cladograms in the question paper.)",
+          "marks": 2,
+          "memoText": "C (2 marks) — the cladogram in which the normal form branches off first, then MDR-TB, then XDR-TB (XDR-TB shares the most changes with MDR-TB and is the most recently derived).",
+          "topic": "Phylogenetics",
+          "type": "diagram"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-2-5",
+          "label": "4.2.5",
+          "questionText": "Explain how the increase in the number of multi-drug resistant bacteria to TB antibiotics is an example of natural selection for bacteria.",
+          "marks": 5,
+          "memoText": "5 marks: there is genetic variation for antibiotic resistance in the bacterial population (some carry resistance mutations); when antibiotics are present, the resistant bacteria are more likely to survive; they then reproduce / multiply and pass the resistance mutation on to the next generation; over successive generations the proportion (frequency) of resistant bacteria in the population increases.",
+          "topic": "Evolution (natural selection)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-3-1",
+          "label": "4.3.1",
+          "questionText": "CRISPR is a genetic engineering technique used as a 'molecular scissors' to cut and edit DNA in the cells of plants and animals, including humans — it can recognise a short DNA sequence, cut it out, and insert a new one. What is meant by the term genetic engineering?",
+          "marks": 2,
+          "memoText": "Any 2 (2 marks): the deliberate modification / manipulation of an organism's genes (DNA) using laboratory techniques / technology, to achieve a desirable trait or for human benefit.",
+          "topic": "DNA Technology",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-3-2",
+          "label": "4.3.2",
+          "questionText": "Name an enzyme / group of enzymes used in genetic engineering that 'cuts the target DNA'.",
+          "marks": 1,
+          "memoText": "Restriction enzyme / restriction endonuclease (accept Cas9).",
+          "topic": "DNA Technology",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-3-3",
+          "label": "4.3.3",
+          "questionText": "State two similarities between the processes of CRISPR and artificial selection.",
+          "marks": 2,
+          "memoText": "Any 2 (1 mark each): both involve humans choosing a particular trait / gene; in both, the chosen trait can be enhanced or removed; both aim to produce a change in the organism that benefits humans; in both, environmental pressures do not select the traits — people do.",
+          "topic": "DNA Technology / Selection",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-3-4",
+          "label": "4.3.4",
+          "questionText": "Name an example of artificial selection that you studied and state the feature that was changed in your chosen example.",
+          "marks": 2,
+          "memoText": "Organism named (1) + feature altered described (1). Examples: maize — larger cobs / higher yield; Bonsmara cattle — heat tolerance and meat quality; pedigree dogs — size, coat or temperament; wheat — disease resistance or shorter stems.",
+          "topic": "Selection (artificial selection)",
+          "type": "written"
+        },
+        {
+          "id": "lifesci-ieb-p1-nov-2024-4-3-5",
+          "label": "4.3.5",
+          "questionText": "Why is it important that scientists research the use of CRISPR thoroughly before it becomes an accepted treatment for diseases in humans?",
+          "marks": 2,
+          "memoText": "Any 2 (2 marks): to confirm it is effective at treating the disease and that it is safe; to identify side effects, off-target cuts and unwanted long-term complications; to gather reliable statistical data through clinical trials; to check that the benefits outweigh the risks before it is used on people.",
+          "topic": "DNA Technology (ethics)",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}
