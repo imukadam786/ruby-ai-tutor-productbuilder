@@ -135,6 +135,8 @@ export interface MatricPhysSciGeneratedQuestion {
   unit?: string;
   marks: number;
   explanation: string;
+  /** 1–3 ERR_* misconception codes — drive the wrong-answer feedback card. */
+  errorSignals: string[];
 }
 
 export interface MatricPhysSciGenerateQuestionResponse {

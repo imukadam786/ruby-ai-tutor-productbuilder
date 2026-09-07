@@ -16,6 +16,8 @@ import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
 import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreLifeSciences, isDeterministicLifeSciencesType } from "@/lib/life-sciences-scoring";
+import { topicFeedbackProps } from "@/lib/topic-feedback";
+import { TOPIC_EXAMPLES } from "@/lib/life-sciences-topic-feedback";
 import LifeSciencesSkillTreeView from "./LifeSciencesSkillTreeView";
 import { DataInterpretBlock } from "./DataInterpretBlock";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
@@ -92,6 +94,9 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [profile, setProfile] = useState<LifeSciencesStudentProfile | null>(null);
+  // Exact submitted answer — tap inputs bypass a form field; used for the
+  // feedback card's answer-vs-correct line.
+  const [lastAnswer, setLastAnswer] = useState<string>("");
 
   const [correctCount, setCorrectCount] = useState(0);
   const [attemptCount, setAttemptCount] = useState(0);
@@ -332,6 +337,8 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer.trim()) return;
 
+      setLastAnswer(rawAnswer);
+
       // ── Instant path: deterministic types are scored client-side (the answer
       // ships with the question), so feedback shows immediately. The server call
       // still runs in the background for usage metering. short-response needs the
@@ -547,6 +554,16 @@ export default function LifeSciencesSession({ onBack }: { onBack?: () => void } 
           correctAnswer={String(question.expected_answer)}
           note={result.is_correct ? result.memo : undefined}
           whyOverride={result.is_correct ? undefined : result.memo}
+          {...topicFeedbackProps({
+            isCorrect: result.is_correct,
+            subjectSlug: "life-sciences",
+            topic: skillId ? bank.topics[skillId] : null,
+            examples: TOPIC_EXAMPLES,
+            skillId,
+            inputType: question.input_type,
+            lastAnswer,
+            correctAnswer: question.expected_answer,
+          })}
           footer={
             <FeedbackFooter
               isCorrect={result.is_correct}

@@ -103,6 +103,10 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
   const [question, setQuestion] = useState<LifeSkillsGeneratedQuestion | null>(null);
   const [result, setResult] = useState<LifeSkillsSubmitAnswerResponse | null>(null);
   const [answer, setAnswer] = useState<string>("");
+  // The exact answer that was submitted — buttons (choice/true-false) call
+  // handleSubmit directly without going through `answer`, so we capture it here
+  // to show in the feedback card's "What went wrong" line.
+  const [lastAnswer, setLastAnswer] = useState<string>("");
   const [sequenceOrder, setSequenceOrder] = useState<string[]>([]);
   // Every Life Skills type is scored instantly client-side, so there is no
   // awaited "checking" state — submitting stays false (kept so the input dims
@@ -379,6 +383,8 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer) return;
 
+      setLastAnswer(rawAnswer);
+
       const isCorrect = scoreLifeSkills(
         question.input_type,
         rawAnswer,
@@ -388,7 +394,7 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
       finalizeAttempt(
         {
           is_correct: isCorrect,
-          error_signals: [],
+          error_signals: question.error_signals ?? [],
           feedback: isCorrect ? "Amazing! You got it! ⭐" : "Not quite — let's try again.",
           memo: question.memo ?? "",
           mastery_update: {
@@ -591,6 +597,9 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
           isCorrect={result.is_correct}
           note={result.is_correct ? result.memo : undefined}
           whyOverride={result.is_correct ? undefined : result.memo}
+          errorSignals={result.is_correct ? undefined : result.error_signals}
+          studentAnswer={question.input_type === "sequence" ? undefined : lastAnswer}
+          correctAnswer={question.input_type === "sequence" ? undefined : String(question.expected_answer)}
           footer={
             <FeedbackFooter
               isCorrect={result.is_correct}

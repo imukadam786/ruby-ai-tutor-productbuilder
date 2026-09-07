@@ -1,0 +1,548 @@
+{
+  "id": "math-ieb-p2-nov-2025",
+  "subject": "Mathematics IEB",
+  "subjectCode": "mathematics-ieb",
+  "paperCode": "P2",
+  "year": 2025,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Trigonometry — Reduction Formulae & Solving",
+      "totalMarks": 7,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-1-a-1",
+          "label": "1(a)(1)",
+          "questionText": "Given $17\\sin\\theta - 15 = 0$ and $\\theta \\in [90°; 270°]$. $P(x; 15)$ lies on the terminal ray of $\\theta$, at a distance of 17 from the origin.\n\nWithout a calculator, determine the value of $\\tan(180° + \\theta)$.",
+          "marks": 3,
+          "memoText": "$\\sin\\theta = \\dfrac{15}{17}$; with $\\theta$ in Quadrant 2 and $x^2 + 15^2 = 17^2$, $x = -8$.\n$\\tan(180° + \\theta) = \\tan\\theta = \\dfrac{15}{-8} = -\\dfrac{15}{8}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-1-a-2",
+          "label": "1(a)(2)",
+          "questionText": "Without a calculator, determine the value of $\\cos(90° + \\theta)$.",
+          "marks": 2,
+          "memoText": "$\\cos(90° + \\theta) = -\\sin\\theta = -\\dfrac{15}{17}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-1-b",
+          "label": "1(b)",
+          "questionText": "Use a calculator to solve for $\\theta$.",
+          "marks": 2,
+          "memoText": "$\\sin\\theta = \\dfrac{15}{17}$; reference angle $61{,}93°$.\nWith $\\theta \\in [90°; 270°]$: $\\theta = 180° - 61{,}93° = 118{,}07°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Special Angles & General Solution",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-2-a-1",
+          "label": "2(a)(1)",
+          "questionText": "Showing all working, without the use of a calculator, determine the value of $\\tan 300°$.",
+          "marks": 2,
+          "memoText": "$\\tan 300° = \\tan(360° - 60°) = -\\tan 60° = -\\sqrt{3}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-2-a-2",
+          "label": "2(a)(2)",
+          "questionText": "Showing all working, without a calculator, determine the value of $\\cos^2 15° - \\sin^2 15°$.",
+          "marks": 2,
+          "memoText": "$\\cos^2 15° - \\sin^2 15° = \\cos 2(15°) = \\cos 30° = \\dfrac{\\sqrt{3}}{2}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-2-b",
+          "label": "2(b)",
+          "questionText": "Determine the general solution(s) for $4\\cos(2\\theta + 60°) = -2$.",
+          "marks": 5,
+          "memoText": "$\\cos(2\\theta + 60°) = -\\dfrac{1}{2}$; reference angle $120°$.\n$2\\theta + 60° = \\pm 120° + k\\cdot 360°$, $k \\in \\mathbb{Z}$\n$2\\theta = 60° + k\\cdot 360°$  or  $2\\theta = -180° + k\\cdot 360°$\n$\\theta = 30° + k\\cdot 180°$  or  $\\theta = -90° + k\\cdot 180°$, $k \\in \\mathbb{Z}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Statistics — Scatter Plot & Ogive",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-3-a-1",
+          "label": "3(a)(1)",
+          "questionText": "The marks (as whole percentages) of 15 learners for their Grade 11 November Mathematics examinations are shown in a scatter plot (Paper 1 on the horizontal axis, Paper 2 on the vertical axis).\n\nState the mark for Paper 1 of the learner who did the best.",
+          "marks": 1,
+          "memoText": "$96\\%$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-3-a-2",
+          "label": "3(a)(2)",
+          "questionText": "State the lowest mark for Paper 2.",
+          "marks": 1,
+          "memoText": "$31\\%$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-3-a-3-i",
+          "label": "3(a)(3)(i)",
+          "questionText": "The line of best fit has the equation $y = 5{,}862 + 0{,}8541x$. If a learner got 67% for Paper 1, what could that learner expect to get for Paper 2? Round your answer to the nearest whole.",
+          "marks": 1,
+          "memoText": "$y = 5{,}862 + 0{,}8541(67) = 63{,}0867 \\approx 63\\%$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-3-a-3-ii",
+          "label": "3(a)(3)(ii)",
+          "questionText": "If it is further given that the mean for Paper 1 ($\\bar{x}$) was 67%, sketch the line of best fit on the scatter plot above, clearly indicating the $y$-intercept and the point $(\\bar{x}; \\bar{y})$.",
+          "marks": 3,
+          "memoText": "$y$-intercept: $(0; 5{,}862)$; $(\\bar{x}; \\bar{y}) = (67; 63{,}09)$. Draw the line through both points.\nMarks: $y$-intercept; $(\\bar{x}; \\bar{y})$; line.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-3-b",
+          "label": "3(b)",
+          "questionText": "A survey of 140 people was done to see how many WhatsApp messages they sent in a day. Complete the table of results and plot the ogive on the grid.\n\n| Number of messages | Frequency | Cumulative frequency |\n| $20 < x \\leq 40$ | ? | 14 |\n| $40 < x \\leq 60$ | 32 | ? |\n| $60 < x \\leq 80$ | 54 | ? |\n| $80 < x \\leq 100$ | 27 | ? |\n| $100 < x \\leq 120$ | ? | 140 |",
+          "marks": 5,
+          "memoText": "Frequencies: $14$, $32$, $54$, $27$, $13$.\nCumulative frequencies: $14$, $46$, $100$, $127$, $140$.\nPlot the ogive with start point $(20; 0)$ and end point $(120; 140)$; join with a smooth curve.",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Trigonometric Graphs",
+      "totalMarks": 7,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-4-a",
+          "label": "4(a)",
+          "questionText": "Sketched are the graphs $f(x) = a\\cos x$ and $g(x) = \\sin bx$ where $x \\in [0°; 210°]$.\n\nState the amplitude of $f$.",
+          "marks": 1,
+          "memoText": "$1$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-4-b",
+          "label": "4(b)",
+          "questionText": "State the period of $g$.",
+          "marks": 1,
+          "memoText": "$180°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-4-c-1",
+          "label": "4(c)(1)",
+          "questionText": "Write down the coordinates of A, the turning point of $g$.",
+          "marks": 1,
+          "memoText": "$A(45°; 1)$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-4-c-2",
+          "label": "4(c)(2)",
+          "questionText": "Write down the coordinates of B, the point of intersection of $f$ and $g$.",
+          "marks": 1,
+          "memoText": "$B\\left(210°; \\dfrac{\\sqrt{3}}{2}\\right)$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-4-d",
+          "label": "4(d)",
+          "questionText": "If $x \\in [0°; 210°]$, determine the value(s) of $x$ where $g(x) \\leq 0$.",
+          "marks": 3,
+          "memoText": "$g(x) = \\sin 2x \\leq 0$ on $[0°; 210°]$: $x \\in \\{0°\\} \\cup [90°; 180°]$.",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Transformations of the Tangent Graph",
+      "totalMarks": 6,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-5-a",
+          "label": "5(a)",
+          "questionText": "On the axes below, sketch the graph of $h(x) = -\\tan x$ where $x \\in [-180°; 180°]$.",
+          "marks": 3,
+          "memoText": "Reflected tangent curve. Vertical asymptotes at $x = -90°$ and $x = 90°$; passes through $(-180°; 0)$, $(0; 0)$ and $(180°; 0)$; decreasing between consecutive asymptotes.\nMarks: asymptotes; shape; accuracy.",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-5-b",
+          "label": "5(b)",
+          "questionText": "If $h(x)$ is shifted up two units, write the equation of the new graph in the form $y = \\ldots$",
+          "marks": 1,
+          "memoText": "$y = -\\tan x + 2$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-5-c",
+          "label": "5(c)",
+          "questionText": "If $k(x) = -\\tan(x - p)$, give the value of $p$ if the asymptotes of $k(x)$ are $x = -135°$ and $x = 45°$.",
+          "marks": 2,
+          "memoText": "$-\\tan x$ has asymptotes at $x = \\pm 90°$; shifting by $p$ gives asymptotes at $x = \\pm 90° + p$.\n$45° = 90° + p \\Rightarrow p = -45°$ (and $-135° = -90° + p$ gives the same).\n$\\therefore p = -45°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Analytical Geometry — Inclination, Perpendicular Bisector & Parallelogram",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-6-a",
+          "label": "6(a)",
+          "questionText": "$\\triangle$ABC has vertices $A(-2; 4)$, $B(6; p)$ and $C(3; -3)$. BC has an angle of inclination of $59{,}0362°$.\n\nFind the gradient of AC.",
+          "marks": 1,
+          "memoText": "$m_{AC} = \\dfrac{4 - (-3)}{-2 - 3} = -\\dfrac{7}{5}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-6-b",
+          "label": "6(b)",
+          "questionText": "Find $\\theta$ (the angle of inclination of AC) and hence determine the size of angle $\\hat{C}$.",
+          "marks": 3,
+          "memoText": "$\\tan\\theta = -\\dfrac{7}{5} \\Rightarrow \\theta = -54{,}46° + 180° = 125{,}54°$.\n$\\hat{C} = 125{,}54° - 59{,}0362° = 66{,}51°$ (exterior angle of $\\triangle$ / angle between the two lines).",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-6-c",
+          "label": "6(c)",
+          "questionText": "Determine M, the midpoint of line AC.",
+          "marks": 2,
+          "memoText": "$M = \\left(\\dfrac{-2 + 3}{2}; \\dfrac{4 + (-3)}{2}\\right) = \\left(\\dfrac{1}{2}; \\dfrac{1}{2}\\right)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-6-d",
+          "label": "6(d)",
+          "questionText": "Determine the equation of the line perpendicular to AC passing through the midpoint of AC (the perpendicular bisector of AC). Leave your answer in the form $y = mx + c$.",
+          "marks": 3,
+          "memoText": "$m_\\perp = \\dfrac{5}{7}$\n$y - \\dfrac{1}{2} = \\dfrac{5}{7}\\left(x - \\dfrac{1}{2}\\right)$\n$y = \\dfrac{5}{7}x - \\dfrac{5}{14} + \\dfrac{1}{2} = \\dfrac{5}{7}x + \\dfrac{1}{7}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-6-e",
+          "label": "6(e)",
+          "questionText": "Showing all working, determine the value of $p$.",
+          "marks": 3,
+          "memoText": "$\\tan 59{,}0362° = \\dfrac{p - (-3)}{6 - 3} = \\dfrac{p + 3}{3}$\n$\\dfrac{p + 3}{3} = \\tan 59{,}0362° \\approx 1{,}667$\n$p + 3 = 5 \\Rightarrow p = 2$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-6-f",
+          "label": "6(f)",
+          "questionText": "If the value of $p$ is 2, determine D, the fourth point of the parallelogram ABCD. D lies in the third quadrant.",
+          "marks": 2,
+          "memoText": "For ABCD a parallelogram, the diagonals AC and BD bisect: midpoint AC $= \\left(\\dfrac{1}{2}; \\dfrac{1}{2}\\right)$ = midpoint BD.\n$\\left(\\dfrac{x + 6}{2}; \\dfrac{y + 2}{2}\\right) = \\left(\\dfrac{1}{2}; \\dfrac{1}{2}\\right) \\Rightarrow x = -5$, $y = -1$.\n$D(-5; -1)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Circle Geometry — Cyclic Quadrilateral Proof; Cosine & Sine Rules",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-7-a",
+          "label": "7(a)",
+          "questionText": "Use the diagram below to prove the statement that says: 'The opposite angles of a cyclic quadrilateral are supplementary.'\n\nRequired to prove: $\\hat{A} + \\hat{C} = 180°$.",
+          "marks": 5,
+          "memoText": "Construction: draw radii OB and OD.\nLet $\\hat{A} = x$.\n$\\hat{O}_2 = 2x$ (angle at centre $= 2 \\times$ angle at circle, subtended by BD).\n$\\hat{O}_1 = 360° - 2x$ (angles around a point).\n$\\hat{C} = \\dfrac{1}{2}\\hat{O}_1 = 180° - x$ (angle at centre $= 2 \\times$ angle at circle).\n$\\therefore \\hat{A} + \\hat{C} = x + (180° - x) = 180°$.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-7-b-1",
+          "label": "7(b)(1)",
+          "questionText": "Given cyclic quadrilateral EFGH with $\\hat{G} = 114°$, EF = 12 units, FG = 8 units and GH = 6 units.\n\nDetermine the length of FH. State all relevant reasons with your statements.",
+          "marks": 3,
+          "memoText": "In $\\triangle$FGH (cosine rule):\n$FH^2 = (8)^2 + (6)^2 - 2(8)(6)\\cos 114°$\n$FH = 11{,}79$ units",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-7-b-2",
+          "label": "7(b)(2)",
+          "questionText": "Determine the size of $\\hat{H}_2$, if $\\hat{H}_2$ is an acute angle.",
+          "marks": 5,
+          "memoText": "$\\hat{E} = 180° - 114° = 66°$ (opposite angles of cyclic quadrilateral EFGH).\nIn $\\triangle$EFH (sine rule): $\\dfrac{\\sin\\hat{H}_2}{12} = \\dfrac{\\sin 66°}{11{,}79}$\n$\\sin\\hat{H}_2 = 0{,}9298\\ldots$\n$\\hat{H}_2 = 68{,}41°$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Circle Geometry — Parallel Chords & the Diameter",
+      "totalMarks": 7,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-8-a-1",
+          "label": "8(a)(1)",
+          "questionText": "Given the circle with cyclic points J, K, L and M, where HL // JK and $LH \\perp KM$. LM = 15 units and MH = 12 units.\n\nGive the reason for the statement: $\\hat{K} = 90°$.",
+          "marks": 1,
+          "memoText": "Alternate angles, HL // JK (so $\\hat{K} = \\hat{H}_1 = 90°$, since $LH \\perp KM$).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-8-a-2",
+          "label": "8(a)(2)",
+          "questionText": "Give the reason for the statement: $\\hat{L}_1 + \\hat{L}_2 = 90°$.",
+          "marks": 1,
+          "memoText": "Angles in the same segment (subtending the same chord KM as $\\hat{K} = 90°$).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-8-b",
+          "label": "8(b)",
+          "questionText": "Determine the length of GH.",
+          "marks": 4,
+          "memoText": "In right-angled $\\triangle$LMG (right angle at L), LH is the altitude to the hypotenuse MG:\n$LM^2 = MH \\times MG$ (perpendicular from the right-angled vertex)\n$15^2 = 12 \\times MG \\Rightarrow MG = 18{,}75$\n$GH = MG - MH = 18{,}75 - 12 = 6{,}75$ units",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-8-c",
+          "label": "8(c)",
+          "questionText": "Give a reason why LM is the diameter of the circle passing through LHM.",
+          "marks": 1,
+          "memoText": "Converse of the angle in a semi-circle: $\\hat{H} = 90°$, so LM subtends a right angle and is therefore a diameter.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Trigonometric Identity & Undefined Values",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-9-a",
+          "label": "9(a)",
+          "questionText": "Prove:\n\n$$\\dfrac{\\cos 65x\\cos 63x + \\sin 65x\\sin 63x}{1 + \\sin 2x} = \\dfrac{\\cos x - \\sin x}{\\cos x + \\sin x}$$",
+          "marks": 6,
+          "memoText": "Numerator $= \\cos(65x - 63x) = \\cos 2x = \\cos^2 x - \\sin^2 x = (\\cos x + \\sin x)(\\cos x - \\sin x)$.\nDenominator $= 1 + \\sin 2x = \\cos^2 x + \\sin^2 x + 2\\sin x\\cos x = (\\cos x + \\sin x)^2$.\nLHS $= \\dfrac{(\\cos x + \\sin x)(\\cos x - \\sin x)}{(\\cos x + \\sin x)^2} = \\dfrac{\\cos x - \\sin x}{\\cos x + \\sin x}$ = RHS.",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-9-b",
+          "label": "9(b)",
+          "questionText": "Determine the values of $x$ where $\\dfrac{\\cos 65x\\cos 63x + \\sin 65x\\sin 63x}{1 + \\sin 2x}$ is undefined, if $x \\in [-90°; 180°]$.",
+          "marks": 5,
+          "memoText": "Undefined where the denominator $1 + \\sin 2x = 0$, i.e. $\\sin 2x = -1$.\nReference angle $-90°$: $2x = -90° + k\\cdot 360°$, so $x = -45° + k\\cdot 180°$, $k \\in \\mathbb{Z}$.\nIn $[-90°; 180°]$: $x = -45°$ or $x = 135°$.",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Statistics — Estimated Mean & Standard Deviation",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-10-a",
+          "label": "10(a)",
+          "questionText": "A survey recorded the community service hours already completed by a Grade 12 group:\n\n| Hours completed | Frequency |\n| $0 \\leq h < 6$ | 5 |\n| $6 \\leq h < 12$ | $p$ |\n| $12 \\leq h < 18$ | 28 |\n| $18 \\leq h \\leq 24$ | 4 |\n\nThe estimated average number of hours was 12. By using the table, determine how many learners completed less than this average.",
+          "marks": 5,
+          "memoText": "Midpoints: $3$, $9$, $15$, $21$.\n$12 = \\dfrac{(5)(3) + (p)(9) + (28)(15) + (4)(21)}{37 + p} = \\dfrac{519 + 9p}{37 + p}$\n$12(37 + p) = 519 + 9p \\Rightarrow 444 + 12p = 519 + 9p \\Rightarrow 3p = 75 \\Rightarrow p = 25$\nLearners completing less than 12 hours $= 5 + 25 = 30$ learners.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-10-b-1",
+          "label": "10(b)(1)",
+          "questionText": "A set of data has $\\sigma = 2$ and $\\displaystyle\\sum_{i=1}^{n}(x_i - \\mu)^2 = 32$.\n\nHow many data values were used in this set of data?",
+          "marks": 3,
+          "memoText": "$\\sigma^2 = \\dfrac{\\sum(x_i - \\mu)^2}{n}$\n$2^2 = \\dfrac{32}{n}$\n$n = 8$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-10-b-2",
+          "label": "10(b)(2)",
+          "questionText": "10 new identical values are added to the data set; as a result, the mean remains the same. Determine the new standard deviation.",
+          "marks": 2,
+          "memoText": "Each new value equals the mean, so it contributes $0$ to $\\sum(x_i - \\mu)^2$, which stays at $32$.\nNew $n = 8 + 10 = 18$.\n$\\sigma^2 = \\dfrac{32}{18} \\Rightarrow \\sigma = 1{,}33$",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Analytical Geometry — Circle & Midpoint Theorem",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-11-a",
+          "label": "11(a)",
+          "questionText": "A circle has centre C. $\\triangle$ADE is drawn with $D(-4; -1)$ and $E(8; 3)$, and AB = BD. $F(0; 6)$ is the $y$-cut of line BC.\n\nProve BC // DE.",
+          "marks": 2,
+          "memoText": "AB = BD (given, so B is the midpoint of AD) and AC = CE (radii — A and E lie on the circle with centre C).\n$\\therefore$ BC // DE (midpoint theorem).",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-11-b",
+          "label": "11(b)",
+          "questionText": "Find the length of BC.",
+          "marks": 3,
+          "memoText": "$DE = \\sqrt{(-4 - 8)^2 + (-1 - 3)^2} = \\sqrt{144 + 16} = \\sqrt{160} = 4\\sqrt{10}$.\n$BC = \\dfrac{1}{2}DE = 2\\sqrt{10}$ (midpoint theorem).",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-11-c",
+          "label": "11(c)",
+          "questionText": "If the equation of line AE is $y = -\\dfrac{4}{5}x + \\dfrac{47}{5}$, determine the equation of the circle.",
+          "marks": 7,
+          "memoText": "$m_{DE} = \\dfrac{3 - (-1)}{8 - (-4)} = \\dfrac{1}{3}$, so $m_{BC} = \\dfrac{1}{3}$.\nBC passes through $F(0; 6)$: $y = \\dfrac{1}{3}x + 6$.\nC is the intersection of BC and AE: $\\dfrac{1}{3}x + 6 = -\\dfrac{4}{5}x + \\dfrac{47}{5} \\Rightarrow 5x + 90 = -12x + 141 \\Rightarrow x = 3$; $y = 7$, so $C(3; 7)$.\nRadius $= CE = \\sqrt{(3 - 8)^2 + (7 - 3)^2} = \\sqrt{41}$.\n$(x - 3)^2 + (y - 7)^2 = 41$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-11-d",
+          "label": "11(d)",
+          "questionText": "Determine the coordinates of B.",
+          "marks": 4,
+          "memoText": "A, C and E are collinear (line AE) with AC = CE, so C is the midpoint of AE:\n$\\left(\\dfrac{x_A + 8}{2}; \\dfrac{y_A + 3}{2}\\right) = (3; 7) \\Rightarrow A(-2; 11)$.\nB is the midpoint of AD: $B = \\left(\\dfrac{-2 + (-4)}{2}; \\dfrac{11 + (-1)}{2}\\right) = (-3; 5)$.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Analytical Geometry — Two Circles & a Shaded Region",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-12-a",
+          "label": "12(a)",
+          "questionText": "A circle with centre A and a circle with centre B are tangent at point C. The circle with centre B is tangent to the $y$-axis, BC is parallel to the $y$-axis, and A, B and C are collinear. The equation of the circle with centre B is $x^2 + y^2 - 4(3x + 2y) = -16$.\n\nDetermine the equation of the tangent to the circle at C.",
+          "marks": 6,
+          "memoText": "$x^2 - 12x + 36 + y^2 - 8y + 16 = -16 + 36 + 16$\n$(x - 6)^2 + (y - 4)^2 = 36$; centre $B(6; 4)$, radius 6.\nSince BC is vertical and C lies on circle B directly below B: $C(6; -2)$.\nThe tangent at C is perpendicular to BC (vertical), so it is horizontal: $y = -2$.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-12-b",
+          "label": "12(b)",
+          "questionText": "If the shaded region has an area of $28\\pi$ units$^2$, determine the equation of the circle with centre A.",
+          "marks": 6,
+          "memoText": "Shaded area $=$ (area of circle A) $-$ (area of circle B):\n$28\\pi = \\pi r_A^2 - \\pi(6)^2 \\Rightarrow \\pi r_A^2 = 64\\pi \\Rightarrow r_A = 8$.\nA lies on the vertical line $x = 6$, and circle A also passes through $C(6; -2)$, so $A(6; -2 + 8) = A(6; 6)$.\n$(x - 6)^2 + (y - 6)^2 = 64$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Circle Geometry — Diagram Labelling & Proofs",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-13-a",
+          "label": "13(a)",
+          "questionText": "O is the centre of the circle. CF is a tangent to the circle at C. BC = CD and AE = ED. AD and BC are produced to G.\n\nStudy the list of statements and reasons: $\\hat{C}_1 = \\hat{C}_2 = x$ (vertically opposite angles); $\\hat{C}_1 = \\hat{A}_2 = x$ (tan-chord theorem); $\\hat{A}_2 + \\hat{B} + \\hat{C}_4 = 180°$ (interior angles of $\\triangle$); $\\hat{A}_2 = \\hat{A}_1 = x$ (equal chords, equal angles in the same segment); $\\hat{A}_2 + \\hat{A}_1 + \\hat{C}_4 + \\hat{C}_5 = 180°$ (opposite angles of a cyclic quad); $\\hat{C}_3 + \\hat{C}_5 = 90°$ (tangent $\\perp$ radius).\n\nEnter the correct angle numbers on the diagram above so that the statements and reasons make sense.",
+          "marks": 7,
+          "memoText": "Label $\\hat{A}_1$ and $\\hat{A}_2$ at vertex A, and $\\hat{C}_1, \\hat{C}_2, \\hat{C}_3, \\hat{C}_4, \\hat{C}_5$ at vertex C, consistent with the given statements: $\\hat{C}_1 = \\hat{C}_2$ are the vertically opposite angles at the intersection of AG and BC; $\\hat{C}_1 = \\hat{A}_2$ (tan-chord); $\\hat{C}_3 + \\hat{C}_5 = 90°$ (radius $\\perp$ tangent CF). Award marks per correctly placed angle number.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-13-b",
+          "label": "13(b)",
+          "questionText": "Prove that OEFC is a cyclic quadrilateral.",
+          "marks": 4,
+          "memoText": "$\\hat{E}_1 = 90°$ (line from the centre bisects a chord — OE $\\perp$ AD, since AE = ED).\n$\\hat{E}_1 = \\hat{C}_3 + \\hat{C}_5 = 90°$.\n$\\therefore$ OEFC is a cyclic quadrilateral (converse — exterior angle of a cyclic quad equals interior opposite; or opposite angles supplementary since $\\hat{E}_1 + (\\hat{C}_3 + \\hat{C}_5)$ are supplementary using the reflex configuration).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-13-c",
+          "label": "13(c)",
+          "questionText": "If $G\\hat{C}F = x$, prove that $CG^2 = AG \\times FG$.",
+          "marks": 5,
+          "memoText": "In $\\triangle$ACG and $\\triangle$CFG:\n$\\hat{G}$ is common.\n$\\hat{C}_2 = \\hat{A}_1$ (both $= x$).\n$\\hat{CFG} = \\hat{ACG}$ (third angle).\n$\\therefore \\triangle$ACG $\\;|||\\;$ $\\triangle$CFG (AAA).\n$\\therefore \\dfrac{AC}{CF} = \\dfrac{CG}{FG} = \\dfrac{AG}{CG}$ (similar triangles, sides in proportion).\nFrom $\\dfrac{CG}{FG} = \\dfrac{AG}{CG}$: $CG^2 = AG \\times FG$.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Euclidean Geometry — Proportion, Area & Pyramid Volume",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2025-14-a",
+          "label": "14(a)",
+          "questionText": "$\\triangle$PQR has TS // QR, with $PT = x$ cm, $TQ = 16$ cm, $PS = x + 6$ cm, $SR = 20$ cm and $\\hat{P} = \\theta$. The area of $\\triangle$PTS is $258{,}96$ cm$^2$.\n\nDetermine the area of the trapezium TQRS.",
+          "marks": 6,
+          "memoText": "$\\dfrac{x}{16} = \\dfrac{x + 6}{20}$ (proportion theorem — TS // QR)\n$20x = 16x + 96 \\Rightarrow x = 24$ cm, so $PT = 24$, $PS = 30$, $PQ = 40$, $PR = 50$.\nArea $\\triangle$PTS $= \\dfrac{1}{2}(24)(30)\\sin\\theta = 258{,}96 \\Rightarrow \\sin\\theta = 0{,}7193 \\Rightarrow \\theta = 45{,}9994° \\approx 46°$.\nArea $\\triangle$PQR $= \\dfrac{1}{2}(40)(50)\\sin 46° = 719{,}34$ cm$^2$.\nArea TQRS $= 719{,}34 - 258{,}96 = 460{,}38$ cm$^2$.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2025-14-b",
+          "label": "14(b)",
+          "questionText": "P is moved so that P is the apex of a trapezoidal pyramid with base TQRS, and $\\triangle$PTS forms an angle of $60°$ with the base TQRS.\n\nDetermine the volume of the trapezoidal pyramid using $\\text{Vol}_{\\text{pyramid}} = \\dfrac{1}{3} \\times \\text{area of base} \\times H$.",
+          "marks": 5,
+          "memoText": "$TS^2 = (24)^2 + (30)^2 - 2(24)(30)\\cos 46°$ (cosine rule in $\\triangle$PTS) $\\Rightarrow TS = 21{,}81$.\nArea $\\triangle$PTS $= \\dfrac{1}{2}(21{,}81)(\\perp h) = 258{,}96 \\Rightarrow \\perp h = 23{,}75$.\nThe plane PTS makes $60°$ with the base: $\\sin 60° = \\dfrac{H}{23{,}75} \\Rightarrow H = 20{,}57$.\n$\\text{Vol} = \\dfrac{1}{3}(460{,}38)(20{,}57) = 3\\,156{,}67$ cm$^3$",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

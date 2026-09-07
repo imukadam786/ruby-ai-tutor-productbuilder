@@ -1,0 +1,908 @@
+{
+  "id": "it-p2-nov-2025",
+  "subject": "Information Technology",
+  "subjectCode": "information-technology",
+  "paperCode": "P2",
+  "year": 2025,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Short Questions",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2025-1-1-1",
+          "label": "1.1.1",
+          "questionText": "Choose the answer and write only the letter (A–D) next to the question number.\n\n… is a protocol used to send e-mails from a mail client to a mail server.",
+          "marks": 1,
+          "memoText": "Correct answer: B – SMTP (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "FTP",
+            "B": "SMTP",
+            "C": "HTTP",
+            "D": "VoIP"
+          }
+        },
+        {
+          "id": "it-p2-nov-2025-1-1-2",
+          "label": "1.1.2",
+          "questionText": "Arrange the following according to the speed of data access, from the fastest to the slowest:",
+          "marks": 1,
+          "memoText": "Correct answer: C – CPU cache; VRAM; RAM; SSD; HDD (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "CPU cache; VRAM; SSD; RAM; HDD",
+            "B": "VRAM; CPU cache; RAM; SSD; HDD",
+            "C": "CPU cache; VRAM; RAM; SSD; HDD",
+            "D": "CPU cache; RAM; VRAM; SSD; HDD"
+          }
+        },
+        {
+          "id": "it-p2-nov-2025-1-1-3",
+          "label": "1.1.3",
+          "questionText": "An … is a private network that offers access to employees of a company.",
+          "marks": 1,
+          "memoText": "Correct answer: D – intranet (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "internet",
+            "B": "extranet",
+            "C": "outsourceNet",
+            "D": "intranet"
+          }
+        },
+        {
+          "id": "it-p2-nov-2025-1-1-4",
+          "label": "1.1.4",
+          "questionText": "Changing the regional and language settings of a device is part of …",
+          "marks": 1,
+          "memoText": "Correct answer: C – system configuration (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "security management.",
+            "B": "file compression.",
+            "C": "system configuration.",
+            "D": "disk clean-up."
+          }
+        },
+        {
+          "id": "it-p2-nov-2025-1-1-5",
+          "label": "1.1.5",
+          "questionText": "… is a type of license that is often used in open-source software to allow users to edit, copy and distribute the software.",
+          "marks": 1,
+          "memoText": "Correct answer: B – General Public License (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "End User License",
+            "B": "General Public License",
+            "C": "Creative Commons License",
+            "D": "Shrink-wrap Licence"
+          }
+        },
+        {
+          "id": "it-p2-nov-2025-1-1-6",
+          "label": "1.1.6",
+          "questionText": "Which ONE of the following is NOT a feature of microblogs?",
+          "marks": 1,
+          "memoText": "Correct answer: C – Includes content of text format only (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "Fast to create and share",
+            "B": "Typically hosted on social networking platforms",
+            "C": "Includes content of text format only",
+            "D": "Posts are immediate and contain a limited number of characters"
+          }
+        },
+        {
+          "id": "it-p2-nov-2025-1-1-7",
+          "label": "1.1.7",
+          "questionText": "Malware that remotely takes control of a group of computers without the users' knowledge is known as a …",
+          "marks": 1,
+          "memoText": "Correct answer: C – botnet (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "zombie.",
+            "B": "DDoS attack.",
+            "C": "botnet.",
+            "D": "keylogger."
+          }
+        },
+        {
+          "id": "it-p2-nov-2025-1-1-8",
+          "label": "1.1.8",
+          "questionText": "Which ONE of the following data types is NOT suitable to be used as part of a case statement in Delphi?",
+          "marks": 1,
+          "memoText": "Correct answer: C – String (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "Char",
+            "B": "Boolean",
+            "C": "String",
+            "D": "Integer"
+          }
+        },
+        {
+          "id": "it-p2-nov-2025-1-1-9",
+          "label": "1.1.9",
+          "questionText": "The following TWO variables have been declared in Delphi:\n\n    sString: String;\n    cChar: Char;\n\nWhich ONE of the following statements will result in an error?",
+          "marks": 1,
+          "memoText": "Correct answer: B – sString := UpCase(sString); (1 mark)  [UpCase operates on a single character, not on a string.]",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "cChar := UpCase(cChar);",
+            "B": "sString := UpCase(sString);",
+            "C": "sString := UpperCase(cChar);",
+            "D": "sString := UpperCase(sString);"
+          }
+        },
+        {
+          "id": "it-p2-nov-2025-1-1-10",
+          "label": "1.1.10",
+          "questionText": "Which ONE of the following statements will result in TRUE?",
+          "marks": 1,
+          "memoText": "Correct answer: C – TRUE AND (FALSE OR TRUE) (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "NOT(TRUE) AND NOT(FALSE)",
+            "B": "NOT(TRUE OR FALSE)",
+            "C": "TRUE AND (FALSE OR TRUE)",
+            "D": "FALSE AND (FALSE AND (TRUE OR FALSE))"
+          }
+        },
+        {
+          "id": "it-p2-nov-2025-1-2-1",
+          "label": "1.2.1",
+          "questionText": "Give ONE word/term for the following description:\n\nA sequence of steps used to solve a specific problem or task.",
+          "marks": 1,
+          "memoText": "Algorithm (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-1-2-2",
+          "label": "1.2.2",
+          "questionText": "Give ONE word/term for the following description:\n\nThe practice of good manners when communicating electronically.",
+          "marks": 1,
+          "memoText": "Netiquette (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-1-2-3",
+          "label": "1.2.3",
+          "questionText": "Give ONE word/term for the following description:\n\nA complete web address for a specific web page or resource.",
+          "marks": 1,
+          "memoText": "Uniform Resource Locator / URL (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-1-2-4",
+          "label": "1.2.4",
+          "questionText": "Give ONE word/term for the following description:\n\nSoftware that facilitates communication between the operating system and hardware devices.",
+          "marks": 1,
+          "memoText": "Device Driver (1 mark). Also accept: Driver.",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-1-2-5",
+          "label": "1.2.5",
+          "questionText": "Give ONE word/term for the following description:\n\nA widely used website that allows for collaboration, where users can create, edit and link content easily.",
+          "marks": 1,
+          "memoText": "Wiki / Wikipedia (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-1-3-1",
+          "label": "1.3.1",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct the statement if it is FALSE by changing the underlined word/phrase. Do NOT simply use the word 'NOT' to change the statement, and NO marks will be awarded if only FALSE is provided.\n\nThe function Randomrange(10,12) in Delphi returns a random integer value between 10 and 12, both inclusive.",
+          "marks": 1,
+          "memoText": "FALSE – Randomrange(10,13) (also accept Random(3) + 10) (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-1-3-2",
+          "label": "1.3.2",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct the statement if it is FALSE by changing the underlined word/phrase (no marks for FALSE alone):\n\nThe Linux Ubuntu operating system is commonly used in smartphones.",
+          "marks": 1,
+          "memoText": "FALSE – Android / iOS / Harmony OS (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-1-3-3",
+          "label": "1.3.3",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct the statement if it is FALSE by changing the underlined word/phrase (no marks for FALSE alone):\n\nBitTorrent is a peer-to-peer file-sharing protocol.",
+          "marks": 1,
+          "memoText": "TRUE (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-1-3-4",
+          "label": "1.3.4",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct the statement if it is FALSE by changing the underlined word/phrase (no marks for FALSE alone):\n\nShareware software is free to use, but may have limited features or may require payment after a trial period.",
+          "marks": 1,
+          "memoText": "TRUE (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-1-3-5",
+          "label": "1.3.5",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct the statement if it is FALSE by changing the underlined word/phrase (no marks for FALSE alone):\n\nThe human-readable code of a program is referred to as machine code.",
+          "marks": 1,
+          "memoText": "FALSE – source (code) (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Systems Technologies",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2025-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Scenario: Research on endangered species is underway at a wildlife reserve. Rangers and scientists rely on computer systems for real-time tracking and monitoring of animals, conservation strategies and the prevention of poaching. The IT team is responsible for data security and authenticated access control.\n\nThe motherboard is the 'heart' of any computer. State TWO functions of a motherboard.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks):\n• Provides slots/ports/connectors for components\n• Distributes power to components\n• Enables communication between components",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Explain why a bus communication path is slower than a point-to-point communication path on a motherboard.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks):\n• A bus is a shared communication path between components\n• Delay is caused by only one component/device being able to communicate at a time\n• A point-to-point path is a dedicated communication path",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-1-3",
+          "label": "2.1.3",
+          "questionText": "Explain why a GPU will improve the processing performance of a computer system.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks):\n• The GPU performs all graphics-related tasks/rendering\n• This lessens the burden on the CPU\n• The CPU then has more time to process other tasks / speeds up the processing of other tasks",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-1-4",
+          "label": "2.1.4",
+          "questionText": "Compare the role of RAM and VRAM by specifically referring to the function of EACH.",
+          "marks": 2,
+          "memoText": "RAM stores data/instructions ✓ to be processed by the CPU.\nVRAM stores images/video data ✓ to be processed by the GPU. (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-2-1",
+          "label": "2.2.1",
+          "questionText": "Process management is one of the functions of an operating system. State a necessary hardware requirement of a CPU to enable multi-processing.",
+          "marks": 1,
+          "memoText": "The CPU must consist of more than one CPU core. ✓ (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-2-2",
+          "label": "2.2.2",
+          "questionText": "Virtual memory is managed by the operating system. Explain what virtual memory is.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks):\n• Virtual memory is an area on the secondary storage\n• Used as RAM / when the system RAM is full or insufficient\n• Used by the operating system to store data temporarily",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-3",
+          "label": "2.3",
+          "questionText": "The IT team needs to manage data storage. Give a term for the process that removes documents that are no longer actively used from the computer's primary storage and stores the documents in a secondary storage space.",
+          "marks": 1,
+          "memoText": "Archiving ✓ (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-4-1",
+          "label": "2.4.1",
+          "questionText": "Drones and mobile technology are often used to observe migration patterns of the 'Big 5' animals. Apart from drones, suggest ONE other mobile technology that can be used to observe migration patterns.",
+          "marks": 1,
+          "memoText": "Any ONE (1 mark): GPS/satellite tracking of animals; RFID tags/trackers with mobile receivers; tracking apps; apps using AI to identify animals/species; motion-sensing cameras linked to mobile devices. Accept any reasonable example that requires a mobile device to monitor the animals, except drones.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-4-2",
+          "label": "2.4.2",
+          "questionText": "State TWO constraints of using mobile technologies.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Limited battery life; the tower providing the signal may be out of range (availability of wireless networks); limited computing power; limited storage; smaller screens are challenging to read; input methods are a challenge; not able to run desktop applications; may not include a full operating system; not easy to upgrade or repair.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-5-1",
+          "label": "2.5.1",
+          "questionText": "A database dedicated to conservation is used to store critical data on endangered species and can be accessed by authorised users only. Suggest TWO biometric authentication methods that can be used to gain access to the database.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Facial recognition; fingerprint scanning; voice recognition; retina/iris/eye scanning.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-5-2",
+          "label": "2.5.2",
+          "questionText": "Use an example to explain the effect of garbage-in-garbage-out (GIGO) in relation to data collection in wildlife tracking systems.",
+          "marks": 2,
+          "memoText": "Any ONE example ✓ and effect ✓ (2 marks).\nExample: incorrect coordinates captured; misidentified animal species.\nEffect: the location of the animal species will be inaccurate, which will result in time wastage trying to find the animals; the resulting analysis will be flawed; the decisions taken will be unreliable.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-5-3",
+          "label": "2.5.3",
+          "questionText": "In order to safeguard critical data, state TWO precautions that can be taken to prevent hardware failure.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Safe handling/keeping/storing of hardware devices; regular maintenance; surge protection / use a UPS; controlling environmental factors; use tools to monitor drivers (health checks); upgrading hardware. Accept relevant, correct examples.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-6-1",
+          "label": "2.6.1",
+          "questionText": "Virtual reality (VR) is becoming a powerful tool for wildlife conservation and education. State TWO limitations of VR technology.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): High cost; requires powerful hardware specifications; possibility of motion sickness / may impact on health; promotes social isolation / reduces social interaction; physical space limitation; setup can be technical / training required; latency / lagging between device and PC.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-2-6-2",
+          "label": "2.6.2",
+          "questionText": "Discuss TWO advantages of using VR for conservation awareness.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Users can experience wildlife/ecosystems in a realistic/interactive way; conservation education is made available to a broader audience; decreases/restricts impact on wildlife ecosystems (they remain undisturbed/undamaged); safer environment by not being physically exposed to dangerous animals such as lions and hippos; no need to travel to wildlife facilities / no paying for expensive real-life encounters; convenient – experience wildlife from the comfort of home. Accept any other correct answer related to the scenario.",
+          "topic": "Systems technologies",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Communication and Network Technologies",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2025-3-1",
+          "label": "3.1",
+          "questionText": "Scenario: A luxury lodge in the wildlife reserve wants to upgrade its networking infrastructure. The lodge consists of multiple guest chalets, a main building with a restaurant and reception area, an administration office and a research centre. The lodge provides Wi-Fi access for guests and has remote surveillance cameras for monitoring wildlife.\n\nGive TWO reasons why a client-server network will be a suitable network to be used at the lodge.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Centralised management; better control over user authentication and encrypted storage of sensitive data / more sophisticated security; scalability – ease of adding more clients; backups are made on the server; a server manages network traffic more efficiently than a peer-to-peer network; suitable for a large number of devices; no need for powerful client devices; easier communication between users (transferring data from a central device).",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-2-1",
+          "label": "3.2.1",
+          "questionText": "Identify the type of area network used in the following scenario:\n\nDuring a safari walk, the same messages that are received on the tour guide's cellphone are accessed on the guide's smartwatch.",
+          "marks": 1,
+          "memoText": "PAN / WPAN ✓ (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-2-2",
+          "label": "3.2.2",
+          "questionText": "Identify the type of area network used in the following scenario:\n\nThe lodge connects to an international wildlife conservation database via the internet.",
+          "marks": 1,
+          "memoText": "WAN / GAN ✓ (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-3",
+          "label": "3.3",
+          "questionText": "The lodge's research centre shares large data files on wildlife with conservationists worldwide. Apart from saving time and improving efficiency, give TWO other reasons why file transfer protocol (FTP) should be used to share large files.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Transfers can be interrupted and resumed; offers remote access; cross-platform compatibility; allows transfer of large files / a large number of files; transfers can be automated with scripts; no restriction on file size; directory structure preservation. Do NOT accept 'reliable'.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-4-1",
+          "label": "3.4.1",
+          "questionText": "The network environment in the administrative office is shown as a diagram: several workstations are connected to a central networking device (labelled 3.4.1), which links to a server and to a second device (labelled 3.4.2) that connects the office to the internet. A printer is shared on the network.\n\nIdentify the device labelled 3.4.1 in the diagram.",
+          "marks": 1,
+          "memoText": "Switch / Hub ✓ (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-4-2",
+          "label": "3.4.2",
+          "questionText": "Refer to the administrative office network diagram. Identify the device labelled 3.4.2 – the device that connects the office network to the internet.",
+          "marks": 1,
+          "memoText": "Router / Modem ✓ (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-5-1",
+          "label": "3.5.1",
+          "questionText": "There is increased bandwidth usage at the lodge due to the large number of guests streaming videos using the wireless network. Differentiate between range and bandwidth in wireless networks.",
+          "marks": 2,
+          "memoText": "Range: the distance that is covered by the signal ✓ before it weakens.\nBandwidth: the amount of data that can be transmitted per time unit / speed of transmission ✓ (2 marks)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-5-2",
+          "label": "3.5.2",
+          "questionText": "Give TWO possible reasons why there may be streaming delays and more buffering challenges at the chalets than at the main building where a wired network is used.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): The bandwidth capacity of a wireless network is lower; there may be more data used / more traffic in the chalets sharing the same network channel; some guests may be located further away from the router; signal interference / obstacle interference / weather.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-6-1",
+          "label": "3.6.1",
+          "questionText": "The lodge is upgrading its website from a static website to a dynamic website. Discuss TWO benefits of a dynamic website for the lodge's customers.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Customers can log in and see bookings, special offers or content tailored to their preferences (personalised experience); availability, prices or promotions can be updated instantly without reloading the entire website (real-time information); customers can make reservations directly on the website instead of phoning or e-mailing (online bookings); features such as contact forms, reviews or feedback improve customer interaction (interactive features).",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-6-2",
+          "label": "3.6.2",
+          "questionText": "The web designer has requested the appointment of a web author at the lodge. Name TWO tasks that will typically be allocated to the web author.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Creates text/images/photos/video/content for a website; structures/formats the content of a website; hyperlink and SEO management; update and maintain the content of the website; collaborate with designers, other authors and developers; publish and share content that is accessible and functional.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-7-1",
+          "label": "3.7.1",
+          "questionText": "Invisible data collection refers to the automatic gathering of user information online, without the user's active awareness. State and explain a technique used in invisible data capturing.",
+          "marks": 2,
+          "memoText": "ONE technique ✓ and explanation ✓ (2 marks). Examples:\n• Cookies – small files stored by your browser that track websites you visit, clicks and preferences\n• Loyalty / bank cards – track your shopping and spending patterns when you make purchases\n• Location / digital tracking – uses IP address, GPS, Wi-Fi or mobile sensors to track your location and movement\n• Metadata tracking – collects information about the context of your activity without you actively providing it (sender/recipient/time, photo EXIF data)\n• Device / browser fingerprinting – collects information about your device and browser (screen size, fonts, hardware) to identify you uniquely\n• Clickstream tracking / scripts – secretly record how you navigate, click and scroll",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-7-2",
+          "label": "3.7.2",
+          "questionText": "How will location-based data, used collectively with invisible data capturing, contribute to the safety of guests at the reserve?",
+          "marks": 2,
+          "memoText": "Concepts (2 marks): evidence of invisible data / location-based data capturing ✓ and the result of using the data to ensure the safety of guests ✓. For example: monitor guest locations to stop them entering dangerous or restricted areas / to assist if they get lost; quickly identify a guest's exact location during a medical or security incident for faster ranger response; provide automatic wildlife/weather/terrain warnings based on the guest's current position; use geo-fencing and crowd-management data to guide safe movement around the reserve; analyse behaviour patterns to prevent risks / send personalised safety tips. Also accept other examples using invisible or location-based data regarding the safety of the guest(s).",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-8-1",
+          "label": "3.8.1",
+          "questionText": "The IT team at the lodge wants to improve security when staff log into the reservation system of the lodge remotely. Briefly explain the concept multi-factor authentication (MFA).",
+          "marks": 1,
+          "memoText": "Authentication that requires two or more verification methods. ✓ (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-8-2",
+          "label": "3.8.2",
+          "questionText": "Motivate why a one-time pin (OTP) is an effective mechanism for verifying staff logins.",
+          "marks": 1,
+          "memoText": "Any ONE (1 mark): The staff member receives the OTP on their personal device / it is not accessible by others; extra layer of security – even if the password is compromised; it is time-sensitive, reducing the risk of re-use / it can only be used once.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-9-1",
+          "label": "3.9.1",
+          "questionText": "The wildlife reserve is setting up a network of motion-activated cameras to monitor rare animals at night. The footage from the cameras must be sent back to the research centre located several kilometres away. Which transmission medium would be the most appropriate to transfer footage from the cameras to the research centre?",
+          "marks": 1,
+          "memoText": "Any ONE (1 mark): Fibre optic; radio / electromagnetic waves; satellite.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-3-9-2",
+          "label": "3.9.2",
+          "questionText": "Give TWO reasons to justify your answer to QUESTION 3.9.1.",
+          "marks": 2,
+          "memoText": "Any TWO reasons for the chosen medium (2 marks).\nFibre optic: reliable over long distances; high bandwidth; not affected by weather; not affected by EMI.\nRadio waves: no need for physical cables; suitable for remote or difficult terrain.\nSatellite: suited for long distances; high-speed data transfer; cost-effective for long distances; reliable in emergencies.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Data and Information Management",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2025-4-1-1",
+          "label": "4.1.1",
+          "questionText": "A database has been set up by the management team of the wildlife reserve to save the details of animals, rangers and sightings. A table called tblAnimalSightings has the following fields: SightingID, RangerName, RangerContact, Experience, Species, Age, SightingLocation, SightingDate, SightingTime.\n\nSample data:\n1 | John Smith | 0821234567 | 3 years | Lion | 7 | Zone A | 10-Sep-25 | 8:30\n2 | Sarah Ndlovu | 0849876543 | 5 years | Elephant | 15 | Zone B | 10-Sep-25 | 12:45\n3 | Mike Adams | 0835554321 | 2 years | Cheetah | 2 | Zone C | 11-Sep-25 | 15:00\n4 | John Smith | 0821234567 | 3 years | Rhino | 4 | Zone A | 12-Sep-25 | 9:15\n5 | Sarah Ndlovu | 0849876543 | 5 years | Elephant | 1 | Zone B | 12-Sep-25 | 11:30\n6 | Sarah Ndlovu | 0849876543 | 5 years | Lion | 7 | Zone B | 12-Sep-25 | 14:30\n\nThe Experience field is currently a text data type. Give a reason why the data and data type of this field should be changed to integer.",
+          "marks": 1,
+          "memoText": "Any ONE (1 mark): To be able to update the years' experience by incrementing it; to perform calculations / processing / sorting / queries; it simplifies data validation; avoids data inconsistencies; avoids redundant data.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-4-1-2",
+          "label": "4.1.2",
+          "questionText": "State and explain the anomaly that will occur by having the RangerContact and Experience fields in the tblAnimalSightings table.",
+          "marks": 2,
+          "memoText": "Any ONE anomaly ✓ and explanation ✓ (2 marks):\n• Insert: a new sighting cannot be added without adding ranger details\n• Delete: deleting a sighting may result in losing ranger contact details\n• Update: when a ranger's contact number changes, all records of sightings by that ranger must be updated with the new contact number",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-4-1-3",
+          "label": "4.1.3",
+          "questionText": "The tblAnimalSightings table has been split into three separate tables to support normalisation rules.\n• tblAnimals contains: AnimalID (primary key), Species, Age\n• tblRangers contains: RangerID (primary key), RangerName, RangerContact, Experience\n• tblSightings currently contains only: SightingID (primary key)\n\nRedraw the tables, fill in ALL the missing fields required for the tblSightings table (including the foreign key(s)), and show the relationship(s) between the tables.",
+          "marks": 6,
+          "memoText": "(6 marks):\n• Diagram correctly copied with table names and primary key field names ✓\n• tblSightings has two foreign keys: RangerID ✓ and AnimalID ✓\n• tblSightings also contains the fields SightingLocation, SightingDate and SightingTime ✓\n• Relationships:\n  – One-to-many on AnimalID from tblAnimals to tblSightings ✓\n  – One-to-many on RangerID from tblRangers to tblSightings ✓",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-4-2",
+          "label": "4.2",
+          "questionText": "The rangers rely on databases to store vast amounts of data aimed at monitoring the movements of the 'Big 5' animals. Differentiate between currency and relevance as characteristics of data.",
+          "marks": 2,
+          "memoText": "Currency refers to timelines (the data being up to date) ✓\nRelevance refers to usefulness / applicability (appropriate for the application, having a specific context or purpose) ✓ (2 marks)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-4-3-1",
+          "label": "4.3.1",
+          "questionText": "Several wildlife reserves across the country use a common booking system. Visitors who have qualified for loyalty cards will receive discounts at certain lodges and national parks. Give TWO potential benefits for a lodge when implementing a guest loyalty card programme.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Track guest behaviour / data collection; targeted marketing; increased lodge revenue; strengthens guest relationships / guest personalisation / guest recognition; improves lodge services / saves time with the booking system; differentiate the lodge from competitors; determine which booking times or seasons are more popular.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-4-3-2",
+          "label": "4.3.2",
+          "questionText": "The lodge does not have the capacity to fund a new proprietary DBMS. From the following list, identify TWO open-source DBMS software applications:\n\nMicrosoft SQL Server; MySQL; Oracle; Microsoft Access; PostgreSQL",
+          "marks": 2,
+          "memoText": "MySQL ✓ and PostgreSQL ✓ (2 marks)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-4-4-1-a",
+          "label": "4.4.1(a)",
+          "questionText": "The IT team has been instructed to apply data mining techniques on a national data warehouse for the purpose of wildlife conservation. Define the following concept: data warehouse.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): A central database that stores large collections of historical data gathered from multiple sources.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-4-4-1-b",
+          "label": "4.4.1(b)",
+          "questionText": "Define the following concept: data mining.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Finding patterns / trends in large datasets using algorithms to make informed decisions.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-4-4-2",
+          "label": "4.4.2",
+          "questionText": "Give ONE specific example of data mining related to wildlife conservation.",
+          "marks": 1,
+          "memoText": "Any ONE (1 mark): Identify animal species that signal extinction by analysing sighting trends over time; find locations where certain animals are commonly sighted (e.g. elephants near rivers during the dry season); predict migration routes based on past routing patterns; prediction of poaching hotspots; planning for feeding during problem seasons / times; influence of tourism on animals to be controlled if necessary. Also accept any other reasonable example.",
+          "topic": "Data and information management",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Solution Development",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2025-5-1-1",
+          "label": "5.1.1",
+          "questionText": "Give the value of iResult in the following Delphi statement:\n\n    iResult := CEIL(-2.3)",
+          "marks": 1,
+          "memoText": "iResult = -2 ✓ (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-5-1-2",
+          "label": "5.1.2",
+          "questionText": "Give the value of iResult in the following Delphi statement:\n\n    iResult := TRUNC(-2.3)",
+          "marks": 1,
+          "memoText": "iResult = -2 ✓ (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-5-2-1",
+          "label": "5.2.1",
+          "questionText": "The following segment of code has been provided:\n\n    Line 1   var\n    Line 2      iNum, iAnsw : Integer;\n    Line 3      rNum, rAnsw : Real;\n    Line 4   begin\n    Line 5      iNum  := 25;\n    Line 6      rNum  := 15;\n    Line 7      iAnsw := iNum/5;\n    Line 8      rAnsw := 15 MOD 3;\n    Line 9      iAnsw := rNum MOD 3;\n    Line 10  end;\n\nState whether Line 7 is CORRECT or INCORRECT and give a reason for your answer. (NO marks will be awarded if only CORRECT or INCORRECT is provided.)",
+          "marks": 2,
+          "memoText": "Incorrect ✓. Any ONE explanation ✓ (2 marks):\n• The result must be real, as it is real division (the / operator)\n• The / operator should be replaced by the DIV operator",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-5-2-2",
+          "label": "5.2.2",
+          "questionText": "Refer to the code segment in QUESTION 5.2. State whether Line 8 (rAnsw := 15 MOD 3;) is CORRECT or INCORRECT and give a reason for your answer. (NO marks for CORRECT/INCORRECT alone.)",
+          "marks": 2,
+          "memoText": "Correct ✓ (2 marks). The result of the MOD operation can be assigned to a real or integer variable ✓, although the result of the MOD operation is an integer value.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-5-2-3",
+          "label": "5.2.3",
+          "questionText": "Refer to the code segment in QUESTION 5.2. State whether Line 9 (iAnsw := rNum MOD 3;) is CORRECT or INCORRECT and give a reason for your answer. (NO marks for CORRECT/INCORRECT alone.)",
+          "marks": 2,
+          "memoText": "Incorrect ✓ (2 marks). rNum must be an integer data type ✓. Also accept: the MOD operator can only be used on integer values.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-5-3-1-a",
+          "label": "5.3.1(a)",
+          "questionText": "The visitors at the wildlife reserve have an app on their mobile devices to record the sightings of 'Big 5' animals. An incomplete interface captures the data of a single sighting: radio buttons for the type of animal (Buffalo, Rhino, Elephant, Leopard, Lion); a spin box 'Number of animals sighted' (value 1); a 'Location of sighting' field (currently unset, marked 5.3.2); a DateTimePicker 'Date of sighting' (value 2025/06/12); a 'Time of sighting' field (10:41:19 AM); and 'Record sighting' and 'Clear' buttons.\n\nA DateTimePicker component is used to select the date of the sighting in the correct format. Name ONE other form of verification that can be applied on the date of the sighting selected.",
+          "marks": 1,
+          "memoText": "The date of sighting selected from the DateTimePicker must correspond / match the actual date of the sighting. ✓ (1 mark)\nAlso accept: test if the date selected is not in the future; test if the date selected is realistic; use the system date; visual checks / double entry / cross referencing.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-5-3-1-b",
+          "label": "5.3.1(b)",
+          "questionText": "Use the example of the date of sighting selected (2025/06/12) to illustrate the difference between valid and correct data in this scenario.",
+          "marks": 2,
+          "memoText": "Valid data: the use of the DateTimePicker will ensure that the format / range / data type of the date is correct. ✓\nCorrect data: the date of sighting selected from the DateTimePicker must correspond / match the actual date of the sighting. ✓ (2 marks)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-5-3-2",
+          "label": "5.3.2",
+          "questionText": "The possible locations in the reserve where a sighting can be registered are: Tshokwane, Flamingo Dam, Mopani Camp and Elephant Valley. Give the name of a suitable component that can be added to the interface to ensure that a valid location is selected by the user.",
+          "marks": 1,
+          "memoText": "Any ONE (1 mark): Combo box; list box; radiogroup.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-5-3-3",
+          "label": "5.3.3",
+          "questionText": "Design a UML diagram for a Sighting object using the information provided on the 'Big 5 - Animal sighting' interface. The following must be included in the UML diagram:\n• Five Sighting object attributes\n• A constructor method without parameters\n• Two accessor methods\n• One mutator method that receives a parameter\n• Private/Public accessibility of all the attributes and methods\n• Data types where necessary",
+          "marks": 7,
+          "memoText": "(7 marks) Example:\n\nTSighting\n- fAnimal: String\n- fNumSighted: Integer\n- fLocationSighted: String\n- fDateSighted: TDate\n- fTimeSighted: TTime\n+ Constructor create()\n+ getAnimal: String\n+ getNumSighted: Integer\n+ setNumSighted(numSighted: Integer)\n\nMark allocation: UML diagram with the heading TSighting ✓; 5 correct attributes ✓; all data types of the attributes correct ✓; constructor without parameters ✓; accessor method with the correct data type ✓; mutator method with the correct parameter and data type ✓; correct indication of private (all the attributes) and public (all the methods) ✓.\nAlso accept other valid accessor methods (getDateSighted: TDate, getTimeSighted: TTime, getLocationSighted: String) and mutator methods (setDateSighted(DateSighted: TDate), setTimeSighted(TimeSighted: TTime), setAnimal(Animal: String), setLocationSighted(LocationSighted: String)).",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-5-4-1",
+          "label": "5.4.1",
+          "questionText": "A text file called BirdSpeciesSpotted.txt contains the number of bird species spotted by an unknown number of bird watchers over a period of four days. Each line of text has the format:\n\n    <Name of bird watcher>;<SpottedDay1>#<SpottedDay2>#<SpottedDay3>#<SpottedDay4>\n\nThe first three lines are:\n    Jenny Brits;19#8#27#16\n    Mpho Julies;25#33#24#28\n    Vidhi Tyson;16#29#27#38\n\nGive ONE reason why a conditional loop will be a suitable loop to read the data from the text file.",
+          "marks": 1,
+          "memoText": "Any ONE (1 mark): To accommodate an unknown number of bird watchers / lines in the text file / loop until end of file (EOF); lines of text can be added to or removed from the text file without changing the code.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-5-4-2",
+          "label": "5.4.2",
+          "questionText": "The AssignFile() and Reset() procedures are used to open a text file for reading purposes. Which procedure is used to create a new text file following the AssignFile() procedure?",
+          "marks": 1,
+          "memoText": "Rewrite() ✓ (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-5-4-3-a",
+          "label": "5.4.3(a)",
+          "questionText": "The data from the text file BirdSpeciesSpotted.txt must be saved into arrays. A one-dimensional array, arrBirdWatcherNames, will save the names of the bird watchers, and a parallel two-dimensional array, arr2DSpotted, will save the number of bird species spotted per day by each bird watcher. The array arr2DSpotted will be declared with an additional column which is not currently populated.\n\nGive ONE reason why the names of the bird watchers should NOT be included as part of the two-dimensional array arr2DSpotted.",
+          "marks": 1,
+          "memoText": "Any ONE (1 mark): The data type of the name of the bird watcher is String and the data type of the number of species spotted is Integer; the data types of all data in a two-dimensional array must be the same; the two-dimensional array will need to be declared as integer to allow calculations to be done.",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-5-4-3-b",
+          "label": "5.4.3(b)",
+          "questionText": "The table below shows the contents of the first three rows of data in the two-dimensional array arr2DSpotted (the 5th column is not yet populated):\n\n    19 |  8 | 27 | 16 | _\n    25 | 33 | 24 | 28 | _\n    16 | 29 | 27 | 38 | _\n\nA global variable called iNumBirdWatchers will store the number of lines read from the text file.\n\nWrite an algorithm that can be used to determine the highest number of bird species spotted by each bird watcher over a period of four days, and populate column 5 of the two-dimensional array arr2DSpotted with these values.",
+          "marks": 8,
+          "memoText": "(8 marks):\nLoop Row from 1 to iNumBirdWatchers ✓\n    Highest ← arr2DSpotted[Row, 1] ✓\n    Loop Col from 2 to 4 ✓\n        If Highest < arr2DSpotted[Row, Col] ✓ then\n            Highest ← arr2DSpotted[Row, Col] ✓\n    arr2DSpotted[Row, 5] ✓ ← Highest ✓",
+          "topic": "Solution development",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Integrated Scenario",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2025-6-1-1",
+          "label": "6.1.1",
+          "questionText": "Scenario: Local and international wildlife researchers often stay at one of the lodges in the reserve, where conferences on wildlife conservation are hosted. The lodge has an online booking system and a website with information on research projects, guided safaris and other activities. The IT team is responsible for keeping research data and all communication safe.\n\nIPTV is provided as a service for guests at the lodge. Expand the abbreviation IPTV.",
+          "marks": 1,
+          "memoText": "Internet Protocol Television ✓ (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-1-2",
+          "label": "6.1.2",
+          "questionText": "State TWO challenges that are generally experienced by IPTV providers.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Requires fast, stable internet – outdated infrastructure causes buffering, latency or packet loss (high bandwidth and network limitations); high licensing costs, differing regional laws and competition from illegal IPTV services (licensing and legal challenges); device compatibility problems and difficulty scaling to many users (technical and compatibility issues); data costs, infrastructure upgrades and limited payment options for customers (high operating costs); protecting user data and preventing attacks is an ongoing challenge (cybersecurity threats); some regions block or limit IPTV access due to laws, censorship or weak networks (regional restrictions).",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-1-3",
+          "label": "6.1.3",
+          "questionText": "Compression technologies play a vital role in the transmission of multimedia data. Explain the relationship between the video quality and the speed of delivery of compressed video data.",
+          "marks": 2,
+          "memoText": "There is an inverse relationship between quality and speed. Any ONE (2 marks):\n• The higher the quality, the lower the speed of delivery\n• The lower the quality, the higher the speed of delivery",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-2-1",
+          "label": "6.2.1",
+          "questionText": "The e-mail system at the lodge was recently targeted by cyber gangs. Users of the system must be educated on aspects of hacking and related vulnerabilities. Explain what social engineering is.",
+          "marks": 2,
+          "memoText": "The process of manipulating / tricking a person ✓ to give out their personal details ✓ (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-2-2",
+          "label": "6.2.2",
+          "questionText": "State TWO ways by which users can identify phishing e-mails.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Unofficial or unusual email domains (suspicious sender address); 'Dear Customer/Client/Sir/Madam' instead of your name (generic greetings); pressure to act immediately or accounts 'being closed' (urgent or threatening language); unexpected files or links that look incorrect when hovered over (suspicious links or attachments); unprofessional or error-filled wording (poor spelling or grammar); prizes, competitions or winnings when not entered (too-good-to-be-true offers); asking for passwords or confidential details (requests for personal information). Also accept any example related to these concepts.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-2-3",
+          "label": "6.2.3",
+          "questionText": "The IT team at the lodge requested the appointment of a digital forensic investigator. Explain the task of a digital forensic investigator.",
+          "marks": 2,
+          "memoText": "A digital forensic investigator analyses / identifies digital evidence ✓ from computers, networks and other devices to uncover facts about cybercrimes / data breaches / other digital incidents ✓ (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-3-1",
+          "label": "6.3.1",
+          "questionText": "Researchers will be provided with a security token when using an online booking system to manage their accommodation. Describe how a security token works.",
+          "marks": 3,
+          "memoText": "Any THREE concepts (3 marks):\n• After the successful authentication of a user, a security token is generated and sent to the user ✓\n• The user stores the token and uses it for every subsequent request ✓\n• The server validates the token by either checking the expiry date or verifying a signature ✓",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-3-2",
+          "label": "6.3.2",
+          "questionText": "Explain how the use of SSL will improve website security.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Provides encrypted data transmission between the website and the guest to prevent unauthorised access.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-4-1",
+          "label": "6.4.1",
+          "questionText": "The lodge wants its website, titled 'Big 5 Safaris in South Africa', to appear at the top of search engine results to maximise the use of Web 3.0 capabilities. Suggest TWO techniques that may be used to enhance search engine optimisation to improve the website's visibility.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Use relevant keywords; high-quality content; webpage optimisation (metatags, headers, image texts); secure website (HTTPS) improves trust and ranking in search engines; mobile friendly; page loading times (use caching techniques, compression, etc.); social media integration; regular updates. Do NOT accept paying a search engine or paying for marketing, as this is not part of SEO.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-4-2",
+          "label": "6.4.2",
+          "questionText": "Is the URL below an example of Web 1.0 or Web 3.0?\n\n    https://example.com/services?category=big5&sessionid=221",
+          "marks": 1,
+          "memoText": "Web 3.0 ✓ (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-4-3",
+          "label": "6.4.3",
+          "questionText": "Discuss how a semantic search could improve the accuracy of search results.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Semantic search focuses on meaning; no emphasis on keywords; uses metadata (data that defines and describes the characteristics of other data); uses Natural Language Processing (NLP).",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-4-4",
+          "label": "6.4.4",
+          "questionText": "Briefly explain what the characteristic of a mediated search method is.",
+          "marks": 1,
+          "memoText": "Any method that addresses the need for human / system involvement ✓ to refine or filter results (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-5",
+          "label": "6.5",
+          "questionText": "Researchers use a mobile app that allows them to view additional information about animals observed, while looking through the cameras of their mobile devices. Identify the type of technology that is used by this app.",
+          "marks": 1,
+          "memoText": "Augmented Reality / AR ✓ (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-6-1",
+          "label": "6.6.1",
+          "questionText": "The incident where the poisoning of an elephant by poachers resulted in the poisoning of many vultures (birds) was discussed at a strategic planning session to protect wildlife. Many of the poisoned vultures had active RFID tags and could be located timeously by rangers.\n\nDifferentiate between a passive and an active RFID tag, by referring to the power source of each of these types of tags.",
+          "marks": 2,
+          "memoText": "An active tag includes ✓ a battery / power source.\nA passive tag receives power from the reader's antennae ✓ (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-6-2",
+          "label": "6.6.2",
+          "questionText": "Explain how RFID works and how rangers were able to locate the poisoned birds in time.",
+          "marks": 3,
+          "memoText": "RFID uses radio waves ✓ to read a unique identifier / tag ✓ to pinpoint the beacon / location of the bird ✓ using GPS capabilities. (3 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2025-6-7",
+          "label": "6.7",
+          "questionText": "The IT team suggested the implementation of distributed computing at the research centre. Motivate this suggestion by giving TWO reasons why distributed computing would benefit research projects.",
+          "marks": 2,
+          "memoText": "Any TWO (2 marks): Researchers pool computing power and storage they would not have individually (shared resources); tasks run in parallel on multiple devices, speeding up calculations (faster processing); more devices can be added easily as research needs grow (scalability); if one device fails, others continue to work (high reliability); lower system requirements instead of expensive high-end systems (cost-effective); researchers can access shared data and resources from different locations (geographic access).",
+          "topic": "Integrated scenario",
+          "type": "open"
+        }
+      ]
+    }
+  ]
+}

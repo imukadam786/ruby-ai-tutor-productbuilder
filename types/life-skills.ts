@@ -200,6 +200,8 @@ export interface LifeSkillsGeneratedQuestion {
   stem_image?: string;
   expected_answer: string | number;
   memo: string;
+  /** 1–3 ERR_LS_* misconception codes — drive the wrong-answer feedback card. */
+  error_signals: string[];
   difficulty?: number;
 }
 

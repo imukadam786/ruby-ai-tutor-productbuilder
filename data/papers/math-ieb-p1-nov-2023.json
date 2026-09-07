@@ -1,0 +1,516 @@
+{
+  "id": "math-ieb-p1-nov-2023",
+  "subject": "Mathematics IEB",
+  "subjectCode": "mathematics-ieb",
+  "paperCode": "P1",
+  "year": 2023,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Equations, Simultaneous Equations & Inequalities",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2023-1-a-1",
+          "label": "1(a)(1)",
+          "questionText": "Solve for $x$: $2 = 3^x$ (leave the answer in logarithmic form).",
+          "marks": 1,
+          "memoText": "$x = \\log_3 2$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-1-a-2",
+          "label": "1(a)(2)",
+          "questionText": "Solve for $x$: $\\sqrt{x + 7} - 1 = x$.",
+          "marks": 4,
+          "memoText": "$\\sqrt{x + 7} = x + 1$\n$x + 7 = (x + 1)^2$\n$x^2 + x - 6 = 0$\n$(x + 3)(x - 2) = 0$\n$x \\neq -3$, so $x = 2$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-1-b",
+          "label": "1(b)",
+          "questionText": "Solve for $x$ and $y$ simultaneously if $y - 2x = 7$ and $x^2 - x - y - 3 = 0$.",
+          "marks": 5,
+          "memoText": "$y = 2x + 7$\n$x^2 - x - (2x + 7) - 3 = 0$\n$x^2 - 3x - 10 = 0$\n$(x - 5)(x + 2) = 0$\n$x = 5$ or $x = -2$\n$(5; 17)$  or  $(-2; 3)$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-1-c",
+          "label": "1(c)",
+          "questionText": "For what values of $x$ is $3x^2 \\leq x$?",
+          "marks": 4,
+          "memoText": "$3x^2 - x \\leq 0$\n$x(3x - 1) \\leq 0$\n$0 \\leq x \\leq \\dfrac{1}{3}$",
+          "topic": "Algebra",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Cubic Function & Calculus",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2023-2-a",
+          "label": "2(a)",
+          "questionText": "If $f(x) = (x + 2)(x - 4)(x - 4)$, determine the coordinates of the $y$-intercept of the graph of $f$.",
+          "marks": 1,
+          "memoText": "$f(0) = (2)(-4)(-4) = 32$, so $(0; 32)$.",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-2-b",
+          "label": "2(b)",
+          "questionText": "Determine $f'(x)$.",
+          "marks": 3,
+          "memoText": "$f(x) = (x + 2)(x^2 - 8x + 16) = x^3 - 6x^2 + 32$\n$f'(x) = 3x^2 - 12x$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-2-c",
+          "label": "2(c)",
+          "questionText": "For what values of $x$ will $f'(x) = 0$?",
+          "marks": 2,
+          "memoText": "$3x^2 - 12x = 0$\n$3x(x - 4) = 0$\n$x = 0$ or $x = 4$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-2-d",
+          "label": "2(d)",
+          "questionText": "Sketch the graph of $f$. Label both $x$- and $y$-intercepts, the turning/stationary points, and the point of inflection.",
+          "marks": 4,
+          "memoText": "$x$-intercepts: $(-2; 0)$ and $(4; 0)$ (the graph touches the $x$-axis at $x = 4$, a double root).\n$y$-intercept: $(0; 32)$.\nStationary points: local maximum $(0; 32)$; local minimum $(4; 0)$.\nPoint of inflection: $f''(x) = 6x - 12 = 0 \\Rightarrow x = 2$; $f(2) = 16$, so $(2; 16)$.\nShape: cubic with a positive leading coefficient.\nMarks: turning points; $x$-intercept; point of inflection; shape.",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-2-e",
+          "label": "2(e)",
+          "questionText": "For what values of $x$ is $f(x) \\geq 0$?",
+          "marks": 2,
+          "memoText": "$x \\geq -2$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Logarithmic Function, its Inverse & a Line",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2023-3-a",
+          "label": "3(a)",
+          "questionText": "In the diagram the graphs of $f(x) = \\log_m(x + 2)$ and $g(x) = -x + 4$ are drawn. B and C are the $x$- and $y$-intercept of $f$ respectively, $A(3; 1)$ lies on both $f$ and $g$, and the line $x = -2$ is the asymptote of $f$.\n\nDetermine the value of $m$.",
+          "marks": 2,
+          "memoText": "$A(3; 1)$ lies on $f$: $1 = \\log_m(3 + 2)$\n$m^1 = 5$\n$m = 5$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-3-b",
+          "label": "3(b)",
+          "questionText": "Determine the coordinates of B and C if $m = 5$.",
+          "marks": 4,
+          "memoText": "C ($y$-intercept): $y = \\log_5(0 + 2)$, so $C(0; 0{,}4)$.\nB ($x$-intercept): $0 = \\log_5(x + 2) \\Rightarrow x + 2 = 1 \\Rightarrow x = -1$, so $B(-1; 0)$.",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-3-c",
+          "label": "3(c)",
+          "questionText": "For what value(s) of $x$ is $f(x) \\leq g(x)$?",
+          "marks": 2,
+          "memoText": "$x \\in (-2; 3]$  (i.e. $-2 < x \\leq 3$)",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-3-d",
+          "label": "3(d)",
+          "questionText": "On the same set of axes sketch the graph of $f^{-1}$, the inverse of $f$. Label the intercepts, asymptote and the point where $f^{-1}(x) = g(x)$.",
+          "marks": 4,
+          "memoText": "$f^{-1}(x) = 5^x - 2$.\n$y$-intercept: $(0; -1)$.\n$x$-intercept: $(\\log_5 2; 0) \\approx (0{,}4; 0)$.\nAsymptote: $y = -2$.\nThe point where $f^{-1}(x) = g(x)$ is $(1; 3)$ (the reflection of $A(3; 1)$ in $y = x$).\nMarks: $y$-intercept; point $(1; 3)$; asymptote; $x$-intercept and shape.",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Differentiation Rules, First Principles & Tangents",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2023-4-a-1",
+          "label": "4(a)(1)",
+          "questionText": "Find $f'(x)$ if $f(x) = \\sqrt[5]{x^2} - \\dfrac{3}{x^3}$.",
+          "marks": 4,
+          "memoText": "$f(x) = x^{\\frac{2}{5}} - 3x^{-3}$\n$f'(x) = \\dfrac{2}{5}x^{-\\frac{3}{5}} + 9x^{-4}$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-4-a-2",
+          "label": "4(a)(2)",
+          "questionText": "Find $g'(x)$ if $g(x) = \\dfrac{x^2 - 2x + 1}{4x - 4}$.",
+          "marks": 3,
+          "memoText": "$g(x) = \\dfrac{(x - 1)(x - 1)}{4(x - 1)} = \\dfrac{x - 1}{4} = \\dfrac{x}{4} - \\dfrac{1}{4}$\n$g'(x) = \\dfrac{1}{4}$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-4-b",
+          "label": "4(b)",
+          "questionText": "The following information is given for a function $f$: $f(4) = 5$ and $f'(4) = 7$.\n\nDetermine the equation of the tangent to $f$ at $x = 4$ in the form $y = mx + c$.",
+          "marks": 3,
+          "memoText": "$y = 7x + c$\n$5 = 7(4) + c$\n$c = -23$\n$y = 7x - 23$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-4-c",
+          "label": "4(c)",
+          "questionText": "Using first principles, find $h'(x)$ if $h(x) = 5x - 8$.",
+          "marks": 3,
+          "memoText": "$h'(x) = \\displaystyle\\lim_{h \\to 0} \\dfrac{5(x + h) - 8 - (5x - 8)}{h}$\n$= \\displaystyle\\lim_{h \\to 0} \\dfrac{5x + 5h - 8 - 5x + 8}{h}$\n$= \\displaystyle\\lim_{h \\to 0} \\dfrac{5h}{h}$\n$h'(x) = 5$",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Arithmetic Sequence & Series",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2023-5-a",
+          "label": "5(a)",
+          "questionText": "Consider the arithmetic sequence $22; 25; 28; 31; \\ldots; 262$.\n\nDetermine the number of terms in the sequence.",
+          "marks": 3,
+          "memoText": "$T_n = 22 + (n - 1)(3) = 3n + 19$\n$3n + 19 = 262$\n$3n = 243$\n$n = 81$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-5-b",
+          "label": "5(b)",
+          "questionText": "Represent the sum of all the terms using sigma notation.",
+          "marks": 2,
+          "memoText": "$\\displaystyle\\sum_{n=1}^{81} (3n + 19)$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-5-c",
+          "label": "5(c)",
+          "questionText": "If the pattern continues, determine the smallest number of terms that must be added to the sequence above so that the sum of all the terms will be more than 15 000.",
+          "marks": 5,
+          "memoText": "$\\dfrac{n}{2}\\left(2(22) + (n - 1)(3)\\right) > 15\\,000$\n$3n^2 + 41n - 30\\,000 > 0$\n$n < -107{,}1$  or  $n > 93{,}4$\n$\\therefore n = 94$; number of terms to add $= 94 - 81 = 13$",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Financial Mathematics — Combined Investments & a Loan",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2023-6-a",
+          "label": "6(a)",
+          "questionText": "You invest into two different investment schemes for a period of 5 years.\n\nInvestment 1: You place R3 500 into an investment at the end of each month. Interest is 15% per annum compounded monthly.\n\nInvestment 2: You make a deposit of R24 000 immediately and then only make a second deposit of R7 000 into the same account at the end of the 3rd year. Interest is 20% per annum compounded quarterly.\n\nIf you combine the value of your two investments at the end of the five-year period, what is the value of this lump sum? Give your answer correct to two decimal places.",
+          "marks": 7,
+          "memoText": "Investment 1: $\\dfrac{3\\,500\\left[\\left(1 + \\dfrac{0{,}15}{12}\\right)^{60} - 1\\right]}{\\dfrac{0{,}15}{12}} = \\text{R}310\\,010{,}78$\nInvestment 2: $24\\,000\\left(1 + \\dfrac{0{,}20}{4}\\right)^{20} + 7\\,000\\left(1 + \\dfrac{0{,}20}{4}\\right)^{8} = \\text{R}74\\,021{,}33$\nTotal lump sum $= \\text{R}384\\,032{,}11$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-6-b-1",
+          "label": "6(b)(1)",
+          "questionText": "To start your ice cream business you take out a loan for R250 000. The bank offers an interest rate of 10% per annum compounded monthly.\n\nHow much should you pay each month if you would like to pay the loan off at the end of ten years, if the first payment is made at the end of the first month? Give your answer correct to two decimal places.",
+          "marks": 3,
+          "memoText": "$250\\,000 = \\dfrac{x\\left[1 - \\left(1 + \\dfrac{0{,}10}{12}\\right)^{-120}\\right]}{\\dfrac{0{,}10}{12}}$\n$x = \\text{R}3\\,303{,}77$",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-6-b-2",
+          "label": "6(b)(2)",
+          "questionText": "If you decide to pay R6 000 per month, only starting at the end of the second month, then how many payments will be needed to pay off the loan? (Round up to the nearest number of payments.)",
+          "marks": 5,
+          "memoText": "$250\\,000\\left(1 + \\dfrac{0{,}10}{12}\\right) = \\dfrac{6\\,000\\left[1 - \\left(1 + \\dfrac{0{,}10}{12}\\right)^{-n}\\right]}{\\dfrac{0{,}10}{12}}$\n$\\dfrac{1\\,123}{1\\,728} = \\left(1 + \\dfrac{0{,}10}{12}\\right)^{-n}$\n$-n = \\log_{\\left(1 + \\frac{0{,}10}{12}\\right)} \\dfrac{1\\,123}{1\\,728} = -51{,}93$\n$n = 52$ months",
+          "topic": "Financial Mathematics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Completing the Square, Exponents & Logs",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2023-7-a",
+          "label": "7(a)",
+          "questionText": "If $x^2 - 16x + 73 = a(x - m)^2 + p$ then determine the value of $m$ and $p$.",
+          "marks": 3,
+          "memoText": "$x^2 - 16x + 64 + 9 = (x - 8)^2 + 9$\n$m = 8$ and $p = 9$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-7-b-1",
+          "label": "7(b)(1)",
+          "questionText": "If $2^x = k$, determine $2^{2x}$ in terms of $k$.",
+          "marks": 1,
+          "memoText": "$k^2$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-7-b-2",
+          "label": "7(b)(2)",
+          "questionText": "If $2^x = k$, determine $2^{\\frac{x}{3}}$ in terms of $k$.",
+          "marks": 1,
+          "memoText": "$k^{\\frac{1}{3}}$  or  $\\sqrt[3]{k}$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-7-b-3",
+          "label": "7(b)(3)",
+          "questionText": "If $2^x = k$, determine $2^{-x + 1}$ in terms of $k$.",
+          "marks": 1,
+          "memoText": "$\\dfrac{2}{k}$  or  $2k^{-1}$",
+          "topic": "Algebra",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-7-c",
+          "label": "7(c)",
+          "questionText": "Solve for $p$ if $\\dfrac{3^{\\log_p 2}}{3^{\\log_p 8}} = 9$.",
+          "marks": 4,
+          "memoText": "$3^{\\log_p 2} = 3^{\\log_p 8} \\cdot 3^2$\n$\\log_p 2 = \\log_p 8 + 2$\n$\\log_p 2 - \\log_p 8 = 2$\n$\\log_p \\dfrac{1}{4} = 2$\n$p^2 = \\dfrac{1}{4}$\n$p = \\dfrac{1}{2}$",
+          "topic": "Algebra",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Hyperbola, Axis of Symmetry & Tangent",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2023-8-a",
+          "label": "8(a)",
+          "questionText": "In the diagram $f(x) = \\dfrac{12}{x}$ for $x > 0$; $g$ is the axis of symmetry for $f$ (with a positive gradient); B is the point where $f$ intersects $g$; $h$ is a tangent to $f$ at C; A is the $y$-intercept of $h$.\n\nWrite down the equation of $g$.",
+          "marks": 1,
+          "memoText": "$y = x$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-8-b",
+          "label": "8(b)",
+          "questionText": "Determine the coordinates of B. (Leave answers in surd form.)",
+          "marks": 3,
+          "memoText": "$x = \\dfrac{12}{x}$\n$x^2 = 12$\n$x = \\pm\\sqrt{12}$; for $x > 0$: $B\\left(\\sqrt{12}; \\sqrt{12}\\right)$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-8-c",
+          "label": "8(c)",
+          "questionText": "Determine the area of $\\triangle$ACO if $h(x) = -\\dfrac{1}{3}x + c$.",
+          "marks": 8,
+          "memoText": "$f'(x) = -12x^{-2} = -\\dfrac{12}{x^2}$\n$-\\dfrac{12}{x^2} = -\\dfrac{1}{3} \\Rightarrow x^2 = 36 \\Rightarrow x = 6$, so $C(6; 2)$.\n$2 = -\\dfrac{1}{3}(6) + c \\Rightarrow c = 4$, so $A(0; 4)$.\nArea of $\\triangle$ACO $= \\dfrac{1}{2} \\times OA \\times x_C = \\dfrac{1}{2} \\times 4 \\times 6 = 12$ units$^2$",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Rope over Two Poles — Parabolic Model",
+      "totalMarks": 10,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2023-9-a",
+          "label": "9(a)",
+          "questionText": "A piece of rope hangs over the top of two vertical poles AB and CD, each 5 metres in height. The horizontal distance between the tops B and D is 12 metres. Point $E(1; 2)$ represents the lowest point of the rope.\n\nIf the shape of the rope between B and D is modelled by $y = a(x - p)^2 + q$, determine the value of $a$.",
+          "marks": 4,
+          "memoText": "$E(1; 2)$ is the turning point, so $p = 1$ and $q = 2$: $y = a(x - 1)^2 + 2$.\nB is at $(-5; 5)$ and D at $(7; 5)$ (turning point at $x = 1$, half of $12$ each side).\nUsing $D(7; 5)$: $5 = a(7 - 1)^2 + 2$\n$3 = 36a$\n$a = \\dfrac{1}{12}$",
+          "topic": "Functions",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-9-b",
+          "label": "9(b)",
+          "questionText": "If pole CD is shifted to the right, then what should the horizontal distance between the two vertical poles AB and CD become, so that the value of $a$ is $\\dfrac{1}{100}$ and the lowest point of the rope is 4 metres above the ground?",
+          "marks": 6,
+          "memoText": "$y = \\dfrac{1}{100}(x - p)^2 + 4$, with B still at $(-5; 5)$:\n$1 = \\dfrac{1}{100}(-5 - p)^2$\n$100 = (p + 5)^2 \\Rightarrow p^2 + 10p - 75 = 0 \\Rightarrow (p + 15)(p - 5) = 0$\n$p \\neq -15$, so $p = 5$ (the new turning point $x$-value).\nD is then at $x = 5 + (5 - (-5)) = 15$, so the distance between the poles $= 15 - (-5) = 20$ metres.",
+          "topic": "Functions",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Geometric & Quadratic Sequences",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2023-10-a-1",
+          "label": "10(a)(1)",
+          "questionText": "A pool is being filled by a hosepipe. The rate of flow increases by 10% each hour: hour 1 = 1 litre/minute, hour 2 = 1,1 litre/minute, hour 3 = 1,21 litre/minute, hour 4 = 1,331 litre/minute.\n\nCalculate the rate of flow during hour 24. (Assume the geometric pattern continues.)",
+          "marks": 2,
+          "memoText": "$T_{24} = 1 \\cdot (1{,}1)^{24 - 1} = 8{,}95 \\approx 9{,}0$ litres/minute",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-10-a-2",
+          "label": "10(a)(2)",
+          "questionText": "If the hosepipe above is filling up a pool, then how many litres of water would be in the pool at the end of 24 hours? (Assuming the pool was empty at the start of the process.)",
+          "marks": 3,
+          "memoText": "Each hour contributes $60 \\times T_n$ litres.\n$S = 60 \\cdot \\dfrac{1\\left(1{,}1^{24} - 1\\right)}{1{,}1 - 1} = 5\\,309{,}8$ litres",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-10-b",
+          "label": "10(b)",
+          "questionText": "For a quadratic sequence the following information is given: $T_2 - T_1 = 4$; $T_3 - T_2 = 7$ and $T_{10} = 0$.\n\nDetermine the $n$th term of the quadratic sequence.",
+          "marks": 5,
+          "memoText": "Second difference $= 7 - 4 = 3$, so $2a = 3 \\Rightarrow a = \\dfrac{3}{2}$.\n$3a + b = 4 \\Rightarrow \\dfrac{9}{2} + b = 4 \\Rightarrow b = -\\dfrac{1}{2}$\n$T_{10} = 0$: $\\dfrac{3}{2}(10)^2 - \\dfrac{1}{2}(10) + c = 0 \\Rightarrow 150 - 5 + c = 0 \\Rightarrow c = -145$\n$T_n = \\dfrac{3}{2}n^2 - \\dfrac{1}{2}n - 145$",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-10-c",
+          "label": "10(c)",
+          "questionText": "The first term of a converging geometric series is equal to the common ratio; if $S_\\infty = \\dfrac{1}{5}$, then calculate the value of the first term in the series.",
+          "marks": 3,
+          "memoText": "Let $a = r$. $\\dfrac{a}{1 - r} = \\dfrac{1}{5}$\n$\\dfrac{r}{1 - r} = \\dfrac{1}{5}$\n$5r = 1 - r$\n$r = \\dfrac{1}{6}$; since $a = r$, the first term is $\\dfrac{1}{6}$.",
+          "topic": "Number Patterns",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-10-d",
+          "label": "10(d)",
+          "questionText": "Consider the geometric sequence $x; y; x + y; \\ldots$ where $x > 0$ and $y > 0$.\n\nDetermine the numerical value for $\\dfrac{x}{y}$.",
+          "marks": 4,
+          "memoText": "$\\dfrac{y}{x} = \\dfrac{x + y}{y}$\n$y^2 = x^2 + xy$\n$x^2 + xy - y^2 = 0$\n$x = \\dfrac{-y \\pm \\sqrt{y^2 - 4(1)(-y^2)}}{2} = \\dfrac{y(-1 \\pm \\sqrt{5})}{2}$\nSince $x$ and $y$ are both positive: $\\dfrac{x}{y} = \\dfrac{-1 + \\sqrt{5}}{2}$",
+          "topic": "Number Patterns",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Counting Principle & Probability with Dice",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2023-11-a-1-i",
+          "label": "11(a)(1)(i)",
+          "questionText": "A ten-digit password consists of two parts. The first part is made up of six numbers, using the digits 1 to 9.\n\nHow many unique six-digit codes can be created if repetition is allowed?",
+          "marks": 2,
+          "memoText": "$9^6 = 531\\,441$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-11-a-1-ii",
+          "label": "11(a)(1)(ii)",
+          "questionText": "The second part is a four-digit code compiled from the digits 1 to 9, with repetition not allowed.\n\nHow many even ten-digit passwords can be created by combining these two parts?",
+          "marks": 3,
+          "memoText": "First part: $9^6$ codes. Second part (4 digits, no repetition, ends in an even digit): $4$ choices for the last digit, then $8 \\times 7 \\times 6$ for the first three.\n$9^6 \\times 8 \\times 7 \\times 6 \\times 4 = 714\\,256\\,704$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-11-a-2",
+          "label": "11(a)(2)",
+          "questionText": "The second nine-digit password has to be a number greater than 600 000 000 with the last digit being divisible by 3. How many nine-digit passwords are possible if you can use the digits from 1 to 9 and no repetition is allowed?",
+          "marks": 4,
+          "memoText": "The first digit must be from $\\{6, 7, 8, 9\\}$ and the last digit from $\\{3, 6, 9\\}$.\n- Ends in 3, starts with a 6, 7, 8 or 9: $4 \\times 7! \\times 1$\n- Ends in a 6 or 9, starts with one of the remaining digits from $\\{6, 7, 8, 9\\}$: $3 \\times 7! \\times 2$\nTotal $= 4 \\times 7! + 3 \\times 7! \\times 2 = 50\\,400$  (i.e. $10 \\times 7!$).",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-11-b-1",
+          "label": "11(b)(1)",
+          "questionText": "You have two regular six-sided dice, one green and one red. $g$ is the value on the green die and $r$ is the value on the red die. These values are placed into $f(x) = (x + g)(x - r)$.\n\nWhat is the probability that the $y$-intercept for the graph of $f$ will be less than $-29$?",
+          "marks": 4,
+          "memoText": "$y$-intercept $= f(0) = (g)(-r) = -gr$. Require $-gr < -29$, i.e. $gr > 29$.\nFrom the $6 \\times 6$ product table, only $5 \\times 6 = 30$, $6 \\times 5 = 30$ and $6 \\times 6 = 36$ satisfy this — 3 outcomes.\n$P = \\dfrac{3}{36} = \\dfrac{1}{12}$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-11-b-2",
+          "label": "11(b)(2)",
+          "questionText": "What is the probability that the roots of $f(x) = 0$ will be real, rational and unequal?",
+          "marks": 1,
+          "memoText": "$f(x) = (x + g)(x - r)$ has roots $x = -g$ and $x = r$, which are always real, rational and unequal.\n$P = 1$",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-11-b-3",
+          "label": "11(b)(3)",
+          "questionText": "If $h(x) = -1(x + g)^2 + 4 - r$ then what is the probability that, if you throw the two dice and place the values into $h(x)$, the roots of $h(x) = 0$ will be non-real?",
+          "marks": 3,
+          "memoText": "$h$ is a 'sad' parabola with turning point $(-g; 4 - r)$. For non-real roots the turning point must be below the $x$-axis: $4 - r < 0 \\Rightarrow r > 4$, so $r \\in \\{5, 6\\}$.\n$P = \\dfrac{2}{6} = \\dfrac{1}{3}$",
+          "topic": "Probability",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Storage Facility — Line Equation & Maximum Volume",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p1-nov-2023-12-a",
+          "label": "12(a)",
+          "questionText": "The front view of a rectangular storage facility is built onto a wall represented by MO, with MO $= 6$ metres. The roof MP is attached to the wall at M. The gradient of the roof, MN : NP, has a ratio of $2 : 5$. PR is a vertical beam, NP is a horizontal beam, and OR represents the ground.\n\nDetermine the equation of the line MP that represents the roof.",
+          "marks": 2,
+          "memoText": "M$(0; 6)$; the roof descends with gradient $-\\dfrac{2}{5}$.\n$y = -\\dfrac{2}{5}x + 6$",
+          "topic": "Calculus",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p1-nov-2023-12-b",
+          "label": "12(b)",
+          "questionText": "If the depth of the rectangular storage facility is two metres shorter than the width, then determine the length of the vertical beam so that the rectangular storage facility will have a maximum volume when placed under the roof MP. (The roof must remain fixed at M and the ratio of MN : NP must remain $2 : 5$.)",
+          "marks": 6,
+          "memoText": "Let the width $= x$; then the depth $= x - 2$ and the height (vertical beam) $= -\\dfrac{2}{5}x + 6$.\n$V = x(x - 2)\\left(-\\dfrac{2}{5}x + 6\\right) = -\\dfrac{2}{5}x^3 + 6x^2 + \\dfrac{4}{5}x^2 - 12x$\n$\\dfrac{dV}{dx} = -\\dfrac{6}{5}x^2 + 12x + \\dfrac{8}{5}x - 12 = 0$\n$-6x^2 + 68x - 60 = 0 \\Rightarrow 3x^2 - 34x + 30 = 0$\n$x = 0{,}96$  or  $x = 10{,}3689$\nHeight of the vertical beam $= -\\dfrac{2}{5}(10{,}3689) + 6 = 1{,}9$ metres.",
+          "topic": "Calculus",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

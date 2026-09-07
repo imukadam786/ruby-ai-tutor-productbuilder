@@ -27,6 +27,8 @@ import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
 import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreBusinessStudiesAnswer } from "@/lib/business-studies-scoring";
+import { topicFeedbackProps } from "@/lib/topic-feedback";
+import { TOPIC_EXAMPLES } from "@/lib/business-studies-topic-feedback";
 import BusinessStudiesSkillTreeView from "./BusinessStudiesSkillTreeView";
 import SourceBlock from "./questions/SourceBlock";
 import SortBucketsQuestion from "./questions/SortBucketsQuestion";
@@ -109,6 +111,9 @@ export default function BusinessStudiesSession({ onBack }: { onBack?: () => void
   const [submitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [profile, setProfile] = useState<BusinessStudiesStudentProfile | null>(null);
+  // Exact submitted answer — tap inputs bypass a form field; used for the
+  // feedback card's answer-vs-correct line.
+  const [lastAnswer, setLastAnswer] = useState<string>("");
 
   const [correctCount, setCorrectCount] = useState(0);
   const [attemptCount, setAttemptCount] = useState(0);
@@ -346,6 +351,8 @@ export default function BusinessStudiesSession({ onBack }: { onBack?: () => void
     async (rawAnswer: string) => {
       if (!question || !skillId || !rawAnswer.trim()) return;
 
+      setLastAnswer(rawAnswer);
+
       // Instant: score client-side (deterministic; the scorer's fields all ship
       // with the question). The server call runs in the background for usage
       // metering. The bank scorer reads `expected`, the client question carries
@@ -533,6 +540,16 @@ export default function BusinessStudiesSession({ onBack }: { onBack?: () => void
           isCorrect={result.is_correct}
           note={result.is_correct ? result.memo : undefined}
           whyOverride={result.is_correct ? undefined : result.memo}
+          {...topicFeedbackProps({
+            isCorrect: result.is_correct,
+            subjectSlug: "business-studies",
+            topic: skillId ? bank.topics[skillId] : null,
+            examples: TOPIC_EXAMPLES,
+            skillId,
+            inputType: question.input_type,
+            lastAnswer,
+            correctAnswer: question.expected_answer,
+          })}
           footer={
             <FeedbackFooter
               isCorrect={result.is_correct}

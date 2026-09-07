@@ -295,7 +295,7 @@ export default function MatricPhysSciSession({
       finalizeAttempt(
         {
           is_correct: isCorrect,
-          error_signals: [],
+          error_signals: question.errorSignals ?? [],
           feedback: isCorrect ? "Correct." : "Not quite.",
           explanation: question.explanation,
           mastery_update: {
@@ -475,6 +475,8 @@ export default function MatricPhysSciSession({
               isCorrect={result.is_correct}
               studentAnswer={singleValue ? answer : undefined}
               correctAnswer={singleValue ? modelAnswer : undefined}
+              errorSignals={result.is_correct ? undefined : result.error_signals}
+              errorNamespace="physical-sciences"
               note={result.is_correct ? result.explanation : undefined}
               whyOverride={result.is_correct ? undefined : result.explanation}
               footer={

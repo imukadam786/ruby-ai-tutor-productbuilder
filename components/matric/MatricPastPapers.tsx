@@ -37,10 +37,14 @@ const SUBJECT_GEM: Record<string, string> = {
   "Geography": GEM_HEX.teal,
   "History": GEM_HEX.amber,
   "Hospitality Studies": GEM_HEX.orange,
+  "Information Technology": GEM_HEX.slate,
   "Life Orientation": GEM_HEX.emerald,
   "Life Sciences": GEM_HEX.pink,
+  "Life Sciences IEB": GEM_HEX.emerald,
   "Mathematics": GEM_HEX.rose,
+  "Mathematics IEB": GEM_HEX.indigo,
   "Maths Literacy": GEM_HEX.violet,
+  "Maths Literacy IEB": GEM_HEX.purple,
   "Physical Science": GEM_HEX.cyan,
   "Physical Sciences": GEM_HEX.cyan,
   "Tourism": GEM_HEX.cyan,
@@ -251,6 +255,13 @@ const SUBJECTS = [
     available: true,
   },
   {
+    id: "information-technology",
+    name: "Information Technology",
+    thumbnail: "/thumbnails/cat.webp",
+    color: "from-slate-500 to-slate-700",
+    available: true,
+  },
+  {
     id: "life-orientation",
     name: "Life Orientation",
     thumbnail: "/thumbnails/life-skills.webp",
@@ -265,6 +276,13 @@ const SUBJECTS = [
     available: true,
   },
   {
+    id: "life-sciences-ieb",
+    name: "Life Sciences (IEB)",
+    thumbnail: "/thumbnails/life-sciences.webp",
+    color: "from-emerald-500 to-green-600",
+    available: true,
+  },
+  {
     id: "mathematics",
     name: "Mathematics",
     thumbnail: "/thumbnails/mathematics.webp",
@@ -272,10 +290,24 @@ const SUBJECTS = [
     available: true,
   },
   {
+    id: "mathematics-ieb",
+    name: "Mathematics (IEB)",
+    thumbnail: "/thumbnails/mathematics.webp",
+    color: "from-indigo-500 to-blue-600",
+    available: true,
+  },
+  {
     id: "maths-literacy",
     name: "Maths Literacy",
     thumbnail: "/thumbnails/maths-literacy.webp",
     color: "from-violet-500 to-purple-600",
+    available: true,
+  },
+  {
+    id: "maths-literacy-ieb",
+    name: "Maths Literacy (IEB)",
+    thumbnail: "/thumbnails/maths-literacy.webp",
+    color: "from-purple-500 to-fuchsia-600",
     available: true,
   },
   {
@@ -416,7 +448,9 @@ const JUNE_HIDDEN_SUBJECTS = new Set<SubjectId>([
   "geography",
   "history",
   "life-sciences",
+  "life-sciences-ieb",
   "mathematics",
+  "mathematics-ieb",
   "maths-literacy",
   "physical-science",
   "tourism",
@@ -1006,7 +1040,7 @@ function SessionView({
   const [hintLevel, setHintLevel] = useState(0);
   const [expandedDiagramUrl, setExpandedDiagramUrl] = useState<string | null>(null);
   const [expandedQuestion, setExpandedQuestion] = useState(false);
-  const isMaths = paper.subject === "Mathematics";
+  const isMaths = paper.subject === "Mathematics" || paper.subject === "Mathematics IEB";
   // Concept C: this subject's gem accent, threaded through the session as CSS vars.
   const { gem, lip: gemLip } = gemFor(paper.subject);
   const gemVars = CONCEPT_C
@@ -2516,7 +2550,7 @@ function SessionView({
                   </div>
                 )}
                 {/* Sub-question pills — hidden for Mathematics and guided mode */}
-                {paper.subject !== "Mathematics" && mode !== "guided" && (
+                {!isMaths && mode !== "guided" && (
                   <div className="flex flex-wrap gap-1.5">
                     {subQsForQ.map((sq) => {
                       const flatIdx = flatQuestions.findIndex((f) => f.id === sq.id);

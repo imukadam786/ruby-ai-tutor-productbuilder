@@ -1,0 +1,537 @@
+{
+  "id": "mlit-ieb-p1-nov-2025",
+  "subject": "Maths Literacy IEB",
+  "subjectCode": "math-lit-ieb",
+  "paperCode": "P1",
+  "year": 2025,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "The Polished Pit Stop Car Wash — Revenue, Ratios, Averages and Inflation",
+      "totalMarks": 31,
+      "subQuestions": [
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-1",
+          "label": "1.1",
+          "questionText": "John owns The Polished Pit Stop car wash. A basic wash is priced at R150 per wash. If 60 basic washes are completed in one day, calculate the total revenue for that day.",
+          "marks": 2,
+          "memoText": "Revenue = R150 × 60 = R9 000\n\nMark 1: multiplying R150 by 60\nMark 2: answer R9 000",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-2",
+          "label": "1.2",
+          "questionText": "Customers receive a 10% discount on Mondays. If the regular price for a basic car wash is R150, calculate the discounted amount they would pay.",
+          "marks": 2,
+          "memoText": "Discount = 10% × R150 = R15\nDiscounted price = R150 − R15 = R135\nOR R150 × 0,9 = R135\n\nMark 1: calculating the 10% decrease\nMark 2: answer R135",
+          "topic": "Percentages",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-3-1",
+          "label": "1.3.1",
+          "questionText": "Over the past month The Polished Pit Stop washed a total of 1 200 cars. The business operated for 30 days over the month. If the same number of cars were washed each day, calculate how many cars were washed per day.",
+          "marks": 2,
+          "memoText": "Cars per day = 1 200 ÷ 30 = 40 cars per day\n\nMark 1: dividing 1 200 by 30\nMark 2: answer 40 cars per day",
+          "topic": "Numbers and Operations",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-3-2",
+          "label": "1.3.2",
+          "questionText": "Out of the 1 200 cars washed in the month, 700 were basic washes, 400 were premium washes and 100 were deluxe washes. Write, in simplest form, the ratio of basic washes to premium washes to deluxe washes.",
+          "marks": 2,
+          "memoText": "700 : 400 : 100\nDivide each part by 100\n= 7 : 4 : 1\n\nMark 1: writing the ratio 700 : 400 : 100\nMark 2: simplified ratio 7 : 4 : 1",
+          "topic": "Ratio and Proportion",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-4-1",
+          "label": "1.4.1",
+          "questionText": "Underline the correct word so that the definition reads true: The (median / mean) is calculated by finding the average of the two middle values in an even set of data that is ordered.",
+          "marks": 2,
+          "memoText": "median\n\n(For an ordered data set with an even number of values, the median is the average of the two middle values.)",
+          "topic": "Data Handling",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-4-2",
+          "label": "1.4.2",
+          "questionText": "Underline the correct word so that the definition reads true: The (median / range) is a measure of spread.",
+          "marks": 2,
+          "memoText": "range\n\n(The range = maximum − minimum, and is a measure of spread/dispersion. The median is a measure of central tendency.)",
+          "topic": "Data Handling",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-5-1",
+          "label": "1.5.1",
+          "questionText": "The car wash operates for 8 hours a day. The Polished Pit Stop washes 7 cars per hour on average. How many cars are washed in a day?",
+          "marks": 2,
+          "memoText": "8 hours × 7 cars per hour = 56 cars\nCorrect option: A (56)\n\nMark 1: multiplying 8 by 7\nMark 2: identifying option A (56)",
+          "topic": "Numbers and Operations",
+          "type": "mcq",
+          "options": { "A": "56", "B": "64", "C": "70", "D": "75" }
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-5-2",
+          "label": "1.5.2",
+          "questionText": "Each car pays R150 for a basic car wash. Using your answer to Question 1.5.1 (56 cars per day), calculate the total income earned for basic washes in one day.",
+          "marks": 2,
+          "memoText": "Income = 56 × R150 = R8 400\n\nMark 1: multiplying 56 by R150\nMark 2: answer R8 400",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-6-1",
+          "label": "1.6.1",
+          "questionText": "The Polished Pit Stop uses detergent that costs R500 per 10-litre bottle, and 0,5 litres are used per car wash. Determine how many cars can be washed with one 10-litre bottle of detergent.",
+          "marks": 2,
+          "memoText": "Cars per bottle = 10 ÷ 0,5 = 20 cars\n\nMark 1: dividing 10 by 0,5\nMark 2: answer 20 cars",
+          "topic": "Measurement",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-6-2",
+          "label": "1.6.2",
+          "questionText": "Calculate the cost of detergent per car washed. (A 10-litre bottle costs R500 and washes 20 cars.)",
+          "marks": 2,
+          "memoText": "Cost per car = R500 ÷ 20 = R25\n\nMark 1: dividing R500 by 20\nMark 2: answer R25",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-7",
+          "label": "1.7",
+          "questionText": "The total operating costs for The Polished Pit Stop (labour, materials and other overheads) amount to R12 000 per month. If the business generates R33 600 in revenue each month, calculate its monthly profit.",
+          "marks": 2,
+          "memoText": "Profit = Income − Expenses\n= R33 600 − R12 000\n= R21 600\n\nMark 1: subtracting expenses from income\nMark 2: answer R21 600",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-8-1",
+          "label": "1.8.1",
+          "questionText": "The South African car wash market is predicted to reach $1 684,7 million by 2030. Write the value of $1 684,7 million in words, without using numerals.",
+          "marks": 2,
+          "memoText": "$1 684,7 million = $1 684 700 000\n\nOne billion, six hundred and eighty-four million, seven hundred thousand (dollars)\n\nMark 1: one billion\nMark 2: six hundred and eighty-four million, seven hundred thousand",
+          "topic": "Numbers and Operations",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-8-2",
+          "label": "1.8.2",
+          "questionText": "The market is predicted to grow at an estimated annual inflation rate of 7,8%. Convert 7,8% to a decimal.",
+          "marks": 2,
+          "memoText": "7,8% = 7,8 ÷ 100 = 0,078\n\nMark 1: dividing by 100\nMark 2: answer 0,078",
+          "topic": "Percentages",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-8-3",
+          "label": "1.8.3",
+          "questionText": "The market is expected to grow at an inflation rate of 7,8% from 2023 to 2025. Complete the table to determine the missing values A to C for total revenue.\n\nRow 1 — Revenue in 2023: R995 425 200 | Percentage value increase in 2024: R77 643 165,60 | Total revenue in 2024: (A)\nRow 2 — Revenue in 2024: (A) | Percentage value increase in 2025: (B) | Total revenue in 2025: (C)",
+          "marks": 3,
+          "memoText": "A = R995 425 200 + R77 643 165,60 = R1 073 068 365,60 (≈ R1 073 068 366)\nB = 7,8% × A = 0,078 × R1 073 068 366 = R83 699 332,52\nC = A + B = R1 073 068 366 + R83 699 332,52 = R1 156 767 698,52 (≈ R1 156 767 699)\n\nMark 1: A ≈ R1 073 068 366\nMark 2: B ≈ R83 699 332,52\nMark 3: C ≈ R1 156 767 699",
+          "topic": "Percentages",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-1-8-4",
+          "label": "1.8.4",
+          "questionText": "The method used to calculate the inflation rate (where each year's growth is applied to the new, larger value) is most similar to which of the following?",
+          "marks": 2,
+          "memoText": "B — Compound Interest\n\n(The increase each year is calculated on the growing balance, not on the original amount, which is compound growth.)",
+          "topic": "Finance",
+          "type": "mcq",
+          "options": { "A": "Simple Interest", "B": "Compound Interest" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Michael Alberts' Salary Slip — Income Tax, UIF and Deductions",
+      "totalMarks": 29,
+      "subQuestions": [
+        {
+          "id": "mlit-ieb-p1-nov-2025-2-1",
+          "label": "2.1",
+          "questionText": "Michael's salary slip shows EMPLOYEE NAME: Mr Michael Alberts. Write down Michael's surname.",
+          "marks": 2,
+          "memoText": "Alberts\n\n[Award 2 marks for the correct surname]",
+          "topic": "Data Handling",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-2-2",
+          "label": "2.2",
+          "questionText": "Michael's ID number is 8007115566778 and the payment date on the salary slip is 25-06-2025. Determine Michael's age in years as of the date shown on the salary slip.",
+          "marks": 3,
+          "memoText": "From the ID number, date of birth = 11 July 1980.\nPayment date = June 2025, so his birthday for 2025 has not yet happened.\nAge = 2025 − 1980 − 1 = 44 years old\n\nMark 1: reading year of birth 1980 from the ID number\nMark 2: 2025 − 1980\nMark 3: subtracting 1 (birthday not yet reached) → 44 years",
+          "topic": "Numbers and Operations",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-2-3",
+          "label": "2.3",
+          "questionText": "Michael's monthly salary is R41 435,90 and his Old Mutual Pension deduction is R12 430,77. The maximum allowable pension fund deduction for tax is 27,5% of gross income. Use calculations to verify that Michael's annual taxable income amounts to R360 492,36 (rounded to two decimal places).",
+          "marks": 6,
+          "memoText": "Allowable pension deduction = 27,5% × R41 435,90 = R11 394,87\nR11 394,87 < R12 430,77, so the capped amount R11 394,87 is used.\nMonthly taxable income = R41 435,90 − R11 394,87 = R30 041,03\nAnnual taxable income = R30 041,03 × 12 = R360 492,36 ✓\n\nMark 1: 27,5% of gross\nMark 2: R11 394,87\nMark 3: comparing to actual pension / choosing R11 394,87\nMark 4: gross − pension\nMark 5: R30 041,03\nMark 6: × 12 → R360 492,36 (accept R360 492,33 with no rounding in steps)",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-2-4",
+          "label": "2.4",
+          "questionText": "The tax table brackets are: Bracket 1: R1 – R237 100; Bracket 2: R237 101 – R370 500; Bracket 3: R370 501 – R512 800; and so on. State the tax bracket that will be used to calculate Michael's tax payable on an annual taxable income of R360 492,36.",
+          "marks": 2,
+          "memoText": "Bracket 2 (R237 101 – R370 500)\n\n[Award 2 marks for correctly identifying the 2nd tax bracket]",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-2-5",
+          "label": "2.5",
+          "questionText": "The medical tax credit is R364 per month for the principal member and R728 per month for the principal member and one dependant. Michael has one adult dependant. Determine Michael's annual total medical tax credit for himself and his spouse.",
+          "marks": 3,
+          "memoText": "Monthly credit (principal member + one dependant) = R728\nAnnual credit = R728 × 12 = R8 736\n\nMark 1: identifying R728 as the monthly credit\nMark 2: multiplying by 12\nMark 3: answer R8 736",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-2-6",
+          "label": "2.6",
+          "questionText": "Bracket 2 tax is calculated as R42 678 + 26% of taxable income above R237 100. The primary rebate is R17 235 per year. Michael's annual medical tax credit is R8 736. Determine the missing value A, Michael's monthly income tax contribution, using an annual taxable income of R360 492,36.",
+          "marks": 6,
+          "memoText": "Annual tax before rebates = R42 678 + 0,26 × (R360 492,36 − R237 100)\n= R42 678 + 0,26 × R123 392,36\n= R42 678 + R32 082,01\n= R74 760,01\nLess primary rebate and medical tax credit:\nR74 760,01 − R17 235 − R8 736 = R48 789,01\nMonthly tax A = R48 789,01 ÷ 12 = R4 065,75\n(Accept R4 065,83 depending on rounding.)\n\nMark 1: taxable income above R237 100\nMark 2: 26% of that amount\nMark 3: adding R42 678\nMark 4: subtracting the rebate\nMark 5: subtracting the medical tax credit\nMark 6: dividing by 12 → A ≈ R4 065,75",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-2-7",
+          "label": "2.7",
+          "questionText": "A UIF contribution of 1% of salary is deducted monthly, with a maximum deduction of R177,12. Michael's UIF deduction on the slip is R177,12. Use calculations to determine whether his current UIF contribution equals 1% of his gross monthly income of R41 435,90.",
+          "marks": 3,
+          "memoText": "1% × R41 435,90 = R414,36\nMichael's actual UIF deduction = R177,12\nR177,12 ÷ R41 435,90 × 100 = 0,43%\nR177,12 ≠ R414,36, so his contribution does NOT equal 1% of his gross salary — it is less, because the UIF deduction is capped at R177,12.\n\nMark 1: 1% × R41 435,90 = R414,36\nMark 2: comparing R177,12 to R414,36 (or calculating 0,43%)\nMark 3: correct conclusion (not equal / capped)",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-2-8",
+          "label": "2.8",
+          "questionText": "The salary slip shows TOTAL EARNINGS: R41 435,90 and TOTAL DEDUCTIONS: R18 680,63. Calculate the missing value C, Michael's net income.",
+          "marks": 2,
+          "memoText": "Net income C = Total earnings − Total deductions\n= R41 435,90 − R18 680,63\n= R22 755,27\n\n(Accept answers around R22 517 – R22 518 if the candidate recalculates total deductions using their own tax value from 2.6.)\n\nMark 1: subtracting total deductions from total earnings\nMark 2: answer R22 755,27",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-2-9",
+          "label": "2.9",
+          "questionText": "Explain the term Tax Threshold.",
+          "marks": 2,
+          "memoText": "The tax threshold is the maximum amount of annual income a person can earn before they are required to start paying income tax.\n\n[Award 2 marks for a correct definition]",
+          "topic": "Finance",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Top-Earning YouTubers — Averages, Quartiles, Outliers and Graphs",
+      "totalMarks": 33,
+      "subQuestions": [
+        {
+          "id": "mlit-ieb-p1-nov-2025-3-1-1",
+          "label": "3.1.1",
+          "questionText": "The net worth (in $ millions) of the Top-10 YouTubers is: 500; 200; 150; 104; 100; 100; 100; 80; 50; 45. Identify the modal net worth amount.",
+          "marks": 2,
+          "memoText": "$100 000 000 (i.e. $100 million)\n\n(It appears three times, more often than any other value.)\n\n[Award 2 marks for $100 million]",
+          "topic": "Data Handling",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-3-1-2",
+          "label": "3.1.2",
+          "questionText": "An outlier can be identified using: Outlier fence = Upper quartile + 1,5 × IQR. If this fence is less than the maximum value in the data set, the maximum value is an outlier. The ordered data (in $ millions) is: 45; 50; 80; 100; 100; 100; 104; 150; 200; 500. Show, with calculations, whether MrBeast's net worth ($500 million) is an outlier.",
+          "marks": 6,
+          "memoText": "Lower quartile Q1 = $80 million\nUpper quartile Q3 = $150 million\nIQR = Q3 − Q1 = 150 − 80 = $70 million\nOutlier fence = Q3 + 1,5 × IQR = 150 + 1,5 × 70 = 150 + 105 = $255 million\n$500 million > $255 million\nTherefore MrBeast's net worth IS an outlier.\n\nMark 1: identifying Q1 = $80 million\nMark 2: identifying Q3 = $150 million\nMark 3: Q3 − Q1\nMark 4: IQR = $70 million\nMark 5: 150 + 1,5 × 70 = $255 million\nMark 6: conclusion — $500 million is an outlier",
+          "topic": "Data Handling",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-3-1-3-a",
+          "label": "3.1.3 (a)",
+          "questionText": "A bar graph shows the Top-10 YouTubers, plotting each YouTuber's position (1 to 10) against their net worth. One bar has been omitted. Give suitable labels for the horizontal and vertical axes.",
+          "marks": 4,
+          "memoText": "Horizontal axis: Position of the Top-10 YouTubers (1 to 10)\nVertical axis: Net worth (in millions of dollars)\n\nMark 1–2: horizontal axis label\nMark 3–4: vertical axis label (including the unit, $ millions)",
+          "topic": "Data Handling",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-3-1-3-b",
+          "label": "3.1.3 (b)",
+          "questionText": "Complete the bar graph by drawing in the missing bar. The missing bar is for position 4 (Jeffree Star), whose net worth is $200 million. Describe the bar you would draw.",
+          "marks": 2,
+          "memoText": "A bar drawn at position 4, the same width as the other bars, reaching up to 200 on the vertical (net worth) axis.\n\nMark 1: bar in the correct position and width\nMark 2: bar drawn to a height of 200",
+          "topic": "Data Handling",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-3-1-3-c",
+          "label": "3.1.3 (c)",
+          "questionText": "Underline the correct option in each bracket to make the statements true:\n(1) A bar graph is a way to visually represent (categorical / numerical) data.\n(2) A (pie chart / histogram) can also be used to illustrate the above data set.\n(3) The bar graph above is an example of a (vertical / horizontal) bar graph.",
+          "marks": 3,
+          "memoText": "(1) categorical\n(2) pie chart\n(3) vertical\n\nMark 1: categorical\nMark 2: pie chart\nMark 3: vertical",
+          "topic": "Data Handling",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-3-1-3-d",
+          "label": "3.1.3 (d)",
+          "questionText": "On a pie chart of the Top-10 YouTubers' net worth, an angle has been drawn to represent MrBeast's net worth. The total net worth of all Top-10 YouTubers is $1 429 million and MrBeast's is $500 million. With calculations, show that the angle drawn (126°) is correct.",
+          "marks": 4,
+          "memoText": "Angle = (500 ÷ 1 429) × 360°\n= 0,3499… × 360°\n= 125,96°\n≈ 126°\nTherefore the angle drawn is correct.\n\nMark 1: 500 ÷ 1 429\nMark 2: × 360°\nMark 3: 125,96° (≈ 126°)\nMark 4: conclusion",
+          "topic": "Data Handling",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-3-1-3-e",
+          "label": "3.1.3 (e)",
+          "questionText": "Calculate, to two decimal places, MrBeast's net worth ($500 million) as a percentage of the total net worth of the Top-10 YouTubers ($1 429 million).",
+          "marks": 2,
+          "memoText": "Percentage = 500 ÷ 1 429 × 100\n= 34,9895…\n= 34,99%\n\nMark 1: 500 ÷ 1 429 × 100\nMark 2: 34,99% (rounded to two decimal places)",
+          "topic": "Percentages",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-3-2-1",
+          "label": "3.2.1",
+          "questionText": "A graph titled 'How content creators make their money' shows the income earned by content creators on social media, split into several revenue streams stacked on top of each other for 2023 and for 2024. Name the type of graph shown.",
+          "marks": 2,
+          "memoText": "A compound (stacked) bar graph.\n\n(Also accept: dual bar graph / multiple bar graph.)\n\n[Award 2 marks]",
+          "topic": "Data Handling",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-3-2-2",
+          "label": "3.2.2",
+          "questionText": "The 2023 bar of the graph is made up of the following revenue streams (in dollars): $7,0 billion; $2,9 billion; $894 million; $341 million; $212 million; $118 million; $298 million. Show that content creators earned a total income of $11 763 000 000 in 2023.",
+          "marks": 3,
+          "memoText": "Total = $7,0B + $2,9B + $894M + $341M + $212M + $118M + $298M\n= $9,9B + $1 863M\n= $9,9B + $1,863B\n= $11,763B\n= $11 763 000 000 ✓\n\nMark 1: adding the billion values (7,0 + 2,9 = 9,9B)\nMark 2: adding the million values (1 863M = 1,863B)\nMark 3: total $11,763B = $11 763 000 000",
+          "topic": "Numbers and Operations",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-3-2-3",
+          "label": "3.2.3",
+          "questionText": "It is stated that there was an increase of 16% in sponsorship income from 2023 to 2024. Sponsorship income was $7,0 billion in 2023 and $8,1 billion in 2024. Verify, with calculation, whether this statement is valid.",
+          "marks": 5,
+          "memoText": "Percentage increase = (8,1 − 7,0) ÷ 7,0 × 100\n= 1,1 ÷ 7,0 × 100\n= 15,71%\n≈ 15,7%\nThis is not exactly 16%, therefore the statement is not valid (the actual increase is about 15,7%).\n\nMark 1: 8,1 − 7,0\nMark 2: difference = 1,1\nMark 3: ÷ 7,0\nMark 4: × 100 → 15,7%\nMark 5: conclusion — statement is incorrect",
+          "topic": "Percentages",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Plastic Bags — Rates of Change, Decomposition and a Till Slip",
+      "totalMarks": 31,
+      "subQuestions": [
+        {
+          "id": "mlit-ieb-p1-nov-2025-4-1",
+          "label": "4.1",
+          "questionText": "In 2003 the cost of a plastic bag was set at 20 cents. The current rate is R1,20 per bag. Determine how many times more consumers are currently paying for plastic bags compared to the cost in 2003.",
+          "marks": 3,
+          "memoText": "20 cents = R0,20\nR1,20 ÷ R0,20 = 6 times\n\nMark 1: converting 20 cents to R0,20\nMark 2: dividing R1,20 by R0,20\nMark 3: answer 6 times",
+          "topic": "Ratio and Proportion",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-4-2-1",
+          "label": "4.2.1",
+          "questionText": "An infographic shows the estimated minimum and maximum time (in years) it takes for different waste types to decompose in a landfill. Identify the product that takes the longest time to decompose, in terms of years.",
+          "marks": 2,
+          "memoText": "Styrofoam\n\n[Award 2 marks — Styrofoam has the longest maximum decomposition time on the infographic]",
+          "topic": "Data Handling",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-4-2-2",
+          "label": "4.2.2",
+          "questionText": "Plastic bags take approximately 450 years to decompose in a landfill, whereas biodegradable bags decompose in about 6 months. Determine the percentage rate of change in decomposition time between the two types of bags, rounded to one decimal place. Use: Percentage change = (Difference in years ÷ Years for non-biodegradable bags) × 100.",
+          "marks": 3,
+          "memoText": "6 months = 0,5 year\nPercentage change = (450 − 0,5) ÷ 450 × 100\n= 449,5 ÷ 450 × 100\n= 99,9%\n(Accept 100%.)\n\nMark 1: 6 months = 0,5 year\nMark 2: (450 − 0,5) ÷ 450\nMark 3: × 100 → 99,9%",
+          "topic": "Percentages",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-4-2-3",
+          "label": "4.2.3",
+          "questionText": "A study suggests that plastic decomposes 10% faster in the ocean than on land. If it typically takes 450 years for plastic to decompose on land, calculate the time (in years) it would take for plastic to decompose in the ocean.",
+          "marks": 3,
+          "memoText": "10% of 450 = 45 years\nOcean time = 450 − 45 = 405 years\nOR 450 × 0,9 = 405 years\n\nMark 1: 10% of 450\nMark 2: percentage decrease (450 − 45)\nMark 3: answer 405 years",
+          "topic": "Percentages",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-4-3-1",
+          "label": "4.3.1",
+          "questionText": "In 2013 the Shoprite Group introduced recycled plastic bags. Determine how many plastic bags have been sold from 2013 to 2025 if 700 million plastic bags have been sold per year. Give your answer using the word 'billion'.",
+          "marks": 3,
+          "memoText": "From 2013 to 2025 is 13 years.\nTotal = 700 000 000 × 13 = 9 100 000 000\n= 9,1 billion bags\n\nMark 1: 13 years\nMark 2: 700 000 000 × 13\nMark 3: 9 100 000 000 = 9,1 billion",
+          "topic": "Numbers and Operations",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-4-3-2",
+          "label": "4.3.2",
+          "questionText": "In 2024 the group prevented 7 000 tonnes of plastic from reaching landfills. If this trend continues, determine how many tonnes of plastic will not find their way into landfills in the next 20 years.",
+          "marks": 2,
+          "memoText": "7 000 tonnes × 20 years = 140 000 tonnes\n\nMark 1: multiplying 7 000 by 20\nMark 2: answer 140 000 tonnes",
+          "topic": "Numbers and Operations",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-4-3-3-a",
+          "label": "4.3.3 (a)",
+          "questionText": "The 'planet' bag sells for R3 each. Every time a customer re-uses the bag after the first purchase, they get 50c off their grocery purchase. Determine the number of times a 'planet' bag must be re-used to cover its cost.",
+          "marks": 2,
+          "memoText": "Number of re-uses = R3,00 ÷ R0,50 = 6 times\n\nMark 1: dividing R3,00 by R0,50\nMark 2: answer 6 times",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-4-3-3-b",
+          "label": "4.3.3 (b)",
+          "questionText": "A customer buys a 'planet' bag (R3) on the first purchase of a two-week period, then buys R250 of groceries every day for the two weeks (14 days), re-using the bag each day after the first purchase (50c saving per re-use). Calculate the total cost of the groceries, together with the 'planet' bag savings, for the two-week period.",
+          "marks": 5,
+          "memoText": "Total groceries = R250 × 14 = R3 500\nCost including the bag = R3 500 + R3,00 = R3 503\nRe-uses = 13 days (all days except the first purchase)\nTotal savings = 13 × R0,50 = R6,50\nFinal cost = R3 503 − R6,50 = R3 496,50\n\nMark 1: R250 × 14 = R3 500\nMark 2: adding the R3,00 bag → R3 503\nMark 3: 13 re-use days\nMark 4: 13 × R0,50 = R6,50 savings\nMark 5: R3 503 − R6,50 = R3 496,50",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-4-4-1",
+          "label": "4.4.1",
+          "questionText": "A Checkers Hyper document shows a list of items purchased, quantities and prices, a TOTAL of R247,29, an 'Electronic Payment' line, VAT amounts, the date and time, and a message 'Please keep your till slip as proof of purchase.' State the type of financial document shown.",
+          "marks": 2,
+          "memoText": "A till slip (cash register slip / cash sale receipt).\n\n[Award 2 marks]",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-4-4-2",
+          "label": "4.4.2",
+          "questionText": "Several items on the till slip are marked with an asterisk (*). Explain the meaning of the asterisk (*) in this context.",
+          "marks": 2,
+          "memoText": "The asterisk indicates items that are VAT-exempt (zero-rated) — no VAT is charged on those items.\n\n[Award 2 marks]",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-4-4-3",
+          "label": "4.4.3",
+          "questionText": "The till slip shows a TOTAL of R247,29, of which the VAT-exempt (0%) items total R62,97. The VAT-applicable (15%) portion is shown as R184,32. Show how the value of R184,32 was calculated.",
+          "marks": 2,
+          "memoText": "R184,32 = Total − VAT-exempt total\n= R247,29 − R62,97\n= R184,32\n\nMark 1: subtracting the VAT-exempt total from the overall total\nMark 2: answer R184,32",
+          "topic": "Finance",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-4-4-4",
+          "label": "4.4.4",
+          "questionText": "The R184,32 is the gross (VAT-inclusive) value of the 15%-rated items. Determine the missing value A, the total for the VAT-applicable items before VAT is added.",
+          "marks": 2,
+          "memoText": "A = R184,32 ÷ 1,15 = R160,28\n\nMark 1: dividing by 1,15\nMark 2: answer R160,28",
+          "topic": "Finance",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Ubuntu Threads — Break-Even Analysis, Probability and Box Plots",
+      "totalMarks": 26,
+      "subQuestions": [
+        {
+          "id": "mlit-ieb-p1-nov-2025-5-1",
+          "label": "5.1",
+          "questionText": "Naledi's business 'Ubuntu Threads' has a fixed expense of R5 000 per month, variable expenses of R120 per unprinted hoodie and an additional R50 for printing/design per hoodie. Give the equation Naledi will use to calculate her total expenses (E) in terms of the number of printed hoodies made (n).",
+          "marks": 4,
+          "memoText": "Variable cost per printed hoodie = R120 + R50 = R170\nE = 5 000 + 170n\n\nMark 1: notation E = …\nMark 2: fixed cost + 5 000\nMark 3: combining the two variable costs (170)\nMark 4: the term 170n",
+          "topic": "Patterns and Relationships",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-5-2",
+          "label": "5.2",
+          "questionText": "Income is calculated as I = 250 × number of hoodies. Using E = 5 000 + 170n, complete the table by filling in the shaded blocks.\n\nNumber of hoodies (n): 0 | 10 | 50 | 75 | 100\nExpenses (E): ? | R6 700 | ? | ? | ?\nIncome (I): R0 | ? | R12 500 | R18 750 | R25 000",
+          "marks": 3,
+          "memoText": "Expenses (E), using E = 5 000 + 170n:\nn = 0 → R5 000\nn = 10 → R6 700 (given)\nn = 50 → R13 500\nn = 75 → R17 750\nn = 100 → R22 000\n\nIncome (I), using I = 250n:\nn = 0 → R0 (given)\nn = 10 → R2 500\nn = 50 → R12 500 (given)\nn = 75 → R18 750 (given)\nn = 100 → R25 000 (given)\n\nMark 1: Expenses at n = 0 and n = 100 (R5 000 and R22 000)\nMark 2: Expenses at n = 50 and n = 75 (R13 500 and R17 750)\nMark 3: Income at n = 10 (R2 500)",
+          "topic": "Patterns and Relationships",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-5-3",
+          "label": "5.3",
+          "questionText": "Use the table in Question 5.2 to draw two straight-line graphs on the grid provided — one showing the Expenses and one showing the Income for 'Ubuntu Threads' — for up to 100 hoodies. State the key features your graphs must show.",
+          "marks": 7,
+          "memoText": "Expenses line: straight line from (0; 5 000) to (100; 22 000).\nIncome line: straight line from (0; 0) to (100; 25 000).\nRequired features:\n- suitable scale on the horizontal (number of hoodies) axis\n- a key distinguishing the Expenses line from the Income line\n- both lines plotted accurately using the table values\n- dotted projection lines where used\n- points (0; 0), (0; 5 000), (100; 25 000), (100; 22 000) correctly plotted\nThe lines cross at about n = 62 to 63 hoodies (the break-even point).\n\nMark 1: scale on the x-axis\nMark 2: key\nMark 3: dotted lines\nMark 4: point (0; 0)\nMark 5: point (0; 5 000)\nMark 6: point (100; 25 000)\nMark 7: point (100; 22 000)",
+          "topic": "Patterns and Relationships",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-5-4",
+          "label": "5.4",
+          "questionText": "From a sample of 150 hoodies sold by 'Ubuntu Threads', 60 were ordered without custom artwork. Naledi states that there is a 60% chance that a randomly selected hoodie will have custom artwork on it. Show, with calculations, whether this statement is correct.",
+          "marks": 3,
+          "memoText": "Hoodies with custom artwork = 150 − 60 = 90\nP(custom artwork) = 90 ÷ 150 × 100 = 60%\nTherefore the statement is correct.\n\nMark 1: 150 − 60 = 90\nMark 2: 90 ÷ 150 × 100\nMark 3: 60% and correct conclusion",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-5-5-1",
+          "label": "5.5.1",
+          "questionText": "Naledi tracks customer colour preferences: 50% prefer black, 0,3 prefer grey and 1/5 prefer navy blue. The same customers equally prefer either a custom design of an African mask or the African continent. A tree diagram of this information has shaded blocks to be completed. Write the missing probabilities as fractions: (i) the probability for black; (ii) the probability for grey; (iii) the probability for navy blue; (iv) the probability for each design choice.",
+          "marks": 3,
+          "memoText": "black = 50% = 1/2\ngrey = 0,3 = 3/10\nnavy blue = 1/5\neach design (African mask / African continent) = 1/2 (equal preference)\n\nMark 1: black = 1/2\nMark 2: grey = 3/10\nMark 3: navy blue = 1/5 and design branches = 1/2",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-5-5-2",
+          "label": "5.5.2",
+          "questionText": "Determine the probability that a randomly selected customer will choose either a grey or a navy-blue hoodie. (Grey = 3/10, navy blue = 1/5.)",
+          "marks": 2,
+          "memoText": "P(grey or navy blue) = 3/10 + 1/5\n= 3/10 + 2/10\n= 5/10\n= 1/2\n\nMark 1: adding the two probabilities\nMark 2: answer 1/2 (0,5)",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-5-5-3",
+          "label": "5.5.3",
+          "questionText": "Calculate the probability, as a decimal, that a customer does not prefer black hoodies. (Black = 1/2.)",
+          "marks": 2,
+          "memoText": "P(not black) = 1 − 1/2 = 1/2 = 0,5\n\nMark 1: subtracting from 1\nMark 2: answer 0,5",
+          "topic": "Probability",
+          "type": "written"
+        },
+        {
+          "id": "mlit-ieb-p1-nov-2025-5-6",
+          "label": "5.6",
+          "questionText": "'Ubuntu Threads' monthly sales data has the five-number summary: Minimum = R12 500; Lower Quartile = R14 000; Median = R15 000; Upper Quartile = R15 500; Maximum = R16 000. Describe how you would insert these five values on a number line (marks are given only if the number line is labelled with correct increment values).",
+          "marks": 2,
+          "memoText": "Draw a number line with a suitable constant scale, e.g. increments of R500 from R12 500 to R16 000.\nPlot: R12 500 (minimum), R14 000 (lower quartile), R15 000 (median), R15 500 (upper quartile), R16 000 (maximum).\n\nMark 1: correct constant scale/increments on the number line\nMark 2: all five values plotted in the correct positions",
+          "topic": "Data Handling",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

@@ -125,6 +125,7 @@ export function bankQuestionToGenerated(
     stem_image: q.stem_image,
     expected_answer: q.expected,
     memo: q.memo,
+    error_signals: q.error_signals ?? [],
     difficulty: q.difficulty,
   };
 }

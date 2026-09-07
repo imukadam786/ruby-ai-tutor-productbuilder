@@ -1,0 +1,469 @@
+{
+  "id": "math-ieb-p2-nov-2023",
+  "subject": "Mathematics IEB",
+  "subjectCode": "mathematics-ieb",
+  "paperCode": "P2",
+  "year": 2023,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "infoSheet": {
+    "title": "Information Sheet",
+    "formulaSheetVariant": "standard"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "title": "Statistics — Box-and-Whisker, Outliers & Regression",
+      "totalMarks": 9,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-1-a-1",
+          "label": "1(a)(1)",
+          "questionText": "The percentage results obtained by 26 learners in a mathematics test are displayed in a box-and-whisker plot with $Q_1 = 40$, median $= 59$, $Q_3 = b$, minimum $= a$ and the upper whisker end at 95. The range of the data is 80 and the interquartile range (IQR) is 30.\n\nDetermine the value of $a$.",
+          "marks": 1,
+          "memoText": "$95 - a = 80 \\Rightarrow a = 15$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-1-a-2",
+          "label": "1(a)(2)",
+          "questionText": "Determine the value of $b$.",
+          "marks": 1,
+          "memoText": "$b - 40 = 30 \\Rightarrow b = 70$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-1-b",
+          "label": "1(b)",
+          "questionText": "Determine whether the minimum result obtained (using your answer to (a)(1)) is an outlier or not. Use the formula $Q_1 - 1{,}5 \\times \\text{IQR}$.",
+          "marks": 2,
+          "memoText": "$Q_1 - 1{,}5 \\times \\text{IQR} = 40 - 1{,}5 \\times 30 = -5$\nSince the minimum value ($15$) is greater than $-5$, it is not an outlier.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-1-c-1",
+          "label": "1(c)(1)",
+          "questionText": "The table shows the approximate time spent ($x$, in minutes) by 7 learners studying for a mathematics test and their mark ($y$, as a %):\n\n| Time spent ($x$) | 0 | 90 | 90 | 80 | 90 | 120 | 150 |\n| Mark obtained ($y$) | 15 | 59 | 60 | 73 | 85 | 90 | 95 |\n\nPredict, using the equation of the least squares regression line in the form $y = a + bx$, what mark a learner who studies for 180 minutes will obtain. Round your answers to 3 decimal places.",
+          "marks": 3,
+          "memoText": "$y = 19{,}259 + 0{,}552x$\n$y = 19{,}259 + 0{,}552(180) = 118{,}603$\nThe learner would obtain $100\\%$.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-1-c-2",
+          "label": "1(c)(2)",
+          "questionText": "Is this prediction in (c)(1) a reliable one? Explain.",
+          "marks": 2,
+          "memoText": "No. 180 minutes is outside the data set, so this is extrapolation. It also implies that anyone who studies for over 180 minutes will obtain $100\\%$, which is unreasonable.",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Analytical Geometry — Trapezium, Parallelogram & Area",
+      "totalMarks": 22,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-2-a-1",
+          "label": "2(a)(1)",
+          "questionText": "ABCD is a trapezium with AD // BC and $B\\hat{C}D = 90°$. Points $A(4; 1)$, $B(0; 4)$ and $C(6; 7)$ are given. E is a point on CA so that EC = EA.\n\nDetermine the gradient of BC.",
+          "marks": 2,
+          "memoText": "$m_{BC} = \\dfrac{7 - 4}{6 - 0} = \\dfrac{1}{2}$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-2-a-2",
+          "label": "2(a)(2)",
+          "questionText": "Determine the equation of the line CD.",
+          "marks": 3,
+          "memoText": "$B\\hat{C}D = 90°$, so $CD \\perp BC$ and $m_{CD} = -2$.\n$y = -2x + c$; using $C(6; 7)$: $7 = -12 + c \\Rightarrow c = 19$.\n$y = -2x + 19$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-2-b",
+          "label": "2(b)",
+          "questionText": "Determine the equation of AD and hence the coordinates of D.",
+          "marks": 5,
+          "memoText": "AD // BC, so $m_{AD} = \\dfrac{1}{2}$.\n$y = \\dfrac{1}{2}x + c$; using $A(4; 1)$: $1 = 2 + c \\Rightarrow c = -1$, so $y = \\dfrac{1}{2}x - 1$.\nD is the intersection of CD and AD:\n$-2x + 19 = \\dfrac{1}{2}x - 1 \\Rightarrow -5x = -40 \\Rightarrow x = 8$; $y = -2(8) + 19 = 3$.\n$\\therefore D(8; 3)$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-2-c-1",
+          "label": "2(c)(1)",
+          "questionText": "It is further given that point F is a point in the first quadrant so that FEDA is a parallelogram, and $D(8; 3)$.\n\nDetermine the coordinates of F.",
+          "marks": 3,
+          "memoText": "E is the midpoint of CA: $E\\left(\\dfrac{6 + 4}{2}; \\dfrac{7 + 1}{2}\\right) = (5; 4)$.\nFor FEDA a parallelogram, the diagonals bisect: midpoint of AE $=$ midpoint of FD.\nMidpoint AE $= \\left(\\dfrac{9}{2}; \\dfrac{5}{2}\\right)$; with $F(x; y)$: $\\left(\\dfrac{x + 8}{2}; \\dfrac{y + 3}{2}\\right) = \\left(\\dfrac{9}{2}; \\dfrac{5}{2}\\right)$\n$x = 1$, $y = 2$, so $F(1; 2)$.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-2-c-2",
+          "label": "2(c)(2)",
+          "questionText": "Determine $E\\hat{A}D$, correct to one decimal place.",
+          "marks": 4,
+          "memoText": "$m_{AD} = \\dfrac{1}{2}$, so $\\tan\\theta_1 = \\dfrac{1}{2} \\Rightarrow \\theta_1 = 26{,}6°$.\n$m_{AC} = \\dfrac{7 - 1}{6 - 4} = 3$, so $\\tan\\theta_2 = 3 \\Rightarrow \\theta_2 = 71{,}6°$.\n$E\\hat{A}D = 71{,}6° - 26{,}6° = 45°$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-2-c-3",
+          "label": "2(c)(3)",
+          "questionText": "Hence, or otherwise, determine the area of parallelogram ADEF.",
+          "marks": 5,
+          "memoText": "$EA = \\dfrac{1}{2}CA = \\dfrac{1}{2}\\sqrt{(6 - 4)^2 + (7 - 1)^2} = \\dfrac{1}{2}\\sqrt{40} = \\sqrt{10}$.\n$AD = \\sqrt{(8 - 4)^2 + (3 - 1)^2} = \\sqrt{20} = 2\\sqrt{5}$.\nArea $\\triangle EAD = \\dfrac{1}{2} \\times EA \\times AD \\times \\sin E\\hat{A}D = \\dfrac{1}{2} \\times \\sqrt{10} \\times 2\\sqrt{5} \\times \\sin 45° = 5$ units$^2$.\nA diagonal of a parallelogram bisects its area, so Area ADEF $= 2 \\times 5 = 10$ units$^2$.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Statistics — Frequency Polygon, Ogive & Skewness",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-3-a",
+          "label": "3(a)",
+          "questionText": "A frequency polygon represents the results obtained by 27 learners in a mathematics test. The class intervals are $[0; 20)$, $[20; 40)$, $[40; 60)$, $[60; 80)$, $[80; 100)$ with frequencies $1$, $7$, $10$, $5$, $4$ respectively.\n\nDetermine the estimated mean of this set of results.",
+          "marks": 3,
+          "memoText": "$\\bar{x} = \\dfrac{(10)(1) + (30)(7) + (50)(10) + (70)(5) + (90)(4)}{27} = 53$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-3-b",
+          "label": "3(b)",
+          "questionText": "What percentage of learners obtained a result in the interval $60 \\leq x < 80$?",
+          "marks": 1,
+          "memoText": "$\\dfrac{5}{27} \\times 100 = 18{,}5\\%$",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-3-c",
+          "label": "3(c)",
+          "questionText": "Use the information given on the frequency polygon to draw a cumulative frequency curve (ogive) that represents the results of this group of learners.",
+          "marks": 3,
+          "memoText": "Plot the cumulative frequencies and join with a smooth curve: $(0; 0)$, $(20; 1)$, $(40; 8)$, $(60; 18)$, $(80; 23)$, $(100; 27)$.\nMarks: start at $(0; 0)$; plotting end points; cumulative frequency values correct.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-3-d-1-i",
+          "label": "3(d)(1)(i)",
+          "questionText": "Indicate on the horizontal axis of your cumulative frequency curve in (c) where you would read off the median.",
+          "marks": 1,
+          "memoText": "Read off at a cumulative frequency of $\\dfrac{27}{2} = 13{,}5$ (approximately $x = 50$). See graph.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-3-d-1-ii",
+          "label": "3(d)(1)(ii)",
+          "questionText": "Indicate on the horizontal axis the values required to determine the IQR.",
+          "marks": 2,
+          "memoText": "Read off at cumulative frequencies $Q_1 \\approx \\dfrac{27}{4} = 6{,}75$ (about $x = 40$) and $Q_3 \\approx \\dfrac{3 \\times 27}{4} = 20{,}25$ (about $x = 70$). See graph.",
+          "topic": "Statistics",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-3-d-2",
+          "label": "3(d)(2)",
+          "questionText": "Using your answer to (a) and (d)(1)(i), describe the skewness of the data set. Explain.",
+          "marks": 2,
+          "memoText": "Mean $= 53$ and median $\\approx 50$. Since mean $>$ median, the data is positively skewed. (If mean $=$ median, the data is symmetrical.)",
+          "topic": "Statistics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Circle Geometry — Angles with Parallel Lines",
+      "totalMarks": 5,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-4-a",
+          "label": "4(a)",
+          "questionText": "The points A, B and C all lie on the circle with centre O. Line OA // CB, and $O\\hat{A}C = 25°$.\n\nDetermine $C\\hat{O}A$.",
+          "marks": 2,
+          "memoText": "$\\hat{C}_1 = 25°$ (angles opposite equal sides — radii OA = OC).\n$C\\hat{O}A = 180° - 50° = 130°$ (interior angles of $\\triangle$).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-4-b",
+          "label": "4(b)",
+          "questionText": "Determine $\\hat{O}_1$.",
+          "marks": 3,
+          "memoText": "$\\hat{C}_2 = 25°$ (alternate angles; OA // CB).\n$\\hat{C}_1 + \\hat{C}_2 = \\hat{B}$ (angles opposite equal sides — radii OB = OC), so $\\hat{B} = 50°$.\n$\\hat{O}_1 = 180° - 100° = 80°$ (interior angles of $\\triangle$).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Euclidean Geometry — Proportion Theorem",
+      "totalMarks": 11,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-5-a",
+          "label": "5(a)",
+          "questionText": "Use the diagram to prove the theorem that states that a line drawn parallel to one side of a triangle divides the other two sides proportionally.\n\nRequired to prove: $\\dfrac{AD}{DB} = \\dfrac{AE}{EC}$ (where DE // BC, with perpendiculars EF and DG).",
+          "marks": 6,
+          "memoText": "Construction: join DC and BE.\n$\\dfrac{\\text{Area }\\triangle ADE}{\\text{Area }\\triangle BDE} = \\dfrac{\\frac{1}{2} \\times AD \\times EF}{\\frac{1}{2} \\times DB \\times EF} = \\dfrac{AD}{DB}$ (same perpendicular height EF).\n$\\dfrac{\\text{Area }\\triangle ADE}{\\text{Area }\\triangle DEC} = \\dfrac{\\frac{1}{2} \\times AE \\times DG}{\\frac{1}{2} \\times EC \\times DG} = \\dfrac{AE}{EC}$ (same perpendicular height DG).\nBut Area $\\triangle BDE =$ Area $\\triangle DEC$ (same base DE, between the parallel lines DE and BC).\n$\\therefore \\dfrac{AD}{DB} = \\dfrac{AE}{EC}$.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-5-b",
+          "label": "5(b)",
+          "questionText": "HIJ is a right-angled triangle at I. L lies on IJ such that JL = 9 units and LI = 12 units. K lies on HI with KL // HJ. HJ = 29 units.\n\nDetermine the length of IK.",
+          "marks": 5,
+          "memoText": "$IJ = JL + LI = 9 + 12 = 21$.\n$HI^2 = HJ^2 - IJ^2 = (29)^2 - (21)^2 = 400$ (Pythagoras), so $HI = 20$ units.\nSince KL // HJ: $\\dfrac{IL}{IJ} = \\dfrac{IK}{IH}$ (line parallel to one side of $\\triangle$)\n$\\dfrac{12}{21} = \\dfrac{IK}{20}$\n$IK = \\dfrac{240}{21} = 11\\dfrac{3}{7} \\approx 11{,}4$ units",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Trigonometric Graphs",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-6-a",
+          "label": "6(a)",
+          "questionText": "Given $f(x) = \\sin 2x$ and $g(x) = \\cos(x + 45°)$ for $x \\in [-90°; 180°]$.\n\nSketch the graphs of $f$ and $g$ on the same set of axes. Label all intercepts with axes, turning points and end points.",
+          "marks": 6,
+          "memoText": "$f(x) = \\sin 2x$: amplitude 1, period $180°$. Turning points at $x = -45°$ (min), $45°$ (max), $135°$ (min); $x$-intercepts at $x = -90°, 0°, 90°, 180°$; $y$-intercept $(0; 0)$; end points $(-90°; 0)$ and $(180°; 0)$.\n$g(x) = \\cos(x + 45°)$: maximum at $x = -45°$, minimum at $x = 135°$; $x$-intercept at $x = 45°$; $y$-intercept $(0; 0{,}7)$; end points $(-90°; 0{,}7)$ and $(180°; -0{,}7)$.\nMarks: $f$ amplitude, frequency, turning points, end points and intercepts, shape; $g$ turning points, frequency, end points and intercepts, shape.",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-6-b",
+          "label": "6(b)",
+          "questionText": "Determine the values of $x \\in [-90°; 180°]$ for which $f(x) = g(x)$. Show all calculations.",
+          "marks": 5,
+          "memoText": "$\\sin 2x = \\cos(x + 45°)$\n$\\cos(90° - 2x) = \\cos(x + 45°)$\n$90° - 2x = (x + 45°) + 360°k \\Rightarrow x = 15° + 120°k \\Rightarrow x = 15°$ (also $x = 135°$)\nOR $90° - 2x = -(x + 45°) + 360°k \\Rightarrow x = 135° + 360°k \\Rightarrow x = 135°$\n$\\therefore x = 15°$ or $x = 135°$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-6-c-1",
+          "label": "6(c)(1)",
+          "questionText": "Use your graph to determine the value(s) of $x \\in [-90°; 180°]$ for which $f(x) \\geq g(x)$.",
+          "marks": 1,
+          "memoText": "$x \\in [15°; 180°]$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-6-c-2",
+          "label": "6(c)(2)",
+          "questionText": "Use your graph to determine the value(s) of $x \\in [-90°; 180°]$ for which $f(x) \\cdot g(x) < 0$.",
+          "marks": 2,
+          "memoText": "$x \\in (-90°; 0°) \\cup (45°; 90°)$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Circle Geometry with Trigonometry — Semicircle & Tangent",
+      "totalMarks": 7,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-7",
+          "label": "7",
+          "questionText": "ABD is a semi-circle with centre O. CB is a tangent to the semi-circle at B. OB = 7 units and $C\\hat{A}B = 38°$.\n\nDetermine the length of CD, correct to one decimal place. State all relevant reasons with your statements.",
+          "marks": 7,
+          "memoText": "In $\\triangle ABC$: $\\hat{B} = 90°$ (tangent $\\perp$ radius); $AO = 7$ (radius), so $AB$ (the diameter) $= 14$.\n$\\cos 38° = \\dfrac{14}{AC} \\Rightarrow AC = \\dfrac{14}{\\cos 38°} = 17{,}766\\ldots$\nConstruct DB. $A\\hat{D}B = 90°$ (angle in a semi-circle).\n$\\cos 38° = \\dfrac{AD}{14} \\Rightarrow AD = 14\\cos 38° = 11{,}032\\ldots$\n$CD = AC - AD = 17{,}766 - 11{,}032 \\approx 6{,}7$ units",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Trigonometric Ratio & Equation",
+      "totalMarks": 7,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-8-a",
+          "label": "8(a)",
+          "questionText": "Given $\\cos\\theta = \\dfrac{a^2 - b^2}{a^2 + b^2}$ where $0 < b < a$ and $\\sin\\theta < 0$.\n\nDetermine $\\tan\\theta$ in terms of $a$ and $b$. Show all working.",
+          "marks": 4,
+          "memoText": "Since $\\cos\\theta > 0$ (as $0 < b < a$) and $\\sin\\theta < 0$, $\\theta$ is in Quadrant 4.\n$x = a^2 - b^2$, $r = a^2 + b^2$.\n$y^2 = r^2 - x^2 = (a^2 + b^2)^2 - (a^2 - b^2)^2 = 4a^2b^2$ (Pythagoras)\n$y = \\pm 2ab$; in Quadrant 4, $y = -2ab$.\n$\\tan\\theta = \\dfrac{y}{x} = -\\dfrac{2ab}{a^2 - b^2}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-8-b",
+          "label": "8(b)",
+          "questionText": "If it is further given that $a = 3$ and $b = 2$, solve for $\\theta$, where $\\theta \\in (0°; 720°)$.",
+          "marks": 3,
+          "memoText": "$\\tan\\theta = -\\dfrac{2(3)(2)}{(3)^2 - (2)^2} = -\\dfrac{12}{5}$; reference angle $67{,}4°$.\n$\\theta = -67{,}4° + 360°k$, $k \\in \\mathbb{Z}$\n$\\theta \\in \\{292{,}6°;\\ 652{,}6°\\}$",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Trigonometry — Simplification, Identity & General Solution",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-9-a",
+          "label": "9(a)",
+          "questionText": "Simplify the following into an expression containing only one trigonometric ratio of $\\theta$:\n\n$$\\dfrac{\\frac{1}{2}\\cos(90° + \\theta) - \\sin\\theta \\cdot \\sin(\\theta - 90°)}{\\cos^2(180° - \\theta) - 2\\cos(-\\theta) + \\cos^2(\\theta + 90°)}$$",
+          "marks": 7,
+          "memoText": "$\\cos(90° + \\theta) = -\\sin\\theta$; $\\sin(\\theta - 90°) = -\\cos\\theta$; $\\cos^2(180° - \\theta) = \\cos^2\\theta$; $\\cos(-\\theta) = \\cos\\theta$; $\\cos^2(\\theta + 90°) = \\sin^2\\theta$.\nNumerator $= \\dfrac{1}{2}(-\\sin\\theta) - \\sin\\theta(-\\cos\\theta) = -\\dfrac{1}{2}\\sin\\theta + \\sin\\theta\\cos\\theta$.\nDenominator $= \\cos^2\\theta - 2\\cos\\theta + \\sin^2\\theta = 1 - 2\\cos\\theta$.\n$\\dfrac{-\\frac{1}{2}\\sin\\theta(1 - 2\\cos\\theta)}{1 - 2\\cos\\theta} = -\\dfrac{1}{2}\\sin\\theta$",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-9-b-1",
+          "label": "9(b)(1)",
+          "questionText": "Prove the following identity:\n\n$$\\dfrac{\\sin\\theta \\cdot \\tan\\theta}{\\tan 2\\theta \\cdot (1 - \\tan^2\\theta)} = \\dfrac{\\sin\\theta}{2}$$",
+          "marks": 5,
+          "memoText": "LHS $= \\sin\\theta \\cdot \\dfrac{\\sin\\theta}{\\cos\\theta} \\div \\left[\\dfrac{\\sin 2\\theta}{\\cos 2\\theta} \\cdot \\dfrac{\\cos^2\\theta - \\sin^2\\theta}{\\cos^2\\theta}\\right]$\n$= \\dfrac{\\sin^2\\theta}{\\cos\\theta} \\div \\left[\\dfrac{\\sin 2\\theta}{\\cos 2\\theta} \\cdot \\dfrac{\\cos 2\\theta}{\\cos^2\\theta}\\right]$\n$= \\dfrac{\\sin^2\\theta}{\\cos\\theta} \\div \\dfrac{2\\sin\\theta\\cos\\theta}{\\cos^2\\theta}$\n$= \\dfrac{\\sin^2\\theta}{\\cos\\theta} \\cdot \\dfrac{\\cos^2\\theta}{2\\sin\\theta\\cos\\theta}$\n$= \\dfrac{\\sin\\theta}{2}$ = RHS",
+          "topic": "Trigonometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-9-b-2",
+          "label": "9(b)(2)",
+          "questionText": "Determine the general solution for the values of $\\theta$ for which the identity is not valid. Write your answer as ONE single statement.",
+          "marks": 5,
+          "memoText": "The identity is undefined where any of the following hold: $\\sin 2\\theta = 0 \\Rightarrow \\theta = 90°k$; $\\cos 2\\theta = 0 \\Rightarrow \\theta = 45° + 90°k$; $\\cos\\theta = 0 \\Rightarrow \\theta = \\pm 90° + 360°k$; $\\tan^2\\theta = 1 \\Rightarrow \\theta = \\pm 45° + 180°k$.\nCombining all of these: $\\theta = 45°k$, $k \\in \\mathbb{Z}$.",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Circle Geometry — Tangents & Cyclic Quadrilateral",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-10-a",
+          "label": "10(a)",
+          "questionText": "A, C and D lie on the circle with centre O. AE and DE are tangents to the circle at A and D respectively. $A\\hat{C}D = 68°$.\n\nProve that AODE is a cyclic quadrilateral.",
+          "marks": 4,
+          "memoText": "$\\hat{A}_1 = 90°$ (tangent $\\perp$ radius — OA $\\perp$ AE).\n$\\hat{D}_3 = 90°$ (tangent $\\perp$ radius — OD $\\perp$ DE).\n$\\hat{A}_1 + \\hat{D}_3 = 180°$, so AODE is a cyclic quadrilateral (opposite angles supplementary).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-10-b",
+          "label": "10(b)",
+          "questionText": "Determine $\\hat{E}$.",
+          "marks": 4,
+          "memoText": "$\\hat{O}_2 = 2(68°) = 136°$ (angle at centre $= 2 \\times$ angle at circle, subtended by AD).\n$\\hat{E} = 180° - 136° = 44°$ (opposite angles of cyclic quadrilateral AODE).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Analytical Geometry — Circle, Tangents & a Second Circle",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-11-a",
+          "label": "11(a)",
+          "questionText": "The equation of the circle with centre C is $x^2 + y^2 - 12x - 4y + p = 0$. AO, OB and AB are tangents to the circle, and B is the point $(12; 0)$.\n\nDetermine the value of $p$.",
+          "marks": 5,
+          "memoText": "$x^2 - 12x + y^2 - 4y = -p$\n$(x - 6)^2 + (y - 2)^2 = -p + 36 + 4 = -p + 40$; centre $C(6; 2)$.\nOB lies along the $x$-axis ($y = 0$) and is a tangent, so the radius $= 2$.\n$-p + 40 = 2^2 = 4 \\Rightarrow p = 36$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-11-b",
+          "label": "11(b)",
+          "questionText": "Determine the equation of AB. Show all your working.",
+          "marks": 7,
+          "memoText": "Draw CB: $m_{CB} = \\dfrac{0 - 2}{12 - 6} = -\\dfrac{1}{3}$.\nThe radius CD is perpendicular to the tangent OB at D, so $\\tan(C\\hat{B}D) = \\dfrac{1}{3} \\Rightarrow C\\hat{B}D = 18{,}4349\\ldots°$.\n$\\triangle$ECB $\\equiv$ $\\triangle$DCB (RHS), so $D\\hat{B}A = 2 \\times 18{,}4349° = 36{,}8698\\ldots°$.\n$m_{AB} = \\tan(180° - 36{,}8698°) \\approx -0{,}75 = -\\dfrac{3}{4}$.\n$y = -\\dfrac{3}{4}x + c$; using $B(12; 0)$: $0 = -9 + c \\Rightarrow c = 9$.\n$y = -\\dfrac{3}{4}x + 9$",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-11-c",
+          "label": "11(c)",
+          "questionText": "A second circle with centre $(0; 9)$ and with point $(2; 3)$ that lies on the circumference is drawn on the same set of axes. Do the two circles intersect? Show all working.",
+          "marks": 5,
+          "memoText": "Second circle radius: $r = \\sqrt{(2 - 0)^2 + (3 - 9)^2} = \\sqrt{40} \\approx 6{,}3$.\nDistance between centres $= \\sqrt{(6 - 0)^2 + (2 - 9)^2} = \\sqrt{85} \\approx 9{,}2$.\nSum of radii $= \\sqrt{40} + 2 \\approx 8{,}3$.\nSince the distance between the centres ($9{,}2$) is greater than the sum of the radii ($8{,}3$), the circles do not intersect.",
+          "topic": "Analytical Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Circle Geometry — Similar Triangles & Intersecting Chords",
+      "totalMarks": 13,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-12-a",
+          "label": "12(a)",
+          "questionText": "The circle with centre O has diameter AOC and chords AB and BC. Chords AD and EC intersect at F, with OF perpendicular to EC. AOC bisects $B\\hat{C}E$.\n\nProve that $\\triangle$ABC ||| $\\triangle$OFC.",
+          "marks": 4,
+          "memoText": "In $\\triangle$ABC and $\\triangle$OFC:\n$\\hat{C}_1 = \\hat{C}_2$ (given — AOC bisects $B\\hat{C}E$).\n$\\hat{B} = 90°$ (angle in a semi-circle — AC is a diameter); $\\hat{OFC} = 90°$ (given — OF $\\perp$ EC); so $\\hat{B} = \\hat{F}_1$.\n$\\hat{A}_2 = \\hat{O}_2$ (third angle).\n$\\therefore \\triangle$ABC $\\;|||\\;$ $\\triangle$OFC (equiangular).",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-12-b",
+          "label": "12(b)",
+          "questionText": "Determine the numerical value of BC : FC.",
+          "marks": 2,
+          "memoText": "$\\dfrac{BC}{FC} = \\dfrac{AC}{OC}$ (similar triangles, sides in proportion).\nLet $OC = x$; then $AC = 2x$ (diameter $= 2 \\times$ radius).\n$\\dfrac{BC}{FC} = \\dfrac{2x}{x} = 2$, so $BC : FC = 2 : 1$.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        },
+        {
+          "id": "math-ieb-p2-nov-2023-12-c",
+          "label": "12(c)",
+          "questionText": "Hence prove that: $\\left(\\dfrac{AC}{2}\\right)^2 - \\left(\\dfrac{AB}{2}\\right)^2 = DF \\times FA$.",
+          "marks": 7,
+          "memoText": "LHS $= \\dfrac{(AC)^2 - (AB)^2}{4} = \\dfrac{(BC)^2}{4}$ (Pythagoras — $\\triangle$ABC right-angled at B).\nFrom 12(b), $BC = 2FC$, so $\\dfrac{(BC)^2}{4} = (FC)^2$.\nIn $\\triangle$CFA and $\\triangle$DFE: $\\hat{E} = \\hat{A}$ (angles in the same segment); $\\hat{C}_1 = \\hat{D}$ (angles in the same segment). $\\therefore \\triangle$CFA $\\;|||\\;$ $\\triangle$DFE (equiangular).\n$\\therefore \\dfrac{CF}{DF} = \\dfrac{FA}{FE}$, so $CF \\times FE = DF \\times FA$.\nBut $CF = FE$ (line from centre perpendicular to a chord bisects it).\n$\\therefore (FC)^2 = DF \\times FA$, and hence $\\left(\\dfrac{AC}{2}\\right)^2 - \\left(\\dfrac{AB}{2}\\right)^2 = DF \\times FA$.",
+          "topic": "Euclidean Geometry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Trigonometry in Three Dimensions — Tree & House",
+      "totalMarks": 8,
+      "subQuestions": [
+        {
+          "id": "math-ieb-p2-nov-2023-13",
+          "label": "13",
+          "questionText": "A house is in the shape of a prism with a triangular-shaped roof, with one roof side CN = 10 m. A vertical tree grows at a point T in the garden. $N\\hat{C}T = 65°$ and $C\\hat{N}T = 69°$. The angle of elevation of the top of the tree from C is $43{,}5°$.\n\nIs it possible for the tree to hit the house if it falls? Show all working.",
+          "marks": 8,
+          "memoText": "In $\\triangle NCT$: $N\\hat{T}C = 180° - 65° - 69° = 46°$ (interior angles of $\\triangle$).\nSine rule: $\\dfrac{10}{\\sin 46°} = \\dfrac{CT}{\\sin 69°} \\Rightarrow CT = \\dfrac{10\\sin 69°}{\\sin 46°} = 12{,}978\\ldots$ m.\nTree height: $\\tan 43{,}5° = \\dfrac{h}{CT} \\Rightarrow h = 12{,}978 \\times \\tan 43{,}5° \\approx 12{,}3$ m.\nDistance from T perpendicular to the wall CN: $\\dfrac{x}{12{,}978} = \\sin 65° \\Rightarrow x = 12{,}978\\sin 65° \\approx 11{,}76$ m.\nSince the tree's height ($12{,}3$ m) is greater than the distance to the house ($11{,}76$ m), the tree will hit the house.",
+          "topic": "Trigonometry",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

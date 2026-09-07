@@ -1,0 +1,899 @@
+{
+  "id": "it-p2-nov-2024",
+  "subject": "Information Technology",
+  "subjectCode": "information-technology",
+  "paperCode": "P2",
+  "year": 2024,
+  "session": "November",
+  "totalMarks": 150,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Short Questions",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2024-1-1-1",
+          "label": "1.1.1",
+          "questionText": "Choose the answer and write only the letter (A–D) next to the question number.\n\n… is the loss of signal strength caused by internal or external factors.",
+          "marks": 1,
+          "memoText": "Correct answer: C – Attenuation (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "Electromagnetic interference",
+            "B": "Eavesdropping",
+            "C": "Attenuation",
+            "D": "Crosstalk"
+          }
+        },
+        {
+          "id": "it-p2-nov-2024-1-1-2",
+          "label": "1.1.2",
+          "questionText": "An e-mail protocol that downloads messages to the e-mail client is known as ...",
+          "marks": 1,
+          "memoText": "Correct answer: B – POP3 (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "FTP.",
+            "B": "POP3.",
+            "C": "SMTP.",
+            "D": "VoIP."
+          }
+        },
+        {
+          "id": "it-p2-nov-2024-1-1-3",
+          "label": "1.1.3",
+          "questionText": "Embedded wires that allow data to travel in and out of the CPU are called ...",
+          "marks": 1,
+          "memoText": "Correct answer: D – buses (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "bridges.",
+            "B": "arrays.",
+            "C": "streams.",
+            "D": "buses."
+          }
+        },
+        {
+          "id": "it-p2-nov-2024-1-1-4",
+          "label": "1.1.4",
+          "questionText": "Which type of software will allow users access to the code of an application by default?",
+          "marks": 1,
+          "memoText": "Correct answer: A – Open-source (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "Open-source",
+            "B": "Shareware",
+            "C": "Proprietary software",
+            "D": "Freeware"
+          }
+        },
+        {
+          "id": "it-p2-nov-2024-1-1-5",
+          "label": "1.1.5",
+          "questionText": "What is the role of a compiler in software development?",
+          "marks": 1,
+          "memoText": "Correct answer: B – Translates source code into machine code (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "Compresses source code files",
+            "B": "Translates source code into machine code",
+            "C": "Encrypts and decrypts source code",
+            "D": "Updates and adds source code"
+          }
+        },
+        {
+          "id": "it-p2-nov-2024-1-1-6",
+          "label": "1.1.6",
+          "questionText": "What is the resulting data type of the DIV operator in Delphi programming?",
+          "marks": 1,
+          "memoText": "Correct answer: C – Integer (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "Float",
+            "B": "Boolean",
+            "C": "Integer",
+            "D": "String"
+          }
+        },
+        {
+          "id": "it-p2-nov-2024-1-1-7",
+          "label": "1.1.7",
+          "questionText": "The following statements are given:\n\n    iNumber := 1;\n    for iRow := 1 to 4 do\n      for iCol := 1 to 2 do\n        inc(iNumber);\n\nThe value of iNumber after the execution of the provided code:",
+          "marks": 1,
+          "memoText": "Correct answer: C – 9 (1 mark)  [inc is executed 4 × 2 = 8 times, so 1 + 8 = 9.]",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "7",
+            "B": "8",
+            "C": "9",
+            "D": "11"
+          }
+        },
+        {
+          "id": "it-p2-nov-2024-1-1-8",
+          "label": "1.1.8",
+          "questionText": "A distributed database with a growing list of records linked together, using cryptography, is known as ...",
+          "marks": 1,
+          "memoText": "Correct answer: C – blockchain (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "bitcoin.",
+            "B": "backbone.",
+            "C": "blockchain.",
+            "D": "BitTorrent."
+          }
+        },
+        {
+          "id": "it-p2-nov-2024-1-1-9",
+          "label": "1.1.9",
+          "questionText": "… is memory that loses its contents when the power is switched off.",
+          "marks": 1,
+          "memoText": "Correct answer: B – RAM (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "EEPROM",
+            "B": "RAM",
+            "C": "ROM",
+            "D": "SSD"
+          }
+        },
+        {
+          "id": "it-p2-nov-2024-1-1-10",
+          "label": "1.1.10",
+          "questionText": "… is a programming language that is used to define the structure and content of a web page and adds dynamic behaviour to the web page.",
+          "marks": 1,
+          "memoText": "Correct answer: C – JavaScript (1 mark)",
+          "topic": "Short questions",
+          "type": "mcq",
+          "options": {
+            "A": "Hypertext mark-up language (HTML)",
+            "B": "Extensible mark-up language (XML)",
+            "C": "JavaScript",
+            "D": "Structured query language (SQL)"
+          }
+        },
+        {
+          "id": "it-p2-nov-2024-1-2-1",
+          "label": "1.2.1",
+          "questionText": "Give ONE word/term for the following description:\n\nAn instruction given to a DBMS to reverse a transaction and restore the database back to its previous state.",
+          "marks": 1,
+          "memoText": "Rollback (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-1-2-2",
+          "label": "1.2.2",
+          "questionText": "Give ONE word/term for the following description:\n\nA technique used by the operating system where tasks and processes are split up between the different CPU cores of a computer to be processed in parallel.",
+          "marks": 1,
+          "memoText": "Multiprocessing (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-1-2-3",
+          "label": "1.2.3",
+          "questionText": "Give ONE word/term for the following description:\n\nA type of printer that uses filament/thermoplastic that melts when heated and turns solid when it cools down.",
+          "marks": 1,
+          "memoText": "3D printer (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-1-2-4",
+          "label": "1.2.4",
+          "questionText": "Give ONE word/term for the following description:\n\nA type of technology that allows a host operating system to run other operating systems on the same device at the same time.",
+          "marks": 1,
+          "memoText": "Virtualisation (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-1-2-5",
+          "label": "1.2.5",
+          "questionText": "Give ONE word/term for the following description:\n\nThe collection and storage of extremely large, diverse amounts of data over time that need to be processed, using complex algorithms.",
+          "marks": 1,
+          "memoText": "Big data / Data warehouse (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-1-3-1",
+          "label": "1.3.1",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct the statement if it is FALSE by writing down the correct term. (NO marks will be awarded for FALSE without the correct term.)\n\nA zombie is a network of computers that are remotely controlled by malware and then used by criminals to install and run malicious software.",
+          "marks": 1,
+          "memoText": "FALSE – Botnet (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-1-3-2",
+          "label": "1.3.2",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct the statement if it is FALSE by writing down the correct term (no marks for FALSE without the correct term):\n\nGreen computing is the study and design of the workplace and the equipment that is used for the comfort and safety of people.",
+          "marks": 1,
+          "memoText": "FALSE – Ergonomics (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-1-3-3",
+          "label": "1.3.3",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct the statement if it is FALSE by writing down the correct term (no marks for FALSE without the correct term):\n\nA hyperlink is a built-in connection to another web page, indicated as text underlined in blue, or as a graphic with a blue outline.",
+          "marks": 1,
+          "memoText": "TRUE (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-1-3-4",
+          "label": "1.3.4",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct the statement if it is FALSE by writing down the correct term (no marks for FALSE without the correct term):\n\nA patch is a collection of updates combined into one package.",
+          "marks": 1,
+          "memoText": "FALSE – Service pack (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-1-3-5",
+          "label": "1.3.5",
+          "questionText": "Indicate whether the following statement is TRUE or FALSE. Correct the statement if it is FALSE by writing down the correct term (no marks for FALSE without the correct term):\n\nThe WHERE clause in an SQL statement is used to test a condition that uses an aggregate function.",
+          "marks": 1,
+          "memoText": "FALSE – HAVING (1 mark)",
+          "topic": "Short questions",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Systems Technologies",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2024-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Scenario: Athletes from around the globe compete in a Global Marathon Series. The use of embedded ICT systems ensures a smooth and efficient experience for participants, organisers and spectators at a marathon.\n\nThe amount of memory in a computer system is crucial to ensure optimal performance. Explain the function of primary memory (RAM) in a computer system.",
+          "marks": 2,
+          "memoText": "Primary memory is used to store data temporarily ✓ that is actively being used by the computer's CPU ✓.\nAny TWO concepts (2 marks): RAM provides temporary storage; for data that is actively/currently being used by the computer's CPU; making it easily accessible for quick processing.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Discuss what cache memory is and how the use of cache memory contributes to the efficient functioning of a computer system.",
+          "marks": 3,
+          "memoText": "Cache memory is (a small amount of) high-speed memory ✓.\nAny TWO concepts ✓✓ (3 marks total): cache memory is located close to / on the CPU; stores frequently / previously accessed data and instructions; prevents a slower medium from slowing down a faster medium / faster access to data / prevents bottlenecking.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-2-1-3",
+          "label": "2.1.3",
+          "questionText": "Explain why the use of virtual memory impacts negatively on the performance of a computer.",
+          "marks": 2,
+          "memoText": "Accessing / using secondary storage (1) is slower (1).\nConcepts (2 marks): virtual memory is accessed from storage; swapping of data between virtual memory and RAM / slower access.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-2-2",
+          "label": "2.2",
+          "questionText": "Computers that are used to view a live marathon event are slow. It was suggested that a graphics processor unit (GPU) is installed in each of these computers. Name TWO key factors that determine the computational power of a GPU.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): memory size / amount of VRAM; memory type / bandwidth; clock speed / GPU processing speed; number of cores; type or generation of processor.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-2-3-1",
+          "label": "2.3.1",
+          "questionText": "A computer technician at the event suggested that the computer used for the event should have a modular design with up-to-date software in the BIOS. State TWO advantages of the modular design of a computer.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): easy to repair; easy to upgrade; customise specifications; cheaper to replace a single part versus replacing an entire system.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-2-3-2",
+          "label": "2.3.2",
+          "questionText": "State TWO functions of the BIOS.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): controls hardware at the lowest level; checks that the rest of the hardware is present and working (POST); finds the operating system (OS) and loads it; provides options for the user to configure (CMOS setup); locates the software and drivers that interface with the OS once running; responsible for the boot process / stores start-up instructions (one mark only for the entire question).",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-2-3-3",
+          "label": "2.3.3",
+          "questionText": "Explain why the BIOS is stored on non-volatile memory.",
+          "marks": 2,
+          "memoText": "So that it can retain data even when the computer is powered off ✓. To save the changes made to the instructions/settings that can be reloaded/affected during the next execution ✓.\nAny TWO concepts (2 marks): retaining data even when the computer is powered off; saving the changes made to the instructions/settings; to be reloaded/affected during the next execution.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-2-4-1",
+          "label": "2.4.1",
+          "questionText": "All the electronic devices used during a marathon event are connected to a network. Name a hardware component in a desktop computer that enables the computer to connect to a network.",
+          "marks": 1,
+          "memoText": "Network Interface Controller / Card (NIC) ✓ (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-2-4-2",
+          "label": "2.4.2",
+          "questionText": "Besides hardware and software, what is another requirement for connecting a local network to the internet?",
+          "marks": 1,
+          "memoText": "Internet Service Provider (ISP) ✓ (1 mark)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-2-5-1",
+          "label": "2.5.1",
+          "questionText": "Cloud computing will be utilised at the marathons. Define cloud computing.",
+          "marks": 2,
+          "memoText": "Cloud computing refers to the use of shared resources ✓ that are offered as services over the Internet / online ✓.\nOR: Cloud computing refers to the process in which services on the internet (1) are used to store, manage and process data (1). (2 marks)",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-2-5-2",
+          "label": "2.5.2",
+          "questionText": "Motivate how the use of cloud computing will reduce the hardware requirements of the computers used during a marathon.",
+          "marks": 2,
+          "memoText": "Any ONE ✓✓ (2 marks): cost saving of hardware (1) as most of the processing is done in the cloud, lower hardware specifications (1); no / fewer local resources (e.g. storage space) required (1) as storage is managed in the cloud (1); no dedicated back-up servers needed (1) as the cloud offers backup and recovery services (1).",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-2-6-1",
+          "label": "2.6.1",
+          "questionText": "The organisers of international marathons want to use virtual reality during the Global Marathon Series. Define virtual reality.",
+          "marks": 2,
+          "memoText": "Virtual reality is an artificial environment ✓ that is created with software ✓.\nAny TWO concepts (2 marks): artificial / simulated environment; created with software / computer generated; appears as a 3D space / interacted with via VR equipment.",
+          "topic": "Systems technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-2-6-2",
+          "label": "2.6.2",
+          "questionText": "Justify the use of virtual reality by giving TWO practical examples of how athletes can benefit from using this technology.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): athletes could engage in interactive training modules specifically designed for marathon preparation; athletes from around the world can participate in the Global Marathon Series without physically travelling to the event location / participate in virtual marathons; creating opponents to compete against; simulating the real course / environment for preparation. Accept any relevant and correct answer.",
+          "topic": "Systems technologies",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Communication and Network Technologies",
+      "totalMarks": 26,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2024-3-1-1",
+          "label": "3.1.1",
+          "questionText": "Scenario: The finish line of one of the marathons will be at a sports stadium. A set of networked computers will be used to help manage the marathon.\n\nNetworks can be classified according to topology, architecture and geographical reach. State the name of a cabled network that covers a limited geographical area, such as a sports stadium.",
+          "marks": 1,
+          "memoText": "LAN ✓ (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-1-2",
+          "label": "3.1.2",
+          "questionText": "Define the term bandwidth in the context of a network.",
+          "marks": 2,
+          "memoText": "Bandwidth refers to the amount of data ✓ that can be sent over a network in a specific amount of time ✓. (2 marks)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-1-3",
+          "label": "3.1.3",
+          "questionText": "State the unit of measurement of bandwidth in a network.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): Bps; Kbps; Mbps; Gbps. Accept 'a' instead of 'p' (e.g. Mb/s).",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-1-4",
+          "label": "3.1.4",
+          "questionText": "Each computer on the network is assigned an IP address. Discuss the purpose of an IP address.",
+          "marks": 2,
+          "memoText": "Uniquely identify the device ✓ on the network to allow communication ✓ on the network between the devices. (2 marks)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-1-5",
+          "label": "3.1.5",
+          "questionText": "A star topology has been suggested for this network. Motivate why a star topology will be a suitable layout for this network.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): if a connection between the device and switch fails (1), the other devices can still access the network (1); each device is easier to troubleshoot (1) as it is connected via its own dedicated cable (1); devices can be added or removed easily (1) by simply connecting or disconnecting them from an available port on the switch (1); direct access (1) due to data not having to travel through other devices (1).",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-2-1",
+          "label": "3.2.1",
+          "questionText": "Users need to connect wirelessly to the network. State TWO technologies that can be used to connect to a wireless network.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): WiFi; Bluetooth; Satellite; Cellular (GPRS/Edge/3G/4G/5G); WiMAX. Do NOT accept hardware devices.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-2-2",
+          "label": "3.2.2",
+          "questionText": "Briefly describe how a person can connect to a wireless network from their device.",
+          "marks": 2,
+          "memoText": "A wireless device can connect to the wireless network by selecting the name of the wireless network ✓ and typing in the correct password ✓.\nAny TWO concepts (2 marks): move the device in range of an access point / switch WiFi on; select the name of the wireless network; type in the correct password.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-2-3",
+          "label": "3.2.3",
+          "questionText": "A laptop's built-in wireless adaptor has been damaged. Name the peripheral device that can allow the laptop to still access the network wirelessly.",
+          "marks": 1,
+          "memoText": "A USB WiFi Adaptor ✓ (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-3-1",
+          "label": "3.3.1",
+          "questionText": "A website has been developed for the marathon event. The website allows participants to upload images and videos and share their experiences of the marathon. Explain why a static website will not be a suitable choice for this website.",
+          "marks": 2,
+          "memoText": "A static website stays the same / is not updated regularly ✓ and does not allow the end-user to upload content to the website ✓.\nAny TWO concepts (2 marks): a website that stays the same / is not updated regularly; does not allow the end-user to upload content to the website; no interactivity.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-3-2",
+          "label": "3.3.2",
+          "questionText": "Users will be requested to accept cookies when they visit the website. Explain what a cookie is and state TWO ways in which it can be used to benefit the user.",
+          "marks": 3,
+          "memoText": "A cookie is a small text file saved on a user's device from the web ✓ to track the user's activities / preferences / settings and browsing history of websites visited.\nAny TWO ways it can benefit the user ✓✓: enhances the browsing experience by autocompleting / applying user preferences; saves time when navigating through websites; when the user revisits the website, it recalls the user's profile and applies the user's preferences automatically; generates personalised adverts; creates recommendations for users based on the user's previous browsing history. (3 marks)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-4-1",
+          "label": "3.4.1",
+          "questionText": "A ticketing system has been designed for the spectators at the event. Each ticket has an image similar to a square, black-and-white matrix barcode made up of small square dots. What is this type of image called?",
+          "marks": 1,
+          "memoText": "QR (Quick Response) Code ✓ (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-4-2",
+          "label": "3.4.2",
+          "questionText": "Describe TWO benefits of having such an image (a QR code) on the spectators' tickets.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): contactless – no need to touch or physical contact; better security – very difficult to copy since each code is different per ticket and is not human readable; easy organisation – the gate will open only when the correct code has been presented, which makes management of queues easier / faster access; the ticket is saved on the user's phone and doesn't need to be printed (saves paper / cannot easily be lost); links to more data / information.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-5-1",
+          "label": "3.5.1",
+          "questionText": "The marathon can be streamed live or viewed on demand. Differentiate between live streaming and view on demand.",
+          "marks": 2,
+          "memoText": "Live streaming: broadcasting of content in real time ✓ (as it happens).\nViewing on demand: the content is pre-recorded / can be accessed at any time ✓. (2 marks)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-5-2-a",
+          "label": "3.5.2(a)",
+          "questionText": "The server providing the streaming services has become unresponsive. State the term used for an attack that makes a website inaccessible by using a large number of computers to request data from the site at the same time.",
+          "marks": 1,
+          "memoText": "DDoS ✓ (Distributed Denial of Service) (1 mark)",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-3-5-2-b",
+          "label": "3.5.2(b)",
+          "questionText": "Suggest TWO ways to prevent the server from becoming unresponsive in this context.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): increase the bandwidth to the server; upgrade the networking infrastructure; implement a queuing system to access the website; manage server resources; security solutions; access restriction; bot prevention; attack surface reduction; traffic management. Accept any TWO relevant and correct examples.",
+          "topic": "Communication and network technologies",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Data and Information Management",
+      "totalMarks": 24,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2024-4-1-1",
+          "label": "4.1.1",
+          "questionText": "The school is organising a marathon. The entries of all the athletes are saved in a table called tblAthletes. Give TWO reasons why it would be more suitable to use a Google form rather than a printed entry form for the athletes to register for the marathon.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): takes less space / less paperwork; easy to retrieve information; easy to print reports and statistics; information will be available electronically to use in any application; easier to distribute to a larger group of people; saves time if not necessary to record manually; more environmentally friendly (greener solution); minimise human error / data is more reliable; entries can be done from any location.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-1-2-a",
+          "label": "4.1.2(a)",
+          "questionText": "The following is an extract from the results of 12 500 athletes that were captured after completion of the marathon:\n\nAthleteNum | NameAndSurname | EmailAddress | CellNumber | MarathonType | RaceTime | Position\nA001 | Koos Nel | NelK@gmail.com | 627688255 | Half-marathon | 56 | 2\nA008 | John Smith | JohnS@outlook.com | 728854173 | Full marathon | 205.55 | 3\nA023 | Andrew Khumalo | KhumaloAndrew@hotmail.com | 832250170 | Full marathon | 215 | 7\nA066 | Herbert Kleyn | KleynH@gmail.com | 638827795 | Half-marathon | 62.5 | 9\nA082 | James Green | GreenJ@gmail.com | 924171321 | Half-marathon | 55 | 1\nA091 | John Baloi | BaloiCleverJohn@outlook.com | 849638547 | Half-marathon | 82 | 34\nA098 | Rose Msiza | RoseMsiza@gmail.com | 764147332 | Full marathon | 201.19 | 2\n\nAn alphabetical list of data, sorted according to the athletes' surnames, is required by the school. Give a reason why this cannot be accomplished with the current design of the table and provide a solution to the anomaly.",
+          "marks": 2,
+          "memoText": "Any ONE reason ✓: multiple values in a field; can't be sorted on surname as it is the second value in the field.\nSolution ✓: separate the name and surname into two separate fields. (2 marks)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-1-2-b",
+          "label": "4.1.2(b)",
+          "questionText": "The data in the CellNumber field is not correct due to the first digit being omitted. Suggest a change in the design of the table to save the cellphone numbers correctly.",
+          "marks": 1,
+          "memoText": "The CellNumber field must have the data type text / string ✓. (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-1-2-c",
+          "label": "4.1.2(c)",
+          "questionText": "Identify a redundant field in the table and motivate why it is redundant.",
+          "marks": 2,
+          "memoText": "The Position field ✓ – it can be determined / calculated / derived using the data in the table ✓. (2 marks)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-1-2-d",
+          "label": "4.1.2(d)",
+          "questionText": "State TWO fields from the table provided that will be used to identify the winner of the half-marathon.",
+          "marks": 2,
+          "memoText": "Marathon type ✓ AND RaceTime / Position ✓. (2 marks)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-1-2-e-i",
+          "label": "4.1.2(e)(i)",
+          "questionText": "Two characteristics of quality data are accuracy and consistency. Define the term accuracy and give an example using the RaceTime field from the table above.",
+          "marks": 2,
+          "memoText": "Accuracy: the data needs to be precise ✓.\nFor example, the RaceTime 205.55 is not the same as the RaceTime 205.98 ✓. (2 marks)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-1-2-e-ii",
+          "label": "4.1.2(e)(ii)",
+          "questionText": "Define the term consistency and give an example using the AthleteNum field from the table above.",
+          "marks": 2,
+          "memoText": "Consistency: the data in one part of a database should have the same format / not contradict / differ from the data in another part of a database ✓.\nFor example, if AthleteNum starts with the letter 'A' it should be applied the same throughout the database ✓. (2 marks)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-2-1",
+          "label": "4.2.1",
+          "questionText": "Data integrity is a common term associated with database design and operations. Explain what physical data integrity refers to.",
+          "marks": 1,
+          "memoText": "Physical data integrity refers to guarding against issues such as power failure, natural disasters, theft of hardware, etc. ✓\nOR: physical data integrity is the protection of data accuracy and completeness while it is stored, retrieved and transmitted (1). (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-2-2",
+          "label": "4.2.2",
+          "questionText": "State TWO hardware devices that can be used to ensure the physical integrity of data.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): UPS (Uninterruptible Power Supply); RAID; access control devices (biometric, security doors, etc.); electronic locks; inverter and battery; external storage devices; power surge protecting devices.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-3-1",
+          "label": "4.3.1",
+          "questionText": "Give ONE term for the following definition:\n\nThe process of refining the structure of a database to minimise redundancy and improve integrity.",
+          "marks": 1,
+          "memoText": "Normalisation ✓ (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-3-2",
+          "label": "4.3.2",
+          "questionText": "Give ONE term for the following definition:\n\nA field containing unique values that could be used as the primary key, but is not currently set as the primary key.",
+          "marks": 1,
+          "memoText": "Alternate key ✓ (1 mark)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-4",
+          "label": "4.4",
+          "questionText": "Explain how metadata adds value to data.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): provides context and additional information that makes information easier to find / interpret / manage; helps users understand the origin, purpose and characteristics of data; helps to make informed decisions about the data and its relevance; helps to organise electronic resources, provide digital identification, and archive and preserve resources.",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-5",
+          "label": "4.5",
+          "questionText": "There are different types of computer systems used in knowledge-intensive organisations. Justify the use of an expert system, rather than a decision-support system, in such an organisation.",
+          "marks": 2,
+          "memoText": "A DS system does not give a solution but rather provides the user with information to use in their own decision making ✓.\nAn expert system will provide you with a fixed number of possible solutions gathered from experts in a certain field ✓. (2 marks)",
+          "topic": "Data and information management",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-4-6",
+          "label": "4.6",
+          "questionText": "A user's digital footprint is created through invisible data collection. Give TWO examples of where a digital footprint can be used.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): companies often use this information to find out more about employees before hiring them; data collected about the user is sold for advertising purposes; cybercriminals can use the information the user shares for online identity theft and phishing; context-aware search optimisation; companies use info to buy popular stock. Accept any other relevant and correct answer.",
+          "topic": "Data and information management",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Solution Development",
+      "totalMarks": 22,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2024-5-1-1",
+          "label": "5.1.1",
+          "questionText": "The date of a marathon is assigned to a string variable in the format dd/mm/yyyy:\n\n    sDate := '15/10/2024';\n\nWhich ONE of the following options (A or B) is the correct code to extract the month from the sDate variable?\n\nA    sMonth := copy(sDate,4,5);\nB    sMonth := copy(sDate,4,2);",
+          "marks": 1,
+          "memoText": "B ✓ – sMonth := copy(sDate,4,2) (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-5-1-2-a",
+          "label": "5.1.2(a)",
+          "questionText": "The variable sMonth has been declared as a string variable and has been used to extract the month correctly from the date referred to in QUESTION 5.1. A syntax error in Line 1 of the CASE statement below will prevent the code from being executed:\n\n    Line 1:   case sMonth of\n              // correct code to display month name\n              end;\n\nGive a reason why a syntax error will occur in Line 1 of the above code.",
+          "marks": 1,
+          "memoText": "Any ONE ✓ (1 mark): only ordinal values can be used in a CASE statement (1); the string variable sMonth cannot be used (1).",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-5-1-2-b",
+          "label": "5.1.2(b)",
+          "questionText": "Explain how Line 1 (case sMonth of) can be changed to make the code correct.",
+          "marks": 1,
+          "memoText": "Convert the sMonth value to an integer ✓ (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-5-2",
+          "label": "5.2",
+          "questionText": "A StringGrid component in Delphi is an effective way of presenting data in rows and columns. Write code that will display the text \"Koos Nel\" in the correct cell of the StringGrid component stgData. In the screenshot, \"Koos Nel\" appears in the cell in column 1, row 3 of the grid.",
+          "marks": 2,
+          "memoText": "stgData.Cells[1,3] ✓ := 'Koos Nel' ✓; (2 marks)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-5-3",
+          "label": "5.3",
+          "questionText": "Determine the value of D in the following expression. Show ALL the steps.\n\n    D = (C = B MOD 5) AND NOT E OR (A – C = 1)\n\nwhere A = 5, B = 12, C = -4, E = FALSE.",
+          "marks": 4,
+          "memoText": "(-4 = 12 MOD 5) AND NOT FALSE ✓ OR (5-(-4) = 1) ✓\nFALSE AND TRUE OR FALSE ✓\nFALSE OR FALSE\nD = FALSE ✓ (4 marks)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-5-4",
+          "label": "5.4",
+          "questionText": "An array named arrNames has been declared to store up to eight names. The array currently contains seven names (index 1–7: Sammy, Brian, Claire, Thabiso, Thomas, Katleho, Dean; index 8 is empty). The variable iNumElements stores the number of names stored in the array.\n\nA new name must be inserted at any index/position of the array arrNames. A partially completed pseudocode algorithm is provided:\n\n    sName ← Input name to be inserted into array\n    iPosition ← Input index in array to insert the name\n\n    if (iPosition > 8) OR (iPosition < 1)\n        Display error message\n    else\n        // write pseudocode to complete this part of the algorithm\n\nComplete the pseudocode using a loop to insert the name at the position that was entered, without losing any of the names currently stored in the array. (Example: inserting 'Ezio' at position 2 shifts Brian and all following names down one position.)",
+          "marks": 7,
+          "memoText": "loop iLoop from iNumElements ✓ downTo iPosition ✓\n    arrNames[iLoop + 1] ✓ ← arrNames[iLoop] ✓\narrNames[iPosition] ✓ ← sName ✓\niNumElements ← iNumElements + 1 ✓\n\nConcepts:\n• Moving data one up from the last index to iPosition [4]: use of a loop from the correct lower (1) to upper index (1); correct referencing of index below iPosition (1); correct movement of names one place up (1)\n• Replace value at arrNames[iPosition] (1) with new name (1)\n• Increment iNumElements (1)\n(7 marks)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-5-5-1",
+          "label": "5.5.1",
+          "questionText": "The following code is an extract of an object class Runner_U.pas:\n\n    type\n     TRunner = class(Tobject)\n       private\n         fRunnerNO: integer;\n         fName: String;\n         fQualify: boolean;\n         fNumMarathons: integer;\n       public\n         constructor Create(iRunnerNO: integer; sName: String; iNumMarathons: integer);\n         procedure setQualify(bQualify: boolean);\n         function getName: String;\n         function toString: String;\n       end;\n\nWhich keyword in the class definition above indicates that the attributes are not accessible outside the class?",
+          "marks": 1,
+          "memoText": "Private ✓ (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-5-5-2",
+          "label": "5.5.2",
+          "questionText": "Refer to the TRunner class extract. Which method will be called to instantiate the Runner object?",
+          "marks": 1,
+          "memoText": "The constructor / create ✓ method (1 mark)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-5-5-3-a",
+          "label": "5.5.3(a)",
+          "questionText": "The code provided shows some methods that describe the behaviour of the Runner object. One of the accessor methods (getName) has already been declared. Write the declaration of any other accessor method that can be added to the class.",
+          "marks": 2,
+          "memoText": "Any ONE accessor method for fNumMarathons, fRunnerNO or fQualify: function and function name ✓; correct data type ✓.\nExamples: function getNumMarathons(1): Integer(1); function getRunnerNO(1): Integer(1); function getQualify / isQualify(1): Boolean(1). (2 marks)",
+          "topic": "Solution development",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-5-5-3-b",
+          "label": "5.5.3(b)",
+          "questionText": "Identify a mutator method in the code above and explain the purpose of a mutator method.",
+          "marks": 2,
+          "memoText": "setQualify ✓. To change / set the value of the attribute / class variable ✓. (2 marks)",
+          "topic": "Solution development",
+          "type": "open"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Integrated Scenario",
+      "totalMarks": 33,
+      "subQuestions": [
+        {
+          "id": "it-p2-nov-2024-6-1-1",
+          "label": "6.1.1",
+          "questionText": "Scenario: In preparation for a marathon, the organising committee has implemented an integrated information and communications technology (ICT) system to streamline various aspects of the event.\n\nA website has been developed for athletes to register for the marathon. Name TWO ways to determine whether a website is secure or not.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): https; security symbol; the address bar will be a green colour; view the SSL / digital certificate.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-1-2",
+          "label": "6.1.2",
+          "questionText": "Describe how data is encrypted and decrypted using SSL.",
+          "marks": 4,
+          "memoText": "• The public key is used to encrypt data ✓\n• Private and public key linked using algorithms / processes / cryptography ✓\n• The encrypted data can be sent to the recipient ✓ over the internet\n• The private key is used to decrypt the data ✓\n(4 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-2-1",
+          "label": "6.2.1",
+          "questionText": "The organisers of the marathon issue an RFID tag to each athlete. Explain how an RFID tag can be used to determine the time it took the athlete to complete the marathon.",
+          "marks": 2,
+          "memoText": "RFID tags are used to record the start and finish times of each athlete ✓. The system captures the tag's unique identifier ✓, allowing for precise time calculations.\nConcepts: unique identification of athletes / tag attached to an athlete; scanning / recording / capturing; start and finish times. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-2-2",
+          "label": "6.2.2",
+          "questionText": "A few of the athletes are doubtful about the use of RFID tags. Briefly discuss how athletes can benefit from using RFID technology.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): RFID technology provides accurate and automated timekeeping, eliminating the need for manual recording; RFID ensures precise and reliable timing data, which is crucial for assessing performance and rankings; immediate results are available; speeds up entry times by reducing time in queues; captured data can be posted online in real time, allowing spectators / fans / family to follow the athlete's progress from home.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-3-1-a",
+          "label": "6.3.1(a)",
+          "questionText": "Study the properties and features of the TechGlow Pro and Fitflex Ultra wearable devices. The Fitflex Ultra has GPS connectivity. Discuss how GPS technology works.",
+          "marks": 2,
+          "memoText": "GPS technology uses signals from satellites ✓ to determine the device's location ✓, enabling accurate tracking and mapping. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-3-1-b",
+          "label": "6.3.1(b)",
+          "questionText": "State TWO ethical issues related to wearing a device with GPS technology.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): invasion of privacy; data security; misuse of location information.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-3-2",
+          "label": "6.3.2",
+          "questionText": "The TechGlow Pro device is compatible with a smartphone. State which wireless technology will make this connection possible.",
+          "marks": 1,
+          "memoText": "Bluetooth ✓ (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-3-3",
+          "label": "6.3.3",
+          "questionText": "These wearable devices are able to measure items such as heart rate, sleep cycles, steps and calories burned. Name the technology inside wearable devices that make all these measurements possible.",
+          "marks": 1,
+          "memoText": "Sensor/s ✓ (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-3-4",
+          "label": "6.3.4",
+          "questionText": "These wearable devices have limited processing power, but have access to the internet. Describe how the power of distributed computing can supplement the processing power of the wearable devices.",
+          "marks": 4,
+          "memoText": "• Provides a link between the device and external servers / systems ✓\n• Supports devices by collecting data / AI capability ✓\n• Allows access to real-time information ✓\n• Shared battery life ✓\n(4 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-4-1",
+          "label": "6.4.1",
+          "questionText": "The organisers of the marathon have decided to create a wiki website. State TWO advantages of a wiki site.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): collaborative editing and information sharing / uploading; real-time contribution and editing by multiple users; harnessing collective knowledge and expertise; creation of comprehensive and up-to-date information repositories; valuable for collaborative projects, research and knowledge sharing; cost effective – affordable / free for teams working together; wikis track the changes made, holding contributors responsible / reliable.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-4-2",
+          "label": "6.4.2",
+          "questionText": "Explain how content providers can improve the quality of the contributions made to a wiki site.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): encourage source / author verification; determine the currency / date of the information; implement moderation / validation / non-bias; foster a culture of responsibility; provide educational resources on critical evaluation.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-5",
+          "label": "6.5",
+          "questionText": "The advancements in mobile computing have made the internet and information easily accessible to everyone. Explain the term information overload and motivate why it could pose a challenge to some individuals. Give a well-explained example as part of your answer.",
+          "marks": 4,
+          "memoText": "Explain (1): information overload refers to the overwhelming abundance of information ✓.\nMotivate why it could pose a challenge (2): all the information makes it challenging for individuals to process and absorb ✓, leading to difficulty in decision-making and information management ✓.\nWell-explained example (1) ✓: if you are researching the topic of your IT PAT, there are many resources available and you need to decide which of these sources are valid (1); easily distracted due to the availability of excessive information (1).\nAccept any other relevant and correct example. (4 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-6-1",
+          "label": "6.6.1",
+          "questionText": "It is the responsibility of the marathon organisers to ensure that the marathon statistics and other information are kept safe. Explain the term spoofing.",
+          "marks": 2,
+          "memoText": "An email / website / source that appears to be from a legitimate organisation but is only a replica created ✓ with the intent to collect personal information ✓. (2 marks)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-6-2",
+          "label": "6.6.2",
+          "questionText": "Ransomware is malware that encrypts files until a ransom amount has been paid. Why do criminals prefer the ransom amount to be paid in cryptocurrency?",
+          "marks": 1,
+          "memoText": "Cannot be traced / anonymity ✓ (1 mark)",
+          "topic": "Integrated scenario",
+          "type": "open"
+        },
+        {
+          "id": "it-p2-nov-2024-6-7",
+          "label": "6.7",
+          "questionText": "Software updates should always be downloaded and installed on a device to ensure that an application has the latest features. What are TWO possible disadvantages of enabling automatic updates for software applications on a device?",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓ (2 marks): an unexpected increase in internet / data usage; slows down / interrupts the device while updating; an unwanted restart of the device at an inconvenient time; does not support rollback features; installs updates that are not wanted / requested; lose data that was not backed up; potential compatibility issues.",
+          "topic": "Integrated scenario",
+          "type": "open"
+        }
+      ]
+    }
+  ]
+}

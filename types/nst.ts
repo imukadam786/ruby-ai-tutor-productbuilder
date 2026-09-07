@@ -198,6 +198,8 @@ export interface NstGeneratedQuestion {
   image_refs?: string[];
   expected_answer: string | number;
   memo: string;
+  /** 1–3 ERR_NST_* misconception codes — drive the wrong-answer feedback card. */
+  error_signals: string[];
   difficulty?: number;
 }
 

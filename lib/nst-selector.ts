@@ -123,6 +123,7 @@ export function bankQuestionToGenerated(
     image_refs: q.image_refs,
     expected_answer: q.expected,
     memo: q.memo,
+    error_signals: q.error_signals ?? [],
     difficulty: q.difficulty,
   };
 }
