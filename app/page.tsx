@@ -1127,6 +1127,19 @@ export default function Home() {
             <p className="text-gray-400 text-sm mt-1">Upgrade to keep learning</p>
           </div>
           <PricingPlans mode="upgrade" showHeader={false} />
+          <div className="border-t border-gray-100 px-8 py-5 text-center">
+            <button
+              onClick={async () => {
+                // Sign out but never wipe localStorage — this user's data must
+                // still be here if they log back in on the same device.
+                await supabase.auth.signOut();
+                window.location.reload();
+              }}
+              className="text-sm font-medium text-gray-500 hover:text-gray-700 underline underline-offset-2 transition-colors"
+            >
+              Log out / use a different account
+            </button>
+          </div>
         </div>
       </div>
     );
