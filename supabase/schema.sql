@@ -10,6 +10,7 @@ create table if not exists public.users (
   full_name    text,
   grade        text,
   curriculum   text,
+  school       text,
   language     text default 'en',
   plan         text default 'free' check (plan in ('free', 'pro', 'school')),
   created_at   timestamptz default now()
