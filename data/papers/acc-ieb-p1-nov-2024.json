@@ -1,0 +1,240 @@
+{
+  "id": "acc-ieb-p1-nov-2024",
+  "subject": "Accounting IEB",
+  "subjectCode": "accounting-ieb",
+  "paperCode": "P1",
+  "year": 2024,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Inventories & VAT (Caitlin's Coffee)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2024-1-1",
+          "label": "1.1",
+          "questionText": "INVENTORY SYSTEMS — CAITLIN'S COFFEE\n\nCaitlin's Coffee sells coffee beans to online customers and has expanded into personalised coffee mugs. Periodic inventory system for all stock; VAT registered on the invoice basis. Bags of beans are valued using FIFO; mugs using Weighted Average. A unit is one mug or one bag of beans. Financial year ended 29 February 2024.\n\nA. Bags of Beans — FIFO:\n                                  | Number of units | Cost per unit | Total Cost\nOpening stock (1 March 2023)       |           9 000 |          R22 | R198 000\nPurchases during the year          |          55 000 |             | R1 144 000\n  April 2023                       |          28 000 |          R20 | R560 000\n  July 2023                        |          13 000 |          R18 | R234 000\n  September 2023                   |          14 000 |          R25 | R350 000\n\n(i) 150 bags from the opening stock were used as advertising in promotional events during the year.\n(ii) 1 600 of the bags purchased in April were returned to the supplier.\n(iii) There were no delivery charges on the bags of beans.\n(iv) Sold 45 000 bags of beans at R60 each during the year.\n\nCalculate the number of bags of beans on hand at the end of the financial year, 29 February 2024.",
+          "marks": 3,
+          "memoText": "Bags of beans on hand:\n9 000 + 55 000 − 150 (advertising) − 1 600 (returns) − 45 000 (sold) = 17 250 bags ✓✓✓\n\nTeaching point: In a periodic system the closing quantity is opening + purchases − bags used for other purposes − returns − bags sold.",
+          "topic": "Inventory Systems - Units on hand",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-1-2",
+          "label": "1.2",
+          "questionText": "Use the same information as 1.1. Using the FIFO method, calculate the cost of sales for the bags of beans for the year ended 29 February 2024 (45 000 bags sold).",
+          "marks": 8,
+          "memoText": "FIFO cost of sales (45 000 bags sold, oldest first):\n9 000 − 150 (advertising) = 8 850 bags from opening stock × R22 = R194 700 ✓✓\n28 000 − 1 600 (returns) = 26 400 bags from April × R20 = R528 000 ✓✓\n9 750 bags from July (balancing to 45 000) × R18 = R175 500 ✓✓\nTotal bags: 8 850 + 26 400 + 9 750 = 45 000 ✓\nCost of sales = 194 700 + 528 000 + 175 500 = R898 200 ✓\n\nAccept the periodic method: cost of goods available 198 000 + 1 144 000 = 1 342 000; less advertising (150 × 22 = 3 300); less April returns (1 600 × 20 = 32 000); less closing stock (17 250 bags valued FIFO = 3 250 × 18 + 14 000 × 25 = 58 500 + 350 000 = 408 500); cost of sales = 898 200.\n\nTeaching point: Under FIFO, cost of sales is built from the OLDEST layers; closing stock is valued at the most recent purchase prices.",
+          "topic": "Inventory Systems - FIFO cost of sales",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-1-2-1",
+          "label": "1.2.1",
+          "questionText": "Use the same information as 1.1 and 1.2. Caitlin is concerned that the value of her stock of beans has increased from R198 000 to R408 500 during the year; she says the beans go stale after 6 months. Cost of sales for the beans was R898 200.\n\nCalculate the average length of time (number of days stock is on hand) it takes to sell her stock of beans.",
+          "marks": 3,
+          "memoText": "Days' stock on hand:\n= [(198 000 + 408 500) ÷ 2] ÷ 898 200 × 365\n= 303 250 ÷ 898 200 × 365\n= 123,23 days ✓✓✓\n\nAccept the unit method: [(9 000 + 17 250) ÷ 2] ÷ 45 000 × 365 = 106,45 days.\n\nTeaching point: Days' stock on hand = average inventory ÷ cost of sales × 365. At ~123 days (about 4 months) she is within the 6-month stale limit, but only just.",
+          "topic": "Inventory Systems - Days' stock on hand",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-1-4-1",
+          "label": "1.4.1",
+          "questionText": "B. Coffee Mugs — Weighted Average:\n(i) The business started the year with 1 200 mugs on hand at a weighted average of R15 each.\n(ii) During the year it purchased 22 000 mugs for R264 000, before returning 2 500 mugs to the supplier and receiving a credit note for R32 500.\n(iii) The supplier gave Caitlin's Coffee 100 mugs made by mistake, at no charge.\n(iv) Carriage on all mugs purchased totalled R27 140.\n(v) Sales totalled R600 000 (20 000 mugs at R30 each).\n\nCalculate the weighted average cost of one coffee mug.",
+          "marks": 6,
+          "memoText": "Weighted average cost per mug:\n(18 000 + 264 000 − 32 500 + 27 140) ÷ (1 200 + 22 000 − 2 500 + 100)\n= 276 640 ÷ 20 800\n= R13,30 per mug ✓✓✓✓✓✓\n\nWorking: opening stock 1 200 × R15 = R18 000; less returns R32 500 and 2 500 units; add carriage R27 140; add 100 free mugs (units only, R0). (Accept the net effect of the return: 264 000 − 32 500 = R231 500 over 22 000 − 2 500 = 19 500 net purchased units.)\n\nTeaching point: Weighted average = total cost of goods available ÷ total units available; returns come off both the Rand total and the unit count, free stock adds units at R0, and carriage is added to cost.",
+          "topic": "Inventory Systems - Weighted average valuation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-1-4-2",
+          "label": "1.4.2",
+          "questionText": "Use the same information as 1.4.1 (weighted average cost R13,30 per mug; sales R600 000 = 20 000 mugs at R30 each). Determine the actual percentage mark-up achieved by the business on ONE coffee mug.",
+          "marks": 3,
+          "memoText": "Percentage mark-up on one mug:\n(30 − 13,30) ÷ 13,30 × 100 = 16,70 ÷ 13,30 × 100 = 125,56% ✓✓✓\n\nOR on totals: (600 000 − 266 000) ÷ 266 000 × 100 where cost of sales = 20 000 × 13,30 = 266 000; = 334 000 ÷ 266 000 × 100 = 125,56%.\n\nTeaching point: Mark-up % on cost = (selling price − cost) ÷ cost × 100.",
+          "topic": "Inventory Systems - Mark-up percentage",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-1-5",
+          "label": "1.5",
+          "questionText": "Briefly explain why the business chose to use the weighted average method to value the coffee mugs.",
+          "marks": 3,
+          "memoText": "Any valid reasons ✓✓✓:\n• The mugs are a homogeneous product (all the same).\n• They have no expiry date, so there is no need to sell the oldest first.\n• They are not batch-dependent.\n• There are price fluctuations between purchases, so an averaged cost is representative.\n\nTeaching point: Weighted average suits identical, non-perishable items bought at varying prices, where the physical order of sale does not matter.",
+          "topic": "Inventory Systems - Choosing a valuation method",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-1-6",
+          "label": "1.6",
+          "questionText": "Explain to the owner how offering a loyalty card that would entitle regular customers to a 10% discount could be BOTH a financial advantage and a financial disadvantage to the business.",
+          "marks": 4,
+          "memoText": "✓✓ (advantage) ✓✓ (disadvantage) — the reason must affect the bottom-line profit:\n• Financial advantage: it increases sales VOLUMES, so total gross profit rises.\n• Financial disadvantage: it lowers the mark-up percentage per sale, so the business has to sell more units (or inflate prices) to cover the lost margin, which can reduce net profit.\n\nTeaching point: A discount trades a lower margin per unit for (hopefully) higher volume; whether it helps profit depends on whether the extra volume more than makes up for the thinner margin.",
+          "topic": "Inventory Systems - Effect of a loyalty discount",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-1-7",
+          "label": "1.7",
+          "questionText": "VAT — CAITLIN'S COFFEE. VAT is calculated at 15%.\n\nThe bookkeeper calculated that the business owed SARS R39 000 for VAT but had forgotten the following transactions. All credit sales receive a 5% trade discount as part of the loyalty programme.\n1. A debtor returned mugs with a net value (after the trade discount) of R3 220 VAT inclusive, as the delivery company had dropped the box.\n2. A creditor indicated that they had not received our payment, so the discount of R2 070 was cancelled.\n3. Total gross sales (before trade discount) for the last week amounted to R80 000 VAT exclusive (80% was for cash, recorded correctly); the VAT on the credit sales was not recorded.\n\nFor each transaction, calculate the VAT amount and indicate the effect (+ or −) on the amount owing to SARS, then determine the correct amount owing to / due by SARS for VAT.",
+          "marks": 10,
+          "memoText": "Incorrect amount owing to SARS: R39 000\n\nTransaction 1: 3 220 × 15/115 = R420 ✓✓ — DECREASE (−420) ✓ (output VAT reversed on the goods returned by the debtor)\n\nTransaction 2: 2 070 × 15/115 = R270 ✓✓ — INCREASE (+270) ✓ (discount cancelled reinstates input VAT that had been reduced)\n\nTransaction 3: credit sales = 80 000 × 20% = 16 000; less 5% trade discount = 15 200; VAT = 15 200 × 15/100 = R2 280 ✓✓ — INCREASE (+2 280) ✓ (output VAT on the credit sales not yet recorded)\n\nCorrect amount of VAT: 39 000 − 420 + 270 + 2 280 = R41 590 OWED TO SARS ✓✓\n\nTeaching point: Additional output VAT (unrecorded credit sales) and a reinstated input VAT (discount cancelled) increase what is owed to SARS; output VAT reversed on a customer return decreases it. VAT on credit sales is calculated on the price after the trade discount.",
+          "topic": "VAT - Effect of transactions on amount owing to SARS",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Company Financial Statements (Dhlamini Distributors Limited)",
+      "totalMarks": 67,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2024-2-1",
+          "label": "2.1",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — DHLAMINI DISTRIBUTORS LIMITED\n\nListed company; authorised share capital 7 500 000 ordinary shares. Year ended 29 February 2024.\n\nBalances on 28 February 2023: Shareholders' equity R45 000 000; Ordinary share capital (4 000 000 shares) R38 730 000; Fixed deposit: TT Bank R2 100 000; Provision for bad debts R191 000; Prepaid Expenses (Rent Expense) R25 500.\n\nBalances/totals from the pre-adjustment trial balance for the year ended 29 February 2024:\n• Trading stock R6 450 000; Debtors' control R4 920 000; Loan: Zhen Bank (12% p.a.) R8 400 000; Creditors control R15 870 000\n• Sales R18 450 000; Cost of sales R8 200 000; Debtors' allowances R56 000; Commission income R70 000; Advertising R160 600; Rent expense ?; Interest on fixed deposit R126 000\n• Bank charges (per TB) R31 600; Insurance (per TB) R73 500; Discount received R186 000; Packing material (per TB) R90 000; Water & electricity R86 700; Bad debts R183 400; Auditors fees R12 500; Discount allowed R97 200; Interest expense R1 081 300\n\nShares, dividends and taxation for the year ended 29 February 2024:\n• 31 May 2023: declared and paid an interim dividend of R700 000.\n• 30 June 2023: raised an additional R5 890 000 ordinary share capital by issuing 600 000 shares.\n• 26 February 2024: bought back 100 000 shares at 1 140 cents each (entitled to the final dividend).\n• 28 February 2024: total provisional tax payments were R1 350 000.\n• 29 February 2024: declared a final dividend of 24 cents per share. After the final taxation, the company was due a refund of R408 390 from SARS.\n\nAdjustments:\n1. Total commission income earned for the year was R62 700.\n2. Advertising is spread evenly through the year; the February 2024 payment has not been made.\n3. From the bank statement (still to be recorded): 3.1 bank charges R850; 3.2 the debit order for the February insurance premium of R6 500; 3.3 a direct deposit from a debtor recorded as R52 000 instead of R25 000.\n4. A debtor who overpaid asked that the overpayment be transferred to their creditors account; the bookkeeper incorrectly deducted R6 000 from the creditors ledger and transferred it to the debtors ledger — correct the error.\n5. A debtor returned resalable goods that cost R16 000 (original selling price R36 000 before a 10% trade discount); the customer was charged a R500 handling fee added to her account.\n6. Provision for bad debts must be decreased by R30 500.\n7. Rent must be paid one month in advance and is increased by 8% on 1 January each year; the bookkeeper forgot to reverse the prepaid rent at the start of the year.\n8. The three directors each earn the same monthly directors' fees. Two have not been paid their February 2024 fees: 8.1 one director took stock worth R25 000 for her own use, the balance of her fees is still owing; 8.2 the other director took an old vehicle for her son at an agreed price of R90 000 (a R5 000 profit on disposal), more than her February fees, so the balance is taken off her March 2024 fees. (Total directors' fees per TB: R2 601 000.)\n9. Interest on the fixed deposit is still owing for the last quarter of the year (no change in the fixed deposit).\n10. Stock take: stock on hand R6 396 000; packing material on hand R6 300.\n11. The loan was negotiated over 20 years with equal annual repayments; 6 years of payments have been made and recorded; interest on the loan is not capitalised and is correctly recorded.\n\nComplete the Statement of Comprehensive Income (Income Statement) for the year ended 29 February 2024.",
+          "marks": 42,
+          "memoText": "STATEMENT OF COMPREHENSIVE INCOME — DHLAMINI DISTRIBUTORS LIMITED (year ended 29 February 2024):\n\nSales: 18 450 000 − 56 000 (debtors' allowances) − 32 400 (goods returned by debtor, adj 5: 36 000 − 10% = 32 400) = R18 361 600 ✓✓✓\nCost of sales: 8 200 000 − 16 000 (cost of goods returned, adj 5) = (R8 184 000) ✓✓\nGross profit: DO NOT CALCULATE\n\nOperating incomes (do not calculate the subtotal):\n• Commission income: R62 700 ✓ (given, adj 1)\n• Discount received: R186 000 (given)\n• Handling fee: R500 ✓ (adj 5)\n• Provision for bad debts adjustment: R30 500 ✓ (decrease in provision, adj 6 — income)\n• Profit on sale of asset: R5 000 ✓ (adj 8.2)\n\nOperating expenses (do not calculate the subtotal):\n• Advertising: (160 600 + 14 600 February accrued) × 12/11 ... memo figure R175 200 ✓✓ (accrue the unpaid February month)\n• Rent expense: 25 500 × 10 = 255 000; +8% → 27 540 per month for Jan/Feb (× 2 = 55 080); total = R310 080 ✓✓✓\n  Working: opening prepaid rent R25 500 is the old monthly rent; 10 months at R25 500 = R255 000; from 1 Jan the rent rises 8% to R27 540; Jan + Feb (incl. the one month in advance) = 2 × R27 540 = R55 080; year = R310 080.\n• Bank charges: 31 600 + 850 (adj 3.1) = R32 450 ✓\n• Insurance: 73 500 + 6 500 (February debit order, adj 3.2) = R80 000 ✓\n• Directors' fees: R2 754 000 ✓✓\n  Working: 2 601 000 represents 34 director-months (3 directors × 12, less 2 unpaid February fees) → monthly fee per director = 2 601 000 ÷ 34 × ... ÷ 3 = R76 500; add the 2 outstanding February fees (2 × 76 500 = 153 000): 2 601 000 + 153 000 = R2 754 000. (The R25 000 stock and R90 000 vehicle are settlements of fees, not extra expense.)\n• Packing material: 90 000 − 6 300 (on hand, adj 10) = R83 700 ✓\n• Water & electricity: R86 700 (given)\n• Bad debts: R183 400 ✓ (given; accept the R6 000 correction from adj 4 reflected here)\n• Auditors fees: R12 500 (given)\n• Salaries & wages: DO NOT CALCULATE\n• Discount allowed: R97 200 (given)\n• Trading stock deficit: (6 450 000 + 16 000 returned − 25 000 director's stock − 45 000 ...) − 6 396 000 physical = R45 000 ✓✓\n\nOperating profit: DO NOT CALCULATE\nInterest income: 126 000 + 42 000 (last quarter accrued, adj 9: 126 000 × 1/3) = R168 000 ✓✓\nNet profit before interest expense: DO NOT CALCULATE\nInterest expense: (R1 081 300) (given)\nNet profit before taxation: R3 138 700 ✓ (2 197 090 + 941 610)\nTaxation for the year: 1 350 000 − 408 390 = (R941 610) ✓✓\nNet profit after taxation: R2 197 090 ✓\n\nTeaching point: Adjust each account to the amount earned or incurred this year; a decrease in the provision for bad debts is income; directors' fees settled by stock or an asset are still the full fee expense; and the current-year tax is the provisional payments less the refund due.",
+          "topic": "Company Financial Statements - Statement of Comprehensive Income",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-2-2-1",
+          "label": "2.2.1",
+          "questionText": "Use the same information as 2.1. Complete the Trade & Other Receivables note as at 29 February 2024.\n\nReminders: Debtors' control R4 920 000, plus (52 000 − 25 000) correction of the direct deposit (adj 3.3), less R32 400 goods returned by debtor, plus R500 handling fee, plus R12 000 and R6 000 corrections (adj 4); Provision for bad debts R191 000 − R30 500; Prepaid expenses (rent R27 540 + advertising portion); Accrued income (interest on fixed deposit R42 000); SARS (Income tax) refund R408 390.",
+          "marks": 9,
+          "memoText": "TRADE & OTHER RECEIVABLES NOTE — 29 February 2024 (Do not calculate the total):\n• Net trade debtors: DO NOT CALCULATE\n  Debtors' control: 4 920 000 + (52 000 − 25 000 = 27 000 correction, adj 3.3) − 32 400 (goods returned, adj 5) + 500 (handling fee) + 12 000 + 6 000 (adj 4 corrections) = R4 927 100 ✓✓✓\n  Less: Provision for bad debts: 191 000 − 30 500 = (R160 500) ✓✓ (bracket)\n• Prepaid expenses: (25 500 − 25 500 + 27 540 rent one month in advance, adj 7) + (13 500 advertising [76 500 − 90 000] ...) = R41 040 ✓✓\n• Accrued income: R42 000 ✓ (interest on fixed deposit, last quarter, adj 9)\n• SARS (Income tax): R408 390 ✓ (refund due from SARS — an asset)\n\nTeaching point: The SARS refund due is a receivable (asset); the prepaid rent (one month in advance at the new rate) and the accrued fixed-deposit interest also sit in trade and other receivables.",
+          "topic": "Company Financial Statements - Trade & Other Receivables note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-2-2-2",
+          "label": "2.2.2",
+          "questionText": "Use the same information as 2.1. Complete the Retained Income / Accumulated Profits note as at 29 February 2024.\n\nReminders: opening balance = Shareholders' equity R45 000 000 − Ordinary share capital R38 730 000; Net profit after tax R2 197 090; 100 000 shares repurchased at 1 140 cents each with an average share price of R9,70 (so R1,70 premium per share); interim dividend paid R700 000; final dividend 24 cents on all shares in issue (4 600 000 shares).",
+          "marks": 9,
+          "memoText": "RETAINED INCOME / ACCUMULATED PROFITS NOTE — 29 February 2024:\n\nBalance at the beginning of the year: 45 000 000 − 38 730 000 = R6 270 000 ✓✓\n+ Net profit after tax: R2 197 090 ✓ (from 2.1)\n− Repurchase of shares: 1,70 × 100 000 = (R170 000) ✓✓\n  Working: average share price = (38 730 000 + 5 890 000) ÷ (4 000 000 + 600 000) = 44 620 000 ÷ 4 600 000 = R9,70; premium = 11,40 − 9,70 = R1,70 per share.\n− Ordinary dividends: (R1 804 000)\n   • Paid (interim): (R700 000) ✓\n   • Recommended (final): 4 600 000 × R0,24 = (R1 104 000) ✓✓✓\nBalance at the end of the year: DO NOT CALCULATE\n\nTeaching point: Retained income increases by net profit after tax and decreases by the premium paid on a share buy-back and by all dividends (paid + declared).",
+          "topic": "Company Financial Statements - Retained Income note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-2-2-3",
+          "label": "2.2.3",
+          "questionText": "Use the same information as 2.1. Complete the Trade & Other Payables note as at 29 February 2024.\n\nReminders: Creditors control R15 870 000 plus R12 000 and R6 000 (adj 4 corrections); Accrued expenses (advertising February + the outstanding director's February fee less R25 000 stock); Income received in advance (commission R70 000 − R62 700); Short-term loan instalment (R8 400 000 ÷ 14); Shareholders for dividends R1 104 000 (from 2.2.2).",
+          "marks": 7,
+          "memoText": "TRADE & OTHER PAYABLES NOTE — 29 February 2024 (Do not calculate the total):\n• Trade creditors: 15 870 000 + 12 000 + 6 000 (adj 4 corrections) = R15 882 000 ✓✓\n• Accrued expenses: 14 600 (advertising February) + (76 500 − 25 000 director's fee outstanding, adj 8.1) = 14 600 + 51 500 = R66 100 ✓✓\n• Income received in advance: 70 000 − 62 700 = R7 300 ✓ (commission received but not yet earned, adj 1)\n• Short-term loan instalment: 8 400 000 ÷ 14 = R600 000 ✓ (14 annual instalments remain after 6 years of a 20-year loan; one is due within the next year)\n• Shareholders for dividends: R1 104 000 ✓ (from 2.2.2)\n\nTeaching point: Trade and other payables collects trade creditors, accrued expenses, income received in advance, the current portion of the long-term loan, and the declared-but-unpaid final dividend.",
+          "topic": "Company Financial Statements - Trade & Other Payables note",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Cash Flow Statements (Nkosi Neon Ltd)",
+      "totalMarks": 45,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2024-3-1",
+          "label": "3.1",
+          "questionText": "CASH FLOW STATEMENTS — NKOSI NEON LTD\n\nListed company; authorised share capital 3 000 000 shares. Year ended 29 February 2024. On 1 March 2023 the company had raised R16 800 000 in share capital by issuing 2 400 000 ordinary shares.\n\nExtract from the statement of comprehensive income:\n• Sales R7 650 000; Cost of sales R3 220 000; Depreciation R640 000; Interest on mortgage bond ?; Income tax (30% of profit) ?; Net profit after tax R1 631 000.\n\nExtract from the statement of financial position:\n                                | 29 Feb 2024   | 28 Feb 2023\nFixed assets                     | R12 600 000   | R10 800 000\nLoan: Kat Bank                    | R7 900 000    | R6 500 000\nBank                             | Credit R84 000| Debit R126 000\nCash float                       | R10 000       | R7 000\nTrading inventory                | R5 430 000    | ?\nTrade debtors                    | ?             | R2 240 000\nTrade creditors                  | R4 105 000    | R3 640 000\nSARS (VAT)                        | Credit R24 000| Credit R31 000\nAccrued expenses (Insurance)     | R12 000       | R9 000\nSARS (Income Tax)                | Credit R18 000| Debit R11 000\nShareholders for dividends        | R510 000      | R420 000\n\nAdditional information:\n• Fixed assets: an old vehicle was sold for R420 000 (a R25 000 profit on disposal, all entries made); a new warehouse and relevant equipment were purchased.\n• Investments: on 14 February 2024 the company bought 50 000 shares in Chokwe Cables Ltd for R300 000.\n\nComplete the Investing activities section as it would appear in the cash flow statement for the year ended 29 February 2024.",
+          "marks": 8,
+          "memoText": "CASH FLOW FROM INVESTING ACTIVITIES:\n• Fixed assets purchased: (R2 835 000) ✓✓✓\n  Working: opening CV 10 800 000 + purchases (x) − 395 000 (CV of vehicle sold: 420 000 − 25 000 profit) − 640 000 (depreciation) = 12 600 000 (closing CV) → x = R2 835 000.\n• Sale of fixed assets: R420 000 ✓✓ (proceeds)\n• Increase in investments: (R300 000) ✓✓ (bought 50 000 Chokwe Cables shares)\nCash flow from investing activities: (R2 715 000) ✓\n\nTeaching point: Investing activities record cash spent on / received from long-term assets — the fixed-asset purchase is the balancing figure in the carrying-value account; the disposal is shown at its actual proceeds.",
+          "topic": "Cash Flow Statement - Investing activities",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-3-2",
+          "label": "3.2",
+          "questionText": "Use the same information as 3.1. SARS (Income Tax): R11 000 (dr) at 28 Feb 2023; R18 000 (cr) at 29 Feb 2024. Net profit after tax R1 631 000; income tax is 30% of profit.\n\nCalculate the taxation paid for the year ended 29 February 2024.",
+          "marks": 5,
+          "memoText": "SARS (Income Tax) account:\nIncome tax for the year = 1 631 000 × 30/70 = R699 000 (net profit before tax = 1 631 000 × 100/70 = 2 330 000; tax = 30% × 2 330 000 = R699 000).\nTax paid = 11 000 (opening dr, prepaid) + 699 000 (current-year tax) − 18 000 (closing cr, still owed)... memo: 11 000 + 18 000 + x = 699 000 → x = R670 000 paid ✓✓✓✓✓\n(Opening debit R11 000 + closing credit R18 000 both subtract from the tax expense to give cash paid: 699 000 − 11 000 − 18 000 = R670 000.)\n\nTeaching point: Tax paid = current-year tax expense, adjusted for the opening and closing SARS balances — a closing credit (still owed) and an opening debit (prepaid) both reduce the cash actually paid.",
+          "topic": "Cash Flow Statement - Taxation paid",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-3-3",
+          "label": "3.3",
+          "questionText": "Use the same information as 3.1. Interim dividends were paid and final dividends declared during the year. The total dividends PAID during the year (per the cash flow statement) amounted to R800 000. Shareholders for dividends: R420 000 (28 Feb 2023) → R510 000 (29 Feb 2024).\n\nCalculate the total dividends (interim and final) for the year ended 29 February 2024.",
+          "marks": 4,
+          "memoText": "Total dividends for the year:\n= 800 000 (paid) + 510 000 (closing shareholders for dividends — this year's final, declared) − 420 000 (opening shareholders for dividends — last year's final, paid this year)\n= R890 000 ✓✓✓\n\nTeaching point: Total dividends declared for the year = dividends paid in cash + this year's outstanding final dividend − last year's outstanding final dividend.",
+          "topic": "Cash Flow Statement - Total dividends",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-3-4",
+          "label": "3.4",
+          "questionText": "Use the same information as 3.1. Loan: Kat Bank R6 500 000 (28 Feb 2023) → R7 900 000 (29 Feb 2024). Interest on the loan is capitalised. A new loan of R1 800 000 was taken out to help fund the new warehouse. R95 000 was paid each month to cover the monthly repayments and the interest on the loan.\n\nComplete the Loan: Kat Bank account as it would appear in the general ledger for the year ended 29 February 2024 (no dates or folio numbers required).",
+          "marks": 6,
+          "memoText": "LOAN: KAT BANK ACCOUNT:\nDebit side:\n• Bank (repayments): 95 000 × 12 = R1 140 000 ✓✓\n• Balance c/d: R7 900 000\nTotal: R9 040 000\n\nCredit side:\n• Balance b/d: R6 500 000 ✓\n• Bank (new loan): R1 800 000 ✓\n• Interest on loan (capitalised, balancing figure): R740 000 ✓✓\nTotal: R9 040 000\nBalance b/d: R7 900 000\n\nTeaching point: In the loan account, repayments (incl. interest) are debits; the opening balance, the new loan and the capitalised interest are credits. Interest is the balancing figure because it is added into the loan rather than paid separately.",
+          "topic": "Cash Flow Statement - Loan account",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-3-5",
+          "label": "3.5",
+          "questionText": "Use the same information as 3.1 to 3.4. Depreciation R640 000; profit on sale of asset R25 000; interest expense R740 000 (from 3.4). Net profit before taxation R2 330 000 (1 631 000 × 100/70). Inventory increased by R675 000; the change in trade and other receivables was a cash inflow of R154 000; trade creditors R3 640 000 → R4 105 000, SARS (VAT) R31 000 cr → R24 000 cr, accrued expenses R9 000 → R12 000.\n\nComplete Note 1: Reconciliation between profit before taxation and cash generated from operations.",
+          "marks": 16,
+          "memoText": "NOTE 1 — RECONCILIATION BETWEEN PROFIT BEFORE TAX AND CASH GENERATED FROM OPERATIONS:\n\nNet profit before taxation: R2 330 000 ✓✓ (1 631 000 × 100/70)\nAdjustments for:\n• Profit on sale of asset: (R25 000) ✓ (non-operating gain, removed)\n• Depreciation: R640 000 ✓\n• Interest expense: R740 000 ✓ (from 3.4)\nOperating profit before changes in working capital: R3 685 000 ✓ (operation)\n\nChanges in working capital: (R60 000)\n• Increase in inventory: (R675 000) ✓✓ (use of cash, bracket)\n• Decrease in receivables: R154 000 ✓✓ (given, source of cash)\n• Increase in payables: R461 000 ✓✓✓\n  Working: (4 105 000 − 3 640 000 = 465 000 trade creditors) + (24 000 − 31 000 = −7 000 SARS VAT) + (12 000 − 9 000 = 3 000 accrued expenses) = R461 000.\nCash generated from operations: DO NOT CALCULATE\n\n*Delete the direction that does not apply; the word chosen must match the bracket use.\n\nTeaching point: Start at profit before tax, remove the non-operating profit on sale, add back depreciation and interest expense, then adjust for working-capital movements combining trade creditors with the other short-term operating payables (VAT, accrued expenses).",
+          "topic": "Cash Flow Statement - Reconciliation of profit to cash from operations",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-3-6",
+          "label": "3.6",
+          "questionText": "Use the same information as 3.1. Bank: Debit R126 000 (28 Feb 2023) → Credit R84 000 (29 Feb 2024). Cash float: R7 000 → R10 000.\n\nDetermine the cash movement for the year and indicate whether it was an inflow or outflow of cash.",
+          "marks": 6,
+          "memoText": "Cash and cash equivalents:\nOpening: 126 000 (bank dr) + 7 000 (cash float) = R133 000\nClosing: −84 000 (bank cr / overdraft) + 10 000 (cash float) = (R74 000)\nMovement = 74 000 + 133 000 = R207 000 OUTFLOW ✓✓✓✓✓ (net decrease of R207 000)\n\nTeaching point: Cash and cash equivalents includes the bank balance (negative when overdrawn) and the cash float; the movement is closing minus opening, and a fall is an outflow.",
+          "topic": "Cash Flow Statement - Net movement in cash",
+          "type": "calculation"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Manufacturing & Fixed Assets (Caragh Cables Ltd)",
+      "totalMarks": 48,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2024-4-1",
+          "label": "4.1",
+          "questionText": "FIXED ASSETS — CARAGH CABLES LTD (manufactures fibre cables). Fixed assets: three delivery vehicles and manufacturing equipment. Year ended 29 February 2024.\n\nDelivery vehicles:\n4.1.1 An old delivery vehicle with a carrying value of R40 000 on 1 March 2023 was sold for R60 000 cash later in the year. It originally cost R320 000 and on the date of sale had total accumulated depreciation of R286 000.\n4.1.2 Bought a new delivery vehicle on account.\n4.2 Delivery vehicles are depreciated at 20% p.a. on the diminishing-balance method. Depreciation on the vehicle SOLD and the NEW vehicle purchased totalled R24 000.\n\nThe Delivery Vehicles note shows: Carrying value on 1 March 2023 R430 000 (Cost R940 000; Accumulated depreciation R510 000); Cost price on 29 February 2024 R1 060 000.\n\nComplete the extract of the fixed asset note for Delivery Vehicles for the year ended 29 February 2024 by calculating:\nA. Additions at cost\nB. Depreciation for the year\nC. Accumulated depreciation on 29 February 2024",
+          "marks": 15,
+          "memoText": "A. Additions at cost: 940 000 + x − 320 000 (cost of vehicle sold) = 1 060 000 → x = R440 000 ✓✓✓✓\n\nB. Depreciation for the year: R102 000 ✓✓✓✓✓\n  Depreciation on the remaining (old) vehicles = (430 000 − 40 000) = 390 000 × 20% = R78 000\n  Depreciation on the vehicle sold + the new vehicle = R24 000 (given)\n  Total depreciation = 78 000 + 24 000 = R102 000\n\nC. Accumulated depreciation on 29 February 2024: R326 000 ✓✓✓\n  = 510 000 (opening) + 102 000 (depreciation, B) − 286 000 (acc. dep. on the vehicle sold, removed on disposal) = R326 000\n\nFixed asset note extract:\nCarrying value on 1 March 2023: R430 000 (Cost R940 000; Acc. dep. (R510 000))\nMovement: Additions at cost R440 000 (A); Disposals at carrying value (R34 000); Depreciation (R102 000) (B)\nCarrying value on 29 February 2024: Cost R1 060 000; Acc. dep. (R326 000) (C)\n\nTeaching point: Additions are the balancing figure in the cost account; total depreciation combines the given part-year charge on the sold/new vehicles with the full-year charge on the remaining fleet; accumulated depreciation rolls forward with this year's charge and drops the amount relating to the vehicle sold.",
+          "topic": "Fixed Assets - Delivery vehicles note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-4-2-1",
+          "label": "4.2.1",
+          "questionText": "MANUFACTURING — CARAGH CABLES LTD. Factory occupies 900 m² of the 1 300 m² property (sales and administration occupy the rest). Year ended 29 February 2024.\n\nBalances:\n                        | 29 Feb 2024 | 28 Feb 2023\nRaw materials            | R914 000    | R875 000\nWork-in-progress         | R523 000    | R608 000\nFinished goods           | R435 000    | R569 000\nConsumable stores        | R17 400     | R14 800\n\n• Total sales for the year R2 850 000; mark-up of 50% on cost on all cable sales.\n• Raw materials purchased R3 140 000; R65 000 of these were returned to the suppliers.\n• Carriage on all materials totalled R8 000, all allocated to the raw materials account.\n• Production expenses (factory overheads): R10 000 of raw materials were stolen (the insurer will pay the claim less an excess of R2 000); the value of raw material wasted during production was R15 000.\n\nComplete the Raw Materials note to the Production Cost Statement for the year ended 29 February 2024.",
+          "marks": 6,
+          "memoText": "RAW MATERIALS NOTE:\n• Opening stock: R875 000\n• Purchases: 3 140 000 − 65 000 (returns) = R3 075 000 ✓✓\n• Wastage & Loss: (10 000 + 15 000) = (R25 000) ✓✓ (removed from raw materials to factory overheads; accept if either or both are deducted from purchases)\n• Carriage on purchases: R8 000 ✓\n• Less closing stock: (R914 000)\n• Raw materials issued to production: DO NOT CALCULATE\n\nTeaching point: Raw materials issued to production = opening + net purchases + carriage − stolen/wasted materials (moved to factory overheads) − closing raw materials.",
+          "topic": "Manufacturing - Raw Materials note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-4-2-2",
+          "label": "4.2.2",
+          "questionText": "Use the same information as 4.2.1, plus:\n• Consumable stores purchased during the year totalled R45 000; 90% of all consumable stores are used in the factory.\n• Indirect labour: the factory supervisor took home a net salary of R34 400 per month, after a medical aid deduction of R3 000 and 32% deducted for PAYE, pension and UIF; the company contributed R6 450 per month to her pension, UIF and medical aid funds.\n• Depreciation on the manufacturing equipment is on the production-unit method: 47 100 units were produced at a production-unit cost of R2 each.\n• Sundry expenses: R57 200 was paid, excluding the February 2024 accounts (sundry expenses remained the same for the year); half of all sundry expenses are allocated to the production process.\n• Insurance is allocated to the factory, administration and sales offices in a ratio of 5 : 4 : 3; the annual insurance cost allocated to the sales department was R31 200.\n• Total security cost for the year was R149 500; security costs are allocated according to floor space used (factory 900 m² of 1 300 m²).\n• Stock loss (raw materials stolen R10 000 less the R2 000 excess recovered) and wastage R15 000 (from 4.2.1).\n\nComplete the Factory Overheads note to the Production Cost Statement for the year ended 29 February 2024.",
+          "marks": 18,
+          "memoText": "FACTORY OVERHEADS NOTE (Do not calculate the total):\n• Indirect labour: (34 400 + 3 000) = 37 400 × 100/68 = R55 000 gross/month; + R6 450/month employer contribution = R61 450/month × 12 = R737 400 ✓✓✓\n• Consumable stores: (14 800 + 45 000 − 17 400) × 90% = 42 400 × 90% = R38 160 ✓✓✓\n• Depreciation: 47 100 × R2 = R94 200 ✓✓\n• Sundry expenses: (57 200 × 12/11) × 50% = 62 400 × 50% = R31 200 ✓✓ (accrue the February month, then take the factory half)\n• Water & electricity: R81 312 ✓✓\n• Insurance: 31 200 × 5/3 = R52 000 ✓✓ (sales share is 3 units = R31 200, so one unit = R10 400; factory share = 5 units = R52 000). Accept 124 800 × 5/12.\n• Security costs: 149 500 × 900/1 300 = R103 500 ✓✓\n• Stock loss: 10 000 − 8 000 (insurance recovery) = R2 000 ✓ (the net loss after the claim)\n• Wastage: R15 000 ✓ (from 4.2.1)\n\nTeaching point: Only the factory's share of each shared cost enters factory overheads — apportion consumable stores, sundry expenses, insurance and security by their stated fractions, and gross up the supervisor's take-home pay to a full cost to the business.",
+          "topic": "Manufacturing - Factory Overheads note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2024-4-3",
+          "label": "4.3",
+          "questionText": "Use the same information as 4.2.1. Total sales for the year R2 850 000 (mark-up 50% on cost). Work-in-progress R608 000 (28 Feb 2023) → R523 000 (29 Feb 2024); Finished goods R569 000 (28 Feb 2023) → R435 000 (29 Feb 2024).\n\nCalculate the total cost of production for the year ended 29 February 2024.",
+          "marks": 9,
+          "memoText": "Cost of sales = 2 850 000 × 100/150 = R1 900 000 (mark-up 50% on cost).\n\nFinished goods account:\n569 000 (opening) + total cost of production (x) − 435 000 (closing) = 1 900 000 (cost of sales)\nx = 1 900 000 + 435 000 − 569 000 = R1 766 000 ✓✓✓✓✓✓✓✓✓\n\nTeaching point: Work cost of sales back from sales via the mark-up, then use the Finished Goods account (opening + cost of production − closing = cost of sales) to solve for the total cost of production.",
+          "topic": "Manufacturing - Total cost of production",
+          "type": "calculation"
+        }
+      ]
+    }
+  ]
+}

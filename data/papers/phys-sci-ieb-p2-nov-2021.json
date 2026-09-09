@@ -1,0 +1,897 @@
+{
+  "id": "phys-sci-ieb-p2-nov-2021",
+  "subject": "Physical Science IEB",
+  "subjectCode": "physical-science-ieb",
+  "paperCode": "P2",
+  "year": 2021,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-1-1",
+          "label": "1.1",
+          "questionText": "A graph of amount of product versus time for a reaction is drawn (the curve rises steeply at first and then levels off). Four dashed straight lines are shown: line A is a tangent to the curve near the start (steep), line B is a tangent near the end (nearly flat), line C is the straight line (chord) drawn from the origin to a point on the curve, and line D is a tangent at an intermediate point. Which one of the dashed lines, A, B, C or D, has a gradient that represents the AVERAGE rate of reaction?",
+          "marks": 2,
+          "memoText": "C — the straight line (chord) from the origin to a point on the curve. Its gradient = (change in amount of product)/(change in time) over that interval, which is the average rate. (Tangents give the instantaneous rate.)",
+          "topic": "Rate of Reaction",
+          "type": "mcq",
+          "options": { "A": "line A", "B": "line B", "C": "line C", "D": "line D" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-1-2",
+          "label": "1.2",
+          "questionText": "Which one of the following is FALSE regarding a reaction that is at chemical equilibrium?\nA  The concentration of reactants is always equal to the concentration of products.\nB  The amount of reactants and products always remains constant.\nC  The rate of the forward reaction is always equal to the rate of the reverse reaction.\nD  It can only occur in a closed system.",
+          "marks": 2,
+          "memoText": "A. At equilibrium the concentrations of reactants and products are constant, but they are generally NOT equal to each other. Statements B, C and D are all true of a system at equilibrium.",
+          "topic": "Chemical Equilibrium",
+          "type": "mcq",
+          "options": { "A": "Concentration of reactants always equals concentration of products", "B": "Amounts of reactants and products remain constant", "C": "Forward rate always equals reverse rate", "D": "It can only occur in a closed system" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-1-3",
+          "label": "1.3",
+          "questionText": "The following reaction reaches equilibrium in a sealed container:\n2NOCl(g) ⇌ 2NO(g) + Cl₂(g)   ΔH < 0\nWhich one of the following changes will NOT affect the equilibrium amount of nitrogen monoxide, NO?\nA  An increase in temperature.\nB  The addition of inert argon gas.\nC  The removal of Cl₂.\nD  A decrease in the volume of the container.",
+          "marks": 2,
+          "memoText": "B. Adding an inert gas (argon) at constant volume does not change the partial pressures or concentrations of the reacting gases, so the equilibrium position — and the amount of NO — is unaffected. Options A, C and D all shift the equilibrium.",
+          "topic": "Chemical Equilibrium",
+          "type": "mcq",
+          "options": { "A": "Increase in temperature", "B": "Addition of inert argon gas", "C": "Removal of Cl₂", "D": "Decrease in the volume of the container" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-1-4",
+          "label": "1.4",
+          "questionText": "Kaitlynn puts three nails made of different metals into separate test tubes, X, Y and Z, each containing 1 mol·dm⁻³ hydrochloric acid at 25 °C. Tube X contains a calcium nail, tube Y contains an iron nail, and tube Z contains a silver nail. In which tubes will hydrogen gas be produced?\nA  X and Y only\nB  X and Z only\nC  Y and Z only\nD  X, Y and Z",
+          "marks": 2,
+          "memoText": "A — X and Y only. Calcium and iron are more reactive than hydrogen (they lie above hydrogen in the activity/reactivity series), so they displace H₂ from the acid. Silver is less reactive than hydrogen and does not react with dilute HCl.",
+          "topic": "Electrochemistry (reactivity)",
+          "type": "mcq",
+          "options": { "A": "X and Y only", "B": "X and Z only", "C": "Y and Z only", "D": "X, Y and Z" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-1-5",
+          "label": "1.5",
+          "questionText": "Which one of the following methods will increase the pH of a solution of nitric acid, HNO₃(aq), from pH 4 to pH 6?\nA  Adding water (diluting the solution)\nB  Removing water (concentrating the solution)\nC  Adding NaNO₃ crystals to the solution\nD  Adding NH₄Cl crystals to the solution",
+          "marks": 2,
+          "memoText": "A — adding water (diluting). Dilution decreases the hydronium ion concentration, so the pH rises (becomes less acidic). Concentrating would lower the pH; NaNO₃ is a neutral salt and has no effect; NH₄Cl is acidic and would lower the pH.",
+          "topic": "Acids and Bases",
+          "type": "mcq",
+          "options": { "A": "Adding water (diluting)", "B": "Removing water (concentrating)", "C": "Adding NaNO₃ crystals", "D": "Adding NH₄Cl crystals" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-1-6",
+          "label": "1.6",
+          "questionText": "Consider the proton-transfer reaction below.\nCH₃CH₂NH₂ + HF → CH₃CH₂NH₃⁺ + F⁻\nWhich one of the following correctly identifies an acid–base conjugate pair (conjugate acid / conjugate base)?\nA  CH₃CH₂NH₂ / CH₃CH₂NH₃⁺\nB  CH₃CH₂NH₂ / F⁻\nC  HF / CH₃CH₂NH₃⁺\nD  HF / F⁻",
+          "marks": 2,
+          "memoText": "D — HF / F⁻. HF donates a proton to become F⁻, so HF is the acid and F⁻ is its conjugate base; they differ by exactly one H⁺. (The other conjugate pair is CH₃CH₂NH₃⁺ / CH₃CH₂NH₂.)",
+          "topic": "Acids and Bases",
+          "type": "mcq",
+          "options": { "A": "CH₃CH₂NH₂ / CH₃CH₂NH₃⁺", "B": "CH₃CH₂NH₂ / F⁻", "C": "HF / CH₃CH₂NH₃⁺", "D": "HF / F⁻" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-1-7",
+          "label": "1.7",
+          "questionText": "A galvanic cell is constructed using Cu and Zn electrodes. The electrons flow from the:\nA  Cu half-cell to the Zn half-cell through the salt bridge\nB  Zn half-cell to the Cu half-cell through the salt bridge\nC  Cu half-cell to the Zn half-cell through the wire\nD  Zn half-cell to the Cu half-cell through the wire",
+          "marks": 2,
+          "memoText": "D. Zn is the stronger reducing agent, so it is oxidised at the anode and releases electrons. Electrons travel through the external wire from the Zn (anode) half-cell to the Cu (cathode) half-cell. (Ions, not electrons, move through the salt bridge.)",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "mcq",
+          "options": { "A": "Cu → Zn through the salt bridge", "B": "Zn → Cu through the salt bridge", "C": "Cu → Zn through the wire", "D": "Zn → Cu through the wire" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-1-8",
+          "label": "1.8",
+          "questionText": "Which one of the following is the strongest oxidising agent under standard conditions?\nA  Fe³⁺\nB  Fe\nC  H₂O₂\nD  I₂",
+          "marks": 2,
+          "memoText": "C — H₂O₂. Of the listed species, H₂O₂ has the highest (most positive) standard reduction potential, so it is the most readily reduced and is therefore the strongest oxidising agent.",
+          "topic": "Electrochemistry (redox strength)",
+          "type": "mcq",
+          "options": { "A": "Fe³⁺", "B": "Fe", "C": "H₂O₂", "D": "I₂" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-1-9",
+          "label": "1.9",
+          "questionText": "A compound with the general formula CₙH₂ₙ is a/an:\nA  alkane\nB  alkene\nC  alcohol\nD  carboxylic acid",
+          "marks": 2,
+          "memoText": "B — alkene. The general formula of the alkenes is CₙH₂ₙ (one carbon–carbon double bond). Alkanes are CₙH₂ₙ₊₂.",
+          "topic": "Organic Chemistry (homologous series)",
+          "type": "mcq",
+          "options": { "A": "alkane", "B": "alkene", "C": "alcohol", "D": "carboxylic acid" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-1-10",
+          "label": "1.10",
+          "questionText": "The complete combustion of ONE MOLE of butan-1-ol (C₄H₉OH) needs at least:\nA  6 mol of O₂\nB  7,5 mol of O₂\nC  11 mol of O₂\nD  12 mol of O₂",
+          "marks": 2,
+          "memoText": "A — 6 mol of O₂. Balanced equation: C₄H₁₀O + 6O₂ → 4CO₂ + 5H₂O. (O balance: 1 + 12 = 8 + 5 = 13.)",
+          "topic": "Organic Chemistry (combustion)",
+          "type": "mcq",
+          "options": { "A": "6 mol of O₂", "B": "7,5 mol of O₂", "C": "11 mol of O₂", "D": "12 mol of O₂" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Energy, Intermolecular Forces and Reaction Rate",
+      "totalMarks": 31,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Diethyl zinc reacts spontaneously with water to form ethyl zinc hydroxide and ethane:\n(C₂H₅)₂Zn(l) + H₂O(l) → C₂H₅ZnOH(l) + C₂H₆(g)\n\nDefine heat of reaction.",
+          "marks": 2,
+          "memoText": "The heat of reaction (ΔH) is the net change in chemical potential energy of the system (the difference between the total energy of the products and the total energy of the reactants) for a reaction.",
+          "topic": "Energy and Change",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Define endothermic reaction.",
+          "marks": 2,
+          "memoText": "An endothermic reaction is one that absorbs (net) energy from the surroundings — it transforms thermal energy from the surroundings into chemical potential energy of the system (ΔH > 0).",
+          "topic": "Energy and Change",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-1-3",
+          "label": "2.1.3",
+          "questionText": "In the reaction above, more energy is released than is absorbed. Classify the reaction as ENDOTHERMIC or EXOTHERMIC.",
+          "marks": 1,
+          "memoText": "Exothermic.",
+          "topic": "Energy and Change",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-1-4",
+          "label": "2.1.4",
+          "questionText": "In order for the reaction above to proceed, some bonds must be broken and others must be formed. Is bond breaking an ENDOTHERMIC or EXOTHERMIC process?",
+          "marks": 1,
+          "memoText": "Endothermic (energy must be absorbed to break bonds).",
+          "topic": "Energy and Change",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-2-1",
+          "label": "2.2.1",
+          "questionText": "Consider the intermolecular forces in ethane. Define intermolecular force.",
+          "marks": 2,
+          "memoText": "An intermolecular force is a (relatively weak) force of attraction between molecules (or between atoms of the noble gases, or between molecules and ions).",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-2-2",
+          "label": "2.2.2",
+          "questionText": "Identify the predominant intermolecular force in ethane.",
+          "marks": 1,
+          "memoText": "London forces (also acceptable: dispersion forces / induced dipole forces).",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-2-3",
+          "label": "2.2.3",
+          "questionText": "Hence, explain why ethane is a gas at room temperature.",
+          "marks": 2,
+          "memoText": "The London forces between ethane molecules are weak, so only a small amount of energy is needed to overcome them / to separate the molecules. At room temperature the molecules have enough energy to move apart freely, so ethane exists as a gas. (Do not say 'break bonds'.)",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-3-1",
+          "label": "2.3.1",
+          "questionText": "Consider the rate of reaction. Define rate of reaction.",
+          "marks": 2,
+          "memoText": "The rate of reaction is the change in concentration of a reactant or a product per unit time (per second).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-3-2",
+          "label": "2.3.2",
+          "questionText": "A Maxwell–Boltzmann distribution curve for the reaction at room temperature (25 °C), labelled T₁, is provided on the Answer Sheet (number of particles on the y-axis against kinetic energy on the x-axis). On the same axes, draw the curve that would be obtained at 50 °C, and indicate: the y-axis label; Eₐ, the activation energy; and P, a shaded area representing the proportion of particles with sufficient kinetic energy to react.",
+          "marks": 4,
+          "memoText": "Marks for: (1) y-axis labelled 'number of particles' (accept fraction/% of particles, amount (mol) of particles; 'molecules' for 'particles'). (2) The higher-temperature (50 °C, T₂) curve has its peak lower and to the right of the T₁ peak, and lies above the T₁ curve at high kinetic energy (the two curves cross, and the total area under each curve is the same). (3) Activation energy Eₐ marked as a vertical line on the x-axis. (4) P shaded as the area under the curve(s) to the right of Eₐ.",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-3-3",
+          "label": "2.3.3",
+          "questionText": "Fully explain how an increase in temperature affects the rate of this reaction. In your answer, refer to the collision theory and to the Maxwell–Boltzmann distribution curves from Question 2.3.2.",
+          "marks": 4,
+          "memoText": "• An increase in temperature increases the average kinetic energy of the particles.\n• From the Maxwell–Boltzmann distribution, a greater proportion of particles now have kinetic energy greater than the activation energy (area P increases).\n• So there are more effective collisions per second (greater frequency of effective collisions).\n• This leads to a higher reaction rate.",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-3-4",
+          "label": "2.3.4",
+          "questionText": "How could the rate of this reaction be measured in practice? In your answer, specify what equipment should be used and which quantities should be measured.",
+          "marks": 3,
+          "memoText": "• Suitable equipment: a gas syringe, OR a water-filled inverted measuring cylinder over a trough of water, OR an electronic balance, OR a pressure sensor, OR a pH meter.\n• Suitable quantity: the volume of ethane gas produced, OR the mass of ethane / the mass of the flask and its contents, OR the pressure of the ethane gas, OR the pH.\n• Measured against time (record the quantity at regular time intervals).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-4-1",
+          "label": "2.4.1",
+          "questionText": "Sarah reacts 50 g of diethyl zinc, (C₂H₅)₂Zn (M = 123,4 g·mol⁻¹), with 40 g of water. Use suitable calculations to determine the limiting reagent.",
+          "marks": 3,
+          "memoText": "n(diethyl zinc) = m/M = 50/123,4 = 0,405 mol\nn(H₂O) = m/M = 40/18 = 2,222 mol\nThe mole ratio of diethyl zinc : water in the equation is 1 : 1, so the reagent present in the smaller amount is limiting.\n∴ Diethyl zinc is the limiting reagent.",
+          "topic": "Quantitative Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-2-4-2",
+          "label": "2.4.2",
+          "questionText": "Hence, determine the maximum volume of ethane that Sarah can collect at STP. (Vₘ = 22,4 dm³·mol⁻¹.)",
+          "marks": 4,
+          "memoText": "From the equation, n(ethane) = n(diethyl zinc) = 0,405 mol (1 : 1 ratio).\nV = n·Vₘ = 0,405 × 22,4 = 9,08 dm³",
+          "topic": "Quantitative Chemistry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "The Haber Process (Chemical Equilibrium)",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-3-1",
+          "label": "3.1",
+          "questionText": "The Haber process produces ammonia from nitrogen and hydrogen:\nN₂(g) + 3H₂(g) ⇌ 2NH₃(g)\nA set of curves shows the percentage yield of ammonia against temperature for four different pressures (50, 100, 200 and 400 atm). The yield decreases as temperature increases and increases as pressure increases. Industry typically operates at 450 °C and 200 atm.\n\nIs the forward reaction in the Haber process EXOTHERMIC or ENDOTHERMIC?",
+          "marks": 1,
+          "memoText": "Exothermic.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-3-2",
+          "label": "3.2",
+          "questionText": "Explain the answer to Question 3.1 in terms of Le Châtelier's principle and by making reference to the graph.",
+          "marks": 4,
+          "memoText": "• From the graph, an increase in temperature decreases the yield of ammonia, i.e. an increase in temperature favours the reverse reaction.\n• By Le Châtelier's principle, an increase in temperature favours the reaction that absorbs heat (the endothermic reaction), because it opposes the rise in temperature.\n• Since the reverse reaction is favoured by heating, the reverse reaction is endothermic.\n• Therefore the forward reaction is exothermic.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-3-3",
+          "label": "3.3",
+          "questionText": "What is the percentage yield of ammonia at 450 °C and 200 atmospheres (read from the graph)?",
+          "marks": 1,
+          "memoText": "About 16 % (accept 15,5 %–16 %).",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-3-4",
+          "label": "3.4",
+          "questionText": "Will high pressures favour the production of ammonia? State only YES or NO.",
+          "marks": 1,
+          "memoText": "Yes. (There are 4 mol of gas on the reactant side and 2 mol on the product side, so higher pressure shifts the equilibrium towards the fewer moles of gas — the ammonia side.)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-3-5",
+          "label": "3.5",
+          "questionText": "From the graph, at 0 °C the yield of ammonia is in excess of 90 %. In industry, however, much higher temperatures are used. Fully explain why this is so.",
+          "marks": 3,
+          "memoText": "• At the higher temperature the (lower) yield is produced at a much faster rate.\n• Therefore more ammonia is produced per unit time (per day).\n• (A low temperature would give a high yield but so slowly that far less ammonia is made per day, which is not economical.)\n(Saying only 'yield is sacrificed for rate' earns 1 mark.)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-3-6",
+          "label": "3.6",
+          "questionText": "An iron catalyst is used in industry. How will this affect the percentage yield of ammonia? State only INCREASE, DECREASE or NO EFFECT.",
+          "marks": 2,
+          "memoText": "No effect. A catalyst speeds up the forward and reverse reactions equally, so it lets equilibrium be reached faster but does not change the equilibrium position or the yield.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-3-7",
+          "label": "3.7",
+          "questionText": "Bongani looks up the equilibrium constant for the Haber process but only finds a value measured at 472 °C and 300 atmospheres. Can Bongani still use this value for the conditions used in industry (450 °C, 200 atm)? Explain.",
+          "marks": 3,
+          "memoText": "• No.\n• The equilibrium constant is temperature dependent.\n• The temperature at which this Kc was measured (472 °C) is not the same as the industrial temperature (450 °C), so the value cannot be used.\n(A change in pressure does not change Kc, so pressure is not a valid reason.)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-3-8",
+          "label": "3.8",
+          "questionText": "Define open system in chemistry.",
+          "marks": 2,
+          "memoText": "An open system is one in which both energy and matter can be exchanged between the system and its surroundings.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-3-9",
+          "label": "3.9",
+          "questionText": "The ammonia can be continuously removed from the reaction chamber by dissolving it in solution. With reference to REACTION RATE, explain how this will affect the yield of ammonia.",
+          "marks": 3,
+          "memoText": "• Continuously removing the ammonia (product) lowers its concentration, which decreases the rate of the reverse reaction.\n• The forward reaction rate is then greater than the reverse reaction rate (the forward reaction is favoured).\n• So more nitrogen and hydrogen are converted to ammonia — the yield of ammonia increases.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Propanoic Acid (Acids and Bases)",
+      "totalMarks": 21,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-4-1",
+          "label": "4.1",
+          "questionText": "Propanoic acid, CH₃CH₂COOH, is a weak acid that ionises in water:\nCH₃CH₂COOH(aq) + H₂O(l) ⇌ CH₃CH₂COO⁻(aq) + H₃O⁺(aq)   Kₐ = 1,34 × 10⁻⁵\nA 0,32 mol·dm⁻³ standard solution of propanoic acid is prepared in a 500 cm³ volumetric flask at 25 °C.\n\nDefine concentration.",
+          "marks": 2,
+          "memoText": "Concentration is the amount (number of moles) of solute per unit volume (per dm³) of solution.",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-4-2",
+          "label": "4.2",
+          "questionText": "What mass of propanoic acid was needed to prepare the standard solution? (M(CH₃CH₂COOH) = 74 g·mol⁻¹.)",
+          "marks": 4,
+          "memoText": "n = cV = (0,32)(0,500) = 0,16 mol\nm = nM = (0,16)(74) = 11,84 g\n(OR m = cMV = (0,32)(74)(0,500) = 11,84 g.)",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-4-3",
+          "label": "4.3",
+          "questionText": "Why is propanoic acid considered to be a WEAK acid?",
+          "marks": 1,
+          "memoText": "Because it only ionises partially in solution (a small Kₐ; the equilibrium lies towards the reactants, so there is a lower concentration of products than reactants).",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-4-4",
+          "label": "4.4",
+          "questionText": "Write an expression for the acid ionisation constant, Kₐ, for propanoic acid.",
+          "marks": 2,
+          "memoText": "Kₐ = [CH₃CH₂COO⁻][H₃O⁺] / [CH₃CH₂COOH]",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-4-5",
+          "label": "4.5",
+          "questionText": "Show that the hydronium ion concentration in the 0,32 mol·dm⁻³ propanoic acid solution is 2,06 × 10⁻³ mol·dm⁻³.",
+          "marks": 4,
+          "memoText": "Let x = [H₃O⁺] = [CH₃CH₂COO⁻] formed. At equilibrium [CH₃CH₂COOH] = 0,32 − x.\nKₐ = x·x / (0,32 − x)\n1,34 × 10⁻⁵ = x² / (0,32 − x)\nAssuming x ≪ 0,32:  x² = (1,34 × 10⁻⁵)(0,32) = 4,288 × 10⁻⁶\nx = 2,06 × 10⁻³ mol·dm⁻³ = [H₃O⁺]",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-4-6",
+          "label": "4.6",
+          "questionText": "Hence, determine the concentration of hydroxide ions in the propanoic acid solution. (K_w = 1 × 10⁻¹⁴.)",
+          "marks": 3,
+          "memoText": "K_w = [H₃O⁺][OH⁻]\n1 × 10⁻¹⁴ = (2,06 × 10⁻³)[OH⁻]\n[OH⁻] = 4,85 × 10⁻¹² mol·dm⁻³",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-4-7",
+          "label": "4.7",
+          "questionText": "Define covalent bond.",
+          "marks": 2,
+          "memoText": "A covalent bond is the sharing of at least one pair of electrons by two non-metal atoms.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-4-8",
+          "label": "4.8",
+          "questionText": "Define electronegativity.",
+          "marks": 2,
+          "memoText": "Electronegativity is a measure of the tendency of an atom in a molecule to attract a bonding (shared) pair of electrons.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-4-9",
+          "label": "4.9",
+          "questionText": "Name the specific type of covalent bond present in the H₂O molecules.",
+          "marks": 1,
+          "memoText": "Polar covalent bond.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Titration (Acids and Bases)",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-5-1-1",
+          "label": "5.1.1",
+          "questionText": "Sonali determines the concentration of a barium hydroxide solution by titrating it against the 0,32 mol·dm⁻³ propanoic acid solution from Question 4. Her method included: Step 2 — a 20 cm³ pipette was rinsed with distilled water; Step 3 — the pipette was filled with the propanoic acid solution to a level where the meniscus was above the 20 cm³ mark. In steps 2 and 3 Sonali did not follow appropriate procedures. Identify the mistake in EITHER step 2 OR step 3.",
+          "marks": 1,
+          "memoText": "Step 2: the pipette was rinsed with distilled water instead of being rinsed with the propanoic acid solution.\nOR Step 3: the bottom of the meniscus was not set exactly on the 20 cm³ mark (it was above the mark).",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-5-1-2",
+          "label": "5.1.2",
+          "questionText": "Explain how the mistake identified in Question 5.1.1 would affect the calculated concentration of barium hydroxide.",
+          "marks": 3,
+          "memoText": "Step 2 answer: rinsing the pipette with water dilutes the acid, decreasing the concentration of propanoic acid actually used → a smaller volume of Ba(OH)₂ is needed to neutralise it → the calculated concentration of Ba(OH)₂ comes out higher than the actual value.\nStep 3 answer: an over-filled pipette delivers more than 20 cm³, but if the volume is recorded as 20 cm³ the effective acid amount used is taken as too small... (marking guideline: filling above the mark decreases the accuracy; a smaller Ba(OH)₂ volume is measured → calculated Ba(OH)₂ concentration is higher than the actual value).",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-5-2-1",
+          "label": "5.2.1",
+          "questionText": "Sonali's corrected titration data: concentration of propanoic acid = 0,32 mol·dm⁻³; volume of propanoic acid used = 0,020 dm³; volumes of Ba(OH)₂ dispensed — Run 1: 0,01691 dm³, Run 2: 0,01896 dm³, Run 3: 0,02095 dm³, average 0,01894 dm³.\n\nDefine neutralisation.",
+          "marks": 2,
+          "memoText": "Neutralisation is the reaction of an acid and a base to the point where neither the acid nor the base is in excess (an acid and a base react to form a salt and water).",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-5-2-2",
+          "label": "5.2.2",
+          "questionText": "Write a balanced chemical equation for the neutralisation reaction in this titration (propanoic acid with barium hydroxide).",
+          "marks": 3,
+          "memoText": "2CH₃CH₂COOH + Ba(OH)₂ → (CH₃CH₂COO)₂Ba + 2H₂O",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-5-2-3",
+          "label": "5.2.3",
+          "questionText": "Estimate the pH of the solution at its end point.",
+          "marks": 2,
+          "memoText": "About pH 9 (a pH between 8 and 10 gains both marks; any basic pH gains 1 mark). The salt of a weak acid and a strong base hydrolyses to give a slightly basic solution.",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-5-2-4",
+          "label": "5.2.4",
+          "questionText": "Using these results, Sonali calculated the concentration of the barium hydroxide solution to be 0,17 mol·dm⁻³. Show how Sonali calculated this concentration.",
+          "marks": 5,
+          "memoText": "n(acid) = c·V = (0,32)(0,020) = 0,0064 mol\nFrom the equation, n(Ba(OH)₂) = ½ · n(acid) = ½ × 0,0064 = 0,0032 mol\nc(Ba(OH)₂) = n/V = 0,0032 / 0,01894 = 0,17 mol·dm⁻³",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-5-2-5-a",
+          "label": "5.2.5 (a)",
+          "questionText": "The ACTUAL concentration of the barium hydroxide is 0,18 mol·dm⁻³. Is Sonali's data PRECISE or IMPRECISE? Give a reason which shows your understanding of the term precise.",
+          "marks": 2,
+          "memoText": "Imprecise — the three titre readings (0,01691; 0,01896; 0,02095 dm³) are not close to one another (not close to the average). 'Precise' would mean the repeat readings are close together.",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-5-2-5-b",
+          "label": "5.2.5 (b)",
+          "questionText": "Is Sonali's data ACCURATE or INACCURATE? Give a reason which shows your understanding of the term accurate.",
+          "marks": 2,
+          "memoText": "Accurate — the calculated concentration (0,17 mol·dm⁻³) is close to the actual (true) concentration (0,18 mol·dm⁻³). 'Accurate' means the result is close to the true value.",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Galvanic Cell (Electrochemistry)",
+      "totalMarks": 24,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-6-1-1",
+          "label": "6.1.1",
+          "questionText": "Consider the galvanic cell:\nPt(s) | H₂(g) | H⁺(aq) ‖ Ni²⁺(aq) | Ni(s)  at 25 °C\nThis cell was set up to determine the standard electrode potential of the Ni²⁺ | Ni half-cell.\n\nBesides the temperature of 25 °C, state the standard condition associated with the gaseous H₂ in the above cell.",
+          "marks": 1,
+          "memoText": "A pressure of 1 atm (101,3 kPa / 1,01 × 10⁵ Pa).",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-6-1-2",
+          "label": "6.1.2",
+          "questionText": "Besides the temperature of 25 °C, state the standard condition associated with the aqueous H⁺ in the above cell.",
+          "marks": 1,
+          "memoText": "A concentration of 1 mol·dm⁻³.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-6-1-3",
+          "label": "6.1.3",
+          "questionText": "Which terminal of the voltmeter should be connected to the standard hydrogen electrode? State only POSITIVE or NEGATIVE.",
+          "marks": 1,
+          "memoText": "Negative. (The hydrogen electrode is the anode here — Ni²⁺/Ni has E° = −0,25 V, so the hydrogen half-cell is the more positive... the marking guideline gives 'Negative', i.e. the SHE is the anode and electrons flow out of it.)",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-6-1-4",
+          "label": "6.1.4",
+          "questionText": "Calculate the initial reading on the voltmeter. Show all working. (E°(Ni²⁺/Ni) = −0,25 V; E°(H⁺/H₂) = 0,00 V.)",
+          "marks": 4,
+          "memoText": "E°cell = E°cathode − E°anode\nE°cell = (−0,25) − (0,00)\nE°cell = −0,25 V\n(Magnitude of the reading = 0,25 V. Full marks only if the calculation is shown.)",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-6-2-1",
+          "label": "6.2.1",
+          "questionText": "The voltmeter is replaced with a resistor, so that an average current of 2,25 A is drawn from the cell for 4 hours. Write down the balanced chemical equation for the SPONTANEOUS reduction half-reaction that occurs.",
+          "marks": 2,
+          "memoText": "2H⁺ + 2e⁻ → H₂",
+          "topic": "Electrochemistry (electrolysis / cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-6-2-2",
+          "label": "6.2.2",
+          "questionText": "Calculate the change in mass of the nickel electrode. (F = 96 500 C·mol⁻¹; M(Ni) = 59 g·mol⁻¹.)",
+          "marks": 8,
+          "memoText": "Q = It = (2,25)(4 × 3 600) = 32 400 C\nn(e⁻) = Q/F = 32 400 / 96 500 = 0,336 mol\nAt the nickel electrode (oxidation, Ni → Ni²⁺ + 2e⁻): n(Ni) = ½ · n(e⁻) = ½ × 0,336 = 0,168 mol\nm(Ni) = nM = (0,168)(59) = 9,9 g\nThe nickel electrode loses about 9,9 g (it is oxidised / dissolves).",
+          "topic": "Electrochemistry (electrolysis / cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-6-2-3",
+          "label": "6.2.3",
+          "questionText": "The salt bridge maintains electrical neutrality. Describe, with reasons, the movement of ions INTO and OUT OF the salt bridge in the NICKEL half-cell.",
+          "marks": 3,
+          "memoText": "• In the nickel half-cell, Ni²⁺ cations are produced (the concentration of Ni²⁺ increases), giving a build-up of positive charge.\n• To prevent this build-up, anions from the salt bridge move into the nickel half-cell.\n• And cations (Ni²⁺) from the half-cell move out into the salt bridge.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-6-3-1",
+          "label": "6.3.1",
+          "questionText": "The platinum electrode in the hydrogen half-cell is usually quite small because it is expensive. If a larger platinum electrode is used, how would this affect the maximum current produced in the cell? State only INCREASE, DECREASE or NO EFFECT.",
+          "marks": 2,
+          "memoText": "Increase. A larger electrode provides a greater surface area for the reaction, allowing a larger maximum current.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-6-3-2",
+          "label": "6.3.2",
+          "questionText": "If a larger platinum electrode is used, how would this affect the initial emf of this cell? State only INCREASE, DECREASE or NO EFFECT.",
+          "marks": 2,
+          "memoText": "No effect. The emf depends on the nature of the half-cells and the standard conditions (concentration, pressure, temperature), not on the size of the electrode.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Electrorefining of Copper (Electrochemistry)",
+      "totalMarks": 21,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-7-1",
+          "label": "7.1",
+          "questionText": "An electrolytic cell is constructed to refine a piece of blister (impure) copper. The impure electrode contains, besides copper, the impurities zinc, cobalt, silver and gold. The other electrode is pure copper, and the electrolyte is CuSO₄(aq) acidified with H₂SO₄(aq).\n\nCopper is mainly used as a conductor in electrical circuits. Why, then, is it important that the copper used be PURE?",
+          "marks": 1,
+          "memoText": "Impurities decrease the electrical conductivity of the copper (increase its resistance).",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-7-2",
+          "label": "7.2",
+          "questionText": "What energy conversion occurs in this cell?",
+          "marks": 2,
+          "memoText": "Electrical (potential) energy is converted to chemical (potential) energy.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-7-3-1",
+          "label": "7.3.1",
+          "questionText": "The CuSO₄ electrolyte is dissolved in solution. Explain why it is necessary to dissolve the CuSO₄ in solution.",
+          "marks": 2,
+          "memoText": "Dissolving the CuSO₄ frees/mobilises the ions, allowing the solution to conduct electricity (the ions can migrate to the electrodes).",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-7-3-2",
+          "label": "7.3.2",
+          "questionText": "What is the purpose of the H₂SO₄?",
+          "marks": 1,
+          "memoText": "It increases the conductivity of the electrolyte solution.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-7-4",
+          "label": "7.4",
+          "questionText": "Is the blister copper electrode the POSITIVE or NEGATIVE electrode?",
+          "marks": 1,
+          "memoText": "Positive (it is the anode in this electrolytic cell, where oxidation of the impure copper occurs).",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-7-5-1",
+          "label": "7.5.1",
+          "questionText": "Consider the change occurring at the cathode. What observation can be made at the cathode after some time has passed?",
+          "marks": 1,
+          "memoText": "Pure copper is deposited on the cathode (the cathode gains mass / gets thicker).",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-7-5-2",
+          "label": "7.5.2",
+          "questionText": "Give a half-reaction to support this observation.",
+          "marks": 2,
+          "memoText": "Cu²⁺ + 2e⁻ → Cu",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-7-6-1",
+          "label": "7.6.1",
+          "questionText": "The zinc and cobalt impurities are oxidised along with the copper; the silver and gold are not. Define oxidation.",
+          "marks": 1,
+          "memoText": "Oxidation is the loss of electrons.",
+          "topic": "Electrochemistry (redox)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-7-6-2",
+          "label": "7.6.2",
+          "questionText": "Write an equation for the half-reaction for the oxidation of copper.",
+          "marks": 2,
+          "memoText": "Cu → Cu²⁺ + 2e⁻",
+          "topic": "Electrochemistry (redox)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-7-6-3",
+          "label": "7.6.3",
+          "questionText": "A sludge accumulates below the blister copper electrode. Which impurities are present in this sludge?",
+          "marks": 2,
+          "memoText": "Silver and gold. (They are weaker reducing agents than copper, so they are not oxidised; they simply fall off as the surrounding copper dissolves.)",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-7-6-4",
+          "label": "7.6.4",
+          "questionText": "Fully explain why the zinc is oxidised but the silver is not.",
+          "marks": 3,
+          "memoText": "• Zinc is a stronger reducing agent than copper (it has a more negative standard electrode potential), so if copper is oxidised at the anode, zinc is oxidised too.\n• Silver is a much weaker reducing agent than copper (more positive electrode potential), so it is not oxidised under the conditions that oxidise copper.",
+          "topic": "Electrochemistry (redox)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-7-7",
+          "label": "7.7",
+          "questionText": "Explain how the concentration of the Cu²⁺ ions in the electrolyte changes over time.",
+          "marks": 3,
+          "memoText": "• Cu²⁺ ions are produced by oxidation at the anode and reduced (consumed) at the cathode.\n• At the anode, Zn and Co are also oxidised to Zn²⁺ and Co²⁺, but at the cathode ONLY Cu²⁺ is reduced.\n• So for every Zn²⁺ or Co²⁺ formed at the anode, a Cu²⁺ is removed at the cathode without a Cu²⁺ being formed to replace it — more Cu²⁺ is consumed than produced, so the concentration of Cu²⁺ in the electrolyte decreases over time.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Organic Nomenclature and Isomers",
+      "totalMarks": 23,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-8-1-1",
+          "label": "8.1.1",
+          "questionText": "Consider two compounds: W = methyl hexanoate and X = 3,3-dimethylpentan-1-ol.\n\nDefine functional group.",
+          "marks": 2,
+          "memoText": "A functional group is an atom or a group of atoms that forms the centre of chemical activity (reactivity) in the molecule and determines its physical and chemical properties.",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-8-1-2",
+          "label": "8.1.2",
+          "questionText": "Name the functional group found in compound X (3,3-dimethylpentan-1-ol).",
+          "marks": 1,
+          "memoText": "The hydroxyl group (–OH).",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-8-1-3",
+          "label": "8.1.3",
+          "questionText": "Draw the condensed structural formula for compound W (methyl hexanoate).",
+          "marks": 2,
+          "memoText": "CH₃CH₂CH₂CH₂CH₂COOCH₃  (equivalently CH₃(CH₂)₄COOCH₃, or written CH₃–CH₂–CH₂–CH₂–CH₂–C(=O)–O–CH₃). It is a 7-carbon ester: a 6-carbon hexanoate acyl part and a 1-carbon methyl part on the correct sides of the –COO– linkage.",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-8-1-4",
+          "label": "8.1.4",
+          "questionText": "Draw the structural formula for compound X (3,3-dimethylpentan-1-ol).",
+          "marks": 3,
+          "memoText": "A 5-carbon parent chain (pentan-1-ol) with the –OH on carbon 1 and two –CH₃ groups both on carbon 3:\nHO–CH₂–CH₂–C(CH₃)₂–CH₂–CH₃\nAll bonds and hydrogen atoms shown: a 5-carbon straight chain, hydroxyl group on C1, two methyl groups on C3.",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-8-1-5",
+          "label": "8.1.5",
+          "questionText": "Define structural isomers.",
+          "marks": 2,
+          "memoText": "Structural isomers are compounds (molecules) that have the same molecular formula but different structural formulae (different arrangement of atoms).",
+          "topic": "Organic Chemistry (isomers)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-8-1-6",
+          "label": "8.1.6",
+          "questionText": "Give the IUPAC name of the FUNCTIONAL isomer of compound W (methyl hexanoate).",
+          "marks": 2,
+          "memoText": "Heptanoic acid. (It has the same molecular formula, C₇H₁₄O₂, but a different functional group — a carboxylic acid instead of an ester.)",
+          "topic": "Organic Chemistry (isomers)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-8-2-1",
+          "label": "8.2.1",
+          "questionText": "Compound Y is shown as a structural formula in the question paper: a six-carbon main chain with a double bond between C1 and C2 and a double bond between C4 and C5, and an ethyl (–CH₂CH₃) branch on C4. Write down the IUPAC name for compound Y.",
+          "marks": 4,
+          "memoText": "4-ethylhexa-1,4-diene. (Parent chain: hex; two C=C double bonds at positions 1 and 4 → -1,4-diene; ethyl substituent on C4 → 4-ethyl.)",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-8-2-2",
+          "label": "8.2.2",
+          "questionText": "Compound Z is CHBr₂–CHCl–CH₃. Write down the IUPAC name for compound Z.",
+          "marks": 4,
+          "memoText": "1,1-dibromo-2-chloropropane. (Propane parent chain; two Br on C1 → 1,1-dibromo; one Cl on C2 → 2-chloro; substituents cited alphabetically.)",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-8-2-3-a",
+          "label": "8.2.3 (a)",
+          "questionText": "Compound Y is a hydrocarbon. Define hydrocarbon.",
+          "marks": 2,
+          "memoText": "A hydrocarbon is a compound that contains only carbon and hydrogen atoms.",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-8-2-3-b",
+          "label": "8.2.3 (b)",
+          "questionText": "Classify compound Y as SATURATED or UNSATURATED.",
+          "marks": 1,
+          "memoText": "Unsaturated (it contains carbon–carbon double bonds).",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Organic Reactions",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-9-1",
+          "label": "9.1",
+          "questionText": "A reaction sequence involves organic compounds A, B and C. Compound A (an alkene) undergoes Reaction 1 (steam and dilute H₃PO₄) to form an alcohol B. Alcohol B undergoes Reaction 2 (heat with excess concentrated H₂SO₄) to re-form A. Alcohol B also undergoes Reaction 3 (reflux in dilute aqueous KOH) with a haloalkane... and compound C is the haloalkane CH₃CHBrCH₂ shown (a 2-carbon haloalkane, bromoethane); Reaction 4 converts C back to B.\n\nDefine homologous series.",
+          "marks": 2,
+          "memoText": "A homologous series is a series of similar compounds that have the same functional group and the same general formula, in which each member differs from the previous one by a –CH₂– unit. (All four parts are required.)",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-9-2",
+          "label": "9.2",
+          "questionText": "Identify the homologous series to which compound A belongs.",
+          "marks": 1,
+          "memoText": "Alkenes.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-9-3",
+          "label": "9.3",
+          "questionText": "Identify the GENERAL TYPE of reaction represented in Reaction 1 (alkene A + steam/dilute H₃PO₄ → alcohol B).",
+          "marks": 1,
+          "memoText": "Addition reaction.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-9-4",
+          "label": "9.4",
+          "questionText": "Identify the GENERAL TYPE of reaction represented in Reaction 4 (haloalkane C → alcohol B).",
+          "marks": 1,
+          "memoText": "Substitution reaction.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-9-5",
+          "label": "9.5",
+          "questionText": "Identify the SPECIFIC TYPE of reaction represented in Reaction 2 (alcohol B + excess concentrated H₂SO₄, heat → alkene A).",
+          "marks": 1,
+          "memoText": "Dehydration (a specific type of elimination).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-9-6",
+          "label": "9.6",
+          "questionText": "Identify the SPECIFIC TYPE of reaction represented in Reaction 3 (haloalkane refluxed in dilute aqueous KOH).",
+          "marks": 1,
+          "memoText": "Hydrolysis (a specific type of substitution).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-9-7",
+          "label": "9.7",
+          "questionText": "Write down the IUPAC name for compound B.",
+          "marks": 3,
+          "memoText": "Ethanol (accept ethan-1-ol).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-9-8",
+          "label": "9.8",
+          "questionText": "Write down the IUPAC name for compound C.",
+          "marks": 3,
+          "memoText": "Bromoethane (accept 1-bromoethane).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-9-9",
+          "label": "9.9",
+          "questionText": "Which one of the compounds B (ethanol) and C (bromoethane) would have the higher boiling point? Fully explain.",
+          "marks": 5,
+          "memoText": "• Compound B (ethanol) has hydrogen bonds between its molecules.\n• Compound C (bromoethane) has only London forces (and/or dipole–dipole interactions).\n• Hydrogen bonds are stronger than London forces.\n• So more energy is needed to overcome the intermolecular forces / separate the molecules in B.\n• Therefore compound B (ethanol) has the higher boiling point.",
+          "topic": "Organic Chemistry (physical properties)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2021-9-10",
+          "label": "9.10",
+          "questionText": "Alcohol B is again heated with a few drops of concentrated H₂SO₄, but this time with the addition of a carboxylic acid. Identify the homologous series of the product that results.",
+          "marks": 2,
+          "memoText": "Esters. (Alcohol + carboxylic acid, acid-catalysed, gives an ester — an esterification reaction.)",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

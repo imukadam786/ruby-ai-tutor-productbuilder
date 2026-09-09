@@ -1,0 +1,287 @@
+{
+  "id": "acc-ieb-p2-nov-2024",
+  "subject": "Accounting IEB",
+  "subjectCode": "accounting-ieb",
+  "paperCode": "P2",
+  "year": 2024,
+  "session": "November",
+  "totalMarks": 100,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Reconciliations (Kalideck)",
+      "totalMarks": 24,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p2-nov-2024-1-1",
+          "label": "1.1",
+          "questionText": "RECONCILIATIONS — KALIDECK (a distributor of print and photocopy paper). One debtor is Exam Paper Printers (EPP). Statement issued by Kalideck to EPP (Acc no. EPP-24), statement date 25 October 2024:\n\nDATE      | TRANSACTION                        | DEBIT   | CREDIT  | BALANCE\nJun 15    | Starting balance for this statement |         |         | 320 000\nJul 3     | Debit order received – thank you    |         | 280 000 | 40 000\nJul 7     | Invoice 773                         | 176 500 |         | 216 500\nJul 28    | Payment received – thank you        |         | 118 000 | 98 500\nAug 2     | Credit note 83                      |         | 23 525  | 74 975\nAug 12    | Payment received – thank you        |         | 21 250  | 53 725\nAug 26    | Payment reversal – incorrect acc.   | 21 250  |         | 74 975\nAug 26    | Administrative penalty fee          | 2 125   |         | 77 100\nSept 1    | EFT received – thank you            |         | 23 375  | 53 725\nOct 6     | Invoice 883                         | 128 500 |         | 182 225\n\nCredit terms: all debts to be settled within 60 days after the date of the statement; 12% p.a. interest is charged on debts 90 days and older, from the date it becomes overdue; an administrative penalty fee is charged on any failed transactions.\n\nPrepare the age analysis on 31 October 2024 using the statement provided. Show all your workings so part-marks may be awarded. Columns: 120+ days | 90+ days | 60+ days | 30+ days | Current.",
+          "marks": 6,
+          "memoText": "AGE ANALYSIS ON 31 OCTOBER 2024 (Do not calculate):\n120+ days: 320 000 − 280 000 (July debit order) = R40 000 ✓\n90+ days: 176 500 (Invoice 773) − 78 000 − 23 525 (Credit note 83) − 21 250 (Aug payment) + 21 250 (payment reversal) − 23 375 (Sept EFT) ✓✓\n60+ days: 2 125 (administrative penalty fee, Aug 26) ✓\n30+ days: (nothing) ✓\nCurrent: 128 500 (Invoice 883, Oct 6) ✓\n\nTeaching point: An age analysis buckets each item by how overdue it is at the analysis date; payments and credit notes are applied to the OLDEST outstanding amounts first, and the payment reversal puts back the amount that was wrongly cleared.",
+          "topic": "Debtors Reconciliation - Age analysis",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-1-2",
+          "label": "1.2",
+          "questionText": "Use the same information as 1.1. Based on the credit terms, calculate the interest amount that should be raised on this statement, and explain why the amount calculated would be displayed in the 'Current' column of the debtors' age analysis.",
+          "marks": 4,
+          "memoText": "Interest: on the amounts 90 days and older (Invoice 773 balance and the penalty fee = R51 600) × 12% × 1/12 = R516 ✓✓✓\n\nWhy in the 'Current' column: the interest is calculated / raised in October (the month of the statement), so it only becomes due in October — it is a current (0–30 day) amount even though it arises on older debt. ✓\n\nTeaching point: Interest is charged on overdue balances, but the interest CHARGE itself is a fresh transaction dated this month, so it sits in the current column of the age analysis.",
+          "topic": "Debtors Reconciliation - Interest on overdue accounts",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-1-3",
+          "label": "1.3",
+          "questionText": "Use the same information as 1.1. The auditor wants to verify credit note 83 (August 2024) and calls Exam Paper Printers directly to ask for proof. Why would the auditor rather do this for verification than just ask the Kalideck bookkeeper?",
+          "marks": 2,
+          "memoText": "✓✓:\n• Verification from an outside / external source is more reliable.\n• The bookkeeper could be wrong, or could be committing fraud and would lie about it.\n\nTeaching point: Independent third-party confirmation is stronger audit evidence than an internal party's own word, especially where that party could have made or concealed the error.",
+          "topic": "Auditing - Third-party verification",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-1-4",
+          "label": "1.4",
+          "questionText": "Use the same information as 1.1. Refer to the transactions on 12 and 26 August (a payment of R21 250 that was reversed because it went into the wrong account, followed by a R2 125 administrative penalty fee).\n\nExplain why the entry for the administrative penalty fee could be deemed allowable / compliant (legal), yet unethical.",
+          "marks": 2,
+          "memoText": "✓ (legal) ✓ (unethical):\n• Legal: when EPP opened their account with Kalideck they were presented with the credit terms — including the penalty fee on failed transactions — and accepted them, so Kalideck is contractually entitled to charge it.\n• Unethical: the payment into the wrong account was an honest error; charging a penalty for that mistake without first giving EPP the chance to rectify it could be seen as unfair / unethical.\n\nTeaching point: An action can be within the letter of an agreed contract (legal) yet still fail a fairness test (unethical) — compliance and ethics are separate standards.",
+          "topic": "Debtors Reconciliation - Legal versus ethical",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-1-5",
+          "label": "1.5",
+          "questionText": "Kalideck has identified ever-increasing fuel prices (for delivering sales to customers) as a challenge. Since they cannot control the fuel price, they must either (a) increase their prices to compensate, or (b) pass it on to customers as a separate delivery fee.\n\nExplain which of these two options will benefit the business more in the long term compared with the other option.",
+          "marks": 4,
+          "memoText": "2 marks for a well-explained choice that compares to the other option; 1 mark for an average explanation or one that does not compare; 0 for no logical explanation. Either choice is acceptable ✓✓✓✓:\n• Charge a separate delivery fee: the selling price of the goods stays the same and the customer pays only for the service of delivery. Simply increasing the price of the goods might drive customers away because the store now looks more expensive overall.\nOR\n• Increase the price of goods: the increase can be offset against a delivery-expense line item, keeping the pricing simple for customers.\n\nTeaching point: Recovering a rising input cost through a transparent, itemised fee protects the headline price and the customer relationship; folding it into the price can make the whole range look uncompetitive.",
+          "topic": "Debtors Reconciliation - Pricing strategy for rising costs",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-1-6",
+          "label": "1.6",
+          "questionText": "CREDITORS — KALIDECK. Statement of account from Mondi Paper SA dated 31 October 2024 shows an outstanding balance of R1 565 835. The Creditor's Ledger of Kalideck shows a balance for Mondi Paper SA of R1 460 795.\n\nErrors and omissions:\n(a) Invoice 3228 for R904 000 was made out by Mondi Paper SA for another business, Kali Enterprises. It incorrectly appeared on Kalideck's statement, and the Kalideck bookkeeper also incorrectly captured it in the Creditor's Journal.\n(b) Credit note 101 for R10 800 was correctly recorded in the Creditor's Ledger but was entered as an invoice on the statement.\n(c) An invoice for goods only ordered on 31 October 2024 for R114 640 already appeared on the statement; Kalideck had not received an invoice yet. The bookkeeper will only record it once the goods are delivered (November 2024).\n(d) The total of the CAJ was overstated by R650.\n(e) Mondi Paper SA usually allows an 8% trade discount on purchases of R300 000 and above. On invoice 825 for R390 000, Kalideck did not take the trade discount into account, but Mondi Paper SA treated it correctly.\n\nComplete the Creditor's Reconciliation for October 2024 (show which entries go into the Creditor's Ledger, which into the Creditor's Reconciliation Statement, and which require no entry).",
+          "marks": 6,
+          "memoText": "CREDITOR'S RECONCILIATION FOR OCTOBER 2024 (Do not calculate the totals):\n\nDetails                              | Creditor's Ledger | Creditor's Reconciliation Statement | No entry\nBalance                              | 1 460 795         | 1 565 835\n(a) Invoice 3228 (belongs to Kali Enterprises) | (904 000) ✓ | (904 000) ✓ | \n(b) Credit note 101 entered as an invoice on the statement (10 800 × 2) |  | (21 600) ✓ | \n(c) Goods only ordered 31 Oct, invoice on statement in error |  | (114 640) ✓ | \n(d) CAJ overstated by R650 |  |  | X ✓ (this is an addition error inside another journal total, not this creditor's account)\n(e) Trade discount on invoice 825 not taken (390 000 × 8%) | (31 200) ✓ | \n\nTeaching point: The supplier's errors go on the Reconciliation Statement side; the business's own errors (invoice captured that is not ours, trade discount omitted) go in the Creditor's Ledger; an addition error in an unrelated journal total requires no entry in this reconciliation.",
+          "topic": "Creditors Reconciliation - Reconciliation statement and ledger",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Company Analysis (Sasol Group Limited)",
+      "totalMarks": 45,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p2-nov-2024-2-1-1",
+          "label": "2.1.1",
+          "questionText": "COMPANY ANALYSIS — SASOL GROUP LIMITED (a global chemicals and energy company; purpose 'innovating for a better world', committed to a triple bottom line of People, Planet and Profit).\n\nGroup Statement of Comprehensive Income (R'million):\n                              | 2023    | 2022\nTurnover (increased by 10,56%)| 133 501 | 120 753\nCost of sales                | (55 194)| (42 556)\nGross profit                  | 78 307  | 78 197\nMark-up percentage achieved  | 141,88% | ?\nNet profit before tax         | 20 678  | 48 055\nNet profit after tax          | 15 453  | 34 771\n\nCalculate the percentage change in cost of sales from 2022 to 2023.",
+          "marks": 3,
+          "memoText": "Percentage change in cost of sales:\n(55 194 − 42 556) ÷ 42 556 × 100 = 12 638 ÷ 42 556 × 100 = 29,70% ✓✓✓\n\nTeaching point: Percentage change = (new − old) ÷ old × 100. Cost of sales rose 29,70% while turnover rose only 10,56% — a warning sign.",
+          "topic": "Company Analysis - Percentage change",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Use the same information as 2.1.1. Calculate the mark-up percentage achieved in 2022 (Gross profit 2022 R78 197m; Cost of sales 2022 R42 556m).",
+          "marks": 2,
+          "memoText": "Mark-up percentage (2022):\n= 78 197 ÷ 42 556 × 100 = 183,75% ✓✓\n\nTeaching point: Mark-up % on cost = gross profit ÷ cost of sales × 100. The mark-up fell from 183,75% (2022) to 141,88% (2023).",
+          "topic": "Company Analysis - Mark-up percentage",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-1-3",
+          "label": "2.1.3",
+          "questionText": "Use the same information as 2.1.1 and 2.1.2. Why should the company be concerned with the change in sales and cost of sales based on the calculations above?",
+          "marks": 3,
+          "memoText": "✓✓✓:\n• Sales (turnover) only increased by 10,56%, whereas cost of sales increased by 29,70%.\n• The mark-up percentage fell by 41,87 percentage points (183,75% → 141,88%).\n• The increase in cost of sales is not being offset by a matching increase in sales, so the mark-up (and gross profit margin) is being eroded.\n\nTeaching point: When costs rise faster than selling prices, the margin shrinks — gross profit barely grew (R78 197m → R78 307m) despite much higher turnover.",
+          "topic": "Company Analysis - Margin erosion",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-2",
+          "label": "2.2",
+          "questionText": "Use the same information as 2.1. Suggest THREE measures Sasol can implement to remedy the issues identified in Question 2.1, keeping in mind that they are mostly a manufacturing enterprise.",
+          "marks": 3,
+          "memoText": "Any THREE ✓✓✓:\n• Find cheaper suppliers to reduce direct material cost (DMC).\n• Introduce automation to reduce direct labour cost (DLC).\n• Implement measures to reduce wastage in production.\n• Control factory overheads (FOH).\n• Achieve economies of scale (produce in larger volumes to lower the cost per unit).\n\nTeaching point: A manufacturer improves its margin by attacking the components of production cost — materials, labour, wastage and overheads — or by spreading fixed costs over more units.",
+          "topic": "Company Analysis - Improving a manufacturer's margin",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-3",
+          "label": "2.3",
+          "questionText": "Other amounts for Sasol: Dividends on ordinary shares 2023 R22 891m, 2022 R10 344m; Number of shares in issue 2023 and 2022 both 288 371 336; Net profit after tax 2022 R34 771m.\n\nCalculate the Earnings per share (EPS) and Dividends per share (DPS) for 2022.",
+          "marks": 4,
+          "memoText": "EPS (2022) = 34 771 000 000 ÷ 288 371 336 = 12 058 cents ≈ R120,58 per share ✓✓\n\nDPS (2022) = 10 344 000 000 ÷ 288 371 336 = 3 587 cents ≈ R35,87 per share ✓✓\n\nTeaching point: EPS = net profit after tax ÷ number of shares; DPS = total ordinary dividends ÷ number of shares. In 2022 Sasol paid out about R35,87 of every R120,58 earned (roughly 30%).",
+          "topic": "Company Analysis - EPS and DPS",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-4-1",
+          "label": "2.4.1",
+          "questionText": "For 2023: EPS R53,59; DPS R79,38. By referring to the EPS, DPS and the effect on Retained Income, comment on the company's dividend policy for 2023.",
+          "marks": 3,
+          "memoText": "✓✓✓:\n• Of the R53,59 earned per share, R79,38 was distributed as dividends.\n• That is R25,79 more per share than was earned — 148,12% of profits distributed.\n• The extra portion had to be funded from retained income built up in previous years, so Retained Income decreased.\n\nTeaching point: Paying a dividend larger than earnings is unsustainable — it draws down accumulated reserves rather than being covered by the year's profit.",
+          "topic": "Company Analysis - Dividend policy",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-4-2",
+          "label": "2.4.2",
+          "questionText": "Use the same information as 2.4.1. Why would SASOL do this (pay out more in dividends than it earned in 2023)?",
+          "marks": 2,
+          "memoText": "✓✓:\n• In 2022 Sasol only distributed about 29,75% of profits, so it is rewarding shareholders this year with a bigger dividend.\nOR\n• With profits and earnings having fallen sharply in 2023, the directors have tried to keep shareholders happy by maintaining a high dividend.\n\nTeaching point: Directors sometimes 'smooth' dividends — paying out of reserves in a weak year to protect shareholder confidence and the share price.",
+          "topic": "Company Analysis - Dividend smoothing",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-5",
+          "label": "2.5",
+          "questionText": "Return on average Shareholders' Equity 2023: 100,46% (2022: 171,86%). RSA Retail Savings Bonds earn 10,25% p.a. if invested for 5 years.\n\nYour uncle owns SASOL shares. He claims they lost roughly 70% of their value over the last financial year and wants to sell them and invest in RSA Retail Savings Bonds instead. Evaluate why he should KEEP his SASOL shares and not invest in RSA Retail Savings Bonds.",
+          "marks": 4,
+          "memoText": "✓✓✓✓:\n• Even though the return on shareholders' equity decreased, a 100,46% return on investment is exceptional.\n• RSA Retail Savings Bonds only offer a 10,25% return.\n• Selling would be foolish because he would lose out on roughly 90,21% of return (100,46% − 10,25%).\n• He also receives dividends on the shares.\n(Max 1 mark if the answer instead argues he SHOULD sell: e.g. 'if SASOL keeps losing 70% of its value, in about 3 years there will be no value left, versus the 10,25% assured by RSA Retail Bonds'.)\n\nTeaching point: Compare the return actually being earned (ROSHE) plus dividends against the risk-free alternative; a fall in the ratio does not by itself justify switching to a much lower fixed return.",
+          "topic": "Company Analysis - Investment evaluation",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-6",
+          "label": "2.6",
+          "questionText": "For 2023: Total liabilities R95 290m (30% are current liabilities); Total shareholders' equity R12 533m.\n\nCalculate the Debt-to-Equity ratio for 2023.",
+          "marks": 3,
+          "memoText": "Debt-to-Equity ratio (2023):\nNon-current (long-term) liabilities = 95 290 × (100 − 30)/100 = 95 290 × 0,7 = R66 703m\n= 66 703 : 12 533 ✓✓\n= 5,32 : 1 ✓\n\nTeaching point: Debt-to-Equity = non-current liabilities : shareholders' equity. Only the long-term (70%) portion of total liabilities is used; at 5,32 : 1 the company owes over five times its equity.",
+          "topic": "Company Analysis - Debt-to-Equity ratio",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-7",
+          "label": "2.7",
+          "questionText": "Use the same information as 2.6. Debt-to-Equity ratio 2022 was 3,62 : 1; 2023 is 5,32 : 1 (from 2.6). By analysing the Debt to Equity of the company, comment on the degree of financial risk.",
+          "marks": 3,
+          "memoText": "✓✓✓:\n• The ratio increased by 1,7 : 1 (from 3,62 : 1 to 5,32 : 1).\n• Sasol now owes almost 5½ times what it owns.\n• The company would not be able to cover its long-term liabilities with its equity.\n• This is extremely high financial risk (highly geared).\n\nTeaching point: A rising debt-to-equity ratio means growing reliance on borrowed funds and greater exposure if earnings fall or interest rates rise.",
+          "topic": "Company Analysis - Financial risk / gearing",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-8",
+          "label": "2.8",
+          "questionText": "Use the same information as 2.6. Return on average Capital Employed (ROCE) 2023 is 26,40%; the average interest rate on long-term borrowings is 15,2%.\n\nEvaluate, with reference to risk and gearing, why SASOL would continue to raise loans as opposed to issuing more shares. Use figures / financial indicators to substantiate your reasoning.",
+          "marks": 4,
+          "memoText": "✓✓✓✓:\n• Return on Capital Employed is 26,4%.\n• The average interest rate on borrowings is 15,2%.\n• The company is positively geared — it earns more on the borrowed funds (26,4%) than it pays in interest (15,2%), so borrowing increases the return to shareholders despite adding risk.\n• Loans are finite (they end when repaid), whereas dividends to shareholders continue indefinitely; issuing shares would also dilute the current shareholding and add a permanent dividend obligation.\n\nTeaching point: Positive gearing (ROCE > interest rate) makes debt the cheaper option; a share issue is permanent, dilutive and carries an open-ended dividend expectation.",
+          "topic": "Company Analysis - Loans versus share issue",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-9",
+          "label": "2.9",
+          "questionText": "Sasol's JSE closing price on the last day of the financial year (June 2023) was R233,26, despite a steep decline in the share price since June 2022. Net asset value (NAV) 2023 is R43,46.\n\nAnalyse why a few shareholders would still be satisfied with their investment at the close of trade on the JSE at the end of the financial year, despite the decrease in the share price. Quote figures / financial indicators OTHER THAN the Return on Shareholders' Equity.",
+          "marks": 3,
+          "memoText": "✓✓✓:\n• The JSE closing price is R233,26 — despite the steep decline since June 2022, it is still well above the net asset value of R43,46.\n• The trading price is about 5 times higher than the book value, so the shares are still in high demand.\n• (Anyone who bought in 2022 at a much higher price and sold now would NOT be happy — so 'a few' rather than all shareholders.)\n\nTeaching point: A share trading far above its NAV shows the market still values the company well above its book worth; long-standing holders who bought cheaply remain in a strong position even after a price fall.",
+          "topic": "Company Analysis - Market price versus NAV",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-10",
+          "label": "2.10",
+          "questionText": "Liquidity indicators for Sasol: Average debtors' collection period 2023 69,3 days (2022 57,7 days); Average creditors payment period 2023 63,9 days (2022 72,1 days); Average stockholding period 2023 94,6 days (2022 134,4 days).\n\nUsing the liquidity indicators provided, critically analyse and evaluate the liquidity of the company. Compare and analyse 2022 and 2023, and provide suggestions on how they can improve.",
+          "marks": 5,
+          "memoText": "Compare and analyse ✓✓✓:\n• Debtors' collection period increased by 11,6 days (57,7 → 69,3) — debtors are paying more slowly.\n• Creditors payment period decreased by 8,2 days (72,1 → 63,9) — Sasol is paying suppliers faster.\n• Sasol now pays its creditors (63,9 days) BEFORE it collects from its debtors (69,3 days) — a 5,4-day wait/gap that creates negative cash flow in the liquidity cycle.\n• Stockholding period decreased by 39,8 days (134,4 → 94,6) — stock is turning over faster in 2023 (probably linked to the lower mark-up %).\n\nSuggestions to improve ✓✓:\n• Bring debtors back in line to pay faster (incentives such as settlement discounts, penalties such as interest).\n• Negotiate longer payment terms with creditors so debtors settle before creditors are paid.\n• Reduce stock levels further.\n\nTeaching point: A healthy liquidity cycle collects from debtors BEFORE paying creditors; when the order reverses, the business funds the gap from its own cash.",
+          "topic": "Company Analysis - Liquidity cycle analysis",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-2-11",
+          "label": "2.11",
+          "questionText": "Article E (Mail & Guardian): 'Sasol in the dock for environmental degradation at Secunda, polluting the Vaal River' — Sasol has been ordered to appear in court to face several charges of environmental degradation, including the unlawful disposal of waste and the negligent discharge of contaminated water into the Vaal River at its Secunda operations.\n\nWhy would article E concern you as a shareholder? Provide THREE reasons.",
+          "marks": 3,
+          "memoText": "Any THREE ✓✓✓ (each touching a different angle):\n• Share price: pollution allegations are bad publicity that could push the JSE share price down further (reputational damage).\n• Earnings / dividends: if found guilty, heavy fines would reduce earnings and therefore dividends (lower EPS → lower DPS); fines also hurt cash flow and profit.\n• Governance / ethics: it goes against Sasol's stated triple bottom line (Planet) and the King Code; poor governance and the harm to people and animals raise concerns about how the company is being run.\n\nTeaching point: An environmental court case threatens a shareholder on three fronts — the share price (sentiment), future earnings and dividends (fines), and confidence in the company's governance.",
+          "topic": "Company Analysis - Shareholder concerns / ESG",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Budgets (SDC Appliance Traders)",
+      "totalMarks": 31,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p2-nov-2024-3-1-1",
+          "label": "3.1.1",
+          "questionText": "BUDGETS — SDC APPLIANCE TRADERS (owned by Stavros; sells home appliances at a mark-up of 60% on cost; up to 40% cheaper than competitors).\n\nPartially completed creditor's payment schedule for February 2025:\nSales month  | Credit purchases | January 2025 | February 2025\nDecember 2024| R386 100         | R77 220      | \nJanuary 2025 | ? (see 3.1.2)    | ?            | Do not calculate\nFebruary 2025| R347 100         |              | R263 796\n\nActual/budgeted total sales: November 2024 R1 075 200; December 2024 R950 400 (cost of sales R594 000); January 2025 R792 000; February 2025 ?.\nStock is replenished on a fixed-based stock level. A certain percentage of purchases are cash.\n\nCalculate the percentage that credit purchases make up of total purchases.",
+          "marks": 2,
+          "memoText": "Percentage of purchases that are on credit:\nDecember total purchases = cost of sales = R594 000 (fixed stock level).\nCredit purchases December = R386 100.\n386 100 ÷ 594 000 × 100 = 65% ✓✓\n\nTeaching point: On a fixed stock level, purchases each month equal cost of sales; the credit portion divided by that total gives the percentage bought on credit.",
+          "topic": "Budgets - Percentage of credit purchases",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-3-1-2",
+          "label": "3.1.2",
+          "questionText": "Use the same information as 3.1.1. January 2025 total sales are R792 000; mark-up is 60% on cost; a further R65 000 of washing machines will be donated in January 2025; 65% of purchases are on credit (from 3.1.1).\n\nCalculate the amount of total CREDIT purchases for January 2025.",
+          "marks": 3,
+          "memoText": "Total purchases for January 2025:\nCost of sales = 792 000 × 100/160 = R495 000\n+ donation of washing machines (at cost) R65 000 = R560 000 total purchases\nCredit purchases = 560 000 × 65% = R364 000 ✓✓✓\n\nTeaching point: On a fixed stock level, purchases = cost of sales + any stock given away (at cost); then apply the credit-purchase percentage.",
+          "topic": "Budgets - Credit purchases calculation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-3-1-3",
+          "label": "3.1.3",
+          "questionText": "Use the same information as 3.1.1. February 2025 credit purchases are R347 100. Creditors are paid: 80% in the month of purchase to receive a 5% discount; 20% in the month following purchase.\n\nCalculate the rand value of discount received in February 2025.",
+          "marks": 2,
+          "memoText": "Discount received in February 2025:\n347 100 × 80% × 5% = R13 884 ✓✓\n\nTeaching point: The settlement discount applies only to the 80% of February purchases paid in February; discount = that amount × the discount rate.",
+          "topic": "Budgets - Discount received",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-3-2",
+          "label": "3.2",
+          "questionText": "Use the same information as 3.1.1. Extract from the Cash Budget for January and February 2025:\n• Interest on fixed deposit: January R3 600; February R3 150. Interest of 4,5% p.a. is received at the end of each month. A portion of the fixed deposit matures on 31 January 2025 but is received on 1 February 2025.\n• A new vehicle is purchased on 1 January 2025: a 20% deposit is paid on that date; the remaining amount is paid in equal instalments over 36 months, starting February 2025 (February instalment R24 000).\n• Salaries and wages: February R146 610. Two new employees are appointed from 1 February 2025 at R19 500 each per month; the other employees receive a 5,5% increase from 1 February 2025.\n\nCalculate the missing figures A to D in the Cash Budget:\nA = Fixed deposit maturing (February 2025)\nB = Cash purchases of stock (February 2025)\nC = Salaries and wages (January 2025)\nD = Purchase of vehicle: deposit (January 2025)",
+          "marks": 8,
+          "memoText": "A (Fixed deposit maturing, February 2025): the drop in monthly interest (3 600 − 3 150 = R450) is the interest lost on the matured portion. R450 = matured amount × 4,5% × 1/12, so matured amount = 450 × 100/4,5 × 12 = R120 000 ✓✓\n\nB (Cash purchases of stock, February 2025): total purchases = 347 100 ÷ 0,65 = R534 000 (or 347 100 × 35/65 = 186 900 cash portion). Cash purchases = 534 000 × 0,35 = R186 900 ✓✓\n\nC (Salaries and wages, January 2025): February total R146 610 includes the two new employees (2 × R19 500 = R39 000) and the 5,5% increase. So the January figure = (146 610 − 39 000) ÷ 1,055 = 107 610 ÷ 1,055 = R102 000 ✓✓\n\nD (Purchase of vehicle: deposit, January 2025): the R24 000 monthly instalment over 36 months = R864 000 for the 80% financed portion; total price = 864 000 × 100/80 = R1 080 000; deposit = 1 080 000 × 20% = R216 000 ✓✓ (or 864 000 × 20/80).\n\nTeaching point: Work backwards from a known figure — the interest drop reveals the matured deposit; the total instalments reveal the financed portion and hence the deposit; the February salary bill, stripped of the new staff and the raise, gives January's.",
+          "topic": "Budgets - Missing figures in a cash budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-3-3",
+          "label": "3.3",
+          "questionText": "SDC Appliance Traders wants to increase its gross profit without losing customers. Provide ONE suggestion for how they could do this without additional costs such as advertising. They have already tried finding cheaper suppliers, unsuccessfully.",
+          "marks": 2,
+          "memoText": "✓✓: Because SDC is up to 40% cheaper than its competitors, it has room to increase its mark-up percentage and still remain cheaper than the competition — so it can raise prices modestly without losing customers.\n\nTeaching point: A business priced well below the market has pricing headroom — a small mark-up increase lifts gross profit while the price stays competitive.",
+          "topic": "Budgets - Increasing gross profit",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-3-4",
+          "label": "3.4",
+          "questionText": "Stavros is concerned about the cash situation of the business — taking out a loan did not solve the cash-flow problem. Apart from borrowing further funds or asking Stavros to increase his capital, explain FOUR ways in which the business can improve its cash-flow position for the budgeted period January 2025 to February 2025.",
+          "marks": 4,
+          "memoText": "Any FOUR ✓✓✓✓:\n• Renegotiate with debtors to collect in the same month as the sale.\n• Do not re-invest the maturing fixed deposit.\n• Renegotiate with creditors to extend the payment period.\n• Lease a vehicle rather than buy one.\n• Ask the owner to reduce his drawings.\n• Do not donate stock at this time.\n• Do not employ the two new staff members yet.\n\nTeaching point: Cash flow improves by speeding up inflows (debtors), slowing outflows (creditors, drawings), and postponing discretionary spending (donations, new staff, buying assets outright).",
+          "topic": "Budgets - Improving cash flow",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-3-5",
+          "label": "3.5",
+          "questionText": "Stavros has found that his biggest stock losses in 2024 were due to technological advances and damages when shipping / delivering. How can he possibly reduce these losses in the year to come?",
+          "marks": 4,
+          "memoText": "✓✓ (technological advances) ✓✓ (transport damages):\n• Technological advances: buy smaller quantities so that when newer models come out he is not left holding obsolete old stock.\n• Transport damages: use stronger / better wrapping material; train delivery staff; investigate better / more reliable shipping companies; take out insurance against damage in transit.\n\nTeaching point: Obsolescence risk is managed by holding less stock and turning it faster; transit-damage risk is managed by better packaging, handling, carrier selection and insurance.",
+          "topic": "Budgets - Reducing stock losses",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2024-3-6",
+          "label": "3.6",
+          "questionText": "Stavros wants to introduce a rent-to-own scheme. His advertisement reads: 'RENT-TO-OWN YOUR OWN APPLIANCE — Rent an appliance for a fixed contract of 24 months and own it thereafter. Terms and conditions: (1) An additional 8% (once off) will be added onto the sales price upon commencement of the agreement. (2) Two free maintenance call-outs per year included over the duration of the agreement.'\n\nCritically evaluate the financial viability of this idea by breaking down the terms and conditions of the advertisement.",
+          "marks": 6,
+          "memoText": "Criticism of term (1) — the once-off 8% ✓✓✓:\n• 8% spread over 24 months equates to about 4% p.a., which is lower than inflation and lower than interest (prime) rates — the business is effectively lending appliances at a below-market return.\n• Current debtors settle in full in the month after the sale, versus 24 months under rent-to-own — a huge extension of the cash-collection period.\n• Greater risk of bad debts (currently bad debts are simply written off; here the exposure lasts two years).\n• If the contract is violated and the appliance repossessed, it will be sold second-hand at a reduced price, so the business will probably lose money.\n\nCriticism of term (2) — two free maintenance call-outs ✓✓✓:\n• Wear-and-tear parts and the technician's fuel are at the expense of the business, as it is advertised as a free service.\n• This expense must also be covered by the once-off 8%, so the note is likely to cause more losses than gains.\n• The note is vague — it does not say whether spare parts are included, or set any limit on how far the business will travel for repairs.\n\nTeaching point: A rent-to-own scheme only works financially if the mark-up added covers the time value of money over the full term, the bad-debt and repossession risk, AND the cost of the bundled services — an 8% once-off charge does none of these adequately.",
+          "topic": "Budgets - Evaluating a rent-to-own scheme",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

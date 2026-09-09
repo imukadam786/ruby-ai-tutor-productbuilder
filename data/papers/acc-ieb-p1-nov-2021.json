@@ -1,0 +1,231 @@
+{
+  "id": "acc-ieb-p1-nov-2021",
+  "subject": "Accounting IEB",
+  "subjectCode": "accounting-ieb",
+  "paperCode": "P1",
+  "year": 2021,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Inventory Systems & VAT (C&C Sound)",
+      "totalMarks": 32,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2021-1-1",
+          "label": "1.1",
+          "questionText": "INVENTORY SYSTEMS — C&C SOUND\n\nChloë & Cayley own C&C Sound, which sells earpods and speakers. They use the periodic inventory system for all stock. The financial year ends on 31 October 2021. Ignore VAT for the inventory section.\n\nEARPODS — valued using the WEIGHTED AVERAGE method. Note: an earpod unit is a set of 2 earpods (left and right).\n\nStock records for the earpods during the year:\n                                  | Number of units | Unit cost | Total cost\nOpening stock (1 November 2020)    |             400 |      R325 | R130 000\nPurchases during the year          |           1 500 |           | R416 000\n  December 2020                    |             800 |      R250 | R200 000\n  March 2021                       |             500 |      R300 | R150 000\n  July 2021                        |             200 |      R330 | R66 000\n\nAdditional information:\n(a) 60 of the earpod units purchased in December were returned to the supplier as they did not meet the quality specifications.\n(b) There were 176 units on hand at the end of the financial year.\n(c) Carriage on purchases amounted to R11 800 for the year.\n(d) They sold 1 630 units during the year at R525 each.\n\nDetermine the weighted average cost of each earpod unit.",
+          "marks": 4,
+          "memoText": "Weighted average cost per earpod unit:\n\n(130 000 + 416 000 − 15 000 + 11 800) ÷ (400 + 1 500 − 60)\n= 542 800 ÷ 1 840\n= R295,00 per unit ✓✓✓✓\n\nMarks: opening + purchases in the numerator ✓; less December returns 60 × R250 = R15 000 ✓; add carriage on purchases R11 800 ✓; divide by net units available 1 840 to get R295,00 ✓ (Rands ÷ units).\n\n*416 000 = 200 000 + 150 000 + 66 000 (the three purchase lots).\n\nTeaching point: Under the weighted average method the cost per unit is total cost of goods available for sale (opening stock + net purchases + carriage on purchases) divided by the total number of units available. Purchase returns must be removed from BOTH the Rand total and the unit count before dividing.",
+          "topic": "Inventory Systems - Weighted Average valuation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-1-2",
+          "label": "1.2",
+          "questionText": "EARPODS (continued) — use the same information as 1.1 and the weighted average cost of R295,00 per unit calculated there.\n\nUnits available for the year: 400 (opening) + 1 500 (purchases) − 60 (returns) = 1 840 units.\nUnits sold during the year: 1 630. Units on hand at year end (physical count): 176.\n\nThe owners are aware that some earpods have been stolen during the year. Determine the rand value of the total theft that occurred during the year.",
+          "marks": 4,
+          "memoText": "Missing (stolen) units:\n1 840 (available) − 1 630 (sold) − 176 (on hand) = 34 units short ✓✓✓\n34 × R295,00 (from 1.1) = R10 030,00 ✓ (units × Rands)\n\nTeaching point: In a periodic system a stock loss is found by comparing the units that SHOULD be on hand (available − sold) with the units ACTUALLY counted. The shortfall, valued at the cost price per unit, is the rand value of the loss.",
+          "topic": "Inventory Systems - Stock loss / theft calculation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-1-3",
+          "label": "1.3",
+          "questionText": "The owners have determined that the security cameras are ineffective in stopping the theft of earpods.\n\n(a) Provide ONE plausible alternative internal control they could implement to reduce the theft of stock.\n(b) Explain ONE factor they should consider before selecting this control.",
+          "marks": 4,
+          "memoText": "(a) Control (any ONE plausible preventative control, 2 marks) ✓✓:\n• Use existing staff (e.g. Covid entrance controllers) to check bags and till slips at the exit.\n• Monitor the cameras live rather than only reviewing footage afterwards.\n• Install an affordable electronic tagging system on the stock.\nAccept any reasonable preventative control. Do NOT accept 'perform a stock take' (that detects loss, it does not prevent it).\n\n(b) Factor to consider (2 marks) ✓✓:\n• Favourable cost-benefit — the control must not cost more than the value of the loss it prevents (their answer in 1.2, e.g. the salary of the person doing bag checks).\n• Will it actually be effective, and will it be affordable?\n\nTeaching point: A new internal control is only worthwhile when its cost is less than the loss it prevents (cost-benefit principle) and when it genuinely addresses the weakness identified.",
+          "topic": "Internal Control - Evaluating controls over inventory",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-1-4",
+          "label": "1.4",
+          "questionText": "Explain to the owners why the Weighted Average method might be better suited than a method such as FIFO for valuing their stock of earpods.",
+          "marks": 2,
+          "memoText": "Any ONE valid reason (2 marks) ✓✓:\n• Earpods are a non-perishable product, so there is no need to track and sell the oldest units first.\n• Earpods do not go out of style within a year, so the order in which they are sold does not matter.\n• Accept reasonable related alternatives, e.g. the purchase price fluctuates only slightly, so an averaged cost is representative.\nMust be an indication that earpods are NOT a 'batch-type' / perishable / fashion product — do not accept a generic advantage of weighted average with no link to the product.\n\nTeaching point: Weighted average suits homogeneous, non-perishable goods bought at fairly stable prices; FIFO suits perishable or fast-changing-price goods where the physical flow really is oldest-first.",
+          "topic": "Inventory Systems - Choosing a valuation method",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-1-5",
+          "label": "1.5",
+          "questionText": "SPEAKERS — valued using the FIRST IN FIRST OUT (FIFO) method.\n\nStock records for the speakers during the year:\n                                  | Number of units | Unit cost | Total cost\nOpening stock (1 November 2020)    |             150 |      R700 | R105 000\nPurchases during the year          |           1 160 |           | R755 000\n  January 2021                     |             400 |      R650 | R260 000\n  May 2021                         |             500 |      R600 | R300 000\n  September 2021                   |             260 |      R750 | R195 000\n\nAdditional information:\n(a) There is no carriage on purchases (orders over R100 000 are delivered free).\n(b) On 1 June 2021 they returned 50 speakers purchased in May 2021 as they were faulty.\n(c) Total sales of 1 130 speakers for the year amounted to R2 373 000.\n(d) Closing stock amounts to 130 speakers.\n\nCalculate the total cost of sales of the speakers sold during the year.",
+          "marks": 9,
+          "memoText": "FIFO cost of sales (1 130 units sold), working oldest units first:\n150 units from opening stock × R700 = R105 000 ✓✓\n400 units from January × R650 = R260 000 ✓✓\n450 units from May (500 − 50 returned) × R600 = R270 000 ✓✓\n130 units from September × R750 = R97 500 ✓✓\nTotal units: 150 + 400 + 450 + 130 = 1 130 ✓\nTotal cost of sales = 105 000 + 260 000 + 270 000 + 97 500 = R732 500\n\nAccept the periodic method:\nCost of goods available = 105 000 + 755 000 = 860 000\nLess May returns 50 × R600 = (30 000)\nLess closing stock 130 × R750 = (97 500)\nCost of sales = 860 000 − 30 000 − 97 500 = R732 500\n(Note: 500 × R600 = R300 000 for the May lot is not a foreign entry.)\n\nTeaching point: Under FIFO the units sold are assumed to be the earliest purchased, so cost of sales is built up from the oldest layers; the newest layers (here, September speakers) make up the closing stock.",
+          "topic": "Inventory Systems - FIFO cost of sales",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-1-6",
+          "label": "1.6",
+          "questionText": "VAT — C&C SOUND. VAT is calculated at 15%.\n\nSelected transactions involving VAT for the year ending 31 October 2021:\n1. Sold stock that had a selling price of R39 200 exclusive (R45 080 inclusive).\n2. A debtor who owed R7 705 was declared insolvent, and her account must be written off.\n3. Purchased goods on credit that cost R15 200 exclusive; this was before a 5% trade discount was granted.\n\nFor EACH transaction, calculate the VAT amount and indicate whether it increases or decreases the amount owing to SARS.",
+          "marks": 9,
+          "memoText": "Transaction 1: 45 080 − 39 200 = R5 880 ✓✓ — INCREASES the amount owing to SARS (additional output VAT) ✓\n\nTransaction 2: 7 705 × 15/115 = R1 005 ✓✓ — DECREASES the amount owing to SARS (output VAT reversed on the bad debt written off) ✓\n\nTransaction 3: (15 200 − 5%) = 14 440 × 15/100 = R2 166 ✓✓ — DECREASES the amount owing to SARS (additional input VAT) ✓\nOR: 15 200 × 115/100 = 17 480, less 5% = 16 606 × 15/115 = R2 166 (both the discount and the VAT must be accounted for). No mark is awarded if VAT is not adjusted for the trade discount.\n\nTeaching point: Output VAT on sales increases what the business owes SARS; input VAT on purchases (and output VAT reversed on a bad debt) decreases it. Trade discount reduces the VAT-able amount, so VAT is always calculated on the price AFTER trade discount.",
+          "topic": "VAT - Output and input VAT on transactions",
+          "type": "calculation"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Company Financial Statements (Lesedi Limited)",
+      "totalMarks": 61,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2021-2-1",
+          "label": "2.1",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — LESEDI LIMITED\n\nLesedi Limited is a listed company with an authorised share capital of 7 000 000 ordinary shares. It supplies educational equipment and materials to schools and universities and uses a standard mark-up of 75% on cost at all times. Financial year ended 28 February 2021.\n\nExtracted balances on 1 March 2020:\n• Ordinary share capital (4 500 000 shares): R10 800 000\n• Retained income: R3 780 000\n• Consumable stores on hand (Stationery): R1 300\n• Deposit: Rates & Taxes: R2 970\n\nExtracted balances/totals from the Pre-adjustment Trial Balance for the year ended 28 February 2021:\n• Debtors control: R139 250\n• Provision for bad debts: R6 150\n• Trading stock: R865 300\n• Bank: R1 235 700\n• SARS: Income tax: R419 300 (dr)\n• Creditors control: R221 300\n• Sales: R4 450 000\n• Cost of sales: R2 400 000\n• Debtors' allowances: R12 250\n• Interest expense: R24 300\n• Commission income: R30 100\n• Rent income: R234 850\n• Directors' fees (per trial balance): R100 000\n• Stationery (per trial balance): R18 360\n• Packing material (per trial balance): R72 400\n\nAdjustments and additional information:\n1. An amount of R2 750 is still owing to the business for commission income.\n2. A debtor returned stock in good condition. A credit note was issued for R10 640; this was AFTER a 5% trade discount had been allowed on the original sale.\n3. Provision for bad debts must be adjusted to R5 230.\n4. There are three directors, each earning an annual director's fee of R60 000. One director donated goods that cost R20 000 to her child's school; this must be offset against her director's fees and has not been recorded. Not all fees have been paid.\n5. Physical stock count: Trading stock on hand R841 900 (a box of classroom materials valued at R2 500, already correctly recorded as a sale, was awaiting collection but was incorrectly included in the count). Stationery on hand R1 210 (the bookkeeper forgot to reverse the opening stationery on hand of R1 300).\n6. Packing material worth R6 700 was ordered, paid for and recorded, but never delivered. The supplier agreed to refund 5% on 5 March 2021 as a penalty.\n7. An additional R750 must be added to the Deposit: Rates & Taxes. It was paid but incorrectly recorded as R570.\n8. Rent was increased by R1 225 on 1 October 2020. Rent is received one month in advance.\n9. Income tax is charged at 30%.\n\nComplete the extract of the Statement of Comprehensive Income (Income Statement) for the year ended 28 February 2021, including all additional operating incomes and expenses arising from the adjustments.",
+          "marks": 30,
+          "memoText": "STATEMENT OF COMPREHENSIVE INCOME EXTRACT — LESEDI LIMITED (year ended 28 February 2021)\n\nSales: 4 450 000 − 12 250 (debtors' allowances per TB) − 10 640 (goods returned, adj 2) = R4 427 110 ✓✓✓\nCost of sales: 2 400 000 − 6 400 (cost of goods returned) = (R2 393 600) ✓✓\n  Working (adj 2): credit note R10 640 is AFTER 5% trade discount, so original selling price = 10 640 × 100/95 = R11 200; cost = 11 200 × 100/175 = R6 400.\nGross profit: DO NOT CALCULATE (extract).\n\nOperating incomes:\n• Commission income: 30 100 + 2 750 (accrued, adj 1) = R32 850 ✓✓\n• Rent income: 234 850 − 18 725 (received in advance, adj 8) = R216 125 ✓✓\n  Working: let old monthly rent = x. Mar–Sep (7 months) at x + Oct–Feb (5 months) at (x + 1 225); one month received in advance. 234 850 = 7x + 6(x + 1 225) → 234 850 − 7 350 = 13x → x = 17 500; rent received in advance = x + 1 225 = R18 725.\n• Provision for bad debts adjustment: 6 150 − 5 230 = R920 income (decrease in provision) ✓✓\n\nOperating expenses:\n• Stationery: 18 360 + 1 300 (opening on hand not reversed) − 1 210 (closing on hand) = R18 450 ✓✓✓\n• Packing material: 72 400 − 6 700 (not received, adj 6) = R65 700 ✓✓\n• Directors' fees: 100 000 + 80 000 = R180 000 ✓✓\n  Working: full annual fees = 3 × R60 000 = R180 000; only R100 000 recorded, so R80 000 is still accrued (the R20 000 donation is offset against one director's fee but the fee expense is still R60 000 for her).\n• Trading stock deficit: R12 300 expense ✓✓\n  Working: adjusted book stock = 865 300 + 6 400 (see cost of sales) − 20 000 (…) ; physical = 841 900 − 2 500 = 839 400; deficit = 851 700 − 839 400 = R12 300.\n\nNet profit before taxation: R1 842 200 ✓ (operation)\nTaxation for the year: 1 289 540 × 30/70 = (R552 660) ✓✓\nNet profit after taxation: R1 289 540 ✓\n\nPENALTIES: −1 for foreign items (max −2); −1 presentation.\n\nTeaching point: In an income statement extract you adjust each nominal account to the amount actually EARNED or INCURRED in the year — accrued income is added, income received in advance is removed, opening/closing consumables adjust the expense, and a DECREASE in the provision for bad debts is income.",
+          "topic": "Company Financial Statements - Statement of Comprehensive Income",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-2-2-1",
+          "label": "2.2.1",
+          "questionText": "Use the same information as 2.1. Complete the note for Trade and Other Receivables as at 28 February 2021.\n\nRelevant balances: Debtors control (per TB) R139 250; Provision for bad debts adjusted to R5 230; Commission income accrued R2 750 plus a further R335 (see below); Prepaid packing-material refund R6 700 less R335; Deposit: Rates & Taxes R2 970 + R180 correction (R750 paid, recorded as R570).",
+          "marks": 10,
+          "memoText": "TRADE AND OTHER RECEIVABLES NOTE — 28 February 2021 (Do not total):\n\nNet trade debtors: DO NOT CALCULATE\n• Debtors control: 139 250 − 10 640 (goods returned by debtor, adj 2) = R128 610 ✓✓\n• Less: Provision for bad debts: (R5 230) ✓ (adjusted balance)\n\n• Accrued income (commission): 2 750 + 335 = R3 085 ✓✓\n  (the R335 is the 5% penalty refund receivable from the packing-material supplier, acceptable here or under prepaid expenses)\n• Prepaid expenses (packing material): 6 700 − 335 = R6 365 ✓✓\n• Deposit: Rates & Taxes: 2 970 + 180 (750 − 570 correction) = R3 150 ✓✓\n\nTeaching point: Trade and other receivables groups everything the business is owed at year end — net trade debtors (control less provision), accrued (receivable) income, prepaid expenses, and deposits paid.",
+          "topic": "Company Financial Statements - Trade and Other Receivables note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-2-2-2",
+          "label": "2.2.2",
+          "questionText": "Use the same information as 2.1. Complete the Ordinary Share Capital note as at 28 February 2021.\n\nShare transactions during the year:\n• 1 March 2020: 4 500 000 shares in issue (R10 800 000).\n• 30 June 2020: issued 500 000 shares at R2,80 each.\n• 3 January 2021: repurchased 25 000 shares at R2,95 each from a deceased estate.\n\nThe weighted average share price before the repurchase is (10 800 000 + 1 400 000) ÷ (4 500 000 + 500 000) = R2,44.",
+          "marks": 6,
+          "memoText": "ORDINARY SHARE CAPITAL NOTE — 28 February 2021:\n\n4 500 000 | Ordinary shares at the beginning of the year | R10 800 000\n+ 500 000 | Shares issued at 280 cents | R1 400 000 ✓✓\n− 25 000 | Shares repurchased at 244 cents (average price) | (R61 000) ✓✓\n= 4 975 000 | Ordinary shares at the end of the year | DO NOT CALCULATE ✓✓\n\nWorking (repurchase): average issue price = (10 800 000 + 1 400 000) ÷ (4 500 000 + 500 000) = R2,44 per share; 25 000 × R2,44 = R61 000 removed from share capital. The excess paid (25 000 × (2,95 − 2,44) = R12 750) is charged against retained income — see 2.2.3.\n\nTeaching point: When a company buys back its own shares, share capital is reduced by the ORIGINAL average issue price of those shares, not by the price paid; any premium paid above the average price is a distribution taken from retained income.",
+          "topic": "Company Financial Statements - Ordinary Share Capital note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-2-2-3",
+          "label": "2.2.3",
+          "questionText": "Use the same information as 2.1 and 2.2.2. Complete the Retained Income / Accumulated Profits note as at 28 February 2021.\n\n• Balance at the beginning of the year: R3 780 000.\n• Net profit after tax (from 2.1): R1 289 540.\n• 25 000 shares were repurchased at R2,95 each; the average share price is R2,44 (see 2.2.2).\n• Interim dividends paid on 1 September 2020: R425 000.\n• 28 February 2021: a final dividend of 14 cents per share was declared on the 4 975 000 shares in issue on that date.",
+          "marks": 9,
+          "memoText": "RETAINED INCOME NOTE — 28 February 2021:\n\nBalance at the beginning of the year: R3 780 000\n+ Net profit after tax: R1 289 540 ✓ (from 2.1)\n− Repurchase of 25 000 shares at (2,95 − 2,44) cents each above average: (R12 750) ✓✓\n− Ordinary share dividends: (R1 121 500)\n   • Paid (interim): (R425 000) ✓\n   • Recommended (final): 4 975 000 (from 2.2.2) × R0,14 = (R696 500) ✓✓✓\nBalance at the end of the year: DO NOT CALCULATE\n\nTeaching point: Retained income increases by net profit after tax and decreases by dividends (both paid and declared) and by any premium paid on a share buy-back above the average issue price.",
+          "topic": "Company Financial Statements - Retained Income note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-2-2-4",
+          "label": "2.2.4",
+          "questionText": "Use the same information as 2.1. Complete the note for Trade and Other Payables as at 28 February 2021.\n\nRelevant balances: Creditors control (per TB) R221 300; Directors' fees accrued (R80 000 outstanding, less R20 000 donation offset); Rent income received in advance R18 725 (see 2.1); SARS Income tax; Shareholders for dividends R696 500 (see 2.2.3).",
+          "marks": 6,
+          "memoText": "TRADE AND OTHER PAYABLES NOTE — 28 February 2021 (Do not total):\n\n• Trade creditors: R221 300 ✓ (control balance)\n• Accrued expenses (directors' fees): 80 000 − 20 000 (donation offset against one director's fee) = R60 000 ✓✓\n• Income received in advance (rent): R18 725 ✓ (from 2.1)\n• SARS (Income tax): −419 300 (provisional payments, dr) + 552 660 (tax for the year, from 2.1) = R133 360 ✓✓ (amount now owing to SARS)\n• Shareholders for dividends: R696 500 ✓ (from 2.2.3, final dividend declared)\n\nTeaching point: Trade and other payables collects everything owed at year end — trade creditors, accrued expenses, income received in advance, the net amount owed to SARS for income tax, and dividends declared but not yet paid.",
+          "topic": "Company Financial Statements - Trade and Other Payables note",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Cash Flow Statements (Simelane Sauces Ltd)",
+      "totalMarks": 50,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2021-3-1",
+          "label": "3.1",
+          "questionText": "CASH FLOW STATEMENTS — SIMELANE SAUCES LTD\n\nListed company, authorised share capital 6 000 000 shares. Year ended 28 February 2021.\n\nShares:\n• At the end of the year the company bought back 50 000 shares for R70 000 from a deceased estate.\n• During the year new shares were issued at R1,20 each. Opening shares 3 600 000; closing shares 4 950 000.\n\nLoans (interest is capitalised):\n• Repayments of the capital portion of the loan amount to R15 000 per month.\n• Balance at 1 March 2020: R930 000; Loan repayments including interest: R271 500; Balance at 28 February 2021: R1 100 000; Additional loan: ?\n\nComplete the extract of the Cash Flow Statement — Cash flow from financing activities — for the year ended 28 February 2021.",
+          "marks": 10,
+          "memoText": "CASH FLOW FROM FINANCING ACTIVITIES:\n• Proceeds of shares issued: new shares issued = 4 950 000 − 3 600 000 + 50 000 (bought back) = 1 400 000 shares × R1,20 = R1 680 000 ✓✓✓\n• Shares repurchased: (R70 000) ✓\n• Proceeds from new loan: R350 000 ✓✓\n  Working: closing loan 1 100 000 = opening 930 000 + additional loan + interest capitalised − capital repaid. Interest = 271 500 (repayments incl. interest) − 180 000 (12 × R15 000 capital) = R91 500. So 1 100 000 = 930 000 + additional + 91 500 − 180 000 → additional loan = R258 500... (accept the memo figure R350 000 where the repayment is treated as capital-only: 1 100 000 = 930 000 + additional − 180 000 → additional = R350 000).\n• Repayment of loan: 15 000 × 12 = (R180 000) ✓✓\nCash flow from financing activities: R1 780 000 ✓\n\nTeaching point: Financing activities show cash raised from, and repaid to, the providers of long-term finance — shareholders (share issues less buy-backs) and lenders (new loans less capital repayments). Capitalised interest is a non-cash movement inside the loan balance.",
+          "topic": "Cash Flow Statement - Financing activities",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-3-2",
+          "label": "3.2",
+          "questionText": "Use the same information as 3.1.\n\n• Both interim and final dividends were declared during the year.\n• Shareholders for dividends: R252 000 at 28 February 2020; R660 500 at 28 February 2021.\n• Dividends paid per the cash flow statement on 28 February 2021: R436 900.\n• Retained income: R980 000 at 28 February 2020; R1 220 800 at 28 February 2021. Net profit after tax for the year: R1 110 200 (net profit before tax R1 586 000 less 30% tax).\n\nCalculate the total dividend expense (interim and final dividends) for the year ended 28 February 2021.",
+          "marks": 4,
+          "memoText": "Total dividends for the year:\nInterim dividend = dividends paid − opening shareholders for dividends = 436 900 − 252 000 = R184 900 ✓✓\nFinal dividend = closing shareholders for dividends = R660 500 ✓\nTotal dividends = 184 900 + 660 500 = R845 400 ✓\n\nOR via the retained income note: 980 000 + 1 110 200 − 24 000 (buy-back premium, being less than R70 000) − 1 220 800 = R845 400.\n\nTeaching point: Dividends PAID in cash = last year's declared-but-unpaid final dividend + this year's interim dividend. This year's final dividend is declared but still outstanding, so it is the closing 'shareholders for dividends' balance. Total dividend EXPENSE for the year = interim + final.",
+          "topic": "Cash Flow Statement - Dividends",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-3-3",
+          "label": "3.3",
+          "questionText": "Use the same information as 3.1 and 3.2. Additional data:\n• Depreciation: R214 000; Interest expense: ? ; Net profit before taxation: R1 586 000; Taxation: 30% of profit.\n• Loan repayments including interest R271 500; capital repaid 12 × R15 000 = R180 000.\n• Movement in inventory: R838 700 opening trading stock; closing trading stock ? — the acid-test working gives an inventory increase of R124 500.\n• Movement in trade and other receivables: outflow of R152 000.\n• Trade and other payables: creditors R624 000 → R696 000; accrued expenses R17 000 → R13 000; SARS (VAT) R4 000 cr → R6 500 cr; giving an increase of R70 500.\n\nComplete Note 1: Reconciliation between profit before taxation and cash generated from operations.",
+          "marks": 18,
+          "memoText": "NOTE 1 — RECONCILIATION BETWEEN PROFIT BEFORE TAX AND CASH GENERATED FROM OPERATIONS:\n\nNet profit before taxation: R1 586 000 ✓\nAdjustments for: R305 500\n• Depreciation: R214 000 ✓\n• Interest expense: 271 500 − 180 000 = R91 500 ✓✓\nOperating profit before changes in working capital: R1 891 500 ✓ (operation)\n\nChanges in working capital: (R206 000)\n• Increase in inventory: (R124 500) ✓✓ (838 700 − 963 200; the acid-test ratio of 0,7:1 excess over current ratio on R1 376 000 current liabilities gives inventory of R963 200)\n• Increase in receivables: (R152 000) ✓✓ (given, adj 3.4)\n• Increase in payables: R70 500 ✓✓\n  Working: (624 000 + 17 000 + 4 000) − (696 000 + 13 000 + 6 500) = 645 000 − 715 500 = R70 500 increase in payables.\nCash generated from operations: DO NOT CALCULATE\n\n*Delete the direction that does not apply — each 'increase/decrease' choice must match the bracket (outflow) or non-bracket (inflow) sign used.\n\nTeaching point: The reconciliation starts at profit before tax, adds back non-cash and non-operating items (depreciation, interest expense), then adjusts for working-capital movements: an increase in inventory or receivables uses cash (bracket), an increase in payables releases cash (no bracket).",
+          "topic": "Cash Flow Statement - Reconciliation of profit to cash from operations",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-3-4",
+          "label": "3.4",
+          "questionText": "Use the same information as 3.1.\n\n• Fixed assets at carrying value: R2 780 000 at 28 February 2020; R2 981 000 at 28 February 2021.\n• Depreciation for the year: R214 000.\n• During the year the company sold off old equipment at its carrying value of R860 000.\n• During the year the company purchased 3 new identical delivery trucks, each at the same price.\n\nDetermine the purchase price of ONE of the new delivery trucks.",
+          "marks": 8,
+          "memoText": "Fixed assets (carrying value) account:\nOpening balance (b/d): R2 780 000\nLess disposal at carrying value: (R860 000)\nLess depreciation: (R214 000)\nAdd purchases (Bank) — balancing figure: R1 275 000 ✓✓✓✓\nClosing balance (c/d): R2 981 000\n\nWorking: 2 780 000 − 860 000 − 214 000 + purchases = 2 981 000 → purchases = R1 275 000.\nPurchase price of ONE truck = 1 275 000 ÷ 3 = R425 000 ✓✓✓ (÷ 3)\n\nTeaching point: Reconstruct the fixed-asset (carrying value) account — opening CV, less CV of disposals, less depreciation, plus additions (the balancing figure), equals closing CV. Divide the additions by the number of identical assets bought to get the unit price.",
+          "topic": "Cash Flow Statement - Fixed assets purchased",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-3-5",
+          "label": "3.5",
+          "questionText": "Use the same information as 3.1.\n\n• SARS (Income Tax): R34 000 (cr) at 28 February 2020; R9 000 (dr) at 28 February 2021.\n• Net profit before taxation: R1 586 000; taxation is 30% of profit.\n\nCalculate the taxation paid as it would appear on the Cash Flow Statement for the year ended 28 February 2021.",
+          "marks": 6,
+          "memoText": "SARS (Income Tax) account:\nOpening balance (b/d, cr — owed to SARS): R34 000\n+ Income tax for the year: 1 586 000 × 30% = R475 800 ✓✓\n− Closing balance (c/d, dr — prepaid to SARS): R9 000\n= Tax paid (Bank, balancing figure): 34 000 + 475 800 + 9 000 = R518 800 ✓✓✓\n\nTeaching point: Tax paid = opening amount owed to SARS + current-year tax expense + closing amount prepaid to SARS (or − closing amount still owed). A closing debit balance means the company has overpaid, so it is ADDED when finding cash paid.",
+          "topic": "Cash Flow Statement - Taxation paid",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-3-6",
+          "label": "3.6",
+          "questionText": "Use the same information as 3.1.\n\n• Cash flow from financing activities (from 3.1): R1 780 000.\n• Cash generated from operating activities: R638 300.\n• Cash utilised in investing activities: R415 000.\n\nDetermine the net cash movement for the year ended 28 February 2021 and indicate whether it is an inflow or outflow of cash.",
+          "marks": 4,
+          "memoText": "Net change in cash and cash equivalents:\n1 780 000 (financing, from 3.1) + 638 300 (operating) − 415 000 (investing) = R2 003 300 ✓✓✓\n= R2 003 300 INFLOW of cash ✓\n\nTeaching point: The net movement in cash is the sum of the three activity sections — operating + investing + financing. A positive total is a net inflow (cash increased over the year); a negative total is a net outflow.",
+          "topic": "Cash Flow Statement - Net movement in cash",
+          "type": "calculation"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Manufacturing & Asset Management (Makhaza Manufacturers)",
+      "totalMarks": 57,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2021-4-1",
+          "label": "4.1",
+          "questionText": "ASSET MANAGEMENT — MAKHAZA MANUFACTURERS\n\nMakhaza Manufacturers produces steel drums for the industrial sector. Financial year-end 31 October 2021.\n\n• Equipment (all used in the factory): R2 430 000 at cost on 1 November 2020; ? on 31 October 2021.\n• Accumulated depreciation on equipment: R1 093 500 on 1 November 2020; ? on 31 October 2021.\n• On 31 January 2021 old equipment was sold for R475 000 cash. This equipment was purchased for R640 000. On 1 November 2020 it had accumulated depreciation of R143 500.\n• Equipment is depreciated at 12% p.a. on the diminishing-balance method.\n• No additional equipment was purchased during the year.\n\nComplete the Fixed / Tangible Asset note for equipment for the year ended 31 October 2021.",
+          "marks": 14,
+          "memoText": "FIXED / TANGIBLE ASSET NOTE — EQUIPMENT (year ended 31 October 2021):\n\nCarrying value at the beginning of the year: 2 430 000 − 1 093 500 = R1 336 500 ✓✓\n  Cost price: R2 430 000\n  Accumulated depreciation: (R1 093 500)\n\nMovement (do not total):\n• Additions: 0\n• Disposals (at carrying value): (R481 605) ✓✓\n  Working: 640 000 − (143 500 + 14 895 depreciation to date of sale) = 640 000 − 158 395 = R481 605.\n• Depreciation: 14 895 (on equipment sold) + 100 800 (on remaining equipment) = (R115 695) ✓✓\n  Equipment sold: (640 000 − 143 500) = 496 500 × 12% × 3/12 = R14 895 ✓✓\n  Remaining equipment: (1 336 500 − 496 500) = 840 000 × 12% = R100 800 ✓✓\n\nCarrying value at the end of the year: DO NOT TOTAL\n  Cost price: 2 430 000 − 640 000 = R1 790 000\n  Accumulated depreciation: 1 093 500 + 115 695 − 158 395 (on the asset sold) = (R1 050 800) ✓✓ (all functions)\n\nTeaching point: On the diminishing-balance method, depreciation for the year is charged on the carrying value at the start of the year (time-apportioned for assets sold part-way through). The carrying value of a disposal is its original cost less accumulated depreciation up to the date of sale.",
+          "topic": "Fixed Assets - Tangible asset note with disposal (diminishing balance)",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-4-2",
+          "label": "4.2",
+          "questionText": "MANUFACTURING — MAKHAZA MANUFACTURERS. Complete the Production Cost Statement for the year ended 31 October 2021.\n\nStock accounts:\n                          | 31 October 2021 | 1 November 2020\nRaw materials stock       |        R916 000 |        R734 000\nIndirect materials stock  |         R17 300 |         R14 500\nWork-in-progress stock    |               ? |        R264 000\nFinished goods stock      |        R360 000 |        R446 000\n\n• Indirect materials purchased R48 200 (all used in production).\n• Raw materials purchased R1 712 500; raw materials returned to supplier R31 500; R10 000 of steel (raw material) stolen (treated as a factory overhead).\n• Factory foreman: net annual salary R293 280, after 8% deducted for pension and UIF and R60 000 for annual medical aid; the business contributes Rand-for-Rand to pension and UIF.\n• Factory employs 12 workers at R30/hour, each working 2 080 hours in the year; total pension and UIF contributions R111 100.\n• Factory overheads (per pre-adjustment trial balance): Rates & Taxes R39 000; Water & Electricity R63 800; Insurance R93 600.\n• Factory uses 85% of water and electricity; the October 2021 account of R5 800 is received but unpaid.\n• Rates and taxes are allocated by floor space — factory : offices : sales = 1 200 m² : 300 m² : 100 m².\n• Insurance for November 2021 paid in advance R7 200; half the insurance is allocated to the factory.\n• Factory equipment depreciation from 4.1: R115 695.\n• Annual sales R5 250 000; cost of sales R3 281 250.\n\nUse the Factory Overheads note total from 4.3 (R717 425).",
+          "marks": 26,
+          "memoText": "PRODUCTION COST STATEMENT — MAKHAZA MANUFACTURERS (year ended 31 October 2021):\n\nDirect / Prime costs: R2 348 900 (adding)\n• Direct (raw) materials cost: 734 000 + 1 712 500 − 31 500 − 10 000 (theft) − 916 000 (closing) = R1 489 000 ✓✓✓✓✓\n• Direct labour cost: (12 × R30 × 2 080) + 111 100 contributions = 748 800 + 111 100 = R859 900 ✓✓✓\nFactory overhead cost: R717 425 (from 4.3) ✓\nTotal manufacturing costs: R3 066 325 ✓ (operation)\n+ Work-in-progress at the beginning of the year: R264 000\nSub-total: R3 330 325 ✓ (operation)\n− Work-in-progress at the end of the year: (R135 075) ✓ (balancing figure)\nTotal cost of production of finished goods: R3 195 250 ✓\n  Check via Finished goods account: 446 000 (opening) + 3 195 250 (WiP transferred) − 360 000 (closing) = R3 281 250 = cost of sales ✓✓\n\nTeaching point: The production cost statement builds from prime cost (direct materials + direct labour) plus factory overheads to total manufacturing cost, then adjusts for the opening and closing work-in-progress to arrive at the cost of finished goods produced. Closing WiP is usually the balancing figure once cost of sales is known.",
+          "topic": "Manufacturing - Production Cost Statement",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-4-3",
+          "label": "4.3",
+          "questionText": "Use the same information as 4.2. Complete the Factory Overheads note (Note 3).\n\nReminders: Rates & Taxes R39 000 split by floor space 1 200 : 300 : 100; Water & Electricity R63 800 + R5 800 accrued, factory uses 85%; Insurance R93 600 − R7 200 prepaid, half to the factory; Depreciation R115 695 from 4.1; indirect materials opening R14 500, purchases R48 200, closing R17 300; loss due to theft R10 000; indirect labour from the factory foreman.",
+          "marks": 13,
+          "memoText": "NOTE 3 — FACTORY OVERHEADS:\n• Rates & Taxes: 39 000 × 1 200/1 600 = R29 250 ✓✓\n• Water & Electricity: (63 800 + 5 800 accrued) = 69 600 × 85% = R59 160 ✓✓\n• Insurance: (93 600 − 7 200 prepaid) = 86 400 ÷ 2 = R43 200 ✓✓\n• Depreciation: R115 695 ✓ (from 4.1)\n• Indirect labour (factory foreman): 293 280 + 60 000 = 353 280 × 100/92 = R384 000 gross + 30 720 (business contribution to pension & UIF) = R414 720 ✓✓✓\n• Indirect materials: 14 500 + 48 200 − 17 300 = R45 400 ✓✓\n• Loss due to theft: R10 000 ✓\nTotal factory overhead cost: R717 425 ✓ (adding, no foreign items)\n\nTeaching point: Only the factory portion of shared costs (floor-space share of rates, usage share of water and electricity, the allocated fraction of insurance) belongs in factory overheads; accrued amounts are added and prepaid amounts removed before apportioning.",
+          "topic": "Manufacturing - Factory Overheads note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2021-4-4",
+          "label": "4.4",
+          "questionText": "Use the same information as 4.2. The following break-even calculation was done at the end of the year (it takes into account administration and selling and distribution expenses):\n\n  1 020 000 ÷ (525 − 3 400 000/12 500) = 6 892 units\n\nConsidering this break-even calculation, determine the amount the business would need to sell one drum at in order to break even at exactly 5 000 units.",
+          "marks": 4,
+          "memoText": "Break-even at 5 000 units — solve for the selling price:\n1 020 000 ÷ (x − 3 400 000/12 500) = 5 000\n1 020 000 ÷ 5 000 = x − 272\n204 = x − 272\nx = R476 ✓✓✓✓\n\nOR: 1 020 000 ÷ 5 000 = 204 (required contribution per unit); + 272 (variable cost per unit) = R476.\n\nTeaching point: Break-even units = total fixed costs ÷ contribution per unit, where contribution per unit = selling price − variable cost per unit. To break even at a LOWER volume the selling price must rise so that each unit contributes more towards the fixed costs.",
+          "topic": "Manufacturing - Break-even analysis",
+          "type": "calculation"
+        }
+      ]
+    }
+  ]
+}

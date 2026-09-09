@@ -1,0 +1,276 @@
+{
+  "id": "acc-ieb-p1-nov-2022",
+  "subject": "Accounting IEB",
+  "subjectCode": "accounting-ieb",
+  "paperCode": "P1",
+  "year": 2022,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Asset Management & VAT (Kench Wrench)",
+      "totalMarks": 52,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2022-1-1-1",
+          "label": "1.1.1",
+          "questionText": "INVENTORY SYSTEMS — KENCH WRENCH\n\nKench Wrench imports and sells sets of spanners (bought and sold as a set — no individual components). Periodic inventory system; weighted average valuation. Financial year ends 31 August 2022. Suppliers allow 30 days to return unsatisfactory stock.\n\nStock records for the year:\n                                  | Number of sets | Cost per set | Total cost\nOpening stock (1 September 2021)   |            800 |       R1 500 | R1 200 000\nPurchases during the year          |          2 100 |             | R3 130 000\n  November 2021                    |          1 000 |       R1 100 | R1 100 000\n  February 2022                    |            600 |       R1 800 | R1 080 000\n  June 2022                        |            500 |       R1 900 | R950 000\n\n• Total carriage on purchases for the year: R17 700 (orders over R1 million delivered free).\n• Carriage is not refundable on returns.\n• 40 sets were returned in March 2022 (missing socket components).\n• They sold 1 645 units during the year.\n\nCalculate the number of sets on hand as at 31 August 2022.",
+          "marks": 3,
+          "memoText": "Sets on hand:\n800 (opening) + 2 100 (purchases) − 40 (returns) − 1 645 (sold) = 1 215 sets ✓✓✓\n\nTeaching point: In a periodic system the closing quantity is simply opening + purchases − returns − units sold; any difference between this and a physical count would be a stock loss.",
+          "topic": "Inventory Systems - Units on hand",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-1-1-2",
+          "label": "1.1.2",
+          "questionText": "Use the same information as 1.1.1. Calculate the weighted average cost of one set of spanners.",
+          "marks": 5,
+          "memoText": "Weighted average cost per set:\n(1 200 000 + 3 130 000 − 72 000 + 17 700) ÷ (800 + 2 100 − 40)\n= 4 275 700 ÷ 2 860\n= R1 495,00 per set ✓✓✓✓✓\n\nWorking: less the returns 40 × R1 800 (February cost) = R72 000 from the Rand total AND 40 sets from the unit count; add carriage on purchases R17 700.\n\nTeaching point: Weighted average = total cost of goods available (opening + net purchases + carriage) ÷ total units available. Returns are removed from both the Rand total and the unit count.",
+          "topic": "Inventory Systems - Weighted average valuation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-1-1-3",
+          "label": "1.1.3",
+          "questionText": "Use your answers from 1.1.1 and 1.1.2. Calculate the rand value of the closing stock as at 31 August 2022.",
+          "marks": 2,
+          "memoText": "Closing stock value:\n1 215 sets (from 1.1.1) × R1 495,00 (from 1.1.2) = R1 816 425 ✓✓\n\nTeaching point: Under weighted average, closing stock is simply units on hand × the weighted average cost per unit.",
+          "topic": "Inventory Systems - Closing stock value",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-1-2",
+          "label": "1.2",
+          "questionText": "Use the same information as 1.1.1. The owner, Shannon, has been advised to insure the stock for the highest possible value. Calculate the rand value of the closing stock (1 215 sets) if the FIFO (first in first out) valuation method were used instead.",
+          "marks": 5,
+          "memoText": "FIFO closing stock (1 215 sets — the most recently purchased sets, working newest first):\n500 sets from June 2022 × R1 900 = R950 000 ✓✓\n+ carriage on purchases relating to closing stock: R17 700 ✓ (added to the FIFO closing stock as per the memo)\n560 sets from February 2022 (600 − 40 returned) × R1 800 = R1 008 000 ✓\n155 sets from November 2021 (balancing to 1 215) × R1 100 = R170 500 ✓\nTotal FIFO closing stock = 950 000 + 17 700 + 1 008 000 + 170 500 = R2 146 200\n\nTeaching point: Under FIFO the closing stock is valued at the cost of the MOST RECENT purchases; because prices rose during the year, FIFO gives a higher closing-stock value than weighted average — hence the advice to insure at the FIFO value.",
+          "topic": "Inventory Systems - FIFO closing stock",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-1-3",
+          "label": "1.3",
+          "questionText": "Use the same information as 1.1.1. Shannon has noticed that the price of spanners has increased significantly during the year. Referring to the November 2021 purchase price (R1 100 per set) and the June 2022 purchase price (R1 900 per set), determine the percentage increase and provide a realistic explanation for the significant increase.",
+          "marks": 5,
+          "memoText": "Percentage increase:\n(1 900 − 1 100) ÷ 1 100 × 100 = 800 ÷ 1 100 × 100 = 72,73% ✓✓ (must be divided by R1 100 for both marks)\n\nExplanation (any valid reason, up to the remaining marks) ✓✓✓:\n• Spanners are imported — they are bought at a dollar/euro price and the rand weakened.\n• Increase in fuel and transport costs (e.g. the war in Ukraine).\n• A shortage of supply combined with an increase in demand.\n• Suppliers raised prices to cover their own losses / inability to import or export during lockdowns.\nNOTE: 72,73% is far too high to be explained by inflation alone; a supplier without a monopoly would lose customers if it simply raised margins this much.\n\nTeaching point: Percentage increase = (new − old) ÷ old × 100. For imported goods, exchange-rate weakness and global supply-chain disruption are the usual drivers of a price jump well above local inflation.",
+          "topic": "Inventory Systems - Price increase analysis",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-1-4",
+          "label": "1.4",
+          "questionText": "Use the same information as 1.1.1 (1 645 units were sold during the year). Determine what the selling price of ONE set of spanners would need to be if the business was to make a gross profit of R1 057 500 after marking their stock up by 40% on the cost price.",
+          "marks": 5,
+          "memoText": "Selling price per set:\nSales = 1 057 500 × 140/40 = R3 701 250 ✓✓✓\n  (gross profit is 40/140 of sales when the mark-up is 40% on cost; equivalently cost of sales = 1 057 500 × 100/40 = 2 643 750, and sales = 2 643 750 × 1,40 = 3 701 250)\nSelling price per set = 3 701 250 ÷ 1 645 = R2 250 ✓✓\n\nTeaching point: With a 40% mark-up on cost, gross profit is 40/140 (≈ 28,57%) of sales. Work sales back from the target gross profit, then divide by units sold to get the price per unit.",
+          "topic": "Inventory Systems - Selling price from target gross profit",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-1-5",
+          "label": "1.5",
+          "questionText": "VAT — KENCH WRENCH. VAT is calculated at 15%.\n\nThe business owes SARS R28 110 for VAT (opening position). Transactions for the year ended 31 August 2022:\n1. Sold goods to the value of R4 700 (exclusive) for cash.\n2. Settled an account with a supplier by paying R327 750 after a 5% discount was received.\n3. A debtor returned goods that originally cost R1 250 (exclusive). They were marked up by 60% on cost, and the debtor had been given a 7% trade discount.\n\nFor EACH transaction, calculate the VAT amount and indicate whether it increases or decreases the amount owing to SARS.",
+          "marks": 9,
+          "memoText": "Transaction 1: 4 700 × 15/100 = R705 ✓✓ — INCREASE (output VAT on the cash sale) ✓\n\nTransaction 2: 327 750 × 5/95 = 17 250 → 17 250 × 15/115 = R2 250 ✓✓ — INCREASE (discount received reverses input VAT previously claimed, so the amount owed to SARS goes up) ✓\n\nTransaction 3: cost 1 250 × 1,60 = R2 000 selling price; less 7% trade discount → 2 000 × 93/100 = R1 860; VAT = 1 860 × 15/100 = R279 ✓✓ — DECREASE (output VAT reversed on the goods returned by the debtor) ✓\n\nTeaching point: Output VAT on sales and reversed input VAT (discount received) increase the amount owed to SARS; reversed output VAT (goods returned by a customer) and input VAT on purchases decrease it. VAT on a sale is always calculated on the price after trade discount.",
+          "topic": "VAT - Effect of transactions on amount owing to SARS",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-1-6",
+          "label": "1.6",
+          "questionText": "FIXED ASSETS — KENCH WRENCH.\n\nExtracted balances:\n                                          | 31 August 2022 | 1 September 2021\nEquipment                                  |       R600 000 |        R420 000\nAccumulated Depreciation on Equipment      |              ? |        R185 000\n\nTransactions for the year ended 31 August 2022:\n(a) Purchased new equipment on 1 February 2022.\n(b) On 30 April 2022 sold old equipment for R45 000 cash (cost price R80 000; book value on 1 September 2021 was R30 900).\n(c) Equipment is depreciated at 12% p.a. on the diminishing-balance method.\n\nCalculate the cost price of the new equipment that was purchased on 1 February 2022.",
+          "marks": 3,
+          "memoText": "Equipment (at cost) account:\nOpening balance: R420 000\nLess cost of equipment sold: (R80 000)\nAdd purchases (balancing figure): R260 000 ✓✓✓\nClosing balance: R600 000\n\nWorking: 420 000 − 80 000 + purchases = 600 000 → purchases = R260 000.\n\nTeaching point: The Equipment at cost account only moves when equipment is bought (added at cost) or sold (removed at original cost) — the balancing figure is the cost of the new equipment.",
+          "topic": "Fixed Assets - Cost of new equipment",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-1-7",
+          "label": "1.7",
+          "questionText": "Use the same information as 1.6, and your answer from 1.6 (new equipment cost R260 000, purchased 1 February 2022). Calculate the depreciation on the new equipment for the year ended 31 August 2022.",
+          "marks": 3,
+          "memoText": "Depreciation on the new equipment (owned 1 Feb 2022 – 31 Aug 2022 = 7 months):\n260 000 × 12% × 7/12 = R18 200 ✓✓✓\n\nTeaching point: A fixed asset bought part-way through the year is depreciated only for the months it was owned (× months ÷ 12).",
+          "topic": "Fixed Assets - Depreciation on new equipment",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-1-8",
+          "label": "1.8",
+          "questionText": "Use the same information as 1.6. The old equipment (cost R80 000; book value on 1 September 2021 was R30 900; accumulated depreciation on 1 September 2021 therefore R49 100) was sold on 30 April 2022 for R45 000 cash. Equipment is depreciated at 12% p.a. on the diminishing-balance method.\n\nCalculate the profit or loss made on the sale of this equipment on 30 April 2022, and indicate whether it was a profit or a loss. (First calculate the depreciation on the sold equipment for the current year.)",
+          "marks": 6,
+          "memoText": "Depreciation on the sold equipment (1 Sept 2021 – 30 April 2022 = 8 months):\n(80 000 − 49 100) = 30 900 × 12% × 8/12 = R2 472 ✓✓\n\nProfit/Loss on sale:\nCarrying value at date of sale = 30 900 (book value on 1 Sept 2021) − 2 472 (depreciation to date of sale) = R28 428\nProfit/Loss = 45 000 (proceeds) − 28 428 = R16 572 PROFIT ✓✓✓✓\nOR: 80 000 − (49 100 + 2 472) − 45 000 = −16 572, i.e. a profit of R16 572.\n(Accept 'loss' if the candidate's depreciation working leads there consistently.)\n\nTeaching point: Profit or loss on disposal = proceeds − carrying value at the date of sale. Carrying value = cost − accumulated depreciation up to the sale date, so the current-year depreciation on the asset sold must be calculated first.",
+          "topic": "Fixed Assets - Profit or loss on disposal",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-1-9",
+          "label": "1.9",
+          "questionText": "Use the same information as 1.6 to 1.8. Calculate the depreciation for the year on the REMAINING equipment (i.e. excluding the equipment sold and the new equipment purchased on 1 February 2022).",
+          "marks": 6,
+          "memoText": "Depreciation on the remaining equipment:\nCost of remaining equipment = 420 000 − 80 000 (sold) = R340 000\nAccumulated depreciation on remaining equipment on 1 Sept 2021 = 185 000 − 49 100 (on the asset sold) = R135 900\nCarrying value of remaining equipment = 340 000 − 135 900 = R204 100\nDepreciation = 204 100 × 12% = R24 492 ✓✓✓✓✓✓\n\nTeaching point: On the diminishing-balance method, depreciation for the full-year assets is charged on their carrying value at the start of the year (cost less accumulated depreciation), after stripping out the amounts relating to the asset that was sold.",
+          "topic": "Fixed Assets - Depreciation on remaining equipment",
+          "type": "calculation"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Company Financial Statements (Ruby Robotics Limited)",
+      "totalMarks": 63,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2022-2-1",
+          "label": "2.1",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — RUBY ROBOTICS LIMITED\n\nListed company; authorised share capital 2 500 000 ordinary shares. Imports and manufactures robotic parts; also earns commission selling 'how-to' manuals for Masingita Manuals. Intended gross profit on sales of 60% at all times. Year ended 28 February 2022.\n\nShares: on 1 March 2021, 70% of authorised shares were in issue, raising R6 300 000. On 1 August 2021 an additional 500 000 shares were sold at 400c each (recorded). No shares repurchased.\n\nExtracted balances/totals from the Pre-adjustment Trial Balance:\n• Retained income: R1 350 000\n• Fixed deposit: TH Bank (4% p.a.): R450 000\n• Trading stock: R2 467 000\n• Debtors' control: R6 150 000\n• Provision for bad debts: R176 000\n• Bank overdraft: R75 000\n• Cash float: R10 000\n• SARS: Income tax: R990 000 (dr)\n• Accrued Commission income (1 March 2021): R8 200\n• Sales: R14 500 700\n• Debtors' allowances: R270 200\n• Commission income: R49 500\n• Packing material: R27 000\n• Ordinary share dividends: R315 000\n• Water & electricity (per TB): R36 400; Insurance (per TB): R38 680; Rent expense (per TB): R115 500; Repairs (per TB): R12 500; Salaries & wages: R3 250 000; Discount received: R84 000; Sundry income: R74 000; Discount allowed: R51 000; Depreciation: R89 500; Auditor's fees: R38 400; Directors' fees: R60 000; Interest income: R20 000; Interest expense: R70 000\n\nAdjustments:\n1. The water & electricity account of R2 800 for March 2022 has been paid.\n2. The bookkeeper forgot to reverse the accrued commission income at the start of the year. Commission is now paid upfront; R9 500 was received for manuals to be sold in March–April 2022.\n3. A robbery: R6 000 stolen from the registers and R20 000 of stock. Cash is not insured; stock is insured 'up to R50 000 less an excess of 15% of the claimed amount'. The claim will be paid in March 2022.\n4. R4 000 was paid to repair the front security door (recorded as a repairs expense). The landlord accepted responsibility and said it may be deducted from the February rent still owing. Rent unchanged during the year.\n5. R50 000 of the fixed deposit matures on 30 June 2022.\n6. Returned R24 000 of stock to a creditor; they credited the account less a R1 200 handling and repackaging fee.\n7. A debtor who owed R16 000 was declared insolvent; the estate paid R10 400 and the rest is written off (no entries yet).\n8. Provision for bad debts must be adjusted to 3% of trade debtors.\n9. Trading stock of R43 000 used for demonstration must be revalued to R21 000.\n10. Physical count: trading stock on hand R2 364 000; packing material used during the year R24 800.\n11. An additional provisional tax payment of R400 000 was made on 28 Feb 2022 (not recorded); income tax still owing to SARS at year end was R65 000.\n12. A final dividend of 16c per share was declared on all shares in issue on 28 February 2022.\n\nComplete the Statement of Comprehensive Income (Income Statement) for the year ended 28 February 2022.",
+          "marks": 38,
+          "memoText": "STATEMENT OF COMPREHENSIVE INCOME — RUBY ROBOTICS LIMITED (year ended 28 February 2022):\n\nSales: 14 500 700 − 270 200 (debtors' allowances) = R14 230 500 ✓✓\nCost of sales: 14 230 500 × 100/160... memo uses gross profit on SALES of 60%, so cost of sales = 14 230 500 × 40% = (R5 692 200) ✓✓ (bracket)\nGross profit: 14 230 500 × 60% = R8 538 300 ✓ (gross profit > cost of sales)\n\nOperating incomes (do not calculate the subtotal):\n• Commission income: 49 500 − 8 200 (reverse opening accrual) − 9 500 (received in advance, adj 2) = R31 800 ✓✓✓\n• Discount received: R84 000 (given)\n• Sundry income: R74 000 (given)\n\nOperating expenses (do not calculate the subtotal):\n• Water & electricity: 36 400 − 2 800 (March 2022 paid in advance) = R33 600 ✓ (Note: 36 400 is the corrected figure; adj 1)\n• Insurance: R38 680 (given)\n• Rent expense: 115 500 + 10 500 (accrued February, being 115 500 ÷ 11) − 4 000 (door repair set off against rent) + ... = R126 000 ✓✓\n  Working: 115 500 = 11 months paid; monthly rent = 10 500; accrue the 12th month R10 500. The R4 000 door repair is deducted from rent owing, so rent expense = 115 500 + 10 500 + 4 000 (see adj 4 treatment) = R126 000 (the R4 000 previously in repairs is removed there).\n• Bad debts: 9 200 (per adjusted TB) + (16 000 − 10 400) 5 600 (adj 7 write-off) = R14 800 ✓✓\n• Packing material: 27 000 − 2 200 (see trading stock deficit working) = R24 800 ✓ (equal to the 'used' figure from the physical count)\n• Directors' fees: R60 000 (given)\n• Discount allowed: R51 000 (given)\n• Depreciation: R89 500 (given)\n• Auditor's fees: R38 400 (given)\n• Salaries & wages: R3 250 000 (given)\n• Repairs: 12 500 − 4 000 (door repair moved to rent set-off, adj 4) = R8 500 ✓\n• Loss due to theft: 6 000 (cash, not insured) + (20 000 − 17 000 insurance claim) = R9 000 ✓✓\n  Working: stock claim = 20 000 − 15% excess (20 000 × 15% = 3 000) = R17 000 receivable; net stock loss = 20 000 − 17 000 = R3 000; plus R6 000 uninsured cash = R9 000.\n• Handling / returns fee: R1 200 ✓ (adj 6)\n• Provision for bad debts adjustment: 176 000 − 184 020 = (R8 020) — this is an EXPENSE (increase in provision) ✓✓\n  Working: new provision = 3% × 6 134 000 (debtors control 6 150 000 − 16 000 insolvent debtor) = R184 020; old provision R176 000; increase R8 020.\n• Revaluation of stock: 43 000 − 21 000 = R22 000 expense ✓✓ (write-down of demonstration stock)\n• Trading stock deficit: R37 000 expense ✓✓\n  Working: (2 467 000 − 20 000 stolen − 24 000 returned − 22 000 revaluation) − 2 364 000 physical count = 2 401 000 − 2 364 000 = R37 000. (Accept R38 200 if the R1 200 handling fee is treated as a stock expense instead of separately.)\n\nOperating profit: DO NOT CALCULATE\nInterest income: R20 000 (given)\nInterest expense: (R70 000) (given)\nNet profit before taxation: DO NOT CALCULATE\nTaxation for the year: 990 000 + 400 000 + 65 000 = (R1 455 000) ✓✓ (bracket)\nNet profit after taxation: DO NOT CALCULATE\n\nTeaching point: When gross profit is a fixed percentage OF SALES, cost of sales = sales × (1 − gross-profit %). Every adjustment either creates/removes an operating income or expense, or (like the stock shortfall) becomes a trading-stock deficit that is the difference between the adjusted book stock and the physical count.",
+          "topic": "Company Financial Statements - Statement of Comprehensive Income",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-2-2-1",
+          "label": "2.2.1",
+          "questionText": "Use the same information as 2.1. Complete the note for Trade & Other Receivables as at 28 February 2022.\n\nRelevant: Debtors' control R6 150 000 less the R16 000 insolvent debtor; Provision for bad debts adjusted to 3% of trade debtors; Accrued commission income R8 200 (opening) reversed and R17 000 insurance claim receivable; Prepaid expenses (water & electricity R2 800).",
+          "marks": 8,
+          "memoText": "TRADE & OTHER RECEIVABLES NOTE — 28 February 2022 (Do not calculate the total):\n\nNet trade debtors: R5 949 980 (subtract)\n• Debtors' control: 6 150 000 − 16 000 (insolvent debtor written off, adj 7) = R6 134 000 ✓✓\n• Less: Provision for bad debts: 6 134 000 × 3% = (R184 020) ✓✓ (bracket)\n\n• Accrued income: 8 200 − 8 200 (reverse opening accrual) + 17 000 (insurance claim receivable, adj 3) = R17 000 ✓✓\n• Prepaid expenses: R2 800 ✓✓ (March 2022 water & electricity paid in advance, adj 1)\n\nTeaching point: Trade and other receivables = net trade debtors (control less the adjusted provision) + accrued income + prepaid expenses; the insurance claim not yet paid is an accrued (receivable) income.",
+          "topic": "Company Financial Statements - Trade & Other Receivables note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-2-2-2",
+          "label": "2.2.2",
+          "questionText": "Use the same information as 2.1. Complete the note for Cash & Cash Equivalents as at 28 February 2022.\n\nRelevant: Cash float R10 000 less R6 000 stolen (adj 3); Petty cash R3 000; the R50 000 portion of the fixed deposit maturing on 30 June 2022 (adj 5).",
+          "marks": 4,
+          "memoText": "CASH & CASH EQUIVALENTS NOTE — 28 February 2022 (Do not calculate the total):\n• Cash float: 10 000 − 6 000 (stolen, adj 3) = R4 000 ✓✓\n• Petty cash: R3 000 (given)\n• Fixed deposit (maturing within 12 months): R50 000 ✓✓ (adj 5 — the portion maturing on 30 June 2022 is a current asset)\n\nTeaching point: The portion of a fixed deposit maturing within the next financial year is reclassified from a non-current investment to cash and cash equivalents (a current asset).",
+          "topic": "Company Financial Statements - Cash & Cash Equivalents note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-2-2-3",
+          "label": "2.2.3",
+          "questionText": "Use the same information as 2.1. Complete the note for Trade & Other Payables as at 28 February 2022.\n\nRelevant: Trade creditors (control R9 270 000) less the R24 000 stock return net of the R1 200 handling fee; Bank overdraft R75 000 with the R10 400 estate receipt and the R400 000 provisional tax payment; Accrued expenses (rent R10 500 less R4 000 door set-off); Income received in advance (commission R9 500); SARS income tax still owing R65 000; Shareholders for dividends (16c on all shares in issue).",
+          "marks": 13,
+          "memoText": "TRADE & OTHER PAYABLES NOTE — 28 February 2022 (Do not calculate the total):\n• Trade creditors: 9 270 000 − (24 000 − 1 200) = 9 270 000 − 22 800 = R9 247 200 ✓✓ (adj 6)\n• Bank overdraft: 75 000 − 10 400 (estate payment received, adj 7) + 400 000 (provisional tax paid, adj 11) = R464 600 ✓✓ (accept offsetting; the R75 000 alone is also accepted if not offset)\n• Accrued expenses: 10 500 (February rent) − 4 000 (door repair set off, adj 4) = R6 500 ✓✓ (adj 4)\n• Income received in advance: R9 500 ✓ (commission received upfront, adj 2)\n• SARS (Income tax): R65 000 ✓ (still owing at year end, adj 11)\n• Shareholders for dividends: 0,16 × (1 750 000 + 500 000) = 0,16 × 2 250 000 = R360 000 ✓✓✓\n  Working: shares in issue = 2 500 000 × 70% = 1 750 000, + 500 000 issued 1 Aug 2021 = 2 250 000 shares; final dividend 16c each = R360 000.\n\nTeaching point: Trade and other payables collects trade creditors, the bank overdraft (a current liability), accrued expenses, income received in advance, the balance still owed to SARS for income tax, and the final dividend declared but unpaid.",
+          "topic": "Company Financial Statements - Trade & Other Payables note",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Cash Flow Statements (Jessica Jewels Ltd)",
+      "totalMarks": 45,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2022-3-1-1",
+          "label": "3.1.1",
+          "questionText": "CASH FLOW STATEMENTS — JESSICA JEWELS LTD\n\nListed company; authorised share capital 5 000 000 shares. Year ended 28 February 2022.\n\nExtract from the Statement of Financial Position:\n                                | 28 Feb 2022         | 28 Feb 2021\nOrdinary share capital           | ? (4 650 000 shares)| R30 000 000 (4 000 000 shares)\nRetained income                  | R3 402 500          | R1 650 000\nFixed assets (carrying value)    | R1 467 500          | R1 550 000\nInvestments (shares in Tammy Ltd)| R520 000 (100 000)  | R300 000 (60 000)\nLoan: Bali Bank (9% p.a.)         | R12 500 000         | R12 000 000\nDebtors control                  | R8 520 000          | R7 320 000\nCreditors control                | R12 900 000         | R14 600 000\nSARS (Income Tax)                 | R290 000 (cr)       | R350 000 (cr)\nSARS (PAYE & UIF)                 | R90 000             | R70 000\nIncome Received in Advance        | R450 000            | R300 000\nShareholders for dividends        | R2 325 000 (50c)    | R1 800 000 (45c)\n\nAdditional information:\n• Net profit after taxation for the year: R5 915 000; company tax rate 30%.\n• Interest on the loan is capitalised; an additional loan of R2 000 000 was taken out in the second half of the year; total loan repayments including interest were R2 625 000.\n• The movement of stock generated cash of R8 000 000.\n\nComplete Note 1: Reconciliation between profit before taxation and cash generated from operations.",
+          "marks": 10,
+          "memoText": "NOTE 1 — RECONCILIATION BETWEEN PROFIT BEFORE TAX AND CASH GENERATED FROM OPERATIONS:\n\nNet profit before taxation: 5 915 000 × 100/70 = R8 450 000 ✓✓\nAdjustments for:\n• Depreciation: R232 500 ✓ (see 3.1.2)\n• Interest expense: R1 125 000 ✓ (see 3.1.2)\nOperating profit before changes in working capital: R9 807 500 ✓ (operation)\n\nChanges in working capital: R5 270 000\n• Decrease in inventory: R8 000 000 ✓✓ (given, adj 2.4 — a source of cash, no bracket)\n• Increase in receivables: (7 320 000 − 8 520 000) = (R1 200 000) ✓✓ (use of cash, bracket)\n• Decrease in payables: (R1 530 000) ✓✓ (see 3.1.2)\nCash generated from operations: DO NOT CALCULATE\n\n*Delete the direction that does not apply; the word chosen must match the bracket use.\n\nTeaching point: Start at profit before tax (gross up the after-tax profit by 100/70), add back non-cash / non-operating items (depreciation, interest expense), then adjust for working-capital movements — a fall in inventory and a rise in payables release cash; a rise in receivables and a fall in payables use cash.",
+          "topic": "Cash Flow Statement - Reconciliation of profit to cash from operations",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-3-1-2",
+          "label": "3.1.2",
+          "questionText": "Use the same information as 3.1.1. Calculate the following Note 1 amounts:\n(a) Depreciation for the year (fixed assets carrying value: R1 550 000 → R1 467 500; old equipment sold at book value R150 000; new delivery vehicle bought for R300 000).\n(b) Interest on the loan (loan R12 000 000 → R12 500 000; additional loan R2 000 000; total repayments including interest R2 625 000; interest capitalised).\n(c) The change in trade and other payables (Creditors control R14 600 000 → R12 900 000; SARS PAYE & UIF R70 000 → R90 000; Income received in advance R300 000 → R450 000).",
+          "marks": 12,
+          "memoText": "(a) Depreciation: 1 550 000 (opening CV) + 300 000 (new vehicle) − 150 000 (CV of asset sold) − 1 467 500 (closing CV) = R232 500 ✓✓✓✓✓\n\n(b) Interest on loan: 2 625 000 (repayments incl. interest) + 12 500 000 (closing loan) − 12 000 000 (opening loan) − 2 000 000 (additional loan) = R1 125 000 ✓✓✓✓\n  (interest is capitalised, so it is added into the loan balance; the balancing figure in the loan account is the interest)\n\n(c) Change in trade and other payables:\n  (14 600 000 + 70 000 + 300 000) − (12 900 000 + 90 000 + 450 000)\n  = 14 970 000 − 13 440 000 = R1 530 000 DECREASE ✓✓✓\n\nTeaching point: Depreciation is the balancing figure in the fixed-asset (carrying value) account; capitalised loan interest is the balancing figure in the loan account; the working-capital payables movement combines trade creditors with the other short-term operating payables (PAYE, income received in advance).",
+          "topic": "Cash Flow Statement - Note 1 supporting calculations",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-3-2",
+          "label": "3.2",
+          "questionText": "Use the same information as 3.1.1, plus: old equipment was sold at its book value of R150 000; a new delivery vehicle was bought for R300 000; the company bought another 40 000 shares in Tammy Ltd (investments R300 000 → R520 000).\n\nComplete the extract of the Cash Flow Statement — Cash flow from investing activities — for the year ended 28 February 2022.",
+          "marks": 6,
+          "memoText": "CASH FLOW FROM INVESTING ACTIVITIES:\n• Purchase of fixed assets: (R300 000) ✓ (new delivery vehicle)\n• Proceeds from sale of fixed assets: R150 000 ✓ (sold at book value)\n• Increase in investments: (300 000 − 520 000) = (R220 000) ✓✓ (bracket — cash used to buy 40 000 more Tammy Ltd shares)\nCash flow from investing activities: (R370 000) ✓ (brackets, totalling)\n\nTeaching point: Investing activities record cash spent on / received from long-term assets and investments — a purchase is a bracket (outflow), a sale is an inflow at the actual proceeds.",
+          "topic": "Cash Flow Statement - Investing activities",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-3-3-1",
+          "label": "3.3.1",
+          "questionText": "Use the same information as 3.1.1, plus: opening ordinary share capital R30 000 000 (4 000 000 shares). In September 2021 the company sold another 800 000 shares for a total of R6 720 000. In January 2022 the company bought back 150 000 shares at R8,70 each from a deceased estate.\n\nCalculate the weighted average share price at the time of the repurchase of the shares.",
+          "marks": 4,
+          "memoText": "Weighted average share price at the repurchase:\n= (30 000 000 + 6 720 000) ÷ (4 000 000 + 800 000)\n= 36 720 000 ÷ 4 800 000\n= R7,65 per share ✓✓✓✓ (Rands ÷ shares)\n\nTeaching point: The average issue price = total value of share capital ÷ total shares in issue immediately before the buy-back; shares repurchased are removed from share capital at this average, not at the price actually paid.",
+          "topic": "Cash Flow Statement - Weighted average share price",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-3-3-2",
+          "label": "3.3.2",
+          "questionText": "Use the same information as 3.1.1 and 3.3.1. The 150 000 shares were bought back at R8,70 each; the weighted average share price was R7,65 (from 3.3.1). Retained income: R1 650 000 (opening) → R3 402 500 (closing). Net profit after tax R5 915 000. Interim dividends were declared and paid; the closing 'shareholders for dividends' is R2 325 000.\n\nCalculate the amount of profit retained after taxation and dividends by completing the Retained Income (Appropriation) account. Ignore dates and folio references.",
+          "marks": 8,
+          "memoText": "RETAINED INCOME ACCOUNT:\nDebit side:\n• Bank (excess paid on the share buy-back): (8,70 − 7,65) × 150 000 = 1,05 × 150 000 = R157 500 ✓✓\n• Balance c/d: R3 402 500 (given)\nTotal debit side: R3 560 000\n\nCredit side:\n• Balance b/d: R1 650 000 (given)\n• Appropriation Account (net profit after tax − dividends): R1 910 000 ✓✓✓ (this is the profit RETAINED after taxation and dividends)\nTotal credit side: R3 560 000\n\nWorking: R1 910 000 = 3 402 500 + 157 500 − 1 650 000 (the transfer needed to balance the account).\n\nTeaching point: The premium paid above the average share price on a buy-back is debited to retained income. The 'profit retained' is the amount transferred from the Appropriation Account — net profit after tax less all dividends for the year.",
+          "topic": "Cash Flow Statement - Retained Income account",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-3-3-3",
+          "label": "3.3.3",
+          "questionText": "Use the same information as 3.1.1 to 3.3.2. Net profit before tax R8 450 000; taxation R2 535 000; profit retained after tax and dividends R1 910 000 (from 3.3.2); opening shareholders for dividends R1 800 000; closing shareholders for dividends R2 325 000.\n\nCalculate the dividends paid as it would appear on the Cash Flow Statement for the year ended 28 February 2022.",
+          "marks": 5,
+          "memoText": "Dividends declared for the year:\n(8 450 000 − 2 535 000) = 5 915 000 (net profit after tax) − 1 910 000 (profit retained, from 3.3.2) = R4 005 000 total dividends for the year ✓✓✓\n\nDividends paid (cash flow statement):\n1 800 000 (opening shareholders for dividends — last year's final, paid this year) + 4 005 000 (this year's dividends declared) − 2 325 000 (closing shareholders for dividends — this year's final, still unpaid) = R3 480 000 ✓✓ (totalling)\n\nTeaching point: Dividends PAID in cash = last year's outstanding final dividend + this year's total declared dividends − this year's outstanding final dividend.",
+          "topic": "Cash Flow Statement - Dividends paid",
+          "type": "calculation"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Manufacturing (Kudawashe Cheese)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2022-4-1-1",
+          "label": "4.1.1",
+          "questionText": "MANUFACTURING — KUDAWASHE CHEESE\n\nKudawashe Cheese produces flavoured cheese, sold from its own shop. Factory 600 m²; administration offices and shop 200 m². Year ends 28 February.\n\nBalances:\n                        | 2022     | 2021\nDirect (raw) materials   | R151 000 | R143 000\nWork-in-progress         | R5 000   | R4 000\nFinished goods           | R124 200 | R96 216\nIndirect materials       | R19 000  | R27 000\n\nDirect and indirect materials:\n• Credit purchases of raw materials R146 250; cash purchases R78 750.\n• R16 000 of milk (raw material) returned to a supplier (past expiry).\n• Raw-material delivery is outsourced for a set fee of R1 250 per month.\n• Indirect materials purchased R62 000; 10% of all indirect materials are used in the administration offices and shop.\n\nComplete the Raw Materials note to the Production Cost Statement for the year ended 28 February 2022.",
+          "marks": 10,
+          "memoText": "RAW MATERIALS NOTE:\n• Opening balance: R143 000\n• Purchases: 146 250 + 78 750 = 225 000 − 16 000 (returns) = R209 000 ✓✓✓\n• Carriage on purchases: 1 250 × 12 = R15 000 ✓✓\n• Less closing stock: (R151 000)\n• Raw materials used in the production process: 143 000 + 209 000 + 15 000 − 151 000 = R216 000 ✓✓✓✓✓ (no foreign items)\n\nTeaching point: Raw materials issued to production = opening raw materials + net purchases + carriage on purchases − closing raw materials.",
+          "topic": "Manufacturing - Raw Materials note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-4-1-2",
+          "label": "4.1.2",
+          "questionText": "Use the same information as 4.1.1, plus:\n• Factory supervisor and two shop assistants each earn the same; combined salary cost R432 000 per annum.\n• General expenses (per pre-adjustment trial balance): Rent expense R110 390; Water & Electricity R35 200; Insurance R48 950.\n• Rent is paid one month in advance and was increased by 10% on 1 January 2022; rent is allocated by floor space (factory 600 m² : offices and shop 200 m²).\n• Factory uses 70% of the water and electricity.\n• Half the insurance belongs to the factory; premiums unchanged; the February 2022 premium was not paid due to a bank error.\n• Security: R15 960 was allocated to the administration offices and shop; security is allocated Factory : Administration : Shop = 3 : 1 : 3.\n\nComplete the Factory Overheads note.",
+          "marks": 15,
+          "memoText": "FACTORY OVERHEADS NOTE (Do not calculate the total):\n• Indirect materials: (27 000 + 62 000 − 19 000) × 90% = 70 000 × 90% = R63 000 ✓✓✓ (10% is used in the offices/shop)\n• Indirect labour: 432 000 ÷ 3 = R144 000 ✓✓ (the factory supervisor's share of the combined salary)\n• Rent expense: (110 390 − 9 130) × 600/800 = 101 260 × 600/800 = R75 945 ✓✓✓\n  Working: 110 390 = 11 months at x + 1 month at 1,1x → 110 390 = 10x + 3(1,1x)? Memo: 110 390 = 10x + 3(1,1x) gives x = 8 300 (Sep–Dec at x) and 9 130 (Jan–Feb at x + 10%); one month (Feb) prepaid = R9 130; rent for the year = 110 390 − 9 130 = R101 260; factory share 600/800.\n• Water & electricity: 35 200 × 70% = R24 640 ✓✓\n• Insurance: (48 950 + 4 450 accrued February) × 50% = 53 400 × 50% = R26 700 ✓✓✓\n  Working: monthly premium = 48 950 ÷ 11 = R4 450; accrue the unpaid February premium.\n• Security: 15 960 × 3/4 = R11 970 ✓✓ (offices + shop share is 1 + 3 = 4 units = R15 960, so one unit = R3 990; factory share = 3 units = R11 970)\n\nTeaching point: Only the factory's share of shared costs belongs in factory overheads — apportion rent by floor space, water and electricity by usage, insurance by the stated fraction, and security by the given ratio; accrue unpaid amounts and remove prepaid amounts first.",
+          "topic": "Manufacturing - Factory Overheads note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-4-2",
+          "label": "4.2",
+          "questionText": "Use the same information as 4.1.1. The factory employs four workers at R8 000 per month. Each is entitled to a medical aid contribution of R500 per month and a pension and UIF contribution of 8% of gross earnings.\n\nCalculate the cost of the direct labour for the year ended 28 February 2022.",
+          "marks": 6,
+          "memoText": "Direct labour cost:\n= 4 × [ (8 000 × 12 = 96 000 gross) + 8% of gross (7 680) + (500 × 12 = 6 000 medical aid) ]\n= 4 × [ 96 000 + 7 680 + 6 000 ]\n= 4 × 109 680\n= R438 720 ✓✓✓✓✓✓\n\nTeaching point: The cost of direct labour to the business is gross wages PLUS the employer's contributions (pension, UIF, medical aid) — the deductions from the worker's pay are not an extra cost.",
+          "topic": "Manufacturing - Direct labour cost",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-4-3",
+          "label": "4.3",
+          "questionText": "Use the same information as 4.1.1. A sales assistant stole 120 kg of cheese at a cost of R65/kg while transporting it to the shop; this loss was deemed a selling and distribution expense. The cost of production reflected on the Production Cost Statement for the year was R1 013 784.\n\nCalculate the cost of sales for the year ended 28 February 2022.",
+          "marks": 5,
+          "memoText": "Finished goods account:\nOpening finished goods: R96 216\n+ Cost of production of finished goods: R1 013 784\n= R1 110 000 available\n− Closing finished goods: (R124 200)\n− Stock stolen (120 kg × R65 = R7 800, treated as a selling & distribution expense, not cost of sales): (R7 800)\nCost of sales = 96 216 + 1 013 784 − 124 200 − 7 800 = R978 000 ✓✓✓✓✓ (no foreign items)\n\nTeaching point: Cost of sales = opening finished goods + cost of production − closing finished goods, then remove any finished-goods loss that has been classified elsewhere (here, as a selling and distribution expense).",
+          "topic": "Manufacturing - Cost of sales",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2022-4-4",
+          "label": "4.4",
+          "questionText": "Use the same information as 4.1.1. Explain why the work-in-progress balances (R4 000 and R5 000) are so low compared with the raw materials and the finished goods balances.",
+          "marks": 4,
+          "memoText": "Any valid explanation ✓✓✓✓:\n• Cheese production is a quick, continuous process — the factory finishes each run rather than leaving half-made cheese on the line, because partly-made cheese would spoil / be contaminated.\n• Raw materials (milk that can be stored) and finished goods (matured cheese) keep for much longer, so more value sits in those stages.\n• Whatever WIP there is would be minor items like wrappers and indirect materials on the line at year end.\n\nTeaching point: Work-in-progress is small when the manufacturing cycle is short and the product is perishable — little value is ever 'stuck' between raw material and finished good.",
+          "topic": "Manufacturing - Interpreting stock balances",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

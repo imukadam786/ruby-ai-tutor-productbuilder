@@ -1,0 +1,969 @@
+{
+  "id": "phys-sci-ieb-p2-nov-2023",
+  "subject": "Physical Science IEB",
+  "subjectCode": "physical-science-ieb",
+  "paperCode": "P2",
+  "year": 2023,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-1-1",
+          "label": "1.1",
+          "questionText": "Which one of the following name and formula combinations is correct?\nA  potassium dichromate — K₂CrO₇\nB  lead(IV) oxide — Pb₂O₄\nC  aluminium sulfide — Al₂(SO₃)₃\nD  chromium(III) phosphate — CrPO₄",
+          "marks": 2,
+          "memoText": "D — chromium(III) phosphate is CrPO₄ (Cr³⁺ with PO₄³⁻). (Potassium dichromate is K₂Cr₂O₇; lead(IV) oxide is PbO₂; aluminium sulfide is Al₂S₃.)",
+          "topic": "Quantitative Chemistry (formulae)",
+          "type": "mcq",
+          "options": { "A": "potassium dichromate — K₂CrO₇", "B": "lead(IV) oxide — Pb₂O₄", "C": "aluminium sulfide — Al₂(SO₃)₃", "D": "chromium(III) phosphate — CrPO₄" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-1-2",
+          "label": "1.2",
+          "questionText": "For which one of the following pairs of compounds will X have a higher boiling point than Y?\nA  X = H₂O ; Y = H₂S\nB  X = C₂H₆ ; Y = C₃H₈\nC  X = CH₃CH₂OH ; Y = CH₂OHCH₂OH (ethane-1,2-diol)\nD  X = F₂ ; Y = Cl₂",
+          "marks": 2,
+          "memoText": "A. Water forms strong hydrogen bonds between its molecules, whereas H₂S has only weak dipole–dipole / London forces, so H₂O has the much higher boiling point. In B, C and D the compound Y has the higher boiling point.",
+          "topic": "Intermolecular Forces",
+          "type": "mcq",
+          "options": { "A": "X = H₂O ; Y = H₂S", "B": "X = C₂H₆ ; Y = C₃H₈", "C": "X = CH₃CH₂OH ; Y = ethane-1,2-diol", "D": "X = F₂ ; Y = Cl₂" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-1-3",
+          "label": "1.3",
+          "questionText": "Four diagrams (A–D) each show a red dashed line drawn between two small molecules to represent a possible hydrogen bond. In which diagram does the red dashed line correctly show the formation of a hydrogen bond — running from a hydrogen atom that is covalently bonded to N, O or F, to a lone pair on the N, O or F atom of a neighbouring molecule?",
+          "marks": 2,
+          "memoText": "C — the diagram in which the dashed line links a hydrogen atom bonded to a highly electronegative atom (O, N or F) to a lone pair on the electronegative atom of the other molecule.",
+          "topic": "Intermolecular Forces",
+          "type": "mcq",
+          "options": { "A": "diagram A", "B": "diagram B", "C": "diagram C", "D": "diagram D" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-1-4",
+          "label": "1.4",
+          "questionText": "Which one of the following graphs shows the relationship between the activation energy (Eₐ) for a reaction (y-axis) and the temperature (x-axis)? The options are: A a straight line increasing; B a straight line decreasing; C a horizontal line; D a curve.",
+          "marks": 2,
+          "memoText": "C — a horizontal line. The activation energy of a given reaction is a fixed quantity; it does not depend on the temperature. (Raising the temperature gives more particles the energy to overcome Eₐ, but Eₐ itself is unchanged.)",
+          "topic": "Rate of Reaction",
+          "type": "mcq",
+          "options": { "A": "straight line increasing", "B": "straight line decreasing", "C": "horizontal line", "D": "a curve" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-1-5",
+          "label": "1.5",
+          "questionText": "A certain amount of ICl(g) is sealed in an empty flask at a fixed temperature: 2ICl(g) ⇌ I₂(g) + Cl₂(g). Which of the following describe the changes that occur as the system proceeds towards equilibrium?\n(i) The rate of the reverse reaction increases.\n(ii) The concentrations of ICl, I₂ and Cl₂ change at the same rate.\n(iii) The concentration of Cl₂ increases.\nA  (i) only\nB  (ii) only\nC  (i) and (iii) only\nD  (ii) and (iii) only",
+          "marks": 2,
+          "memoText": "C — (i) and (iii). As products build up, the reverse reaction speeds up (i). Cl₂ is a product, so its concentration increases (iii). Statement (ii) is false: from the 2 : 1 : 1 ratio, [ICl] changes twice as fast as [I₂] and [Cl₂].",
+          "topic": "Chemical Equilibrium",
+          "type": "mcq",
+          "options": { "A": "(i) only", "B": "(ii) only", "C": "(i) and (iii) only", "D": "(ii) and (iii) only" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-1-6",
+          "label": "1.6",
+          "questionText": "The K_b values of two hypothetical bases are: X(OH)₂ has K_b = 4,4 × 10⁻⁴; Y(OH)₂ has K_b = 5,6 × 10⁻⁴. Aqueous solutions of the two bases and of their chloride salts (XCl₂ and YCl₂), all at the same concentration, are compared. Which base solution has the higher pH, and which chloride salt solution has the higher pH?\nA  base: X(OH)₂ ; salt: XCl₂\nB  base: X(OH)₂ ; salt: YCl₂\nC  base: Y(OH)₂ ; salt: XCl₂\nD  base: Y(OH)₂ ; salt: YCl₂",
+          "marks": 2,
+          "memoText": "D. Y(OH)₂ has the larger K_b, so it is the stronger base and its solution has the higher pH. Its salt YCl₂ (salt of a stronger base and a strong acid) hydrolyses least, so it is the more neutral (higher pH) salt solution; XCl₂ (from the weaker base) is slightly more acidic.",
+          "topic": "Acids and Bases",
+          "type": "mcq",
+          "options": { "A": "base X(OH)₂ ; salt XCl₂", "B": "base X(OH)₂ ; salt YCl₂", "C": "base Y(OH)₂ ; salt XCl₂", "D": "base Y(OH)₂ ; salt YCl₂" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-1-7",
+          "label": "1.7",
+          "questionText": "An impure copper electrode, containing small amounts of gold and zinc, is purified by electrolysis, and a sludge forms beneath the anode. Why is gold the only metal found in the sludge?\nA  Copper and zinc are oxidised, but gold is not.\nB  Gold ions are more easily reduced than copper ions.\nC  Gold reacts with the electrolyte to form an insoluble salt.\nD  The amount of gold in the electrode is too low, so it does not react.",
+          "marks": 2,
+          "memoText": "A. Copper and zinc are stronger reducing agents than gold, so they are oxidised at the anode and dissolve. Gold is not oxidised under these conditions, so it simply drops off as the surrounding copper dissolves and collects as anode sludge.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "mcq",
+          "options": { "A": "Copper and zinc are oxidised, gold is not", "B": "Gold ions are more easily reduced than copper ions", "C": "Gold forms an insoluble salt with the electrolyte", "D": "Too little gold to react" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-1-8",
+          "label": "1.8",
+          "questionText": "Cations can pass through component X, while anions cannot. Which of the following might component X represent?\nA  The diaphragm of an electrolytic cell used in the chlor-alkali process\nB  The membrane of an electrolytic cell used in the chlor-alkali process\nC  The wire in a galvanic cell\nD  The salt bridge in a galvanic cell",
+          "marks": 2,
+          "memoText": "B. The membrane in a membrane chlor-alkali cell is an ion-selective (cation-exchange) membrane: it lets Na⁺ cations through but blocks anions. A diaphragm is non-selective; a wire carries electrons, not ions; a salt bridge allows both cations and anions to move.",
+          "topic": "Electrochemistry (chlor-alkali)",
+          "type": "mcq",
+          "options": { "A": "diaphragm of a chlor-alkali cell", "B": "membrane of a chlor-alkali cell", "C": "the wire in a galvanic cell", "D": "the salt bridge in a galvanic cell" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-1-9",
+          "label": "1.9",
+          "questionText": "The alcohols form a homologous series. Which statement is correct? Alcohols have ...\nA  similar physical properties.\nB  similar chemical properties.\nC  the same molecular formula.\nD  the same structural formula.",
+          "marks": 2,
+          "memoText": "B. Members of a homologous series share the same functional group and so have similar chemical properties. Their physical properties change gradually down the series, and they have different molecular and structural formulae.",
+          "topic": "Organic Chemistry (homologous series)",
+          "type": "mcq",
+          "options": { "A": "similar physical properties", "B": "similar chemical properties", "C": "the same molecular formula", "D": "the same structural formula" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-1-10",
+          "label": "1.10",
+          "questionText": "When red-brown bromine water is added to a hydrocarbon, the colour disappears immediately. From this it can be concluded that:\nA  The general formula of the hydrocarbon is CₙH₂ₙ₊₂.\nB  The hydrocarbon undergoes a hydration reaction with bromine.\nC  The red-brown colour fades immediately in the presence of any hydrocarbon.\nD  The hydrocarbon undergoes an addition reaction with bromine.",
+          "marks": 2,
+          "memoText": "D. Rapid decolourisation of bromine water shows the hydrocarbon is unsaturated (has a C=C bond) and reacts with bromine by addition across the double bond.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "mcq",
+          "options": { "A": "general formula CₙH₂ₙ₊₂", "B": "hydration reaction with bromine", "C": "colour fades with any hydrocarbon", "D": "addition reaction with bromine" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Bonding and Solutions (Sodium Thiosulfate)",
+      "totalMarks": 14,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-2-1",
+          "label": "2.1",
+          "questionText": "Solid sodium thiosulfate, Na₂S₂O₃, consists of Na⁺ ions and S₂O₃²⁻ ions.\n\nDefine electronegativity.",
+          "marks": 2,
+          "memoText": "Electronegativity is a measure of the tendency of an atom in a molecule to attract a bonding (shared) pair of electrons.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-2-2",
+          "label": "2.2",
+          "questionText": "Describe a covalent bond.",
+          "marks": 2,
+          "memoText": "A covalent bond is the sharing of at least one pair of electrons by two non-metal atoms (a bond that occurs between atoms within a molecule).",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-2-3",
+          "label": "2.3",
+          "questionText": "Which two atoms in this compound are held together by polar covalent bonds? Explain the answer.",
+          "marks": 3,
+          "memoText": "Sulfur (S) and oxygen (O), within the S₂O₃²⁻ ion. They are both non-metals, and they have different electronegativities, so the bonding pair of electrons is shared unequally (a dipole forms) — the bond is polar covalent.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-2-4-1",
+          "label": "2.4.1",
+          "questionText": "An aqueous solution of sodium thiosulfate is prepared. What is meant by the term solution in this statement?",
+          "marks": 2,
+          "memoText": "A solution is a homogeneous mixture of a solute and a solvent (uniform throughout).",
+          "topic": "Chemical Change",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-2-4-2",
+          "label": "2.4.2",
+          "questionText": "Identify the solvent in this solution.",
+          "marks": 1,
+          "memoText": "Water (H₂O).",
+          "topic": "Chemical Change",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-2-4-3",
+          "label": "2.4.3",
+          "questionText": "Name the bonds/forces in sodium thiosulfate that are broken/overcome when the compound dissolves.",
+          "marks": 1,
+          "memoText": "The ionic bonds (electrostatic / Coulombic forces of attraction) between the Na⁺ and S₂O₃²⁻ ions.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-2-4-4",
+          "label": "2.4.4",
+          "questionText": "Define electrolyte.",
+          "marks": 2,
+          "memoText": "An electrolyte is a substance that conducts electricity by forming free ions when it is molten or dissolved in solution.",
+          "topic": "Electrochemistry",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-2-4-5",
+          "label": "2.4.5",
+          "questionText": "Is this solution an electrolyte? Answer either YES or NO.",
+          "marks": 1,
+          "memoText": "Yes.",
+          "topic": "Electrochemistry",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Rate of Reaction (Na₂S₂O₃ + HCl)",
+      "totalMarks": 24,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-3-1",
+          "label": "3.1",
+          "questionText": "Sodium thiosulfate reacts with hydrochloric acid:\nNa₂S₂O₃(aq) + 2HCl(aq) → 2NaCl(aq) + SO₂(g) + S(s) + H₂O(l)\n\nDefine reaction rate.",
+          "marks": 2,
+          "memoText": "The reaction rate is the change in amount (moles) or concentration of a reactant or a product per unit time (per second).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-3-2-1",
+          "label": "3.2.1",
+          "questionText": "In each experiment, 5 cm³ of 0,15 mol·dm⁻³ HCl was added to 25 cm³ of Na₂S₂O₃ solution. In Experiment 5 the concentration of the Na₂S₂O₃ solution is 0,10 mol·dm⁻³. Prove by calculation that hydrochloric acid is the limiting reagent. Do not round your answers.",
+          "marks": 4,
+          "memoText": "n(Na₂S₂O₃) = cV = 0,10 × 0,025 = 0,0025 mol\nn(HCl) = cV = 0,15 × 0,005 = 0,00075 mol\nFrom the equation, 1 mol Na₂S₂O₃ reacts with 2 mol HCl, so 0,0025 mol Na₂S₂O₃ would need 0,005 mol HCl — more than the 0,00075 mol available.\n∴ HCl is the limiting reagent (Na₂S₂O₃ is in excess).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-3-2-2",
+          "label": "3.2.2",
+          "questionText": "Calculate the number of sulfur atoms in the precipitate produced when the reaction goes to completion. (Nₐ = 6,02 × 10²³ mol⁻¹.)",
+          "marks": 3,
+          "memoText": "HCl is limiting. From the equation, 2 mol HCl → 1 mol S, so n(S) = 0,00075 × ½ = 3,75 × 10⁻⁴ mol.\nN(S) = n·Nₐ = 3,75 × 10⁻⁴ × 6,02 × 10²³\nN(S) = 2,26 × 10²⁰ sulfur atoms",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-3-3",
+          "label": "3.3",
+          "questionText": "The results are: [Na₂S₂O₃] (mol·dm⁻³) = 0,01 ; 0,02 ; 0,04 ; 0,08 ; 0,10 and Rate (s⁻¹) = 0,005 ; 0,009 ; 0,022 ; 0,042 ; 0,050 respectively. Plot a graph of reaction rate versus concentration and draw the line of best fit.",
+          "marks": 4,
+          "memoText": "Marks for: a sensible y-axis scale; correct plotting of all five points; and a straight line of best fit drawn through the origin. The graph is a straight line through the origin (rate directly proportional to concentration).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-3-4",
+          "label": "3.4",
+          "questionText": "Determine how long (in seconds) it would take for a sodium thiosulfate solution of concentration 0,03 mol·dm⁻³ to react in this experiment.",
+          "marks": 3,
+          "memoText": "Read the rate off the line of best fit at 0,03 mol·dm⁻³: rate ≈ 0,015 s⁻¹.\nTime = 1/rate = 1/0,015 = 66,67 s",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-3-5",
+          "label": "3.5",
+          "questionText": "State in words the relationship between the concentration of the sodium thiosulfate and the rate of the reaction.",
+          "marks": 2,
+          "memoText": "The rate of the reaction is directly proportional to the concentration of the sodium thiosulfate (as the concentration increases, the rate increases by the same factor).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-3-6-1",
+          "label": "3.6.1",
+          "questionText": "A separate investigation of the effect of temperature gives a curve of Rate (s⁻¹) rising with Temperature (°C): rate ≈ 0,02 s⁻¹ at about 38 °C and ≈ 0,04 s⁻¹ at about 52 °C. Use values from the graph to determine the temperature rise required to double the rate of this reaction. Show your working.",
+          "marks": 2,
+          "memoText": "Rate doubles from 0,02 s⁻¹ to 0,04 s⁻¹ as the temperature rises from about 38 °C to about 52 °C.\nTemperature rise = 52 − 38 = 14 °C (any pair of points where the rate doubles gives about a 14 °C rise).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-3-6-2",
+          "label": "3.6.2",
+          "questionText": "Explain the effect of increasing temperature on the rate of reaction in terms of the collision theory.",
+          "marks": 4,
+          "memoText": "• When the temperature is increased, the particles have more kinetic energy / move faster.\n• So a greater proportion of particles have kinetic energy greater than the activation energy.\n• There are also more collisions per unit time.\n• Both factors increase the number of effective collisions per unit time, so the reaction rate increases (steeply/exponentially).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Chemical Equilibrium (3A(s) + 2B(g) ⇌ A₃B₂(g))",
+      "totalMarks": 22,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-4-1",
+          "label": "4.1",
+          "questionText": "Consider the hypothetical equilibrium: 3A(s) + 2B(g) ⇌ A₃B₂(g), ΔH < 0, with Kc = 1,65 at 40 °C.\n\nWhy is the temperature of 40 °C specified?",
+          "marks": 1,
+          "memoText": "Because the equilibrium constant is temperature dependent — its value is only valid at the stated temperature.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-4-2",
+          "label": "4.2",
+          "questionText": "Write the expression for the equilibrium constant (Kc) of this reaction.",
+          "marks": 2,
+          "memoText": "Kc = [A₃B₂] / [B]²   (A is a solid, so it is omitted.)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-4-3-1",
+          "label": "4.3.1",
+          "questionText": "0,3 mol of B was added to a 2 dm³ reaction vessel containing some A, sealed and allowed to reach equilibrium at 40 °C. At equilibrium there were x moles of A₃B₂ in the container. Use the Kc expression to set up a mathematical equation that can be used to solve for x. It is not necessary to simplify or solve the equation.",
+          "marks": 5,
+          "memoText": "ICE table (in moles): B: initial 0,3, change −2x, equilibrium (0,3 − 2x). A₃B₂: initial 0, change +x, equilibrium x.\nConcentrations (divide by 2 dm³): [B] = (0,3 − 2x)/2 ; [A₃B₂] = x/2.\nKc = [A₃B₂]/[B]²:\n1,65 = (x/2) / [(0,3 − 2x)/2]²",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-4-3-2-a",
+          "label": "4.3.2 (a)",
+          "questionText": "Solving the equation gives two answers: x = 0,56 mol or x = 0,04 mol. Explain why x = 0,56 mol is impossible if the container originally contained 0,3 mol of B.",
+          "marks": 2,
+          "memoText": "The mole ratio of B : A₃B₂ is 2 : 1, so producing 0,56 mol A₃B₂ would consume 2 × 0,56 = 1,12 mol of B. Only 0,3 mol of B was present, so 0,3 − 2(0,56) is negative — there is not enough B. (The maximum possible A₃B₂ is 0,3/2 = 0,15 mol.)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-4-3-2-b",
+          "label": "4.3.2 (b)",
+          "questionText": "Calculate the equilibrium concentration of B in the reaction vessel (using x = 0,04 mol).",
+          "marks": 2,
+          "memoText": "n(B) at equilibrium = 0,3 − 2(0,04) = 0,22 mol\n[B] = n/V = 0,22/2 = 0,11 mol·dm⁻³",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-4-4-1-a",
+          "label": "4.4.1 (a)",
+          "questionText": "The reaction is repeated using a catalyst, with all other conditions the same. Circle the correct option: the value of Kc will (INCREASE / DECREASE / REMAIN THE SAME).",
+          "marks": 1,
+          "memoText": "Remain the same. A catalyst does not change the equilibrium position or Kc.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-4-4-1-b",
+          "label": "4.4.1 (b)",
+          "questionText": "Circle the correct option: the value of ΔH will (INCREASE / DECREASE / REMAIN THE SAME).",
+          "marks": 1,
+          "memoText": "Remain the same. A catalyst provides an alternative pathway with a lower activation energy but does not change the enthalpy change (ΔH) of the reaction.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-4-4-2",
+          "label": "4.4.2",
+          "questionText": "The graph of the original reaction rate versus time is given. On the same axes, draw the graph to show the effect of using a catalyst from time t = 0.",
+          "marks": 3,
+          "memoText": "The catalysed curve starts at a higher initial rate, both the forward and reverse rates level off at higher values, and equilibrium is reached sooner (the curves flatten earlier) than for the uncatalysed reaction. The final equilibrium rate is higher, but equilibrium is still reached.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-4-5-1",
+          "label": "4.5.1",
+          "questionText": "The reaction (3A(s) + 2B(g) ⇌ A₃B₂(g), ΔH < 0) is carried out at a LOWER temperature. Circle the correct option: the yield will (INCREASE / DECREASE / REMAIN THE SAME).",
+          "marks": 1,
+          "memoText": "Increase.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-4-5-2",
+          "label": "4.5.2",
+          "questionText": "Explain the answer to Question 4.5.1 by applying Le Châtelier's principle.",
+          "marks": 3,
+          "memoText": "Lowering the temperature removes heat from the system (the stress is a decrease in temperature). By Le Châtelier's principle the equilibrium shifts to oppose this, favouring the reaction that releases heat — the exothermic forward reaction. So more A₃B₂ is produced and the yield increases.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-4-5-3",
+          "label": "4.5.3",
+          "questionText": "Circle the correct option: at the lower temperature the value of Kc will (INCREASE / DECREASE / REMAIN THE SAME).",
+          "marks": 1,
+          "memoText": "Increase. For an exothermic forward reaction, lowering the temperature shifts the equilibrium towards products, so Kc increases.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Acids and Bases (Weak Triprotic Acid H₃A)",
+      "totalMarks": 28,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-1",
+          "label": "5.1",
+          "questionText": "Solutions of a hypothetical weak acid H₃A and sodium hydroxide react as:\nH₃A(aq) + 3NaOH(aq) → Na₃A(aq) + 3H₂O(l)\n\nClassify the acid in terms of the specific number of protons donated: 'The acid is __________PROTIC.'",
+          "marks": 1,
+          "memoText": "Triprotic (it donates three protons).",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-2-1",
+          "label": "5.2.1",
+          "questionText": "For the first ionisation H₃A(aq) + H₂O(l) ⇌ H₂A⁻(aq) + H₃O⁺(aq), circle the Ka value that is most likely for H₃A: Ka = 7,1 × 10⁻⁴ OR Ka = 6,5 × 10².",
+          "marks": 1,
+          "memoText": "Ka = 7,1 × 10⁻⁴. H₃A is a weak acid, so it ionises only partially and must have a small Ka.",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-2-2-a",
+          "label": "5.2.2 (a)",
+          "questionText": "H₂A⁻ is amphoteric. In the ionisation reaction shown (H₃A + H₂O ⇌ H₂A⁻ + H₃O⁺), H₂A⁻ is acting as (an ACID / a BASE). Circle the correct option.",
+          "marks": 1,
+          "memoText": "A base (in that reaction H₂A⁻ is the species formed after H₃A donates a proton, so H₂A⁻ is the conjugate base).",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-2-2-b",
+          "label": "5.2.2 (b)",
+          "questionText": "Write an equation for the hydrolysis reaction of H₂A⁻ when it acts as an ACID.",
+          "marks": 3,
+          "memoText": "H₂A⁻ + H₂O ⇌ HA²⁻ + H₃O⁺",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-3-1",
+          "label": "5.3.1",
+          "questionText": "The salt Na₃A dissociates completely in water. Define dissociation.",
+          "marks": 2,
+          "memoText": "Dissociation is the splitting up of an ionic compound into its ions (when it dissolves or melts).",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-3-2",
+          "label": "5.3.2",
+          "questionText": "Complete and balance the equation for the dissociation of Na₃A in water: Na₃A(s) → ...",
+          "marks": 2,
+          "memoText": "Na₃A(s) → 3Na⁺(aq) + A³⁻(aq)",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-3-3",
+          "label": "5.3.3",
+          "questionText": "Circle the correct answer: Na₃A is (an ACIDIC / a BASIC) salt.",
+          "marks": 1,
+          "memoText": "A basic salt (it is the salt of a weak acid and a strong base, so the A³⁻ ion hydrolyses to give a basic solution).",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-4",
+          "label": "5.4",
+          "questionText": "Zandi prepared a standard solution of H₃A(aq) of concentration 3,81 × 10⁻² mol·dm⁻³ in a 200 cm³ volumetric flask. Calculate the mass of H₃A crystals (M = 192 g·mol⁻¹) that Zandi used.",
+          "marks": 4,
+          "memoText": "n = cV = 3,81 × 10⁻² × 0,200 = 7,62 × 10⁻³ mol\nm = nM = 7,62 × 10⁻³ × 192 = 1,46 g\n(OR m = cVM = 3,81 × 10⁻² × 0,200 × 192 = 1,46 g.)",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-5",
+          "label": "5.5",
+          "questionText": "Why is it especially important that the standard solution be homogeneous when doing titrations?",
+          "marks": 2,
+          "memoText": "So that every aliquot (portion) taken from the flask has exactly the same, known concentration. If the solution were not uniformly mixed, different titres would use acid of different concentrations and the results would not be reliable / precise / accurate.",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-6-1",
+          "label": "5.6.1",
+          "questionText": "Zandi titrated 25,0 cm³ of NaOH(aq) against the standard H₃A(aq). Given a selection of indicators, which one would be suitable for this titration (weak triprotic acid against a strong base)?",
+          "marks": 1,
+          "memoText": "Phenolphthalein (its colour-change range lies in the basic region, matching the basic equivalence point of a weak acid–strong base titration).",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-6-2",
+          "label": "5.6.2",
+          "questionText": "State the colour change that would be observed at the end point in this particular titration (H₃A run from the burette into the NaOH in the flask).",
+          "marks": 1,
+          "memoText": "From pink to colourless (the NaOH solution containing phenolphthalein is pink; it turns colourless when just enough acid has been added).",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-7",
+          "label": "5.7",
+          "questionText": "The average titre was 32,6 cm³ of the 3,81 × 10⁻² mol·dm⁻³ H₃A(aq) for 25,0 cm³ of NaOH. Using H₃A + 3NaOH → Na₃A + 3H₂O, calculate the concentration of the sodium hydroxide solution. Write the answer correct to three decimal places.",
+          "marks": 4,
+          "memoText": "n(H₃A) = cV = 3,81 × 10⁻² × 0,0326 = 1,242 × 10⁻³ mol\nn(NaOH) = 3 × n(H₃A) = 3 × 1,242 × 10⁻³ = 3,726 × 10⁻³ mol\nc(NaOH) = n/V = 3,726 × 10⁻³ / 0,0250 = 0,149 mol·dm⁻³",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-8",
+          "label": "5.8",
+          "questionText": "Mike prepared his H₃A standard solution as follows: recorded the mass of crystals; dissolved them and added water to ABOVE the mark on the neck; then removed some solution with a dropper until the meniscus was on the mark; stoppered and mixed; and calculated the concentration from the recorded mass and 200 cm³. The ACTUAL concentration of Mike's H₃A solution is (GREATER THAN / LESS THAN / EQUAL TO) the value he calculated, because: ...",
+          "marks": 2,
+          "memoText": "LESS THAN. When he removed solution with the dropper he removed some of the dissolved H₃A (solute) along with the water, so the flask now contains less than the recorded mass of H₃A in 200 cm³ — the true concentration is lower than the value he calculated from the full recorded mass.",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-9-1",
+          "label": "5.9.1",
+          "questionText": "Consider Mike's calculated sodium hydroxide concentration after his titration. Circle the correct option: Mike's calculated NaOH concentration would be (EQUAL TO / HIGHER THAN / LOWER THAN) the actual value.",
+          "marks": 1,
+          "memoText": "Higher than the actual value.",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-5-9-2",
+          "label": "5.9.2",
+          "questionText": "Briefly explain the answer to Question 5.9.1.",
+          "marks": 2,
+          "memoText": "Mike's H₃A is actually more dilute than he thinks, so he needs to add a larger volume of it (a higher titre, Vₐ) to neutralise the NaOH. He uses the higher Vₐ in his calculation, which makes the calculated NaOH concentration come out higher than the true value.",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Galvanic Cell (Fe/Fe³⁺ and Cl₂/Cl⁻)",
+      "totalMarks": 22,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-6-1",
+          "label": "6.1",
+          "questionText": "Sam wrote the cell notation Fe(s) | Fe³⁺(aq) ‖ Cl₂(g) | Cl⁻(aq) to represent a galvanic cell. Complete the cell notation to include the one important component that Sam left out. Standard conditions are not required.",
+          "marks": 2,
+          "memoText": "Fe(s) | Fe³⁺(aq) ‖ Cl₂(g) | Cl⁻(aq) | Pt(s)  — an inert platinum (or carbon/graphite) electrode is needed in the chlorine (gas) half-cell.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-6-2",
+          "label": "6.2",
+          "questionText": "Define anode.",
+          "marks": 2,
+          "memoText": "The anode is the electrode at which oxidation takes place.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-6-3",
+          "label": "6.3",
+          "questionText": "Identify the anode in this cell.",
+          "marks": 1,
+          "memoText": "Fe (the iron electrode) — iron is oxidised (Fe → Fe³⁺ + 3e⁻).",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-6-4",
+          "label": "6.4",
+          "questionText": "Write down the net ionic equation for the reaction that takes place when this cell operates.",
+          "marks": 3,
+          "memoText": "2Fe + 3Cl₂ → 2Fe³⁺ + 6Cl⁻",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-6-5-1",
+          "label": "6.5.1",
+          "questionText": "For this cell to operate at standard conditions, standard solutions of Fe³⁺ and Cl⁻ must be prepared. Define standard solution.",
+          "marks": 2,
+          "memoText": "A standard solution is a solution of accurately known concentration.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-6-5-2",
+          "label": "6.5.2",
+          "questionText": "The standard solutions are prepared using the ionic salts Fe(NO₃)₃ and CaCl₂. What should the concentrations of these solutions be?",
+          "marks": 3,
+          "memoText": "Each Fe(NO₃)₃ gives one Fe³⁺, so c(Fe(NO₃)₃) = 1 mol·dm⁻³ (to give [Fe³⁺] = 1 mol·dm⁻³).\nEach CaCl₂ gives two Cl⁻, so c(CaCl₂) = 0,5 mol·dm⁻³ (to give [Cl⁻] = 1 mol·dm⁻³).",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-6-6",
+          "label": "6.6",
+          "questionText": "Sam states: 'For this cell to be operating at standard conditions, the atmospheric pressure must be 1,01 × 10⁵ Pa.' Correct Sam's statement.",
+          "marks": 1,
+          "memoText": "It is the pressure of the chlorine gas (the gas involved in the half-cell) that must be 1,01 × 10⁵ Pa, not the atmospheric pressure.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-6-7",
+          "label": "6.7",
+          "questionText": "Calculate the standard cell potential, E°cell, for this cell. (E°(Cl₂/Cl⁻) = +1,36 V; E°(Fe³⁺/Fe) = −0,04 V.)",
+          "marks": 4,
+          "memoText": "E°cell = E°cathode − E°anode = 1,36 − (−0,04)\nE°cell = 1,40 V",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-6-8",
+          "label": "6.8",
+          "questionText": "Sam adds some AgNO₃ solution to the chlorine half-cell, causing solid AgCl to precipitate. How will this affect the voltage of the cell? Circle the correct option and explain: the voltage of the cell will (INCREASE / DECREASE / REMAIN THE SAME) because ...",
+          "marks": 4,
+          "memoText": "INCREASE. Precipitating AgCl removes Cl⁻ ions, so [Cl⁻] decreases. By Le Châtelier's principle the cell reaction is driven forward (to produce more Cl⁻ and oppose the stress), which increases the cell voltage above the standard value.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Electrolysis and Electroplating",
+      "totalMarks": 22,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-1-1-a",
+          "label": "7.1.1 (a)",
+          "questionText": "A concentrated aqueous solution of copper(II) sulfate is electrolysed. In Cell A, copper electrodes are used. Circle the correct answer: at the cathode, ( Cu / Cu²⁺ / H₂O / SO₄²⁻ ) will be reduced.",
+          "marks": 1,
+          "memoText": "Cu²⁺ will be reduced at the cathode (Cu²⁺ + 2e⁻ → Cu).",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-1-1-b",
+          "label": "7.1.1 (b)",
+          "questionText": "In Cell A (copper electrodes), circle the correct answer: at the anode, ( Cu / Cu²⁺ / H₂O / SO₄²⁻ ) will be oxidised.",
+          "marks": 1,
+          "memoText": "Cu will be oxidised at the anode (Cu → Cu²⁺ + 2e⁻); the copper anode dissolves.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-1-1-c",
+          "label": "7.1.1 (c)",
+          "questionText": "In Cell A, the concentration of the solution as time passes will (INCREASE / DECREASE / REMAIN CONSTANT).",
+          "marks": 1,
+          "memoText": "Remain constant. Cu²⁺ is deposited at the cathode at the same rate as Cu²⁺ is produced by the dissolving copper anode.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-1-2-a",
+          "label": "7.1.2 (a)",
+          "questionText": "In Cell B, graphite electrodes are used. Write the chemical symbol for graphite.",
+          "marks": 1,
+          "memoText": "C (carbon).",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-1-2-b",
+          "label": "7.1.2 (b)",
+          "questionText": "Give a reason why graphite can function as an electrode, by referring to the structure of graphite.",
+          "marks": 1,
+          "memoText": "Graphite has free (delocalised) electrons that are able to move, so it conducts electricity.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-1-2-c-i",
+          "label": "7.1.2 (c)(i)",
+          "questionText": "In Cell B (graphite electrodes), circle the correct answer: at the cathode, (graphite / Cu²⁺ / H₂O / SO₄²⁻) will be reduced.",
+          "marks": 1,
+          "memoText": "Cu²⁺ will be reduced at the cathode.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-1-2-c-ii",
+          "label": "7.1.2 (c)(ii)",
+          "questionText": "In Cell B, circle the correct answer: at the anode, (graphite / Cu²⁺ / H₂O / SO₄²⁻) will be oxidised.",
+          "marks": 1,
+          "memoText": "H₂O will be oxidised at the anode (graphite is inert, and water is oxidised more readily than SO₄²⁻): 2H₂O → O₂ + 4H⁺ + 4e⁻.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-1-2-c-iii",
+          "label": "7.1.2 (c)(iii)",
+          "questionText": "In Cell B, the concentration of the solution as time passes will (INCREASE / DECREASE / REMAIN CONSTANT).",
+          "marks": 1,
+          "memoText": "Decrease. Cu²⁺ is removed at the cathode, but the anode reaction produces O₂ (from water), not Cu²⁺, so the Cu²⁺ concentration falls.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-2-1",
+          "label": "7.2.1",
+          "questionText": "You are required to electroplate a lead rod with nickel, using a cell, a beaker, an ammeter, wires, a lead rod, a nickel rod, an aqueous solution of lead(II) nitrate and an aqueous solution of nickel(II) nitrate. Give the formula of lead(II) nitrate.",
+          "marks": 1,
+          "memoText": "Pb(NO₃)₂",
+          "topic": "Electrochemistry (electroplating)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-2-2",
+          "label": "7.2.2",
+          "questionText": "Choose from the supplied list (lead rod, nickel rod, lead(II) nitrate solution, nickel(II) nitrate solution) to label the electroplating set-up: the cathode (the object to be plated), the anode, and the electrolyte.",
+          "marks": 3,
+          "memoText": "Cathode (connected to the negative terminal): the lead rod (the object being plated).\nAnode (connected to the positive terminal): the nickel rod (it dissolves to replenish Ni²⁺).\nElectrolyte: the aqueous solution of nickel(II) nitrate, Ni(NO₃)₂.",
+          "topic": "Electrochemistry (electroplating)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-2-3-a",
+          "label": "7.2.3 (a)",
+          "questionText": "After 30 minutes of plating, the mass of the lead rod had increased by 1,10 g (nickel deposited, M(Ni) = 59 g·mol⁻¹). Calculate the number of moles of electrons needed to produce this increase in mass. Write the answer correct to four decimal places.",
+          "marks": 3,
+          "memoText": "n(Ni) = m/M = 1,10/59 = 0,0186 mol\nNi²⁺ + 2e⁻ → Ni, so n(e⁻) = 2 × n(Ni) = 2 × 0,0186 = 0,0373 mol",
+          "topic": "Electrochemistry (electroplating)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-2-3-b",
+          "label": "7.2.3 (b)",
+          "questionText": "Hence, calculate the average current that was maintained during this time period. (F = 96 500 C·mol⁻¹.)",
+          "marks": 4,
+          "memoText": "Q = n(e⁻) × F = 0,0373 × 96 500 = 3 599,45 C\nI = Q/t = 3 599,45 / (30 × 60) = 3 599,45 / 1 800\nI = 2 A",
+          "topic": "Electrochemistry (electroplating)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-7-2-4",
+          "label": "7.2.4",
+          "questionText": "Explain why it would not be possible, under standard conditions, to plate the lead rod with aluminium metal from an aqueous solution of Al³⁺ ions.",
+          "marks": 3,
+          "memoText": "In aqueous solution, water is a stronger oxidising agent than Al³⁺ (water has the higher reduction potential). So at the cathode water would be reduced (to H₂ and OH⁻) in preference to Al³⁺, and no aluminium metal would be deposited on the rod.",
+          "topic": "Electrochemistry (electroplating)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Organic Chemistry (C₅H₁₂, Isomers, Pent-1-ene)",
+      "totalMarks": 32,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-1-1",
+          "label": "8.1.1",
+          "questionText": "The saturated hydrocarbon C₅H₁₂ reacts with Cl₂ in UV light:\nC₅H₁₂ + 2Cl₂ → C₅H₁₀Cl₂ + 2HCl\n\nState the GENERAL reaction type of the above reaction.",
+          "marks": 1,
+          "memoText": "Substitution.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-1-2",
+          "label": "8.1.2",
+          "questionText": "Explain the meaning of the term saturated hydrocarbon.",
+          "marks": 3,
+          "memoText": "A saturated hydrocarbon contains only carbon and hydrogen atoms, and all the carbon–carbon bonds are single bonds (there are no C=C or C≡C bonds).",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-1-3-a",
+          "label": "8.1.3 (a)",
+          "questionText": "In one experiment, 45 g of C₅H₁₂ reacted. Calculate the volume of chlorine gas (at STP) needed to react with all the C₅H₁₂ to form C₅H₁₀Cl₂. (M(C₅H₁₂) = 72 g·mol⁻¹; Vₘ = 22,4 dm³·mol⁻¹.)",
+          "marks": 5,
+          "memoText": "n(C₅H₁₂) = m/M = 45/72 = 0,625 mol\nFrom the equation, n(Cl₂) = 2 × n(C₅H₁₂) = 2 × 0,625 = 1,25 mol\nV(Cl₂) = n·Vₘ = 1,25 × 22,4 = 28 dm³",
+          "topic": "Organic Chemistry (stoichiometry)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-1-3-b",
+          "label": "8.1.3 (b)",
+          "questionText": "The percentage yield of the reaction was 76 %. Calculate the mass of C₅H₁₀Cl₂ that was obtained. (M(C₅H₁₀Cl₂) = 141 g·mol⁻¹.)",
+          "marks": 3,
+          "memoText": "Theoretical n(C₅H₁₀Cl₂) = n(C₅H₁₂) = 0,625 mol\nActual moles = 76 % × 0,625 = 0,475 mol\nm = nM = 0,475 × 141 = 66,98 g",
+          "topic": "Organic Chemistry (stoichiometry)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-1-4",
+          "label": "8.1.4",
+          "questionText": "One possible product of the reaction has the structure shown (a 4-carbon main chain with a Cl on carbon 1, a Cl on carbon 3 and a methyl group on carbon 2). Give the IUPAC name of this compound.",
+          "marks": 3,
+          "memoText": "1,3-dichloro-2-methylbutane.",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-1-5",
+          "label": "8.1.5",
+          "questionText": "Write a balanced equation for the complete combustion of C₅H₁₂.",
+          "marks": 4,
+          "memoText": "C₅H₁₂ + 8O₂ → 5CO₂ + 6H₂O",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-1-6-a",
+          "label": "8.1.6 (a)",
+          "questionText": "Structural isomers of C₅H₁₂ are possible. Define structural isomers.",
+          "marks": 2,
+          "memoText": "Structural isomers are compounds that have the same molecular formula but different structural formulae.",
+          "topic": "Organic Chemistry (isomers)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-1-6-b",
+          "label": "8.1.6 (b)",
+          "questionText": "Write the condensed structural formula of the isomer of C₅H₁₂ with the most possible branches (alkyl substituents).",
+          "marks": 2,
+          "memoText": "CH₃C(CH₃)₂CH₃  (2,2-dimethylpropane / neopentane) — a central carbon bonded to four methyl groups.",
+          "topic": "Organic Chemistry (isomers)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-2-1",
+          "label": "8.2.1",
+          "questionText": "Consider the compound pent-1-ene. Define functional group.",
+          "marks": 2,
+          "memoText": "A functional group is an atom or a group of atoms that forms the centre of chemical activity (reactivity) in a molecule.",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-2-2",
+          "label": "8.2.2",
+          "questionText": "Draw the structural formula of the functional group of pent-1-ene.",
+          "marks": 1,
+          "memoText": "C=C (a carbon–carbon double bond).",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-2-3",
+          "label": "8.2.3",
+          "questionText": "Write the condensed structural formula of a positional isomer of pent-1-ene.",
+          "marks": 2,
+          "memoText": "CH₃CH=CHCH₂CH₃  (pent-2-ene) — same straight chain, double bond moved to position 2.",
+          "topic": "Organic Chemistry (isomers)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-2-4",
+          "label": "8.2.4",
+          "questionText": "Answer TRUE or FALSE: Dimethylpropene is a chain isomer of pent-1-ene.",
+          "marks": 2,
+          "memoText": "False.",
+          "topic": "Organic Chemistry (isomers)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-8-2-5",
+          "label": "8.2.5",
+          "questionText": "Methylbut-2-ene is a chain isomer of pent-1-ene. Which of these two compounds will have the higher boiling point?",
+          "marks": 2,
+          "memoText": "Pent-1-ene. It has an unbranched (straight) chain, giving a larger contact surface area between molecules and therefore stronger London forces, so it has the higher boiling point than the branched methylbut-2-ene.",
+          "topic": "Organic Chemistry (physical properties)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Organic Chemistry (Ethanol and Esters)",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-9-1",
+          "label": "9.1",
+          "questionText": "Ethanol can be produced by several reactions. Name the functional group of ethanol.",
+          "marks": 1,
+          "memoText": "The hydroxyl group (–OH).",
+          "topic": "Organic Chemistry (functional groups)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-9-2",
+          "label": "9.2",
+          "questionText": "Ethanol can be produced by fermentation: C₆H₁₂O₆(s) --(yeast)--> 2C₂H₅OH(l) + 2CO₂(g). The two products have a similar molar mass. Explain why ethanol is a liquid at room temperature while carbon dioxide is a gas.",
+          "marks": 4,
+          "memoText": "Ethanol molecules attract each other by hydrogen bonding (as well as London forces), whereas carbon dioxide molecules have only weak London (dispersion) forces. Hydrogen bonds are much stronger than London forces, so much more energy (a higher temperature) is needed to overcome the forces between ethanol molecules — ethanol is a liquid while CO₂ is a gas at room temperature.",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-9-3-1",
+          "label": "9.3.1",
+          "questionText": "Two other routes to ethanol are: Reaction I: ethene + A --(H₃PO₄)--> ethanol; Reaction II: B + KOH(aq) --(heat under reflux)--> ethanol + KCl. Identify reactant A.",
+          "marks": 1,
+          "memoText": "Water (H₂O / steam).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-9-3-2",
+          "label": "9.3.2",
+          "questionText": "Give the IUPAC name of reactant B.",
+          "marks": 1,
+          "memoText": "Chloroethane.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-9-3-3-a",
+          "label": "9.3.3 (a)",
+          "questionText": "State the SPECIFIC reaction type for Reaction I (ethene + water, H₃PO₄ → ethanol).",
+          "marks": 1,
+          "memoText": "Hydration (a specific addition reaction).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-9-3-3-b",
+          "label": "9.3.3 (b)",
+          "questionText": "State the SPECIFIC reaction type for Reaction II (chloroethane + KOH(aq), reflux → ethanol + KCl).",
+          "marks": 1,
+          "memoText": "Hydrolysis (a specific substitution reaction).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-9-4-1",
+          "label": "9.4.1",
+          "questionText": "Ethanol is used to prepare ethyl hexanoate (a fruity smell): ethanol + X --(catalyst)--> ethyl hexanoate + Y. Name the homologous series to which ethyl hexanoate belongs.",
+          "marks": 1,
+          "memoText": "Esters.",
+          "topic": "Organic Chemistry (esters)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-9-4-2",
+          "label": "9.4.2",
+          "questionText": "Give the IUPAC name of compound X in the equation.",
+          "marks": 2,
+          "memoText": "Hexanoic acid.",
+          "topic": "Organic Chemistry (esters)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-9-4-3",
+          "label": "9.4.3",
+          "questionText": "Identify compound Y in the equation.",
+          "marks": 1,
+          "memoText": "Water (H₂O).",
+          "topic": "Organic Chemistry (esters)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-9-4-4",
+          "label": "9.4.4",
+          "questionText": "Identify a suitable catalyst for the reaction.",
+          "marks": 1,
+          "memoText": "Concentrated sulfuric acid (H₂SO₄) — concentrated phosphoric acid is also accepted.",
+          "topic": "Organic Chemistry (esters)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2023-9-4-5",
+          "label": "9.4.5",
+          "questionText": "Give the IUPAC name of a straight-chain functional isomer of ethyl hexanoate.",
+          "marks": 2,
+          "memoText": "Octanoic acid (a carboxylic acid with 8 carbon atoms — the same molecular formula, C₈H₁₆O₂, but a different functional group).",
+          "topic": "Organic Chemistry (isomers)",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

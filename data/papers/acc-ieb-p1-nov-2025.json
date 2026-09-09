@@ -1,0 +1,249 @@
+{
+  "id": "acc-ieb-p1-nov-2025",
+  "subject": "Accounting IEB",
+  "subjectCode": "accounting-ieb",
+  "paperCode": "P1",
+  "year": 2025,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Asset Management & VAT (Whelan WiFi)",
+      "totalMarks": 54,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2025-1-1",
+          "label": "1.1",
+          "questionText": "INVENTORIES — WHELAN WIFI\n\nWhelan WiFi sells imported and locally manufactured WiFi routers. Periodic inventory system; VAT registered on the invoice basis; weighted average valuation. A unit is one router. Year ended 28 February 2025.\n\nOn 1 March 2024 the opening stock was 2 500 routers with a total value of R2 125 000 (this included carriage and import duties).\n\nStock records for the year:\n                                  | Number of routers | Cost per router (excl. carriage/import duties) | Total Cost\nPurchases during the year          |            12 500 |                                            | R11 925 000\n  May 2024 (imported)              |             5 000 |                                        $50 | R4 500 000\n  August 2024                      |             4 500 |                                       R950 | R4 275 000\n  November 2024                    |             3 000 |                                     R1 050 | R3 150 000\nReturns of stock: June 2024        |               250 |                                            |\n\n(i) Purchases and carriage:\n(a) Only the May purchase was imported; the exchange rate was R18 : $1.\n(b) The August and November purchases were from local manufacturers.\n(c) Imported routers incur import duties and carriage totalling 4% of the value of the order.\n(d) Locally purchased routers are delivered at a flat rate of R45 200 per delivery.\n(e) No carriage or import duties are refundable on returns.\n(ii) The local manufacturer supplied an additional 150 routers free of charge, delivered at no cost.\n(iii) The owner identified that 48 routers were stolen towards the end of the year; carriage per router was estimated at R15 each.\n(iv) The stock count on 28 February 2025 revealed that 3 800 routers were on hand.\n\nCalculate the weighted average cost of one router.",
+          "marks": 6,
+          "memoText": "Weighted average cost per router:\n(2 125 000 + 11 925 000 − 225 000* + 180 000** + 90 400***) ÷ (2 500 + 12 500 − 250 + 150)\n= 14 095 400 ÷ 14 900\n= R946,00 per router ✓✓✓✓✓✓ (Rands ÷ units, no foreign items)\n\n*Returns: 250 × R900 (May cost per router excl. carriage: $50 × 18 = R900) = R225 000.\n**Import duties and carriage on the May order: 4 500 000 × 4% = R180 000.\n***Local delivery carriage: 45 200 × 2 deliveries = R90 400.\nThe 150 free routers add 150 units at R0.\n\nTeaching point: Weighted average = total cost of goods available (opening + net purchases + import duties + carriage + free stock at R0) ÷ total units available; returns come off both the Rand total and the unit count, and imported goods must be converted at the exchange rate.",
+          "topic": "Inventory Systems - Weighted average valuation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-1-2",
+          "label": "1.2",
+          "questionText": "Use the same information as 1.1. Calculate the number of routers that were sold during the year ended 28 February 2025.",
+          "marks": 4,
+          "memoText": "Routers sold:\n2 500 (opening) + 12 500 (purchases) − 250 (returns) + 150 (free) − 3 800 (closing stock) − 48 (stolen) = 11 052 routers ✓✓✓✓ (no foreign items)\n\nTeaching point: Units sold = opening + purchases − returns + free stock − closing stock − stolen units.",
+          "topic": "Inventory Systems - Units sold",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-1-3-1",
+          "label": "1.3.1",
+          "questionText": "Use the same information as 1.1 (48 routers stolen). The insurance policy allows claims to be made at the highest unit cost price. The highest unit cost during the year was R1 050 (November purchase); carriage per router was estimated at R15 each.\n\nDetermine the actual Rand value of the routers that were stolen.",
+          "marks": 3,
+          "memoText": "Rand value of routers stolen:\n(1 050 + 15) × 48 = 1 065 × 48 = R51 120 ✓✓✓\n\nTeaching point: Because the policy pays at the highest unit cost, value the loss at the highest purchase price plus the carriage per unit, times the number of units stolen.",
+          "topic": "Inventory Systems - Stock loss valuation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-1-3-2",
+          "label": "1.3.2",
+          "questionText": "Use the same information as 1.3.1. Show how the transaction for the loss of the routers would be recorded in the general ledger (the account to be debited and the account to be credited).",
+          "marks": 2,
+          "memoText": "Account Debit: (Stock) Loss due to Theft ✓\nAccount Credit: Purchases ✓\n\nTeaching point: In a periodic system, a stock loss is removed from Purchases (credit) and taken to a Loss due to Theft account (debit), so that cost of sales reflects only goods actually sold.",
+          "topic": "Inventory Systems - Recording a stock loss",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-1-4",
+          "label": "1.4",
+          "questionText": "Use the same information as 1.1. Calculate the value of the closing stock (3 800 routers on hand) using the First In First Out (FIFO) method on 28 February 2025. The carriage on the closing stock using the FIFO method totals R53 700. You may assume the theft was from the November purchase for this calculation.",
+          "marks": 8,
+          "memoText": "FIFO closing stock (3 800 routers, most recent purchases first):\nNovember 2024: 3 000 − 48 (stolen) = 2 952 routers × R1 050 = R3 099 600 ✓✓✓\nAugust 2024: 848 routers (balancing to 3 800) × R950 = R805 600 ✓✓✓\n+ Carriage on the closing stock: R53 700 ✓\nTotal FIFO closing stock = 3 099 600 + 805 600 + 53 700 = R3 958 900 ✓ (totalling batches)\n\nTeaching point: Under FIFO the closing stock is valued at the cost of the MOST RECENT purchases; the carriage attributable to that closing stock is added on.",
+          "topic": "Inventory Systems - FIFO closing stock",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-1-5",
+          "label": "1.5",
+          "questionText": "A local charity was quoted for a WiFi installation. Explain to the owner what the financial benefit to Whelan WiFi would be if they were to do the installation for free.",
+          "marks": 4,
+          "memoText": "Any valid points ✓✓✓✓:\n• Doing the installation for free generates goodwill that attracts customers, which increases sales.\n• A charitable donation reduces the taxable income, so the tax expense is lower and net profit (after tax) is higher.\n\nTeaching point: A donation is not purely a cost — it can drive sales through reputation and it is tax-deductible, so the after-tax effect is smaller than the cash outlay.",
+          "topic": "Inventory Systems - Financial benefit of a donation",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-1-6",
+          "label": "1.6",
+          "questionText": "FIXED ASSETS — WHELAN WIFI. Delivery vehicles are depreciated at 15% p.a. on the diminishing-balance method.\n\nBalances on 1 March 2024: Vehicles R1 450 000; Accumulated depreciation on vehicles R690 000.\n\nTransactions during the year:\n30 June 2024 — sold an old vehicle (Nissan Bakkie, FG 56 GT GP). Asset register extract:\n  Cost Price R125 000\n  28 February 2024: Depreciation R13 300; Accumulated Depreciation R48 000; Carrying value R77 000\n  30 June 2024: Depreciation ?; Accumulated Depreciation ?; Carrying value R73 150\n1 September 2024 — purchased a new delivery bakkie. Depreciation on the new vehicle on 28 February 2025 was R12 375.\n28 February 2025 — account for the depreciation on vehicles.\n\nComplete the Fixed Asset note for Vehicles for the year ended 28 February 2025 by calculating:\nA. Additions at cost\nB. Depreciation for the year\nC. Accumulated depreciation on 28 February 2025",
+          "marks": 15,
+          "memoText": "A. Additions at cost: the new vehicle's depreciation R12 375 = cost × 15% × 6/12 (owned 1 Sept – 28 Feb), so cost = 12 375 ÷ (15% × 6/12) = R165 000 ✓✓✓✓✓\n\nB. Depreciation for the year: R118 675 ✓✓✓✓✓\n  • On the vehicle sold: 77 000 − 73 150 = R3 850 (OR 77 000 × 15% × 4/12 = R3 850)\n  • On the remaining (old) vehicles: (760 000 opening CV − 77 000 sold vehicle CV) = 683 000 × 15% = R102 450\n  • On the new vehicle: R12 375 (given)\n  Total = 3 850 + 102 450 + 12 375 = R118 675\n\nC. Accumulated depreciation on 28 February 2025: R756 825 ✓✓✓✓✓\n  = 690 000 (opening) + 118 675 (depreciation, B) − 51 850 (acc. dep. on the vehicle sold: 48 000 + 3 850) = R756 825\n\nFixed Asset note extract:\nCarrying value on 1 March 2024: 1 450 000 − 690 000 = R760 000 (Cost R1 450 000; Acc. dep. (R690 000))\nMovement: Additions at cost R165 000 (A); Disposals at carrying value (R73 150); Depreciation (R118 675) (B)\nCarrying value on 28 February 2025: Cost (do not calculate); Acc. dep. (R756 825) (C)\n\nTeaching point: A part-year depreciation figure can be worked back to a cost using the rate and months owned; total depreciation combines the charge on the disposal, the remaining fleet and the new vehicle; accumulated depreciation rolls forward with the year's charge and drops the amount relating to the vehicle sold.",
+          "topic": "Fixed Assets - Vehicles note (diminishing balance)",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-1-7",
+          "label": "1.7",
+          "questionText": "VAT — WHELAN WIFI. VAT is calculated at 15%.\n\nThe bookkeeper calculated that the business owed SARS R171 000 for VAT on 27 February 2025. The following transactions took place on 28 February 2025 and the VAT still needs to be accounted for:\n1. Cash sales of R225 000 exclusive.\n2. Goods that will be sold for R186 875 inclusive were purchased on 28 February. Stock is marked up by 150% on cost. Account for the VAT on the PURCHASE.\n3. A debtor returned to pay the R21 758 that he owed; his account had previously been written off as a bad debt.\n4. An amount of R382 375 was paid to a creditor, after they had granted a 5% settlement discount.\n\nFor each transaction, calculate the VAT amount and indicate its effect (increase or decrease) on the amount owing to SARS.",
+          "marks": 12,
+          "memoText": "Amount owed to SARS on 27 February 2025: R171 000\n\nTransaction 1: 225 000 × 15/100 = R33 750 ✓✓ — INCREASE ✓ (output VAT on the cash sale)\n\nTransaction 2: selling price R186 875 inclusive → cost (excl. VAT) = 186 875 × 100/115 × 100/250 = 65 000; VAT on purchase = 65 000 × 15/100 = R9 750 ✓✓ — DECREASE ✓ (input VAT on the purchase). (Accept 186 875 × 100/250 = 74 750 × 15/115 = R9 750.)\n\nTransaction 3: 21 758 × 15/115 = R2 838 ✓✓ — INCREASE ✓ (output VAT reinstated on the bad debt now recovered)\n\nTransaction 4: 382 375 × 5/95 = 20 125 → 20 125 × 15/115 = R2 625 ✓✓ — INCREASE ✓ (settlement discount received reverses input VAT previously claimed)\n\nTeaching point: Output VAT on sales, output VAT reinstated on a recovered bad debt, and input VAT reversed by a discount received all INCREASE what is owed to SARS; input VAT on purchases DECREASES it. VAT on the purchase is worked back from the inclusive selling price via the mark-up.",
+          "topic": "VAT - Effect of transactions on amount owing to SARS",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Company Financial Statements (Tshikhudo Technology Limited)",
+      "totalMarks": 59,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2025-2-1",
+          "label": "2.1",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — TSHIKHUDO TECHNOLOGY LIMITED\n\nListed company; authorised share capital 5 000 000 ordinary shares. Standard mark-up of 80% on cost. Year ended 28 February 2025.\n\nBalances on 29 February 2024: Ordinary share capital (3 500 000 shares) R42 000 000; Retained income R6 000 000; Provision for bad debts R43 200; Accrued income (Commission income) R6 000.\n\nBalances/totals from the pre-adjustment trial balance for the year ended 28 February 2025:\n• Ordinary share capital (3 600 000 shares) R42 900 000; Trading stock R1 895 200; SARS (Income tax) R985 000 Debit\n• Sales R24 840 000; Cost of sales R13 800 000; Debtors' allowances R621 000; Telephone R24 750; Interest on loan (12% p.a.) R1 300 000; Ordinary share dividends R252 000\n• Commission income (per TB) R74 000; Rent income (per TB) R181 500; Advertising (per TB) R405 000; Bank charges (per TB) R9 660; Directors' fees (per TB) R1 050 000; Stationery (per TB) R42 000; Bad debts (per TB) R87 280; Sundry expenses R1 432 300; Auditors' fees R75 000; Interest income (per TB) R18 950\n\nShares, dividends and taxation for the year ended 28 February 2025:\n• 1 March 2024: the company issued a further 100 000 ordinary shares.\n• 31 August 2024: declared and paid an interim dividend, in addition to making a provisional tax payment.\n• 28 February 2025: declared a final dividend of 8½ cents per share. Company income tax is 30% of net profit.\n\nAdjustments:\n1. Total telephone expense for the year was R27 000.\n2. The bookkeeper forgot to reverse the accrued commission income at the start of the year. The company also received R2 500 too much commission for February 2025 (to be deducted from March 2025 commission).\n3. The tenant still owes the February rent of R16 500; however, he paid R3 000 for repairs to the generator (the landlord's responsibility per the lease).\n4. Bank reconciliation for February 2025: 4.1 bank charges were recorded as R970 instead of R790 (correct the error); 4.2 interest on the credit balance of R450 has not been recorded; 4.3 a payment for a four-month advertising contract starting 1 February 2025 for R40 000 must be recorded.\n5. A debtor returned goods that cost R18 000 (originally marked at R32 400 before a 5% trade discount).\n6. A debtor was declared insolvent; his estate paid R9 120 (20c in the Rand); the remainder is written off (no entries made).\n7. Provision for bad debts must be adjusted to R32 232.\n8. A director is still owed his February 2025 fees of R38 000; he donated R5 000 of stationery to his children's school, offset against the fees owed.\n9. Stock was damaged by rain; not insured; the incident lost a gross profit of R19 600.\n10. Stock take: trading stock on hand R1 881 000 (this included R2 000 of stock recorded as sold and awaiting collection); stationery on hand R4 200.\n11. Loan and interest: interest is not capitalised; the debt-equity ratio on 29 February 2024 was 0,25 : 1; on 1 March 2024 there were only 6 more equal annual instalments to be made (1 January each year); interest at 12% p.a.; the February 2025 interest still needs to be recorded.\n\nComplete the Statement of Comprehensive Income (Income Statement) for the year ended 28 February 2025.",
+          "marks": 42,
+          "memoText": "STATEMENT OF COMPREHENSIVE INCOME — TSHIKHUDO TECHNOLOGY LIMITED (year ended 28 February 2025):\n\nSales: 24 840 000 − 621 000 (debtors' allowances) − 30 780 (goods returned by debtor, adj 5: 32 400 − 5% = 30 780) = R24 188 220 ✓✓✓\nCost of sales: 13 800 000 − 18 000 (cost of goods returned, adj 5) = (R13 782 000) ✓✓ (bracket)\nGross profit: DO NOT CALCULATE\n\nOperating incomes (do not calculate the subtotal):\n• Commission income: 74 000 − 6 000 (reverse opening accrual, adj 2) − 2 500 (received in advance, adj 2) = R65 500 ✓✓\n• Rent income: 181 500 + 16 500 (February still owed by tenant, adj 3) = R198 000 ✓✓\n• Provision for bad debts adjustment: 43 200 − 32 232 = R10 968 income (decrease in provision, adj 7) ✓✓\n\nOperating expenses (do not calculate the subtotal):\n• Advertising: 405 000 + 40 000 (four-month contract, adj 4.3) − 30 000 (3 months prepaid) = R415 000 ✓✓\n• Telephone: 24 750 + 2 250 (accrued, adj 1) = R27 000 ✓\n• Bank charges: 9 660 − 180 (error 970 − 790, adj 4.1) = R9 480 ✓\n• Directors' fees: 1 050 000 + 38 000 (February owed, adj 8) = R1 088 000 ✓✓ (the R5 000 stationery donation offsets the fee owed, it is not extra expense)\n• Stationery: 42 000 − 5 000 (donated, offset, adj 8) − 4 200 (on hand, adj 10) = R32 800 ✓✓\n• Bad debts: 87 280 + 36 480 (write-off, adj 6: estate paid R9 120 = 20c in the Rand, so debt = 9 120 × 100/20 = 45 600; written off 45 600 − 9 120 = 36 480) = R123 760 ✓✓\n• Sundry expenses: R1 432 300 (given)\n• Auditors' fees: R75 000 (given)\n• Salaries & wages: DO NOT CALCULATE\n• Repairs & maintenance: 12 100 + 3 000 (generator repair paid by tenant on landlord's behalf, adj 3) = R15 100 ✓✓\n• Stock loss: 19 600 × 100/80 = R24 500 ✓✓ (the cost of the stock whose gross profit of R19 600 was lost, at 80% mark-up)\n• Trading stock deficit: R9 700 ✓✓\n  Working: (1 895 200 + 18 000 returned − 24 500 stock loss − ...) − (1 881 000 − 2 000 awaiting collection) = 1 881 000 − 1 879 000 = R9 700 (adj 9, 10).\n\nOperating profit: DO NOT CALCULATE\nInterest income: 18 950 + 450 (adj 4.2) = R19 400 ✓✓\nNet profit before interest expense: DO NOT CALCULATE\nInterest expense: 1 300 000 + 100 000 (February accrued, adj 11: 10 000 000 × 12% × 1/12) = (R1 400 000) ✓✓ (in a bracket)\nNet profit before taxation: R4 264 200 ✓\nTaxation for the year: 4 264 200 × 30% = (R1 279 260) ✓✓ (bracket)\nNet profit after taxation: DO NOT CALCULATE\n\nTeaching point: Adjust each account to the amount earned or incurred this year — reverse opening accruals, accrue unpaid amounts, spread the prepaid advertising contract over its months, treat a decrease in the provision for bad debts as income, and work the insolvent debt back from the cents-in-the-Rand payout.",
+          "topic": "Company Financial Statements - Statement of Comprehensive Income",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-2-2-1",
+          "label": "2.2.1",
+          "questionText": "Use the same information as 2.1. Complete the Trade & Other Receivables note as at 28 February 2025.\n\nReminders: Debtors' control R882 180 less R30 780 goods returned and less (R9 120 + R36 480) for the insolvent debtor; Provision for bad debts R43 200 − R10 968; Prepaid expenses (advertising R30 000); Accrued income (commission net R0 plus rent R16 500 − R3 000).",
+          "marks": 9,
+          "memoText": "TRADE & OTHER RECEIVABLES NOTE — 28 February 2025 (Do not calculate the total):\n• Net trade debtors: DO NOT CALCULATE\n  Debtors' control: 882 180 − 30 780 (goods returned, adj 5) − (9 120 + 36 480 insolvent debtor, adj 6) = R805 800 ✓✓✓\n  Less: Provision for bad debts: 43 200 − 10 968 = (R32 232) ✓✓ (in a bracket)\n• Prepaid expenses: R30 000 ✓ (3 months of the four-month advertising contract, adj 4.3)\n• Accrued income: (6 000 − 6 000 commission, adj 2) + (16 500 − 3 000 rent, adj 3) = R13 500 ✓✓✓\n\nTeaching point: Trade and other receivables = net trade debtors (control adjusted for returns and write-offs, less the adjusted provision) + prepaid expenses (unused months of a contract) + accrued (receivable) income.",
+          "topic": "Company Financial Statements - Trade & Other Receivables note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-2-2-2",
+          "label": "2.2.2",
+          "questionText": "Use the same information as 2.1. Complete the Trade & Other Payables note as at 28 February 2025.\n\nReminders: Trade creditors R1 140 000; Accrued expenses (telephone R2 250 + director's fees R33 000 + interest expense R100 000); Income received in advance (commission R2 500); Shareholders for dividends (8½ cents on 3 600 000 shares); SARS (Income Tax) R1 279 260 − R985 000; Short-term loan instalment (R12 000 000 ÷ 6).",
+          "marks": 8,
+          "memoText": "TRADE & OTHER PAYABLES NOTE — 28 February 2025 (Do not calculate the total):\n• Trade creditors: R1 140 000 ✓\n• Accrued expenses: (27 000 − 24 750 = 2 250 telephone) + (38 000 − 5 000 = 33 000 director's fees owed net of the stationery offset) + (100 000 interest expense, adj 11) = R135 250 ✓✓✓\n• Income received in advance: R2 500 ✓ (commission received too early, adj 2)\n• Shareholders for dividends: 0,085 × 3 600 000 = R306 000 ✓✓\n• SARS (Income Tax): 1 279 260 (income tax for the year) − 985 000 (provisional payments, dr) = R294 260 ✓✓ (owed to SARS)\n• Short-term loan instalment: 12 000 000 ÷ 6 = R2 000 000 ✓ (one of the 6 remaining annual instalments is due within the next year)\n\nTeaching point: Trade and other payables collects trade creditors, accrued expenses, income received in advance, the declared-but-unpaid final dividend, the net amount owed to SARS for income tax, and the current portion of the long-term loan.",
+          "topic": "Company Financial Statements - Trade & Other Payables note",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Cash Flow Statements (Taylor Tiles Ltd)",
+      "totalMarks": 50,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2025-3-1",
+          "label": "3.1",
+          "questionText": "CASH FLOW STATEMENTS — TAYLOR TILES LTD\n\nListed company; authorised share capital 1 200 000 ordinary shares. Year ended 28 February 2025.\n\nExtract from the statement of comprehensive income: Sales R14 512 500; Cost of sales R6 450 000; Depreciation ?; Interest expense ?; Net profit after tax R2 240 000.\n\nExtract from the statement of financial position:\n                                | 28 Feb 2025 | 29 Feb 2024\nOrdinary share capital           | R23 650 000 | R18 450 000\nRetained income                  | R5 496 000  | R5 175 000\nFixed assets (carrying value)    | R3 275 000  | R3 160 000\nLoan: Raath Bank                 | R5 160 000  | R4 200 000\nInventories                      | ?           | R900 000\nCreditors control                | R984 000    | R821 000\nAccrued expenses (Sundry)        | R21 000     | R18 000\nSARS: PAYE                       | R52 000     | R56 000\nSARS: Income tax                 | R26 000 Debit| R54 000 Credit\nShareholders for dividends        | R340 000    | 36c per share\n\nSARS: Income tax paid during the year (per the cash flow statement) was R1 040 000.\n\nCalculate the income tax expense for the year ended 28 February 2025.",
+          "marks": 4,
+          "memoText": "Income tax expense:\nTax paid = opening SARS balance + tax expense − closing SARS balance, rearranged:\n1 040 000 − (54 000 + 26 000) = R960 000 ✓✓✓✓ (no foreign items)\n(Opening credit R54 000 owed + closing debit R26 000 prepaid, both subtract from the R1 040 000 paid to leave the R960 000 expense.)\n\nTeaching point: Tax expense = tax paid, adjusted for the change in the SARS balance — an opening amount owed and a closing amount prepaid both mean the cash paid exceeded the expense.",
+          "topic": "Cash Flow Statement - Income tax expense",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-3-2",
+          "label": "3.2",
+          "questionText": "Use the same information as 3.1. Fixed assets (carrying value) R3 160 000 (29 Feb 2024) → R3 275 000 (28 Feb 2025). An old vehicle was sold at its carrying (book) value of R200 000. The existing warehouse was extended at a cost of R850 000.\n\nCalculate the depreciation for the year.",
+          "marks": 5,
+          "memoText": "Fixed assets (carrying value) account:\n3 160 000 (opening) + 850 000 (warehouse extension, addition) − 200 000 (CV of vehicle sold) − depreciation (x) = 3 275 000 (closing)\nx = 3 160 000 + 850 000 − 200 000 − 3 275 000 = R535 000 ✓✓✓✓✓\n\nTeaching point: Depreciation is the balancing figure in the carrying-value account: opening CV + additions − CV of disposals − depreciation = closing CV.",
+          "topic": "Cash Flow Statement - Depreciation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-3-3",
+          "label": "3.3",
+          "questionText": "Use the same information as 3.1. Loan: Raath Bank R4 200 000 (29 Feb 2024) → R5 160 000 (28 Feb 2025). An additional loan of R1 800 000 was taken out during the year. Interest on the loan is capitalised. Monthly repayments of R118 000 are made to Raath Bank (this amount includes the interest as well as the capital repayment on the loan).\n\nCalculate the interest expense for the year.",
+          "marks": 5,
+          "memoText": "Loan account:\nRepayments = 118 000 × 12 = R1 416 000\n1 416 000 (repayments) + 5 160 000 (closing loan) = 4 200 000 (opening loan) + 1 800 000 (new loan) + interest (x)\nx = 1 416 000 + 5 160 000 − 4 200 000 − 1 800 000 = R576 000 ✓✓✓✓✓\n\nTeaching point: When interest is capitalised, it is the balancing figure in the loan account — total repayments plus the closing balance, less the opening balance and any new loan.",
+          "topic": "Cash Flow Statement - Interest expense",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-3-4",
+          "label": "3.4",
+          "questionText": "Use the same information as 3.1 to 3.3. Net profit after tax R2 240 000; income tax expense R960 000 (from 3.1); depreciation R535 000 (from 3.2); interest expense R576 000 (from 3.3). The change in receivables resulted in an outflow of cash of R197 000. The rate of stock turnover on 28 February 2025 was 7½ times a year. Creditors control R821 000 → R984 000; accrued expenses R18 000 → R21 000; SARS PAYE R56 000 → R52 000.\n\nComplete the Reconciliation between profit before taxation and cash generated from operations note for the year ended 28 February 2025.",
+          "marks": 14,
+          "memoText": "RECONCILIATION BETWEEN PROFIT BEFORE TAX AND CASH GENERATED FROM OPERATIONS:\n\nNet profit before taxation: 2 240 000 + 960 000 (from 3.1) = R3 200 000 ✓✓\nAdjustments for:\n• Depreciation: R535 000 ✓ (from 3.2)\n• Interest expense: R576 000 ✓ (from 3.3)\nOperating profit before changes in working capital: DO NOT CALCULATE\n\nChanges in working capital:\n• Decrease in inventory: R80 000 ✓✓ (source of cash, no bracket)\n  Working: closing inventory: 6 450 000 ÷ 7,5 = 860 000 average; ½(900 000 + x) = 860 000 → x = R820 000; movement = 900 000 − 820 000 = R80 000 decrease.\n• Increase in receivables: (R197 000) ✓✓ (given, use of cash, bracket)\n• Increase in payables: R162 000 ✓✓✓ (no foreign items)\n  Working: (984 000 − 821 000 = 163 000 creditors) + (21 000 − 18 000 = 3 000 accrued expenses) + (52 000 − 56 000 = −4 000 SARS PAYE) = R162 000.\nCash generated from operations: DO NOT CALCULATE\n\n*Delete the direction that does not apply; the word chosen must match the bracket use.\n\nTeaching point: Start at profit before tax, add back depreciation and interest expense, then adjust for working-capital movements — a fall in inventory and a rise in payables release cash; a rise in receivables uses cash. The closing inventory comes from the stock turnover rate and the average-inventory formula.",
+          "topic": "Cash Flow Statement - Reconciliation of profit to cash from operations",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-3-5",
+          "label": "3.5",
+          "questionText": "Use the same information as 3.3. Monthly repayments of R118 000 (× 12 = R1 416 000) are made to Raath Bank, including interest. The interest expense for the year was R576 000 (from 3.3).\n\nCalculate the capital portion of the loan repayments made during the year, as it would appear on the Cash flow statement for the year ended 28 February 2025.",
+          "marks": 4,
+          "memoText": "Capital portion of the loan repayments:\n1 416 000 (total repayments) − 576 000 (interest, from 3.3) = R840 000 ✓✓✓✓\n\nTeaching point: The cash flow statement shows only the CAPITAL portion of loan repayments under financing activities; the interest portion is shown separately as interest paid under operating activities.",
+          "topic": "Cash Flow Statement - Capital repayment of loan",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-3-6",
+          "label": "3.6",
+          "questionText": "Use the same information as 3.1. Ordinary share capital R18 450 000 (29 Feb 2024) → R23 650 000 (28 Feb 2025). On 1 May 2024, 250 000 shares were issued at R25,10 per share. In October, a number of shares were repurchased from the estate of a deceased shareholder at R6,50 above the weighted average price per share.\n\nComplete the Ordinary Share Capital account as it would appear in the General ledger for the year ended 28 February 2025 (no dates or folio numbers required).",
+          "marks": 8,
+          "memoText": "ORDINARY SHARE CAPITAL ACCOUNT:\nCredit side:\n• Balance b/d: R18 450 000 ✓\n• Bank (shares issued 1 May 2024): 250 000 × R25,10 = R6 275 000 ✓✓\nTotal credit side: R24 725 000\n\nDebit side:\n• Bank (shares repurchased): R1 075 000 ✓✓ (see 3.7 — at the weighted average price of R21,50)\n• Balance c/d: R23 650 000 ✓\nTotal debit side: R24 725 000\nBalance b/d: R23 650 000\n\nTeaching point: In the Ordinary Share Capital account, share issues are credits (at the issue price) and buy-backs are debits (at the weighted average price only — the premium goes to retained income); the c/d balance is the closing share capital.",
+          "topic": "Cash Flow Statement - Ordinary Share Capital account",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-3-7",
+          "label": "3.7",
+          "questionText": "Use the same information as 3.6. 75% of the authorised shares (1 200 000) were in issue on 29 February 2024. On 1 May 2024, 250 000 shares were issued at R25,10 per share. The shares repurchased in October reduced ordinary share capital by R1 075 000 (from 3.6).\n\nCalculate the number of shares that were repurchased by the company.",
+          "marks": 6,
+          "memoText": "Weighted average price per share before the buy-back:\n= (18 450 000 + 6 275 000) ÷ (900 000* + 250 000)\n= 24 725 000 ÷ 1 150 000\n= R21,50 per share ✓✓✓\n*1 200 000 × 75% = 900 000 shares in issue on 29 Feb 2024.\n\nNumber of shares repurchased = 1 075 000 ÷ 21,50 = 50 000 shares ✓✓✓\n\nTeaching point: The average price = total share capital ÷ total shares in issue just before the buy-back; the number bought back = the amount removed from share capital ÷ that average price.",
+          "topic": "Cash Flow Statement - Shares repurchased",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-3-8",
+          "label": "3.8",
+          "questionText": "Use the same information as 3.1. Shareholders for dividends: 36c per share on the 900 000 shares in issue at 29 February 2024; R340 000 at 28 February 2025. A total of R294 000 was declared and paid as interim dividends during the year. The final dividend declared on 28 February 2025 has not yet been paid.\n\nCalculate the total dividends paid for the year as it would appear on the Cash flow statement for the year ended 28 February 2025.",
+          "marks": 4,
+          "memoText": "Total dividends paid (cash flow statement):\n= 324 000 (last year's final dividend, paid this year: 900 000 × R0,36) + 294 000 (interim dividends paid this year)\n= R618 000 ✓✓✓✓\n(This year's final dividend of R340 000 is declared but still unpaid, so it is not in the cash paid.)\n\nTeaching point: Dividends PAID in cash = last year's outstanding final dividend + this year's interim dividends; this year's final dividend, being unpaid, is the closing 'shareholders for dividends' balance.",
+          "topic": "Cash Flow Statement - Dividends paid",
+          "type": "calculation"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Manufacturing (Kathan Kettles Ltd)",
+      "totalMarks": 37,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2025-4-1",
+          "label": "4.1",
+          "questionText": "MANUFACTURING — KATHAN KETTLES LTD (manufactures a camping and gas-stove kettle). New premises of 800 m²: sales offices 100 m², administration 200 m², factory occupies the rest (500 m²). Year ended 28 February 2025.\n\nDuring the year 12 800 kettles were sold for R3 392 000 (cost of sales R1 356 800).\n\nBalances:\n                        | 28 Feb 2025 | 29 Feb 2024\nRaw materials            | R212 000    | R280 000\nWork-in-progress         | R227 500    | R175 000\nFinished goods           | R384 000    | R256 000\nConsumable stores        | R9 600      | R8 500\n\nDirect and indirect materials:\n(a) Total purchases of raw materials R420 000.\n(b) R37 200 of raw materials were returned to suppliers (defective).\n(c) R1 200 of raw materials were written off as 'production wastage'.\n(d) Carriage on raw materials totalled R26 000.\n(e) R48 000 of consumable stores were purchased; 90% are used in the factory.\n\nCalculate the cost of raw materials issued into the production process for the year ended 28 February 2025.",
+          "marks": 6,
+          "memoText": "Cost of raw materials issued to production:\n= 280 000 (opening) + 420 000 (purchases) + 26 000 (carriage) − 37 200 (returns) − 1 200 (production wastage) − 212 000 (closing)\n= R475 600 ✓✓✓✓✓✓\n\nTeaching point: Raw materials issued to production = opening + net purchases + carriage-in − returns − wastage written off − closing raw materials.",
+          "topic": "Manufacturing - Raw materials issued to production",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-4-2",
+          "label": "4.2",
+          "questionText": "Use the same information as 4.1, plus:\n• Labour: the factory supervisor took home a net annual salary of R86 400 after total deductions of 28%; the company contributes a total of 9% of his gross earnings to UIF, pension and medical aid.\n• Water and electricity account for February R11 200 received but not yet paid; 75% of water and electricity is allocated to production. (Water & electricity per trial balance R123 200.)\n• Insurance is prepaid one month in advance; the monthly premium was increased by R700 on 1 November 2024; insurance is allocated by floor space (factory 500 m² of 800 m²). (Insurance per trial balance R91 900.)\n• Depreciation on the manufacturing equipment (production-unit method): 12 000 units produced in the year; cost price R280 000; salvage value R60 000; estimated production life 200 000 units.\n• Production wastage R1 200 (from 4.1).\n• Consumable stores: opening R8 500, purchases R48 000, closing R9 600; 90% used in the factory.\n\nComplete the Factory Overheads note to the Production Cost Statement for the year ended 28 February 2025.",
+          "marks": 18,
+          "memoText": "FACTORY OVERHEADS NOTE (Do not calculate the total):\n• Indirect labour: 86 400 × 100/72 = R120 000 gross + 9% (R10 800) = R130 800 ✓✓✓ (no foreign items)\n• Consumable stores: (8 500 + 48 000 − 9 600) × 90% = 46 900 × 90% = R42 210 ✓✓✓\n• Water & electricity: (123 200 + 11 200 February accrued) × 75% = 134 400 × 75% = R100 800 ✓✓✓\n• Insurance: (91 900 − 7 500 one month prepaid) × 500/800 = 84 400 × 500/800 = R52 750 ✓✓✓\n  Working: let the old monthly premium = x. 91 900 = 8x + 5(x + 700) [Mar–Oct at x, Nov–Feb + 1 month prepaid at x + 700] → 91 900 = 13x + 3 500 → x = R6 800; prepaid month at the new rate = R7 500.\n• Depreciation: (280 000 − 60 000) ÷ 200 000 × 12 000 = R13 200 ✓✓\n• Production wastage: R1 200 ✓\n\nTeaching point: Only the factory's share of shared costs enters factory overheads — apportion consumable stores, water and electricity and insurance by their stated fractions, accrue the unpaid February account, and remove the prepaid month of insurance first. Production-unit depreciation = (cost − salvage) ÷ total expected units × units produced this year.",
+          "topic": "Manufacturing - Factory Overheads note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-4-3",
+          "label": "4.3",
+          "questionText": "Use the same information as 4.1. Cost of sales for the year was R1 356 800. Finished goods R256 000 (29 Feb 2024) → R384 000 (28 Feb 2025). Direct labour cost for the year was R720 740; total factory overheads were R380 960 (from 4.2); raw materials issued to production R475 600 (from 4.1). Work-in-progress R175 000 (29 Feb 2024) → R227 500 (28 Feb 2025).\n\nCalculate the cost of production of finished goods for the year ended 28 February 2025.",
+          "marks": 9,
+          "memoText": "Cost of production of finished goods:\nvia the Finished Goods account: 256 000 (opening) + x − 384 000 (closing) = 1 356 800 (cost of sales) → x = 1 356 800 + 384 000 − 256 000 = R1 484 800 ✓✓✓✓✓✓✓✓✓\n\nOR build it up: (475 600 raw materials + 720 740 direct labour + 380 960 factory overheads = 1 577 300 total manufacturing cost) + 175 000 (opening WIP) − 227 500 (closing WIP) = R1 484 800.\n\nTeaching point: Cost of production of finished goods = total manufacturing cost + opening WIP − closing WIP; it can be checked against the Finished Goods account (opening + production − closing = cost of sales).",
+          "topic": "Manufacturing - Cost of production of finished goods",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2025-4-4",
+          "label": "4.4",
+          "questionText": "Use the same information as 4.1. In budgeting for its 2026 year, the business is targeting a break-even point of 2 560 kettles. It aims to sell each kettle at R265. Budgeted costs: variable cost per unit R70; total fixed costs R585 800. (Ignore selling and distribution and administrative costs.)\n\nCalculate how much (Rand value) the business must reduce its budgeted fixed costs by to achieve its targeted break-even point of 2 560 kettles in 2026.",
+          "marks": 4,
+          "memoText": "Contribution per unit = 265 − 70 = R195\nFixed costs needed to break even at 2 560 units = 2 560 × 195 = R499 200 ✓✓\nReduction required = 585 800 − 499 200 = R86 600 ✓✓\n\nTeaching point: Break-even units = fixed costs ÷ contribution per unit, so the fixed costs that give the target break-even = target units × contribution per unit; the reduction needed is the current fixed costs less that figure.",
+          "topic": "Manufacturing - Break-even analysis",
+          "type": "calculation"
+        }
+      ]
+    }
+  ]
+}

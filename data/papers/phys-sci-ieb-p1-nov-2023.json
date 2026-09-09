@@ -1,0 +1,751 @@
+{
+  "id": "phys-sci-ieb-p1-nov-2023",
+  "subject": "Physical Science IEB",
+  "subjectCode": "physical-science-ieb",
+  "paperCode": "P1",
+  "year": 2023,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-1-1",
+          "label": "1.1",
+          "questionText": "The unit for power is the watt. This may also be written as:\nA  kg·m·s⁻³\nB  kg·m·s⁻²\nC  kg·m²·s⁻³\nD  kg·m²·s⁻²",
+          "marks": 2,
+          "memoText": "C — kg·m²·s⁻³. Power = energy/time = J·s⁻¹ = (kg·m²·s⁻²)·s⁻¹ = kg·m²·s⁻³.",
+          "topic": "Work, Energy and Power",
+          "type": "mcq",
+          "options": { "A": "kg·m·s⁻³", "B": "kg·m·s⁻²", "C": "kg·m²·s⁻³", "D": "kg·m²·s⁻²" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-1-2",
+          "label": "1.2",
+          "questionText": "A ball is dropped from a height h and hits the ground with a speed v. The speed of the ball at the moment when it reaches half its initial height is:\nA  v\nB  v/√2\nC  v/2\nD  v/4",
+          "marks": 2,
+          "memoText": "B — v/√2. Using v² = 2gs: at the ground v² = 2gh; after falling h/2, v'² = 2g(h/2) = gh = v²/2, so v' = v/√2.",
+          "topic": "Vertical Projectile Motion",
+          "type": "mcq",
+          "options": { "A": "v", "B": "v/√2", "C": "v/2", "D": "v/4" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-1-3",
+          "label": "1.3",
+          "questionText": "A heavy ball of mass 6m travels along a straight horizontal frictionless surface at a speed v. It collides with a stationary light ball of mass m. The heavy ball continues at half its original speed after the collision. The speed of the light ball after the collision will be equal to:\nA  2v\nB  4v\nC  3v\nD  6v",
+          "marks": 2,
+          "memoText": "C — 3v. Conservation of momentum: 6m·v = 6m·(v/2) + m·v_light, so 6v = 3v + v_light, giving v_light = 3v.",
+          "topic": "Momentum and Impulse",
+          "type": "mcq",
+          "options": { "A": "2v", "B": "4v", "C": "3v", "D": "6v" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-1-4",
+          "label": "1.4",
+          "questionText": "A person weighs 750 N and stands on a scale on the floor of a lift. Which row describes the motion of the lift at the moment when the scale reads 700 N (less than the person's weight)?\nA  Upwards, slowing down\nB  Upwards, constant speed\nC  Downwards, constant speed\nD  Downwards, slowing down",
+          "marks": 2,
+          "memoText": "A. The scale reads less than the weight, so the net force on the person is downward, i.e. the acceleration is downward. Moving upwards while accelerating downwards means the lift is moving upwards and slowing down.",
+          "topic": "Newton's Laws",
+          "type": "mcq",
+          "options": { "A": "Upwards, slowing down", "B": "Upwards, constant speed", "C": "Downwards, constant speed", "D": "Downwards, slowing down" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-1-5",
+          "label": "1.5",
+          "questionText": "A trolley is held at rest at the top of a frictionless slope, at a height h₁ above the ground. Point X on the slope is at a height h₂. What information is required to calculate the speed reached by the trolley at point X after it has been released?\nA  the mass of the trolley\nB  the difference in height (h₁ − h₂)\nC  the length of the slope (distance travelled by the trolley)\nD  all of the above",
+          "marks": 2,
+          "memoText": "B. By conservation of mechanical energy, mg(h₁ − h₂) = ½mv², so v = √[2g(h₁ − h₂)]. The mass cancels, and because the slope is frictionless the path length does not matter — only the drop in height (h₁ − h₂) is needed.",
+          "topic": "Work, Energy and Power",
+          "type": "mcq",
+          "options": { "A": "mass of the trolley", "B": "difference in height (h₁ − h₂)", "C": "length of the slope", "D": "all of the above" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-1-6",
+          "label": "1.6",
+          "questionText": "An athlete of mass m runs up a flight of stairs at a constant velocity v, gaining a certain vertical height from start to finish, taking time t. Treat the athlete as a point mass. The average power output of the athlete is:\nA  mgv\nB  mgv/t\nC  ½mv²/t\nD  ½mv²",
+          "marks": 2,
+          "memoText": "A — mgv. At constant velocity the athlete's kinetic energy does not change; the useful power is the rate of doing work against gravity, P = Fv = mgv (with v the speed at which the athlete rises).",
+          "topic": "Work, Energy and Power",
+          "type": "mcq",
+          "options": { "A": "mgv", "B": "mgv/t", "C": "½mv²/t", "D": "½mv²" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-1-7",
+          "label": "1.7",
+          "questionText": "A bag of clothes pegs of mass m hangs on a washing line, making the line sag so that each side of the line is at an angle θ with the horizontal. The tension in the washing line can be expressed as:\nA  2mg/sinθ\nB  mg/(2sinθ)\nC  mg·sinθ/2\nD  2mg·sinθ",
+          "marks": 2,
+          "memoText": "B — mg/(2sinθ). Vertically, the vertical components of the two equal tensions support the weight: 2T·sinθ = mg, so T = mg/(2sinθ).",
+          "topic": "Newton's Laws",
+          "type": "mcq",
+          "options": { "A": "2mg/sinθ", "B": "mg/(2sinθ)", "C": "mg·sinθ/2", "D": "2mg·sinθ" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-1-8",
+          "label": "1.8",
+          "questionText": "A battery of emf ε and internal resistance r is connected across a resistor R, with an ammeter in series and a voltmeter across the battery terminals. As the temperature of the battery increases, the internal resistance r increases. What will happen to the readings on the ammeter and the voltmeter as r increases?\nA  ammeter increases ; voltmeter increases\nB  ammeter increases ; voltmeter decreases\nC  ammeter decreases ; voltmeter increases\nD  ammeter decreases ; voltmeter decreases",
+          "marks": 2,
+          "memoText": "D. The current I = ε/(R + r) decreases as r increases (ammeter decreases). The terminal voltage (voltmeter) = IR; since I decreases and R is unchanged, the terminal voltage also decreases.",
+          "topic": "Electric Circuits",
+          "type": "mcq",
+          "options": { "A": "increases ; increases", "B": "increases ; decreases", "C": "decreases ; increases", "D": "decreases ; decreases" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-1-9",
+          "label": "1.9",
+          "questionText": "A bar magnet is dropped so that it falls straight through a vertical coil connected to a voltmeter. Four possible voltmeter-output graphs are shown. Which graph correctly shows the output: a first voltage pulse in one direction as the magnet enters the coil, followed by a second pulse in the opposite direction as it leaves, with the second pulse larger in magnitude and narrower (shorter in time) than the first?",
+          "marks": 2,
+          "memoText": "C. As the magnet accelerates under gravity it is moving faster when it leaves the coil than when it enters, so the second induced pulse is larger and briefer; the two pulses have opposite polarity.",
+          "topic": "Electrodynamics",
+          "type": "mcq",
+          "options": { "A": "graph A", "B": "graph B", "C": "graph C", "D": "graph D" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-1-10",
+          "label": "1.10",
+          "questionText": "High-energy light is shone onto a copper plate and electrons are emitted. Which combination is true when the wavelength of the light is decreased?\nA  kinetic energy of emitted electrons decreases ; number of emitted electrons decreases\nB  kinetic energy increases ; number decreases\nC  kinetic energy decreases ; number stays the same\nD  kinetic energy increases ; number stays the same",
+          "marks": 2,
+          "memoText": "D. A shorter wavelength means a higher frequency and so a higher photon energy; each photon still ejects one electron, so the maximum kinetic energy of the emitted electrons increases. The number of electrons emitted depends on the intensity (photons per second), not the wavelength, so it stays the same.",
+          "topic": "Photons and Electrons",
+          "type": "mcq",
+          "options": { "A": "KE decreases ; number decreases", "B": "KE increases ; number decreases", "C": "KE decreases ; number stays the same", "D": "KE increases ; number stays the same" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Kinematics (Bouncing Ball)",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-2-1",
+          "label": "2.1",
+          "questionText": "A ball is thrown vertically upwards at 2,8 m·s⁻¹ from a point 0,9 m above the ground and then bounces on the ground. The motion is shown on a velocity–time graph (not to scale, air resistance ignored) as a series of parallel straight-line segments. Why are the bold lines on the graph parallel to one another?",
+          "marks": 2,
+          "memoText": "The gradient of a velocity–time graph is the acceleration. Between bounces the ball is in free fall, so its acceleration is constant (9,8 m·s⁻² downward); equal gradients mean the line segments are parallel.",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-2-2",
+          "label": "2.2",
+          "questionText": "On the axes provided, sketch a position–time graph for the entire motion of the ball represented on the velocity–time graph. No values are necessary.",
+          "marks": 3,
+          "memoText": "A position–time curve showing two bounces: it starts at a positive height (0,9 m) above the ground moving upward, rises to a small maximum, falls as a downward-opening parabola to zero (the ground), then rises again to a lower maximum and falls back — two parabolic arcs of decreasing height, each touching the 'ground' line, ending above the ground.",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-2-3",
+          "label": "2.3",
+          "questionText": "On the position–time graph you sketched in Question 2.2, label t₁ (the time marked on the velocity–time graph, the instant the ball reaches its highest point after being thrown).",
+          "marks": 2,
+          "memoText": "t₁ is marked at the time of the first (highest) turning point of the position–time curve — where the gradient is zero, at the top of the first arc.",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-2-4",
+          "label": "2.4",
+          "questionText": "Calculate t₁ (the time taken for the ball to reach its highest point after being thrown).",
+          "marks": 3,
+          "memoText": "At the highest point v = 0. Taking upward as positive:\nv = u + at\n0 = 2,8 + (−9,8)t₁\nt₁ = 2,8/9,8 = 0,29 s",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-2-5",
+          "label": "2.5",
+          "questionText": "Calculate the velocity v₁ with which the ball hits the ground on its first bounce.",
+          "marks": 4,
+          "memoText": "Take upward as positive, u = 2,8 m·s⁻¹, displacement s = −0,9 m (0,9 m down):\nv₁² = u² + 2as = (2,8)² + 2(−9,8)(−0,9)\nv₁² = 7,84 + 17,64 = 25,48\nv₁ = 5,05 m·s⁻¹ downwards",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-2-6",
+          "label": "2.6",
+          "questionText": "Calculate the time from when the ball is thrown to when it first hits the ground.",
+          "marks": 3,
+          "memoText": "v = u + at (take upward positive, v = −5,05 m·s⁻¹):\n−5,05 = 2,8 + (−9,8)t\nt = 7,85/9,8 = 0,80 s",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Kinematics (Trolley Investigation)",
+      "totalMarks": 21,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-3-1",
+          "label": "3.1",
+          "questionText": "A trolley starts from rest and is accelerated in a straight line along a frictionless horizontal surface. Students measure the change in position (Δx) of the trolley during various time intervals (Δt).\n\nState the independent variable for this investigation.",
+          "marks": 2,
+          "memoText": "The time taken / the time interval (Δt).",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-3-2",
+          "label": "3.2",
+          "questionText": "The recorded data is:\nΔt (s): 0,5 | 1,0 | 1,7 | 2,0 | 2,6 | 3,0\nΔt² (s²): 0,3 | 1,0 | (missing) | 4,0 | 6,8 | 9,0\nΔx (m): 0,2 | 0,4 | 1,2 | 1,6 | 2,8 | 3,6\n\nWrite down the value for Δt² that is missing from the table. Round off your answer to one decimal place.",
+          "marks": 2,
+          "memoText": "Δt² = (1,7)² = 2,89 ≈ 2,9 s².",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-3-3",
+          "label": "3.3",
+          "questionText": "Plot a graph of change in position Δx (y-axis) versus time squared Δt² (x-axis) on the graph paper provided.",
+          "marks": 7,
+          "memoText": "Marks for: a suitable heading; both axes labelled with quantity and unit (Δx in m; Δt² in s²); sensible scales so the points span more than half the grid; all six points plotted correctly; and a straight line of best fit through the origin. The graph is a straight line through the origin.",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-3-4",
+          "label": "3.4",
+          "questionText": "Calculate the gradient of the graph that you have plotted. Include units in your answer.",
+          "marks": 5,
+          "memoText": "gradient = Δ(Δx)/Δ(Δt²), read from two well-separated points on the line of best fit.\ngradient ≈ 0,4 m·s⁻² (accept 0,35–0,45 m·s⁻²).",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-3-5",
+          "label": "3.5",
+          "questionText": "Use an equation of motion and the gradient that you calculated in Question 3.4 to determine the acceleration of the trolley.",
+          "marks": 3,
+          "memoText": "s = ut + ½at² with u = 0 gives s = ½a·t², so a graph of Δx versus Δt² has gradient ½a.\n½a = 0,4\na = 0,8 m·s⁻²",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-3-6",
+          "label": "3.6",
+          "questionText": "Use your graph to determine how long it will take the trolley to travel a distance of 3 m.",
+          "marks": 2,
+          "memoText": "Reading off the line at Δx = 3 m gives Δt² ≈ 7,4 s².\nt = √7,4 ≈ 2,7 s",
+          "topic": "Kinematics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Forces (Friction on a Bus)",
+      "totalMarks": 19,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-4-1",
+          "label": "4.1",
+          "questionText": "A bus accelerates uniformly forward along a level road. A book lying on the floor experiences negligible friction; an identical book lying on a flat seat experiences significant friction and stays at rest on the seat.\n\nDefine frictional force.",
+          "marks": 2,
+          "memoText": "The frictional force is the force that opposes the motion (or the tendency to move) of an object, acting parallel to the surface of contact.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-4-2",
+          "label": "4.2",
+          "questionText": "Is there a resultant (net) force acting on the book that is on the floor as the bus accelerates? Explain your answer.",
+          "marks": 2,
+          "memoText": "No. There is negligible friction on the floor book and no other horizontal force acts on it, so there is no net horizontal force. (Vertically the normal force and weight balance.)",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-4-3",
+          "label": "4.3",
+          "questionText": "Draw a labelled free-body diagram showing the forces that act on the book resting on the seat as the bus accelerates forward. Forward is to the right on your page.",
+          "marks": 3,
+          "memoText": "Three forces drawn as labelled arrows from the book:\n• Normal force (F_N) — upward, perpendicular to the seat.\n• Weight / gravitational force (F_g) — downward.\n• Frictional force (F_f) — horizontal, pointing forward (to the right), since friction is what accelerates the book with the bus.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-4-4",
+          "label": "4.4",
+          "questionText": "Describe the motion of the book on the floor as observed by a passenger on the bus while the bus is accelerating forward.",
+          "marks": 2,
+          "memoText": "Relative to the passenger, the floor book appears to accelerate / slide backwards (towards the back of the bus).",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-4-5",
+          "label": "4.5",
+          "questionText": "The mass of each book is 0,1 kg and the coefficient of static friction between the book and the seat is 0,4. Calculate the magnitude of the frictional force that must be overcome for the book on the seat to slide.",
+          "marks": 4,
+          "memoText": "f_s(max) = μ_s·F_N = μ_s·mg\nf_s(max) = (0,4)(0,1 × 9,8)\nf_s(max) = 0,39 N",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-4-6",
+          "label": "4.6",
+          "questionText": "Calculate the magnitude of the minimum forward acceleration of the bus that would cause the book on the seat to slide.",
+          "marks": 3,
+          "memoText": "The maximum static friction is the largest force available to accelerate the book with the seat:\nF_net = ma\n0,39 = 0,1·a\na = 3,9 m·s⁻²",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-4-7",
+          "label": "4.7",
+          "questionText": "The bus accelerates with an acceleration greater than the value calculated in Question 4.6. Will the book on the seat slide towards the FRONT or the BACK of the bus? Briefly explain.",
+          "marks": 3,
+          "memoText": "Towards the BACK of the bus. The maximum static friction is not large enough to give the book the same (larger) forward acceleration as the bus, so the bus accelerates forward faster than the book and the book is left behind — it slides backwards relative to the bus.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Newton's Laws (Two Blocks and Ropes)",
+      "totalMarks": 19,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-5-1",
+          "label": "5.1",
+          "questionText": "Two blocks, A (1 kg) and B (5 kg), are pulled along a horizontal surface by Rope 1, and are connected to each other by Rope 2 (A in front, B behind). While moving, block A experiences 3,9 N of friction and block B experiences 19,6 N of friction. After Rope 1 has pulled the system for 0,5 s, Rope 2 snaps. The velocity–time graph of block A (not to scale) rises from 0 to 1,2 m·s⁻¹ at t = 0,5 s, then continues to rise to 3 m·s⁻¹ at t = 0,553 s.\n\nDefine acceleration.",
+          "marks": 2,
+          "memoText": "Acceleration is the rate of change of velocity (the change in velocity per unit time).",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-5-2",
+          "label": "5.2",
+          "questionText": "Use the velocity–time graph to calculate the magnitude of the acceleration of the system while the force of Rope 1 is being applied, before Rope 2 snaps.",
+          "marks": 3,
+          "memoText": "a = gradient of the v–t graph over 0 to 0,5 s = (1,2 − 0)/(0,5 − 0)\na = 2,4 m·s⁻²",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-5-3",
+          "label": "5.3",
+          "questionText": "State Newton's second law.",
+          "marks": 2,
+          "memoText": "When a net force acts on an object, the object accelerates in the direction of the net force. The acceleration is directly proportional to the net force and inversely proportional to the mass of the object.\nOR: The net force acting on an object is equal to the rate of change of momentum of the object.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-5-4",
+          "label": "5.4",
+          "questionText": "Draw a labelled free-body diagram showing the horizontal forces acting on Block B in the first 0,5 seconds. The relative sizes of the forces must be clear.",
+          "marks": 3,
+          "memoText": "Two horizontal arrows from block B:\n• Forward force of Rope 2 on B (tension T₂) — pointing forward, drawn longer.\n• Frictional force on B (F_f = 19,6 N) — pointing backward, drawn shorter.\n(Tension arrow must be clearly longer than the friction arrow, since B accelerates forward.)",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-5-5",
+          "label": "5.5",
+          "questionText": "Calculate the tension in Rope 2 before it snapped.",
+          "marks": 4,
+          "memoText": "Consider block B alone (forward positive):\nT₂ − F_f = m_B·a\nT₂ − 19,6 = 5(2,4)\nT₂ = 12 + 19,6 = 31,6 N",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-5-6",
+          "label": "5.6",
+          "questionText": "Determine the magnitude of the force that Rope 1 was exerting during the first 0,5 seconds of motion.",
+          "marks": 3,
+          "memoText": "Consider block A alone (forward positive): T₁ − T₂ − F_f(A) = m_A·a\nT₁ − 31,6 − 3,9 = 1(2,4)\nT₁ = 2,4 + 31,6 + 3,9 = 37,9 N",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-5-7",
+          "label": "5.7",
+          "questionText": "The velocity of Block A is shown as a dashed line. On the same axes, draw the graph representing the velocity of Block B over the same time period. No velocity values are needed.",
+          "marks": 2,
+          "memoText": "Block B's velocity follows the same line as block A's for the first 0,5 s (they move together). After Rope 2 snaps at 0,5 s, block B has only friction acting on it, so it decelerates: the line for B slopes downward after 0,5 s (while A's line continues to rise steeply).",
+          "topic": "Newton's Laws",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Momentum, Work, Energy & Power",
+      "totalMarks": 21,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-6-1",
+          "label": "6.1",
+          "questionText": "A ball of mass 0,8 kg is kicked along the ground towards a wall. It hits the wall at 4,5 m·s⁻¹ horizontally and bounces off with a horizontal velocity of 2 m·s⁻¹ away from the wall. The ball is in contact with the wall for 0,26 s.\n\nDefine impulse.",
+          "marks": 2,
+          "memoText": "Impulse is the product of the net force acting on an object and the contact time for which the force acts.",
+          "topic": "Momentum and Impulse",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-6-2",
+          "label": "6.2",
+          "questionText": "Calculate the change in momentum of the ball as it bounces off the wall and state the direction of this change in momentum.",
+          "marks": 4,
+          "memoText": "Take the direction away from the wall as positive: u = −4,5 m·s⁻¹, v = +2 m·s⁻¹.\nΔp = mv − mu = 0,8(2) − 0,8(−4,5)\nΔp = 1,6 + 3,6 = 5,2 kg·m·s⁻¹ (5,2 N·s), directed away from the wall.",
+          "topic": "Momentum and Impulse",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-6-3",
+          "label": "6.3",
+          "questionText": "Calculate the magnitude of the average net force experienced by the ball as it bounces off the wall.",
+          "marks": 3,
+          "memoText": "F_net = Δp/Δt = 5,2/0,26\nF_net = 20 N",
+          "topic": "Momentum and Impulse",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-6-4",
+          "label": "6.4",
+          "questionText": "If the time of contact between the ball and the wall was reduced, would the magnitude of the force that the ball experiences be GREATER THAN, THE SAME AS or LESS THAN the magnitude of the force just determined? Write only the appropriate phrase.",
+          "marks": 2,
+          "memoText": "Greater than. The change in momentum is the same, and F_net = Δp/Δt, so a shorter contact time means a larger force.",
+          "topic": "Momentum and Impulse",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-6-5",
+          "label": "6.5",
+          "questionText": "The ball is kicked again and this time hits a glass door at 5 m·s⁻¹ horizontally and breaks the glass. After breaking the glass the ball rolls 0,9 m before coming to rest, experiencing a frictional force of magnitude 5,5 N as it rolls.\n\nState the work–energy theorem.",
+          "marks": 2,
+          "memoText": "The net work done by the net force on an object is equal to the change in the kinetic energy of the object.",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-6-6",
+          "label": "6.6",
+          "questionText": "Calculate the magnitude of the velocity of the ball just after the glass broke.",
+          "marks": 4,
+          "memoText": "For the rolling phase, the net force is friction (5,5 N opposing motion) over 0,9 m, bringing the ball to rest:\nF_net·s = ΔE_K\n(−5,5)(0,9) = ½(0,8)(0)² − ½(0,8)u²\n−4,95 = −0,4u²\nu² = 12,375\nu = 3,52 m·s⁻¹",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-6-7",
+          "label": "6.7",
+          "questionText": "How much energy was transferred from the ball when it broke the glass? (The time and displacement during the glass-breaking can be ignored.)",
+          "marks": 4,
+          "memoText": "Energy transferred = E_K(before) − E_K(after breaking) = ½(0,8)(5)² − ½(0,8)(3,52)²\n= 10 − 4,96\n= 5,04 J",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Fields (Gravitation and Electric Field)",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-7-1-1",
+          "label": "7.1.1",
+          "questionText": "The planet Mars has a mass of 6,4 × 10²³ kg and a radius of 3 390 km. Its moon Deimos (mass 1,48 × 10¹⁵ kg) orbits at a distance of 20,1 × 10⁶ m above the surface of Mars. (G = 6,7 × 10⁻¹¹ N·m²·kg⁻².)\n\nCalculate the magnitude of the force that Mars exerts on Deimos.",
+          "marks": 5,
+          "memoText": "Distance between centres: r = 3,39 × 10⁶ + 20,1 × 10⁶ = 23,49 × 10⁶ m.\nF = GM₁M₂/r² = (6,7 × 10⁻¹¹)(6,4 × 10²³)(1,48 × 10¹⁵)/(23,49 × 10⁶)²\nF = (6,347 × 10²⁸)/(5,518 × 10¹⁴)\nF = 1,15 × 10¹⁴ N",
+          "topic": "Gravitational Fields",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-7-1-2",
+          "label": "7.1.2",
+          "questionText": "Three statements are given about the force between Mars and Deimos:\nA  Mars exerts a greater force on Deimos than Deimos exerts on Mars.\nB  Mars exerts a smaller force on Deimos than Deimos exerts on Mars.\nC  Mars exerts the same magnitude of force on Deimos as Deimos exerts on Mars.\nIndicate whether A, B or C is correct and give a reason.",
+          "marks": 2,
+          "memoText": "C. By Newton's third law, the gravitational forces that Mars and Deimos exert on each other are equal in magnitude and opposite in direction.",
+          "topic": "Gravitational Fields",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-7-2-1",
+          "label": "7.2.1",
+          "questionText": "A charged ball of mass 3 g carrying a charge of +6 µC is suspended by a light non-conducting string in a uniform horizontal electric field of 420 N·C⁻¹. The string hangs at an angle θ to the vertical.\n\nDefine the electric field at a point.",
+          "marks": 2,
+          "memoText": "The electric field at a point is the electrostatic force experienced per unit positive charge placed at that point.",
+          "topic": "Electrostatics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-7-2-2",
+          "label": "7.2.2",
+          "questionText": "Determine the magnitude of the force experienced by the charged ball in the uniform horizontal electric field.",
+          "marks": 3,
+          "memoText": "F = qE = (6 × 10⁻⁶)(420)\nF = 2,52 × 10⁻³ N (horizontal)",
+          "topic": "Electrostatics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-7-2-3",
+          "label": "7.2.3",
+          "questionText": "Define weight.",
+          "marks": 2,
+          "memoText": "Weight is the gravitational force that the Earth exerts on an object on or near its surface.",
+          "topic": "Electrostatics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-7-2-4",
+          "label": "7.2.4",
+          "questionText": "Calculate the angle θ between the light string and the vertical.",
+          "marks": 4,
+          "memoText": "Weight of the ball: F_g = mg = (3 × 10⁻³)(9,8) = 29,4 × 10⁻³ N = 0,0294 N.\nFor the ball in equilibrium, the string tension balances the resultant of the horizontal electric force and the vertical weight:\ntanθ = F_electric / F_g = (2,52 × 10⁻³)/(29,4 × 10⁻³) = 0,0857\nθ = tan⁻¹(0,0857) = 4,90°",
+          "topic": "Electrostatics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-7-2-5",
+          "label": "7.2.5",
+          "questionText": "The same ball is now given a new charge of −12 µC and reaches a new equilibrium. Briefly describe the changes in the angle between the light string and the vertical.",
+          "marks": 2,
+          "memoText": "The angle would increase (the horizontal electric force is now larger in magnitude), and the string would hang on the opposite side of the vertical, because the charge is now negative so the electric force acts in the opposite direction to the field.",
+          "topic": "Electrostatics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Electric Circuits (Car Headlamps and Starter Motor)",
+      "totalMarks": 27,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-8-1",
+          "label": "8.1",
+          "questionText": "A simplified car circuit has two identical headlamps (each 12 Ω, rated 55 W) that can be connected in parallel via switch S1, and a starter motor (resistance 0,05 Ω) connected via switch S2. The battery has an unknown emf and a significant internal resistance r. Ammeter A1 measures the headlamp current and A2 the starter-motor current; the voltmeter V is across the battery terminals.\n\nDefine emf.",
+          "marks": 2,
+          "memoText": "The emf is the total energy supplied (work done) per coulomb of charge by the battery.",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-8-2",
+          "label": "8.2",
+          "questionText": "Switch S1 is kept open while switch S2 is closed. The reading on ammeter A2 is 10 A. Calculate the reading on the voltmeter when S1 is open and S2 is closed.",
+          "marks": 3,
+          "memoText": "With only the starter motor in the circuit, the voltmeter reads the terminal potential difference, which equals the potential difference across the motor:\nV = I·R_motor = (10)(0,05)\nV = 0,5 V",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-8-3",
+          "label": "8.3",
+          "questionText": "Switch S1 is now closed and switch S2 is opened. Calculate the current through each headlamp when S1 is closed and S2 is open.",
+          "marks": 3,
+          "memoText": "Each headlamp is rated 55 W with a resistance of 12 Ω. Using P = I²R:\n55 = I²(12)\nI² = 4,583\nI = 2,14 A (through each headlamp)",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-8-4",
+          "label": "8.4",
+          "questionText": "Determine the reading on ammeter A1 (the total current through the headlamps).",
+          "marks": 2,
+          "memoText": "The two headlamps are in parallel, so A1 reads the sum of the two headlamp currents:\nA1 = 2,14 + 2,14 = 4,28 A",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-8-5",
+          "label": "8.5",
+          "questionText": "Determine the effective resistance of the headlamps connected in parallel.",
+          "marks": 2,
+          "memoText": "1/R_P = 1/12 + 1/12 = 2/12\nR_P = 6 Ω",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-8-6",
+          "label": "8.6",
+          "questionText": "Write an expression for the emf of the battery in terms of the current through ammeter A1, the resistance of the external circuit and the internal resistance, when S1 is closed and S2 is open.",
+          "marks": 2,
+          "memoText": "emf = I_A1(R_P + r) = 4,28(6 + r)",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-8-7",
+          "label": "8.7",
+          "questionText": "Write an expression for the emf of the battery in terms of the current through ammeter A2, the resistance of the external circuit and the internal resistance, when S1 is open and S2 is closed.",
+          "marks": 2,
+          "memoText": "emf = I_A2(R_motor + r) = 10(0,05 + r)",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-8-8",
+          "label": "8.8",
+          "questionText": "Use your expressions from Questions 8.6 and 8.7 to determine both the emf and the internal resistance of the battery.",
+          "marks": 4,
+          "memoText": "4,28(6 + r) = 10(0,05 + r)\n25,68 + 4,28r = 0,5 + 10r\n25,18 = 5,72r\nr = 4,40 Ω\nemf = 4,28(6 + 4,40) = 4,28 × 10,4 = 44,5 V",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-8-9",
+          "label": "8.9",
+          "questionText": "The headlamps are on (S1 closed). The starter motor is then switched on (S2 closed). When both switches are closed, would the brightness of the headlamps INCREASE, STAY THE SAME or DECREASE compared to when only S1 is closed? Briefly explain.",
+          "marks": 5,
+          "memoText": "DECREASE. Adding the starter motor in parallel lowers the total external (load) resistance, so the total current drawn from the battery increases. This increases the 'lost volts' (Ir) across the large internal resistance, so the terminal voltage falls. The terminal voltage is the voltage across the headlamps, so the current through them decreases and they get dimmer.",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-8-10",
+          "label": "8.10",
+          "questionText": "The headlamps are connected in parallel. Why is it important that they are connected in parallel, rather than in series?",
+          "marks": 2,
+          "memoText": "If they were in series and one headlamp burned out, the circuit would be broken and neither headlamp would work. In parallel, if one headlamp fails the other still works (and each gets the full terminal voltage).",
+          "topic": "Electric Circuits",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Electrodynamics (Bicycle Generator and Transformer)",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-9-1-1",
+          "label": "9.1.1",
+          "questionText": "A bicycle headlamp is powered by an AC generator: the spinning wheel turns a magnet inside a coil, and box X is in the electrical output line to the headlamp.\n\nState the energy change that happens in a generator.",
+          "marks": 2,
+          "memoText": "Mechanical (kinetic) energy is converted to electrical energy.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-9-1-2",
+          "label": "9.1.2",
+          "questionText": "This is an AC generator. Name the component that could be connected inside box X to convert this to a DC generator (output).",
+          "marks": 2,
+          "memoText": "A (bridge) rectifier — a diode bridge. (In a rotating-machine sense, a split-ring commutator; the marking guideline gives 'bridge rectifier'.)",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-9-1-3",
+          "label": "9.1.3",
+          "questionText": "State Faraday's law of electromagnetic induction.",
+          "marks": 2,
+          "memoText": "The magnitude of the induced emf is directly proportional to the rate of change of magnetic flux (flux linkage) through the circuit.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-9-1-4",
+          "label": "9.1.4",
+          "questionText": "Explain how the spinning magnet generates a current.",
+          "marks": 3,
+          "memoText": "As the magnet spins, the magnetic flux through the coil continuously changes. By Faraday's law this changing flux induces an emf in the coil, and because the coil is part of a closed circuit this induced emf drives a current.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-9-1-5",
+          "label": "9.1.5",
+          "questionText": "On the axes given, sketch the graph of voltage versus time to show the output of this generator. Show two full rotations of the magnet. Label this graph 9.1.5.",
+          "marks": 2,
+          "memoText": "A sinusoidal curve (voltage alternating positive and negative), showing exactly two complete cycles. It may start at zero or at a maximum.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-9-1-6",
+          "label": "9.1.6",
+          "questionText": "On the same axes, draw the graph of voltage versus time for the output of the generator when the wheel turns at half the speed. Label this graph 9.1.6.",
+          "marks": 2,
+          "memoText": "Another sinusoidal curve on the same axes with half the amplitude (peak voltage) and half the frequency (each cycle takes twice as long) compared to the graph in 9.1.5.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-9-1-7",
+          "label": "9.1.7",
+          "questionText": "The headlamp is connected to the generator through a bridge of diodes (a full-wave rectifier). On the axes given, sketch the graph of the ammeter reading versus time, showing the current through the headlamp as the wheel spins.",
+          "marks": 2,
+          "memoText": "A series of humps that are all on the same side of the time axis (all positive, or all negative) — the negative half-cycles of the AC are flipped up so the current pulses in one direction only (full-wave rectified output), touching zero between each hump.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-9-2",
+          "label": "9.2",
+          "questionText": "A transformer has 11 000 turns on the primary coil and 4 000 turns on the secondary coil. If the output of the transformer is 240 V, what was the input voltage?",
+          "marks": 3,
+          "memoText": "V_P/V_S = N_P/N_S\nV_P/240 = 11 000/4 000\nV_P = 240 × 2,75\nV_P = 660 V",
+          "topic": "Electrodynamics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Photons and Electrons",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-10-1",
+          "label": "10.1",
+          "questionText": "The work functions of some metals are: aluminium 4,3 eV; calcium 2,9 eV; copper 4,7 eV; sodium 2,3 eV. Light with a frequency of 9 × 10¹⁴ Hz is shone on each metal in turn. (h = 6,6 × 10⁻³⁴ J·s; 1 eV = 1,6 × 10⁻¹⁹ J.)\n\nDefine work function.",
+          "marks": 2,
+          "memoText": "The work function is the minimum amount of energy needed to emit (eject) an electron from the surface of a particular metal.",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-10-2",
+          "label": "10.2",
+          "questionText": "Determine the energy of a photon of light with a frequency of 9 × 10¹⁴ Hz.",
+          "marks": 3,
+          "memoText": "E = hf = (6,6 × 10⁻³⁴)(9 × 10¹⁴)\nE = 5,94 × 10⁻¹⁹ J",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-10-3",
+          "label": "10.3",
+          "questionText": "Hence, showing any necessary calculations, justify which metal(s) will emit electrons when light of this frequency is shone on them.",
+          "marks": 5,
+          "memoText": "Convert the photon energy to eV: E = (5,94 × 10⁻¹⁹)/(1,6 × 10⁻¹⁹) = 3,71 eV.\nA metal emits electrons only if the photon energy ≥ its work function.\n3,71 eV > 2,9 eV (calcium) and > 2,3 eV (sodium), but < 4,3 eV (aluminium) and < 4,7 eV (copper).\nSo only calcium and sodium will emit electrons.",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-10-4",
+          "label": "10.4",
+          "questionText": "The intensity of the incident light is halved. Explain which metals will emit electrons now.",
+          "marks": 3,
+          "memoText": "The same two metals (calcium and sodium) still emit electrons. Changing the intensity does not change the energy of each photon (which depends only on the frequency); it only changes the number of photons per second. Since the photon energy (3,71 eV) still exceeds only the work functions of calcium and sodium, only those two emit electrons.",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2023-10-5",
+          "label": "10.5",
+          "questionText": "Light with a wavelength of 420 nm is shone on a sample of sodium metal (work function 2,3 eV). Determine the maximum velocity of the electrons that this light ejects. (c = 3 × 10⁸ m·s⁻¹; mass of electron = 9,1 × 10⁻³¹ kg.)",
+          "marks": 5,
+          "memoText": "Photon energy: E = hc/λ = (6,6 × 10⁻³⁴)(3 × 10⁸)/(420 × 10⁻⁹) = 4,71 × 10⁻¹⁹ J.\nWork function: W₀ = 2,3 × 1,6 × 10⁻¹⁹ = 3,68 × 10⁻¹⁹ J.\nE = W₀ + ½mv²_max\n4,71 × 10⁻¹⁹ = 3,68 × 10⁻¹⁹ + ½(9,1 × 10⁻³¹)v²_max\n½(9,1 × 10⁻³¹)v²_max = 1,03 × 10⁻¹⁹\nv²_max = 2,27 × 10¹¹\nv_max = 4,77 × 10⁵ m·s⁻¹",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

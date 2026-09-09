@@ -28,6 +28,7 @@ const cc = (on: string, off = "") => (CONCEPT_C ? on : off);
 // coral, never red. Anything unmapped falls back to ruby.
 const SUBJECT_GEM: Record<string, string> = {
   "Accounting": GEM_HEX.emerald,
+  "Accounting IEB": GEM_HEX.teal,
   "Agricultural Sciences": GEM_HEX.lime,
   "Afrikaans": GEM_HEX.orange,
   "Business Studies": GEM_HEX.blue,
@@ -47,6 +48,7 @@ const SUBJECT_GEM: Record<string, string> = {
   "Maths Literacy IEB": GEM_HEX.purple,
   "Physical Science": GEM_HEX.cyan,
   "Physical Sciences": GEM_HEX.cyan,
+  "Physical Science IEB": GEM_HEX.blue,
   "Tourism": GEM_HEX.cyan,
 };
 
@@ -192,6 +194,13 @@ const SUBJECTS = [
     available: true,
   },
   {
+    id: "accounting-ieb",
+    name: "Accounting (IEB)",
+    thumbnail: "/thumbnails/accounting.webp",
+    color: "from-teal-500 to-emerald-600",
+    available: true,
+  },
+  {
     id: "agricultural-sciences",
     name: "Agricultural Sciences",
     thumbnail: "/thumbnails/agricultural-science.webp",
@@ -315,6 +324,13 @@ const SUBJECTS = [
     name: "Physical Science",
     thumbnail: "/thumbnails/physical-science.webp",
     color: "from-cyan-500 to-blue-600",
+    available: true,
+  },
+  {
+    id: "physical-science-ieb",
+    name: "Physical Science (IEB)",
+    thumbnail: "/thumbnails/physical-science.webp",
+    color: "from-sky-500 to-blue-700",
     available: true,
   },
   {
@@ -442,6 +458,7 @@ function sessionTabOf(session: string): SessionTab | null {
 // left out (Accounting, Agricultural Sciences, English) keep May/June visible
 // because November isn't a complete substitute for them yet.
 const JUNE_HIDDEN_SUBJECTS = new Set<SubjectId>([
+  "accounting-ieb",
   "afrikaans",
   "business-studies",
   "economics",
@@ -453,6 +470,7 @@ const JUNE_HIDDEN_SUBJECTS = new Set<SubjectId>([
   "mathematics-ieb",
   "maths-literacy",
   "physical-science",
+  "physical-science-ieb",
   "tourism",
 ]);
 

@@ -1,0 +1,969 @@
+{
+  "id": "phys-sci-ieb-p2-nov-2022",
+  "subject": "Physical Science IEB",
+  "subjectCode": "physical-science-ieb",
+  "paperCode": "P2",
+  "year": 2022,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-1-1",
+          "label": "1.1",
+          "questionText": "An unknown metal M forms the compound M(SO₄)₂. Which formula represents another compound where M has the same valency?\nA  M(NO₃)₂\nB  M₃PO₄\nC  M₂O\nD  M₃N₄",
+          "marks": 2,
+          "memoText": "D — M₃N₄. In M(SO₄)₂ the sulfate ion is 2−, so M is 4+. In M₃N₄ the nitride ion is 3−, and 3 × 4+ balances 4 × 3−, so M is again 4+.",
+          "topic": "Quantitative Chemistry (formulae)",
+          "type": "mcq",
+          "options": { "A": "M(NO₃)₂", "B": "M₃PO₄", "C": "M₂O", "D": "M₃N₄" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-1-2",
+          "label": "1.2",
+          "questionText": "Which one of the following contains 6,02 × 10²³ atoms?\nA  18 g of Ar gas\nB  5,6 dm³ of NH₃ gas at STP\nC  32 g of O₂ gas\nD  22,4 dm³ of CO gas at STP",
+          "marks": 2,
+          "memoText": "B. 5,6 dm³ of NH₃ at STP = 5,6/22,4 = 0,25 mol NH₃; each molecule has 4 atoms, so 0,25 × 4 = 1 mol atoms = 6,02 × 10²³ atoms. (A: 0,45 mol atoms; C: 2 mol atoms; D: 2 mol atoms.)",
+          "topic": "The Mole Concept",
+          "type": "mcq",
+          "options": { "A": "18 g of Ar", "B": "5,6 dm³ of NH₃ at STP", "C": "32 g of O₂", "D": "22,4 dm³ of CO at STP" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-1-3",
+          "label": "1.3",
+          "questionText": "A solution of sodium sulphate (Na₂SO₄) contains 1,5 × 10²² sodium ions dissolved in 500 cm³ of solution. The concentration of the sodium sulphate solution is:\nA  ½ × (1,5 × 10²²) / (6,02 × 10²³ × 0,5)\nB  ½ × (6,02 × 10²³ × 0,5) / (1,5 × 10²²)\nC  2 × (1,5 × 10²²) / (6,02 × 10²³ × 0,5)\nD  2 × (6,02 × 10²³ × 0,5) / (1,5 × 10²²)",
+          "marks": 2,
+          "memoText": "A. n(Na⁺) = (1,5 × 10²²)/(6,02 × 10²³). Each Na₂SO₄ gives 2 Na⁺, so n(Na₂SO₄) = ½ n(Na⁺). Then c = n/V = ½ × (1,5 × 10²²)/(6,02 × 10²³) ÷ 0,5.",
+          "topic": "The Mole Concept",
+          "type": "mcq",
+          "options": { "A": "½ × (1,5×10²²)/(6,02×10²³ × 0,5)", "B": "½ × (6,02×10²³ × 0,5)/(1,5×10²²)", "C": "2 × (1,5×10²²)/(6,02×10²³ × 0,5)", "D": "2 × (6,02×10²³ × 0,5)/(1,5×10²²)" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-1-4",
+          "label": "1.4",
+          "questionText": "Which one of the following molecules has polar covalent bonds, but only has London (dispersion) intermolecular forces?\nA  PH₃\nB  CH₃Cl\nC  CCl₄\nD  CI₄",
+          "marks": 2,
+          "memoText": "C — CCl₄. The C–Cl bonds are polar, but the tetrahedral molecule is symmetrical so the bond dipoles cancel; the molecule is non-polar overall and only London forces act between molecules. (PH₃ and CH₃Cl are polar molecules with dipole–dipole forces; the C–I bonds in CI₄ are essentially non-polar.)",
+          "topic": "Intermolecular Forces",
+          "type": "mcq",
+          "options": { "A": "PH₃", "B": "CH₃Cl", "C": "CCl₄", "D": "CI₄" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-1-5",
+          "label": "1.5",
+          "questionText": "The catalysed formation of ammonia by the Haber process is:\nN₂(g) + 3H₂(g) ⇌ 2NH₃(g)   ΔH = −92 kJ·mol⁻¹\nWhich change in reaction conditions will increase BOTH the rate of formation AND the equilibrium yield of ammonia?\nA  A decrease in the temperature.\nB  An increase in the temperature.\nC  An increase in the pressure at constant temperature.\nD  An increase in the surface area of the catalyst.",
+          "marks": 2,
+          "memoText": "C. Increasing the pressure increases the concentration of the gases (faster rate) and shifts the equilibrium towards the side with fewer moles of gas (the ammonia side), increasing the yield. Lowering the temperature raises the yield but lowers the rate; raising the temperature does the opposite; a catalyst changes only the rate, not the yield.",
+          "topic": "Chemical Equilibrium",
+          "type": "mcq",
+          "options": { "A": "Decrease temperature", "B": "Increase temperature", "C": "Increase pressure at constant temperature", "D": "Increase catalyst surface area" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-1-6",
+          "label": "1.6",
+          "questionText": "A Maxwell–Boltzmann distribution curve (number of particles versus kinetic energy) is drawn for a reaction mixture. The CONCENTRATION of the reaction mixture is now INCREASED (temperature unchanged). Which option shows the new distribution curve (dotted line)?\nA  a curve with its peak shifted to the right and lower\nB  a curve of the same shape and peak position but higher overall (greater area)\nC  a curve with its peak shifted to the left and higher\nD  an identical curve (no change at all)",
+          "marks": 2,
+          "memoText": "B. Concentration does not change the temperature, so the shape and the position of the peak (which depend on the average kinetic energy) stay the same. There are simply more particles, so the whole curve is higher and the area under it is greater.",
+          "topic": "Rate of Reaction",
+          "type": "mcq",
+          "options": { "A": "peak shifted right and lower", "B": "same shape/position, higher overall", "C": "peak shifted left and higher", "D": "identical (no change)" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-1-7",
+          "label": "1.7",
+          "questionText": "For the reaction H₂(g) + I₂(g) ⇌ 2HI(g) the equilibrium constant is Kc = x. What will be the Kc value for the REVERSE reaction when the volume of the container is halved at the same constant temperature?\nA  x\nB  x/2\nC  x²\nD  1/x",
+          "marks": 2,
+          "memoText": "D — 1/x. The equilibrium constant for the reverse reaction is the reciprocal of the forward Kc. Changing the volume (pressure) does not change Kc at constant temperature.",
+          "topic": "Chemical Equilibrium",
+          "type": "mcq",
+          "options": { "A": "x", "B": "x/2", "C": "x²", "D": "1/x" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-1-8",
+          "label": "1.8",
+          "questionText": "How many straight-chain esters are there with molecular formula C₄H₈O₂?\nA  2\nB  3\nC  4\nD  5",
+          "marks": 2,
+          "memoText": "B — 3: methyl propanoate (CH₃CH₂COOCH₃), ethyl ethanoate (CH₃COOCH₂CH₃) and propyl methanoate (HCOOCH₂CH₂CH₃).",
+          "topic": "Organic Chemistry (isomers)",
+          "type": "mcq",
+          "options": { "A": "2", "B": "3", "C": "4", "D": "5" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-1-9",
+          "label": "1.9",
+          "questionText": "Which one of the following organic compounds does not contain oxygen?\nA  1,1-dibromooctane\nB  pentan-2-ol\nC  butyl propanoate\nD  methanoic acid",
+          "marks": 2,
+          "memoText": "A — 1,1-dibromooctane is a haloalkane (only C, H and Br). Pentan-2-ol (–OH), butyl propanoate (ester) and methanoic acid (–COOH) all contain oxygen.",
+          "topic": "Organic Chemistry (functional groups)",
+          "type": "mcq",
+          "options": { "A": "1,1-dibromooctane", "B": "pentan-2-ol", "C": "butyl propanoate", "D": "methanoic acid" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-1-10",
+          "label": "1.10",
+          "questionText": "Which option correctly shows a positional isomer AND a chain isomer of the compound pent-1-ene?\nA  positional: 2-methylbut-1-ene ; chain: methylpropene\nB  positional: pent-2-ene ; chain: but-1-ene\nC  positional: 2-methylbut-1-ene ; chain: pent-2-ene\nD  positional: pent-2-ene ; chain: 3-methylbut-1-ene",
+          "marks": 2,
+          "memoText": "D. A positional isomer keeps the same (unbranched) carbon chain but moves the double bond: pent-2-ene. A chain isomer has a branched carbon skeleton with the same molecular formula (C₅H₁₀): 3-methylbut-1-ene.",
+          "topic": "Organic Chemistry (isomers)",
+          "type": "mcq",
+          "options": { "A": "2-methylbut-1-ene ; methylpropene", "B": "pent-2-ene ; but-1-ene", "C": "2-methylbut-1-ene ; pent-2-ene", "D": "pent-2-ene ; 3-methylbut-1-ene" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Intermolecular Forces (Water, Methanol, Ethanol)",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Diagrams of water (b.p. 100 °C), methanol (b.p. 64,7 °C) and ethanol (b.p. 78,4 °C) are shown, with covalent bonds as solid lines and hydrogen bonds as dotted lines. The solid lines represent covalent bonds.\n\nDefine polar covalent bond.",
+          "marks": 2,
+          "memoText": "A polar covalent bond is a covalent bond in which the bonding pair of electrons is shared unequally between the two atoms (because of a difference in their electronegativities), so that a dipole (partial charges δ⁺ and δ⁻) forms across the bond.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Between which two atoms is the polar covalent bond the least polar (in these molecules)?",
+          "marks": 1,
+          "memoText": "The H–C bond.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-2-1-3",
+          "label": "2.1.3",
+          "questionText": "Give a reason for your answer to Question 2.1.2.",
+          "marks": 1,
+          "memoText": "Carbon and hydrogen have the smallest difference in electronegativity of the bonded atoms present, so this bond is the least polar.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-2-2-1",
+          "label": "2.2.1",
+          "questionText": "The dotted lines represent hydrogen bonds. State THREE requirements for the formation of a hydrogen bond.",
+          "marks": 3,
+          "memoText": "A hydrogen atom must be covalently bonded to an atom that is: (1) small; (2) highly electronegative (F, O or N); and (3) has at least one lone pair of electrons (to which the hydrogen of a neighbouring molecule is attracted).",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-2-2-2",
+          "label": "2.2.2",
+          "questionText": "Why are hydrogen bonds stronger than dipole–dipole forces?",
+          "marks": 2,
+          "memoText": "The bond between H and the very electronegative atom (e.g. O–H) is very polar, so a strong dipole forms and the hydrogen nucleus is left with a high (partial) positive charge density / is very exposed. Also, because the hydrogen atom is so small, the molecules can approach very closely, so the attractive force acts over a shorter distance and is stronger.",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-2-3",
+          "label": "2.3",
+          "questionText": "Circle the CORRECT words from within brackets in the statement below:\nBoiling is a (PHYSICAL / CHEMICAL) process in which (INTRAMOLECULAR BONDS ARE BROKEN / INTERMOLECULAR FORCES ARE OVERCOME).",
+          "marks": 2,
+          "memoText": "Boiling is a PHYSICAL process in which INTERMOLECULAR FORCES ARE OVERCOME.",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-2-4",
+          "label": "2.4",
+          "questionText": "Explain fully why water has a higher boiling point than the other two compounds (methanol and ethanol). Make specific reference to the diagrams.",
+          "marks": 4,
+          "memoText": "Each water molecule can form 4 hydrogen bonds with neighbouring molecules (it has 2 O–H bonds and 2 lone pairs). Methanol and ethanol molecules can each form only about 2 hydrogen bonds (only one O–H per molecule). So water has more hydrogen bonds / a greater total intermolecular force. More energy is therefore needed to overcome these forces and separate the water molecules, giving water the higher boiling point.",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-2-5-1",
+          "label": "2.5.1",
+          "questionText": "Ethanol has a higher boiling point than methanol. Which type of intermolecular forces are predominantly responsible for this difference?",
+          "marks": 1,
+          "memoText": "London (dispersion / induced-dipole) forces.",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-2-5-2",
+          "label": "2.5.2",
+          "questionText": "Explain why the intermolecular forces are stronger in ethanol than in methanol.",
+          "marks": 2,
+          "memoText": "Any two of: ethanol has a larger electron cloud / more electrons than methanol; ethanol has a longer carbon chain, giving a larger contact (interacting) surface area between molecules; ethanol therefore forms larger / stronger temporary (induced) dipoles. All of these make the London forces between ethanol molecules stronger.",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Rate of Reaction (Cu + HNO₃)",
+      "totalMarks": 24,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-3-1-1",
+          "label": "3.1.1",
+          "questionText": "Nitrogen monoxide gas is prepared by adding copper to dilute nitric acid:\n3Cu(s) + 8HNO₃(aq) → 3Cu(NO₃)₂(aq) + 2NO(g) + 4H₂O(l)\nExperiment A uses 2,54 g of Cu (as small pellets) with 0,10 dm³ of 0,8 mol·dm⁻³ HNO₃. (M(Cu) = 63,5 g·mol⁻¹.)\n\nCalculate the number of moles of Cu.",
+          "marks": 2,
+          "memoText": "n(Cu) = m/M = 2,54/63,5 = 0,04 mol",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-3-1-2",
+          "label": "3.1.2",
+          "questionText": "Calculate the number of moles of HNO₃ in Experiment A.",
+          "marks": 2,
+          "memoText": "n(HNO₃) = cV = 0,8 × 0,10 = 0,08 mol",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-3-1-3",
+          "label": "3.1.3",
+          "questionText": "Hence, show that copper is in excess.",
+          "marks": 1,
+          "memoText": "From the equation, 8 mol HNO₃ react with 3 mol Cu, so 0,08 mol HNO₃ reacts with 0,08 × 3/8 = 0,03 mol Cu, which is less than the 0,04 mol Cu present. Therefore copper is in excess (HNO₃ is the limiting reagent).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-3-1-4",
+          "label": "3.1.4",
+          "questionText": "Assuming that the reaction proceeds to completion, calculate the volume of NO(g) that would be produced at STP. (Vₘ = 22,4 dm³·mol⁻¹.)",
+          "marks": 3,
+          "memoText": "HNO₃ is limiting. From the equation, 8 mol HNO₃ → 2 mol NO, so n(NO) = 0,08 × 2/8 = 0,02 mol.\nV(NO) = n·Vₘ = 0,02 × 22,4 = 0,448 dm³",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-3-2",
+          "label": "3.2",
+          "questionText": "The volume of NO gas produced in Experiment A is plotted against time (curve A rises and levels off). On the same axes, draw the curves for Experiment B (2,54 g Cu, 0,05 dm³ of 0,8 mol·dm⁻³ HNO₃, small pellets) and Experiment C (5,08 g Cu, 0,05 dm³ of 1,6 mol·dm⁻³ HNO₃, small pellets). Label the two new curves clearly.",
+          "marks": 4,
+          "memoText": "Curve B: same shape as A but with a less steep initial gradient (lower concentration is not the change here — B has half the volume of the same-concentration acid, so half the moles of HNO₃) and a lower final volume (about half that of A).\nCurve C: n(HNO₃) in C = 0,05 × 1,6 = 0,08 mol, the same as A, so C reaches the same final volume as A; but C has the higher acid concentration, so its initial gradient is steeper than A (reaches the plateau sooner).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-3-3",
+          "label": "3.3",
+          "questionText": "Explain how an increase in concentration affects the rate of a reaction in terms of the Collision Theory.",
+          "marks": 4,
+          "memoText": "• A higher concentration means more reactant particles per unit volume.\n• So there are more collisions between reactant particles per unit time.\n• Hence more effective collisions (collisions with sufficient energy and correct orientation) per unit time.\n• Therefore the rate of reaction increases.",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-3-4-1",
+          "label": "3.4.1",
+          "questionText": "One way to measure the rate is to measure the pH of the reaction mixture versus time. State whether the pH would INCREASE, DECREASE or STAY THE SAME as the reaction proceeds, and give a reason.",
+          "marks": 2,
+          "memoText": "The pH will INCREASE. As the reaction proceeds the nitric acid is used up, so the concentration of H₃O⁺ (H⁺) ions decreases, which raises the pH.",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-3-4-2",
+          "label": "3.4.2",
+          "questionText": "Another way is to shine light through the solution and measure the % transmission of light versus time. State whether the % transmission would INCREASE, DECREASE or STAY THE SAME as the reaction proceeds, and give a reason.",
+          "marks": 2,
+          "memoText": "The % transmission will DECREASE. As the reaction proceeds the concentration of blue Cu(NO₃)₂ (Cu²⁺) increases, so the solution becomes a darker blue and less light can pass through it.",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-3-5-1",
+          "label": "3.5.1",
+          "questionText": "Define redox reaction.",
+          "marks": 1,
+          "memoText": "A redox reaction is a reaction that involves the transfer of electrons (one substance is oxidised and another is reduced).",
+          "topic": "Electrochemistry (redox)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-3-5-2",
+          "label": "3.5.2",
+          "questionText": "Identify the reducing agent in this reaction.",
+          "marks": 1,
+          "memoText": "Cu (copper) — it is oxidised (loses electrons), so it is the reducing agent.",
+          "topic": "Electrochemistry (redox)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-3-5-3",
+          "label": "3.5.3",
+          "questionText": "Identify and write down the ionic equation for the reduction half-reaction, referring to the table of standard electrode potentials.",
+          "marks": 2,
+          "memoText": "NO₃⁻ + 4H⁺ + 3e⁻ → NO + 2H₂O",
+          "topic": "Electrochemistry (redox)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Chemical Equilibrium (N₂O₄ ⇌ 2NO₂)",
+      "totalMarks": 23,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-4-1-1",
+          "label": "4.1.1",
+          "questionText": "A sample of N₂O₄ gas is sealed in a container and heated; it decomposes and reaches equilibrium:\nN₂O₄(g) ⇌ 2NO₂(g)   ΔH > 0\nA concentration–time graph shows changes made at times t₁ to t₅. How does the rate of the forward reaction compare to the rate of the reverse reaction at t₁? (Choose from HIGHER THAN, LOWER THAN or EQUAL TO.)",
+          "marks": 1,
+          "memoText": "Higher than. At t₁ the reaction is still approaching equilibrium (concentrations are still changing), with N₂O₄ decomposing faster than NO₂ recombines.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-4-1-2",
+          "label": "4.1.2",
+          "questionText": "How does the rate of the forward reaction compare to the rate of the reverse reaction at t₂? (Choose from HIGHER THAN, LOWER THAN or EQUAL TO.)",
+          "marks": 1,
+          "memoText": "Equal to. At t₂ the concentrations are constant, so the system is at equilibrium and the forward and reverse rates are equal.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-4-2",
+          "label": "4.2",
+          "questionText": "As the reaction starts, the concentration of NO₂(g) increases faster than the concentration of N₂O₄(g) decreases. Explain this observation.",
+          "marks": 2,
+          "memoText": "The mole ratio in the equation is 1 : 2, so for every 1 mol of N₂O₄ that decomposes, 2 mol of NO₂ are formed. The NO₂ concentration therefore rises at twice the rate at which the N₂O₄ concentration falls.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-4-3",
+          "label": "4.3",
+          "questionText": "At t₃, some NO₂ gas was added to the container. On the rate–time axes provided, complete the graph from t₃ to t₄ to show the effect of this change on the rates of the forward and reverse reactions.",
+          "marks": 3,
+          "memoText": "At t₃ the rate of the reverse reaction jumps up sharply (more NO₂ collisions), while the rate of the forward reaction is momentarily unchanged. The reverse rate then decreases and the forward rate increases until they become equal again — equilibrium is re-established at rates higher than before t₃. (−1 if both rates are shown increasing together at t₃.)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-4-4-1",
+          "label": "4.4.1",
+          "questionText": "Shariq incorrectly says the change at t₄ was an increase in the volume of the container. State (do not redraw the graph) how the concentration–time graph would differ if the volume HAD been increased at t₄.",
+          "marks": 2,
+          "memoText": "Both concentrations ([N₂O₄] and [NO₂]) would drop sharply (step down) at t₄ (before the equilibrium then re-adjusts).",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-4-4-2",
+          "label": "4.4.2",
+          "questionText": "Explain your answer to Question 4.4.1 with reference to a suitable formula from the Data Sheet.",
+          "marks": 2,
+          "memoText": "Concentration c = n/V. If the volume V is increased while the number of moles n is (instantaneously) unchanged, then c must decrease — so both concentrations drop immediately when the container is enlarged.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-4-5",
+          "label": "4.5",
+          "questionText": "The actual change at t₄ was an increase in the temperature of the equilibrium mixture. Use Le Châtelier's principle to explain the observations on the concentration–time graph at t₄.",
+          "marks": 3,
+          "memoText": "According to Le Châtelier's principle, raising the temperature favours the reaction that absorbs heat (to oppose the increase). The forward reaction is endothermic (ΔH > 0), so it is favoured. The equilibrium shifts to the right: [NO₂] increases and [N₂O₄] decreases.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-4-6",
+          "label": "4.6",
+          "questionText": "At t₅, a catalyst was added to the reaction mixture. State and explain the effect of this on the equilibrium concentrations of NO₂ and N₂O₄.",
+          "marks": 2,
+          "memoText": "There is no effect — the equilibrium concentrations remain constant. A catalyst increases the rates of the forward and reverse reactions equally, so equilibrium is reached faster but the equilibrium position (and the concentrations) does not change.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-4-7-1",
+          "label": "4.7.1",
+          "questionText": "N₂O₄ gas was pumped into a container until its concentration was 0,46 mol·dm⁻³, then sealed and heated to 100 °C. At equilibrium, 20,7 % of the N₂O₄ had decomposed to NO₂. Write the expression for the equilibrium constant (Kc) for N₂O₄(g) ⇌ 2NO₂(g).",
+          "marks": 2,
+          "memoText": "Kc = [NO₂]² / [N₂O₄]",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-4-7-2",
+          "label": "4.7.2",
+          "questionText": "Calculate the equilibrium constant for this reaction at 100 °C.",
+          "marks": 5,
+          "memoText": "N₂O₄ that decomposed = 20,7 % of 0,46 = 0,0952 mol·dm⁻³.\nAt equilibrium: [N₂O₄] = 0,46 − 0,095 = 0,365 mol·dm⁻³; [NO₂] = 2 × 0,095 = 0,19 mol·dm⁻³.\nKc = [NO₂]² / [N₂O₄] = (0,19)² / 0,365 = 0,0361 / 0,365\nKc ≈ 0,099 (≈ 0,10)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Acids and Bases",
+      "totalMarks": 28,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-1-1",
+          "label": "5.1.1",
+          "questionText": "Consider three acid solutions: A = 0,4 mol·dm⁻³ H₂SO₃(aq); B = 0,4 mol·dm⁻³ H₂SO₄(aq); C = 4 mol·dm⁻³ H₂SO₃(aq).\n\nDefine acid (Brønsted–Lowry).",
+          "marks": 1,
+          "memoText": "An acid is a proton (H⁺) donor.",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-1-2",
+          "label": "5.1.2",
+          "questionText": "Name the acid H₂SO₃.",
+          "marks": 1,
+          "memoText": "Sulfurous acid (sulphurous acid).",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-1-3",
+          "label": "5.1.3",
+          "questionText": "Define weak acid.",
+          "marks": 2,
+          "memoText": "A weak acid is an acid that ionises only partially in aqueous solution.",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-1-4",
+          "label": "5.1.4",
+          "questionText": "What specific property of a solution does the pH measure?",
+          "marks": 2,
+          "memoText": "The pH measures the hydronium ion concentration, [H₃O⁺] (or [H⁺]), of the solution.",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-1-5",
+          "label": "5.1.5",
+          "questionText": "Which solution, A, B or C, will have the highest pH?",
+          "marks": 2,
+          "memoText": "A. It is a weak acid (partially ionised) at the lower concentration (0,4 mol·dm⁻³), so it has the lowest [H₃O⁺] and therefore the highest pH. (B is a strong acid; C is the same weak acid but ten times more concentrated.)",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-1-6",
+          "label": "5.1.6",
+          "questionText": "Maya says: 'C is the strongest acid solution.' Correct Maya's statement.",
+          "marks": 1,
+          "memoText": "Either: 'B (H₂SO₄) is the strongest acid solution' (strength refers to degree of ionisation), OR: 'C is the most concentrated acid solution' (not the strongest).",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-2-1",
+          "label": "5.2.1",
+          "questionText": "The polyatomic ions H₂PO₄⁻ and HCO₃⁻ can act as either acids or bases. What is the term used to describe a substance that can act as either an acid or a base?",
+          "marks": 1,
+          "memoText": "Amphiprotic (amphoteric / ampholyte).",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-2-2",
+          "label": "5.2.2",
+          "questionText": "For the reaction H₂PO₄⁻ + HCO₃⁻ → H₃PO₄ + CO₃²⁻, label each substance as an acid or a base, and link the conjugate acid–base pairs.",
+          "marks": 2,
+          "memoText": "H₂PO₄⁻ is the base and HCO₃⁻ is the acid on the left; H₃PO₄ is the acid and CO₃²⁻ is the base on the right.\nConjugate pairs: H₂PO₄⁻ / H₃PO₄ (base / its conjugate acid) and HCO₃⁻ / CO₃²⁻ (acid / its conjugate base).",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-3-1",
+          "label": "5.3.1",
+          "questionText": "Ammonium fluoride, NH₄F, dissolves in water and dissociates into NH₄⁺ and F⁻ ions, both of which undergo hydrolysis. Write down the hydrolysis reaction for NH₄⁺.",
+          "marks": 2,
+          "memoText": "NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-3-2",
+          "label": "5.3.2",
+          "questionText": "Write down the hydrolysis reaction for F⁻.",
+          "marks": 2,
+          "memoText": "F⁻ + H₂O ⇌ HF + OH⁻",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-3-3-a",
+          "label": "5.3.3 (a)",
+          "questionText": "At 25 °C, Kₐ for HF = 6,8 × 10⁻⁴ and K_b for NH₃ = 1,8 × 10⁻⁵. Predict whether an ammonium fluoride solution will be ACIDIC, BASIC or NEUTRAL at 25 °C.",
+          "marks": 1,
+          "memoText": "Acidic.",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-3-3-b",
+          "label": "5.3.3 (b)",
+          "questionText": "Which of Kₐ for NH₄⁺ or K_b for F⁻ will be the larger value at 25 °C?",
+          "marks": 1,
+          "memoText": "Kₐ for NH₄⁺ (it is the larger value). [Kₐ(NH₄⁺) = K_w/K_b(NH₃) = 10⁻¹⁴/(1,8 × 10⁻⁵) ≈ 5,6 × 10⁻¹⁰, whereas K_b(F⁻) = K_w/Kₐ(HF) = 10⁻¹⁴/(6,8 × 10⁻⁴) ≈ 1,5 × 10⁻¹¹.]",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-3-3-c",
+          "label": "5.3.3 (c)",
+          "questionText": "Explain the answer to Question 5.3.3(a), referring to the relative extent of ionisation in the two hydrolysis reactions.",
+          "marks": 2,
+          "memoText": "NH₄⁺ ionises (hydrolyses) to a greater extent than F⁻ does, so more H₃O⁺ is produced than OH⁻: [H₃O⁺] > [OH⁻]. The solution is therefore acidic.",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-4-1",
+          "label": "5.4.1",
+          "questionText": "A 0,120 mol·dm⁻³ standard solution of sodium carbonate is prepared; 0,0200 dm³ of it is transferred to a conical flask and titrated against a HBr solution. Write a balanced chemical equation for the reaction of Na₂CO₃ with HBr (state symbols not required).",
+          "marks": 3,
+          "memoText": "Na₂CO₃ + 2HBr → 2NaBr + CO₂ + H₂O",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-5-4-2",
+          "label": "5.4.2",
+          "questionText": "The Na₂CO₃ solution was neutralised by 0,0152 dm³ of the HBr solution. Calculate the concentration of the HBr solution. Work to four decimal places at each step.",
+          "marks": 5,
+          "memoText": "n(Na₂CO₃) = cV = 0,120 × 0,0200 = 0,0024 mol\nFrom the equation, n(HBr) = 2 × n(Na₂CO₃) = 2 × 0,0024 = 0,0048 mol\nc(HBr) = n/V = 0,0048 / 0,0152 = 0,3158 mol·dm⁻³",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Voltaic Cell (Sn⁴⁺/Sn²⁺ and Cr³⁺/Cr)",
+      "totalMarks": 23,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-6-1",
+          "label": "6.1",
+          "questionText": "A standard voltaic cell is set up with half-cell A containing a platinum-gauze electrode in a solution of Sn⁴⁺ and Sn²⁺ ions, and half-cell B containing a chromium electrode in Cr³⁺(aq), joined by a KNO₃(aq) salt bridge.\n\nWhat is the benefit of using platinum gauze rather than just a straight piece of platinum wire?",
+          "marks": 2,
+          "memoText": "The gauze provides a much larger surface area, so electron transfer (the half-reaction) can occur over a bigger area — it acts as a better catalyst / electrode, increasing the rate of reaction and the current the cell can deliver.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-6-2",
+          "label": "6.2",
+          "questionText": "Give the symbol of the oxidising agent in this cell.",
+          "marks": 2,
+          "memoText": "Sn⁴⁺. It has the higher (more positive) reduction potential, so it is reduced (Sn⁴⁺ + 2e⁻ → Sn²⁺) and is the oxidising agent.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-6-3",
+          "label": "6.3",
+          "questionText": "Write the cell notation for this cell. Conditions and state symbols are not required.",
+          "marks": 4,
+          "memoText": "Cr | Cr³⁺ ‖ Sn⁴⁺, Sn²⁺ | Pt\n(Anode: Cr | Cr³⁺ ; salt bridge ‖ ; cathode: Sn⁴⁺, Sn²⁺ | Pt.)",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-6-4-1",
+          "label": "6.4.1",
+          "questionText": "The electrolytes are SnCl₂(aq) and SnCl₄(aq) in half-cell A, Cr₂(SO₄)₃(aq) in half-cell B, and KNO₃(aq) in the salt bridge. Name the compound SnCl₄.",
+          "marks": 2,
+          "memoText": "Tin(IV) chloride (accept tin tetrachloride or stannic chloride).",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-6-4-2",
+          "label": "6.4.2",
+          "questionText": "Identify the anion, other than NO₃⁻, that will be in higher concentration in the salt bridge after the cell has been operating for some time.",
+          "marks": 2,
+          "memoText": "Cl⁻ (chloride) ions.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-6-4-3",
+          "label": "6.4.3",
+          "questionText": "Explain the direction of the movement of the anion identified in Question 6.4.2.",
+          "marks": 2,
+          "memoText": "In half-cell B, Cr is oxidised to Cr³⁺, creating an excess of positive charge in that electrolyte. Anions (including Cl⁻ that moved into the salt bridge from half-cell A) move from the salt bridge into half-cell B to balance this extra positive charge. (Equivalently, anions move out of half-cell A, where Sn⁴⁺ is reduced to Sn²⁺, reducing the positive charge there.)",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-6-5",
+          "label": "6.5",
+          "questionText": "State TWO changes that could be made to the salt bridge to decrease the internal resistance of the cell.",
+          "marks": 2,
+          "memoText": "Any two of: use a shorter salt bridge; use a wider salt bridge; use a more concentrated KNO₃ solution; use a more conductive (more soluble, fully dissociating) salt in the bridge.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-6-6",
+          "label": "6.6",
+          "questionText": "A soluble Cr₂(SO₄)₃ salt is used to prepare the electrolyte for half-cell B (assume complete dissociation). Calculate the mass of Cr₂(SO₄)₃ that should be weighed out to prepare 0,25 dm³ of a 1 mol·dm⁻³ Cr³⁺ electrolyte solution. (M(Cr₂(SO₄)₃) = 392 g·mol⁻¹.)",
+          "marks": 4,
+          "memoText": "Each mole of Cr₂(SO₄)₃ gives 2 mol Cr³⁺, so to get 1 mol·dm⁻³ Cr³⁺ the salt concentration is 0,5 mol·dm⁻³.\nn(Cr₂(SO₄)₃) = cV = 0,5 × 0,25 = 0,125 mol\nm = nM = 0,125 × 392 = 49 g",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-6-7-1",
+          "label": "6.7.1",
+          "questionText": "The bonding in solid Cr is represented by a diagram of positive ions in a 'sea' of delocalised electrons. Name this type of bonding.",
+          "marks": 1,
+          "memoText": "Metallic bonding.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-6-7-2",
+          "label": "6.7.2",
+          "questionText": "With reference to the diagram, explain why Cr can be used as an electrode in half-cell B.",
+          "marks": 2,
+          "memoText": "The diagram shows delocalised (free) electrons that are mobile throughout the metal lattice. Because these electrons can move, chromium conducts electricity, so it can carry charge to and from the half-cell as an electrode.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Electrolysis (Hofmann Voltameter and Chlor-alkali)",
+      "totalMarks": 27,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-7-1-1",
+          "label": "7.1.1",
+          "questionText": "Water (with Na₂SO₄ added to increase conductivity, and bromothymol blue indicator) is electrolysed in a Hofmann voltameter with platinum electrodes. The half-reactions are:\nI  2H₂O + 2e⁻ → 2OH⁻ + H₂(g)\nII  2H₂O → O₂(g) + 4H⁺ + 4e⁻\n\nWhat is the benefit of using platinum rather than another metal for the electrodes?",
+          "marks": 1,
+          "memoText": "Platinum is inert (unreactive) — it does not take part in the electrode reactions or react with the electrolyte or products.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-7-1-2",
+          "label": "7.1.2",
+          "questionText": "State whether the anode is connected to the POSITIVE or NEGATIVE terminal of the battery.",
+          "marks": 1,
+          "memoText": "Positive.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-7-1-3",
+          "label": "7.1.3",
+          "questionText": "Classify half-reaction I (2H₂O + 2e⁻ → 2OH⁻ + H₂(g)) as OXIDATION or REDUCTION. Give a reason.",
+          "marks": 2,
+          "memoText": "Reduction. Electrons are gained (the oxidation number of hydrogen decreases from +1 in H₂O to 0 in H₂), and it takes place at the cathode.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-7-1-4",
+          "label": "7.1.4",
+          "questionText": "Calculate the cell potential (E°cell) for the decomposition of water under standard conditions. (E°(O₂/H₂O) = +1,23 V; E°(H₂O/H₂,OH⁻) = −0,83 V.)",
+          "marks": 4,
+          "memoText": "E°cell = E°cathode − E°anode = (−0,83) − (1,23)\nE°cell = −2,06 V",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-7-1-5",
+          "label": "7.1.5",
+          "questionText": "Is the reaction SPONTANEOUS or NON-SPONTANEOUS? Give a reason in terms of the calculated cell potential.",
+          "marks": 2,
+          "memoText": "Non-spontaneous, because the calculated E°cell is negative (E°cell < 0). Energy must be supplied (by the battery) to drive the electrolysis.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-7-1-6-a",
+          "label": "7.1.6 (a)",
+          "questionText": "Bromothymol blue is a weak-acid indicator, yellow in acidic solution and blue in alkaline solution, represented as HIn with the equilibrium HIn + H₂O ⇌ In⁻ + H₃O⁺. What is the colour of In⁻, the deprotonated form of the indicator?",
+          "marks": 2,
+          "memoText": "Blue (In⁻ is the form present in alkaline solution).",
+          "topic": "Acids and Bases (indicators)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-7-1-6-b",
+          "label": "7.1.6 (b)",
+          "questionText": "What will be the colour of the solution around the cathode?",
+          "marks": 2,
+          "memoText": "Blue. At the cathode OH⁻ ions are produced (half-reaction I), making the solution alkaline there, so the indicator turns blue.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-7-1-7-a",
+          "label": "7.1.7 (a)",
+          "questionText": "A constant current of 0,05 A is maintained for 1,5 hours. Calculate the amount of charge that passes through the solution in this time period.",
+          "marks": 3,
+          "memoText": "Q = It = 0,05 × (1,5 × 3 600) = 0,05 × 5 400\nQ = 270 C",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-7-1-7-b",
+          "label": "7.1.7 (b)",
+          "questionText": "Hence, calculate the volume of oxygen gas that will be produced at STP in this time period. (2H₂O → O₂ + 4H⁺ + 4e⁻; F = 96 500 C·mol⁻¹; Vₘ = 22,4 dm³·mol⁻¹.)",
+          "marks": 4,
+          "memoText": "n(e⁻) = Q/F = 270/96 500 = 0,0028 mol\nFrom the half-reaction, 4 mol e⁻ → 1 mol O₂, so n(O₂) = 0,0028/4 = 0,0007 mol\nV(O₂) = n·Vₘ = 0,0007 × 22,4 = 0,016 dm³ (≈ 0,02 dm³)",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-7-2-1",
+          "label": "7.2.1",
+          "questionText": "The chlor-alkali industry electrolyses a concentrated aqueous solution of sodium chloride. What is a concentrated aqueous solution of sodium chloride commonly known as?",
+          "marks": 1,
+          "memoText": "Brine.",
+          "topic": "Electrochemistry (chlor-alkali)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-7-2-2",
+          "label": "7.2.2",
+          "questionText": "Which one of the three cells (diaphragm, membrane, mercury) produces the purest and most concentrated NaOH(aq) product? State the main reason for this.",
+          "marks": 2,
+          "memoText": "The mercury cell. The NaOH is formed in a separate vessel/area (when the sodium amalgam reacts with water), so it does not mix with the brine or the chlorine, giving a pure, concentrated product.",
+          "topic": "Electrochemistry (chlor-alkali)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-7-2-3",
+          "label": "7.2.3",
+          "questionText": "Which one of the three cells produces the least pure NaOH(aq) product? What is the major contaminant, and why?",
+          "marks": 3,
+          "memoText": "The diaphragm cell. The major contaminant is NaCl. The porous diaphragm is non-selective — it lets all ions (including Cl⁻) pass through with the solution, so chloride ends up in the NaOH product.",
+          "topic": "Electrochemistry (chlor-alkali)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Organic Reactions (Flowchart)",
+      "totalMarks": 12,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-8-1",
+          "label": "8.1",
+          "questionText": "In the flowchart, compound A reacts by three routes: reaction (i) gives organic product B, reaction (ii) gives organic product C, and reaction (iii) converts C into B. Compound A is a 3-carbon haloalkane with a bromine atom on carbon 1.\n\nWrite the IUPAC name for compound A.",
+          "marks": 2,
+          "memoText": "1-bromopropane.",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-8-2",
+          "label": "8.2",
+          "questionText": "Identify the homologous series to which compound A belongs.",
+          "marks": 1,
+          "memoText": "Haloalkanes (alkyl halides).",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-8-3-1",
+          "label": "8.3.1",
+          "questionText": "Reaction (i): A undergoes elimination. Write the condensed structural formula for compound B.",
+          "marks": 2,
+          "memoText": "CH₃CH=CH₂  (propene).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-8-3-2",
+          "label": "8.3.2",
+          "questionText": "Reaction (ii): A undergoes hydrolysis. Write the condensed structural formula for compound C.",
+          "marks": 2,
+          "memoText": "CH₃CH₂CH₂OH  (propan-1-ol; the –OH is on carbon 1).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-8-4",
+          "label": "8.4",
+          "questionText": "For reaction (i) (A → B), state the GENERAL reaction type.",
+          "marks": 1,
+          "memoText": "Elimination.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-8-5",
+          "label": "8.5",
+          "questionText": "For reaction (ii) (A → C), state the SPECIFIC reaction type.",
+          "marks": 1,
+          "memoText": "Hydrolysis (a specific substitution reaction).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-8-6",
+          "label": "8.6",
+          "questionText": "For reaction (iii) (C → B), state the SPECIFIC reaction type.",
+          "marks": 1,
+          "memoText": "Dehydration (a specific elimination reaction).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-8-7",
+          "label": "8.7",
+          "questionText": "Reaction (ii) is carried out by heating under reflux (a flask with a vertical water-cooled condenser, open at the top). Why is it often necessary to carry out reactions involving organic compounds under reflux?",
+          "marks": 2,
+          "memoText": "Many organic compounds are volatile (have low boiling points). Reflux allows the mixture to be heated for a long time while the vapours are continuously condensed and returned to the flask, so the reactants (and products) do not escape / are not lost from the reaction vessel.",
+          "topic": "Organic Chemistry (techniques)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Organic Chemistry (Esters, Cracking, Addition)",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-1-1",
+          "label": "9.1.1",
+          "questionText": "Consider the compound pentyl ethanoate. Draw the structural formula of this compound.",
+          "marks": 3,
+          "memoText": "CH₃–C(=O)–O–CH₂–CH₂–CH₂–CH₂–CH₃ (with all hydrogen atoms shown). The ethanoate part is a 2-carbon acyl group (CH₃COO–) and the pentyl part is a 5-carbon chain bonded through the oxygen.",
+          "topic": "Organic Chemistry (esters)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-1-2",
+          "label": "9.1.2",
+          "questionText": "Circle the functional group of the compound in your formula.",
+          "marks": 1,
+          "memoText": "The ester group, –COO– (the –C(=O)–O– linkage) should be circled.",
+          "topic": "Organic Chemistry (esters)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-1-3",
+          "label": "9.1.3",
+          "questionText": "The reaction to prepare this compound involves two molecules combining to form a single molecule, with the elimination of a water molecule. State the GENERAL term used to describe such reactions.",
+          "marks": 1,
+          "memoText": "Condensation (reaction). (In this case, specifically esterification.)",
+          "topic": "Organic Chemistry (esters)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-1-4",
+          "label": "9.1.4",
+          "questionText": "Give the IUPAC name of the carboxylic acid that would be used to make pentyl ethanoate.",
+          "marks": 1,
+          "memoText": "Ethanoic acid.",
+          "topic": "Organic Chemistry (esters)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-2",
+          "label": "9.2",
+          "questionText": "Give the IUPAC name of the compound shown: a seven-carbon straight chain with two hydroxyl (–OH) groups, both on carbon 3.",
+          "marks": 3,
+          "memoText": "Heptane-3,3-diol.",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-3-1",
+          "label": "9.3.1",
+          "questionText": "Consider the reaction: C₁₃H₂₈ --heat--> heptane + 2X. State the SPECIFIC reaction type.",
+          "marks": 1,
+          "memoText": "(Thermal) cracking.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-3-2",
+          "label": "9.3.2",
+          "questionText": "Give the IUPAC name of compound X.",
+          "marks": 3,
+          "memoText": "Propene. (C₁₃H₂₈ → C₇H₁₆ + 2C₃H₆: carbons 7 + 6 = 13, hydrogens 16 + 12 = 28 balance.)",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-4-1",
+          "label": "9.4.1",
+          "questionText": "Butane and but-1-ene are both colourless gases. Each gas is bubbled through a separate solution of red-brown bromine (Br₂) water. Describe, by means of observable changes, how one can distinguish between butane and but-1-ene.",
+          "marks": 3,
+          "memoText": "With but-1-ene the red-brown colour of the bromine water disappears quickly / immediately. With butane the red-brown colour remains (or fades only very slowly in the presence of light). So the colour disappears much faster for but-1-ene (the unsaturated compound) than for butane.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-4-2",
+          "label": "9.4.2",
+          "questionText": "Give the GENERAL name for the type of reaction between butane and bromine in the presence of UV light.",
+          "marks": 1,
+          "memoText": "Substitution.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-4-3",
+          "label": "9.4.3",
+          "questionText": "Write a balanced chemical equation using condensed structural formulae for the reaction of but-1-ene with bromine.",
+          "marks": 3,
+          "memoText": "CH₃CH₂CH=CH₂ + Br₂ → CH₃CH₂CHBrCH₂Br",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-4-4-a",
+          "label": "9.4.4 (a)",
+          "questionText": "For the reaction in Question 9.4.3, the activation energy Eₐ is 4795 kJ·mol⁻¹ and the energy released when the product bonds form (E_out) is 4889 kJ·mol⁻¹. Calculate ΔH for the reaction.",
+          "marks": 2,
+          "memoText": "ΔH = Eₐ − E_out = 4795 − 4889 = −94 kJ·mol⁻¹",
+          "topic": "Energy and Change",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-4-4-b",
+          "label": "9.4.4 (b)",
+          "questionText": "Complete the energy-profile graph for the reaction on the axes provided.",
+          "marks": 1,
+          "memoText": "An exothermic energy profile: the curve starts at the reactant energy level, rises to a peak (the activated complex), then falls to a products energy level that is LOWER than the reactants (since ΔH is negative).",
+          "topic": "Energy and Change",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2022-9-4-4-c",
+          "label": "9.4.4 (c)",
+          "questionText": "Indicate and label the two energy intervals Eₐ and ΔH on your graph. (Numerical values are not required.)",
+          "marks": 2,
+          "memoText": "Eₐ = the vertical gap from the reactant energy level up to the peak of the curve. ΔH = the vertical gap from the reactant energy level down to the (lower) product energy level, labelled as negative (energy released).",
+          "topic": "Energy and Change",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

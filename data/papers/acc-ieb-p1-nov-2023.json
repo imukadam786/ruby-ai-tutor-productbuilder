@@ -1,0 +1,258 @@
+{
+  "id": "acc-ieb-p1-nov-2023",
+  "subject": "Accounting IEB",
+  "subjectCode": "accounting-ieb",
+  "paperCode": "P1",
+  "year": 2023,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Asset Management & VAT (Patel Power)",
+      "totalMarks": 52,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2023-1-1",
+          "label": "1.1",
+          "questionText": "INVENTORY SYSTEMS — PATEL POWER\n\nKrisha Patel owns Patel Power, which imports alternative-energy components (WiFi UPS units) from Zhang Zapa. Periodic inventory system; weighted average valuation. A UPS unit is one component, bought and sold as a single unit. Financial year ended 28 February 2023.\n\nStock records for the year:\n                                  | Number of sets | Cost per unit | Total cost\nOpening stock (1 March 2022)       |          3 000 |          R325 | R975 000\nPurchases during the year          |         48 000 |               | R15 600 000\n  June 2022                        |          6 000 |          R375 | R2 250 000\n  September 2022                   |         12 000 |          R425 | R5 100 000\n  December 2022                    |         30 000 |          R275 | R8 250 000\nUnits gifted in January 2023        |          1 500 |            R0 | R0\nClosing stock (28 February 2023)   |          8 200 |               |\n\nAdditional information:\n(a) They sold 42 150 units during the year at R595 each.\n(b) 2 000 units were returned in October (European plug point); Zhang Zapa accepted the return.\n(c) In January Zhang Zapa gifted 1 500 units free of charge (based on purchase history).\n(d) R81 500 was paid for carriage on purchases during the year.\n(e) An employee, Mad Mak, stole UPS units throughout the year; the loss (on the weighted average method) is material and an insurance claim was lodged.\n\nCalculate the weighted average cost of one UPS unit.",
+          "marks": 6,
+          "memoText": "Weighted average cost per unit:\n(975 000 + 15 600 000 + 0 + 81 500 − 850 000) ÷ (3 000 + 48 000 + 1 500 − 2 000)\n= 15 806 500 ÷ 50 500\n= R313,00 per unit ✓✓✓✓✓✓\n\nWorking: less October returns 2 000 × R425 (September cost) = R850 000 from the Rand total AND 2 000 units from the count; the 1 500 gifted units add 1 500 units at R0; add carriage on purchases R81 500.\n\nTeaching point: Weighted average = total cost of goods available (opening + net purchases + carriage + free stock at R0) ÷ total units available. Free (gifted) stock adds units without adding cost, which pulls the average cost per unit down.",
+          "topic": "Inventory Systems - Weighted average valuation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-1-2-1",
+          "label": "1.2.1",
+          "questionText": "Use the same information as 1.1. As part of finalising the insurance claim, determine the number of units that were stolen during the year.",
+          "marks": 4,
+          "memoText": "Units stolen:\n3 000 (opening) + 48 000 (purchases) + 1 500 (gifted) − 2 000 (returns) − 8 200 (closing stock) = 42 300 units that should have been sold.\n42 300 − 42 150 (actually sold) = 150 units stolen ✓✓✓✓\n\nTeaching point: The stock loss is the difference between the units that SHOULD have been available to sell (opening + purchases + free stock − returns − closing) and the units actually sold.",
+          "topic": "Inventory Systems - Stock loss quantity",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-1-2-2",
+          "label": "1.2.2",
+          "questionText": "Use the same information as 1.1 and 1.2.1 (150 units stolen; weighted average cost R313 per unit). There is a R1 200 excess charged on every claim. Calculate the rand value of the insurance payout.",
+          "marks": 3,
+          "memoText": "Insurance payout:\n313 (from 1.1) × 150 (from 1.2.1) = R46 950\nLess excess: (R1 200)\nPayout = 46 950 − 1 200 = R45 750 ✓✓✓\n\nTeaching point: The insurer pays the value of the loss (units lost × cost price) minus the policy excess; the excess is the portion the business must always carry itself.",
+          "topic": "Inventory Systems - Insurance payout",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-1-3",
+          "label": "1.3",
+          "questionText": "Use the same information as 1.1 to 1.2.2. Complete the Trading Statement for the year ended 28 February 2023 (Sales, Cost of sales — showing opening stock, purchases, carriage on purchases and closing stock — and Gross profit is 'do not calculate').\n\nReminders: 42 150 units sold at R595; weighted average cost R313 per unit; closing stock 8 200 units; October returns 2 000 × R425 = R850 000; insurance payout R46 950 (before excess) reduces purchases; carriage on purchases R81 500.",
+          "marks": 13,
+          "memoText": "TRADING STATEMENT — year ended 28 February 2023:\n\nSales: 42 150 × 595 = R25 079 250 ✓✓\nCost of sales: (R13 192 950) ✓ (operation)\n  Opening stock: R975 000 ✓\n  Purchases: 15 600 000 − 850 000 (returns) − 46 950 (stock loss removed to the insurance/loss account, from 1.2.2) = R14 703 050 ✓✓✓✓\n  Carriage on purchases: R81 500 ✓\n  Closing stock: 8 200 × 313 (from 1.1) = (R2 566 600) ✓✓✓\nGross profit: DO NOT CALCULATE\n\nTeaching point: In a periodic Trading Statement, cost of sales = opening stock + net purchases + carriage on purchases − closing stock. A material stock loss is stripped out of purchases (to a loss/insurance account) so cost of sales reflects only goods actually sold.",
+          "topic": "Inventory Systems - Trading Statement",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-1-4-1",
+          "label": "1.4.1",
+          "questionText": "FIXED ASSETS — PATEL POWER.\n\nExtracted balances:\n                                          | 28 February 2023 | 1 March 2022\nVehicles                                   |                ? |       R1 800 000\nAccumulated Depreciation on Vehicles       |       R1 063 500 |               ?\n\nTransactions for the year ended 28 February 2023:\n(a) A new vehicle was purchased during the year for R360 000.\n(b) An old vehicle that cost R250 000 was sold during the year for R120 000 cash; the business made a profit of R38 750 on this sale.\n(c) Vehicles are depreciated at 15% p.a. on the cost-price method. Total depreciation on all vehicles (sold, remaining and new) has been correctly calculated as R287 250.\n\nCalculate the following amounts:\nA. The carrying value of the disposed-of asset (vehicle sold)\nB. Accumulated depreciation on vehicles on 1 March 2022\nC. Cost price of vehicles at the end of the year (28 February 2023)",
+          "marks": 10,
+          "memoText": "A. Carrying value of the vehicle sold:\n= 120 000 (proceeds) − 38 750 (profit) = R81 250 ✓✓✓\n  Accumulated depreciation on the vehicle sold = 250 000 − 81 250 = R168 750.\n\nB. Accumulated depreciation on vehicles on 1 March 2022:\n= 1 063 500 (closing) + 168 750 (acc. dep. on the asset sold, removed on disposal) − 287 250 (depreciation for the year) = R945 000 ✓✓✓✓\n\nC. Cost price of vehicles on 28 February 2023:\n= 1 800 000 (opening cost) + 360 000 (new vehicle) − 250 000 (vehicle sold) = R1 910 000 ✓✓✓\n\nTeaching point: Work the disposal from the profit and proceeds back to carrying value, then reconstruct the accumulated-depreciation and cost accounts by adding the year's movements (depreciation, additions) and removing the amounts relating to the asset sold.",
+          "topic": "Fixed Assets - Disposal and account reconstruction",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-1-4-2",
+          "label": "1.4.2",
+          "questionText": "Use the same information as 1.4.1 and your answers there (A = R81 250; B = R945 000; C = R1 910 000). Complete the Fixed Asset note for Vehicles as it would appear in the financial statements for the year ended 28 February 2023.",
+          "marks": 8,
+          "memoText": "FIXED ASSET NOTE — VEHICLES (year ended 28 February 2023):\n\nCarrying value on 1 March 2022: 1 800 000 − 945 000 = R855 000 ✓✓\n  Cost price: R1 800 000\n  Accumulated depreciation: (R945 000) (B)\n\nMovement (do not calculate):\n• Additions: R360 000 ✓\n• Disposals (at carrying value): (R81 250) (A) ✓\n• Depreciation: (R287 250) ✓\n\nCarrying value on 28 February 2023: 1 910 000 − 1 063 500 = R846 500 ✓✓\n  Cost price: R1 910 000 (C)\n  Accumulated depreciation: (R1 063 500)\n\nTeaching point: The fixed-asset note reconciles opening carrying value to closing carrying value through additions (add), disposals at carrying value (subtract) and depreciation (subtract).",
+          "topic": "Fixed Assets - Tangible asset note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-1-5",
+          "label": "1.5",
+          "questionText": "VAT — PATEL POWER. VAT is calculated at 15%.\n\nOn 1 February 2023 the SARS (VAT) account had a CREDIT balance of R34 500. Transactions for the year ended 28 February 2023:\n1. Purchased goods marked at R8 800 exclusive, before a 7½% trade discount was allowed.\n2. A debtor paid R54 625 after a 5% settlement discount was allowed.\n3. A debtor whose account of R6 095 had been written off as a bad debt returned to pay the full amount.\n\nFor EACH transaction, calculate the VAT amount and indicate whether it increases or decreases the amount owing to SARS.",
+          "marks": 8,
+          "memoText": "Transaction 1: (8 800 − 7½%) = 8 140 × 15/100 = R1 221 ✓✓ — DECREASE (additional input VAT on the purchase) ✓\n\nTransaction 2: 54 625 × 5/95 = 2 875 → 2 875 × 15/115 = R375 ✓✓ — DECREASE (settlement discount allowed reverses output VAT) ✓\n\nTransaction 3: 6 095 × 15/115 = R795 ✓ — INCREASE (output VAT reinstated on the bad debt now recovered) ✓\n\nTeaching point: Input VAT on purchases and reversed output VAT (discount allowed) decrease what is owed to SARS; output VAT reinstated on a recovered bad debt increases it. VAT on a purchase is calculated on the price after trade discount.",
+          "topic": "VAT - Effect of transactions on amount owing to SARS",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Company Financial Statements (Mazibuko Solutions Ltd)",
+      "totalMarks": 62,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2023-2-1",
+          "label": "2.1",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — MAZIBUKO SOLUTIONS LTD\n\nListed company; authorised share capital 4 000 000 ordinary shares. Standard mark-up of 150% on cost. Year ended 28 February 2023.\n\nExtracted balances on 28 February 2022: Ordinary share capital (2 750 000 shares) R17 875 000; Retained income R9 125 000.\n\nShares for the year ended 28 February 2023:\n• 31 July 2022: issued an additional 750 000 ordinary shares at R10 each.\n• 2 January 2023: bought back 150 000 ordinary shares and paid the estate of a deceased shareholder R1 710 000.\n\nAnalyse the repurchase of shares by completing the following: the general-ledger account to be debited, the account to be credited, and the amount, for each part of the entry.",
+          "marks": 8,
+          "memoText": "REPURCHASE OF 150 000 SHARES:\n\nAverage issue price before the buy-back = (17 875 000 + 7 500 000) ÷ (2 750 000 + 750 000) = 25 375 000 ÷ 3 500 000 = R7,25 per share.\n\nEntry 1 — remove the shares from share capital at the average price:\nDebit: Ordinary Share Capital | Credit: Bank | Amount: 7,25 × 150 000 = R1 087 500 ✓✓✓\n\nEntry 2 — the premium paid above the average price:\nDebit: Retained Income | Credit: Bank | Amount: 1 710 000 − 1 087 500 = R622 500 ✓✓✓\n  (premium per share = 1 710 000 ÷ 150 000 = R11,40 paid; R11,40 − R7,25 = R4,15 above the average, × 150 000 = R622 500)\n\nTeaching point: On a share buy-back, share capital is reduced by the ORIGINAL average issue price of the shares bought back; any amount paid above that average is a distribution charged against retained income.",
+          "topic": "Company Financial Statements - Share repurchase entries",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-2-2",
+          "label": "2.2",
+          "questionText": "COMPANY FINANCIAL STATEMENTS — MAZIBUKO SOLUTIONS LTD (continued). Standard mark-up 150% on cost. Year ended 28 February 2023.\n\nExtracted balances on 28 February 2022: Current assets R83 950 000 (including Trading stock ? and Provision for bad debts R617 750); Current liabilities R36 500 000 (including Creditors' control R32 450 000 and Income Received in Advance (Fee Income) R4 000).\n\nExtracted balances / totals from the pre-adjustment trial balance for the year ended 28 February 2023:\n• Debtors' control: R17 648 000\n• Bank: R30 890 000\n• SARS: Income tax: R2 300 000 (dr)\n• Loan: Zizi Bank (9% p.a.): R10 500 000\n• Creditors' control: R48 420 000\n• Sales: R78 650 000\n• Cost of sales: R31 460 000\n• Debtors' allowances: R393 250\n• Fee income: R1 140 000\n• Consumable stores: R299 000\n• Ordinary share dividends (27½ cents): R756 250\n• Discount received R214 000; Bad debts R150 725; Director's fees R3 200 000; Advertising (per TB) R231 000; Depreciation R798 500; Auditor's fees R160 000; Salaries & wages R29 700 000; Telephone (per TB) R132 600; Insurance (per TB) R96 450; Bank charges (per TB) R27 500; Interest income (per TB) R351 200; Interest expense R1 012 500\n\nAdjustments:\n1. The telephone account for February 2023 totalling R12 500 was received but not paid.\n2. The insurance expense for the year amounted to R88 200.\n3. The bookkeeper forgot to reverse the income received in advance at the start of the year for fee income (R4 000).\n4. A service was done for a cash customer in February 2023. The payment never went through and Mazibuko is still owed the fee of R6 000; no entry was made.\n5. The tenant overpaid the February rent by R2 500 and asked that it be offset against March 2023 rent.\n6. Still to be recorded from the bank statement: 6.1 Bank charges R2 500 and interest on current account R12 600. 6.2 An EFT payment of R85 000 for a four-month advertising contract started on 1 February 2023.\n7. The loan is repaid in eight equal annual instalments; the first payment was made on 1 September 2022. Interest is not capitalised.\n8. A debtor was granted an allowance of R9 500 (charged for an 8kVA model but a 5kVA was installed).\n9. Thato Transistors (both a customer and a supplier) was overpaid; transfer the R2 000 debit balance in their creditors ledger account to their debtors ledger account.\n10. Provision for bad debts must be adjusted to R529 215.\n11. Trading stock deficit for the year was R2 125 000; R15 000 of diesel fuel (consumable store) was stolen (not insured, not recorded); physical count of consumable stores on hand R23 000.\n12. Income tax is 30% of profits.\n13. On 28 February 2023 a final dividend of 30 cents was declared on all shares in issue.\n\nComplete the Statement of Comprehensive Income (Income Statement) for the year ended 28 February 2023.",
+          "marks": 36,
+          "memoText": "STATEMENT OF COMPREHENSIVE INCOME — MAZIBUKO SOLUTIONS LTD (year ended 28 February 2023):\n\nSales: 78 650 000 − 393 250 (debtors' allowances) − 9 500 (allowance, adj 8) = R78 247 250 ✓✓✓\nCost of sales: (R31 460 000) (given, bracket)\nGross profit: 78 247 250 − 31 460 000 = R46 787 250 ✓ (sales − cost of sales)\n\nOperating incomes (do not calculate the subtotal):\n• Fee income: 1 140 000 + 4 000 (reverse opening income received in advance, adj 3) + 6 000 (accrued fee, adj 4) = R1 150 000 ✓✓\n• Discount received: R214 000 (given)\n• Rent income: 139 000 − 2 500 (overpaid February rent, adj 5) = R136 500 ✓\n• Provision for bad debts adjustment: 617 750 − 529 215 = R88 535 income (decrease in provision) ✓✓\n\nOperating expenses (do not calculate the subtotal):\n• Telephone: 132 600 + 12 500 (February accrued, adj 1) = R145 100 ✓✓\n• Insurance: R88 200 (given, adj 2)\n• Bank charges: 27 500 + 2 500 (adj 6.1) = R30 000 ✓\n• Bad debts: R150 725 (given)\n• Director's fees: R3 200 000 (given)\n• Advertising: 231 000 + 21 250 (1 month of the R85 000 four-month contract, adj 6.2: 85 000 × ¼) = R252 250 ✓✓\n• Depreciation: R798 500 (given)\n• Auditor's fees: R160 000 (given)\n• Salaries & wages: R29 700 000 (given)\n• Consumable stores: 299 000 − 15 000 (diesel stolen) − 23 000 (on hand) = R261 000 ✓✓\n• Loss due to theft: R15 000 ✓ (diesel not insured, adj 11)\n• Trading stock deficit: R2 125 000 ✓ (given, adj 11)\n\nOperating profit: DO NOT CALCULATE\nInterest income: 351 200 + 12 600 (adj 6.1) = R363 800 ✓✓\nNet profit before interest expense: DO NOT CALCULATE\nInterest expense: (R1 012 500) (given)\nNet profit before taxation: R10 800 000 ✓\nTaxation for the year: 30% × 10 800 000 = (R3 240 000) ✓✓ (bracket)\nNet profit after taxation: 10 800 000 − 3 240 000 = R7 560 000 ✓\n\nTeaching point: Adjust every nominal account to the amount earned or incurred this year — accrue unpaid expenses and unrecorded income, spread a prepaid contract over its months, remove income received in advance, and treat a DECREASE in the provision for bad debts as income.",
+          "topic": "Company Financial Statements - Statement of Comprehensive Income",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-2-3-1",
+          "label": "2.3.1",
+          "questionText": "Use the same information as 2.2. Complete the Inventories note as at 28 February 2023.\n\nReminders: current ratio 2,3 : 1 and acid-test ratio 1,2 : 1 on 28 February 2022 (current liabilities R36 500 000); net stock movement increased the opening balance by R4 500 000 before the count; trading stock deficit R2 125 000; consumable stores on hand R23 000.",
+          "marks": 4,
+          "memoText": "INVENTORIES NOTE — 28 February 2023 (Do not calculate the total):\n• Trading inventories: R42 525 000 ✓✓\n  Working: opening trading stock on 28 Feb 2022 = (2,3 − 1,2) × 36 500 000 = 1,1 × 36 500 000 = R40 150 000 (or 83 950 000 current assets − (36 500 000 × 1,2 acid test) = 40 150 000). Add net stock movement R4 500 000 = 44 650 000; less trading stock deficit R2 125 000 = R42 525 000.\n• Consumable stores on hand: R23 000 ✓✓ (physical count, adj 11)\n\nTeaching point: The difference between the current ratio and the acid-test ratio, times current liabilities, gives the inventory figure; then adjust it for stock movements and the deficit to reach the closing trading inventory.",
+          "topic": "Company Financial Statements - Inventories note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-2-3-2",
+          "label": "2.3.2",
+          "questionText": "Use the same information as 2.2. Complete the Trade & Other Receivables note as at 28 February 2023.\n\nReminders: Debtors' control R17 648 000, less the R9 500 allowance (adj 8) plus the R2 000 transfer from Thato Transistors' creditors account (adj 9); Provision for bad debts adjusted to R529 215; Prepaid expenses (insurance R96 450 − R88 200 = R8 250, plus advertising R63 750 being 85 000 × ¾); Accrued income (fee income R6 000, adj 4).",
+          "marks": 7,
+          "memoText": "TRADE & OTHER RECEIVABLES NOTE — 28 February 2023 (Do not calculate the total):\n• Net trade debtors: DO NOT CALCULATE\n  Debtors' control: 17 648 000 − 9 500 (allowance, adj 8) + 2 000 (transfer from Thato Transistors' creditors account, adj 9) = R17 640 500 ✓✓ (accept +R6 000 here instead of in accrued income)\n  Less: Provision for bad debts: (R529 215) ✓ (bracket, adjusted balance)\n• Prepaid expenses: (96 450 − 88 200 insurance) + (85 000 × ¾ advertising) = 8 250 + 63 750 = R72 000 ✓✓\n• Accrued income: R6 000 ✓ (fee income, adj 4; accept if added to debtors' control instead)\n\nTeaching point: Trade and other receivables = net trade debtors (control adjusted for allowances, transfers and the provision) + prepaid expenses (the unused months of a prepaid contract) + accrued (receivable) income.",
+          "topic": "Company Financial Statements - Trade & Other Receivables note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-2-3-3",
+          "label": "2.3.3",
+          "questionText": "Use the same information as 2.2. Complete the Trade & Other Payables note as at 28 February 2023.\n\nReminders: Creditors' control R48 420 000 plus the R2 000 transfer of Thato Transistors' debit balance (adj 9); Income received in advance (opening R4 000 reversed, plus the R2 500 overpaid rent, adj 5); Shareholders for dividends (30 cents on all shares in issue); Accrued expenses (telephone R12 500); Short-term loan instalment (R10 500 000 × 1/7); SARS (Income Tax).",
+          "marks": 7,
+          "memoText": "TRADE & OTHER PAYABLES NOTE — 28 February 2023 (Do not calculate the total):\n• Trade creditors: 48 420 000 + 2 000 (Thato Transistors transfer, adj 9) = R48 422 000 ✓✓\n• Income received in advance: (4 000 − 4 000 reverse opening) + 2 500 (overpaid February rent, adj 5) = R2 500 ✓✓\n• Shareholders for dividends: 0,30 × (2 750 000 + 750 000 − 150 000) = 0,30 × 3 350 000 = R1 005 000 ✓✓\n• Accrued expenses: R12 500 ✓ (telephone, adj 1)\n• Short-term loan instalment: 10 500 000 × 1/7 = R1 500 000 ✓ (the instalment due within the next year; 7 instalments remain after the first payment)\n• SARS (Income Tax): −23 000 000 (provisional payments, dr — see below) + ... memo figure R940 000 owed to SARS ✓\n  (SARS: 2 300 000 dr provisional payments becomes... per memo −23 000 000 + 32 400 000 income statement figure adjustment; final balance owing R940 000.)\n\nTeaching point: Trade and other payables collects trade creditors, income received in advance, the declared-but-unpaid dividend, accrued expenses, the current portion of the long-term loan, and the net amount owed to SARS for income tax.",
+          "topic": "Company Financial Statements - Trade & Other Payables note",
+          "type": "answer-book"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Cash Flow Statements (Fullerton Fresh Ltd)",
+      "totalMarks": 48,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2023-3-1-1",
+          "label": "3.1.1",
+          "questionText": "CASH FLOW STATEMENTS — FULLERTON FRESH LTD\n\nListed company; authorised share capital 10 000 000 shares. Year ended 28 February 2023.\n\nExtract from the statement of comprehensive income:\n• Sales R285 246 000; Cost of sales R124 020 000; Depreciation ?; Interest on loan ?; Income tax (30% of profit) R2 946 000.\n\nExtract from the statement of financial position:\n                                | 28 Feb 2023   | 28 Feb 2022\nOrdinary share capital           | R46 500 000   | ?\nRetained income                  | ?             | ?\nFixed assets (carrying value)    | R7 216 000    | R6 950 000\nLoan: Moyo Bank (12% p.a.)        | R29 700 000   | R20 100 000\nCash & cash equivalents          | ?             | R1 370 000\nDebtors control                  | R43 800 000   | R31 200 000\nAccrued income (sundry incomes)  | R60 000       | R85 000\nAccrued expenses (sundry expenses)| R115 000     | R90 000\nSARS (Income Tax)                 | R32 000 (cr)  | R38 000 (cr)\nShareholders for dividends        | R577 500      | R487 500\n\nAdditional information:\n• Fixed assets: new equipment bought for R1 500 000 less 10% trade discount; old equipment sold at its book value of R99 000.\n• Loan: interest is capitalised; a new loan of R13 000 000 was taken out; R5 800 000 was paid to Moyo Bank as repayment plus interest.\n\nCalculate the following figures for Note 1 and those relating to operating activities:\n(a) Depreciation for the year\n(b) Interest on the loan\n(c) Taxation paid",
+          "marks": 10,
+          "memoText": "(a) Depreciation: 6 950 000 (opening CV) + 1 350 000 (new equipment: 1 500 000 − 10%) − 99 000 (CV of asset sold) − 7 216 000 (closing CV) = R985 000 ✓✓✓\n\n(b) Interest on loan: 5 800 000 (repayment incl. interest) + 29 700 000 (closing loan) − 20 100 000 (opening loan) − 13 000 000 (new loan) = R2 400 000 ✓✓✓\n  (interest is capitalised, so it is the balancing figure in the loan account)\n\n(c) Taxation paid: 38 000 (opening cr owed to SARS) + 2 946 000 (income tax for the year) − 32 000 (closing cr still owed) = R2 952 000 ✓✓✓✓\n\nTeaching point: Depreciation is the balancing figure in the fixed-asset (carrying value) account; capitalised interest is the balancing figure in the loan account; tax paid = opening amount owed + current-year tax − closing amount still owed.",
+          "topic": "Cash Flow Statement - Note 1 supporting calculations",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-3-1-2",
+          "label": "3.1.2",
+          "questionText": "Use the same information as 3.1.1. Net profit before taxation is R9 820 000 (income tax R2 946 000 ÷ 30% × 100). An amount of R5 602 500 was retained after tax and dividends for the year.\n\nComplete the Appropriation Account for the year ended 28 February 2023 (no dates and folio references required).",
+          "marks": 6,
+          "memoText": "APPROPRIATION ACCOUNT (year ended 28 February 2023):\n\nDebit side:\n• Income Tax: R2 946 000 ✓\n• Ordinary Share Dividends: R1 271 500 ✓ (balancing figure)\n• Retained Income (transfer): R5 602 500 ✓\nTotal debit: R9 820 000\n\nCredit side:\n• Profit & Loss (net profit): R9 820 000 ✓ (2 946 000 × 100/30)\nTotal credit: R9 820 000\n\nTeaching point: The Appropriation Account starts with the net profit (credit), then distributes it: income tax, dividends (paid + declared), and the balance transferred to Retained Income.",
+          "topic": "Cash Flow Statement - Appropriation Account",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-3-1-3",
+          "label": "3.1.3",
+          "questionText": "Use the same information as 3.1.1 and 3.1.2. Additional data: inventories decreased by R78 000 during the year; the movement of trade and other payables resulted in an inflow of cash of R9 580 000; debtors control R31 200 000 → R43 800 000; accrued income R85 000 → R60 000.\n\nComplete Note 1: Reconciliation between profit before taxation and cash generated from operations.",
+          "marks": 14,
+          "memoText": "NOTE 1 — RECONCILIATION BETWEEN PROFIT BEFORE TAX AND CASH GENERATED FROM OPERATIONS:\n\nNet profit before taxation: 2 946 000 × 100/30 = R9 820 000 ✓✓\nAdjustments for: R3 385 000\n• Depreciation: R985 000 ✓ (from 3.1.1)\n• Interest expense: R2 400 000 ✓ (from 3.1.1)\nOperating profit before changes in working capital: R13 205 000 ✓ (add)\n\nChanges in working capital: (R2 917 000)\n• Decrease in inventory: R78 000 ✓✓ (source of cash, no bracket)\n• Increase in receivables: (31 200 000 − 43 800 000) + (85 000 − 60 000) = (R12 575 000) ✓✓✓ (use of cash, bracket; debtors up R12,6m, accrued income down R25 000)\n• Increase in payables: R9 580 000 ✓✓ (given, source of cash)\nCash generated from operations: R10 288 000 ✓ (operation)\n\n*Delete the direction that does not apply; the word chosen must match the bracket use.\n\nTeaching point: Start at profit before tax, add back depreciation and interest expense, then adjust for working-capital movements — a fall in inventory and a rise in payables release cash; a rise in receivables (including a fall in accrued income owed to us) uses cash.",
+          "topic": "Cash Flow Statement - Reconciliation of profit to cash from operations",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-3-1-4",
+          "label": "3.1.4",
+          "questionText": "Use the same information as 3.1.1 to 3.1.3. Dividends paid for the year were R1 181 500. Cash generated from operations was R10 288 000 (from 3.1.3); taxation paid R2 952 000 (from 3.1.1); interest paid R2 400 000 (from 3.1.1).\n\nComplete the Cash flow from operating activities section as it would appear on the cash flow statement for the year ended 28 February 2023.",
+          "marks": 10,
+          "memoText": "CASH FLOW FROM OPERATING ACTIVITIES:\n• Cash generated from operations: R10 288 000 ✓ (from 3.1.3)\n• Dividends paid: (R1 181 500) ✓✓\n• Taxation paid: (R2 952 000) ✓✓ (from 3.1.1)\n• Interest paid: (R2 400 000) ✓✓ (from 3.1.1)\nCash flow from operating activities: R3 754 500 ✓✓ (totalled)\n\nTeaching point: Operating activities = cash generated from operations less dividends paid, tax paid and interest paid (all bracketed outflows).",
+          "topic": "Cash Flow Statement - Operating activities section",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-3-2",
+          "label": "3.2",
+          "questionText": "Use the same information as 3.1.1. Ordinary share capital on 28 February 2023 is R46 500 000. The debt-equity ratio was 0,48 : 1 on 28 February 2023; the loan (Moyo Bank) is R29 700 000.\n\nCalculate the Retained Income balance on 28 February 2023.",
+          "marks": 4,
+          "memoText": "Retained Income balance on 28 February 2023:\nDebt-equity ratio 0,48 : 1, so total equity = 29 700 000 ÷ 0,48 = R61 875 000\nRetained income = total equity − ordinary share capital = 61 875 000 − 46 500 000 = R15 375 000 ✓✓✓ (no foreign items)\n\nTeaching point: Debt-equity ratio = non-current liabilities ÷ equity, so equity = loan ÷ ratio. Retained income is then equity less ordinary share capital.",
+          "topic": "Cash Flow Statement - Retained income from the debt-equity ratio",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-3-3",
+          "label": "3.3",
+          "questionText": "Use the same information as 3.1.1 to 3.1.4. Cash & cash equivalents on 28 February 2022 was R1 370 000. Cash generated by financing activities was R36 471 000; cash utilised in investing activities was R1 401 000; cash flow from operating activities was R3 754 500 (from 3.1.4).\n\nCalculate the cash and cash equivalents closing balance on 28 February 2023.",
+          "marks": 4,
+          "memoText": "Cash & cash equivalents on 28 February 2023:\n= 1 370 000 (opening) + 36 471 000 (financing) − 1 401 000 (investing) + 3 754 500 (operating, from 3.1.4)\n= R40 194 500 ✓✓✓✓\n\nTeaching point: Closing cash = opening cash + net cash from operating + investing + financing activities.",
+          "topic": "Cash Flow Statement - Closing cash and cash equivalents",
+          "type": "calculation"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Manufacturing (Watson Watches)",
+      "totalMarks": 38,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p1-nov-2023-4-1",
+          "label": "4.1",
+          "questionText": "MANUFACTURING — WATSON WATCHES (manufactures a specialised extreme-sport watch). Factory 400 m²; administration offices 200 m²; sales office 300 m². Year ends 28 February.\n\nLabour:\n(a) The factory supervisor took home a net annual salary of R173 760 after 34% deductions for UIF, PAYE and pension. He also has an annual medical aid deduction of R48 000.\n(b) The business contributes a total of 9% of the gross earnings of all employees towards pension and UIF.\n\nGeneral expenses (per pre-adjustment trial balance on 28 February 2023): Rent Expense R636 480; Insurance R70 200; Security costs R104 500.\n• Rent is paid one month in advance, allocated by floor space; rent was increased by R4 680 on 1 October 2022.\n\nCalculate: (a) the indirect labour (factory supervisor's cost to the business), and (b) the annual rent expense (before allocation).",
+          "marks": 8,
+          "memoText": "(a) Indirect labour (factory supervisor):\nGross salary = (173 760 + 48 000) × 100/66 = 221 760 × 100/66 = R336 000 ✓✓\nCost to the business = 336 000 + 9% of gross (30 240) = R366 240 ✓✓\n\n(b) Rent expense for the year:\nLet the old monthly rent = x. 636 480 = 7x (Mar–Sep) + 6(x + 4 680) (Oct–Feb + 1 month in advance)\n636 480 = 13x + 28 080 → 608 400 = 13x → x = R46 800; new monthly rent = 51 480.\nRent for the year = 636 480 − 51 480 (one month prepaid) = R585 000 ✓✓✓✓\n\nTeaching point: Gross up the take-home pay by the deduction percentage AND the fixed medical-aid deduction to find gross salary, then add the employer's contribution. For rent, solve for the monthly figure from the annual total and remove the prepaid month.",
+          "topic": "Manufacturing - Labour and rent calculations",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-4-2-1",
+          "label": "4.2.1",
+          "questionText": "MANUFACTURING — WATSON WATCHES. Balances from the financial records:\n                        | 2023       | 2022\nDirect (raw) materials   | R2 190 000 | R1 350 000\nIndirect materials       | R250 000   | R160 000\n\n• Raw materials worth R4 455 000 were purchased on credit.\n• R200 000 of raw materials were returned to the suppliers (not of the required standard).\n• Carriage of goods: import duties on raw materials R80 250; delivery of raw materials to the factory R145 000; a refund for non-delivery of raw materials R1 750.\n\nComplete the Raw Materials note to the Production Cost Statement for the year ended 28 February 2023.",
+          "marks": 6,
+          "memoText": "RAW MATERIALS NOTE:\n• Opening balance: R1 350 000\n• Purchases: 4 455 000 − 200 000 (returns) = R4 255 000 ✓✓\n• Carriage on purchases: 145 000 − 1 750 (refund) = R143 250 ✓✓\n• Import duties: R80 250 ✓\n• Less closing balance: (R2 190 000)\n• Raw materials used in the production process: DO NOT CALCULATE\n\nTeaching point: Raw materials issued to production = opening + net purchases + carriage on purchases + import duties − closing raw materials. Import duties and carriage-in are part of the cost of the materials.",
+          "topic": "Manufacturing - Raw Materials note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-4-2-2",
+          "label": "4.2.2",
+          "questionText": "Use the same information as 4.1 and 4.2.1, plus:\n• Indirect materials of R930 000 were purchased during the year; 15% of all indirect materials are used in the administration and sales departments, the balance in the factory.\n• Water and electricity costs R6 000 per month; administration used 14%, sales 6%, and the factory uses the rest (80%).\n• Insurance premiums unchanged for the year; half the insurance is allocated to the factory.\n• Security costs unchanged; the February 2023 invoice has not been paid; all security costs are allocated to guarding the factory.\n• Rent expense R585 000 for the year (from 4.1), allocated by floor space (factory 400 m² : admin 200 m² : sales 300 m² = 400/900 to the factory).\n• Production wastage: R18 360.\n\nComplete the Factory Overheads note.",
+          "marks": 14,
+          "memoText": "FACTORY OVERHEADS NOTE (Do not calculate the total):\n• Indirect materials: (160 000 + 930 000 − 250 000) × 85% = 840 000 × 85% = R714 000 ✓✓✓\n• Indirect labour: R366 240 ✓ (from 4.1)\n• Rent expense: (636 480 − 51 480 prepaid) × 400/900 = 585 000 × 400/900 = R260 000 ✓✓✓\n• Water & electricity: (6 000 × 12 = 72 000) × 80% = R57 600 ✓✓\n• Insurance: 70 200 × 50% = R35 100 ✓✓\n• Security: 104 500 + 9 500 (February 2023 accrued) = R114 000 ✓✓\n• Production wastage: R18 360 ✓\n\nTeaching point: Only the factory's share of shared costs belongs in factory overheads — apportion indirect materials, water and electricity, insurance and rent by their stated fractions, and accrue the unpaid security invoice.",
+          "topic": "Manufacturing - Factory Overheads note",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-4-3",
+          "label": "4.3",
+          "questionText": "Use the same information as 4.2.1. Balances: Work in progress R1 042 000 (2022) → R1 275 660 (2023); Finished goods R6 320 000 (2022) → R7 280 000 (2023). Sales totalled R16 375 000 (mark-up on cost was 150%).\n\nCalculate the cost of production of finished goods for the year ended 28 February 2023.",
+          "marks": 5,
+          "memoText": "Cost of sales = 16 375 000 × 100/250 = R6 550 000 (mark-up 150% on cost, so cost of sales is 100/250 of sales).\n\nFinished goods account:\n6 320 000 (opening) + cost of production of finished goods (x) − 7 280 000 (closing) = 6 550 000 (cost of sales)\nx = 6 550 000 + 7 280 000 − 6 320 000 = R7 510 000 ✓✓✓✓✓\n\nTeaching point: Work cost of sales back from sales using the mark-up, then use the Finished Goods account (opening + production − closing = cost of sales) to solve for the cost of production of finished goods.",
+          "topic": "Manufacturing - Cost of production of finished goods",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-4-4-1",
+          "label": "4.4.1",
+          "questionText": "Use the same information as 4.3. The owners are concerned about the increase in all stock levels. Work in progress rose from R1 042 000 (2022) to R1 275 660 (2023).\n\nCalculate the percentage increase in the work-in-progress balances.",
+          "marks": 3,
+          "memoText": "Percentage increase in work-in-progress:\n(1 275 660 − 1 042 000) ÷ 1 042 000 × 100 = 233 660 ÷ 1 042 000 × 100 = 22,42% ✓✓✓\n\nTeaching point: Percentage change = (new − old) ÷ old × 100.",
+          "topic": "Manufacturing - Percentage change in stock",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p1-nov-2023-4-4-2",
+          "label": "4.4.2",
+          "questionText": "Use the same information as 4.4.1. Briefly explain why the increase in work-in-progress could be seen as a reason for concern.",
+          "marks": 2,
+          "memoText": "✓✓: A rising work-in-progress balance suggests the factory is backing up — partly-finished watches are piling up rather than being completed and moved to finished goods. This points to a bottleneck or breakdown in the production process.\n\nTeaching point: Growing WIP with no matching growth in output signals that goods are getting stuck on the production line — a sign of a process or capacity problem.",
+          "topic": "Manufacturing - Interpreting a rising WIP balance",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

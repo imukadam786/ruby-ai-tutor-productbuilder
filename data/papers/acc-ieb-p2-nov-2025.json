@@ -1,0 +1,260 @@
+{
+  "id": "acc-ieb-p2-nov-2025",
+  "subject": "Accounting IEB",
+  "subjectCode": "accounting-ieb",
+  "paperCode": "P2",
+  "year": 2025,
+  "session": "November",
+  "totalMarks": 100,
+  "durationHours": 2,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Reconciliations (Eden Garden Centre / Micro Meals)",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p2-nov-2025-1-1",
+          "label": "1.1",
+          "questionText": "RECONCILIATIONS — EDEN GARDEN CENTRE (a wholesale nursery that buys from suppliers on credit, supplies landscape businesses on account and sells to the public for cash). One debtor is Luscious Landscapes.\n\nStatement issued by Eden Garden Centre to Luscious Landscapes (Acc. no. LLAND-25), statement date 31 October 2025:\nDATE      | TRANSACTION                        | DEBIT   | CREDIT  | BALANCE\nAug 1     | Starting balance for this statement |         |         | 23 750\nAug 29    | Invoice X38                         | 6 630   |         | 30 380\nSep 1     | Credit note CN23                    |         | 2 340   | 28 040\nSep 2     | Invoice X41                         | 3 800   |         | 31 840\nSep 15    | Payment received – thank you        |         | 30 000  | 1 840\nOct 7     | Invoice X48                         | 12 220  |         | 14 060\nOct 15    | Payment received – thank you        |         | 500     | 13 560\nOct 31    | Interest charged                    | 2 375   |         | 15 935\n\nCredit terms: 10% p.a. interest is charged on debts 60 days and older, from the date it becomes overdue (statement date); a 5% discount is granted on any debts (or part thereof) settled within 30 days of purchase.\n\nPrepare the age analysis on 31 October 2025 using the statement provided. Show all your workings so part-marks may be awarded. Columns: 90+ days | 60+ days | 30+ days | Current.",
+          "marks": 8,
+          "memoText": "AGE ANALYSIS ON 31 OCTOBER 2025 (Do not calculate):\n90+ days (August): 23 750 (starting balance) − 23 750 (cleared by the September R30 000 payment) ✓✓\n60+ days (September): 6 630 (Invoice X38) − 2 340 (Credit note CN23) − 4 290 (balance of the September payment applied here) ✓✓\n30+ days (October, older part): 3 800 (Invoice X41) − 1 960 − 500 (October R500 payment) ✓✓\nCurrent (October): 12 220 (Invoice X48) + 2 375 (interest charged) ✓✓\n\nTeaching point: Payments are applied to the OLDEST outstanding amounts first; the age analysis then buckets what remains by how overdue it is at the statement date.",
+          "topic": "Debtors Reconciliation - Age analysis",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-1-2",
+          "label": "1.2",
+          "questionText": "Use the same information as 1.1. Eden Garden Centre is NOT correctly applying the credit terms stipulated at the bottom of the statement. Discuss TWO different points that support this statement.",
+          "marks": 4,
+          "memoText": "Any TWO ✓✓✓✓ (2 marks each):\n• A 5% discount should have been GRANTED on both the September and October payments (they were made within 30 days of the relevant purchases), but no discount was given.\n• Interest was calculated on 31 October on the August amount, but that amount had already been settled by the September payment — interest should not have been charged on a debt that was no longer outstanding.\n\nTeaching point: A supplier must apply its own stated terms consistently — granting the settlement discount when earned, and only charging interest on amounts that are genuinely still overdue.",
+          "topic": "Debtors Reconciliation - Applying credit terms",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-1-3",
+          "label": "1.3",
+          "questionText": "RECONCILIATIONS — MICRO MEALS. Statement of account from the supplier Valhalla's Kitchen, issued 25 September 2025:\nSept 01 Balance R29 200 | Sept 05 Invoice 810 R12 970 (Dr), balance R42 170 | Sept 07 Receipt 1052 R27 740 (Cr), balance R14 430 | Sept 14 Invoice 999 R1 500 (Dr), balance R15 930 | Sept 20 Invoice 1047 R1 080 (Dr), balance R17 010 | Sept 24 Invoice 905 R4 200 (Dr), balance R21 210 | Sept 25 Interest R60 (Dr), balance R21 270.\nTerms: 5% discount if paid within 7 days of invoice.\n\nCreditors Ledger of Micro Meals — Valhalla's Kitchen (C1) for September 2025:\nSept 01 Balance R29 200 | Sept 02 Invoice 810 (CJ) R13 480 (Cr), balance R42 680 | Sept 06 Bank Statement (CPJ) R27 740 (Dr), balance R14 940 | Sept 06 Discount received (CPJ) R1 460 (Dr), balance R13 480 | Sept 26 Invoice 905 (CJ) R3 780 (Cr), balance R17 260 | Sept 28 Invoice 1543 (CJ) R11 480 (Cr), balance R28 740.\n\nDiscrepancies identified:\n• The payment on 6 September related to purchases from August, so Micro Meals did NOT qualify for a discount.\n• Micro Meals recorded Invoice 810 correctly.\n• Valhalla's Kitchen omitted a 10% trade discount on Invoice 905.\n• Invoice 999 was for a sales staff member who bought goods for personal use (Micro Meals will recover the funds from the employee's October salary).\n• Invoice 1047 was for goods bought by the owner for personal use; he swiped his personal credit card at the till and received a cash slip; Valhalla's Kitchen treated the transaction incorrectly.\n• Micro Meals accepts the interest charged on their account.\n• Valhalla's Kitchen issued their statement of account on 25 September 2025.\n\nComplete the Creditor's Reconciliation for September 2025 (Creditor's Ledger column, Creditor's Reconciliation Statement column, and 'No entry (X)').",
+          "marks": 8,
+          "memoText": "CREDITOR'S RECONCILIATION FOR SEPTEMBER 2025 (Do not calculate):\n\nDetails                          | Creditor's Ledger | Creditor's Reconciliation Statement | No entry (X)\nBalance b/d                      | 28 740            | 21 270\nCancel discount (payment related to August purchases) | 1 460 |  |\nInvoice 810 (13 480 − 12 970)    |                   | 510 |\nTrade discount omitted (Invoice 905, 10%) |          | (420) |\nInvoice 999 (staff purchase, to be recovered from employee) | 1 500 |  |\nCancel Invoice 1047 (owner's personal card purchase — not a credit purchase) |  | (1 080) |\nInterest charged                 | 60                |  |\nTiming difference (Invoice 1543, R11 480 — after the 25 Sept statement date) |  | 11 480 |\nCorrected balance                | DO NOT CALCULATE  | DO NOT CALCULATE\n\nTeaching point: The supplier's errors (short-recorded invoice, omitted trade discount, wrongly recorded card transaction) go on the Reconciliation Statement side; the business's own errors (discount wrongly claimed, staff purchase, interest not yet entered) go in the Creditor's Ledger; an invoice dated after the statement is a timing difference on the statement side.",
+          "topic": "Creditors Reconciliation - Reconciliation statement and ledger",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-1-4",
+          "label": "1.4",
+          "questionText": "Use the same information as 1.3. Micro Meals wants to benefit from the 5% discount offered on payments made within 7 days of the invoice.\n\nCalculate the discount that they would qualify for if they made a payment on 30 September 2025.",
+          "marks": 3,
+          "memoText": "Invoices within 7 days of 30 September 2025:\nInvoice 905 (corrected): R3 780\nInvoice 1543: R11 480\nTotal = 3 780 + 11 480 = R15 260\nDiscount = 15 260 × 5% = R763 ✓✓✓\n\nTeaching point: A settlement discount applies only to the invoices whose 7-day window includes the payment date — here the 24 Sept and 28 Sept invoices, at their corrected amounts.",
+          "topic": "Creditors Reconciliation - Settlement discount",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-1-5",
+          "label": "1.5",
+          "questionText": "Use the same information as 1.3 and the discrepancies identified. Identify ONE poor internal control for EACH business (Micro Meals and Valhalla's Kitchen), then provide a practical solution that they can use to improve the situation.",
+          "marks": 4,
+          "memoText": "MICRO MEALS ✓ (poor control) ✓ (solution):\n• Poor control: sales staff have access to order books (Invoice 999); OR the settlement discount (6 Sept) was applied incorrectly.\n• Solution: separate the duties of sales and purchasing staff; OR lock the order books away; OR train staff on applying discounts, or only allow the manager to capture discounts.\n\nVALHALLA'S KITCHEN ✓ (poor control) ✓ (solution):\n• Poor control: an invoice was recorded for a card (cash) transaction (Invoice 1047); OR the trade discount on Invoice 905 was omitted.\n• Solution: retrain sales staff; OR configure the POS system so a speedpoint sale cannot be recorded as a credit invoice; OR review the debtors clerk's performance; OR update the system to apply trade discounts automatically / train staff to record them.\n\nTeaching point: Weak points here are around who may create documents (order books), how discounts are applied, and whether the POS/accounting system distinguishes cash from credit transactions.",
+          "topic": "Creditors Reconciliation - Internal control weaknesses",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-1-6",
+          "label": "1.6",
+          "questionText": "Use the same information as 1.3. What audit evidence can Valhalla's Kitchen give to their external auditors that thorough credit checks were conducted when Micro Meals opened their account with them?",
+          "marks": 3,
+          "memoText": "Any valid evidence ✓✓✓:\n• Bank statements of Micro Meals.\n• Financial statements of Micro Meals.\n• Proof of address (FICA).\n• ID of the owner.\n• A credit-check / TPN / debtors-screening report.\n(Do NOT accept a payslip — Micro Meals is a business, not an individual.)\n\nTeaching point: Credit-vetting evidence for a business customer includes its bank and financial statements, FICA documents, and a formal credit-bureau screening report.",
+          "topic": "Auditing - Evidence of credit vetting",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Company Analysis (We Buy Cars vs CMH Group)",
+      "totalMarks": 40,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p2-nov-2025-2-1",
+          "label": "2.1",
+          "questionText": "COMPANY ANALYSIS — WE BUY CARS HOLDINGS LIMITED (WBC) vs COMBINED MOTOR HOLDINGS LIMITED (CMH).\n\nWe Buy Cars — Statement of Financial Position (R'million), 2024: Current assets R2 820 (Inventories R2 465; Cash and cash equivalents R148; Trade and other receivables R207); Current liabilities R904.\n\nCalculate the acid-test ratio for We Buy Cars for 2024.",
+          "marks": 3,
+          "memoText": "Acid-test ratio (We Buy Cars 2024):\n= (2 820 − 2 465) : 904\n= 355 : 904 ✓✓\n= 0,39 : 1 ✓\n\nTeaching point: Acid-test ratio = (current assets − inventory) : current liabilities. At 0,39 : 1 the company has only 39c of near-cash assets for every R1 of short-term debt.",
+          "topic": "Company Analysis - Acid-test ratio",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-2-2",
+          "label": "2.2",
+          "questionText": "Use the same information as 2.1. We Buy Cars: Inventories R2 465m (2024), R2 187m (2023); Cost of sales R22 083m (2024). Assume a fixed base level of stock.\n\nCalculate the period stock on hand for We Buy Cars for 2024.",
+          "marks": 3,
+          "memoText": "Period stock on hand (We Buy Cars 2024):\n= [0,5 × (2 465 + 2 187)] ÷ 22 083 × 365\n= 2 326 ÷ 22 083 × 365\n= 38,45 days ✓✓✓\n\nTeaching point: Period stock on hand = average inventory ÷ cost of sales × 365; roughly 38 days is fast turnover for a used-vehicle trader.",
+          "topic": "Company Analysis - Period stock on hand",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-2-3",
+          "label": "2.3",
+          "questionText": "CMH Group: Trade and other payables R2 899m (2024), R2 770m (2023); Cost of sales R10 314m (2024); 50% of purchases are on credit. Assume a fixed base level of stock.\n\nCalculate the average creditors payment period for CMH for 2024.",
+          "marks": 4,
+          "memoText": "Average creditors payment period (CMH 2024):\n= [0,5 × (2 899 + 2 770)] ÷ (10 314 × 50%) × 365\n= 2 834,50 ÷ 5 157 × 365\n= 200,62 days ✓✓✓ (accept 200 days)\n\nTeaching point: Creditors payment period = average trade payables ÷ credit purchases × 365; at ~201 days CMH is paying suppliers far beyond the 90-day terms.",
+          "topic": "Company Analysis - Creditors payment period",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-2-4",
+          "label": "2.4",
+          "questionText": "Study the liquidity indicators of both We Buy Cars and CMH for 2024 (We Buy Cars: current ratio 3,12 : 1, acid-test ratio 0,39 : 1, stock 87% of current assets [76% in 2023]; CMH: creditors payment period 200,62 days vs 90-day terms, up R129m year on year).\n\nIdentify TWO possible problems in one or both companies, quote figures that support your conclusion, and provide a solution to each problem.",
+          "marks": 6,
+          "memoText": "Problem 1 (identify + prove + solve) ✓✓✓:\n• We Buy Cars' stock levels are too high — current ratio 3,12 : 1 vs acid-test 0,39 : 1, i.e. stock is 87% of current assets (up from 76% in 2023).\n• Solution: clear OLD stock at reduced prices (vehicles that have sat on the floor a long time).\n\nProblem 2 (identify + prove + solve) ✓✓✓:\n• CMH is taking too long to pay creditors — terms are 90 days but they pay in 200,62 days, incurring interest.\n• Solution: pay creditors in line with the 90-day terms (significantly faster).\nAlternative: CMH's trade and other payables are too high — up R129m year on year; pay creditors faster to reduce the debt.\n\nTeaching point: Liquidity problems show up as an unbalanced current/acid-test ratio (too much stock) or a payment period well beyond the agreed terms (stretched creditors).",
+          "topic": "Company Analysis - Liquidity problems and solutions",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-2-5",
+          "label": "2.5",
+          "questionText": "In 2024, the solvency ratio for We Buy Cars was 2,23 : 1, while for CMH it was 1,36 : 1. Identify the MAIN reason that resulted in this 0,87 : 1 difference.",
+          "marks": 1,
+          "memoText": "✓: CMH's current liabilities are much higher (also accept: CMH has very high creditors / trade and other payables).\n\nTeaching point: A lower solvency ratio comes from proportionally larger total liabilities — here CMH's swollen trade payables.",
+          "topic": "Company Analysis - Solvency ratio comparison",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-2-6",
+          "label": "2.6",
+          "questionText": "We Buy Cars: Net profit after tax R343m (2024); Equity R2 306m (2024), R2 321m (2023).\n\nCalculate the return on average shareholders' equity for We Buy Cars for 2024.",
+          "marks": 4,
+          "memoText": "Return on average shareholders' equity (We Buy Cars 2024):\n= 343 ÷ [0,5 × (2 306 + 2 321)] × 100\n= 343 ÷ 2 313,50 × 100\n= 14,83% ✓✓✓ (accept 14,82% using 2 314)\n\nTeaching point: ROSHE = net profit after tax ÷ average ordinary shareholders' equity × 100.",
+          "topic": "Company Analysis - Return on shareholders' equity",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-2-7",
+          "label": "2.7",
+          "questionText": "As a shareholder, would you be satisfied with your return on investment and the dividend policy applied by We Buy Cars from 2023 to 2024?\n\nWe Buy Cars: ROSHE 35,37% (2023) → 14,83% (2024); Net profit after tax fell R478m; financial assets currently earn 7,5%; EPS 91 cents (2024) / 246 cents (2023); DPS 25 cents (2024) / 8 205 cents (2023); the 2023 dividends were about 33,3 times earnings and turned retained income negative.",
+          "marks": 5,
+          "memoText": "Either view is accepted, provided it is substantiated ✓✓✓✓✓:\n• ROSHE decreased by 20,54% (35,37% → 14,83%), mainly because net profit after tax fell R478m — but 14,83% is still well above the 7,5% earned on financial assets.\n• In 2023 the company distributed about 33,3 times its earnings, which turned retained income / NAV negative (eroded retained income).\n• In 2024 it distributed only about 27,47% of earnings and retained the rest (about 66 cents) — it is trying to limit further erosion of retained income caused by the excessive 2023 dividend.\n\nTeaching point: Judge the return against the risk-free alternative and the trend, and judge the dividend policy on whether it is sustainable — paying many times earnings is not, and pulling the payout ratio right back is a corrective move.",
+          "topic": "Company Analysis - Return and dividend policy",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-2-8",
+          "label": "2.8",
+          "questionText": "If both We Buy Cars and CMH applied to the same financial institution for a loan at an interest rate of 15% p.a., who would be more likely to obtain the loan first based on their risk, return and gearing? Discuss the risk, return and gearing of both companies to substantiate your choice.\n\nWe Buy Cars: Debt-equity 0,46 : 1 (2023) → 0,42 : 1 (2024); ROCE 31,99% (2023) → 19,47% (2024). CMH: Debt-equity 0,65 : 1 (2023) → 0,58 : 1 (2024); ROCE 31,18% (2023) → 27,86% (2024). Interest rate 15%.",
+          "marks": 8,
+          "memoText": "WE BUY CARS ✓✓✓✓:\n• Debt-equity fell from 0,46 : 1 to 0,42 : 1 (by 0,04 : 1) — remains low risk.\n• ROCE fell from 31,99% to 19,47% (by 12,52%) — a significant drop caused by lower net profit.\n• Positively geared: ROCE 19,47% > 15% interest on the loan.\n\nCMH ✓✓✓✓:\n• Debt-equity fell from 0,65 : 1 to 0,58 : 1 (by 0,07 : 1) — low risk.\n• ROCE fell from 31,18% to 27,86% (by 3,32%).\n• Positively geared: ROCE 27,86% > 15% interest on the loan.\n\nMore likely to obtain the loan + reason: CMH — higher and more consistent returns (more strongly positively geared). OR We Buy Cars — its gearing risk is marginally lower.\n\nTeaching point: Lenders weigh the gearing level (debt-equity), whether the borrower earns more on capital than the interest rate (positive gearing), and the stability of that return.",
+          "topic": "Company Analysis - Lending decision (risk, return, gearing)",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-2-9-1",
+          "label": "2.9.1",
+          "questionText": "Extract from the Independent Auditor's Report for We Buy Cars Holdings Limited for 2024: 'We Buy Cars Holdings Limited's consolidated and separate financial statements are set out on pages 18 to 96.'\n\nWhy do they specifically refer to the pages that they have audited?",
+          "marks": 2,
+          "memoText": "✓✓: That (the financial statements on pages 18 to 96) is what the auditors take responsibility for — their opinion covers only those pages, not the rest of the annual report.\n\nTeaching point: Naming the exact pages fixes the scope of the audit opinion, so readers know which parts of the annual report the auditors have and have not verified.",
+          "topic": "Auditing - Scope of the audit report",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-2-9-2",
+          "label": "2.9.2",
+          "questionText": "Use the same information as 2.9.1. The report's 'OUR CONCERN' section states: 'The treatment of IFRS17 relates to the purchase of the Coca-Cola Dome premises and building. This has been referred to SARS for a directive... We Buy Cars Holdings Limited remains a going concern, and any adjustments, if needed, will be recorded in the 2025 financial statements.'\n\nWhat type of audit report did We Buy Cars receive based on their findings? Why did they issue this type of report?",
+          "marks": 4,
+          "memoText": "✓✓ (type) ✓✓ (reason):\n• It was a QUALIFIED audit report.\n• The auditors identified a concern around the treatment of IFRS17 (the purchase of the Coca-Cola Dome), which has been referred to SARS for a directive — so they could not give an unqualified (clean) opinion on that specific item, even though the company remains a going concern.\n\nTeaching point: A qualified report means the statements are fairly presented EXCEPT for one identified matter; it is not as severe as an adverse or disclaimer of opinion.",
+          "topic": "Auditing - Types of audit report",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Budgets (Gator Charms Ltd)",
+      "totalMarks": 30,
+      "subQuestions": [
+        {
+          "id": "acc-ieb-p2-nov-2025-3-1",
+          "label": "3.1",
+          "questionText": "BUDGETS — GATOR CHARMS LTD (imports shoe charms from GPT Manufacturers in Vietnam; sole SA distributor; 100% mark-up on cost; fixed-base stock level; all stock bought on credit from GPT Manufacturers).\n\nExplain how a cash budget can be used retrospectively (after it has occurred) as a tool by management.",
+          "marks": 2,
+          "memoText": "✓✓: Management compares the budgeted figures to the actual figures to identify areas of concern (variances), so that corrective action can be taken and the problems do not recur.\n\nTeaching point: A cash budget is not only a forward plan — comparing it to actuals afterwards is a control tool that highlights where the business went off plan.",
+          "topic": "Budgets - Retrospective use of a cash budget",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-3-2",
+          "label": "3.2",
+          "questionText": "Use the same information as 3.1. Identify TWO items from the Cash Budget extract (information A), other than discount received and discount allowed, that should NOT be in the cash budget.",
+          "marks": 2,
+          "memoText": "✓✓:\n• Donations of stock (non-cash — stock, not cash, leaves the business).\n• Depreciation (a non-cash expense).\n\nTeaching point: A cash budget records only actual cash movements — non-cash items (depreciation, stock donations, discounts) do not belong in it.",
+          "topic": "Budgets - Items excluded from a cash budget",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-3-3",
+          "label": "3.3",
+          "questionText": "Use the same information as 3.1. Debtors' Collection Schedule (40% of sales are cash):\nSales month  | Credit sales | November 2025 | December 2025\nSeptember    | R945 000     | R141 750      | –\nOctober      | R864 000     | R172 800      | R129 600\nNovember     | R819 000     | R476 658      | ?\nDecember     | R769 500     | –             | R447 849\nTotal collection from debtors | | R791 208 | ?\n\nDiscount allowed for November 2025 was R14 742.\n\nDetermine the debtor's payment pattern by completing the sentences (with calculations):\n• __% of debtors are written off as irrecoverable in the third month after the sale.\n• __% of debtors pay in the second month following the sale.\n• __% of debtors pay in the month following the sale.\n• __% of debtors pay within the month of sale to qualify for __% discount.",
+          "marks": 4,
+          "memoText": "• 5% of debtors are written off as irrecoverable in the third month after the sale. ✓\n• 15% of debtors pay in the second month following the sale. ✓\n• 20% of debtors pay in the month following the sale ✓\n  Working: 172 800 ÷ 864 000 × 100 = 20% (OR 100 − 60 − 15 − 5 = 20%).\n• 60% of debtors pay within the month of sale to qualify for a 3% discount ✓\n  Working: (476 658 + 14 742 = 491 400) ÷ 819 000 × 100 = 60%; discount = 14 742 ÷ 491 400 × 100 = 3%.\n\nTeaching point: Reverse-engineer the collection percentages by dividing each month's collection by that month's credit sales; the same-month collection must be grossed up by the discount before dividing.",
+          "topic": "Budgets - Debtor payment pattern",
+          "type": "answer-book"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-3-4",
+          "label": "3.4",
+          "questionText": "Use the same information as 3.1 and 3.3. Cash Budget extract:\n• Sundry cash expenses: November A; December R53 040. The monthly cash expenses will DECREASE by 15% in December 2025.\n• Payment to creditors: December B. GPT Manufacturers (the only creditor) is paid 100% in the month following the purchase to receive a 12% discount. November credit sales R819 000; mark-up 100% on cost; fixed-base stock level; R48 000 of stock was donated in November (at cost).\n\nCalculate the missing figures marked A and B in the Cash Budget.\nA = Sundry cash expenses (November 2025)\nB = Payment to creditors (December 2025)",
+          "marks": 6,
+          "memoText": "A (Sundry cash expenses, November 2025): December is 15% lower, so 53 040 ÷ 0,85 = R62 400 ✓✓\n\nB (Payment to creditors, December 2025 — for November's purchases):\n• November total sales = 819 000 ÷ 0,60 (60% credit)... memo: convert credit sales to total sales, then to cost of sales: 819 000 ÷ 0,6 = 1 365 000; cost of sales = 1 365 000 × 100/200 = R682 500.\n• Add stock donated (at cost): 682 500 + 48 000 = R730 500 total purchases.\n• Paid the following month less 12% discount: 730 500 × 0,88 = R642 840 ✓✓✓✓\n\nTeaching point: On a fixed stock level, purchases = cost of sales + stock given away (at cost); the creditor is paid the month after, net of the settlement discount.",
+          "topic": "Budgets - Missing figures in a cash budget",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-3-5",
+          "label": "3.5",
+          "questionText": "Use the same information as 3.1. Gator Charms Ltd pledges to donate 50 cents from each charm sold to the SOAR Foundation (which provides promising learners with secondary-education opportunities); this is printed on the packaging. Partnering with SOAR could lead to higher profits, as the public may want to support the venture.\n\nEvaluate how Gator Charms Ltd's operations benefit or contradict the other two elements of the Triple Bottom Line (People and Planet).",
+          "marks": 4,
+          "memoText": "✓✓ (Planet) ✓✓ (People):\n• Planet: the product is made out of plastic, which is harmful to the environment — this CONTRADICTS the Planet element.\n• People: SOAR can assist more beneficiaries from the higher donations; the contributions uplift communities and help SOAR provide learner opportunities in secondary education — this BENEFITS the People element.\n\nTeaching point: The Triple Bottom Line asks a business to account for Profit, People AND Planet; a company can score well on one (community upliftment) while damaging another (plastic pollution).",
+          "topic": "Budgets - Triple Bottom Line evaluation",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-3-6-1",
+          "label": "3.6.1",
+          "questionText": "Use the same information as 3.1. Zoom In, an investigative TV show, is threatening to run a documentary claiming that Gator Charms Ltd does not pay over the full 50 cents per charm sold to the SOAR Foundation.\n\nExplain TWO possible NEGATIVE financial impacts the business could experience as a result of reputational damage should the story air on television.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓:\n• Lower sales, as customers may stop buying the product.\n• Legal action by the SOAR Foundation (legal costs / damages).\n• Suppliers may not wish to be associated with the company, disrupting the supply chain (stockouts).\n\nTeaching point: Reputational damage translates into financial loss through lost sales, legal costs, and broken supplier relationships.",
+          "topic": "Budgets - Financial impact of reputational damage",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-3-6-2",
+          "label": "3.6.2",
+          "questionText": "Use the same information as 3.1. The actual sales figure for October 2025 was R1 440 000; each charm sells for R18; the actual amount donated to the SOAR Foundation for October 2025 was R33 350; the pledge is 50 cents per charm sold.\n\nBased on this information, evaluate whether the allegation by Zoom In is correct. Provide a calculation to support your conclusion.",
+          "marks": 4,
+          "memoText": "Zoom In is CORRECT ✓✓✓✓:\n• Number of charms sold in October 2025 = 1 440 000 ÷ 18 = 80 000 charms.\n• What the donation should be = 80 000 × R0,50 = R40 000.\n• Donation actually made = R33 350.\n• Gator Charms Ltd under-donated by R6 650 (OR the proceeds from 13 300 charms are unaccounted for).\n\nTeaching point: Test the claim by working the charms sold from the sales value and price, applying the pledge rate, and comparing to what was actually paid over.",
+          "topic": "Budgets - Evaluating an allegation",
+          "type": "calculation"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-3-6-3",
+          "label": "3.6.3",
+          "questionText": "Use the same information as 3.6.2. Upon investigation, it was uncovered that the bookkeeper — the daughter of the CEO — does the monthly calculation and should have paid over the money. A payment for the difference was found to have been authorised and paid to the school-fee account of her son's school; she admitted she authorised this instead of paying the SOAR Foundation.\n\nProvide TWO actions that Gator Charms Ltd should take based on the above occurrences.",
+          "marks": 2,
+          "memoText": "Any TWO ✓✓:\n• Dismiss the bookkeeper (she has admitted guilt) and recover the stolen funds from her; OR move her elsewhere in the company and let her work off the money she took.\n• Issue a public apology.\n• Pay over the correct amount to the SOAR Foundation.\n\nTeaching point: The response to fraud combines a consequence for the perpetrator, recovery of the funds, making good with the harmed party, and managing the public fallout.",
+          "topic": "Budgets - Responding to internal fraud",
+          "type": "written"
+        },
+        {
+          "id": "acc-ieb-p2-nov-2025-3-7",
+          "label": "3.7",
+          "questionText": "Use the same information as 3.1. Gator Charms Ltd estimates that an annual increase in January 2026 will raise its workers' salary expense from R540 000 to R583 200. The trade union has declared a dispute, stating that the workers deserve more. The only director will receive his annual increase on 1 December 2025 (director's fees rising from R112 000 to R116 480).\n\nAdvocate on behalf of Gator Charms Ltd as to why this is a very reasonable increase. Substantiate your reasoning with a calculation.",
+          "marks": 4,
+          "memoText": "✓✓ (calculation) ✓✓ (points):\n• Workers' increase = (583 200 − 540 000) ÷ 540 000 × 100 = 43 200 ÷ 540 000 × 100 = 8%.\n• 8% is above the inflation rate, so it is a reasonable increase.\n• It is almost double the director's increase of 4% ((116 480 − 112 000) ÷ 112 000 × 100 = 4%).\n\nTeaching point: An increase is defended as 'reasonable' by comparing it to inflation and to what other parties (here, the director) are receiving.",
+          "topic": "Budgets - Justifying a salary increase",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

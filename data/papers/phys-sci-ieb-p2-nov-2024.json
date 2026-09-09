@@ -1,0 +1,917 @@
+{
+  "id": "phys-sci-ieb-p2-nov-2024",
+  "subject": "Physical Science IEB",
+  "subjectCode": "physical-science-ieb",
+  "paperCode": "P2",
+  "year": 2024,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-1-1",
+          "label": "1.1",
+          "questionText": "Which one of the following is the correct formula of tin(IV) chlorate?\nA  Ti₄ClO₃\nB  Ti(ClO₃)₂\nC  Sn(ClO₃)₂\nD  Sn(ClO₃)₄",
+          "marks": 2,
+          "memoText": "D — Sn(ClO₃)₄. The symbol for tin is Sn; tin(IV) is Sn⁴⁺ and the chlorate ion is ClO₃⁻, so four chlorate ions are needed: Sn(ClO₃)₄.",
+          "topic": "Quantitative Chemistry (formulae)",
+          "type": "mcq",
+          "options": { "A": "Ti₄ClO₃", "B": "Ti(ClO₃)₂", "C": "Sn(ClO₃)₂", "D": "Sn(ClO₃)₄" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-1-2",
+          "label": "1.2",
+          "questionText": "How many moles of FeS₂ are required to produce 32 g of SO₂(g)?\n4FeS₂(s) + 11O₂(g) → 2Fe₂O₃(s) + 8SO₂(g)\nA  0,25\nB  0,50\nC  1,0\nD  2,0",
+          "marks": 2,
+          "memoText": "A — 0,25 mol. n(SO₂) = 32/64 = 0,5 mol. The mole ratio FeS₂ : SO₂ is 4 : 8 = 1 : 2, so n(FeS₂) = 0,5 / 2 = 0,25 mol.",
+          "topic": "The Mole Concept",
+          "type": "mcq",
+          "options": { "A": "0,25", "B": "0,50", "C": "1,0", "D": "2,0" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-1-3",
+          "label": "1.3",
+          "questionText": "Beaker A contains 50 cm³ of 0,5 mol·dm⁻³ NaCl(aq); beaker B contains 30 cm³ of 0,25 mol·dm⁻³ Na₂SO₄(aq). All of beaker B is poured into beaker A. The new concentration of sodium ions in beaker A is given by:\nA  (0,025 + 0,0075) / 0,050\nB  (0,025 + 0,015) / 0,050\nC  (0,025 + 0,0075) / 0,080\nD  (0,025 + 0,015) / 0,080",
+          "marks": 2,
+          "memoText": "D. n(Na⁺) from A = 0,050 × 0,5 = 0,025 mol. n(Na⁺) from B = 0,030 × 0,25 × 2 = 0,015 mol. Total volume = 50 + 30 = 80 cm³ = 0,080 dm³. c(Na⁺) = (0,025 + 0,015) / 0,080.",
+          "topic": "The Mole Concept",
+          "type": "mcq",
+          "options": { "A": "(0,025 + 0,0075)/0,050", "B": "(0,025 + 0,015)/0,050", "C": "(0,025 + 0,0075)/0,080", "D": "(0,025 + 0,015)/0,080" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-1-4",
+          "label": "1.4",
+          "questionText": "Which one of the following gas samples will have the largest volume at STP?\nA  48 g of oxygen\nB  6 g of hydrogen\nC  16 g of helium\nD  28 g of nitrogen",
+          "marks": 2,
+          "memoText": "C — 16 g of helium. Largest volume means most moles: O₂ = 48/32 = 1,5 mol; H₂ = 6/2 = 3 mol; He = 16/4 = 4 mol; N₂ = 28/28 = 1 mol. Helium has the most moles.",
+          "topic": "The Mole Concept",
+          "type": "mcq",
+          "options": { "A": "48 g of oxygen", "B": "6 g of hydrogen", "C": "16 g of helium", "D": "28 g of nitrogen" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-1-5",
+          "label": "1.5",
+          "questionText": "An energy-profile graph for a reversible reaction has three marked potential-energy levels: P (the peak / activated complex), Q (the reactant level) and R (the product level, lower than Q). Which statement(s) is/are CORRECT?\nI  P represents the activation energy for the forward reaction.\nII  ΔH for the forward reaction is equal to R − Q.\nIII  A catalyst lowers both Q and R equally and therefore does not affect ΔH.\nA  All are correct.\nB  None are correct.\nC  Only II is correct.\nD  Only II and III are correct.",
+          "marks": 2,
+          "memoText": "C — only II. The activation energy is the difference (P − Q), not P itself, so I is wrong. ΔH (forward) = E(products) − E(reactants) = R − Q, so II is correct. A catalyst lowers the peak P (the activation energy); it does not change the reactant and product energy levels Q and R, so III is wrong.",
+          "topic": "Energy and Change",
+          "type": "mcq",
+          "options": { "A": "All are correct", "B": "None are correct", "C": "Only II is correct", "D": "Only II and III are correct" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-1-6",
+          "label": "1.6",
+          "questionText": "NaCH₃CO₂ (sodium ethanoate) is a soluble salt. In a 1 mol·dm⁻³ solution of NaCH₃CO₂, the species present in the greatest concentration will be:\nA  Na⁺\nB  OH⁻\nC  CH₃CO₂⁻\nD  CH₃CO₂H",
+          "marks": 2,
+          "memoText": "A — Na⁺. The salt dissociates completely to give 1 mol·dm⁻³ Na⁺ and 1 mol·dm⁻³ CH₃CO₂⁻. Na⁺ is a spectator and does not react, so its concentration stays at 1 mol·dm⁻³, whereas a small amount of CH₃CO₂⁻ hydrolyses (making [CH₃CO₂⁻] slightly less than 1 mol·dm⁻³, and [OH⁻] and [CH₃CO₂H] very small).",
+          "topic": "Acids and Bases",
+          "type": "mcq",
+          "options": { "A": "Na⁺", "B": "OH⁻", "C": "CH₃CO₂⁻", "D": "CH₃CO₂H" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-1-7",
+          "label": "1.7",
+          "questionText": "A galvanic cell is set up using the half-reactions:\n2H₂O + O₂ + 4e⁻ → 4OH⁻   E° = +0,40 V\nFe³⁺ + e⁻ → Fe²⁺   E° = +0,77 V\nWhen this cell operates under standard conditions, the pH ...\nA  at the anode will increase.\nB  at the anode will decrease.\nC  at the cathode will increase.\nD  at the cathode will decrease.",
+          "marks": 2,
+          "memoText": "B. The Fe³⁺/Fe²⁺ couple has the higher E°, so it is the cathode (reduction); the O₂/OH⁻ couple is the anode, where oxidation occurs: 4OH⁻ → O₂ + 2H₂O + 4e⁻. OH⁻ ions are consumed at the anode, so the solution there becomes less basic — the pH at the anode decreases.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "mcq",
+          "options": { "A": "anode pH increases", "B": "anode pH decreases", "C": "cathode pH increases", "D": "cathode pH decreases" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-1-8",
+          "label": "1.8",
+          "questionText": "For H₂(g) + I₂(g) ⇌ 2HI(g), equal moles of H₂ and I₂ were added each time before sealing. Experiment A was at 500 °C and Experiment B at 600 °C; concentration–time graphs were drawn to the same scale, and Experiment B reached a lower equilibrium concentration of product (HI). Deduce whether the forward reaction is exothermic or endothermic and how Kc differs.\nA  Exothermic ; Kc in B is greater\nB  Exothermic ; Kc in B is less\nC  Endothermic ; Kc in B is greater\nD  Endothermic ; Kc in B is less",
+          "marks": 2,
+          "memoText": "B. At the higher temperature (Experiment B) less product forms, so raising the temperature shifts the equilibrium towards the reactants — the forward reaction is exothermic. Less product means a smaller Kc, so Kc in Experiment B is less than in Experiment A.",
+          "topic": "Chemical Equilibrium",
+          "type": "mcq",
+          "options": { "A": "Exothermic ; Kc(B) greater", "B": "Exothermic ; Kc(B) less", "C": "Endothermic ; Kc(B) greater", "D": "Endothermic ; Kc(B) less" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-1-9",
+          "label": "1.9",
+          "questionText": "Which compound does not have the molecular formula C₄H₈O₂?\nA  methylpropanoic acid (2-methylpropanoic acid)\nB  ethyl ethanoate\nC  butane-1,2-diol\nD  propyl methanoate",
+          "marks": 2,
+          "memoText": "C — butane-1,2-diol is C₄H₁₀O₂. The other three (2-methylpropanoic acid, ethyl ethanoate and propyl methanoate) are all C₄H₈O₂.",
+          "topic": "Organic Chemistry (isomers)",
+          "type": "mcq",
+          "options": { "A": "2-methylpropanoic acid", "B": "ethyl ethanoate", "C": "butane-1,2-diol", "D": "propyl methanoate" }
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-1-10",
+          "label": "1.10",
+          "questionText": "Four alcohol structures (A–D) are shown. Which alcohol cannot be dehydrated (cannot undergo an elimination reaction to form an alkene)?",
+          "marks": 2,
+          "memoText": "A — the alcohol that has no hydrogen atom on any carbon atom adjacent to the carbon bearing the –OH group (e.g. 2,2-dimethylpropan-1-ol). Without a hydrogen on a neighbouring carbon, no C=C double bond can be formed, so it cannot be dehydrated.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "mcq",
+          "options": { "A": "structure A", "B": "structure B", "C": "structure C", "D": "structure D" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Bonding and Intermolecular Forces (Silicon and Fluorine Compounds)",
+      "totalMarks": 23,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Silicon dioxide, SiO₂, reacts with HF (or HCl) to form water and SiF₄(g) (or SiCl₄(l)). Write a balanced equation for the reaction between SiO₂ and HF.",
+          "marks": 2,
+          "memoText": "SiO₂ + 4HF → SiF₄ + 2H₂O",
+          "topic": "Chemical Change",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Explain the extremely high melting point (1 713 °C) of silicon dioxide, referring to its structure.",
+          "marks": 3,
+          "memoText": "Silicon dioxide has a giant covalent (network) structure in which every silicon atom is covalently bonded to four oxygen atoms throughout the crystal. Melting it requires breaking a very large number of these strong covalent bonds, which takes a great deal of energy — hence the very high melting point.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-2-1-3",
+          "label": "2.1.3",
+          "questionText": "Explain why SiF₄ is a gas at room temperature, while SiCl₄ is a liquid.",
+          "marks": 4,
+          "memoText": "Both SiF₄ and SiCl₄ are non-polar molecules, so the only forces between their molecules are London (dispersion) forces. SiCl₄ has a larger electron cloud / more electrons than SiF₄, so it forms larger temporary (induced) dipoles and has stronger London forces. More energy is needed to overcome these stronger forces, so SiCl₄ has the higher boiling point and is a liquid while SiF₄ is a gas.",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-2-2-1",
+          "label": "2.2.1",
+          "questionText": "The diagram shows the structure of solid fluorine. Circle the correct word: the particles in the lattice structure are (ATOMS / MOLECULES / IONS).",
+          "marks": 1,
+          "memoText": "Molecules (F₂ molecules).",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-2-2-2",
+          "label": "2.2.2",
+          "questionText": "Name the predominant force or bond that keeps fluorine in the solid state.",
+          "marks": 1,
+          "memoText": "London (induced-dipole / dispersion) forces.",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-2-3-1",
+          "label": "2.3.1",
+          "questionText": "Fluorine reacts with rhenium (Re) to form rhenium heptafluoride (a covalent compound, m.p. 48 °C) and with sodium to form sodium fluoride (an ionic compound, m.p. 993 °C). Three diagrams (a), (b) and (c) represent three of the substances involved. Identify each by writing the chemical formula: (a) a lattice of alternating positive and negative ions; (b) discrete covalent molecules each with a central atom surrounded by seven others; (c) a regular array of identical atoms in a 'sea' of electrons.",
+          "marks": 3,
+          "memoText": "(a) NaF — the ionic lattice of Na⁺ and F⁻ ions.\n(b) ReF₇ — the covalent rhenium heptafluoride molecules.\n(c) Na — metallic sodium.",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-2-3-2",
+          "label": "2.3.2",
+          "questionText": "Complete the sentences comparing the electron distribution in different substances: 'In covalent compounds, the bonding electrons are ______. In ionic compounds, electrons are ______. In metals, the electrons are ______.'",
+          "marks": 3,
+          "memoText": "In covalent compounds, the bonding electrons are shared (between the atoms).\nIn ionic compounds, electrons are transferred (from the metal to the non-metal).\nIn metals, the electrons are delocalised (free / mobile, forming a 'sea' of electrons).",
+          "topic": "Chemical Bonding",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-2-4-1",
+          "label": "2.4.1",
+          "questionText": "The crystal structures of HF(s) and HCl(s) are shown (with electronegativity values and bond lengths in pm). HF(s) melts at a higher temperature than HCl(s). Name the predominant type of intermolecular force between (a) HF molecules and (b) HCl molecules.",
+          "marks": 2,
+          "memoText": "(a) HF molecules: hydrogen bonds.\n(b) HCl molecules: dipole–dipole forces.",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-2-4-2",
+          "label": "2.4.2",
+          "questionText": "Refer to the diagrams to explain two reasons why the forces between HF molecules are stronger than those between HCl molecules.",
+          "marks": 4,
+          "memoText": "1. The difference in electronegativity between H and F is greater than between H and Cl, so the HF molecule is more polar (larger partial charges), giving a stronger attraction between molecules.\n2. The fluorine atom is smaller than the chlorine atom, so HF molecules can approach each other more closely, and the attractive force acts over a shorter distance and is therefore stronger.",
+          "topic": "Intermolecular Forces",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Rate of Reaction (MgCO₃ + HCl)",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-3-1",
+          "label": "3.1",
+          "questionText": "Magnesium carbonate tablets were reacted with hydrochloric acid to investigate factors affecting reaction rate; each experiment used the same mass of tablet and equal volumes of acid. Write a balanced chemical equation for the reaction between magnesium carbonate and hydrochloric acid.",
+          "marks": 3,
+          "memoText": "MgCO₃ + 2HCl → MgCl₂ + CO₂ + H₂O",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-3-2",
+          "label": "3.2",
+          "questionText": "Describe an appropriate experimental method to measure the rate of this reaction. Include the appropriate measuring equipment and all quantities that should be measured.",
+          "marks": 3,
+          "memoText": "Any complete method, e.g.:\n• Collect the CO₂ gas in a gas syringe (or by downward displacement of water in an inverted measuring cylinder) and measure the volume of gas produced as a function of time.\n• OR place the reaction flask on an electronic balance and measure the loss in mass (as CO₂ escapes) as a function of time.\n• OR use a pH electrode to measure the increase in pH as the acid is used up, as a function of time.\nMarks: correct equipment + correct quantity measured + measured against time.",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-3-3",
+          "label": "3.3",
+          "questionText": "The results table lists, for Experiments 1–5, the acid concentration (1,0; 1,0; 1,5; 2,0; 2,0 mol·dm⁻³), the initial temperature (23; 23; 23; 30; 26 °C) and the time for the reaction to end (whole tablet: 46; 40; 39; 31; 35 s). Can the results of Experiments 2 and 4 be meaningfully compared? Answer YES or NO. Give a reason.",
+          "marks": 2,
+          "memoText": "No. More than one independent variable changes between Experiments 2 and 4 (both the acid concentration and the temperature are different), so there is no controlled comparison and it is not possible to tell which factor caused the change in rate.",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-3-4",
+          "label": "3.4",
+          "questionText": "What conclusion can be reached when Experiment 4 is compared to Experiment 5? (Experiments 4 and 5 use the same 2,0 mol·dm⁻³ acid but different initial temperatures, 30 °C and 26 °C, with end times 31 s and 35 s.)",
+          "marks": 2,
+          "memoText": "An increase in temperature causes the reaction rate to increase (the reaction at the higher temperature finishes in a shorter time).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-3-5",
+          "label": "3.5",
+          "questionText": "Compare Experiment 1 with Experiment 2 (same acid concentration and temperature, but Experiment 1 used a whole tablet and Experiment 2 a crushed tablet). Explain the results with reference to the collision theory.",
+          "marks": 4,
+          "memoText": "The crushed tablet has a greater (exposed) surface area. So there are more collisions per unit time between the acid particles and the magnesium carbonate. This gives more effective collisions per unit time, so the reaction rate in Experiment 2 (crushed tablet) is higher (it finishes sooner).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-3-6-1",
+          "label": "3.6.1",
+          "questionText": "A Maxwell–Boltzmann distribution curve for the reaction mixture in Experiment 1 is drawn, with the activation energy Eₐ marked on the kinetic-energy axis. Define activation energy.",
+          "marks": 2,
+          "memoText": "The activation energy is the minimum (kinetic) energy that colliding particles must have for a reaction to occur (the energy needed to form the activated complex).",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-3-6-2",
+          "label": "3.6.2",
+          "questionText": "What does the shaded area on the graph (the area under the curve to the right of Eₐ) indicate?",
+          "marks": 2,
+          "memoText": "It represents the number (fraction) of particles that have kinetic energy greater than or equal to the activation energy — i.e. the particles with enough energy to react on collision.",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-3-6-3",
+          "label": "3.6.3",
+          "questionText": "On the graph, draw a new distribution curve for the reaction mixture in Experiment 3 (which used a higher acid concentration than Experiment 1). Label this curve Exp 3.",
+          "marks": 2,
+          "memoText": "The Exp 3 curve has the same shape and the same peak position (the temperature is unchanged), but it lies above the Exp 1 curve everywhere (there are more particles because the concentration is higher). The total area under the curve is greater.",
+          "topic": "Rate of Reaction",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Chemical Equilibrium (Solubility of Ag₃PO₄)",
+      "totalMarks": 24,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-4-1",
+          "label": "4.1",
+          "questionText": "A saturated aqueous solution of Ag₃PO₄ at 25 °C, with excess solid Ag₃PO₄ present, is sealed in a container. Explain why this can be classified as a closed system.",
+          "marks": 2,
+          "memoText": "Mass is conserved within the system — no reactants or products (matter) can enter or leave the container — although energy can still be exchanged with the surroundings.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-4-2",
+          "label": "4.2",
+          "questionText": "Give the name of Ag₃PO₄.",
+          "marks": 2,
+          "memoText": "Silver phosphate (silver(I) phosphate).",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-4-3-1",
+          "label": "4.3.1",
+          "questionText": "For the equilibrium Ag₃PO₄(s) ⇌ 3Ag⁺(aq) + PO₄³⁻(aq) (ΔH > 0, Kc = 8,9 × 10⁻¹⁷ at 25 °C), circle the correct answer: the forward reaction is (a DISSOCIATION / an IONISATION) reaction.",
+          "marks": 1,
+          "memoText": "A dissociation reaction (an ionic solid splitting into its ions).",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-4-3-2",
+          "label": "4.3.2",
+          "questionText": "Circle the correct answer: the value of Kc indicates that the yield is extremely (HIGH / LOW).",
+          "marks": 1,
+          "memoText": "Low (Kc is extremely small, so very little Ag₃PO₄ dissolves).",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-4-4",
+          "label": "4.4",
+          "questionText": "Write the expression for the equilibrium constant of this reaction.",
+          "marks": 2,
+          "memoText": "Kc = [Ag⁺]³[PO₄³⁻]   (the solid Ag₃PO₄ is omitted).",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-4-5",
+          "label": "4.5",
+          "questionText": "Show that the concentration of the PO₄³⁻ ions in the saturated solution at 25 °C is 4,26 × 10⁻⁵ mol·dm⁻³.",
+          "marks": 4,
+          "memoText": "Let [PO₄³⁻] = x, then [Ag⁺] = 3x.\nKc = [Ag⁺]³[PO₄³⁻] = (3x)³(x) = 27x⁴\n27x⁴ = 8,9 × 10⁻¹⁷\nx⁴ = 3,296 × 10⁻¹⁸\nx = 4,26 × 10⁻⁵ mol·dm⁻³ = [PO₄³⁻]",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-4-6",
+          "label": "4.6",
+          "questionText": "Hence calculate the TOTAL number of free ions of the solute present in 0,2 dm³ of a saturated solution of Ag₃PO₄ at 25 °C. (Nₐ = 6,02 × 10²³ mol⁻¹.)",
+          "marks": 5,
+          "memoText": "n(PO₄³⁻) = cV = (4,26 × 10⁻⁵)(0,2) = 8,52 × 10⁻⁶ mol.\nEach formula unit gives 4 ions in total (3 Ag⁺ + 1 PO₄³⁻), so n(total ions) = 4 × 8,52 × 10⁻⁶ = 3,41 × 10⁻⁵ mol.\nN = n·Nₐ = (3,41 × 10⁻⁵)(6,02 × 10²³)\nN = 2,05 × 10¹⁹ ions",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-4-7-1",
+          "label": "4.7.1",
+          "questionText": "How will the concentration of Ag⁺ ions in the saturated solution be affected if the solution is heated? Write only INCREASE, DECREASE or REMAIN THE SAME.",
+          "marks": 1,
+          "memoText": "Increase.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-4-7-2",
+          "label": "4.7.2",
+          "questionText": "How will the concentration of Ag⁺ ions be affected if a few crystals of soluble Na₃PO₄(s) are added? Write only INCREASE, DECREASE or REMAIN THE SAME.",
+          "marks": 1,
+          "memoText": "Decrease. Adding Na₃PO₄ increases [PO₄³⁻] (common-ion effect), shifting the equilibrium to the left so that Ag₃PO₄ precipitates and [Ag⁺] decreases.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-4-7-3",
+          "label": "4.7.3",
+          "questionText": "How will the concentration of Ag⁺ ions be affected if a few crystals of Ag₃PO₄(s) are added? Write only INCREASE, DECREASE or REMAIN THE SAME.",
+          "marks": 1,
+          "memoText": "Remain the same.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-4-8",
+          "label": "4.8",
+          "questionText": "Explain the answer to Question 4.7.1 (heating the solution) by applying Le Châtelier's principle.",
+          "marks": 3,
+          "memoText": "The forward reaction is endothermic (ΔH > 0). Heating adds energy, so by Le Châtelier's principle the equilibrium shifts in the direction that absorbs the added heat — the forward (dissolving) direction. More Ag₃PO₄ dissolves, so [Ag⁺] increases.",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-4-9",
+          "label": "4.9",
+          "questionText": "Give a reason for the answer to Question 4.7.3 (adding more solid Ag₃PO₄).",
+          "marks": 1,
+          "memoText": "The solution is already saturated, so no more Ag₃PO₄ can dissolve — adding more solid does not change the concentrations of the ions. (Adding a pure solid does not shift the equilibrium.)",
+          "topic": "Chemical Equilibrium",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Acids and Bases (Diprotic Carboxylic Acids)",
+      "totalMarks": 28,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-5-1",
+          "label": "5.1",
+          "questionText": "The compounds in the table are diprotic carboxylic acids with the following Ka values at 25 °C: oxalic acid (M = 90,04) 5,6 × 10⁻²; malonic acid (M = 104,06) 9,1 × 10⁻³; succinic acid (M = 118,09) 6,2 × 10⁻⁵; tartaric acid (M = 150,09) 9,2 × 10⁻⁴.\n\nDefine a weak acid.",
+          "marks": 2,
+          "memoText": "A weak acid is an acid that ionises only partially in aqueous solution.",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-5-2",
+          "label": "5.2",
+          "questionText": "Which acid in the table is the weakest? Give a reason for your answer.",
+          "marks": 2,
+          "memoText": "Succinic acid — it has the lowest Ka value (6,2 × 10⁻⁵), so it ionises the least.",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-5-3-1",
+          "label": "5.3.1",
+          "questionText": "Oxalic acid is H₂C₂O₄. The HC₂O₄⁻ ion is amphiprotic. Define an amphiprotic substance.",
+          "marks": 2,
+          "memoText": "An amphiprotic substance is one that can act as either an acid (donate a proton) or a base (accept a proton).",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-5-3-2",
+          "label": "5.3.2",
+          "questionText": "Write the formula of the conjugate base of HC₂O₄⁻.",
+          "marks": 1,
+          "memoText": "C₂O₄²⁻ (the oxalate ion).",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-5-3-3",
+          "label": "5.3.3",
+          "questionText": "State whether potassium oxalate, K₂C₂O₄, is an acidic, basic or neutral salt. Write an appropriate reaction equation to support your answer.",
+          "marks": 3,
+          "memoText": "Basic. The oxalate ion (conjugate base of a weak acid) hydrolyses:\nC₂O₄²⁻ + H₂O ⇌ HC₂O₄⁻ + OH⁻\nproducing OH⁻ ions, so the solution is basic.",
+          "topic": "Acids and Bases",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-5-4-1",
+          "label": "5.4.1",
+          "questionText": "A sample of one of these acids (represented as H₂A) is identified by titration with a standard NaOH solution: H₂A + 2NaOH → Na₂A + 2H₂O. 1,0 g of the unknown acid was dissolved and made up to 200 cm³; 25,0 cm³ of it was titrated with 0,102 mol·dm⁻³ NaOH, using an average titre of 23,5 cm³.\n\nName the apparatus containing the NaOH solution.",
+          "marks": 1,
+          "memoText": "A burette.",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-5-4-2",
+          "label": "5.4.2",
+          "questionText": "Name the apparatus used to transfer exactly 25,0 cm³ of the acid solution into the conical flask.",
+          "marks": 1,
+          "memoText": "A pipette.",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-5-5",
+          "label": "5.5",
+          "questionText": "State what is meant by the terms: Equivalence point; End point.",
+          "marks": 2,
+          "memoText": "Equivalence point: the point at which the acid and base have reacted exactly in the mole ratio of the balanced equation, so neither reactant is in excess.\nEnd point: the point at which the indicator changes colour (used to signal that the equivalence point has been reached).",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-5-6",
+          "label": "5.6",
+          "questionText": "Calculate the molar concentration of the unknown acid solution. Write the answer correct to 4 decimal places.",
+          "marks": 4,
+          "memoText": "n(NaOH) = cV = 0,102 × 0,0235 = 2,397 × 10⁻³ mol\nn(H₂A) = n(NaOH) / 2 = 2,397 × 10⁻³ / 2 = 1,1985 × 10⁻³ mol\nc(H₂A) = n/V = 1,1985 × 10⁻³ / 0,0250 = 0,0479 mol·dm⁻³",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-5-7",
+          "label": "5.7",
+          "questionText": "Do a suitable calculation to identify the unknown acid from the table.",
+          "marks": 5,
+          "memoText": "n(H₂A) in the whole 200 cm³ = cV = 0,0479 × 0,200 = 9,58 × 10⁻³ mol.\nM = m/n = 1,0 / (9,58 × 10⁻³) = 104,4 g·mol⁻¹.\nThis matches the molar mass of malonic acid (104,06 g·mol⁻¹), so the unknown acid is malonic acid.",
+          "topic": "Acids and Bases (titration)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-5-8-1",
+          "label": "5.8.1",
+          "questionText": "Phenolphthalein (a weak acid, HIn) reacts with water: HIn(aq) + H₂O(l) ⇌ In⁻(aq) + H₃O⁺(aq), with HIn colourless and In⁻ pink. What colour change indicates the end point of this titration (NaOH added to the acid from the burette... note here the acid H₂A is in the burette and NaOH in the flask)?",
+          "marks": 1,
+          "memoText": "The colour changes from colourless to pink (as the last of the acid is neutralised and the solution becomes basic).",
+          "topic": "Acids and Bases (indicators)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-5-8-2",
+          "label": "5.8.2",
+          "questionText": "Apply Le Châtelier's principle to explain the colour change.",
+          "marks": 4,
+          "memoText": "At the end point there is an excess of OH⁻ in the flask. The OH⁻ reacts with H₃O⁺, decreasing [H₃O⁺]. By Le Châtelier's principle the indicator equilibrium (HIn + H₂O ⇌ In⁻ + H₃O⁺) shifts to the right to replace the H₃O⁺ removed. This produces more of the In⁻ ion, so the solution turns pink.",
+          "topic": "Acids and Bases (indicators)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Galvanic Cell (H₂O₂ and MnO₄⁻)",
+      "totalMarks": 22,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-6-1",
+          "label": "6.1",
+          "questionText": "A galvanic cell at standard conditions has half-cell P (a Pt electrode in H₂O₂(aq)/H⁺(aq)) and half-cell Q (a Pt electrode in MnO₄⁻(aq)/Mn²⁺(aq)/H⁺(aq)). Lizzie suggests that a manganese electrode could be used in half-cell Q. Explain why this would not be suitable.",
+          "marks": 1,
+          "memoText": "Manganese metal is not part of the half-reaction occurring in half-cell Q (which involves MnO₄⁻ being reduced to Mn²⁺). A manganese electrode would take part in a different half-reaction, so an inert electrode (Pt) must be used instead.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-6-2",
+          "label": "6.2",
+          "questionText": "Identify the cathode in this cell.",
+          "marks": 1,
+          "memoText": "The Pt electrode in half-cell Q (electrode B) — the positive electrode, where MnO₄⁻ is reduced.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-6-3",
+          "label": "6.3",
+          "questionText": "Write down the NAME of the oxidising agent.",
+          "marks": 1,
+          "memoText": "The permanganate ion (MnO₄⁻).",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-6-4-1",
+          "label": "6.4.1",
+          "questionText": "Write the equation for the oxidation half-reaction.",
+          "marks": 2,
+          "memoText": "H₂O₂ → O₂ + 2H⁺ + 2e⁻",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-6-4-2",
+          "label": "6.4.2",
+          "questionText": "Write the equation for the reduction half-reaction.",
+          "marks": 2,
+          "memoText": "MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-6-4-3",
+          "label": "6.4.3",
+          "questionText": "Write the equation for the net ionic cell reaction.",
+          "marks": 3,
+          "memoText": "5H₂O₂ + 2MnO₄⁻ + 6H⁺ → 5O₂ + 2Mn²⁺ + 8H₂O",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-6-5",
+          "label": "6.5",
+          "questionText": "Calculate E°cell, the reading on the voltmeter when the switch S is open. (E°(MnO₄⁻/Mn²⁺) = +1,51 V; E°(O₂/H₂O₂) = +0,68 V.)",
+          "marks": 4,
+          "memoText": "E°cell = E°cathode − E°anode = 1,51 − 0,68\nE°cell = 0,83 V",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-6-6",
+          "label": "6.6",
+          "questionText": "When switch S is closed, the reading on the voltmeter decreases. State TWO ways to minimise this decrease in the reading.",
+          "marks": 2,
+          "memoText": "Any two of: use a shorter salt bridge; use a wider salt bridge; use a more conductive salt bridge (more concentrated / more soluble salt); use electrodes with a larger surface area.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-6-7",
+          "label": "6.7",
+          "questionText": "In a different cell where half-cell Q is the cathode, Zack writes its right-hand side of the cell notation as: Pt(s) | MnO₄⁻(aq) | 8H⁺(aq) | Mn²⁺(aq). Standard conditions were not required. Identify THREE different errors that Zack made in the format of the cell notation.",
+          "marks": 3,
+          "memoText": "1. He put Pt first (on the inside) instead of last — the inert electrode should be written on the outside of that half-cell.\n2. He used phase separators ( | ) instead of commas ( , ) between the aqueous species in the same solution.\n3. He included the balancing number 8 (in '8H⁺') — balancing coefficients are not written in cell notation.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-6-8",
+          "label": "6.8",
+          "questionText": "The electrolyte solutions in both half-cells need to be acidified. Give a reason why H₂SO₄ and not HCl should be used in half-cell Q. Use the table of standard electrode potentials to assist you.",
+          "marks": 3,
+          "memoText": "The permanganate ion (MnO₄⁻, E° = +1,51 V) is a stronger oxidising agent than Cl₂ (E° = +1,36 V), so MnO₄⁻ would oxidise the Cl⁻ ions from HCl to chlorine gas, interfering with the cell reaction. The SO₄²⁻ ion from H₂SO₄ is not oxidised by MnO₄⁻, so H₂SO₄ is used instead.",
+          "topic": "Electrochemistry (galvanic cells)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Electrolysis of Magnesium Chloride",
+      "totalMarks": 24,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-7-1",
+          "label": "7.1",
+          "questionText": "Two cells are shown, each with a power source and graphite electrodes: Cell X electrolyses saturated MgCl₂(aq) at 25 °C (electrodes P and Q); Cell Y electrolyses dilute (1 mol·dm⁻³) MgCl₂(aq) at 25 °C (electrodes R and S).\n\nWhat type of electrochemical cell is represented by X and Y?",
+          "marks": 1,
+          "memoText": "Electrolytic cells.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-7-2",
+          "label": "7.2",
+          "questionText": "Circle the correct word: In this type of cell, reduction takes place at the (POSITIVE / NEGATIVE) electrode.",
+          "marks": 1,
+          "memoText": "Negative (the cathode of an electrolytic cell is connected to the negative terminal of the power source).",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-7-3",
+          "label": "7.3",
+          "questionText": "The substances that form preferentially at electrodes Q and S (the cathodes) are the same. Identify these products. Use the table of standard electrode potentials.",
+          "marks": 2,
+          "memoText": "Hydrogen gas (H₂) and hydroxide ions (OH⁻): 2H₂O + 2e⁻ → H₂ + 2OH⁻. Water is reduced in preference to Mg²⁺ at both cathodes (water is a stronger oxidising agent than Mg²⁺).",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-7-4",
+          "label": "7.4",
+          "questionText": "The solubility of MgCl₂·6H₂O in water at 25 °C is 55 g per 100 cm³ of solution. Calculate the molar concentration of the chloride ions in the saturated solution in cell X. (M(MgCl₂·6H₂O) = 203,3 g·mol⁻¹.)",
+          "marks": 5,
+          "memoText": "n(MgCl₂·6H₂O) = m/M = 55 / 203,3 = 0,271 mol (in 100 cm³).\nc(MgCl₂) = n/V = 0,271 / 0,100 = 2,71 mol·dm⁻³.\nEach MgCl₂ gives 2 Cl⁻, so [Cl⁻] = 2 × 2,71 = 5,42 mol·dm⁻³.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-7-5",
+          "label": "7.5",
+          "questionText": "The substances that form preferentially at electrodes P and R (the anodes) are different. Identify these substances. Use the table of standard electrode potentials.",
+          "marks": 3,
+          "memoText": "Electrode P (anode in saturated MgCl₂, cell X): chlorine gas, Cl₂ (2Cl⁻ → Cl₂ + 2e⁻).\nElectrode R (anode in dilute MgCl₂, cell Y): oxygen gas and H⁺, O₂ + 4H⁺ (2H₂O → O₂ + 4H⁺ + 4e⁻).",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-7-6",
+          "label": "7.6",
+          "questionText": "Refer to the cell conditions to explain why different products form at electrodes P and R.",
+          "marks": 6,
+          "memoText": "In the dilute solution (cell Y, electrode R), the Cl⁻ concentration is low. Water is a stronger reducing agent than Cl⁻ under standard conditions, so water is oxidised in preference to Cl⁻ and O₂ forms at R.\nIn the saturated solution (cell X, electrode P), the Cl⁻ concentration is very high. This greatly increases the rate of oxidation of Cl⁻ (kinetic effect / high concentration), so Cl⁻ is oxidised in preference to water and Cl₂ gas forms at P.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-7-7-1",
+          "label": "7.7.1",
+          "questionText": "Cell Z electrolyses molten MgCl₂(l) at 750 °C with graphite electrodes T and U. Define electrolyte.",
+          "marks": 2,
+          "memoText": "An electrolyte is a substance that conducts electricity due to the presence of free (mobile) ions when it is molten or dissolved in solution.",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-7-7-2",
+          "label": "7.7.2",
+          "questionText": "Explain briefly why a much higher temperature is needed for Cell Z.",
+          "marks": 2,
+          "memoText": "MgCl₂ is an ionic compound with a high melting point. It must be heated to a high temperature (about 750 °C) to melt it, because only when it is molten are its ions free to move and carry charge (there is no water present to dissolve it).",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-7-7-3",
+          "label": "7.7.3",
+          "questionText": "Identify the chemical substances that form at electrode T and electrode U in Cell Z (molten MgCl₂).",
+          "marks": 2,
+          "memoText": "Electrode T (anode): chlorine gas, Cl₂ (2Cl⁻ → Cl₂ + 2e⁻).\nElectrode U (cathode): magnesium metal, Mg (Mg²⁺ + 2e⁻ → Mg). (No water is present, so Mg²⁺ itself is reduced.)",
+          "topic": "Electrochemistry (electrolysis)",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Organic Synthesis (Banana Essence Flowchart)",
+      "totalMarks": 39,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-1",
+          "label": "8.1",
+          "questionText": "A reaction sequence shows how the banana-flavoured essence (Compound D) is formed. Reaction types are P, Q, R and S; organic compounds are A, B, C and D. Compound A is a straight-chain alkane with four carbon atoms. Give the molecular formula of Compound A.",
+          "marks": 2,
+          "memoText": "C₄H₁₀ (butane).",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-2-1",
+          "label": "8.2.1",
+          "questionText": "Give the IUPAC name of compound B (the haloalkane formed from butane by reaction Q, a substitution with chlorine, with the chlorine on the end carbon).",
+          "marks": 3,
+          "memoText": "1-chlorobutane.",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-2-2",
+          "label": "8.2.2",
+          "questionText": "Give the IUPAC name of compound C (the alcohol formed by reaction R, the hydration of ethene).",
+          "marks": 2,
+          "memoText": "Ethanol.",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-2-3",
+          "label": "8.2.3",
+          "questionText": "Give the IUPAC name of compound D (the ester banana essence).",
+          "marks": 2,
+          "memoText": "Butyl ethanoate.",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-3",
+          "label": "8.3",
+          "questionText": "Define homologous series.",
+          "marks": 3,
+          "memoText": "A homologous series is a series of similar compounds that have the same functional group and the same general formula, in which each member differs from the previous one by a –CH₂– unit.",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-4-1",
+          "label": "8.4.1",
+          "questionText": "State the homologous series to which Compound C belongs.",
+          "marks": 1,
+          "memoText": "Alcohols.",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-4-2",
+          "label": "8.4.2",
+          "questionText": "State the homologous series to which Compound D belongs.",
+          "marks": 1,
+          "memoText": "Esters.",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-5",
+          "label": "8.5",
+          "questionText": "Draw the structural formula of Compound D (butyl ethanoate).",
+          "marks": 2,
+          "memoText": "CH₃–C(=O)–O–CH₂–CH₂–CH₂–CH₃ with all hydrogen atoms shown: a 2-carbon ethanoate acyl group joined through the ester oxygen to a 4-carbon butyl chain.",
+          "topic": "Organic Chemistry (esters)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-6",
+          "label": "8.6",
+          "questionText": "Give the IUPAC name of an unsaturated hydrocarbon in the flowchart.",
+          "marks": 2,
+          "memoText": "Ethene.",
+          "topic": "Organic Chemistry",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-7-1",
+          "label": "8.7.1",
+          "questionText": "Give the GENERAL reaction type for reaction P.",
+          "marks": 1,
+          "memoText": "Elimination.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-7-2",
+          "label": "8.7.2",
+          "questionText": "Give the GENERAL reaction type for reaction Q.",
+          "marks": 1,
+          "memoText": "Substitution.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-8-1",
+          "label": "8.8.1",
+          "questionText": "Give the SPECIFIC reaction type for reaction R.",
+          "marks": 1,
+          "memoText": "Hydration.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-8-2",
+          "label": "8.8.2",
+          "questionText": "Give the SPECIFIC reaction type for reaction S.",
+          "marks": 1,
+          "memoText": "Hydrolysis.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-9-1",
+          "label": "8.9.1",
+          "questionText": "Compound B (1-chlorobutane) can react with KOH under two conditions: I — hot concentrated KOH in ethanol solvent; II — heat under reflux with dilute aqueous KOH. Which condition applies to reaction S? Circle: I OR II.",
+          "marks": 1,
+          "memoText": "Condition II (dilute aqueous KOH under reflux — this gives the substitution/hydrolysis to the alcohol).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-9-2-a",
+          "label": "8.9.2 (a)",
+          "questionText": "Consider the reaction condition NOT chosen in 8.9.1 (condition I: hot concentrated KOH in ethanol). State the SPECIFIC type of reaction that will take place when Compound B reacts with KOH under these conditions.",
+          "marks": 1,
+          "memoText": "Dehydrohalogenation (elimination of HX / a haloalkane elimination).",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-9-2-b",
+          "label": "8.9.2 (b)",
+          "questionText": "Give the IUPAC name of the organic product formed in the reaction in (a).",
+          "marks": 2,
+          "memoText": "But-1-ene.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-9-3",
+          "label": "8.9.3",
+          "questionText": "Organic reaction mixtures often need to be heated for a long time. Give a reason why this heating needs to take place 'under reflux'.",
+          "marks": 1,
+          "memoText": "To prevent the volatile (low-boiling-point) reactants and products from escaping / evaporating away — the vapours are condensed and returned to the reaction flask.",
+          "topic": "Organic Chemistry (techniques)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-10-1",
+          "label": "8.10.1",
+          "questionText": "Concentrated H₂SO₄ is used in the final step to form compound D. State the consequence of NOT using H₂SO₄ in this step.",
+          "marks": 1,
+          "memoText": "The reaction (esterification) would be very slow (the H₂SO₄ acts as a catalyst).",
+          "topic": "Organic Chemistry (esters)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-10-2",
+          "label": "8.10.2",
+          "questionText": "Which one of reactions P, Q, R or S could be reversed if the products were treated with hot concentrated H₂SO₄?",
+          "marks": 2,
+          "memoText": "Reaction R (the hydration of ethene to ethanol) — hot concentrated H₂SO₄ would dehydrate the ethanol back to ethene.",
+          "topic": "Organic Chemistry (reactions)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-11-1",
+          "label": "8.11.1",
+          "questionText": "Consider the organic product of reaction S, the compound CH₃(CH₂)₃OH (butan-1-ol). Draw the structural formula of a CHAIN isomer of this compound.",
+          "marks": 2,
+          "memoText": "2-methylpropan-1-ol: (CH₃)₂CH–CH₂–OH, with all hydrogen atoms shown (a 3-carbon chain with a methyl branch on C2 and the –OH on C1).",
+          "topic": "Organic Chemistry (isomers)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-11-2",
+          "label": "8.11.2",
+          "questionText": "Give the IUPAC name of a POSITIONAL isomer of CH₃(CH₂)₃OH (butan-1-ol).",
+          "marks": 2,
+          "memoText": "Butan-2-ol.",
+          "topic": "Organic Chemistry (isomers)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-12",
+          "label": "8.12",
+          "questionText": "One isomer of C₈H₁₈ has a one-carbon side chain and a two-carbon side chain attached to the same carbon atom of the main chain. Give the IUPAC name of this isomer.",
+          "marks": 3,
+          "memoText": "3-ethyl-3-methylpentane. (A 5-carbon main chain with a methyl and an ethyl group both on carbon 3: total carbons = 5 + 1 + 2 = 8.)",
+          "topic": "Organic Chemistry (nomenclature)",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p2-nov-2024-8-13",
+          "label": "8.13",
+          "questionText": "Which one of the following compounds will have the highest boiling point? Circle the correct answer: octane OR oct-1-ene OR the isomer in Question 8.12 (3-ethyl-3-methylpentane).",
+          "marks": 2,
+          "memoText": "Octane. It has the longest unbranched carbon chain, giving the largest contact surface area between molecules and therefore the strongest London forces, so it has the highest boiling point.",
+          "topic": "Organic Chemistry (physical properties)",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}
