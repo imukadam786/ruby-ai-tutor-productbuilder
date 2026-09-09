@@ -343,10 +343,24 @@ const SUBJECTS = [
 ] as const;
 
 type SubjectId = (typeof SUBJECTS)[number]["id"];
+type SubjectCard = (typeof SUBJECTS)[number];
+
+// IEB paper sets sit alongside the DBE/CAPS ones with the same thumbnail, so
+// they read as duplicates to a CAPS student who has no use for them. They're
+// only shown when the user picked "IEB" as their curriculum during onboarding.
+const isIebSubject = (id: string) => id.endsWith("-ieb");
 
 // ── Subject Select ─────────────────────────────────────────────────────────────
 
-function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: SubjectId) => void; onBack: () => void }) {
+function SubjectSelect({
+  subjects,
+  onSelect,
+  onBack,
+}: {
+  subjects: readonly SubjectCard[];
+  onSelect: (subjectId: SubjectId) => void;
+  onBack: () => void;
+}) {
   return (
     <div className="h-full bg-[#F4F4F5] relative">
       <EduBackground />
@@ -372,19 +386,24 @@ function SubjectSelect({ onSelect, onBack }: { onSelect: (subjectId: SubjectId) 
         <div className="space-y-3">
           <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a subject</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {SUBJECTS.map((subject) => (
+            {subjects.map((subject) => (
               <button
                 key={subject.id}
                 onClick={() => onSelect(subject.id as SubjectId)}
-                className="relative rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
+                className="relative h-full flex flex-col rounded-2xl text-left transition-all group overflow-hidden bg-white border-2 border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-gray-300"
               >
-                <div className="w-full aspect-square overflow-hidden">
+                <div className="w-full aspect-square overflow-hidden flex-shrink-0">
                   <img
                     src={subject.thumbnail}
                     alt={subject.name}
                     className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${CONTAIN_THUMBNAILS.has(subject.thumbnail) ? "object-contain p-3" : "object-cover"}`}
                   />
                 </div>
+                {/* Name caption — thumbnails alone can't tell apart subjects
+                    that share an image (CAT vs IT, DBE vs IEB sets). */}
+                <span className="flex-1 flex items-center px-2.5 py-2 text-xs font-bold text-gray-700 leading-tight border-t border-gray-100">
+                  {subject.name}
+                </span>
               </button>
             ))}
           </div>
@@ -1448,6 +1467,7 @@ function SessionView({
       calcAnswer: "",
       col2Working: "",
       matchAnswers: {},
+      selectedOption: undefined,
       imageFile: undefined,
       imagePreviewUrl: undefined,
       imageData: undefined,
@@ -1525,6 +1545,29 @@ function SessionView({
   const goTo = (idx: number) => {
     if (idx >= 0 && idx < totalQuestions) setCurrentIdx(idx);
   };
+
+  // Shown once a guided-mode question is marked. Lives on both panels: the
+  // question panel (desktop) and the feedback panel (mobile, where the app
+  // auto-switches to feedback after marking and the question panel is hidden).
+  const submittedActionRow = (
+    <div className="flex gap-2 flex-shrink-0">
+      <button
+        onClick={handleRetry}
+        className="flex-1 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
+      >
+        Try again
+      </button>
+      <Button
+        variant="primary"
+        size="md"
+        className="flex-1"
+        onClick={() => goTo(currentIdx + 1)}
+        disabled={currentIdx === totalQuestions - 1}
+      >
+        Next question →
+      </Button>
+    </div>
+  );
 
   if (isSubmittingPaper) {
     return (
@@ -2455,25 +2498,7 @@ function SessionView({
               {/* Action buttons */}
               {mode === "guided" ? (
                 currentAttempt.submitted ? (
-                  <div className="flex gap-2 flex-shrink-0">
-                    {currentSQ.type !== "mcq" && currentSQ.type !== "match-group" && (
-                      <button
-                        onClick={handleRetry}
-                        className="flex-1 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
-                      >
-                        Try again
-                      </button>
-                    )}
-                    <Button
-                      variant="primary"
-                      size="md"
-                      className="flex-1"
-                      onClick={() => goTo(currentIdx + 1)}
-                      disabled={currentIdx === totalQuestions - 1}
-                    >
-                      Next question →
-                    </Button>
-                  </div>
+                  submittedActionRow
                 ) : (
                   <div className="flex gap-2 flex-shrink-0">
                     <button
@@ -2661,6 +2686,15 @@ function SessionView({
                 <div ref={coachEndRef} />
             </>
           </div>
+
+          {/* Mobile: after marking, the app shows this feedback tab and hides the
+              question panel — so carry Next / Try again here too. Desktop keeps
+              its copy on the question panel. */}
+          {currentAttempt.submitted && !isEvaluating && (
+            <div className="sm:hidden flex-shrink-0 border-t border-gray-100 px-4 py-3">
+              {submittedActionRow}
+            </div>
+          )}
         </div>}
       </div>
     </div>
@@ -2940,7 +2974,31 @@ export default function MatricPastPapers({
   const [language, setLanguage] = useState("English");
   const [finalAttempts, setFinalAttempts] = useState<Record<string, QuestionState> | null>(null);
 
+  // IEB paper sets are only for students who picked "IEB" as their curriculum
+  // during onboarding. Everyone else (CAPS, blank, signed-out) sees the DBE set
+  // only, so the IEB entries don't look like duplicate subjects. IEB students
+  // keep the DBE set too — some still practise with those papers.
+  const [isIeb, setIsIeb] = useState(false);
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return;
+        const { data } = await supabase
+          .from("users")
+          .select("curriculum")
+          .eq("id", user.id)
+          .maybeSingle();
+        if (data?.curriculum === "IEB") setIsIeb(true);
+      } catch { /* default to non-IEB */ }
+    })();
+  }, []);
+
+  const visibleSubjects = isIeb ? SUBJECTS : SUBJECTS.filter((s) => !isIebSubject(s.id));
+
   const handleSubjectSelect = (subjectId: SubjectId) => {
+    // Guard against a stale deep link into an IEB subject the user can't see.
+    if (isIebSubject(subjectId) && !isIeb) return;
     setSelectedSubject(subjectId);
     setPhase("papers");
   };
@@ -2991,7 +3049,7 @@ export default function MatricPastPapers({
   };
 
   if (phase === "subjects") {
-    return <SubjectSelect onSelect={handleSubjectSelect} onBack={onBack ?? (() => {})} />;
+    return <SubjectSelect subjects={visibleSubjects} onSelect={handleSubjectSelect} onBack={onBack ?? (() => {})} />;
   }
 
   if (phase === "papers" && selectedSubject) {

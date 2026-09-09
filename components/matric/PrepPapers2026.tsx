@@ -783,6 +783,18 @@ function SessionView({
 
   const goTo = (idx: number) => { if (idx >= 0 && idx < totalQuestions) setCurrentIdx(idx); };
 
+  // Shown once a guided-mode question is marked. Lives on both panels: the
+  // question panel (desktop) and the feedback panel (mobile, where the app
+  // auto-switches to feedback after marking and the question panel is hidden).
+  const submittedActionRow = (
+    <div className="flex gap-2 flex-shrink-0">
+      <button onClick={handleRetry} className="flex-1 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">Try again</button>
+      <Button variant="primary" size="md" className="flex-1" onClick={() => goTo(currentIdx + 1)} disabled={currentIdx === totalQuestions - 1}>
+        Next question →
+      </Button>
+    </div>
+  );
+
   if (isSubmittingPaper) {
     return (
       <div className="h-full flex flex-col items-center justify-center bg-[#F4F4F5] gap-6 px-6 text-center">
@@ -1077,14 +1089,7 @@ function SessionView({
 
               {mode === "guided" ? (
                 currentAttempt.submitted ? (
-                  <div className="flex gap-2 flex-shrink-0">
-                    {currentSQ.type !== "mcq" && (
-                      <button onClick={handleRetry} className="flex-1 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">Try again</button>
-                    )}
-                    <Button variant="primary" size="md" className="flex-1" onClick={() => goTo(currentIdx + 1)} disabled={currentIdx === totalQuestions - 1}>
-                      Next question →
-                    </Button>
-                  </div>
+                  submittedActionRow
                 ) : (
                   <Button
                     variant="primary"
@@ -1161,6 +1166,14 @@ function SessionView({
               )}
               <div ref={coachEndRef} />
             </div>
+
+            {/* Mobile: after marking, the app shows this feedback tab and hides
+                the question panel — so carry Next / Try again here too. */}
+            {currentAttempt.submitted && !isEvaluating && (
+              <div className="sm:hidden flex-shrink-0 border-t border-gray-100 px-4 py-3">
+                {submittedActionRow}
+              </div>
+            )}
           </div>
         )}
       </div>
