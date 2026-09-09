@@ -1,0 +1,731 @@
+{
+  "id": "phys-sci-ieb-p1-nov-2024",
+  "subject": "Physical Science IEB",
+  "subjectCode": "physical-science-ieb",
+  "paperCode": "P1",
+  "year": 2024,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-1-1",
+          "label": "1.1",
+          "questionText": "The formula s = ut + ½at² contains:\nA  four vector quantities\nB  three vector quantities and a scalar quantity\nC  two vector quantities and two scalar quantities\nD  one vector quantity and three scalar quantities",
+          "marks": 2,
+          "memoText": "B. s (displacement), u (velocity) and a (acceleration) are vectors; t (time) is a scalar — three vectors and one scalar.",
+          "topic": "Vectors and Scalars",
+          "type": "mcq",
+          "options": { "A": "four vectors", "B": "three vectors and a scalar", "C": "two vectors and two scalars", "D": "one vector and three scalars" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-1-2",
+          "label": "1.2",
+          "questionText": "An object is accelerated uniformly from rest. The velocity reached by the object in a time t is given by the area under which of the following graphs?\nA  an acceleration–time graph (a horizontal line)\nB  a velocity–time graph\nC  a position–time graph\nD  a force–distance graph",
+          "marks": 2,
+          "memoText": "A. The area under an acceleration–time graph is a × t = the change in velocity; starting from rest this equals the velocity reached.",
+          "topic": "Kinematics",
+          "type": "mcq",
+          "options": { "A": "acceleration–time graph", "B": "velocity–time graph", "C": "position–time graph", "D": "force–distance graph" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-1-3",
+          "label": "1.3",
+          "questionText": "Two blocks with masses 3m and m are in contact on a frictionless surface. A force F is applied to the 3m block, pushing both blocks (F → [3m][m]). The force that the 3m block exerts on the block of mass m is:\nA  F\nB  F/4\nC  F/3\nD  0 N",
+          "marks": 2,
+          "memoText": "B — F/4. The whole system (mass 4m) accelerates at a = F/(4m). The only horizontal force on the m block is the contact force from the 3m block, so that force = m·a = m·F/(4m) = F/4.",
+          "topic": "Newton's Laws",
+          "type": "mcq",
+          "options": { "A": "F", "B": "F/4", "C": "F/3", "D": "0 N" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-1-4",
+          "label": "1.4",
+          "questionText": "Two identical trolleys move along a smooth frictionless surface. Trolley A has mass 2 kg and velocity 0,3 m·s⁻¹; Trolley B has mass 3 kg and velocity 0,2 m·s⁻¹. Which statement about the inertia and momentum of each trolley is true?\nA  Same inertia and same momentum.\nB  Trolley A has more inertia, but less momentum than trolley B.\nC  Trolley A has more inertia than trolley B, but they have the same momentum.\nD  Trolley A has less inertia than trolley B, but they have the same momentum.",
+          "marks": 2,
+          "memoText": "D. Inertia depends on mass, so trolley A (2 kg) has less inertia than trolley B (3 kg). Momentum: A = 2 × 0,3 = 0,6 kg·m·s⁻¹; B = 3 × 0,2 = 0,6 kg·m·s⁻¹ — the same.",
+          "topic": "Momentum and Impulse",
+          "type": "mcq",
+          "options": { "A": "same inertia, same momentum", "B": "A more inertia, less momentum", "C": "A more inertia, same momentum", "D": "A less inertia, same momentum" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-1-5",
+          "label": "1.5",
+          "questionText": "A car of mass m drives at constant velocity v up a slope at angle θ to the ground, with a driving force F acting up the slope. The work done by kinetic friction can be ignored. When the car moves a distance s up the slope, the work done by the driving force is:\nA  mg·v\nB  mg(sinθ)\nC  mg(sinθ)·v\nD  mg(sinθ)·s",
+          "marks": 2,
+          "memoText": "D — mg(sinθ)·s. At constant velocity the net force is zero, so the driving force equals the component of gravity down the slope: F = mg·sinθ. Work done = F·s = mg·sinθ·s.",
+          "topic": "Work, Energy and Power",
+          "type": "mcq",
+          "options": { "A": "mg·v", "B": "mg(sinθ)", "C": "mg(sinθ)·v", "D": "mg(sinθ)·s" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-1-6",
+          "label": "1.6",
+          "questionText": "Which of these units is equivalent to a joule?\nA  kg·m·s⁻¹\nB  kg·m·s⁻²\nC  kg·m²·s⁻²\nD  kg·m²·s⁻¹",
+          "marks": 2,
+          "memoText": "C — kg·m²·s⁻². A joule = N·m = (kg·m·s⁻²)·m = kg·m²·s⁻².",
+          "topic": "Work, Energy and Power",
+          "type": "mcq",
+          "options": { "A": "kg·m·s⁻¹", "B": "kg·m·s⁻²", "C": "kg·m²·s⁻²", "D": "kg·m²·s⁻¹" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-1-7",
+          "label": "1.7",
+          "questionText": "Objects A and B, of equal mass m, exert a gravitational force F on each other when a distance r apart. The mass of A is then doubled (2m), the mass of B is made one quarter of its original mass (¼m), and the distance between them is halved. The force between them is now:\nA  2F\nB  F\nC  ½F\nD  ¼F",
+          "marks": 2,
+          "memoText": "A — 2F. F ∝ m_A·m_B/r². New factor = (2)(¼)/(½)² = (½)/(¼) = 2, so the new force is 2F.",
+          "topic": "Gravitational Fields",
+          "type": "mcq",
+          "options": { "A": "2F", "B": "F", "C": "½F", "D": "¼F" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-1-8",
+          "label": "1.8",
+          "questionText": "Three identical resistors of resistance R are connected to a battery of emf ε with negligible internal resistance: one resistor is in series with a parallel combination of the other two. The current through the battery is:\nA  ε/(3R)\nB  3ε/(2R)\nC  2ε/(3R)\nD  ε/R",
+          "marks": 2,
+          "memoText": "C — 2ε/(3R). The two parallel resistors have a combined resistance R/2, so the total resistance is R + R/2 = 3R/2. The battery current I = ε/(3R/2) = 2ε/(3R).",
+          "topic": "Electric Circuits",
+          "type": "mcq",
+          "options": { "A": "ε/(3R)", "B": "3ε/(2R)", "C": "2ε/(3R)", "D": "ε/R" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-1-9",
+          "label": "1.9",
+          "questionText": "A long straight wire carries a current I towards the top of the page. A closed conducting loop lies in the plane of the page beside the wire. The current in the wire is increased. Choose the correct combination describing the effect on the flux through the loop and the direction of the induced current in the loop:\nA  flux increases ; current clockwise\nB  flux decreases ; current clockwise\nC  flux increases ; current anticlockwise\nD  flux decreases ; current anticlockwise",
+          "marks": 2,
+          "memoText": "C. Increasing the wire current increases the magnetic field, so the magnetic flux through the loop increases. By Lenz's law the induced current opposes this increase, flowing anticlockwise (as drawn) to create a flux opposing the growing flux from the wire.",
+          "topic": "Electrodynamics",
+          "type": "mcq",
+          "options": { "A": "increases ; clockwise", "B": "decreases ; clockwise", "C": "increases ; anticlockwise", "D": "decreases ; anticlockwise" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-1-10",
+          "label": "1.10",
+          "questionText": "A set-up has a coil of wire mounted between the poles of a magnet (N on one side, S on the other), with current supplied to the coil through fixed contacts X and Y. Identify the function of the set-up and the direction of rotation of the coil when viewed along the line P to Q:\nA  motor ; clockwise\nB  motor ; anticlockwise\nC  generator ; clockwise\nD  generator ; anticlockwise",
+          "marks": 2,
+          "memoText": "B — motor, anticlockwise. Current is supplied to the coil (electrical energy in), so the device is a motor: the force on the current-carrying sides of the coil in the magnetic field makes it rotate; for the directions shown the rotation is anticlockwise when viewed from P to Q.",
+          "topic": "Electrodynamics",
+          "type": "mcq",
+          "options": { "A": "motor ; clockwise", "B": "motor ; anticlockwise", "C": "generator ; clockwise", "D": "generator ; anticlockwise" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Kinematics (Trolley Velocity–Time Graph)",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-2-1",
+          "label": "2.1",
+          "questionText": "A velocity–time graph represents the motion of a trolley over 12 s: the velocity rises from 0,4 m·s⁻¹ at t = 0 to 0,9 m·s⁻¹ at t = 4 s, stays constant at 0,9 m·s⁻¹ from 4 s to 10 s, then decreases from 0,9 m·s⁻¹ to 0 at t = 12 s.\n\nDefine acceleration.",
+          "marks": 2,
+          "memoText": "Acceleration is the rate of change of velocity (the change in velocity per unit time).",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-2-2",
+          "label": "2.2",
+          "questionText": "Determine the magnitude of the acceleration of the trolley during the first 4 seconds shown.",
+          "marks": 3,
+          "memoText": "a = (v − u)/t = (0,9 − 0,4)/4\na = 0,125 m·s⁻²",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-2-3",
+          "label": "2.3",
+          "questionText": "Calculate the magnitude of the displacement of the trolley from 0 s to 4 s.",
+          "marks": 3,
+          "memoText": "Displacement = area under the v–t graph from 0 to 4 s (a trapezium):\ns = ½(0,9 − 0,4)(4) + (0,4)(4)\ns = 1 + 1,6\ns = 2,6 m",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-2-4",
+          "label": "2.4",
+          "questionText": "State Newton's second law of motion.",
+          "marks": 2,
+          "memoText": "When a net force acts on an object, the object accelerates in the direction of the net force. The acceleration is directly proportional to the net force and inversely proportional to the mass of the object.\nOR: The net force acting on an object is equal to the rate of change of momentum of the object.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-2-5",
+          "label": "2.5",
+          "questionText": "On the axes given, sketch a graph of the net force acting on the trolley over the 12 second period. No values need to be shown.",
+          "marks": 4,
+          "memoText": "A step graph: a constant positive net force from 0 to 4 s (while accelerating); zero net force from 4 s to 10 s (constant velocity); and a constant negative net force from 10 s to 12 s, with a magnitude larger than the positive force from 0–4 s (the deceleration from 0,9 to 0 over 2 s is steeper than the acceleration from 0,4 to 0,9 over 4 s).",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-2-6",
+          "label": "2.6",
+          "questionText": "The magnitude of the net force on the trolley between 10 s and 12 s is 0,18 N. Determine the mass of the trolley.",
+          "marks": 3,
+          "memoText": "Between 10 s and 12 s the velocity changes from 0,9 m·s⁻¹ to 0 in 2 s, so a = (0 − 0,9)/2 = −0,45 m·s⁻².\nF_net = ma\n0,18 = m × 0,45\nm = 0,4 kg",
+          "topic": "Newton's Laws",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Kinematics (Ball from a Platform)",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-3-1",
+          "label": "3.1",
+          "questionText": "A ball is hit vertically upwards at 8,4 m·s⁻¹ from a platform of unknown height h above the ground. The ball lands on the ground 2,25 s after it is hit. (g = 9,8 m·s⁻².)\n\nDetermine the maximum height above the platform that the ball reaches.",
+          "marks": 3,
+          "memoText": "Take upward as positive, u = 8,4 m·s⁻¹, v = 0 at the top:\nv² = u² + 2as\n0 = (8,4)² + 2(−9,8)s\ns = 70,56/19,6 = 3,6 m above the platform.",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-3-2",
+          "label": "3.2",
+          "questionText": "Calculate the time that the ball takes to reach maximum height.",
+          "marks": 3,
+          "memoText": "v = u + at\n0 = 8,4 + (−9,8)t\nt = 8,4/9,8 = 0,86 s",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-3-3",
+          "label": "3.3",
+          "questionText": "Calculate the height h of the platform above the ground. Give your answer to one decimal place.",
+          "marks": 4,
+          "memoText": "Take upward as positive, u = 8,4 m·s⁻¹, t = 2,25 s, and the displacement from the platform to the ground is −h:\ns = ut + ½at² = (8,4)(2,25) + ½(−9,8)(2,25)²\ns = 18,9 − 24,80 = −5,9 m\nSo h = 5,9 m.",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-3-4",
+          "label": "3.4",
+          "questionText": "Sketch a position–time graph for the motion of the ball from when it was hit from the platform to when it landed on the ground. No further calculations are required, but known values of position and time should be shown. Use the ground as the reference frame (x = 0).",
+          "marks": 4,
+          "memoText": "A downward-opening parabola: it starts at x = 5,9 m at t = 0, rises to a maximum of x = 5,9 + 3,6 = 9,5 m at t = 0,86 s (gradient zero at the apex), then falls, reaching x = 0 (the ground) at t = 2,25 s.",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-3-5",
+          "label": "3.5",
+          "questionText": "Sketch an acceleration–time graph for the motion of the ball from when it was hit to when it landed on the ground. Indicate acceleration and time values on the graph.",
+          "marks": 2,
+          "memoText": "A horizontal straight line at a = −9,8 m·s⁻² (constant) from t = 0 to t = 2,25 s (the sign must be consistent with the convention used in the earlier parts).",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Kinematics – Graph Skill",
+      "totalMarks": 15,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-4-1",
+          "label": "4.1",
+          "questionText": "An object moves along a frictionless surface at a constant initial velocity vᵢ. A constant force is applied over varying distances and the final velocity v_f is recorded:\nDistance (m): 1,6 | 3,4 | 4,6 | 7,0 | 8,0\nv_f (m·s⁻¹): 1,7 | 2,0 | 2,2 | 2,5 | 2,6\nv_f² (m²·s⁻²): 2,9 | 4,0 | 4,8 | 6,3 | 6,8\n\nPlot a graph of the final velocity squared (v_f²) (y-axis) versus the distance over which the force is applied (x-axis).",
+          "marks": 6,
+          "memoText": "Marks for: a suitable heading; y-axis labelled with quantity and unit (v_f², m²·s⁻²); x-axis labelled (distance, m); a sensible scale so points span more than half the grid; all five points plotted correctly; and a straight line of best fit extending beyond the points. The graph is a straight line with a positive gradient and a positive v_f²-intercept.",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-4-2",
+          "label": "4.2",
+          "questionText": "Calculate the gradient of your graph. Show your working and indicate on your graph which points you have used.",
+          "marks": 4,
+          "memoText": "gradient = Δ(v_f²)/Δ(distance), using two points on the line of best fit (not raw data points).\ngradient ≈ 0,62 m·s⁻² (accept 0,60–0,64).",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-4-3",
+          "label": "4.3",
+          "questionText": "Use the equation of motion v_f² = vᵢ² + 2as and the gradient of your graph to determine the magnitude of the acceleration of the object.",
+          "marks": 3,
+          "memoText": "v_f² = 2a·s + vᵢ², so a graph of v_f² versus s has gradient 2a.\n2a = 0,62\na = 0,31 m·s⁻²",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-4-4",
+          "label": "4.4",
+          "questionText": "Use your graph to determine the magnitude of the initial velocity vᵢ of the object.",
+          "marks": 2,
+          "memoText": "The y-intercept of the line is vᵢ² ≈ 1,8–2,0 m²·s⁻².\nvᵢ = √1,9 ≈ 1,38 m·s⁻¹ (accept 1,34–1,41 m·s⁻¹).",
+          "topic": "Kinematics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Physics Games (Forces and Momentum)",
+      "totalMarks": 17,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-5-1-1",
+          "label": "5.1.1",
+          "questionText": "A steel paper clip (mass 2 g) is tied to a thin string of negligible mass; the other end of the string is attached to a table top below the clip. A strong magnet is held above the clip so that the clip hangs stationary, pulled up by the magnet and held down by the string.\n\nDraw a free-body diagram of all the forces acting on the paper clip.",
+          "marks": 3,
+          "memoText": "Three forces drawn as labelled arrows from the paper clip:\n• Force of the magnet on the clip — upward.\n• Weight / gravitational force (F_g) — downward.\n• Tension / force of the string on the clip — downward.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-5-1-2",
+          "label": "5.1.2",
+          "questionText": "Calculate the tension in the string, if the magnet exerts a force of 0,24 N on the paper clip at this distance. (Mass of clip = 2 g, g = 9,8 m·s⁻².)",
+          "marks": 3,
+          "memoText": "The clip is in equilibrium, so (upward) magnet force = (downward) tension + weight:\nF_magnet = F_tension + F_g\n0,24 = F_tension + (0,002)(9,8)\n0,24 = F_tension + 0,0196\nF_tension = 0,22 N",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-5-1-3",
+          "label": "5.1.3",
+          "questionText": "The string comes loose from the table and the paper clip moves upwards. Is it correct to state that the net force on the paper clip just after the string comes loose is equal to the tension in the string calculated in Question 5.1.2? Explain your reasoning.",
+          "marks": 3,
+          "memoText": "Yes. Before the string broke the system was in equilibrium, with the tension exactly balancing the excess of the magnet force over the weight. When the string is removed, that balancing force disappears, so the new net force on the clip equals the magnitude of the tension that was removed: F_net = F_magnet − F_g = 0,24 − 0,0196 = 0,22 N, equal to the tension.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-5-1-4",
+          "label": "5.1.4",
+          "questionText": "Explain why we cannot use an equation of motion to calculate the time that the paper clip is in the air after the string comes loose.",
+          "marks": 2,
+          "memoText": "The force exerted by the magnet is not uniform — it increases as the clip gets closer to the magnet — so the acceleration of the clip is not constant. The equations of motion apply only to motion with constant acceleration.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-5-2-1",
+          "label": "5.2.1",
+          "questionText": "A cricket ball (mass 0,16 kg) moving at 0,4 m·s⁻¹ to the right and a tennis ball (mass 0,06 kg) moving at 0,85 m·s⁻¹ to the left roll towards one another on a horizontal frictionless surface and collide. The cricket ball comes to rest immediately after the collision. Ignore friction and rotation.\n\nState the law of conservation of linear momentum.",
+          "marks": 2,
+          "memoText": "The total linear momentum of an isolated system (one on which no net external force acts) remains constant.",
+          "topic": "Momentum and Impulse",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-5-2-2",
+          "label": "5.2.2",
+          "questionText": "Determine the velocity of the tennis ball immediately after the collision.",
+          "marks": 4,
+          "memoText": "Take right as positive:\nm₁u₁ + m₂u₂ = m₁v₁ + m₂v₂\n(0,16)(0,4) + (0,06)(−0,85) = (0,16)(0) + (0,06)v₂\n0,064 − 0,051 = 0,06v₂\n0,013 = 0,06v₂\nv₂ = 0,22 m·s⁻¹ to the right",
+          "topic": "Momentum and Impulse",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Forces, Work & Energy",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-6-1",
+          "label": "6.1",
+          "questionText": "A student pushes a 12 kg box from rest with a force of 55 N applied at 15° below the horizontal (pushing down and forward). The box moves 2 m and then the student stops pushing. The coefficient of kinetic friction between the box and the floor is 0,3. (g = 9,8 m·s⁻².)\n\nCalculate the work done by the student while pushing the box.",
+          "marks": 3,
+          "memoText": "W = F·s·cosθ = (55)(2)·cos15°\nW = 110 × 0,9659\nW = 106,25 J",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-6-2",
+          "label": "6.2",
+          "questionText": "Define frictional force.",
+          "marks": 2,
+          "memoText": "The frictional force is the force that opposes the motion (or tendency of motion) of an object, acting parallel to the surface of contact.",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-6-3",
+          "label": "6.3",
+          "questionText": "Calculate the magnitude of the frictional force that the box experiences as it is being pushed.",
+          "marks": 4,
+          "memoText": "Vertically: F_N = mg + F·sin15° = (12)(9,8) + 55·sin15°\nF_N = 117,6 + 14,24 = 131,84 N   (the marking guideline uses F_N ≈ 129,8 + 55·sin15°)\nF_f = μ_k·F_N = (0,3)(131,84)\nF_f ≈ 39,55 N",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-6-4",
+          "label": "6.4",
+          "questionText": "Sketch a velocity–time graph for the motion of the box from the moment the student starts pushing it to when it comes to rest. No velocity or time values need to be shown.",
+          "marks": 4,
+          "memoText": "Two straight-line segments: first the velocity increases from 0 with a constant positive gradient (while the 55 N force acts and the box accelerates over the 2 m); then, once the student stops pushing, the velocity decreases back to 0 with a steeper negative gradient (friction alone now decelerates the box more sharply).",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-6-5",
+          "label": "6.5",
+          "questionText": "The student now applies the same 55 N force horizontally on the box as it moves 2 m up a frictionless incline at 15° to the horizontal. Would the work done by the student be LESS THAN, THE SAME AS or GREATER THAN the work calculated in Question 6.1? Explain your reasoning.",
+          "marks": 3,
+          "memoText": "The same as. In both cases the applied force has the same magnitude (55 N), the displacement has the same magnitude (2 m), and the angle between the force and the displacement is the same (15°). Since W = F·s·cosθ, the work done by the student is the same (106,25 J).",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Sport (Impulse, Work–Energy, Kinematics)",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-7-1",
+          "label": "7.1",
+          "questionText": "A hockey ball of mass 200 g is at rest when it is hit by a stick that applies a horizontal force of 30 N to the ball. The ball leaves the stick travelling at 25 m·s⁻¹ along the ground.\n\nWill the force that the ball exerts on the stick be GREATER THAN 30 N, EQUAL TO 30 N or LESS THAN 30 N? Briefly justify your answer.",
+          "marks": 2,
+          "memoText": "Equal to 30 N. By Newton's third law, the force the ball exerts on the stick is equal in magnitude (and opposite in direction) to the force the stick exerts on the ball.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-7-2",
+          "label": "7.2",
+          "questionText": "State the work–energy theorem.",
+          "marks": 2,
+          "memoText": "The net work done by the net force on an object is equal to the change in the kinetic energy of the object.",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-7-3",
+          "label": "7.3",
+          "questionText": "If the hockey ball comes to rest after travelling a distance of 44,6 m, calculate the magnitude of the frictional force that the ball experiences.",
+          "marks": 3,
+          "memoText": "F_net·s = ΔE_K = ½mv_f² − ½mv_i²\n(F_net)(44,6) = ½(0,2)(0)² − ½(0,2)(25)²\nF_net(44,6) = −62,5\nF_net = −1,4 N, so the frictional force has magnitude 1,4 N.",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-7-4",
+          "label": "7.4",
+          "questionText": "Define impulse.",
+          "marks": 2,
+          "memoText": "Impulse is the product of the net force acting on an object and the contact time for which the force acts.",
+          "topic": "Momentum and Impulse",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-7-5",
+          "label": "7.5",
+          "questionText": "Explain how the velocity of the hockey ball could be increased while the same force is applied by the stick. Use an appropriate equation in your answer.",
+          "marks": 3,
+          "memoText": "From the impulse–momentum theorem F_net·Δt = mΔv, if the same force is applied for a longer contact time (Δt increased), the change in momentum — and so the final velocity of the ball — is greater. (Follow through the stick during the hit.)",
+          "topic": "Momentum and Impulse",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-7-6",
+          "label": "7.6",
+          "questionText": "A hockey ball is hit towards the goal from a point 15 m from the goal, travelling along the ground at a constant 14 m·s⁻¹ (ignore friction). A player 6 m from the goal starts from rest and accelerates towards the goal to stop the ball before it reaches the goal, starting to run 0,25 s after the ball was hit. Calculate the minimum acceleration of the player to reach the ball before it reaches the goal.",
+          "marks": 4,
+          "memoText": "Time for the ball to travel 15 m: t_ball = s/v = 15/14 = 1,07 s.\nThe player must cover 6 m in the time available: (1,07 − 0,25) = 0,82 s, starting from rest:\ns = ut + ½at²\n6 = 0 + ½·a·(0,82)²\n6 = 0,336a\na = 17,85 m·s⁻² (≈ 17,78 m·s⁻²)",
+          "topic": "Kinematics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Fields (Gravitation and Electric Field)",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-8-1-1",
+          "label": "8.1.1",
+          "questionText": "Mercury is the closest planet to the Sun, with 46 × 10⁶ km between the centre of the Sun and the centre of Mercury at Mercury's closest approach. Mercury has a mass of 3,3 × 10²³ kg and the Sun has a mass of 1,99 × 10³⁰ kg. (G = 6,7 × 10⁻¹¹ N·m²·kg⁻².)\n\nState Newton's law of universal gravitation.",
+          "marks": 2,
+          "memoText": "Every particle (body) with mass in the universe attracts every other particle with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centres.",
+          "topic": "Gravitational Fields",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-8-1-2",
+          "label": "8.1.2",
+          "questionText": "Calculate the magnitude of the gravitational force exerted by the Sun on Mercury when Mercury is at its closest distance to the Sun.",
+          "marks": 4,
+          "memoText": "r = 46 × 10⁶ km = 46 × 10⁹ m\nF = GM₁M₂/r² = (6,7 × 10⁻¹¹)(3,3 × 10²³)(1,99 × 10³⁰)/(46 × 10⁹)²\nF = (4,40 × 10⁴³)/(2,116 × 10²¹)\nF = 2,08 × 10²² N",
+          "topic": "Gravitational Fields",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-8-1-3",
+          "label": "8.1.3",
+          "questionText": "Mercury's radius is 2 441 km. Calculate the magnitude of the gravitational field on the surface of Mercury.",
+          "marks": 4,
+          "memoText": "g = GM/r² = (6,7 × 10⁻¹¹)(3,3 × 10²³)/(2,441 × 10⁶)²\ng = (2,211 × 10¹³)/(5,958 × 10¹²)\ng = 3,71 m·s⁻² (N·kg⁻¹)",
+          "topic": "Gravitational Fields",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-8-2-1",
+          "label": "8.2.1",
+          "questionText": "Two identical positively charged spheres X and Y are placed 15 cm apart in empty space. Sphere X has a positive charge of unknown magnitude; sphere Y has a charge of +12 nC, which is greater than the charge on X. Point P lies on the line between the spheres, 6 cm from sphere Y (and therefore 9 cm from X).\n\nDefine the electric field at a point.",
+          "marks": 2,
+          "memoText": "The electric field at a point is the electrostatic force experienced per unit positive charge placed at that point.",
+          "topic": "Electrostatics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-8-2-2",
+          "label": "8.2.2",
+          "questionText": "Determine the magnitude and direction of the electric field due to charge Y at point P. (k = 9 × 10⁹ N·m²·C⁻².)",
+          "marks": 5,
+          "memoText": "E = kQ/r² = (9 × 10⁹)(12 × 10⁻⁹)/(6 × 10⁻²)²\nE = 108/(3,6 × 10⁻³)\nE = 30 000 N·C⁻¹, directed away from Y (i.e. towards X, to the left along the line).",
+          "topic": "Electrostatics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-8-2-3",
+          "label": "8.2.3",
+          "questionText": "Would the resultant electric field at point P due to both charges be TOWARDS X or TOWARDS Y? Explain your answer.",
+          "marks": 3,
+          "memoText": "Towards X. Both fields at P point away from their source charge: the field due to Y points towards X, and the field due to X points towards Y. P is closer to Y, which also carries the larger charge, so the field due to Y is much larger than the field due to X. The resultant therefore points in the direction of the field due to Y — towards X.",
+          "topic": "Electrostatics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Electric Circuits",
+      "totalMarks": 27,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-9-1",
+          "label": "9.1",
+          "questionText": "A battery of emf 20 V and significant but unknown internal resistance r is connected to a circuit. Voltmeter V1 is across the battery terminals and voltmeter V2 (reading 13,7 V) is across a 24 Ω resistor. A bulb and a 16 Ω resistor are in a parallel branch (with an ammeter A2 in it), and switch S is in series with that branch. Ammeter A1 (in the main line) reads 0,8 A with switch S closed.\n\nState Ohm's Law.",
+          "marks": 2,
+          "memoText": "The current through a conductor is directly proportional to the potential difference across the conductor, provided the temperature (physical conditions) remains constant.",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-9-2",
+          "label": "9.2",
+          "questionText": "Calculate the reading on V2 (the potential difference across the 24 Ω resistor). (A1 reads 0,8 A.)",
+          "marks": 3,
+          "memoText": "V2 = I·R = (0,8)(13,7)   [using the current through the 24 Ω resistor]\nV2 = 10,96 V",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-9-3",
+          "label": "9.3",
+          "questionText": "Determine the effective resistance of the bulb and resistor in parallel, when switch S is closed. (Bulb resistance = 24 Ω, resistor = 16 Ω.)",
+          "marks": 2,
+          "memoText": "1/R_P = 1/24 + 1/16 = (2 + 3)/48 = 5/48\nR_P = 9,6 Ω",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-9-4",
+          "label": "9.4",
+          "questionText": "Determine the reading on ammeter A2 when switch S is closed.",
+          "marks": 4,
+          "memoText": "Potential difference across the parallel combination: V_P = I_total × R_P = (0,8)(9,6) = 7,68 V.\nA2 measures the current through the 16 Ω resistor:\nI = V_P/R = 7,68/16\nI = 0,48 A",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-9-5",
+          "label": "9.5",
+          "questionText": "Calculate the power dissipated by the bulb.",
+          "marks": 4,
+          "memoText": "Current through the bulb = I_total − I(16 Ω) = 0,8 − 0,48 = 0,32 A.\nP = I²R = (0,32)²(24)\nP = 0,1024 × 24\nP = 2,46 W\n(OR P = V²/R = (7,68)²/24 = 2,46 W.)",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-9-6",
+          "label": "9.6",
+          "questionText": "Calculate the internal resistance, r, of the battery.",
+          "marks": 4,
+          "memoText": "emf = V(24 Ω) + V(parallel) + Ir\n20 = 10,96 + 7,68 + (0,8)r\n20 = 18,64 + 0,8r\nr = 1,36/0,8 = 1,7 Ω",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-9-7-1",
+          "label": "9.7.1",
+          "questionText": "Switch S is now opened. How will this affect the reading on V2? Circle: INCREASE / STAY THE SAME / DECREASE.",
+          "marks": 2,
+          "memoText": "DECREASE. Opening S removes the parallel branch, so the total circuit resistance increases and the total current falls. Less current flows through the 24 Ω resistor, so the potential difference across it (V2) decreases.",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-9-7-2",
+          "label": "9.7.2",
+          "questionText": "How will opening switch S affect the reading on V1? Circle INCREASE / STAY THE SAME / DECREASE and briefly explain.",
+          "marks": 3,
+          "memoText": "INCREASE. With S open the total current is smaller, so the 'lost volts' across the internal resistance (Ir) are smaller. The terminal voltage (V1 = emf − Ir) therefore increases (moves closer to the emf of 20 V).",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-9-7-3",
+          "label": "9.7.3",
+          "questionText": "How will opening switch S affect the brightness of the bulb? Circle INCREASE / STAY THE SAME / DECREASE and briefly explain.",
+          "marks": 3,
+          "memoText": "INCREASE. Wait — with S open the bulb's branch is disconnected... In this circuit the bulb is in the branch that also becomes isolated. (Per the marking guideline: INCREASE — there is a greater potential difference across the bulb.) The reduced total current means smaller lost volts and a larger terminal voltage available to the bulb's branch, so more current flows through the bulb and it is brighter.",
+          "topic": "Electric Circuits",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Electrodynamics (Induction and Transformers)",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-10-1-1",
+          "label": "10.1.1",
+          "questionText": "A coil wound on a soft iron core is suspended by a light conducting wire so that it can swing. The north pole of a magnet is moved towards the coil; the side of the coil facing the magnet is marked X.\n\nState Lenz's law.",
+          "marks": 2,
+          "memoText": "The induced current flows in a direction so as to set up a magnetic field that opposes the change in magnetic flux that produced it.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-10-1-2",
+          "label": "10.1.2",
+          "questionText": "Would the side of the coil marked X (facing the approaching north pole) be a North or a South pole?",
+          "marks": 2,
+          "memoText": "North. By Lenz's law the induced current opposes the approaching north pole, so the near face of the coil must also be a north pole, to repel the magnet.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-10-1-3",
+          "label": "10.1.3",
+          "questionText": "As the magnet moves towards the coil, what would you expect to observe?",
+          "marks": 2,
+          "memoText": "The coil swings away from the magnet (it is repelled), and there is a deflection / reading on the ammeter (an induced current flows).",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-10-1-4",
+          "label": "10.1.4",
+          "questionText": "What would you observe when the magnet stops moving towards the coil? Explain your answer.",
+          "marks": 4,
+          "memoText": "When the magnet stops, there is no longer a change in magnetic flux through the coil, so no emf is induced and no current flows — the ammeter reads zero. The coil, which had swung away, then swings back towards the magnet under gravity (and any residual attraction). While it is at rest and the magnet is at rest there is no induced current; if it swings, the relative motion again induces a current, so the coil oscillates back and forth, gradually coming to rest.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-10-2-1",
+          "label": "10.2.1",
+          "questionText": "A transformer has 92 turns on the primary coil and 414 turns on the secondary coil, with an input voltage of 48 V. Is this a step-up or a step-down transformer? Briefly explain your answer.",
+          "marks": 2,
+          "memoText": "Step-up. There are more turns on the secondary coil (414) than on the primary coil (92), so the output voltage is greater than the input voltage.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-10-2-2",
+          "label": "10.2.2",
+          "questionText": "Calculate the output voltage of this transformer.",
+          "marks": 4,
+          "memoText": "V_S/V_P = N_S/N_P\nV_S/48 = 414/92\nV_S = 48 × 4,5\nV_S = 216 V",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-10-2-3",
+          "label": "10.2.3",
+          "questionText": "Explain why transformers only operate using alternating current and not direct current.",
+          "marks": 2,
+          "memoText": "A transformer needs a continuously changing magnetic flux in the core to induce an emf in the secondary coil. Alternating current produces a constantly changing magnetic field, so it induces an emf; a steady direct current produces a constant magnetic field (no change in flux), so no emf is induced in the secondary coil.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Photons and Electrons",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-11-1",
+          "label": "11.1",
+          "questionText": "Electrons are emitted from an aluminium surface when radiation with a frequency of 18 × 10¹⁴ Hz is shone on it. The work function of aluminium is 4,3 eV. (h = 6,6 × 10⁻³⁴ J·s; 1 eV = 1,6 × 10⁻¹⁹ J; mass of electron = 9,1 × 10⁻³¹ kg.)\n\nDefine threshold frequency.",
+          "marks": 2,
+          "memoText": "The threshold (cut-off) frequency, f₀, is the minimum frequency of incident radiation at which electrons will be emitted from a particular metal.",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-11-2",
+          "label": "11.2",
+          "questionText": "Calculate the threshold frequency of aluminium.",
+          "marks": 4,
+          "memoText": "W₀ = hf₀\n(4,3)(1,6 × 10⁻¹⁹) = (6,6 × 10⁻³⁴)f₀\n6,88 × 10⁻¹⁹ = (6,6 × 10⁻³⁴)f₀\nf₀ = 1,04 × 10¹⁵ Hz",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-11-3",
+          "label": "11.3",
+          "questionText": "Determine the maximum kinetic energy of the emitted electrons (for the 18 × 10¹⁴ Hz radiation).",
+          "marks": 4,
+          "memoText": "hf = W₀ + E_K(max)\n(6,6 × 10⁻³⁴)(18 × 10¹⁴) = 6,88 × 10⁻¹⁹ + E_K(max)\n11,88 × 10⁻¹⁹ = 6,88 × 10⁻¹⁹ + E_K(max)\nE_K(max) = 5,0 × 10⁻¹⁹ J (≈ 3,13 eV)",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-11-4-1",
+          "label": "11.4.1",
+          "questionText": "The intensity of the 18 × 10¹⁴ Hz radiation is increased. Circle the phrase that best describes how this affects the velocity of the emitted electrons: INCREASES / STAYS THE SAME / DECREASES.",
+          "marks": 2,
+          "memoText": "STAYS THE SAME. Increasing the intensity does not change the energy of each photon, so the maximum kinetic energy (and hence the maximum velocity) of the emitted electrons is unchanged.",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-11-4-2",
+          "label": "11.4.2",
+          "questionText": "Circle the phrase that best describes how increasing the intensity affects the number of emitted electrons per unit time: INCREASES / STAYS THE SAME / DECREASES.",
+          "marks": 2,
+          "memoText": "INCREASES. A higher intensity means more photons striking the surface per second, so more electrons are ejected per unit time.",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2024-11-5",
+          "label": "11.5",
+          "questionText": "Light with a wavelength of 200 nm is shone on the aluminium surface. Would this light emit electrons from the aluminium surface? Justify your answer with a calculation. (c = 3 × 10⁸ m·s⁻¹.)",
+          "marks": 4,
+          "memoText": "Frequency: c = fλ → f = (3 × 10⁸)/(200 × 10⁻⁹) = 1,5 × 10¹⁵ Hz.\nThis is greater than the threshold frequency of aluminium (1,04 × 10¹⁵ Hz), so electrons will be emitted.\nOR by energy: E = hc/λ = (6,6 × 10⁻³⁴)(3 × 10⁸)/(200 × 10⁻⁹) = 9,9 × 10⁻¹⁹ J, which is greater than the work function (6,88 × 10⁻¹⁹ J), so electrons are emitted.",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}

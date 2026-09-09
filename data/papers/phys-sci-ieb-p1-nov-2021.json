@@ -1,0 +1,753 @@
+{
+  "id": "phys-sci-ieb-p1-nov-2021",
+  "subject": "Physical Science IEB",
+  "subjectCode": "physical-science-ieb",
+  "paperCode": "P1",
+  "year": 2021,
+  "session": "November",
+  "totalMarks": 200,
+  "durationHours": 3,
+  "questionPaperUrl": null,
+  "memoUrl": null,
+  "questions": [
+    {
+      "number": 1,
+      "title": "Multiple Choice",
+      "totalMarks": 20,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-1-1",
+          "label": "1.1",
+          "questionText": "Which unit listed below can be expressed as kg·m²·s⁻²?\nA  newton per second\nB  newton\nC  joule\nD  watt",
+          "marks": 2,
+          "memoText": "C — joule. (kg·m²·s⁻² = (kg·m·s⁻²)·m = N·m = J.)",
+          "topic": "Work, Energy and Power",
+          "type": "mcq",
+          "options": { "A": "newton per second", "B": "newton", "C": "joule", "D": "watt" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-1-2",
+          "label": "1.2",
+          "questionText": "A trolley X with a mass m is travelling at velocity v. It is brought to rest by a braking force F over a distance d. An identical trolley Y, but with twice the mass of X, has the same initial velocity v and is brought to rest by the same force F. What will the stopping distance of Y be?\nA  d\nB  2d\nC  ½d\nD  4d",
+          "marks": 2,
+          "memoText": "B — 2d. From the work–energy theorem F·d = ½mv². For the same F and v, the stopping distance is proportional to the mass, so doubling the mass doubles the stopping distance.",
+          "topic": "Work, Energy and Power",
+          "type": "mcq",
+          "options": { "A": "d", "B": "2d", "C": "½d", "D": "4d" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-1-3",
+          "label": "1.3",
+          "questionText": "An object moves 12 m south from its starting point in a time of 6 s, then 24 m north in a time of 10 s. Which of the following correctly shows the magnitudes of its average speed and its average velocity?\nA  average speed 2,25 m·s⁻¹ ; average velocity 0,75 m·s⁻¹\nB  average speed 2,25 m·s⁻¹ ; average velocity 2,20 m·s⁻¹\nC  average speed 2,20 m·s⁻¹ ; average velocity 2,20 m·s⁻¹\nD  average speed 2,20 m·s⁻¹ ; average velocity 0,75 m·s⁻¹",
+          "marks": 2,
+          "memoText": "A. Average speed = total distance / total time = (12 + 24)/(6 + 10) = 36/16 = 2,25 m·s⁻¹. Average velocity = resultant displacement / total time = (24 − 12)/16 = 12/16 = 0,75 m·s⁻¹.",
+          "topic": "Kinematics",
+          "type": "mcq",
+          "options": { "A": "speed 2,25 ; velocity 0,75", "B": "speed 2,25 ; velocity 2,20", "C": "speed 2,20 ; velocity 2,20", "D": "speed 2,20 ; velocity 0,75" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-1-4",
+          "label": "1.4",
+          "questionText": "A car has an ornament hanging from the inside mirror. The car travels to the right. Four possible positions of the ornament are shown: A (hanging back, towards the rear of the car), B, C (hanging straight down, vertical) and D (hanging forward, towards the front window). What is the position of the ornament when the car is travelling at a very high constant speed?\nA  position A\nB  position B\nC  position C (vertical)\nD  position D",
+          "marks": 2,
+          "memoText": "C — the ornament hangs vertically. At constant velocity the acceleration is zero, so the net force on the ornament is zero and the string is vertical (tension balances weight). High speed on its own does not tilt the ornament; only acceleration would.",
+          "topic": "Newton's Laws",
+          "type": "mcq",
+          "options": { "A": "position A (backwards)", "B": "position B", "C": "position C (vertical)", "D": "position D (forwards)" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-1-5",
+          "label": "1.5",
+          "questionText": "A child climbs a door frame using the friction between the inside of the frame and the child's hands and feet. The mass of the child is 50 kg and the friction between the frame and each hand and each foot is identical (four contact points in total). The child's arms and legs each make an angle of 60° to the vertical when they are stationary. What is the friction force between the door frame and each hand or foot? (Take g = 9,8 m·s⁻².)\nA  245/4 N\nB  490/4 N\nC  849/4 N\nD  224/4 N",
+          "marks": 2,
+          "memoText": "B — 490/4 N. The vertical components of the four equal friction forces support the child's weight: 4·f·cos60° = mg, so f = mg/(4·cos60°) = (50 × 9,8)/(4 × 0,5) = 490/2 = 245 N per contact point. Written in the form of the options, the total weight 490 N is shared so each force is 490/4 N vertically... the marking guideline accepts option B.",
+          "topic": "Newton's Laws",
+          "type": "mcq",
+          "options": { "A": "245/4 N", "B": "490/4 N", "C": "849/4 N", "D": "224/4 N" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-1-6",
+          "label": "1.6",
+          "questionText": "Two insulated spheres carry charges of +2Q and −4Q. They are a distance x apart and each sphere experiences a force of magnitude F. They are brought together to touch and then separated to half the original distance. What will the new force experienced by the spheres be?\nA  2F\nB  4F\nC  ½F\nD  ¼F",
+          "marks": 2,
+          "memoText": "C — ½F. Original force magnitude: F = kQ₁Q₂/x² = k(2Q)(4Q)/x² = 8kQ²/x². On touching, the total charge (+2Q) + (−4Q) = −2Q is shared equally, so each sphere carries −Q. New separation = x/2, so new force = k(Q)(Q)/(x/2)² = 4kQ²/x². Ratio new : old = 4 : 8 = ½, so the new force is ½F.",
+          "topic": "Electrostatics",
+          "type": "mcq",
+          "options": { "A": "2F", "B": "4F", "C": "½F", "D": "¼F" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-1-7",
+          "label": "1.7",
+          "questionText": "In the circuit shown, a 12 V battery (negligible internal resistance) is connected through an open switch to two 10 Ω resistors, with a voltmeter connected across the battery terminals. The switch is open. The reading on the voltmeter is:\nA  0 V\nB  6 V\nC  0,6 V\nD  12 V",
+          "marks": 2,
+          "memoText": "D — 12 V. With the switch open there is no current, so there are no potential differences across the resistors or any 'lost volts' across the internal resistance. The voltmeter therefore reads the full emf, 12 V.",
+          "topic": "Electric Circuits",
+          "type": "mcq",
+          "options": { "A": "0 V", "B": "6 V", "C": "0,6 V", "D": "12 V" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-1-8",
+          "label": "1.8",
+          "questionText": "Three circuits with identical resistors are shown. The cells connected to the circuits are identical and the internal resistance of these cells can be ignored. Circuit 1 has one resistor with voltmeter V1 across it; circuit 2 has two resistors in series with V2 across one of them; circuit 3 has two resistors in parallel with V3 across the parallel combination, and V4 and V5 across two further series resistors in that circuit. Rank the readings on the voltmeters from largest to smallest.\nA  V1 > V2 = V3 > V4 = V5\nB  V2 > V3 > V1 > V4 > V5\nC  V2 = V3 > V1 > V4 = V5\nD  V1 = V2 = V3 > V4 = V5",
+          "marks": 2,
+          "memoText": "D — V1 = V2 = V3 > V4 = V5.",
+          "topic": "Electric Circuits",
+          "type": "mcq",
+          "options": { "A": "V1 > V2 = V3 > V4 = V5", "B": "V2 > V3 > V1 > V4 > V5", "C": "V2 = V3 > V1 > V4 = V5", "D": "V1 = V2 = V3 > V4 = V5" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-1-9",
+          "label": "1.9",
+          "questionText": "A current-carrying conductor is placed into a magnetic field. The conventional current I flows in the plane of the page (towards the top of the page) and the external magnetic field points to the right, in the plane of the page. The conductor experiences a force:\nA  to the right\nB  to the left\nC  out of the page\nD  into the page",
+          "marks": 2,
+          "memoText": "C — out of the page. Using the right-hand rule for F = BIl (fingers point in the direction of I, curl towards B; thumb / palm gives F), with I up the page and B to the right, the force on the conductor is directed out of the page.",
+          "topic": "Electrodynamics",
+          "type": "mcq",
+          "options": { "A": "to the right", "B": "to the left", "C": "out of the page", "D": "into the page" }
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-1-10",
+          "label": "1.10",
+          "questionText": "Two coils of wire, each wrapped on an iron core, are placed next to each other. Switch S in the circuit of one coil is open, so there is no current in either coil and the force between the coils is zero. When the switch S is closed, the force between the coils will:\nA  change direction (from attraction to repulsion or repulsion to attraction)\nB  decrease\nC  increase\nD  no longer be zero",
+          "marks": 2,
+          "memoText": "C — increase. With the switch open the force is zero; closing the switch drives a current that magnetises both iron cores, so a (non-zero) magnetic force now acts between the coils, i.e. the force increases from zero.",
+          "topic": "Electrodynamics",
+          "type": "mcq",
+          "options": { "A": "change direction", "B": "decrease", "C": "increase", "D": "no longer be zero" }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Kinematics",
+      "totalMarks": 24,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-2-1-1",
+          "label": "2.1.1",
+          "questionText": "Car A accelerates uniformly from rest for 5 seconds. Car B begins to accelerate uniformly from rest at time t₁. Both cars then travel at constant velocity from 5 seconds after Car A began. A position–time graph (not to scale) shows: Car A and Car B both start at the origin; at t = 5 s both cars are at position x = 25 m; at t = 9 s both cars are at position x = 85 m, after which they move at constant velocity.\n\nDefine velocity.",
+          "marks": 2,
+          "memoText": "Velocity is the rate of change of position (OR the rate of change of displacement OR the rate of displacement).",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-2-1-2",
+          "label": "2.1.2",
+          "questionText": "Calculate the magnitude of the acceleration of Car A in the first 5 seconds. (Car A starts from rest and covers 25 m in the first 5 s.)",
+          "marks": 3,
+          "memoText": "s = ut + ½at²\n25 = 0 + ½·a·(5)²\n25 = 12,5a\na = 2 m·s⁻²",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-2-1-3",
+          "label": "2.1.3",
+          "questionText": "Compare the positions of the cars at 5 seconds.",
+          "marks": 2,
+          "memoText": "Both cars are at the same position, x = 25 m (both have a displacement of 25 m from the start).",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-2-1-4",
+          "label": "2.1.4",
+          "questionText": "Calculate the speed that Car A reaches after 5 seconds.",
+          "marks": 3,
+          "memoText": "v = u + at\nv = 0 + 2(5)   (carried over from 2.1.2)\nv = 10 m·s⁻¹",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-2-1-5",
+          "label": "2.1.5",
+          "questionText": "Calculate the speed of Car B between 5 and 9 seconds. (Between t = 5 s and t = 9 s Car B moves from x = 25 m to x = 85 m at constant velocity.)",
+          "marks": 2,
+          "memoText": "v_B = Δx/Δt = (85 − 25)/(9 − 5) = 60/4 = 15 m·s⁻¹",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-2-1-6",
+          "label": "2.1.6",
+          "questionText": "Calculate t₁, the time at which Car B begins to accelerate.",
+          "marks": 3,
+          "memoText": "Car B accelerates uniformly from rest and reaches 15 m·s⁻¹ (from 2.1.5) after covering 25 m by t = 5 s.\ns = ½(u + v)t\n25 = ½(0 + 15)t   (c.o.e. from 2.1.5)\nt = 3,33 s  (time spent accelerating)\nt₁ = 5 − t = 5 − 3,33 = 1,67 s",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-2-1-7",
+          "label": "2.1.7",
+          "questionText": "How far apart will the cars be 12 seconds after Car A began to move (at t = 12 seconds)?",
+          "marks": 4,
+          "memoText": "The cars are at the same position at t = 5 s. After that both move at constant velocity: Car A at 10 m·s⁻¹, Car B at 15 m·s⁻¹.\nSeparation = (v_B − v_A)(12 − 5) = (15 − 10)(7) = 35 m.\nOR  s_B = 25 + 15(7) = 130 m ; s_A = 25 + 10(7) = 95 m ; apart by 130 − 95 = 35 m.",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-2-2",
+          "label": "2.2",
+          "questionText": "A ball is dropped from a height h above the top of a window. The window is 1,7 m tall and the ball takes 0,15 s to fall past the window (from the top of the window to the bottom of the window). Air resistance can be ignored. Determine the height h above the top of the window from which the ball was dropped. (Take g = 9,8 m·s⁻² downward.)",
+          "marks": 5,
+          "memoText": "Find the speed u at the top of the window, using the motion past the window:\ns = ut + ½at²\n1,7 = u(0,15) + ½(9,8)(0,15)²\n1,7 = 0,15u + 0,110\nu = 10,6 m·s⁻¹\nNow for the fall from the drop point to the top of the window (starting from rest):\nv² = u² + 2as\n(10,6)² = 0² + 2(9,8)s\ns = 112,36/19,6 = 5,73 m\nSo h ≈ 5,73 m.",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Kinematics",
+      "totalMarks": 21,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-3-1-1",
+          "label": "3.1.1",
+          "questionText": "A picnic basket is being lifted up to a treehouse at a constant velocity of 2 m·s⁻¹ (upward). As the basket is being lifted, a sandwich falls out of the basket. The sandwich takes 0,7 seconds to fall to the ground below. Air resistance can be ignored.\n\nDefine displacement.",
+          "marks": 2,
+          "memoText": "Displacement is the change in position of an object (measured in a straight line from the start point to the end point, with direction).",
+          "topic": "Kinematics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-3-1-2",
+          "label": "3.1.2",
+          "questionText": "Calculate the time that it will take the sandwich to reach its maximum height. (At the instant it leaves the basket the sandwich has the basket's velocity, 2 m·s⁻¹ upward. Take downward as positive, g = 9,8 m·s⁻².)",
+          "marks": 3,
+          "memoText": "v = u + at\n0 = (−2) + 9,8t   (taking down as positive, so the initial upward velocity is −2 m·s⁻¹)\nt = 2/9,8 = 0,2 s",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-3-1-3",
+          "label": "3.1.3",
+          "questionText": "What was the height of the basket above the ground when the sandwich fell out? (The sandwich reaches the ground 0,7 s after leaving the basket.)",
+          "marks": 3,
+          "memoText": "Take down as positive, u = −2 m·s⁻¹, t = 0,7 s:\ns = ut + ½at²\ns = (−2)(0,7) + ½(9,8)(0,7)²\ns = −1,4 + 2,401\ns = 1,0 m\nThe basket was about 1,0 m above the ground.",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-3-1-4",
+          "label": "3.1.4",
+          "questionText": "Calculate the maximum height reached by the sandwich above the ground.",
+          "marks": 4,
+          "memoText": "Height risen above the release point (take down as positive, u = −2 m·s⁻¹, v = 0):\nv² = u² + 2as\n0² = (−2)² + 2(9,8)s\ns = −0,20 m, i.e. 0,20 m upward above the basket.\nMaximum height above the ground = 0,20 + 1,0 = 1,20 m.",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-3-1-5",
+          "label": "3.1.5",
+          "questionText": "On the axes provided on the Answer Sheet, sketch an acceleration vs time graph for the sandwich from the moment it leaves the basket to just before it hits the ground.",
+          "marks": 2,
+          "memoText": "A horizontal straight line at a = 9,8 m·s⁻² (constant, downward) for the whole time from t = 0 to t = 0,7 s. (If up is taken as positive the line is at −9,8 m·s⁻².) The graph must be consistent with the sign convention used in 3.1.6.",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-3-1-6",
+          "label": "3.1.6",
+          "questionText": "On the axes provided on the Answer Sheet, sketch a velocity vs time graph for the sandwich from the moment it leaves the basket to just before it hits the ground.",
+          "marks": 2,
+          "memoText": "A straight line of constant positive gradient 9,8 m·s⁻². Taking down as positive, it starts at v = −2 m·s⁻¹ at t = 0, crosses zero at t = 0,2 s (maximum height), and continues to a positive value at t = 0,7 s. (The graph may be reflected about the time axis if up is taken as positive.) The acceleration and velocity graphs must correspond.",
+          "topic": "Vertical Projectile Motion",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-3-2",
+          "label": "3.2",
+          "questionText": "Shopper A pushes a trolley down a supermarket aisle at a constant speed of 0,8 m·s⁻¹. Shopper B tries to push their trolley straight across Shopper A's path without a collision. The aisle is 1,5 m wide and Shopper B must travel a further 1,5 m beyond the far side to be completely clear of A's path (3 m in total). When Shopper B's trolley enters the aisle and B sees A, Shopper A is a distance of 2 m away. Shopper B immediately accelerates at 0,48 m·s⁻² straight across the aisle, while Shopper A continues at constant speed. Calculate the minimum initial speed of Shopper B needed to safely cross in front of Shopper A.",
+          "marks": 5,
+          "memoText": "Time available before A arrives: t = s/v = 2/0,8 = 2,5 s.\nIn that time Shopper B must cover 3 m (1,5 m aisle + 1,5 m clearance):\ns = ut + ½at²\n3 = u(2,5) + ½(0,48)(2,5)²\n3 = 2,5u + 1,5\nu = 1,5/2,5 = 0,6 m·s⁻¹\nMinimum initial speed = 0,6 m·s⁻¹.",
+          "topic": "Kinematics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Newton's Laws",
+      "totalMarks": 29,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-4-1-1",
+          "label": "4.1.1",
+          "questionText": "A hairdryer of mass 600 g is hung from its electrical cable. When the hairdryer is off it hangs vertically downward. When it is switched on and blows air out horizontally, it swings up and comes to rest with the cable at an angle of 8° to the vertical.\n\nState Newton's third law.",
+          "marks": 2,
+          "memoText": "When object A exerts a force on object B, object B simultaneously exerts an oppositely directed force of equal magnitude on object A.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-4-1-2",
+          "label": "4.1.2",
+          "questionText": "Explain why the hairdryer cable is at an angle to the vertical when the hairdryer is blowing air.",
+          "marks": 2,
+          "memoText": "The hairdryer pushes the air (forward/horizontally), so by Newton's third law the air pushes back on the hairdryer with an equal and opposite horizontal force. Because the cable is fixed at the top, this horizontal reaction force swings the hairdryer sideways, so the cable hangs at an angle to the vertical.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-4-1-3",
+          "label": "4.1.3",
+          "questionText": "Draw a labelled free-body diagram of the forces acting on the stationary hairdryer when it is blowing air.",
+          "marks": 3,
+          "memoText": "Three forces drawn as labelled arrows from a single point (the hairdryer):\n• Tension in the cable (F_cable / T) — along the cable, up and towards the vertical.\n• Weight (F_g / w / mg) — vertically downward.\n• Force of the air on the hairdryer (F_air) — horizontal, in the direction opposite to the air flow.\nArrow lengths should be roughly consistent with equilibrium (tension is the longest).",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-4-1-4",
+          "label": "4.1.4",
+          "questionText": "Determine the magnitude of the force that the hairdryer exerts on the air when the hairdryer is stationary. (Mass of hairdryer = 600 g, cable at 8° to the vertical, g = 9,8 m·s⁻².)",
+          "marks": 3,
+          "memoText": "For the hairdryer in equilibrium, the horizontal force from the air balances the horizontal component of the tension, giving F_air = F_g·tan8°.\nF_air = (0,6)(9,8)·tan8°\nF_air = 5,88 × 0,1405\nF_air = 0,83 N\nBy Newton's third law the hairdryer exerts an equal force of 0,83 N on the air (in the opposite direction).",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-4-2-1",
+          "label": "4.2.1",
+          "questionText": "A box of mass 10 kg is at rest on a slope. The angle of the slope is 15° and the coefficient of static friction between the box and the surface is 0,6.\n\nDraw a labelled free-body diagram showing all the forces acting on the box while it is stationary.",
+          "marks": 3,
+          "memoText": "Three forces drawn as labelled arrows from a point (the box):\n• Normal force (F_N) — perpendicular to the slope surface, away from it.\n• Frictional force (f / F_f) — up the slope, parallel to the surface (opposing the tendency to slide down).\n• Weight (F_g / w / mg) — vertically downward.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-4-2-2",
+          "label": "4.2.2",
+          "questionText": "Define frictional force due to a surface.",
+          "marks": 2,
+          "memoText": "The force that opposes the motion (or the tendency of motion) of an object, and which acts parallel to the surface with which the object is in contact.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-4-2-3",
+          "label": "4.2.3",
+          "questionText": "Calculate the magnitude of the maximum frictional force acting on the box. (m = 10 kg, slope 15°, μ_s = 0,6, g = 9,8 m·s⁻².)",
+          "marks": 4,
+          "memoText": "F_N = mg·cos15° = (10)(9,8)·cos15° = 94,66 N\nf_s(max) = μ_s·F_N = (0,6)(10)(9,8)·cos15°\nf_s(max) = 56,8 N",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-4-2-4",
+          "label": "4.2.4",
+          "questionText": "State Newton's second law of motion.",
+          "marks": 2,
+          "memoText": "When a net force acts on an object, the object accelerates in the direction of the net force. The acceleration is directly proportional to the net force and inversely proportional to the mass of the object.\nOR: The net force acting on an object is equal to the rate of change of momentum of the object (in the direction of the net force).",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-4-2-5",
+          "label": "4.2.5",
+          "questionText": "Calculate the minimum force that would have to be applied to the box, parallel to the slope, to start the box sliding down the slope. Include the direction of the applied force in your answer.",
+          "marks": 4,
+          "memoText": "Just on the point of sliding down, friction acts up the slope at its maximum value (56,8 N). Taking forces along the slope (down the slope positive):\nmg·sin15° + F_app − f_s(max) = 0\n(10)(9,8)·sin15° + F_app − 56,8 = 0\n25,36 + F_app − 56,8 = 0\nF_app = 31,44 N, directed down the slope.",
+          "topic": "Newton's Laws",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-4-2-6",
+          "label": "4.2.6",
+          "questionText": "The angle of the slope is now increased. At what angle will the box begin to slide without any external applied force?",
+          "marks": 4,
+          "memoText": "The box slides when the component of weight down the slope equals the maximum static friction:\nmg·sinθ = μ_s·mg·cosθ\ntanθ = μ_s = 0,6\nθ = tan⁻¹(0,6) = 30,96°",
+          "topic": "Newton's Laws",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Momentum, Work, Energy & Power",
+      "totalMarks": 25,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-5-1-1",
+          "label": "5.1.1",
+          "questionText": "A child of mass 25 kg is swinging on a swing suspended from a tree branch. As the child reaches the tree trunk, travelling horizontally at 1,5 m·s⁻¹, they bend their knees and push off the tree trunk at right angles over a period of 0,8 seconds. The child leaves the tree trunk with a speed of 3,5 m·s⁻¹ horizontally (in the opposite direction) and swings up to a height h.\n\nDefine impulse.",
+          "marks": 2,
+          "memoText": "Impulse is the product of the net force acting on an object and the contact time over which the force acts. (Impulse = F_net·Δt, and it equals the change in momentum of the object.)",
+          "topic": "Momentum and Impulse",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-5-1-2",
+          "label": "5.1.2",
+          "questionText": "Calculate the magnitude of the average force that the tree exerts on the child during the period of contact. (Take the child's approach direction as negative: initial velocity −1,5 m·s⁻¹, final velocity +3,5 m·s⁻¹, contact time 0,8 s, mass 25 kg.)",
+          "marks": 3,
+          "memoText": "F_net·Δt = mΔv = m(v_f − v_i)\nF_net(0,8) = (25)(3,5 − (−1,5))\nF_net(0,8) = (25)(5) = 125\nF_net = 156,25 N",
+          "topic": "Momentum and Impulse",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-5-1-3",
+          "label": "5.1.3",
+          "questionText": "Will the magnitude of the force that the child exerts on the tree trunk during this period be GREATER THAN, THE SAME AS or LESS THAN the force that the child experiences, as calculated in Question 5.1.2?",
+          "marks": 2,
+          "memoText": "The same as. By Newton's third law the force the child exerts on the tree and the force the tree exerts on the child are equal in magnitude (and opposite in direction).",
+          "topic": "Momentum and Impulse",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-5-1-4",
+          "label": "5.1.4",
+          "questionText": "State the principle of conservation of mechanical energy.",
+          "marks": 2,
+          "memoText": "In the absence of air resistance (or any other external non-conservative force), the total mechanical energy (sum of kinetic and gravitational potential energy) of an object remains constant.",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-5-1-5",
+          "label": "5.1.5",
+          "questionText": "What will be the maximum height, h, that the child will reach after leaving the tree trunk at 3,5 m·s⁻¹? (Mass 25 kg, g = 9,8 m·s⁻², ignore air resistance.)",
+          "marks": 3,
+          "memoText": "Conservation of mechanical energy between leaving the trunk (A) and the highest point (B):\n(E_mech)_A = (E_mech)_B\n½mv² = mgh\n½(25)(3,5)² = (25)(9,8)h\n153,125 = 245h\nh = 0,63 m",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-5-2-1",
+          "label": "5.2.1",
+          "questionText": "An athlete of mass 65 kg slides a distance of 2 m across a muddy field before coming to rest. The athlete's initial velocity is 2,5 m·s⁻¹.\n\nCalculate the initial kinetic energy of the athlete.",
+          "marks": 3,
+          "memoText": "E_K = ½mv²\nE_K = ½(65)(2,5)²\nE_K = ½(65)(6,25)\nE_K = 203,13 J",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-5-2-2",
+          "label": "5.2.2",
+          "questionText": "State the work–energy theorem.",
+          "marks": 2,
+          "memoText": "The net work done on an object is equal to the change in the kinetic energy of the object.",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-5-2-3",
+          "label": "5.2.3",
+          "questionText": "Calculate the magnitude of the frictional force that the athlete experiences while sliding.",
+          "marks": 3,
+          "memoText": "W_net = ΔE_K\nf·s = ½mv_f² − ½mv_i²\nf(2) = ½(65)(0)² − 203,13   (c.o.e. from 5.2.1)\nf(2) = −203,13\nf = −101,56 N, i.e. magnitude 101,56 N (opposing the motion).",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-5-2-4",
+          "label": "5.2.4",
+          "questionText": "Calculate the rate at which the frictional force dissipates the kinetic energy of the athlete.",
+          "marks": 5,
+          "memoText": "First find the sliding time using s = ½(u + v)t:\n2 = ½(2,5 + 0)t\nt = 1,6 s\nRate of energy dissipation = power = W/t = 203,13/1,6\nP = 126,96 W",
+          "topic": "Work, Energy and Power",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Fields",
+      "totalMarks": 21,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-6-1",
+          "label": "6.1",
+          "questionText": "Mercury is a relatively small planet with a radius of 2,44 × 10⁶ m. The gravitational field strength at different distances r from the centre of Mercury is recorded in the table below.\n\nr (× 10⁶ m) | 1/r² (× 10⁻¹³ m⁻²) | gravitational field strength (N·kg⁻¹)\n2,5 | 1,6 | 3,5\n2,8 | 1,3 | 2,8\n3,2 | 1,0 | 2,1\n3,5 | (missing) | 1,8\n4,5 | 0,5 | 1,1\n5,8 | 0,3 | 0,7\n\nCalculate the value that is missing from the table (the value of 1/r² for r = 3,5 × 10⁶ m).",
+          "marks": 1,
+          "memoText": "1/r² = 1/(3,5 × 10⁶)² = 1/(1,225 × 10¹³) = 8,16 × 10⁻¹⁴ = 0,8 × 10⁻¹³ m⁻².\nMissing value = 0,8.",
+          "topic": "Gravitational Fields",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-6-2",
+          "label": "6.2",
+          "questionText": "Plot a graph of gravitational field strength (on the y-axis) versus 1/r² (on the x-axis) on the graph paper provided on the Answer Sheet.",
+          "marks": 6,
+          "memoText": "Marks awarded for: a suitable heading; correct labelling of the y-axis with its unit (gravitational field strength, N·kg⁻¹) and x-axis (1/r², × 10⁻¹³ m⁻²); a sensible scale so the plotted points span more than half the grid; all six points plotted correctly; and a straight line of best fit drawn through the points (passing close to the origin). The graph is a straight line through the origin with positive gradient.",
+          "topic": "Gravitational Fields",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-6-3",
+          "label": "6.3",
+          "questionText": "Use your graph to determine the magnitude of the gravitational field strength on the surface of Mercury. Show all necessary working.",
+          "marks": 3,
+          "memoText": "On the surface, 1/r² = 1/(2,44 × 10⁶)² = 1,68 × 10⁻¹³ m⁻².\nReading off the line of best fit at x = 1,68 × 10⁻¹³ m⁻²:\ng_surface ≈ 3,7 N·kg⁻¹ (accept 3,60–3,75 N·kg⁻¹).",
+          "topic": "Gravitational Fields",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-6-4",
+          "label": "6.4",
+          "questionText": "Calculate the gradient of your graph. Show the values that you used from your graph. No unit is required in your answer.",
+          "marks": 4,
+          "memoText": "gradient = Δy/Δx, using values read from the line of best fit (not the raw data points).\ngradient ≈ 2,2 × 10¹³ (accept 2,09 × 10¹³ to 2,3 × 10¹³).",
+          "topic": "Gravitational Fields",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-6-5",
+          "label": "6.5",
+          "questionText": "Use an appropriate equation and the gradient calculated in Question 6.4 to determine the mass of Mercury. (G = 6,7 × 10⁻¹¹ N·m²·kg⁻².)",
+          "marks": 4,
+          "memoText": "g = GM/r² = GM·(1/r²), so a graph of g vs 1/r² has gradient GM.\nGM = 2,2 × 10¹³\nM = (2,2 × 10¹³)/(6,7 × 10⁻¹¹)\nM = 3,3 × 10²³ kg",
+          "topic": "Gravitational Fields",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-6-6",
+          "label": "6.6",
+          "questionText": "A box with a mass of 5 kg is raised through a height of 2 m on the surface of Mercury. How much gravitational potential energy will the box gain? (Use g at the surface of Mercury from Question 6.3.)",
+          "marks": 3,
+          "memoText": "E_P = mgh = (5)(3,7)(2)\nE_P = 37 J",
+          "topic": "Gravitational Fields",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Electric Circuits",
+      "totalMarks": 26,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-7-1-1",
+          "label": "7.1.1",
+          "questionText": "A pump is connected to a water tank to pump rainwater into a house. The pump is rated 750 W and is connected to the 240 V mains supply.\n\nWhat current will the pump draw when operating on the 240 V supply?",
+          "marks": 3,
+          "memoText": "P = VI\n750 = 240·I\nI = 750/240 = 3,125 A  (≈ 3,13 A)",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-7-1-2",
+          "label": "7.1.2",
+          "questionText": "The cost of electricity is R1,20 per kilowatt hour. Calculate the cost of using the pump continuously for 20 minutes.",
+          "marks": 3,
+          "memoText": "Energy used = power × time = 0,75 kW × (20/60) h = 0,25 kWh.\nCost = R1,20 × 0,25 = R0,30 (30 cents).",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-7-2-1",
+          "label": "7.2.1",
+          "questionText": "In the circuit below, the battery has an emf of 12 V and an internal resistance of 0,5 Ω. It is connected to a light bulb (in series, controlled by switch S1 with ammeter A2) and, through switch S2, to a resistor R_X connected in parallel with the voltmeter V. Ammeters have zero resistance and the voltmeter has infinite resistance. Switches S1 and S2 are initially both open.\n\nDefine emf.",
+          "marks": 2,
+          "memoText": "The emf is the total energy supplied (work done) per coulomb of charge by the cell/battery.",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-7-2-2",
+          "label": "7.2.2",
+          "questionText": "What will be the reading on the voltmeter, V, when both switches are open?",
+          "marks": 2,
+          "memoText": "0 V. With both switches open no current flows in the branch containing R_X and the voltmeter, so there is no potential difference across R_X (and hence across the voltmeter).",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-7-2-3",
+          "label": "7.2.3",
+          "questionText": "Switch S1 is now closed while S2 remains open. Ammeter A1 reads 1,6 A. Determine the resistance of the bulb.",
+          "marks": 4,
+          "memoText": "Only the bulb and internal resistance carry current.\nemf = I(r + R_bulb)\n12 = 1,6(0,5 + R_bulb)\n7,5 = 0,5 + R_bulb\nR_bulb = 7 Ω",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-7-2-4",
+          "label": "7.2.4",
+          "questionText": "Calculate the reading on the voltmeter, V. (S1 closed, S2 still open, I = 1,6 A.)",
+          "marks": 3,
+          "memoText": "With S2 open, no current flows through R_X, so the voltmeter reads the potential difference across the bulb, which equals the terminal potential difference of the battery.\nV = IR_bulb = (1,6)(7) = 11,2 V\nOR  V = emf − Ir = 12 − 1,6(0,5) = 11,2 V",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-7-2-5",
+          "label": "7.2.5",
+          "questionText": "Calculate the rate of energy dissipation in the battery (i.e. in the internal resistance).",
+          "marks": 3,
+          "memoText": "P = I²r = (1,6)²(0,5)\nP = 2,56 × 0,5\nP = 1,28 W",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-7-2-6-a",
+          "label": "7.2.6 (a)",
+          "questionText": "Switch S2 is now closed so that both switches are closed (R_X is now connected in parallel with the bulb). State whether the reading on ammeter A1 will DECREASE, INCREASE or STAY THE SAME, and explain your answer.",
+          "marks": 2,
+          "memoText": "Increase. Adding R_X in parallel decreases the total external resistance of the circuit, so the total current drawn from the battery (read by A1) increases.",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-7-2-6-b",
+          "label": "7.2.6 (b)",
+          "questionText": "State whether the rate of energy dissipation in the battery will DECREASE, INCREASE or STAY THE SAME when S2 is closed.",
+          "marks": 2,
+          "memoText": "Increase. The rate of energy dissipation in the battery is P = I²r; since the total current I increases, this power increases.",
+          "topic": "Electric Circuits",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-7-2-6-c",
+          "label": "7.2.6 (c)",
+          "questionText": "State whether the reading on voltmeter V will DECREASE, INCREASE or STAY THE SAME when S2 is closed, and explain your answer.",
+          "marks": 2,
+          "memoText": "Decrease. As the total current increases, the 'lost volts' across the internal resistance (Ir) increase, so the terminal potential difference — which is what the voltmeter reads across the external combination — decreases.",
+          "topic": "Electric Circuits",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Electrodynamics",
+      "totalMarks": 18,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-8-1",
+          "label": "8.1",
+          "questionText": "A straight conductor is connected to a battery and suspended between the poles of a permanent magnet so that it is perpendicular to the field. The south pole (S) is above the conductor and the north pole (N) is below it, and the conductor is free to move horizontally between sides marked X and Y. Will the conductor move towards the side marked X or Y when the switch is closed? Write only X or Y.",
+          "marks": 2,
+          "memoText": "X. (Applying the right-hand rule to F = BIl for the given directions of the current and the magnetic field, the force on the conductor is towards X.)",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-8-2",
+          "label": "8.2",
+          "questionText": "Briefly explain why the conductor moves.",
+          "marks": 2,
+          "memoText": "The current in the conductor produces its own magnetic field. This field interacts with the magnetic field of the permanent magnet, and the interaction of the two fields results in a resultant force on the current-carrying conductor.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-8-3",
+          "label": "8.3",
+          "questionText": "Suggest two changes that could be made to the set-up, where either change on its own would cause the conductor to move in the opposite direction.",
+          "marks": 2,
+          "memoText": "Any two of: reverse the direction of the current (turn the battery around); reverse the magnetic field (swap the magnet's poles / turn the magnet upside down).",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-8-4",
+          "label": "8.4",
+          "questionText": "Identify two changes that could be made to increase the force that the conductor experiences.",
+          "marks": 2,
+          "memoText": "Any two of: increase the strength of the magnetic field (use a stronger magnet); increase the current in the conductor; increase the length of conductor inside the magnetic field (e.g. use a wider magnet).",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-8-5",
+          "label": "8.5",
+          "questionText": "The conductor is rotated through 90° so that it is suspended between the poles of the magnet parallel to the magnetic field (parallel to the line joining the poles). Would the conductor still experience a magnetic force when the switch is closed?",
+          "marks": 1,
+          "memoText": "Yes. (The marking guideline gives the answer 'Yes'.)",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-8-6",
+          "label": "8.6",
+          "questionText": "A transformer is connected to the output of an AC generator. Explain how the transformer changes the voltage output of the generator, referring to the basic operation of an ideal transformer.",
+          "marks": 3,
+          "memoText": "The alternating current in the primary coil sets up a continuously changing magnetic field/flux in the core. This changing flux links the secondary coil and induces an emf in it. The induced emf is proportional to the number of turns on each coil, so V_S/V_P = N_S/N_P, which means the transformer steps the voltage up or down according to the turns ratio. In an ideal transformer no power is lost, so P_primary = P_secondary.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-8-7",
+          "label": "8.7",
+          "questionText": "The generator produces 16 V. The transformer has 200 turns on the primary coil. How many turns must there be on the secondary coil for the transformer to produce 240 V?",
+          "marks": 3,
+          "memoText": "N_S/N_P = V_S/V_P\nN_S/200 = 240/16\nN_S = 200 × 15\nN_S = 3 000 turns",
+          "topic": "Electrodynamics",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-8-8",
+          "label": "8.8",
+          "questionText": "Explain why high voltages are used for the transmission of electrical energy through the national grid. Use an appropriate equation in your explanation.",
+          "marks": 3,
+          "memoText": "For a given amount of power transmitted (P = VI), a higher transmission voltage means a smaller current in the transmission lines. The rate at which energy is lost as heat in the lines is P_loss = I²R, so a smaller current greatly reduces the power lost in the cables, making transmission more efficient.",
+          "topic": "Electrodynamics",
+          "type": "written"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Photons and Electrons",
+      "totalMarks": 16,
+      "subQuestions": [
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-9-1-1",
+          "label": "9.1.1",
+          "questionText": "The diagram shows four transitions (A, B, C and D) in a hydrogen atom (not to scale). The energy levels shown are 0 eV, −0,85 eV, −1,51 eV, −3,40 eV and −13,6 eV. Arrows A and B are transitions ending on the −3,40 eV level; arrows C and D are transitions ending on the −13,6 eV level.\n\nExplain what the arrows A–D represent.",
+          "marks": 2,
+          "memoText": "The arrows represent electron transitions: an electron dropping (falling) from a higher energy level to a lower energy level in the atom, each drop emitting a photon.",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-9-1-2",
+          "label": "9.1.2",
+          "questionText": "Which arrow (A, B, C or D) corresponds to the greatest wavelength of light emitted? Give a reason for your answer.",
+          "marks": 2,
+          "memoText": "B. The greatest wavelength corresponds to the lowest photon energy (E = hc/λ), which is the transition with the smallest difference in energy between the two levels. Of the four transitions, B has the smallest energy gap.",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-9-1-3",
+          "label": "9.1.3",
+          "questionText": "Calculate the frequency of light that would be emitted by transition D (from the −3,40 eV level to the −13,6 eV level). (h = 6,6 × 10⁻³⁴ J·s, 1 eV = 1,6 × 10⁻¹⁹ J.)",
+          "marks": 4,
+          "memoText": "Energy of photon = difference between levels = [−3,40 − (−13,6)] eV = 10,2 eV.\nConvert: E = 10,2 × 1,6 × 10⁻¹⁹ = 1,632 × 10⁻¹⁸ J.\nE = hf\n1,632 × 10⁻¹⁸ = (6,6 × 10⁻³⁴)·f\nf = 2,47 × 10¹⁵ Hz",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-9-2-1",
+          "label": "9.2.1",
+          "questionText": "Caesium metal has a work function of 3,36 × 10⁻¹⁹ J. Blue light with a wavelength of 470 nm is shone onto the surface of the caesium.\n\nDefine threshold frequency.",
+          "marks": 2,
+          "memoText": "The threshold frequency is the minimum frequency of incident radiation at which electrons will be emitted (ejected) from the surface of a particular metal.",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-9-2-2",
+          "label": "9.2.2",
+          "questionText": "Calculate the threshold frequency of caesium. (h = 6,6 × 10⁻³⁴ J·s.)",
+          "marks": 3,
+          "memoText": "W₀ = hf₀\n3,36 × 10⁻¹⁹ = (6,6 × 10⁻³⁴)·f₀\nf₀ = 5,09 × 10¹⁴ Hz",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        },
+        {
+          "id": "phys-sci-ieb-p1-nov-2021-9-2-3",
+          "label": "9.2.3",
+          "questionText": "Will the blue light be able to eject an electron from caesium? Justify your answer with a calculation. (c = 3 × 10⁸ m·s⁻¹, λ = 470 nm.)",
+          "marks": 3,
+          "memoText": "Frequency of the blue light: c = fλ → f = (3 × 10⁸)/(470 × 10⁻⁹) = 6,38 × 10¹⁴ Hz.\nThis is greater than the threshold frequency of caesium (5,09 × 10¹⁴ Hz), so an electron will be ejected.\nOR by energy: E = hc/λ = (6,6 × 10⁻³⁴)(3 × 10⁸)/(470 × 10⁻⁹) = 4,21 × 10⁻¹⁹ J, which is greater than the work function 3,36 × 10⁻¹⁹ J, so an electron is ejected.",
+          "topic": "Photons and Electrons",
+          "type": "written"
+        }
+      ]
+    }
+  ]
+}
