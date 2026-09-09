@@ -1100,7 +1100,6 @@ function SessionView({
   });
 
   const [mobileTab, setMobileTab] = useState<"question" | "feedback">("question");
-  const wasEvaluating = useRef(false);
 
   // Reset hint level and mobile tab when question changes
   useEffect(() => {
@@ -1109,12 +1108,14 @@ function SessionView({
     setExpandedQuestion(false);
   }, [currentIdx]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Auto-switch to feedback tab on mobile after evaluation completes
+  // On mobile, switch to the feedback tab the moment evaluation starts (not
+  // when it finishes) so the student sees the "Looking this over…" loader
+  // during the wait, instead of a frozen question tab that suddenly flips
+  // once the result lands.
   useEffect(() => {
-    if (wasEvaluating.current && !isEvaluating && mode === "guided") {
+    if (isEvaluating && mode === "guided") {
       setMobileTab("feedback");
     }
-    wasEvaluating.current = isEvaluating;
   }, [isEvaluating, mode]);
 
   useEffect(() => {

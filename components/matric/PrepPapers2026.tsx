@@ -590,18 +590,19 @@ function SessionView({
   });
 
   const [mobileTab, setMobileTab] = useState<"question" | "feedback">("question");
-  const wasEvaluating = useRef(false);
 
   useEffect(() => {
     setHintLevel(0);
     setMobileTab("question");
   }, [currentIdx]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // On mobile, switch to the feedback tab the moment evaluation starts (not
+  // when it finishes) so the student sees the "Looking this over…" loader
+  // during the wait, instead of a frozen question tab that suddenly flips.
   useEffect(() => {
-    if (wasEvaluating.current && !isEvaluating && mode === "guided") {
+    if (isEvaluating && mode === "guided") {
       setMobileTab("feedback");
     }
-    wasEvaluating.current = isEvaluating;
   }, [isEvaluating, mode]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
