@@ -21,6 +21,8 @@ export type OnboardingData = {
   subjects: FetSubjectKey[];
   name: string;
   email: string;
+  // School name the learner optionally types during sign-up. Empty when skipped.
+  school: string;
   plan: string;
   userId?: string;
 };
@@ -150,6 +152,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
   );
   const [name, setName] = useState(initialData?.name || "");
   const [email, setEmail] = useState(initialData?.email || "");
+  const [school, setSchool] = useState(initialData?.school || "");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [authLoading, setAuthLoading] = useState(false);
@@ -231,6 +234,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
           parent_email: null,
           grade: data.grade || null,
           curriculum: data.curriculum || null,
+          school: school.trim() || null,
           language: data.language || "English",
           trial_expires_at: trialExpiresAt,
           study_guide_purchaser: isStudyGuidePurchaser,
@@ -263,7 +267,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       // Fetch the user's saved profile from the users table
       const userId = authData.user?.id;
       const { data: userData } = userId
-        ? await supabase.from("users").select("full_name, grade, language, curriculum, subjects").eq("id", userId).single()
+        ? await supabase.from("users").select("full_name, grade, language, curriculum, school, subjects").eq("id", userId).single()
         : { data: null };
       const fullName =
         (userData?.full_name as string | undefined) ||
@@ -278,6 +282,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         subjects: (userData?.subjects as FetSubjectKey[] | null) || [],
         name: fullName,
         email,
+        school: (userData?.school as string | undefined) || "",
         plan: "existing",
         userId,
       };
@@ -324,6 +329,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
       subjects: finalSubjects,
       name,
       email,
+      school,
       plan: data.plan || "standard",
       userId: signedUpUserId,
     };
@@ -337,6 +343,7 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
         full_name: name,
         grade: final.grade || null,
         curriculum: final.curriculum || null,
+        school: school.trim() || null,
         language: final.language,
         // null (not []) when there's no selection, so the hub fails open to "show all".
         subjects: finalSubjects.length ? finalSubjects : null,
@@ -473,6 +480,16 @@ export default function OnboardingFlow({ onComplete, initialStep = 1, initialDat
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                         <input type="text" placeholder="John Doe" value={name} onChange={(e) => setName(e.target.value)} className="flex-1 outline-none text-gray-700 text-base bg-transparent" />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-800 mb-1">School name</label>
+                      <div className="flex items-center gap-3 border-2 border-gray-200 rounded-full px-4 py-2.5 focus-within:border-rose-400 transition-colors">
+                        <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                        </svg>
+                        <input type="text" placeholder="Your school name" value={school} onChange={(e) => setSchool(e.target.value)} className="flex-1 outline-none text-gray-700 text-base bg-transparent" />
                       </div>
                     </div>
                     <div>
