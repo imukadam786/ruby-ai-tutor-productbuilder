@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EduBackground from "@/components/EduBackground";
 import PdfViewerModal from "@/components/matric/PdfViewerModal";
 import { CONCEPT_C } from "@/lib/flags";
@@ -27,6 +27,9 @@ interface Subject {
   label: string;
   thumbnail: string;
   guides: Guide[];
+  /** IEB sets share a thumbnail with the DBE subject, so they only show to
+   *  students who picked "IEB" as their curriculum during onboarding. */
+  ieb?: boolean;
 }
 
 const CONTAIN_THUMBNAILS = new Set([
@@ -78,6 +81,23 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Accounting (IEB)",
+    thumbnail: "/thumbnails/accounting.webp",
+    ieb: true,
+    guides: [
+      {
+        label: "Paper 1 — Accounting (Nov 2026)",
+        description: "Financial statements, ledgers and accounting concepts",
+        filename: "accounting-ieb-p1-nov-2026-studyguide.pdf",
+      },
+      {
+        label: "Paper 2 — Accounting (Nov 2026)",
+        description: "Partnerships, companies and financial reporting",
+        filename: "accounting-ieb-p2-nov-2026-studyguide.pdf",
+      },
+    ],
+  },
+  {
     label: "Afrikaans FAL",
     thumbnail: "/thumbnails/afrikaans-fal.webp",
     guides: [
@@ -94,9 +114,15 @@ const SUBJECTS: Subject[] = [
         session: "june",
       },
       {
+        label: "Paper 3 — Writing (Nov 2026)",
+        description: "Opstel en transaksionele skryfwerk",
+        filename: "afrikaans-fal-p3-nov-2026-studyguide_compressed.pdf",
+      },
+      {
         label: "Paper 3 — Writing",
         description: "Opstel en transaksionele skryfwerk",
         filename: "afr-fal-p3-may-jun-2026-studyguide_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Literature (Nov 2026)",
@@ -136,14 +162,26 @@ const SUBJECTS: Subject[] = [
     thumbnail: "/thumbnails/agricultural-science.webp",
     guides: [
       {
+        label: "Paper 1 — Agricultural Science (Nov 2026)",
+        description: "Plant production, animal production and agricultural management",
+        filename: "agricultural-sciences-p1-nov-2026-studyguide.pdf",
+      },
+      {
+        label: "Paper 2 — Agricultural Science (Nov 2026)",
+        description: "Animal production, animal health and agricultural management",
+        filename: "agricultural-sciences-p2-nov-2026-studyguide.pdf",
+      },
+      {
         label: "Paper 1 — Agricultural Science",
         description: "Plant production, animal production and agricultural management",
         filename: "agrisci-p1-may-jun-2026-studyguide1.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Agricultural Science",
         description: "Animal production, animal health and agricultural management",
         filename: "agrisci-p2-may-jun-2026-studyguide.pdf",
+        session: "june",
       },
       {
         label: "Vraestel 1 — Landbouwetenskap",
@@ -171,7 +209,7 @@ const SUBJECTS: Subject[] = [
       {
         label: "Paper 2 — Management & Operations (Nov 2026)",
         description: "Business functions, financial management and human resources",
-        filename: "BusinessStudies_Paper2_StudyGuide_Nov2026_compressed.pdf",
+        filename: "business-studies-p2-nov-2026-studyguide.pdf",
       },
       {
         label: "Paper 1 — Business Environments",
@@ -266,19 +304,37 @@ const SUBJECTS: Subject[] = [
     thumbnail: "/thumbnails/english-fal.webp",
     guides: [
       {
+        label: "Paper 1 — Comprehension & Language (Nov 2026)",
+        description: "Reading comprehension, summary and language in context",
+        filename: "english-fal-p1-nov-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 2 — Literature (Nov 2026)",
+        description: "Novel, drama, short stories and poetry",
+        filename: "english-fal-p2-nov-2026-studyguide_compressed.pdf",
+      },
+      {
+        label: "Paper 3 — Writing (Nov 2026)",
+        description: "Essays, transactional writing and creative tasks",
+        filename: "english-fal-p3-nov-2026-studyguide_compressed.pdf",
+      },
+      {
         label: "Paper 1 — Comprehension & Language",
         description: "Reading comprehension, summary and language in context",
         filename: "eng-fal-p1-may-jun-2026-studyguide1_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 2 — Literature",
         description: "Poetry, drama, novel and short stories",
         filename: "eng-fal-p2-may-jun-2026-studyguide2_compressed.pdf",
+        session: "june",
       },
       {
         label: "Paper 3 — Writing",
         description: "Essays, transactional writing and creative tasks",
         filename: "eng-fal-p3-may-jun-2026-studyguide3_compressed.pdf",
+        session: "june",
       },
     ],
   },
@@ -309,9 +365,15 @@ const SUBJECTS: Subject[] = [
         session: "june",
       },
       {
+        label: "Paper 3 — Writing (Nov 2026)",
+        description: "Essays, transactional writing and creative tasks",
+        filename: "english-hl-p3-nov-2026-studyguide_compressed.pdf",
+      },
+      {
         label: "Paper 3 — Writing",
         description: "Essays, transactional writing and creative tasks",
         filename: "eng-hl-p3-may-jun-2026-studyguide3_compressed.pdf",
+        session: "june",
       },
     ],
   },
@@ -401,6 +463,28 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Information Technology",
+    thumbnail: "/thumbnails/cat.webp",
+    guides: [
+      {
+        label: "Paper 2 — Information Technology (Nov 2026)",
+        description: "Theory paper: six sections, each with a method and a full real question",
+        filename: "information-technology-p2-nov-2026-studyguide.pdf",
+      },
+    ],
+  },
+  {
+    label: "Life Orientation",
+    thumbnail: "/thumbnails/life-skills.webp",
+    guides: [
+      {
+        label: "Life Orientation (Nov 2026)",
+        description: "Six topics and three exam sections, ranked by the marks they carry",
+        filename: "life-orientation-nov-2026-studyguide_compressed.pdf",
+      },
+    ],
+  },
+  {
     label: "Life Sciences",
     thumbnail: "/thumbnails/life-sciences.webp",
     guides: [
@@ -481,6 +565,23 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Mathematics (IEB)",
+    thumbnail: "/thumbnails/mathematics.webp",
+    ieb: true,
+    guides: [
+      {
+        label: "Paper 1 — Algebra, Calculus & Functions (Nov 2026)",
+        description: "Algebra, patterns, finance, functions, calculus and probability",
+        filename: "mathematics-ieb-p1-nov-2026-studyguide.pdf",
+      },
+      {
+        label: "Paper 2 — Geometry, Trigonometry & Stats (Nov 2026)",
+        description: "Euclidean geometry, trigonometry, analytical geometry and statistics",
+        filename: "mathematics-ieb-p2-nov-2026-studyguide.pdf",
+      },
+    ],
+  },
+  {
     label: "Maths Literacy",
     thumbnail: "/thumbnails/maths-literacy.webp",
     guides: [
@@ -517,6 +618,23 @@ const SUBJECTS: Subject[] = [
         description: "Datahantering, waarskynlikheid en geïntegreerde kontekste",
         filename: "mathslit-p2-may-jun-2026-studyguide-afrikaans.pdf",
         language: "af",
+      },
+    ],
+  },
+  {
+    label: "Maths Literacy (IEB)",
+    thumbnail: "/thumbnails/maths-literacy.webp",
+    ieb: true,
+    guides: [
+      {
+        label: "Paper 1 — Basic Skills & Applications (Nov 2026)",
+        description: "Finance, data handling, patterns, numbers and probability",
+        filename: "maths-literacy-ieb-p1-nov-2026-studyguide.pdf",
+      },
+      {
+        label: "Paper 2 — Applications in Context (Nov 2026)",
+        description: "Measurement, maps and plans, and probability in context",
+        filename: "maths-literacy-ieb-p2-nov-2026-studyguide.pdf",
       },
     ],
   },
@@ -561,6 +679,23 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    label: "Physical Sciences (IEB)",
+    thumbnail: "/thumbnails/physical-science.webp",
+    ieb: true,
+    guides: [
+      {
+        label: "Paper 1 — Physics (Nov 2026)",
+        description: "Mechanics, waves, electricity and magnetism",
+        filename: "physical-sciences-p1-ieb-nov-2026-studyguide.pdf",
+      },
+      {
+        label: "Paper 2 — Chemistry (Nov 2026)",
+        description: "Matter and materials, chemical change and solutions",
+        filename: "physical-sciences-p2-ieb-nov-2026-studyguide.pdf",
+      },
+    ],
+  },
+  {
     label: "Tourism",
     thumbnail: "/thumbnails/tourism.webp",
     guides: [
@@ -586,6 +721,27 @@ interface StudyGuidesProps {
 export default function StudyGuides({ onBack }: StudyGuidesProps) {
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
   const [openGuide, setOpenGuide] = useState<{ url: string; title: string } | null>(null);
+
+  // IEB guide sets only show to students who picked "IEB" as their curriculum
+  // during onboarding (same rule as IEB past papers). Everyone else, including
+  // signed-out users, sees the DBE set only.
+  const [isIeb, setIsIeb] = useState(false);
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return;
+        const { data } = await supabase
+          .from("users")
+          .select("curriculum")
+          .eq("id", user.id)
+          .maybeSingle();
+        if (data?.curriculum === "IEB") setIsIeb(true);
+      } catch { /* default to non-IEB */ }
+    })();
+  }, []);
+
+  const visibleSubjects = isIeb ? SUBJECTS : SUBJECTS.filter((s) => !s.ieb);
 
   function handleGuideClick(guide: Guide, subjectLabel: string) {
     setOpenGuide({
@@ -638,23 +794,28 @@ export default function StudyGuides({ onBack }: StudyGuidesProps) {
           <div className="space-y-3">
             <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Choose a subject</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {SUBJECTS.map((s) => (
+              {visibleSubjects.map((s) => (
                 <button
                   key={s.label}
                   onClick={() => setSelectedSubject(s)}
-                  className={`relative rounded-2xl transition-all group overflow-hidden bg-white border-2 border-gray-200 cursor-pointer ${
+                  className={`relative flex flex-col rounded-2xl transition-all group overflow-hidden bg-white border-2 border-gray-200 cursor-pointer ${
                     CONCEPT_C
                       ? "shadow-lip active:translate-y-[3px] active:shadow-none"
                       : "shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-gray-300"
                   }`}
                 >
-                  <div className="w-full aspect-square overflow-hidden">
+                  <div className="w-full aspect-square overflow-hidden flex-shrink-0">
                     <img
                       src={s.thumbnail}
                       alt={s.label}
                       className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${CONTAIN_THUMBNAILS.has(s.thumbnail) ? "object-contain p-3" : "object-cover"}`}
                     />
                   </div>
+                  {/* Name caption: thumbnails alone can't tell apart subjects
+                      that share an image (DBE vs IEB sets, CAT vs IT). */}
+                  <span className="flex-1 flex items-center px-2.5 py-2 text-xs font-bold text-gray-700 leading-tight border-t border-gray-100">
+                    {s.label}
+                  </span>
                 </button>
               ))}
             </div>
