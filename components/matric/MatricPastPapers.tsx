@@ -1339,6 +1339,7 @@ function SessionView({
           mode: isFinal ? "practice" : mode,
           attemptCount: attempt.attemptCount,
           questionType: sq.type,
+          feedbackStyle: "full",
         }),
       });
 
