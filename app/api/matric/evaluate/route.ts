@@ -18,6 +18,7 @@ export async function POST(req: NextRequest) {
       mode,
       attemptCount,
       questionType,
+      feedbackStyle,
     }: {
       questionLabel: string;
       questionText: string;
@@ -29,7 +30,12 @@ export async function POST(req: NextRequest) {
       mode: "guided" | "practice";
       attemptCount: number;
       questionType?: string;
+      // "full" = Past Papers section: every wrong answer gets the full
+      // explanation + correct answer straight away, no Socratic hints.
+      feedbackStyle?: "full";
     } = await req.json();
+
+    const fullExplanation = feedbackStyle === "full";
 
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
@@ -49,9 +55,28 @@ export async function POST(req: NextRequest) {
     // pedagogical accuracy (content completeness, correct guiding questions,
     // no paraphrasing). If the target language is not English, the feedback
     // field is translated in a separate dedicated call below.
-    const systemPrompt = `You are Ruby, an AI exam coach helping a Grade 12 student work through a South African National Senior Certificate (NSC/Matric) past paper.
+    const fullExplanationRules = `Your role:
+- Evaluate the student's answer against the official mark scheme and award marks for each correct point
+- Whenever the student loses ANY marks, give a full explanation and the correct answer straight away. Do NOT give Socratic hints, do NOT ask the student questions, do NOT hold the answer back.
 
-Your role:
+FEEDBACK STYLE when marks were lost (write in plain, everyday language a Grade 12 student understands; speak to the student as "you"):
+1. Say what the student chose or wrote, and what that option/idea actually means (one or two sentences). For MCQ, name the option letter and what that option really refers to.
+2. Explain what the question is really asking, and name the correct concept in **bold**.
+3. Give one to three simple, everyday examples a learner can picture. Every example must be textbook-accurate for CAPS Grade 12. Avoid edge cases that need special conditions to be true (e.g. orbits, circular motion, frictionless surfaces, objects at rest when the question is about motion). If unsure about an example, leave it out. For calculations, show the method briefly instead of examples.
+4. MCQ only: if a wrong option is the direct opposite or paired term of the correct answer (e.g. exogenous/endogenous, mitosis/meiosis, debit/credit, inflation/deflation, dominant/recessive), you MUST add one short "Watch out for option X: ..." sentence explaining the difference. If no option is a paired term, skip this step. Never warn about an unrelated option.
+5. End with the correct answer on its own line:
+   - MCQ: "**Correct answer: <letter>, <option text>**"
+   - Match-group: "**Correct answers:**" then one line per row, e.g. "1.2.1: D"
+   - Calculation: the full step-by-step solution, then "**Correct answer: <final answer with units>**"
+   - Written/explain/essay: "**Model answer:**" then the points that earn the marks, in your own words (one short line each)
+
+Keep it short: steps 1 to 4 together should be about 4 to 6 sentences. Use bold only for the key terms and the answer line. Never use em dashes.
+ACCURACY: every fact you state must agree with the mark scheme and standard CAPS content. If you are not sure a claim is true, leave it out. Do not describe a wrong option inaccurately.
+Do NOT start with "Not quite", "Incorrect" or a heading (the app already shows one).
+
+When the answer is fully correct: one or two sentences confirming why it is right. No answer line needed.`;
+
+    const guidedRules = `Your role:
 - Evaluate the student's working step by step against the official mark scheme
 - Award marks for each correct step
 - Give targeted feedback in English
@@ -66,7 +91,11 @@ Attempt 2 sequence for guided mode (calculation/written):
 2. Identify the specific gap or misconception
 3. Explain the underlying concept in plain, everyday language (imagine explaining to a 14-year-old with no subject background)
 4. Show a short worked example with DIFFERENT numbers/context — label it clearly (e.g. "Here is a similar example:")
-5. End with a prompt like "Now use this method on your question."
+5. End with a prompt like "Now use this method on your question."`;
+
+    const systemPrompt = `You are Ruby, an AI exam coach helping a Grade 12 student work through a South African National Senior Certificate (NSC/Matric) past paper.
+
+${fullExplanation ? fullExplanationRules : guidedRules}
 
 RESPONSE FORMAT — you must return valid JSON only, no markdown wrapper:
 {
@@ -83,7 +112,8 @@ BREAKDOWN RULES:
 - Itemise the mark scheme into one entry per mark (or per logical mark-group, e.g. "numerator (2)"). Award marks point by point against the student's working.
 - "status" is "correct" when awarded === maxMarks, "partial" when 0 < awarded < maxMarks, "missed" when awarded === 0.
 - The awarded values across all breakdown entries MUST sum to "marksEarned", and the maxMarks values MUST sum to "totalMarks".
-- Keep each "note" to one short, plain-language sentence. Leave it as an empty string for fully-correct points.
+- Keep each "note" to one short, plain-language sentence. Leave it as an empty string for fully-correct points.${fullExplanation ? `
+- Write each "point" and "note" speaking to the student as "you" (e.g. "You picked the monetarist approach, which is about money supply, not forces inside the market."). Never write "the student".` : ""}
 - For MCQ / match-group questions, a single breakdown entry covering the whole answer is fine.
 
 The feedback field must be a single-line JSON string (escape newlines as \\n).`;
@@ -96,10 +126,11 @@ ${questionText}
 OFFICIAL MARK SCHEME (confidential — do not reproduce verbatim to student):
 ${safeMemo}
 
-MODE: ${mode === "guided" ? "GUIDED" : "PRACTICE"}
+${fullExplanation ? `QUESTION TYPE: ${questionType ?? "written"}
+FEEDBACK: FULL EXPLANATION — if any marks are lost, explain fully and give the correct answer.` : `MODE: ${mode === "guided" ? "GUIDED" : "PRACTICE"}
 ATTEMPT NUMBER: ${attemptCount + 1}
 SHOW FULL SOLUTION: ${showFullSolution ? "YES — reveal the method and full worked solution for the student's actual question." : "NO"}
-SHOW WORKED EXAMPLE: ${showWorkedExample ? "YES — explain the concept in plain language, then show a worked example with different numbers/context. Do NOT solve the student's actual question." : "NO — Socratic only: acknowledge, ask one question, give one nudge."}
+SHOW WORKED EXAMPLE: ${showWorkedExample ? "YES — explain the concept in plain language, then show a worked example with different numbers/context. Do NOT solve the student's actual question." : "NO — Socratic only: acknowledge, ask one question, give one nudge."}`}
 
 STUDENT'S WORKING:
 ${studentText || "(No text provided — see image below)"}
@@ -152,6 +183,14 @@ Evaluate the student's working against the mark scheme. Award marks for each cor
       parsed = JSON.parse(raw);
     } catch {
       parsed = { marksEarned: 0, totalMarks: 0, allCorrect: false, feedback: raw };
+    }
+
+    // Keep the answer line on its own paragraph, the model sometimes runs it on.
+    if (fullExplanation && parsed.feedback) {
+      parsed.feedback = parsed.feedback.replace(
+        /\s*(\*\*(?:Correct answers?|Model answer):?)/g,
+        "\n\n$1"
+      ).trim();
     }
 
     if (language !== "English" && parsed.feedback) {
