@@ -11,7 +11,7 @@ import { useT } from "@/lib/i18n";
 import EduBackground from "@/components/EduBackground";
 import UsageMeter from "@/components/UsageMeter";
 import RubyBalance from "@/components/RubyBalance";
-import { getTutor } from "@/lib/tutors";
+import { getTutor, quickActionsForGrade, subjectsForGrade } from "@/lib/tutors";
 import { CONCEPT_C } from "@/lib/flags";
 import { recordHomeworkSession } from "@/lib/homeworkHistory";
 
@@ -30,6 +30,9 @@ interface ChatInterfaceProps {
   tutorName?: string | null;
   /** Return to the tutor picker (shown only when a tutor is active). */
   onChangeTutor?: () => void;
+  /** Learner's grade (1–12), or null when unknown. Filters the tutor's subject
+      label and quick actions to what's taught at that grade. */
+  grade?: number | null;
   /** Text/file already entered on HomeworkStart — auto-sent once on mount so
       the learner never has to retype what they just asked. */
   initialSubmission?: { text: string; file: File | null } | null;
@@ -106,9 +109,9 @@ import { supabase } from "@/lib/supabase";
 const speakNaturally = speakViaAPI;
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor, initialSubmission, onInitialSubmissionHandled }: ChatInterfaceProps) {
+export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor, grade, initialSubmission, onInitialSubmissionHandled }: ChatInterfaceProps) {
   const tutor = getTutor(tutorName);
-  const quickActions = tutor?.quickActions ?? QUICK_ACTIONS;
+  const quickActions = tutor ? quickActionsForGrade(tutor, grade) : QUICK_ACTIONS;
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -475,7 +478,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor,
               {tutor ? `Chat with ${tutor.name}` : "Chat with Ruby"}
               {tutor && (
                 <span className={`text-xs sm:text-sm font-medium ${CONCEPT_C ? "text-ruby" : "text-brand"}`}>
-                  {tutor.subjects.join(" · ")}
+                  {subjectsForGrade(tutor, grade).map((s) => s.label).join(" · ")}
                 </span>
               )}
             </h2>

@@ -18,21 +18,38 @@ import { TUTORS, Tutor } from "@/lib/tutors";
 const SUBJECT_SYNONYMS: Record<string, string[]> = {
   English: ["essay", "grammar", "comprehension", "poem", "novel", "spelling", "vocabulary", "writing"],
   Afrikaans: ["afrikaans"],
-  Languages: [],
   Maths: ["algebra", "equation", "fraction", "geometry", "trigonometry", "calculus", "solve for x", "maths", "math"],
   "Maths Literacy": ["maths lit", "budget", "interest rate", "exchange rate"],
   "Business Studies": ["business plan", "entrepreneur", "marketing"],
+  "Consumer Studies": ["consumer", "food production", "textiles"],
   Accounting: ["ledger", "balance sheet", "journal entry", "trial balance", "debit", "credit"],
   Economics: ["gdp", "inflation", "market", "supply and demand", "economics"],
+  // No bare "cat" synonym — it would catch the animal in English homework.
+  "Computer Applications Technology": ["computer applications", "spreadsheet", "excel", "word processing"],
+  "Information Technology": ["programming", "delphi", "algorithm", "coding"],
+  EMS: ["economic and management sciences"],
   Geography: ["map", "climate", "geography", "contour"],
   History: ["history", "world war", "apartheid", "cold war", "revolution"],
+  "Agricultural Sciences": ["agricultural", "agriculture", "farming", "livestock", "soil"],
+  "Social Sciences": ["social studies", "social science"],
+  "Life Skills": ["life skills"],
+  "Life Orientation": ["life orientation"],
+  "Creative Arts": ["creative arts", "music", "visual arts"],
   Tourism: ["tourism", "travel", "itinerary"],
-  "Life Skills": ["life skills", "life orientation"],
-  "Social Studies": ["social studies"],
-  NST: ["natural sciences and technology", "nst"],
-  "Natural Science": ["biology", "cell", "photosynthesis", "ecosystem", "natural science"],
+  "Hospitality Studies": ["hospitality", "menu", "food and beverage"],
+  "Natural Sciences and Technology": ["nst"],
+  "Natural Sciences": ["natural science"],
+  Technology: ["structures", "mechanical systems", "electrical systems"],
   "Physical Sciences": ["physics", "chemistry", "chemical reaction", "force", "physical science"],
+  "Life Sciences": ["biology", "cell", "photosynthesis", "ecosystem", "dna", "genetics", "evolution", "life science"],
 };
+
+/** Whole-word match, allowing a trailing "s" ("fraction" → "fractions") so
+    short keywords like "EMS" don't fire inside "problems". */
+function containsKeyword(text: string, keyword: string): boolean {
+  const escaped = keyword.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`\\b${escaped}s?\\b`).test(text);
+}
 
 interface SubjectHit {
   subject: string;
@@ -79,7 +96,7 @@ export function matchTutorByText(text: string): RoutingResult {
 
   for (const { subject, tutor } of SUBJECT_INDEX) {
     const keywords = [subject, ...(SUBJECT_SYNONYMS[subject] ?? [])];
-    const hit = keywords.some((kw) => kw && normalized.includes(kw.toLowerCase()));
+    const hit = keywords.some((kw) => kw && containsKeyword(normalized, kw));
     if (hit && !matchedTutors.has(tutor.name)) {
       matchedTutors.set(tutor.name, { tutor, subject });
     }

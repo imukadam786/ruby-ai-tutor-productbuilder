@@ -35,9 +35,10 @@ export async function POST(req: NextRequest) {
         const hasImage = !!imageData;
 
         // Cap history at 20 messages (10 turns) to keep token cost bounded.
-        // The system prompt is a stable 4 500-token prefix — OpenAI auto-caches
-        // identical prefixes >1 024 tokens, so those tokens cost 50 % less after
-        // the first request.
+        // The system prompt is a stable ~2 700-token prefix (~2 100 words) —
+        // OpenAI auto-caches identical prefixes >1 024 tokens, so those tokens
+        // cost 50 % less after the first request. Anything per-tutor, per-grade
+        // or per-student must go AFTER it, or the cache stops matching.
         const openaiMessages: any[] = messages.slice(0, -1).slice(-20).map((m) => ({
             role: m.role,
             content: m.content,

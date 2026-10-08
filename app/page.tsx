@@ -594,6 +594,7 @@ function AppContent({ initialView, onPostDiscovery, showUpgradeOnMount }: { init
                 onMessageSent={() => { refreshStats(); setChatEngaged(true); }}
                 tutorName={selectedTutor || undefined}
                 onChangeTutor={() => setSelectedTutor(null)}
+                grade={grade}
                 initialSubmission={pendingHomework}
                 onInitialSubmissionHandled={() => setPendingHomework(null)}
               />
