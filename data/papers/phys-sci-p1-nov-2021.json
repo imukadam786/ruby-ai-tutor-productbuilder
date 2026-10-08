@@ -249,7 +249,8 @@
           "questionText": "When the balloon is 200 m above the ground, a small stone A is dropped from the balloon. Another small stone B is dropped 5 s later from the balloon while the balloon is still moving upwards at constant velocity. Stone A strikes the ground at a speed of 62,68 m·s⁻¹. Ignore air resistance. *(Refer to the diagram of the balloon 200 m above the ground in the original question paper.)*\n\nCalculate the speed of the hot-air balloon.",
           "marks": 3,
           "memoText": "Mark scheme (3 marks): OPTION 1 (upwards as positive)\nv_f² = v_i² + 2aΔy  ✓\n(−62,68)² = v_i² + 2(−9,8)(−200)  ✓ (substitution)\nv_i = 2,96 m·s⁻¹  ✓\n(Downwards positive gives v_i = −2,96 m·s⁻¹ → 2,96 m·s⁻¹.)\nOPTION 2 (conservation of mechanical energy): m(9,8)(200) + ½m v² = 0 + ½m(62,68)² → v_i = 2,96 m·s⁻¹. Mass may be omitted during substitution.",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p1_nov_2021_q3.1.png"
         },
         {
           "id": "phys-p1-3-2-2",
@@ -258,7 +259,8 @@
           "questionText": "Calculate the time it takes stone A to strike the ground.",
           "marks": 3,
           "memoText": "Mark scheme (3 marks): POSITIVE MARKING FROM QUESTION 3.2.1.\nMarking criteria: formula ✓, substitution ✓, final answer 6,70 s ✓ (accept 6,69 to 6,7). The calculation of t for A may be split into two parts.\nOPTION 1 (upwards positive):\nv_f = v_i + at  ✓\n−62,68 = 2,96 + (−9,8)t  ✓\nt = 6,70 s (6,698)  ✓\n(Downwards positive: 62,68 = −2,96 + 9,8t → t = 6,70 s.)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p1_nov_2021_q3.1.png"
         },
         {
           "id": "phys-p1-3-2-3",
@@ -267,7 +269,8 @@
           "questionText": "Calculate the distance between the hot-air balloon and stone B at the instant when stone A strikes the ground.",
           "marks": 6,
           "memoText": "Mark scheme (6 marks): POSITIVE MARKING FROM QUESTIONS 3.2.1 and 3.2.2.\nMarking criteria: formula to calculate y of stone B ✓; substitution of t = 1,7 s (t_A − 5) ✓; substitution to calculate y of stone B ✓; substitution to calculate y of balloon ✓; calculating distance between balloon and stone B ✓; final answer 14,16 m (14,11 to 14,16) ✓.\nOPTION 1 (upwards positive):\nStone B: y = v_i t + ½at² = 2,96(6,7 − 5) + ½(−9,8)(6,7 − 5)² = −9,13 m → distance travelled by B = 9,13 m.\nHot-air balloon: y = v_i t + ½at² = 2,96(6,7 − 5) + 0 = 5,03 m → distance travelled by balloon = 5,03 m.\nDistance between balloon and stone B = 9,13 + 5,03 = 14,16 m (14,11 − 14,16). ✓\n(Relative-velocity method: y = (2,96 − (−2,96))(1,7) + ½(−9,8)(1,7)² gives 14,16 m directly.)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p1_nov_2021_q3.1.png"
         },
         {
           "id": "phys-p1-3-3",
@@ -276,7 +279,8 @@
           "questionText": "On the same set of axes, draw position-time graphs for both the hot-air balloon and stone A from the moment the stone is dropped until it strikes the ground. Use the ground as zero reference. Label your graphs BALLOON and A.",
           "marks": 4,
           "memoText": "Mark scheme (4 marks): Criteria for graph:\n• Correct shape for stone A, not starting from 0 m. ✓\n• Correct shape and initial position for hot-air balloon. ✓\n• Gradient for hot-air balloon is higher than that of stone A until stone A reaches its maximum height. ✓\n• Both graphs starting at the same position and ending at the same time. ✓\n(Stone A rises to a maximum then falls to 0 m; the balloon rises as a straight line from the same 200 m starting position; both begin at t = 0 and end when A strikes the ground.)",
-          "topic": "Vertical Projectile Motion"
+          "topic": "Vertical Projectile Motion",
+          "diagramUrl": "https://kmgnizvqkqkiulzgvkcb.supabase.co/storage/v1/object/public/matric-diagrams/physci_p1_nov_2021_q3.1.png"
         }
       ]
     },
