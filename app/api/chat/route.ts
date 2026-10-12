@@ -3,6 +3,8 @@ import OpenAI from "openai";
 import { Message } from "@/types";
 import { TUTOR_SYSTEM_PROMPT } from "@/lib/anthropic";
 import { verifyToken, getUserPlan, checkAndIncrement } from "@/lib/server-usage";
+import { getUserGrade, resolveTutorContext } from "@/lib/tutor-context";
+import { buildTutorInstructions } from "@/lib/tutor-instructions";
 
 export async function POST(req: NextRequest) {
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
@@ -12,16 +14,28 @@ export async function POST(req: NextRequest) {
             imageData,
             imageMimeType,
             isHint,
-        }: { messages: Message[]; imageData?: string; imageMimeType?: string; isHint?: boolean } =
-            await req.json();
+            tutorName,
+            subject,
+        }: {
+            messages: Message[];
+            imageData?: string;
+            imageMimeType?: string;
+            isHint?: boolean;
+            tutorName?: string | null;
+            subject?: string | null;
+        } = await req.json();
 
         // Enforce daily limits for authenticated users
+        let grade: number | null = null;
         const token = req.headers.get("authorization")?.replace("Bearer ", "").trim();
         if (token) {
             const userId = await verifyToken(token);
             if (userId) {
                 const usageType = isHint ? "hint" : "chat";
-                const plan = await getUserPlan(userId);
+                // Grade comes from the profile, never the client. Fetched
+                // alongside the plan so it adds no extra wait.
+                const [plan, userGrade] = await Promise.all([getUserPlan(userId), getUserGrade(userId)]);
+                grade = userGrade;
                 const result = await checkAndIncrement(userId, usageType, plan);
                 if (!result.allowed) {
                     return NextResponse.json(
@@ -71,6 +85,11 @@ export async function POST(req: NextRequest) {
             });
         }
 
+        // Who/what this chat is for — goes in a second system message AFTER
+        // the shared prompt so the cached prefix stays identical for everyone.
+        const tutorContext = resolveTutorContext({ tutorName, grade, subjectHint: subject, messages });
+        const tutorInstructions = buildTutorInstructions(tutorContext);
+
         const stream = await openai.chat.completions.create({
             model: "gpt-4o-mini",
             stream: true,
@@ -81,6 +100,7 @@ export async function POST(req: NextRequest) {
                     role: "system",
                     content: TUTOR_SYSTEM_PROMPT,
                 },
+                ...(tutorInstructions ? [{ role: "system", content: tutorInstructions }] : []),
                 ...openaiMessages,
             ],
         }, { signal: AbortSignal.timeout(30_000) });

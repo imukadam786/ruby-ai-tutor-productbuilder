@@ -85,6 +85,17 @@ export function tutorForSubject(subject: string): Tutor | null {
   return hit?.tutor ?? null;
 }
 
+/** First of `labels` whose name or synonyms appear in `text`, else null.
+    Used server-side to work out which of a tutor's subjects a chat is about. */
+export function matchSubjectLabel(text: string, labels: string[]): string | null {
+  const normalized = text.toLowerCase();
+  for (const label of labels) {
+    const keywords = [label, ...(SUBJECT_SYNONYMS[label] ?? [])];
+    if (keywords.some((kw) => kw && containsKeyword(normalized, kw))) return label;
+  }
+  return null;
+}
+
 /** Instant keyword match against typed homework text. */
 export function matchTutorByText(text: string): RoutingResult {
   const normalized = text.toLowerCase();

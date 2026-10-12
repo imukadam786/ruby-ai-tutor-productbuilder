@@ -38,6 +38,9 @@ export interface TutorSubject {
 export interface TutorQuickAction {
   label: string;
   prompt: string;
+  /** The subject this prompt is about (a TutorSubject label). Sent to the chat
+      route so it knows the subject without guessing. Omitted for general prompts. */
+  subject?: string;
   /** Grade bands this prompt is shown to. Omitted = every band. */
   bands?: GradeBand[];
 }
@@ -91,12 +94,12 @@ const TUTOR_INPUTS: TutorInput[] = [
     ],
     capabilities: SHARED_CAPABILITIES,
     quickActions: [
-      { label: "Help with English homework", prompt: "Help me with my English homework." },
-      { label: "Help me with Afrikaans", prompt: "Help me with Afrikaans — ask me what I'm working on, then explain it and check my understanding." },
-      { label: "Help me read a story", prompt: "Help me practise reading. Give me a short story at my level, then ask me questions about it.", bands: [F] },
-      { label: "Teach me 5 new words", prompt: "Teach me 5 new English words, with simple meanings and example sentences.", bands: [F] },
-      { label: "Teach me 10 English words", prompt: "Teach me 10 new English words I should know, with simple definitions and example sentences.", bands: [I, S, E] },
-      { label: "Improve my writing", prompt: "Help me improve my writing. Ask me for a piece of writing, then give me feedback step by step.", bands: [I, S, E] },
+      { label: "Help with English homework", subject: "English", prompt: "Help me with my English homework." },
+      { label: "Help me with Afrikaans", subject: "Afrikaans", prompt: "Help me with Afrikaans — ask me what I'm working on, then explain it and check my understanding." },
+      { label: "Help me read a story", subject: "English", prompt: "Help me practise reading. Give me a short story at my level, then ask me questions about it.", bands: [F] },
+      { label: "Teach me 5 new words", subject: "English", prompt: "Teach me 5 new English words, with simple meanings and example sentences.", bands: [F] },
+      { label: "Teach me 10 English words", subject: "English", prompt: "Teach me 10 new English words I should know, with simple definitions and example sentences.", bands: [I, S, E] },
+      { label: "Improve my writing", subject: "English", prompt: "Help me improve my writing. Ask me for a piece of writing, then give me feedback step by step.", bands: [I, S, E] },
     ],
   },
   {
@@ -111,14 +114,14 @@ const TUTOR_INPUTS: TutorInput[] = [
     ],
     capabilities: SHARED_CAPABILITIES,
     quickActions: [
-      { label: "Help with Maths homework", prompt: "Help me with my Maths homework." },
-      { label: "Practise my sums", prompt: "Help me practise adding and taking away with small numbers, one question at a time.", bands: [F] },
-      { label: "Practise times tables", prompt: "Help me practise my times tables, one question at a time, and check my answers.", bands: [I] },
-      { label: "Help me solve for x", prompt: "Help me solve for x. I'll share the equation in my next message — please walk me through it step by step.", bands: [S] },
-      { label: "Explain a Maths concept", prompt: "Explain a Maths concept to me. Ask me which topic I'm working on, then teach it simply with an example.", bands: [F, I, S] },
-      { label: "Help with Maths Literacy", prompt: "Help me with Maths Literacy — ask me what I'm working on and guide me through it.", bands: [E] },
-      { label: "Help with Business Studies", prompt: "Help me with Business Studies — ask me what topic I'm working on, then explain it.", bands: [E] },
-      { label: "Help with Consumer Studies", prompt: "Help me with Consumer Studies — ask me what topic I'm working on, then explain it.", bands: [E] },
+      { label: "Help with Maths homework", subject: "Maths", prompt: "Help me with my Maths homework." },
+      { label: "Practise my sums", subject: "Maths", prompt: "Help me practise adding and taking away with small numbers, one question at a time.", bands: [F] },
+      { label: "Practise times tables", subject: "Maths", prompt: "Help me practise my times tables, one question at a time, and check my answers.", bands: [I] },
+      { label: "Help me solve for x", subject: "Maths", prompt: "Help me solve for x. I'll share the equation in my next message — please walk me through it step by step.", bands: [S] },
+      { label: "Explain a Maths concept", subject: "Maths", prompt: "Explain a Maths concept to me. Ask me which topic I'm working on, then teach it simply with an example.", bands: [F, I, S] },
+      { label: "Help with Maths Literacy", subject: "Maths Literacy", prompt: "Help me with Maths Literacy — ask me what I'm working on and guide me through it.", bands: [E] },
+      { label: "Help with Business Studies", subject: "Business Studies", prompt: "Help me with Business Studies — ask me what topic I'm working on, then explain it.", bands: [E] },
+      { label: "Help with Consumer Studies", subject: "Consumer Studies", prompt: "Help me with Consumer Studies — ask me what topic I'm working on, then explain it.", bands: [E] },
     ],
   },
   {
@@ -134,12 +137,12 @@ const TUTOR_INPUTS: TutorInput[] = [
     ],
     capabilities: SHARED_CAPABILITIES,
     quickActions: [
-      { label: "Help me with EMS", prompt: "Help me with Economic and Management Sciences (EMS) — ask me what topic I'm working on, then explain it.", bands: [S] },
+      { label: "Help me with EMS", subject: "EMS", prompt: "Help me with Economic and Management Sciences (EMS) — ask me what topic I'm working on, then explain it.", bands: [S] },
       { label: "Quiz me on business terms", prompt: "Quiz me on important business and economics terms, one at a time, and check my answers.", bands: [S] },
-      { label: "Explain an Accounting concept", prompt: "Explain an Accounting concept to me. Ask me which topic, then teach it step by step with an example.", bands: [E] },
-      { label: "Help me with Economics", prompt: "Help me with Economics — ask me what I'm stuck on and guide me through it.", bands: [E] },
-      { label: "Help with CAT", prompt: "Help me with Computer Applications Technology (CAT) — ask me what topic I'm working on, then explain it.", bands: [E] },
-      { label: "Help with IT", prompt: "Help me with Information Technology — ask me what topic I'm working on, then explain it.", bands: [E] },
+      { label: "Explain an Accounting concept", subject: "Accounting", prompt: "Explain an Accounting concept to me. Ask me which topic, then teach it step by step with an example.", bands: [E] },
+      { label: "Help me with Economics", subject: "Economics", prompt: "Help me with Economics — ask me what I'm stuck on and guide me through it.", bands: [E] },
+      { label: "Help with CAT", subject: "Computer Applications Technology", prompt: "Help me with Computer Applications Technology (CAT) — ask me what topic I'm working on, then explain it.", bands: [E] },
+      { label: "Help with IT", subject: "Information Technology", prompt: "Help me with Information Technology — ask me what topic I'm working on, then explain it.", bands: [E] },
     ],
   },
   {
@@ -154,10 +157,10 @@ const TUTOR_INPUTS: TutorInput[] = [
     ],
     capabilities: SHARED_CAPABILITIES,
     quickActions: [
-      { label: "Help with Social Sciences", prompt: "Help me with Social Sciences — ask me whether it's History or Geography and what topic, then explain it.", bands: [I, S] },
-      { label: "Help me with Geography", prompt: "Help me with Geography — ask me what topic I'm working on, then explain it.", bands: [E] },
-      { label: "Help me with History", prompt: "Help me with History — ask me what topic I'm working on, then explain it.", bands: [E] },
-      { label: "Help with Agricultural Sciences", prompt: "Help me with Agricultural Sciences — ask me what topic I'm working on, then explain it.", bands: [E] },
+      { label: "Help with Social Sciences", subject: "Social Sciences", prompt: "Help me with Social Sciences — ask me whether it's History or Geography and what topic, then explain it.", bands: [I, S] },
+      { label: "Help me with Geography", subject: "Geography", prompt: "Help me with Geography — ask me what topic I'm working on, then explain it.", bands: [E] },
+      { label: "Help me with History", subject: "History", prompt: "Help me with History — ask me what topic I'm working on, then explain it.", bands: [E] },
+      { label: "Help with Agricultural Sciences", subject: "Agricultural Sciences", prompt: "Help me with Agricultural Sciences — ask me what topic I'm working on, then explain it.", bands: [E] },
       { label: "Explain a map skill", prompt: "Explain a Geography map-work skill to me. Ask me which one, then teach it step by step.", bands: [I, S, E] },
       { label: "Quiz me on a History topic", prompt: "Quiz me on a History topic of my choice, one question at a time, and check my answers.", bands: [I, S] },
     ],
@@ -175,12 +178,12 @@ const TUTOR_INPUTS: TutorInput[] = [
     ],
     capabilities: SHARED_CAPABILITIES,
     quickActions: [
-      { label: "Help me with Life Skills", prompt: "Help me with Life Skills — ask me what I'm working on and guide me through it.", bands: [F, I] },
-      { label: "Teach me about staying healthy", prompt: "Teach me something about keeping my body healthy and safe, then ask me a question about it.", bands: [F, I] },
-      { label: "Help with Life Orientation", prompt: "Help me with Life Orientation — ask me what topic I'm working on, then explain it.", bands: [S, E] },
-      { label: "Help with Creative Arts", prompt: "Help me with Creative Arts — ask me whether it's Music or Visual Arts and what topic, then explain it.", bands: [S] },
-      { label: "Help me with Tourism", prompt: "Help me with Tourism — ask me what topic I'm working on, then explain it.", bands: [E] },
-      { label: "Help with Hospitality Studies", prompt: "Help me with Hospitality Studies — ask me what topic I'm working on, then explain it.", bands: [E] },
+      { label: "Help me with Life Skills", subject: "Life Skills", prompt: "Help me with Life Skills — ask me what I'm working on and guide me through it.", bands: [F, I] },
+      { label: "Teach me about staying healthy", subject: "Life Skills", prompt: "Teach me something about keeping my body healthy and safe, then ask me a question about it.", bands: [F, I] },
+      { label: "Help with Life Orientation", subject: "Life Orientation", prompt: "Help me with Life Orientation — ask me what topic I'm working on, then explain it.", bands: [S, E] },
+      { label: "Help with Creative Arts", subject: "Creative Arts", prompt: "Help me with Creative Arts — ask me whether it's Music or Visual Arts and what topic, then explain it.", bands: [S] },
+      { label: "Help me with Tourism", subject: "Tourism", prompt: "Help me with Tourism — ask me what topic I'm working on, then explain it.", bands: [E] },
+      { label: "Help with Hospitality Studies", subject: "Hospitality Studies", prompt: "Help me with Hospitality Studies — ask me what topic I'm working on, then explain it.", bands: [E] },
     ],
   },
   {
@@ -196,11 +199,11 @@ const TUTOR_INPUTS: TutorInput[] = [
     ],
     capabilities: SHARED_CAPABILITIES,
     quickActions: [
-      { label: "Help with Natural Sciences & Technology", prompt: "Help me with Natural Sciences and Technology — ask me what I'm stuck on and guide me through it.", bands: [I] },
-      { label: "Help with Natural Sciences", prompt: "Help me with Natural Sciences — ask me what I'm stuck on and guide me through it.", bands: [S] },
-      { label: "Help with Technology", prompt: "Help me with Technology — ask me what topic I'm working on, then explain it.", bands: [S] },
-      { label: "Help with Physical Sciences", prompt: "Help me with Physical Sciences — ask me what topic I'm working on, then explain it.", bands: [E] },
-      { label: "Help with Life Sciences", prompt: "Help me with Life Sciences — ask me what topic I'm working on, then explain it.", bands: [E] },
+      { label: "Help with Natural Sciences & Technology", subject: "Natural Sciences and Technology", prompt: "Help me with Natural Sciences and Technology — ask me what I'm stuck on and guide me through it.", bands: [I] },
+      { label: "Help with Natural Sciences", subject: "Natural Sciences", prompt: "Help me with Natural Sciences — ask me what I'm stuck on and guide me through it.", bands: [S] },
+      { label: "Help with Technology", subject: "Technology", prompt: "Help me with Technology — ask me what topic I'm working on, then explain it.", bands: [S] },
+      { label: "Help with Physical Sciences", subject: "Physical Sciences", prompt: "Help me with Physical Sciences — ask me what topic I'm working on, then explain it.", bands: [E] },
+      { label: "Help with Life Sciences", subject: "Life Sciences", prompt: "Help me with Life Sciences — ask me what topic I'm working on, then explain it.", bands: [E] },
       { label: "Explain a Science concept", prompt: "Explain a Science concept to me. Ask me which topic, then teach it simply with an example.", bands: [I, S, E] },
       { label: "Quiz me on Science", prompt: "Quiz me on a Science topic of my choice, one question at a time, and check my answers.", bands: [I, S, E] },
     ],

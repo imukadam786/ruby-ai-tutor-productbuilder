@@ -17,6 +17,14 @@ import { recordHomeworkSession } from "@/lib/homeworkHistory";
 
 // Default quick actions for the general (Ruby) chat. A specific tutor's chat
 // swaps these out for that tutor's own subject-tailored prompts (see lib/tutors).
+// remark-math only understands $…$ and $$…$$, but the model sometimes writes
+// LaTeX as \( … \) / \[ … \], which would otherwise show as raw backslashes.
+function normalizeMathDelimiters(text: string): string {
+  return text
+    .replace(/\\\[([\s\S]+?)\\\]/g, (_, m) => `$$${m}$$`)
+    .replace(/\\\(([\s\S]+?)\\\)/g, (_, m) => `$${m.trim()}$`);
+}
+
 const QUICK_ACTIONS: { label: string; prompt: string }[] = [
   { label: "Help me with homework", prompt: "Help me with my homework." },
   { label: "Help me solve for x", prompt: "Help me solve for x. I'll share the equation in my next message — please walk me through it step by step." },
@@ -123,6 +131,9 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor,
   const [showUploadMenu, setShowUploadMenu] = useState(false);
   const [ttsLimited, setTtsLimited] = useState(false);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
+  // Subject of the quick-action chip the learner tapped, sent with every
+  // message so the chat route knows the subject without guessing.
+  const chipSubjectRef = useRef<string | null>(null);
   const cancelSpeechRef = useRef<(() => void) | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recognitionRef = useRef<any>(null);
@@ -273,6 +284,8 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor,
             imageData,
             imageMimeType,
             isHint,
+            tutorName: tutor?.name ?? null,
+            subject: chipSubjectRef.current,
           }),
         });
 
@@ -321,7 +334,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor,
         setIsLoading(false);
       }
     },
-    [messages, isLoading, onMessageSent, attachedFile, attachedPreview]
+    [messages, isLoading, onMessageSent, attachedFile, attachedPreview, tutor]
   );
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -535,7 +548,7 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor,
               <div className="max-w-[90%] sm:max-w-[75%]">
                 <div className={`prose prose-base max-w-none leading-relaxed prose-headings:text-gray-800 prose-headings:font-bold prose-headings:mt-5 prose-headings:mb-2 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:!mb-5 prose-p:!mt-0 prose-strong:font-semibold prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-100 prose-pre:rounded-xl prose-li:text-gray-700 prose-li:mb-1 prose-ul:mb-4 prose-ol:mb-4 ${CONCEPT_C ? "prose-strong:text-ruby" : "prose-strong:text-brand"}`}>
                   <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
-                    {msg.content || "▌"}
+                    {normalizeMathDelimiters(msg.content) || "▌"}
                   </ReactMarkdown>
                 </div>
                 <div className="flex items-center gap-3 mt-2">
@@ -618,7 +631,10 @@ export default function ChatInterface({ onMessageSent, tutorName, onChangeTutor,
             {quickActions.map((action, index) => (
               <button
                 key={action.label}
-                onClick={() => sendMessage(action.prompt)}
+                onClick={() => {
+                  chipSubjectRef.current = (action as { subject?: string }).subject ?? null;
+                  sendMessage(action.prompt);
+                }}
                 /* Mobile is kept uncluttered: only the top two prompts show on
                    small screens; the rest appear from the `sm` breakpoint up. */
                 className={`px-4 py-2 rounded-full text-sm font-medium text-white transition-all ${
