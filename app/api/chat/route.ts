@@ -5,6 +5,7 @@ import { TUTOR_SYSTEM_PROMPT } from "@/lib/anthropic";
 import { verifyToken, getUserPlan, checkAndIncrement } from "@/lib/server-usage";
 import { getUserGrade, resolveTutorContext } from "@/lib/tutor-context";
 import { buildTutorInstructions } from "@/lib/tutor-instructions";
+import { getSubjectNotes } from "@/lib/tutor-knowledge";
 
 export async function POST(req: NextRequest) {
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
@@ -90,6 +91,15 @@ export async function POST(req: NextRequest) {
         const tutorContext = resolveTutorContext({ tutorName, grade, subjectHint: subject, messages });
         const tutorInstructions = buildTutorInstructions(tutorContext);
 
+        // Our own teaching notes for the subject + grade. The topic list is
+        // stable per chat, so it sits before the history (still cacheable);
+        // the per-topic note changes per message, so it sits just before the
+        // newest message, leaving the history cacheable too.
+        const notes = getSubjectNotes(tutorContext, messages);
+        const history = openaiMessages.slice(0, -1);
+        const newest = openaiMessages.slice(-1);
+        const system = (content: string | null) => (content ? [{ role: "system", content }] : []);
+
         const stream = await openai.chat.completions.create({
             model: "gpt-4o-mini",
             stream: true,
@@ -100,8 +110,11 @@ export async function POST(req: NextRequest) {
                     role: "system",
                     content: TUTOR_SYSTEM_PROMPT,
                 },
-                ...(tutorInstructions ? [{ role: "system", content: tutorInstructions }] : []),
-                ...openaiMessages,
+                ...system(tutorInstructions),
+                ...system(notes.gradeTopics),
+                ...history,
+                ...system(notes.topicNote),
+                ...newest,
             ],
         }, { signal: AbortSignal.timeout(30_000) });
 
