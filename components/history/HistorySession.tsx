@@ -54,6 +54,12 @@ import {
   bankQuestionToGenerated,
 } from "@/lib/history-selector";
 import { fetchQuestionOrLocal } from "@/lib/offline/fetchQuestionOrLocal";
+import { logAttempt } from "@/lib/log-attempt";
+import { logSessionEnd } from "@/lib/log-session";
+
+// A forgotten open tab shouldn't inflate the "time on Ruby" a teacher sees —
+// cap active time at the last real answer plus a short reading/thinking buffer.
+const IDLE_TAIL_MS = 2 * 60 * 1000;
 import {
   trackQuestionAnswered,
   trackSessionStarted,
@@ -121,6 +127,10 @@ export default function HistorySession({ onBack }: { onBack?: () => void } = {})
   const [didMasterTopic, setDidMasterTopic] = useState(false);
 
   const sessionStartRef = useRef<number>(Date.now());
+  // Last real answer, not last render — lets session-end clamp duration to
+  // actual active time instead of raw wall-clock (a forgotten open tab
+  // shouldn't report hours of "study time").
+  const lastActivityRef = useRef<number>(Date.now());
 
   useEffect(() => {
     let cancelled = false;
@@ -272,6 +282,7 @@ export default function HistorySession({ onBack }: { onBack?: () => void } = {})
   const finalizeAttempt = useCallback(
     (data: HistorySubmitAnswerResponse, q: HistoryGeneratedQuestion, sId: string) => {
       setResult(data);
+      lastActivityRef.current = Date.now();
 
       const workingProfile = profile
         ? markHistoryQuestionUsed(profile, sId, q.question_ref)
@@ -293,6 +304,13 @@ export default function HistorySession({ onBack }: { onBack?: () => void } = {})
         used_hint: false,
         attempt_number: nextAttempts,
         decision: data.is_correct ? "practice" : "reteach",
+      });
+      logAttempt({
+        studentId: profile?.id ?? "local",
+        subject: "history",
+        skillId: sId,
+        isCorrect: data.is_correct,
+        template: q.input_type,
       });
 
       const prior = profile?.skill_mastery[sId];
@@ -332,6 +350,23 @@ export default function HistorySession({ onBack }: { onBack?: () => void } = {})
           correct: nextCorrect,
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
+        {
+          const rawDuration = Date.now() - sessionStartRef.current;
+          const activeDuration = Math.min(
+            rawDuration,
+            lastActivityRef.current - sessionStartRef.current + IDLE_TAIL_MS,
+          );
+          logSessionEnd({
+            studentId: profile?.id ?? "local",
+            subject: "history",
+            skillId: sId,
+            startedAt: new Date(sessionStartRef.current).toISOString(),
+            endedAt: new Date().toISOString(),
+            durationMs: activeDuration,
+            questionsAnswered: nextAttempts,
+            correct: nextCorrect,
+          });
+        }
         rewardEffortFloor("history", sId);
         if (didMaster) rewardSkillMastered("history", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);

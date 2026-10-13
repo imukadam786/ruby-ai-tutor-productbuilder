@@ -51,6 +51,10 @@ import {
   bankQuestionToGenerated,
 } from "@/lib/afrikaans-selector";
 import { fetchQuestionOrLocal } from "@/lib/offline/fetchQuestionOrLocal";
+import { logAttempt } from "@/lib/log-attempt";
+import { logSessionEnd } from "@/lib/log-session";
+
+const IDLE_TAIL_MS = 2 * 60 * 1000;
 import {
   trackQuestionAnswered,
   trackSessionStarted,
@@ -122,6 +126,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
 
   const { speak, speakAfrikaans, stop, playing } = useAfrikaansTTS();
   const sessionStartRef = useRef<number>(Date.now());
+  const lastActivityRef = useRef<number>(Date.now());
 
   // Resolve the learner's profile: prefer localStorage; if empty, restore from
   // Supabase (returning learner on a new device); otherwise create a fresh one.
@@ -296,6 +301,7 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
   const finalizeAttempt = useCallback(
     (data: AfrikaansSubmitAnswerResponse, q: AfrikaansGeneratedQuestion, sId: string) => {
       setResult(data);
+      lastActivityRef.current = Date.now();
 
       // Mark this question used (localStorage source of truth).
       const afterUsed = markAfrikaansQuestionUsed(
@@ -319,6 +325,13 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
         used_hint: false,
         attempt_number: nextAttempts,
         decision: data.is_correct ? "practice" : "reteach",
+      });
+      logAttempt({
+        studentId: profile?.id ?? "local",
+        subject: "afrikaans-fal",
+        skillId: sId,
+        isCorrect: data.is_correct,
+        template: q.input_type,
       });
 
       // ── Cumulative mastery check ────────────────────────────────────────
@@ -369,6 +382,23 @@ export default function AfrikaansSession({ onBack }: { onBack?: () => void } = {
           correct: nextCorrect,
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
+        {
+          const rawDuration = Date.now() - sessionStartRef.current;
+          const activeDuration = Math.min(
+            rawDuration,
+            lastActivityRef.current - sessionStartRef.current + IDLE_TAIL_MS,
+          );
+          logSessionEnd({
+            studentId: profile?.id ?? "local",
+            subject: "afrikaans-fal",
+            skillId: sId,
+            startedAt: new Date(sessionStartRef.current).toISOString(),
+            endedAt: new Date().toISOString(),
+            durationMs: activeDuration,
+            questionsAnswered: nextAttempts,
+            correct: nextCorrect,
+          });
+        }
         // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
         rewardEffortFloor("afrikaans-fal", sId);
         if (didMaster) rewardSkillMastered("afrikaans-fal", sId);

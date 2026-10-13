@@ -42,6 +42,10 @@ import {
   isContentMastered,
   requiredCoverageCount,
 } from "@/lib/content-mastery";
+import { logAttempt } from "@/lib/log-attempt";
+import { logSessionEnd } from "@/lib/log-session";
+
+const IDLE_TAIL_MS = 2 * 60 * 1000;
 import {
   trackQuestionAnswered,
   trackSessionStarted,
@@ -123,6 +127,7 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
 
   const { speak, stop, playing } = useTTS();
   const sessionStartRef = useRef<number>(Date.now());
+  const lastActivityRef = useRef<number>(Date.now());
 
   // Resolve the learner's profile on mount: prefer localStorage; if empty,
   // restore from Supabase (returning learner / new device); otherwise create
@@ -290,6 +295,7 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
   const finalizeAttempt = useCallback(
     (data: LifeSkillsSubmitAnswerResponse, q: LifeSkillsGeneratedQuestion, sId: string) => {
       setResult(data);
+      lastActivityRef.current = Date.now();
 
       // Mark question as used (so the next call avoids it) and roll up totals.
       recordLifeSkillsAnswer(sId, q.question_ref, data.is_correct);
@@ -309,6 +315,13 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
         used_hint: false,
         attempt_number: nextAttempts,
         decision: data.is_correct ? "practice" : "reteach",
+      });
+      logAttempt({
+        studentId: loadLifeSkillsProfile()?.id ?? "local",
+        subject: "life-skills",
+        skillId: sId,
+        isCorrect: data.is_correct,
+        template: q.input_type,
       });
 
       // Mark topic as in_progress on first attempt
@@ -363,6 +376,23 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
           correct: nextCorrect,
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
+        {
+          const rawDuration = Date.now() - sessionStartRef.current;
+          const activeDuration = Math.min(
+            rawDuration,
+            lastActivityRef.current - sessionStartRef.current + IDLE_TAIL_MS,
+          );
+          logSessionEnd({
+            studentId: loadLifeSkillsProfile()?.id ?? "local",
+            subject: "life-skills",
+            skillId: sId,
+            startedAt: new Date(sessionStartRef.current).toISOString(),
+            endedAt: new Date().toISOString(),
+            durationMs: activeDuration,
+            questionsAnswered: nextAttempts,
+            correct: nextCorrect,
+          });
+        }
         // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
         rewardEffortFloor("life-skills", sId);
         if (didMaster) rewardSkillMastered("life-skills", sId);
