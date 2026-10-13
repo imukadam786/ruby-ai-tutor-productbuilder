@@ -13,8 +13,8 @@
 //
 // The topic is found by matching the learner's words against skill titles and
 // descriptions (current grade first, then the subject's other grades). No
-// match → topic list only. Papers-only subjects (CAT, IT, Agric, Hospitality,
-// Consumer Studies, FET Life Orientation) have no tree yet and get nothing.
+// match → topic list only. Papers-only subjects get notes from their November
+// study guide (data/tutor-notes/*.json); those without one yet get nothing.
 
 import accountingTree from "@/data/accounting-skill-tree.json";
 import afrikaansTree from "@/data/afrikaans-skill-tree.json";
@@ -39,6 +39,9 @@ import tourismTree from "@/data/tourism-skill-tree.json";
 import physSci10Tree from "@/data/grade-10-physical-sciences-skill-tree.json";
 import physSci11Tree from "@/data/grade-11-physical-sciences-skill-tree.json";
 import physSci12Tree from "@/data/matric-physical-sciences-skill-tree.json";
+// Papers-only subjects: notes built from the November study guides, in the
+// same shape as a skill tree (Grade 12 only), plus an exam overview.
+import catNotes from "@/data/tutor-notes/cat.json";
 
 import { TOPIC_EXAMPLES as accountingExamples } from "@/lib/accounting-topic-feedback";
 import { TOPIC_EXAMPLES as afrikaansExamples } from "@/lib/afrikaans-topic-feedback";
@@ -72,7 +75,7 @@ interface TreeSkill {
 }
 interface TreeTier { id: string; title: string; atomic_skills?: TreeSkill[] }
 interface TreeLevel { id: number | string; grade?: number; title: string; tiers?: TreeTier[] }
-interface Tree { levels: TreeLevel[] }
+interface Tree { levels: TreeLevel[]; /** Papers-only subjects: how the exam is set and marked. */ overview?: string }
 
 /** How a subject's tree maps onto grades. */
 type GradeRule =
@@ -103,6 +106,7 @@ const SOURCES: Record<string, SubjectSource> = {
   "social-sciences-sp": { trees: [t(socialSciencesSpTree)], rule: "level-grade", examples: socialSciencesSpExamples },
   "technology-sp": { trees: [t(technologySpTree)], rule: "level-grade", examples: technologySpExamples },
   tourism: { trees: [t(tourismTree)], rule: "level-grade", examples: tourismExamples },
+  cat: { trees: [t(catNotes)], rule: "level-grade" },
   "maths-literacy": { trees: [t(mathsLiteracyTree)], rule: "whole-tree" },
   english: { trees: [t(readingTree)], rule: "reading" },
   maths: { trees: [t(mathsTree)], rule: "no-grade" },
@@ -153,6 +157,7 @@ const STOPWORDS = new Set(
     "about explain help understand tell teach show give know learn learning question questions answer homework " +
     "grade test exam paper please thanks thank really still just more some any all also like need want get " +
     "have has had one two three work working study studying topic topics subject section chapter page " +
+    "difference differences between make making use using mean means meaning example examples why " +
     // Afrikaans question words (the Afrikaans tree's titles are in Afrikaans)
     "wat die hoe waarom van het nie vir met kan wil asseblief verduidelik")
     .split(" "),
@@ -187,9 +192,13 @@ function matchSkill(
   otherSkills: TreeSkill[],
   extraStop: Set<string>,
 ): TreeSkill | null {
-  const q = new Set(words(query, extraStop));
+  const qList = words(query, extraStop);
+  const q = new Set(qList);
   if (!q.size) return null;
   const required = q.size === 2 ? 2 : 3;
+  // Two-word terms ("cloud computing", "food web", "mail merge") count as a
+  // phrase: +3 when the skill's text has the same two words side by side.
+  const pairs = qList.slice(1).map((w, i) => `${qList[i]} ${w}`);
   let best: { skill: TreeSkill; score: number } | null = null;
   const score = (skill: TreeSkill, weight: number) => {
     const title = new Set(words(skill.title, extraStop));
@@ -197,6 +206,14 @@ function matchSkill(
     const body = new Set(words(skill.description ?? "", extraStop));
     let raw = 0;
     for (const w of q) raw += title.has(w) ? 3 : topic.has(w) ? 2 : body.has(w) ? 1 : 0;
+    if (pairs.length) {
+      // Split at punctuation first so "foods, healthy" isn't read as a phrase.
+      const seq = ` ${`${skill.title}. ${skill.caps_topic ?? ""}. ${skill.description ?? ""}`
+        .split(/[,.;:()!?]+/)
+        .map((part) => words(part, extraStop).join(" "))
+        .join(" | ")} `;
+      for (const p of pairs) if (seq.includes(` ${p} `)) raw += 3;
+    }
     if (raw < required) return;
     const s = raw * weight;
     if (!best || s > best.score) best = { skill, score: s };
@@ -228,6 +245,7 @@ export function getSubjectNotes(ctx: TutorContext, messages: Message[]): Subject
   const gradeSkillIds = new Set(gradeSkills.map((s) => s.id));
   const otherSkills = skillsOf(allLevels(source, ctx.grade)).filter((s) => !gradeSkillIds.has(s.id));
 
+  const overview = (typeof source.trees === "function" ? source.trees(ctx.grade) : source.trees)[0]?.overview;
   const where = `${ctx.subject.label}${ctx.grade ? `, Grade ${ctx.grade}` : ""}`;
   let gradeTopics: string | null = null;
   if (gradeLevels.length) {
@@ -240,7 +258,8 @@ export function getSubjectNotes(ctx: TutorContext, messages: Message[]): Subject
     gradeTopics =
       `## Our notes: ${where}\n\n` +
       `These are the CAPS topics this student's app teaches at their grade. Use these topic names, keep explanations ` +
-      `at this level, and if a question is outside this list, say which grade or topic it belongs to.\n\n${lines.join("\n")}`;
+      `at this level, and if a question is outside this list, say which grade or topic it belongs to.\n\n${lines.join("\n")}` +
+      (overview ? `\n\nHow the exam is set and marked: ${overview}` : "");
   }
 
   // Subject-name words ("accounting", "history") say nothing about the topic.

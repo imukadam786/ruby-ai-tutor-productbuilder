@@ -1,0 +1,90 @@
+{
+  "subject": "Computer Applications Technology",
+  "source": "November 2026 CAT Paper 2 study guide (topics, key facts, common mistakes and exam tips from the 2021-2025 November papers)",
+  "overview": "CAT has two Grade 12 papers. Paper 1 is the practical exam done on a computer (Word, Excel, Access, HTML files). Paper 2 is the written theory exam: 150 marks, 3 hours, every question compulsory. Section A (Q1-3, 25 marks) is short multiple-choice, matching and true/false items from all topics. Section B (Q4-8, 75 marks) tests systems technologies, internet and networks, information management, social implications and solution development. Section C (Q9-10, 50 marks) is two integrated real-world scenarios. Marking: generally one mark per fact, so a 2-mark question needs two separate facts. Do not give more answers than asked (extras are not marked). Vague comparisons like 'cheaper' or 'faster' are not accepted unless specified. No brand names unless the question asks. Answers must be framed as ICT facts.",
+  "levels": [
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Grade 12 CAT Paper 2 (theory)",
+      "tiers": [
+        {
+          "id": "CAT.P2",
+          "title": "Paper 2 topics, heaviest first (share of the paper over 2021-2025)",
+          "atomic_skills": [
+            {
+              "id": "CAT.P2.HARDWARE",
+              "title": "Hardware, devices & troubleshooting (17.7%)",
+              "description": "Input, output, storage and processing devices, specifications, POS and mobile devices, printers, UPSs, accessibility hardware and basic troubleshooting. RAM holds data only while a program runs and is lost on power-off; ROM holds permanent start-up instructions; a hard drive or SSD stores data permanently. Plug-and-play: the operating system detects new hardware and installs the driver itself. A UPS is short battery backup to shut down safely or bridge a brief power cut, not a long-term power source. Convergence: several technologies in one device (a smartphone as phone, camera and GPS). Higher resolution means a larger file size.",
+              "error_signatures": [{ "description": "Naming a brand instead of a device type (use 'flash drive', not a brand name, unless brands are allowed)" }],
+              "recovery_strategy": "'No signal' or 'won't connect' questions want two layers in order: the likely cause (loose cable, wrong port, device off), then the fix if asked. Read spec sheets literally and match the question to the exact line."
+            },
+            {
+              "id": "CAT.P2.INTERNET",
+              "title": "Internet, browsers & online services (14.0%)",
+              "description": "Browsers, ISPs, streaming, e-mail, online stores and cloud services. Bookmarks, history, cache, add-ons and tabs each solve a different problem. Throttling: the ISP deliberately slows a connection, often after a soft cap; capping: a hard data limit that stops or charges extra once reached. Incognito browsing saves no history and deletes cookies when the session closes. Cloud computing: access files and apps from anywhere and save local storage, but it depends on a stable, fast connection. Internet speed is measured in Mbps; '30/5 Mbps' means download/upload.",
+              "error_signatures": [{ "description": "Blaming the browser for an ISP problem or the reverse: buffering while streaming is usually bandwidth/ISP; 'page not found' on a bookmark usually means the page moved" }],
+              "recovery_strategy": "Separate ISP-side features (throttling, data caps, bandwidth) from browser-side ones (cache, cookies, history). Cloud or online-store questions usually want a benefit paired with a real limitation. Treat the e-mail subject line, priority flag and follow-up flag as three separate features."
+            },
+            {
+              "id": "CAT.P2.OS",
+              "title": "Operating systems, software & file management (11.3%)",
+              "description": "The four core OS jobs: manage hardware, manage programs, manage users, provide the interface. Utilities like Disk Cleanup, Defragmenter and Task Manager each solve one maintenance problem. Hidden means a file can't be seen unless 'show hidden items' is on; read-only means it can be seen but not changed. A single-user system allows one active user at a time; a multi-user system (a school network, a bank) allows several at once. A driver lets the OS talk to a device. Compressing (zipping) reduces file size for storage and e-mail. File path: drive letter, folders, then file name and extension, e.g. C:\\MYSTUFF\\BUDGET.XLSX. EULA, open-source and Creative Commons licences set different rules for using and sharing.",
+              "error_signatures": [{ "description": "Confusing the hidden and read-only file attributes" }],
+              "recovery_strategy": "'Fix a bug' questions want a software-maintenance action (install a patch or service pack, update the software), not a hardware fix."
+            },
+            {
+              "id": "CAT.P2.SECURITY",
+              "title": "Security, privacy & threats (10.1%)",
+              "description": "Malware, hacking, authentication and data protection. Virus, ransomware, spyware and a zombie/bot each do something different: a bot is software that automates tasks; a zombie is an infected computer remotely controlled by a hacker, often in a botnet. Phishing tricks a user into giving up sensitive information; spoofing disguises a fake sender or website as a trusted one. Phishing, DDoS and spoofing are attacks; firewalls, antivirus and two-step authentication are defences. Two-step authentication adds a second proof of identity (an SMS code) so a stolen password alone isn't enough. Backups protect against data loss from theft, hardware failure, malware or power cuts. Ransomware is usually paid in cryptocurrency because it is hard to trace.",
+              "error_signatures": [{ "description": "Answering 'install antivirus' or 'keep software updated' when the question explicitly excludes those answers" }],
+              "recovery_strategy": "Read any exclusion in the question first. 'How do you protect X' usually wants more than one distinct method, not one method explained twice. Pull facts for exhibit questions (like a ransom note) straight from the exhibit."
+            },
+            {
+              "id": "CAT.P2.NETWORKS",
+              "title": "Networks & connectivity (9.5%)",
+              "description": "LAN: one building or site. WAN: connects sites across a large distance (between towns). PAN: a very short range around one person (a smartwatch to a phone). SOHO: small office/home office. A router directs data between networks; a switch connects devices within one network; a NIC lets a device join a network. Bluetooth, NFC and RFID work over different ranges for pairing devices, tap payments and tag tracking. IoT: everyday devices connected to the internet that send and receive data automatically. 802.11 is the Wi-Fi standard; newer versions mean faster wireless speeds. Wired vs wireless trade-offs: cost, mobility, installation difficulty and interference.",
+              "error_signatures": [{ "description": "Naming 'the internet' (a WAN) for a few devices connected in one home or office, which is a LAN or PAN" }],
+              "recovery_strategy": "Match the scenario's size to the network type. A public hotspot risk question is really a security question: think about who else can access the network."
+            },
+            {
+              "id": "CAT.P2.INFOMAN",
+              "title": "Information management & research skills (9.2%)",
+              "description": "The PAT process, questionnaires, source evaluation, folder structures and reading data from a report. Source reliability criteria: authority (who wrote it), accuracy, currency (how recent) and objectivity (no bias). Closed questions (yes/no, multiple choice) are easier to analyse in bulk; open questions invite free text. A PAT report has a cover page, table of contents, introduction, body, findings/recommendations, conclusion and bibliography. A chart is hard to read when it has no title, no axis labels, no data labels or an unclear legend.",
+              "error_signatures": [{ "description": "Writing 'it's not accurate' for a chart question instead of naming the missing element (title, axis labels, data labels, legend)" }],
+              "recovery_strategy": "When asked for 'findings', write only what the numbers show (a total, an average, a highest or lowest value), with no outside opinion."
+            },
+            {
+              "id": "CAT.P2.SOCIAL",
+              "title": "Social, ethical & green computing issues (8.4%)",
+              "description": "Plagiarism: using someone else's work without acknowledging the source. Copyright infringement and digital footprint (the trail of data from searches, posts, purchases and location) are separate terms. User-centred design adapts text size, contrast, layout and sound to the actual user. Green computing reduces ICT's environmental impact: energy-efficient devices, power-saving settings, responsible e-waste disposal, buying only what is needed, less paper. 4IR: the shift from merging digital, physical and biological technologies. AI performs tasks that normally need human thought. BYOD: learners or staff use their own devices, raising access and security questions.",
+              "error_signatures": [{ "description": "Treating green computing as only recycling old computers" }],
+              "recovery_strategy": "'How can ICT usage be reduced' questions usually want three angles in order: hardware, software and user behaviour."
+            },
+            {
+              "id": "CAT.P2.DBWEB",
+              "title": "Databases & web design (HTML) (7.6%)",
+              "description": "Access tables, fields, data types and queries, plus HTML tags. Data types: Short Text, Number, Date/Time, Yes/No, OLE Object (pictures need OLE Object). A validation rule restricts what can be typed; an input mask forces a fixed format (a phone number). A primary key uniquely identifies each record (a Customer ID). Work through AND/OR/wildcard query criteria one condition at a time. HTML: <img> needs src, <a> needs href; <th> is a bold, centred heading cell, <td> a normal data cell; cellpadding is space inside a cell, cellspacing is space between cells. A broken image or link is usually a missing file extension, wrong path or missing attribute.",
+              "error_signatures": [{ "description": "Thinking a missing HEIGHT or WIDTH attribute stops an image displaying (it only lets the layout shift while loading)" }],
+              "recovery_strategy": "Match each data type to the kind of value; diagnose broken pages by checking file extension, path and required attributes first."
+            },
+            {
+              "id": "CAT.P2.SPREADSHEETS",
+              "title": "Spreadsheets, formulas & data analysis (6.1%)",
+              "description": "Reading a spreadsheet screenshot, diagnosing formula errors and choosing the right function. #VALUE! means text where a number was expected; #NAME? means a misspelled function name; a wrong range gives a silently wrong total. A $ locks a reference: $G$2 stays fixed when copied, G2 shifts. LEFT, RIGHT, MID, LEN and VALUE solve text problems (stripping leading zeros, extracting a username from an e-mail address). A nested IF is an IF inside another IF for more than two outcomes. Conditional formatting changes how a cell looks, never its value. To see a full formula: the formula bar drop-down, fx, dragging the bar taller, or F2/double-click.",
+              "error_signatures": [{ "description": "Blaming 'a wrong formula' for every incorrect total, when a SUM giving zero is often a range that excludes a row or numbers stored as text" }, { "description": "Mixing up absolute and relative references" }],
+              "recovery_strategy": "Read the cell address and the formula bar before the displayed value. A truncated formula bar question is testing how to VIEW the whole formula, not what it calculates."
+            },
+            {
+              "id": "CAT.P2.WORDPROC",
+              "title": "Word processing & document design (6.0%)",
+              "description": "Columns, tab stops, headers/footers and page breaks each solve a different layout problem. Styles format every heading of a level at once and let a table of contents build itself. Group several shapes before moving or resizing them together. Mail merge needs a data source (a spreadsheet, database or table) that supplies personalised details for letters or certificates. A citation is a short in-text reference; a bibliography is the full list at the end. An embedded object becomes independent of the original file; a linked object updates when the source changes. A drop cap enlarges a paragraph's first letter; a watermark is faint background text or image.",
+              "error_signatures": [{ "description": "Answering 'copy and paste' when the question says without copy and paste (use Insert > Text from File/Object)" }],
+              "recovery_strategy": "Paper-form-to-electronic-form questions want three fixes: text boxes for blank lines, checkboxes or a drop-down for circled options, and closed instead of open questions."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
