@@ -66,11 +66,15 @@ export default function InstallPrompt({ onDismiss }: { onDismiss: () => void }) 
 
   const handleInstall = async () => {
     if (deferredPrompt) {
-      await deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === "accepted") {
-        dismiss();
-        return;
+      // Chrome's install offer can only be used once. Clear it so next time we
+      // show the manual Android steps instead of a button that does nothing.
+      (window as unknown as { __installPrompt?: BeforeInstallPromptEvent | null }).__installPrompt = null;
+      setDeferredPrompt(null);
+      try {
+        await deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+      } catch {
+        // Already used or blocked by the browser; nothing more to do.
       }
     }
     dismiss();
@@ -85,8 +89,9 @@ export default function InstallPrompt({ onDismiss }: { onDismiss: () => void }) 
 
   if (!visible) return null;
 
-  // iOS — manual "Add to Home Screen" instructions
-  if (platform === "ios") {
+  // iOS, or Android when Chrome isn't offering its own install popup
+  // (e.g. the student already said no to it) — manual "Add to Home Screen" instructions
+  if (platform === "ios" || (platform === "android" && !deferredPrompt)) {
     return (
       <div className="fixed inset-0 z-[70] flex items-end justify-center bg-black/50 backdrop-blur-sm px-4 pb-6">
         <div
@@ -102,9 +107,19 @@ export default function InstallPrompt({ onDismiss }: { onDismiss: () => void }) 
           </div>
 
           <div className="px-5 py-4 space-y-3">
-            <Step n={1} icon="⬆️" text={<>Tap the <strong>Share</strong> button at the bottom of your browser</>} />
-            <Step n={2} icon="➕" text={<>Scroll down and tap <strong>Add to Home Screen</strong></>} />
-            <Step n={3} icon="💎" text={<>Tap <strong>Add</strong> and Ruby will appear on your home screen</>} />
+            {platform === "ios" ? (
+              <>
+                <Step n={1} icon="⬆️" text={<>Tap the <strong>Share</strong> button at the bottom of your browser</>} />
+                <Step n={2} icon="➕" text={<>Scroll down and tap <strong>Add to Home Screen</strong></>} />
+                <Step n={3} icon="💎" text={<>Tap <strong>Add</strong> and Ruby will appear on your home screen</>} />
+              </>
+            ) : (
+              <>
+                <Step n={1} icon="⋮" text={<>Tap the <strong>menu</strong> (three dots) at the top right of Chrome</>} />
+                <Step n={2} icon="➕" text={<>Tap <strong>Add to home screen</strong> or <strong>Install app</strong></>} />
+                <Step n={3} icon="💎" text={<>Tap <strong>Install</strong> and Ruby will appear on your home screen</>} />
+              </>
+            )}
           </div>
 
           <div className="px-5 pb-5 space-y-2">
