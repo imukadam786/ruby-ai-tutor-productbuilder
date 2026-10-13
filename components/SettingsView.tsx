@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import dynamic from "next/dynamic";
 import { useT } from "@/lib/i18n";
 import SpinningGlobe from "@/components/SpinningGlobe";
 import EduBackground from "@/components/EduBackground";
@@ -11,6 +12,17 @@ import Button from "@/components/ui/Button";
 import { isFetGrade, readCachedSubjects, type FetSubjectKey } from "@/lib/fet-subjects";
 import { ActiveView } from "@/types";
 import { CONCEPT_C } from "@/lib/flags";
+
+const InstallPrompt = dynamic(() => import("@/components/InstallPrompt"), { ssr: false });
+
+// True when Ruby is opened from the home screen, so there's nothing left to install.
+function isInstalled(): boolean {
+  if (typeof window === "undefined") return false;
+  return (
+    window.matchMedia("(display-mode: standalone)").matches ||
+    (window.navigator as { standalone?: boolean }).standalone === true
+  );
+}
 
 interface SettingsViewProps {
   onBack: () => void;
@@ -309,6 +321,8 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogo
 
   // Profile state
   const [name, setName] = useState("");
+  const [showInstall, setShowInstall] = useState(false);
+  const [installed] = useState(isInstalled);
   const [email, setEmail] = useState("");
   const [grade, setGrade] = useState("");
   // FET (Gr 10–12) subject selection — edited via the "My subjects" row below.
@@ -658,6 +672,9 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogo
                 subtitle={t("settings.support_desc")}
               />
               <Card>
+                {!installed && (
+                  <Row icon={icons.download} label="Install Ruby" onClick={() => setShowInstall(true)} />
+                )}
                 <Row icon={icons.question}  label={t("settings.faq")}         onClick={() => setModal("faq")} />
                 <Row icon={icons.chat}      label={t("settings.contact")}      onClick={() => setModal("contact")} />
                 <Row icon={icons.chat}      label={t("settings.feedback")}     onClick={() => setModal("feedback")} />
@@ -677,6 +694,7 @@ export default function SettingsView({ onBack, paymentReturn, onNavigate, onLogo
             )}
 
             <p className="text-center text-xs text-gray-300 pb-6">Ruby AI Tutor · Powered by Hula</p>
+            {showInstall && <InstallPrompt onDismiss={() => setShowInstall(false)} />}
           </div>
         </div>
       </div>
