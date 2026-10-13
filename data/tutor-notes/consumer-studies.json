@@ -1,0 +1,55 @@
+{
+  "subject": "Consumer Studies",
+  "source": "November 2026 Consumer Studies Paper 1 study guide (topics, key facts, common mistakes and exam tips from the 2021-2025 November papers)",
+  "overview": "Consumer Studies has one Grade 12 theory paper: 200 marks, 3 hours, 6 compulsory questions, no choice. Question 1 (40 marks) is short questions from all five topics: 20 multiple-choice items, then term-matching, column-matching and select-from-a-list. The blueprint is fixed every year: Q2 The Consumer (40), Q3 Food and Nutrition (40), Q4 Clothing (20), Q5 Housing and Interior (20), Q6 Entrepreneurship (40). Each of Q2-Q6 ends with a 5-10 mark Analyse/Evaluate/Justify/Validate question marked from an 'any 8'-style list. Almost every question is built on a scenario, extract, picture or label. Marking: mostly 1 mark per fact, so 'three ways' wants three separate facts. Only the first X facts asked for are marked. A mark is deducted if a 'write a paragraph' answer isn't a paragraph or a 'redraw the table' answer isn't a table. A fact already given in the question can't be repeated for a mark. Use exact terms (repo rate, not 'the rate the Reserve Bank charges'). Calculations are marked step by step: the rate used, the operation and the final rounded answer.",
+  "levels": [
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Grade 12 Consumer Studies Paper 1",
+      "tiers": [
+        {
+          "id": "CONS.P1",
+          "title": "Paper 1 topics (fixed marks every year)",
+          "atomic_skills": [
+            {
+              "id": "CONS.P1.CONSUMER",
+              "title": "The consumer (40 marks)",
+              "description": "Consumer rights and contracts, taxes, the repo rate and interest, saving water and electricity, and spotting scams. A contract is a legal agreement between parties. Cooling-off period: 5 business days to cancel a direct-marketing sale with no penalty. A warranty or guarantee is a promise to repair, replace or refund. An exemption clause clears a party of liability. Taxes: VAT is 15% on goods and services for all consumers; PAYE is deducted monthly from a salary; provisional tax is paid twice a year on irregular income; excise or sin duty is on alcohol, tobacco, fuel and luxury items. Simple interest is charged only on the original amount; compound interest is charged on the original amount and the interest already earned, so it grows faster. CPI measures the change in the average price of goods and services; the inflation rate is that change as a percentage; the repo rate is set by the Reserve Bank and drives what banks charge on loans. Scam signs: pressure to act now, requests for banking or ID details, an unofficial contact method, spelling errors, a prize too good to be true. A stokvel is a legal savings club with agreed rules; a tiered (multi-level) scheme pays sellers commission on people they recruit. Saving: aerators, fixing leaks, dual-flush toilets, not overloading the fridge, LED bulbs, switching off.",
+              "error_signatures": [{ "description": "Confusing the repo rate, CPI and the inflation rate" }],
+              "recovery_strategy": "Learn each term's fixed definition word for word. Never repeat a fact the question already gives (one memo refused 'cheap' because the question already said the product was cheap): always add a new fact."
+            },
+            {
+              "id": "CONS.P1.FOOD",
+              "title": "Food and nutrition (40 marks)",
+              "description": "Food additives, food-borne diseases, diet-related conditions, food labels and judging a meal plan for a specific person. Additives: stabilisers and emulsifiers keep a uniform texture and combine oil and water; antioxidants prevent rancidity and browning; preservatives slow spoilage by micro-organisms. HDL is 'good' cholesterol that carries excess cholesterol to the liver; LDL is 'bad' cholesterol that builds up in artery walls. Hypoglycaemia is low blood glucose (skipping meals, over-exercising); hyperglycaemia is high blood glucose (diabetes, too much high-GI food at once). Hepatitis A has the longest incubation period of the food-borne diseases. E. coli spreads through contaminated water, undercooked meat and unwashed hands. Nutrients and benefits: calcium and vitamin D for bone strength; iron, vitamin B12 and folic acid for red blood cells; fibre and omega-3 for heart health. On a label, the largest-quantity ingredient is listed first.",
+              "error_signatures": [{ "description": "Giving a nutrient fact without its effect: 'calcium is good for bones' needs 'it strengthens bones / increases bone density'; the fact and its effect are separate marks" }],
+              "recovery_strategy": "Meal-plan suitability questions are marked item by item: name the food, its nutrient, the effect on the condition, then a one-line conclusion (often its own mark)."
+            },
+            {
+              "id": "CONS.P1.ENTREPRENEURSHIP",
+              "title": "Entrepreneurship (40 marks)",
+              "description": "Starting a small business, efficient production, pricing with a mark-up, marketing to a target market, and whether a business can sustain its profit. Four start-up factors: financial resources (savings, a grant, a loan), workspace (a garage, a kitchen), raw materials (local, recycled or donated) and human skills (self-taught, trained, experience). Quality control happens at every stage: choosing raw materials, during production and after production before packaging. Product specifications keep every item consistent; a tidy, hygienic workplace prevents contamination; regular equipment maintenance prevents breakdowns. Mark-up is the amount or percentage added to the cost price to cover overheads and leave a profit: Selling price = cost price + (cost price × mark-up %). Profit = selling price × profit %. New price after inflation = old price + (old price × increase %). Sustainability: local or recycled raw materials, eco-friendly packaging, low carbon footprint, energy-efficient production.",
+              "error_signatures": [{ "description": "Stating a practice without its consequence ('she uses local raw materials' needs 'which are cheaper, easily available or reduce transport costs')" }],
+              "recovery_strategy": "Show the rate, the operation and the final rand value as separate steps. The closing justify/validate question uses real numbers and practices from the scenario (a store count, daily sales), not generic business advice."
+            },
+            {
+              "id": "CONS.P1.CLOTHING",
+              "title": "Clothing (20 marks)",
+              "description": "The fashion cycle, classic versus fad, what drives fashion change, optical illusions in clothing, and illegal copying. Fashion cycle: introduction (few people, expensive), rise, peak (mass produced, most people wear it), decline, obsolescence. A classic is timeless with simple lines, suits most people and lasts many seasons; a fad has high demand for a very short time and is often outrageous. Fashion factors: economic (income, inflation), social (peer influence, trends), technological (new fabrics, computerised design). Vertical lines make a wearer look taller and narrower; horizontal lines and contrast make them look broader or shorter. Brand piracy is an unauthorised copy that mimics a real brand's name or logo; grey goods (parallel imports) are genuine items sold outside the manufacturer's approved channels. Reusing or reselling clothing reduces new textile production, water and electricity use, chemical dyes and landfill waste.",
+              "error_signatures": [{ "description": "Describing an illusion without the exact effect (taller, broader, narrower, shorter) tied to the exact feature (a vertical line, a colour block, a hemline)" }],
+              "recovery_strategy": "A 'discuss the versatility' question wants a list of separate ways to re-wear one item: a different season, formality, pairing or occasion. Repeating one idea earns the mark once."
+            },
+            {
+              "id": "CONS.P1.HOUSING",
+              "title": "Housing and interior (20 marks)",
+              "description": "Full title versus sectional title, the body corporate and levies, buying versus renting, credit transactions and matching appliance features to a buyer. Full title: you own the land and the structure outright. Sectional title: you own your unit, share the common areas and pay a monthly levy to the body corporate (for staff wages, maintenance of common areas, water and electricity for common areas, rates and taxes, and insurance for the complex). Buying gives ownership and possible investment growth but you pay maintenance, rates and insurance; renting is cheaper monthly and flexible but you don't own it. Instalment sale (hire purchase): the item stays the seller's until fully paid, with interest and admin costs. Lay-by: no interest, the item is held until paid off. Total price on instalment = deposit + (instalment × number of months). Dual-energy (gas and electric) stoves and fridges keep working during load-shedding.",
+              "error_signatures": [{ "description": "Naming an appliance feature without its benefit to the person in the scenario ('10 power levels' needs 'so she can cook a wider variety of dishes')" }],
+              "recovery_strategy": "Read who will use the item (a student, a pensioner, a small flat) and match features to that need. For instalment totals, write the deposit line and the instalment × months line before adding."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "subject": "Information Technology",
+  "source": "November 2026 IT Paper 2 study guide (sections, key facts, common mistakes and exam tips from the 2021-2025 November papers). Guide not yet reviewed by the head of education.",
+  "overview": "IT has two Grade 12 papers. Paper 1 is the practical programming exam (Delphi or Java) done on a computer. Paper 2 is the written theory exam: 150 marks, 3 hours, 6 compulsory questions in a fixed order. Section A (Q1, 15-20 marks): multiple choice, one-word terms and true/false items from every section. Section B (Q2) Systems Technologies; Section C (Q3) Communication and Network Technologies; Section D (Q4) Data and Information Management; Section E (Q5) Solution Development, a written coding section (expressions, arrays, loops, trace tables, algorithms, UML, text files, SQL); Section F (Q6, 30-40 marks) one integrated scenario plus social implications and emerging technology. Sections B-F each open with a real-world scenario. Marking: the mark allocation shows the number of facts needed, so a 2-mark question needs two separate facts. 'Any two of' means any two correct facts score. In true/false, FALSE earns nothing without the corrected term, and you may not just add 'not'. Expressions and traces get a mark per correct step of working. Use exact terms (referential integrity, attenuation, rollback). Vague answers like 'reliable', 'cheaper' or 'faster' are not accepted: name the actual reason.",
+  "levels": [
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Grade 12 IT Paper 2 (theory)",
+      "tiers": [
+        {
+          "id": "IT.P2",
+          "title": "Paper 2 sections, heaviest first (share of the paper over 2021-2025)",
+          "atomic_skills": [
+            {
+              "id": "IT.P2.SOCIAL",
+              "title": "Integrated scenario, social implications & emerging technology (23.5%)",
+              "description": "Section F borrows from every other section, plus e-waste, the digital divide, POPIA, AI ethics and emerging technology. E-waste: obsolete electronic devices, hazardous because of toxic materials; wipe or factory-reset storage before disposal so personal data can't be recovered. The digital divide: the gap between those with and without access to computers and the internet, driven by cost, education, age, disability and lack of infrastructure. Distributed computing: many computers' processing power combined on one problem (shared resources, parallel processing, scalability, keeps working if one device fails). Blockchain: a growing list of records linked by cryptography, a distributed, tamper-resistant ledger. IoT: everyday objects with embedded computing that send and receive data without a person operating them. RPA automates repetitive rule-based tasks with software robots; hyper-automation adds AI that decides the best strategy. VR replaces reality; AR adds computer content to the real world; MR lets you interact with that content in real space. POPIA is the law protecting personal information; an AUP is an organisation's rules for acceptable ICT use.",
+              "error_signatures": [{ "description": "Treating green computing as only recycling: the memo wants reducing what you buy, reusing or donating, responsible disposal, plus power-saving settings" }],
+              "recovery_strategy": "Work out which section a Section F sub-question really tests and answer from there. Ethics answers have two halves: name the issue, then its effect on the person. Ransom in cryptocurrency: it can't easily be traced to a real identity."
+            },
+            {
+              "id": "IT.P2.NETWORKS",
+              "title": "Communication & network technologies (18.8%)",
+              "description": "Network types, topology, hardware and media; the internet and the web; network security. PAN: around one person; LAN: one site; WAN or GAN: across large distances. A NIC lets a device join a network, a switch connects devices in a LAN, a router reaches the internet. Range is how far a signal travels before weakening; bandwidth is the amount of data per unit of time. Client-server has central storage, security and backups and suits many users; peer-to-peer has no central server, so it's cheaper and simpler but harder to secure at scale. A website is dynamic if users add content or see personalised pages. VoIP carries voice calls over the internet (cheaper, allows video and file sharing, needs a connection and compatible software). SSL encrypts data between browser and server; a digital certificate from a certificate authority verifies the site is genuine (https and a padlock). Worm, DDoS, spoofing and phishing are attacks; firewall, antivirus, VPN, MFA and SSL are defences.",
+              "error_signatures": [{ "description": "Answering 'the internet' as the network type for devices in one building (that is a LAN)" }],
+              "recovery_strategy": "Match the network to its scale. A star topology answer: each device has its own cable to a central switch, so one failed cable doesn't bring down the rest."
+            },
+            {
+              "id": "IT.P2.SYSTEMS",
+              "title": "Systems technologies (16.7%)",
+              "description": "The motherboard and buses, memory, CPU and GPU, the BIOS, HDD vs SSD, the operating system, virtualisation, the cloud and mobile limits. RAM holds data the CPU is working on; VRAM holds graphics data for the GPU; cache is a small amount of very fast memory near the CPU for frequently used data; virtual memory borrows disk space when RAM is full, letting more programs stay open but slowing the computer. A bus is a shared path where one component transmits at a time; point-to-point is a dedicated, faster path. An HDD has moving parts; an SSD is electronic, faster, and never needs defragmenting. The OS manages hardware, processes, memory and users and provides the interface. Multiprocessing uses more than one CPU core in parallel; multithreading splits one program into parts that run at the same time. The BIOS is on non-volatile memory so start-up instructions survive a power-off. A full backup copies everything; an incremental backup copies only what changed. Modular design makes parts separately replaceable. GPU power depends on VRAM amount and type, memory bandwidth, clock speed and cores. Cloud/SaaS: rent instead of buy, use from any device, auto-updated, lower local hardware needs.",
+              "error_signatures": [{ "description": "Saying an SSD 'just is faster' instead of the reason: no moving parts, so no delay while read/write heads find the track" }],
+              "recovery_strategy": "'Why does more RAM speed up a slow computer' has two parts: more data and programs fit in fast RAM, so the computer relies less on slower virtual memory."
+            },
+            {
+              "id": "IT.P2.SOLUTIONDEV",
+              "title": "Solution development (15.2%)",
+              "description": "A written programming section in Delphi (Java accepted): evaluating expressions, arrays, loops and trace tables, writing an algorithm, UML class diagrams, text files and SQL. Precedence: brackets, then * / DIV MOD, then + -, then relational operators, then NOT, AND, OR. The / operator always gives a Real; DIV and MOD give an Integer and need Integer operands; a MOD result can be stored in a Real. CEIL rounds up and TRUNC cuts the decimal off: CEIL(-2.3) = TRUNC(-2.3) = -2. An array stores many values of one data type under one name; in Delphi the index range is whatever you declare (often 1..n). Use a for loop when the number of repeats is known; while or repeat when it isn't (such as reading a file to the end). Text files: AssignFile links a variable to a file, Reset opens it for reading, Rewrite creates a new file, CloseFile closes it. UML: class name, then private (-) attributes with data types, then public (+) methods: constructor (usually Create), accessors (get, return a value) and mutators (set, receive a parameter and change an attribute). An algorithm is plain numbered steps, not compiled code.",
+              "error_signatures": [{ "description": "Giving only the final value of an expression: each correct line of working is a mark" }],
+              "recovery_strategy": "Rewrite the expression after every operation you resolve. Trace loops with one row per pass and one column per variable and condition."
+            },
+            {
+              "id": "IT.P2.DATA",
+              "title": "Data & information management (13.9%)",
+              "description": "Keys and relationships, the ERD, normalisation and anomalies, data integrity, validation vs verification, data warehousing and mining. Primary key: unique, no null value. Foreign key: links to a primary key in another table. Composite key: several fields together. Alternate key: a candidate key not chosen as primary. A relational database is multiple tables linked through primary and foreign keys so data is stored once. Normalisation refines the structure to remove repeated data, usually by splitting a table into related tables. The three anomalies: insertion (can't add A without B), deletion (removing a record loses unrelated data) and update (one change must be made in many places). Referential integrity: a foreign-key value must already exist as a primary key in the linked table. Validation checks data is sensible (type, range, presence, format, check digit, uniqueness); verification checks it is correct against the source (double entry). A data warehouse is the central store of historical data; data mining finds patterns and trends in it. In a one-to-many relationship, the 'many' side carries the foreign key.",
+              "error_signatures": [{ "description": "Saying validation makes sure data is correct: it only makes sure data is acceptable, which is why verification is also needed" }],
+              "recovery_strategy": "For 'fix this table's design': create a separate table, move the repeating fields into it, and link the two tables on a key."
+            },
+            {
+              "id": "IT.P2.SHORT",
+              "title": "Short questions (Section A, 12.0%)",
+              "description": "Multiple choice, one-word terms and true/false with correction, sampling every section. Protocols: SMTP sends mail, POP3 downloads and removes it, IMAP keeps it on the server, FTP transfers files, HTTP/HTTPS carries web pages. Memory and storage: volatile vs non-volatile; RAM, ROM, cache, SSD, HDD and their order of access speed. Licences: open-source and GPL, proprietary, shareware, freeware, Creative Commons. Malware and security terms: botnet, zombie, worm, ransomware, keylogger, social engineering, backdoor. Common one-word answers: algorithm, netiquette, URL, driver, wiki, rollback, multiprocessing, virtualisation, big data, plug-in. Expression example: 24 MOD 7 * 5 DIV 2 = 3 * 5 DIV 2 = 15 DIV 2 = 7.",
+              "error_signatures": [{ "description": "Writing only 'false' (or just adding 'not') in a true/false item: the underlined term must be replaced with the correct one" }],
+              "recovery_strategy": "For MCQs, rule out the two clearly wrong options, then decide. Work MOD, DIV and loop-count items on paper rather than guessing."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

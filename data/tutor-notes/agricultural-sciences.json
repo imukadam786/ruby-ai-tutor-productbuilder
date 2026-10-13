@@ -1,0 +1,110 @@
+{
+  "subject": "Agricultural Sciences",
+  "source": "November 2026 Agricultural Sciences Paper 1 and Paper 2 study guides (topics, key facts, common mistakes and exam tips from the 2021-2025 November papers)",
+  "overview": "Agricultural Sciences has two Grade 12 papers, each 150 marks and 2.5 hours, every question compulsory. Each paper has Question 1 (45 marks) sampling all three topics: 10 multiple-choice items at 2 marks each, 5 column-matching items, 5 one-word terms and 5 true/false corrections. Then three 35-mark questions in a fixed order. Paper 1 (animal studies): Q2 Animal Nutrition, Q3 Animal Production, Protection and Control, Q4 Animal Reproduction. Paper 2: Q2 Agricultural Management and Marketing, Q3 Production Factors, Q4 Basic Agricultural Genetics. No essays: the longest parts are 5-6 mark graphs or calculations. Almost every question is built on a diagram, table, graph or scenario. Marking: mostly 1 mark per fact, label or term; only the first X answers asked for are marked. Use exact terms ('the rumen', not 'the stomach part where microbes live'). Calculations: the formula, substitution and answer with units each earn a mark. Graphs are marked on a fixed rubric: a heading naming both variables, calibrated and labelled axes, units, the correct graph type and 80%+ plotting accuracy. 'Justify' wants the actual data given as evidence; 'classify' wants the one correct category name.",
+  "levels": [
+    {
+      "id": 12,
+      "grade": 12,
+      "title": "Grade 12 Agricultural Sciences",
+      "tiers": [
+        {
+          "id": "AGRI.P1",
+          "title": "Paper 1 (animal studies), three topics at a third each",
+          "atomic_skills": [
+            {
+              "id": "AGRI.P1.DIGESTION",
+              "title": "Animal nutrition: digestive systems & digestion",
+              "description": "Question 2 usually opens with a digestive-tract diagram: identify the animal, label the parts, explain what each does. A single stomach with an oesophagus means a pig or poultry; a four-part compound stomach means a ruminant (cattle, sheep, goat). Ruminant feed flow: mouth, rumen, reticulum, omasum, abomasum, small intestine, large intestine. The rumen and reticulum together do microbial fermentation; the reticulum (honeycomb) traps objects; the omasum absorbs water; the abomasum is the true glandular stomach. The liver (bile) and pancreas (enzymes) empty into the small intestine, not the stomach. Amylase breaks down starch, protease/pepsin protein, lipase fat. Emulsification by bile increases the surface area for lipase to act on. Pigs ferment fibre in an enlarged caecum; fowls store food in a crop and grind it in a muscular gizzard.",
+              "error_signatures": [{ "description": "Naming the rumen and reticulum out of order, or saying fermentation happens in the rumen alone" }],
+              "recovery_strategy": "Identify the animal first, then trace the flow in order and name the exact part where each labelled process happens. For pigs or fowls, name the one distinguishing feature (caecum, crop, gizzard)."
+            },
+            {
+              "id": "AGRI.P1.FEEDS",
+              "title": "Animal nutrition: nutrients, feeds & calculations",
+              "description": "Every paper has at least two calculations from a fixed set of formulas. Digestibility coefficient: DC (%) = (dry matter intake - dry matter excreted) ÷ dry matter intake × 100. Nutritive ratio: NR = 1 : (%TDN - %DP) ÷ %DP; a narrow ratio (below 1:6) suits growth, production and reproduction, a wide ratio suits maintenance. Energy flow: gross energy - faecal energy = digestible energy; minus urine and gas energy = metabolisable energy; minus heat = net energy. Pearson square: to reach a target % from two feeds, each feed's parts are the difference between the target and the OTHER feed's value. Roughages are bulky and high in fibre (hay, silage, veld); concentrates are low in fibre and high in energy or protein (maize meal, fish meal, oilcake). Calcium and phosphorus deficiency causes weak bones (osteomalacia) or pica; vitamin A deficiency causes eye damage. A fodder flow table compares monthly feed available with feed required to find when to buy in feed or reduce animal numbers.",
+              "error_signatures": [{ "description": "Leaving out the formula line, or rounding too early in a calculation" }],
+              "recovery_strategy": "Write the formula first (it is its own mark), then substitute, then give the answer with units. Don't round mid-way."
+            },
+            {
+              "id": "AGRI.P1.HOUSING",
+              "title": "Animal production: systems, housing & handling",
+              "description": "Intensive farming: small area, high density, high capital, full housing. Extensive: large area, low density, natural veld grazing. Commercial farms use technology to sell for profit; subsistence farms keep fewer animals mainly to feed the family. Handling tools: a prodder gives a mild shock to move large animals; a plastic shaker steers pigs with noise; a plywood board blocks pigs' vision; a casting harness makes an animal lie down; nose pliers restrain a bull; a halter restrains the head. Facilities: a crush/chute and head gate restrain animals for treatment; a farrowing pen/crate separates a sow from piglets so she doesn't crush them; a holding pen is a waiting area. Deep-litter and battery cages are intensive poultry systems. Stress signs: circling, droopy ears, sunken eyes; a flight zone shows how close a handler can get. Transport: non-slip floors, high strong rails, don't mix species or ages, don't load long before departure.",
+              "error_signatures": [{ "description": "Mixing up a farrowing pen (protects piglets from the sow lying on them) with a general holding pen (a waiting area)" }],
+              "recovery_strategy": "Give the specific purpose of a facility, not 'to keep animals in'. When choosing from a list, match on the one distinguishing detail (a sound, a material, a restraint)."
+            },
+            {
+              "id": "AGRI.P1.HEALTH",
+              "title": "Animal production: diseases, parasites & poisoning",
+              "description": "Diseases are infectious/contagious (spread between animals), non-infectious (mineral deficiency, poisoning), notifiable (must be reported) or zoonotic (can infect people). A vector carries a disease (a tick, a mosquito); a pathogen causes it (a virus, bacteria, protozoa). Foot-and-mouth: virus, notifiable, exports banned; blisters on the mouth, tongue and between the hooves. Redwater: protozoa carried by the blue tick; dark brown urine, anaemia. Heartwater: carried by the bont tick; high fever, nervousness, teeth grinding. Rift Valley Fever: virus carried by mosquitoes, zoonotic; abortion, blood-stained nasal discharge. Mastitis: bacteria; thick flaky milk with clots. Internal parasites (tapeworm, roundworm, liver fluke) live inside the host; external parasites (ticks, mites, lice) outside. A one-host tick completes its life cycle on one animal; two- and three-host ticks move between hosts. Control: chemical (dips, anthelmintics), biological (natural enemies, resistant breeds) or management (rotational grazing, resting pastures, removing manure).",
+              "error_signatures": [{ "description": "Confusing the vector (the tick or mosquito) with the pathogen (the virus, bacteria or protozoa that causes the disease)" }],
+              "recovery_strategy": "Plant poisoning treatment always follows the same order: keep the animal from water, give something that absorbs or neutralises the poison (activated charcoal, strong tea), keep it calm in the shade."
+            },
+            {
+              "id": "AGRI.P1.ANATOMY",
+              "title": "Animal reproduction: anatomy & gamete formation",
+              "description": "Male tract in order: testis (makes sperm and testosterone), epididymis (stores and matures sperm), vas deferens (transports sperm), urethra. The seminal vesicles, prostate and Cowper's (bulbourethral) glands each add fluid to semen. Female tract: ovary (releases the egg), oviduct/fallopian tube (site of fertilisation), uterus (site of implantation), cervix, vagina. Meiosis halves the chromosome number, turning one primary cell into four haploid sperm cells. Hormones: FSH develops follicles, LH triggers ovulation, oestrogen brings on heat signs, progesterone (from the corpus luteum) maintains pregnancy. The acrosome at the sperm's tip releases an enzyme that breaks down the egg's outer wall so the sperm can penetrate.",
+              "error_signatures": [{ "description": "Swapping the fertilisation site (oviduct) and the implantation site (uterus)" }],
+              "recovery_strategy": "Learn both tracts in order: label order is the most examined detail."
+            },
+            {
+              "id": "AGRI.P1.MATING",
+              "title": "Animal reproduction: mating, technologies & parturition",
+              "description": "Artificial insemination: semen is collected (artificial vagina or electro-ejaculator), diluted (egg yolk, milk, glycerol, buffers, antibiotics) and stored at -196 °C in liquid nitrogen. Oestrus synchronisation uses hormone injections (prostaglandin, progesterone or GnRH) so many females come on heat together. Embryo transfer: a superior donor is superovulated, her embryos flushed and implanted into recipient cows, multiplying her genetics fast. Reproductive cloning produces a whole new animal; therapeutic cloning produces stem cells for medical use. Birth: the cervix and vagina dilate, the calf's front feet and chin come first, the calf is expelled, then the uterus contracts to expel the placenta. Dystocia (difficult birth) is caused by a large calf, incorrect presentation, twins or a narrow pelvis. Prolactin makes milk; oxytocin releases it (let-down) by contracting the cells around each alveolus. Identical twins come from one fertilised egg splitting; fraternal twins from two eggs and two sperm.",
+              "error_signatures": [{ "description": "Confusing prolactin (makes milk) with oxytocin (releases milk)" }],
+              "recovery_strategy": "Name each technology by its purpose (synchronisation: many females on heat together; embryo transfer: multiply a superior donor; cloning: an exact genetic copy)."
+            }
+          ]
+        },
+        {
+          "id": "AGRI.P2",
+          "title": "Paper 2, three topics at a third each",
+          "atomic_skills": [
+            {
+              "id": "AGRI.P2.SUPPLY",
+              "title": "Agricultural marketing: supply, demand & price",
+              "description": "Question 2 usually opens with a price and quantity table or graph. Shortage (deficit): quantity demanded is greater than quantity supplied, below the equilibrium price. Surplus: quantity supplied is greater than quantity demanded, above the equilibrium price. Equilibrium: the two are equal. Demand slopes down, supply slopes up. Elastic: a small price change causes a big change in quantity (luxuries, many substitutes). Inelastic: quantity barely changes even with a big price change (necessities, few substitutes). Demand shifts with income, taste, prices of substitutes and complements, population and season. Supply shifts with production costs, weather, technology and the number of producers.",
+              "error_signatures": [{ "description": "Writing elastic and inelastic backwards (if price changes a lot but quantity barely moves, that is inelastic)" }],
+              "recovery_strategy": "Check which variable barely moved before naming the elasticity. Graphs follow the fixed rubric: heading, calibrated labelled axes with units, correct type, accurate plotting."
+            },
+            {
+              "id": "AGRI.P2.MARKETING",
+              "title": "Agricultural marketing: systems, channels & entrepreneurship",
+              "description": "Marketing systems: free marketing (open market, no controls); co-operative marketing (members share risk and costs); controlled marketing (government sets or regulates the price). Channels (the route the product takes): farm-gate (sold at the farm), fresh produce market or auction (to the highest bidder via an agent), internet/online. Marketing functions (activities, each a separate mark): assembling, grading, storage, processing, packaging, transport, financing, risk-bearing, market information. The chain: farm, grading, processing, storage and transport, wholesaler, retailer, consumer, with costs added at each step. The entrepreneurial process: identify an opportunity, plan and write a business plan, mobilise resources, act to serve the market. SWOT: strengths and weaknesses are internal; opportunities and threats are external (a competitor is always a threat). Investors look for a financial plan, a marketing plan, a SWOT or risk analysis and a human resource plan.",
+              "error_signatures": [{ "description": "Confusing a marketing function (an activity like transport or storage) with a marketing channel (the route, like farm-gate or auction)" }],
+              "recovery_strategy": "Sort SWOT items by internal vs external before naming them."
+            },
+            {
+              "id": "AGRI.P2.LANDLABOUR",
+              "title": "Production factors: land & labour",
+              "description": "Land's economic characteristics: limited availability (fixed supply), appreciation (rises in value), indestructibility (renews itself), a specific environment, and it can serve as collateral. Its functions: space, raw materials and minerals, and an asset or store of value. Raise land productivity with scientific methods (soil testing, precision agriculture), consolidating small uneconomic units, crop rotation, irrigation and restoring degraded land. Labour by duration: permanent/full-time, seasonal (shearing, harvesting) and casual (a short one-off task like fencing). Raise labour productivity with training, mechanisation, fair pay, better living conditions and healthcare, and involving workers in decisions. Labour problems: shortage of skilled workers, lack of training, illness-related absenteeism, poor living conditions, migration to other industries. Legislation: BCEA (Act 75 of 1997) hours, leave and pay; OHSA (Act 85 of 1993) safety and protective gear; LRA (Act 66 of 1995) unions and disputes; the UIF Act unemployment benefits.",
+              "error_signatures": [{ "description": "Writing 'scarcity' when the memo wants 'limited availability', or mixing up land problems with labour problems" }],
+              "recovery_strategy": "Match a named Act to its one distinguishing feature: BCEA = hours, leave, pay; OHSA = safety; LRA = unions and dismissal."
+            },
+            {
+              "id": "AGRI.P2.CAPITAL",
+              "title": "Production factors: capital, farm finance & risk",
+              "description": "Fixed (durable) capital stays on the farm long-term: land, buildings, boreholes, fences. Movable (working) capital is used up or moved: cash, livestock, vehicles, stock. Credit: short-term (under 2 years, operating costs), medium-term (2-10 years, equipment and vehicles), long-term (over 10 years, land and buildings). Capital problems: scarcity, undercapitalisation (too little for the enterprise), overcapitalisation (too much tied up relative to land and labour), depreciation. Identifying records: a cash flow statement has an opening and a closing balance; an income statement has transaction dates; a balance sheet lists assets and liabilities with no income or expenses. Formulas: Net worth = Total assets - Total liabilities; Profit/Loss = Total income - Total expenses; Closing balance = Opening balance + Profit/Loss.",
+              "error_signatures": [{ "description": "Mixing up net worth (a balance-sheet snapshot of assets minus liabilities) with profit/loss (income minus expenses over a period)" }],
+              "recovery_strategy": "Identify the record from its one feature first, then pick the matching formula and show it before substituting."
+            },
+            {
+              "id": "AGRI.P2.CROSSES",
+              "title": "Genetics: crosses, Punnett squares & inheritance",
+              "description": "Set up a cross: both parents' genotypes, the gametes each can produce, the grid, then every offspring's genotype. Genotype is the genetic make-up (Bb); phenotype is what you see (black). Homozygous: same alleles (BB or bb); heterozygous: different (Bb). A Bb × Bb cross gives a genotypic ratio of 1 BB : 2 Bb : 1 bb and a phenotypic ratio of 3 black : 1 white. Inheritance patterns: complete dominance (one allele masks the other), incomplete dominance (blends into a new in-between colour), co-dominance (both show fully, like a roan's red and white hairs), multiple alleles (more than two alleles for one gene), polygenic inheritance (many gene pairs, no sharp categories). Pedigree: circle = female, square = male, shaded = shows the trait.",
+              "error_signatures": [{ "description": "Mixing up the genotypic ratio (1:2:1) with the phenotypic ratio (3:1) for the same cross" }, { "description": "Confusing incomplete dominance (blending) with co-dominance (both colours shown)" }],
+              "recovery_strategy": "Fill every cell of the Punnett square before reading off either ratio; both come from the same completed square."
+            },
+            {
+              "id": "AGRI.P2.BREEDING",
+              "title": "Genetics: variation, selection, breeding & biotechnology",
+              "description": "Genetic variation (mutation, crossing over, independent assortment) is passed on; environmental variation (nutrition, climate, management) is not. Selection: mass (the animal's own performance), pedigree (its ancestors' records), progeny (its offspring's records), family (its relatives' records). Breeding systems: inbreeding (closely related animals) fixes genes fast but risks inbreeding depression, lethal genes and low vitality; crossbreeding (two breeds) adds hybrid vigour (heterosis) and combines both breeds' strengths; upgrading uses one purebred sire repeatedly over generations to grade up a herd. High heritability (over 40%): select on the animal itself; low heritability (under 20%): environment matters more, so use progeny or family testing. Genetic modification inserts a gene from one organism into another's DNA (micro-injection, electroporation, biolistics) to improve yield, resistance or nutrition, with health, environmental and economic risks.",
+              "error_signatures": [{ "description": "Giving inbreeding's downside when asked for crossbreeding's benefit, or the reverse" }],
+              "recovery_strategy": "Know inbreeding's three disadvantages and crossbreeding's two advantages (heterosis, combined traits) by heart: the same short list returns every year."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

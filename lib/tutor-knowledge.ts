@@ -42,6 +42,11 @@ import physSci12Tree from "@/data/matric-physical-sciences-skill-tree.json";
 // Papers-only subjects: notes built from the November study guides, in the
 // same shape as a skill tree (Grade 12 only), plus an exam overview.
 import catNotes from "@/data/tutor-notes/cat.json";
+import itNotes from "@/data/tutor-notes/information-technology.json";
+import agricNotes from "@/data/tutor-notes/agricultural-sciences.json";
+import hospitalityNotes from "@/data/tutor-notes/hospitality-studies.json";
+import consumerNotes from "@/data/tutor-notes/consumer-studies.json";
+import loFetNotes from "@/data/tutor-notes/life-orientation.json";
 
 import { TOPIC_EXAMPLES as accountingExamples } from "@/lib/accounting-topic-feedback";
 import { TOPIC_EXAMPLES as afrikaansExamples } from "@/lib/afrikaans-topic-feedback";
@@ -107,6 +112,11 @@ const SOURCES: Record<string, SubjectSource> = {
   "technology-sp": { trees: [t(technologySpTree)], rule: "level-grade", examples: technologySpExamples },
   tourism: { trees: [t(tourismTree)], rule: "level-grade", examples: tourismExamples },
   cat: { trees: [t(catNotes)], rule: "level-grade" },
+  "information-technology": { trees: [t(itNotes)], rule: "level-grade" },
+  "agricultural-sciences": { trees: [t(agricNotes)], rule: "level-grade" },
+  "hospitality-studies": { trees: [t(hospitalityNotes)], rule: "level-grade" },
+  "consumer-studies": { trees: [t(consumerNotes)], rule: "level-grade" },
+  "life-orientation": { trees: [t(loFetNotes)], rule: "level-grade" },
   "maths-literacy": { trees: [t(mathsLiteracyTree)], rule: "whole-tree" },
   english: { trees: [t(readingTree)], rule: "reading" },
   maths: { trees: [t(mathsTree)], rule: "no-grade" },
@@ -167,6 +177,7 @@ const STOPWORDS = new Set(
 // "factorising", "hands" meets "hand" and "naamwoord" meets "naamwoorde".
 const SUFFIXES = ["isations", "isation", "ising", "ised", "ises", "ise", "izing", "ized", "izes", "ize", "ings", "ing", "ed", "es", "s", "e"];
 function stem(w: string): string {
+  if (w.endsWith("ies") && w.length >= 6) w = `${w.slice(0, -3)}y`; // anomalies → anomaly
   for (const suf of SUFFIXES) {
     if (w.endsWith(suf) && w.length - suf.length >= 4) return w.slice(0, -suf.length);
   }
@@ -199,16 +210,23 @@ function matchSkill(
   // Two-word terms ("cloud computing", "food web", "mail merge") count as a
   // phrase: +3 when the skill's text has the same two words side by side.
   const pairs = qList.slice(1).map((w, i) => `${qList[i]} ${w}`);
+  // A question word found in only ONE skill's text ("blockchain", "rumen",
+  // "halal") is as strong a clue as a title word, wherever it appears.
+  // Titles of papers-only notes end in their weighting ("(40 marks)", "(17.7%)"): not topic words.
+  const bare = (title: string) => title.replace(/\([^)]*\)/g, " ");
+  const allWords = (sk: TreeSkill) => new Set(words(`${bare(sk.title)} ${sk.caps_topic ?? ""} ${sk.description ?? ""}`, extraStop));
+  const pool = [...gradeSkills, ...otherSkills].map(allWords);
+  const rare = new Set([...q].filter((w) => pool.filter((ws) => ws.has(w)).length === 1));
   let best: { skill: TreeSkill; score: number } | null = null;
   const score = (skill: TreeSkill, weight: number) => {
-    const title = new Set(words(skill.title, extraStop));
+    const title = new Set(words(bare(skill.title), extraStop));
     const topic = new Set(words(skill.caps_topic ?? "", extraStop));
     const body = new Set(words(skill.description ?? "", extraStop));
     let raw = 0;
-    for (const w of q) raw += title.has(w) ? 3 : topic.has(w) ? 2 : body.has(w) ? 1 : 0;
+    for (const w of q) raw += title.has(w) || (rare.has(w) && body.has(w)) ? 3 : topic.has(w) ? 2 : body.has(w) ? 1 : 0;
     if (pairs.length) {
       // Split at punctuation first so "foods, healthy" isn't read as a phrase.
-      const seq = ` ${`${skill.title}. ${skill.caps_topic ?? ""}. ${skill.description ?? ""}`
+      const seq = ` ${`${bare(skill.title)}. ${skill.caps_topic ?? ""}. ${skill.description ?? ""}`
         .split(/[,.;:()!?]+/)
         .map((part) => words(part, extraStop).join(" "))
         .join(" | ")} `;
