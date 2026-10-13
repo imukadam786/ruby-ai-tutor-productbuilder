@@ -61,6 +61,10 @@ import {
   recordNaturalSciencesSpSkillResult,
   saveNaturalSciencesSpProfile,
 } from "@/lib/natural-sciences-sp-student-model";
+import { logAttempt } from "@/lib/log-attempt";
+import { logSessionEnd } from "@/lib/log-session";
+
+const IDLE_TAIL_MS = 2 * 60 * 1000;
 import {
   trackQuestionAnswered,
   trackSessionStarted,
@@ -132,6 +136,7 @@ export default function NaturalSciencesSpSession({ onBack }: { onBack?: () => vo
   const [didMasterTopic, setDidMasterTopic] = useState(false);
 
   const sessionStartRef = useRef<number>(Date.now());
+  const lastActivityRef = useRef<number>(Date.now());
 
   useEffect(() => {
     let cancelled = false;
@@ -285,6 +290,7 @@ export default function NaturalSciencesSpSession({ onBack }: { onBack?: () => vo
   const finalizeAttempt = useCallback(
     (data: NaturalSciencesSpSubmitAnswerResponse, q: NaturalSciencesSpGeneratedQuestion, sId: string) => {
       setResult(data);
+      lastActivityRef.current = Date.now();
 
       // Mark this question used and work from the updated profile so the
       // coverage count includes the answer we just took.
@@ -308,6 +314,13 @@ export default function NaturalSciencesSpSession({ onBack }: { onBack?: () => vo
         used_hint: false,
         attempt_number: nextAttempts,
         decision: data.is_correct ? "practice" : "reteach",
+      });
+      logAttempt({
+        studentId: profile?.id ?? "local",
+        subject: "natural-sciences-sp",
+        skillId: sId,
+        isCorrect: data.is_correct,
+        template: q.input_type,
       });
 
       // ── Cumulative mastery check ────────────────────────────────────────
@@ -360,6 +373,23 @@ export default function NaturalSciencesSpSession({ onBack }: { onBack?: () => vo
           correct: nextCorrect,
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
+        {
+          const rawDuration = Date.now() - sessionStartRef.current;
+          const activeDuration = Math.min(
+            rawDuration,
+            lastActivityRef.current - sessionStartRef.current + IDLE_TAIL_MS,
+          );
+          logSessionEnd({
+            studentId: profile?.id ?? "local",
+            subject: "natural-sciences-sp",
+            skillId: sId,
+            startedAt: new Date(sessionStartRef.current).toISOString(),
+            endedAt: new Date().toISOString(),
+            durationMs: activeDuration,
+            questionsAnswered: nextAttempts,
+            correct: nextCorrect,
+          });
+        }
         // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
         rewardEffortFloor("natural-sciences-sp", sId);
         if (didMaster) rewardSkillMastered("natural-sciences-sp", sId);

@@ -39,6 +39,10 @@ import {
   saveSocialSciencesProfile,
   setSocialSciencesMastery,
 } from "@/lib/social-sciences-student-model";
+import { logAttempt } from "@/lib/log-attempt";
+import { logSessionEnd } from "@/lib/log-session";
+
+const IDLE_TAIL_MS = 2 * 60 * 1000;
 import {
   trackQuestionAnswered,
   trackSessionStarted,
@@ -112,6 +116,7 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
 
   const { speak, stop, playing } = useTTS();
   const sessionStartRef = useRef<number>(Date.now());
+  const lastActivityRef = useRef<number>(Date.now());
 
   useEffect(() => {
     let cancelled = false;
@@ -270,6 +275,7 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
       sId: string,
     ) => {
       setResult(data);
+      lastActivityRef.current = Date.now();
 
       // Mark this question used (recordSocialSciencesAnswer appends to
       // used_questions and persists), so the coverage count below includes
@@ -292,6 +298,13 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
         used_hint: false,
         attempt_number: nextAttempts,
         decision: data.is_correct ? "practice" : "reteach",
+      });
+      logAttempt({
+        studentId: loadSocialSciencesProfile()?.id ?? "local",
+        subject: "social-sciences",
+        skillId: sId,
+        isCorrect: data.is_correct,
+        template: q.input_type,
       });
 
       if (mastery[sId] !== "mastered" && mastery[sId] !== "in_progress") {
@@ -348,6 +361,23 @@ export default function SocialSciencesSession({ onBack }: { onBack?: () => void 
           correct: nextCorrect,
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
+        {
+          const rawDuration = Date.now() - sessionStartRef.current;
+          const activeDuration = Math.min(
+            rawDuration,
+            lastActivityRef.current - sessionStartRef.current + IDLE_TAIL_MS,
+          );
+          logSessionEnd({
+            studentId: loadSocialSciencesProfile()?.id ?? "local",
+            subject: "social-sciences",
+            skillId: sId,
+            startedAt: new Date(sessionStartRef.current).toISOString(),
+            endedAt: new Date().toISOString(),
+            durationMs: activeDuration,
+            questionsAnswered: nextAttempts,
+            correct: nextCorrect,
+          });
+        }
         // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
         rewardEffortFloor("social-sciences", sId);
         if (didMaster) rewardSkillMastered("social-sciences", sId);

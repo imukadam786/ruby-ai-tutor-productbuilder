@@ -54,6 +54,10 @@ import {
   recordEconomicsSkillResult,
   saveEconomicsProfile,
 } from "@/lib/economics-student-model";
+import { logAttempt } from "@/lib/log-attempt";
+import { logSessionEnd } from "@/lib/log-session";
+
+const IDLE_TAIL_MS = 2 * 60 * 1000;
 import {
   trackQuestionAnswered,
   trackSessionStarted,
@@ -121,6 +125,7 @@ export default function EconomicsSession({ onBack }: { onBack?: () => void } = {
   const [didMasterTopic, setDidMasterTopic] = useState(false);
 
   const sessionStartRef = useRef<number>(Date.now());
+  const lastActivityRef = useRef<number>(Date.now());
 
   useEffect(() => {
     let cancelled = false;
@@ -272,6 +277,7 @@ export default function EconomicsSession({ onBack }: { onBack?: () => void } = {
   const finalizeAttempt = useCallback(
     (data: EconomicsSubmitAnswerResponse, q: EconomicsGeneratedQuestion, sId: string) => {
       setResult(data);
+      lastActivityRef.current = Date.now();
 
       const workingProfile = profile
         ? markEconomicsQuestionUsed(profile, sId, q.question_ref)
@@ -293,6 +299,13 @@ export default function EconomicsSession({ onBack }: { onBack?: () => void } = {
         used_hint: false,
         attempt_number: nextAttempts,
         decision: data.is_correct ? "practice" : "reteach",
+      });
+      logAttempt({
+        studentId: profile?.id ?? "local",
+        subject: "economics",
+        skillId: sId,
+        isCorrect: data.is_correct,
+        template: q.input_type,
       });
 
       const prior = profile?.skill_mastery[sId];
@@ -332,6 +345,23 @@ export default function EconomicsSession({ onBack }: { onBack?: () => void } = {
           correct: nextCorrect,
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
+        {
+          const rawDuration = Date.now() - sessionStartRef.current;
+          const activeDuration = Math.min(
+            rawDuration,
+            lastActivityRef.current - sessionStartRef.current + IDLE_TAIL_MS,
+          );
+          logSessionEnd({
+            studentId: profile?.id ?? "local",
+            subject: "economics",
+            skillId: sId,
+            startedAt: new Date(sessionStartRef.current).toISOString(),
+            endedAt: new Date().toISOString(),
+            durationMs: activeDuration,
+            questionsAnswered: nextAttempts,
+            correct: nextCorrect,
+          });
+        }
         rewardEffortFloor("economics", sId);
         if (didMaster) rewardSkillMastered("economics", sId);
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);

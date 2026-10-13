@@ -27,6 +27,10 @@ import {
   setMatricPhysSciMastery,
 } from "@/lib/matric-phys-sci-student-model";
 import { fetchAuthorisedGrade } from "@/lib/onboarding-reader";
+import { logAttempt } from "@/lib/log-attempt";
+import { logSessionEnd } from "@/lib/log-session";
+
+const IDLE_TAIL_MS = 2 * 60 * 1000;
 import {
   trackQuestionAnswered,
   trackSessionStarted,
@@ -97,6 +101,7 @@ export default function MatricPhysSciSession({
   const [mastery, setMastery] = useState<Record<string, SkillStatus>>({});
 
   const sessionStartRef = useRef<number>(Date.now());
+  const lastActivityRef = useRef<number>(Date.now());
 
   useEffect(() => {
     let cancelled = false;
@@ -227,6 +232,7 @@ export default function MatricPhysSciSession({
   const finalizeAttempt = useCallback(
     (data: MatricPhysSciSubmitAnswerResponse, q: MatricPhysSciGeneratedQuestion, sId: string) => {
       setResult(data);
+      lastActivityRef.current = Date.now();
       recordMatricPhysSciAnswer(sId, q.question_ref, data.is_correct, grade);
 
       const nextCorrect = correctCount + (data.is_correct ? 1 : 0);
@@ -242,6 +248,13 @@ export default function MatricPhysSciSession({
         used_hint: false,
         attempt_number: nextAttempts,
         decision: data.is_correct ? "practice" : "reteach",
+      });
+      logAttempt({
+        studentId: loadMatricPhysSciProfile(grade)?.id ?? "local",
+        subject,
+        skillId: sId,
+        isCorrect: data.is_correct,
+        template: q.answerMode,
       });
 
       if (mastery[sId] !== "mastered" && mastery[sId] !== "in_progress") {
@@ -268,6 +281,23 @@ export default function MatricPhysSciSession({
           });
         }
         trackSessionEnded({ subject, questions_answered: nextAttempts, correct: nextCorrect, accuracy });
+        {
+          const rawDuration = Date.now() - sessionStartRef.current;
+          const activeDuration = Math.min(
+            rawDuration,
+            lastActivityRef.current - sessionStartRef.current + IDLE_TAIL_MS,
+          );
+          logSessionEnd({
+            studentId: loadMatricPhysSciProfile(grade)?.id ?? "local",
+            subject,
+            skillId: sId,
+            startedAt: new Date(sessionStartRef.current).toISOString(),
+            endedAt: new Date().toISOString(),
+            durationMs: activeDuration,
+            questionsAnswered: nextAttempts,
+            correct: nextCorrect,
+          });
+        }
         void persistReport(sId, nextCorrect, nextAttempts, didMaster);
         setPhase("session_done");
       } else {

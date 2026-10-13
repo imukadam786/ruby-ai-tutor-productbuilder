@@ -37,6 +37,10 @@ import {
   saveNstProfile,
   setNstMastery,
 } from "@/lib/nst-student-model";
+import { logAttempt } from "@/lib/log-attempt";
+import { logSessionEnd } from "@/lib/log-session";
+
+const IDLE_TAIL_MS = 2 * 60 * 1000;
 import {
   trackQuestionAnswered,
   trackSessionStarted,
@@ -110,6 +114,7 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
 
   const { speak, stop, playing } = useTTS();
   const sessionStartRef = useRef<number>(Date.now());
+  const lastActivityRef = useRef<number>(Date.now());
 
   useEffect(() => {
     let cancelled = false;
@@ -270,6 +275,7 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
   const finalizeAttempt = useCallback(
     (data: NstSubmitAnswerResponse, q: NstGeneratedQuestion, sId: string) => {
       setResult(data);
+      lastActivityRef.current = Date.now();
 
       // Mark this question used (recordNstAnswer appends to used_questions and
       // persists), so the coverage count below includes the answer we just
@@ -291,6 +297,13 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
         used_hint: false,
         attempt_number: nextAttempts,
         decision: data.is_correct ? "practice" : "reteach",
+      });
+      logAttempt({
+        studentId: loadNstProfile()?.id ?? "local",
+        subject: "natural-sciences-tech",
+        skillId: sId,
+        isCorrect: data.is_correct,
+        template: q.input_type,
       });
 
       if (mastery[sId] !== "mastered" && mastery[sId] !== "in_progress") {
@@ -347,6 +360,23 @@ export default function NstSession({ onBack }: { onBack?: () => void } = {}) {
           correct: nextCorrect,
           accuracy: nextAttempts > 0 ? nextCorrect / nextAttempts : 0,
         });
+        {
+          const rawDuration = Date.now() - sessionStartRef.current;
+          const activeDuration = Math.min(
+            rawDuration,
+            lastActivityRef.current - sessionStartRef.current + IDLE_TAIL_MS,
+          );
+          logSessionEnd({
+            studentId: loadNstProfile()?.id ?? "local",
+            subject: "natural-sciences-tech",
+            skillId: sId,
+            startedAt: new Date(sessionStartRef.current).toISOString(),
+            endedAt: new Date().toISOString(),
+            durationMs: activeDuration,
+            questionsAnswered: nextAttempts,
+            correct: nextCorrect,
+          });
+        }
         // Rubies: effort floor for finishing the topic run + first-time mastery bonus.
         rewardEffortFloor("natural-sciences-tech", sId);
         if (didMaster) rewardSkillMastered("natural-sciences-tech", sId);
