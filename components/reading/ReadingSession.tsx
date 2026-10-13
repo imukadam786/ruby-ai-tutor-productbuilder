@@ -1,5 +1,6 @@
 "use client";
 
+import { logSessionEnd } from "@/lib/log-session";
 import { useState, useEffect, useCallback, useRef } from "react";
 import RubyLoader from "@/components/RubyLoader";
 import RubyBalance from "@/components/RubyBalance";
@@ -419,6 +420,8 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
         placement_block: null,
         early_exit_reason: null,
       });
+      sessionStartRef.current = Date.now();
+      lastActivityRef.current = Date.now();
       trackSessionStarted({
         subject: "reading",
         current_skill_id: updated.current_skill_id,
@@ -762,6 +765,15 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
   profileRef.current = profile;
   const sessionAttemptsRef = useRef(0);
   const sessionCorrectRef = useRef(0);
+  // Session timing for learning_sessions. The clock restarts when the attempt
+  // count resets, and active time is capped at the last answer plus a short
+  // buffer so a forgotten open tab can't inflate the minutes a teacher sees.
+  const sessionStartRef = useRef<number>(Date.now());
+  const lastActivityRef = useRef<number>(Date.now());
+  if (sessionAttempts !== sessionAttemptsRef.current) {
+    if (sessionAttempts === 0) sessionStartRef.current = Date.now();
+    else lastActivityRef.current = Date.now();
+  }
   sessionAttemptsRef.current = sessionAttempts;
   sessionCorrectRef.current = sessionCorrect;
   // Stable id for this reading session — the "lesson" the effort floor pays for.
@@ -791,6 +803,19 @@ export default function ReadingSession({ onSelectPlan, onExitReplay }: { onSelec
           questions_answered: attempts,
           correct,
           accuracy: Math.round((correct / attempts) * 100),
+        });
+        logSessionEnd({
+          studentId: p.id,
+          subject: "reading",
+          skillId: p.current_skill_id,
+          startedAt: new Date(sessionStartRef.current).toISOString(),
+          endedAt: new Date().toISOString(),
+          durationMs: Math.min(
+            Date.now() - sessionStartRef.current,
+            lastActivityRef.current - sessionStartRef.current + 2 * 60 * 1000,
+          ),
+          questionsAnswered: attempts,
+          correct,
         });
         // Rubies: finished a reading lesson (even with wrong answers).
         rewardEffortFloor("reading", lessonIdRef.current);

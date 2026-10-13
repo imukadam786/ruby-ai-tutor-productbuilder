@@ -1,5 +1,6 @@
 "use client";
 
+import { logSessionEnd } from "@/lib/log-session";
 import { useState, useEffect, useCallback, useRef } from "react";
 import RubyLoader from "@/components/RubyLoader";
 import RubyBalance from "@/components/RubyBalance";
@@ -712,6 +713,8 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
         placement_block: result.placementBlock ?? null,
         early_exit_reason: result.earlyExitReason ?? null,
       });
+      sessionStartRef.current = Date.now();
+      lastActivityRef.current = Date.now();
       trackSessionStarted({
         subject: "maths",
         current_skill_id: updatedProfile.current_skill_id,
@@ -791,6 +794,15 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
   // Refs for session totals — accessible in unmount cleanup without stale closure
   const sessionAttemptsRef = useRef(0);
   const sessionCorrectRef = useRef(0);
+  // Session timing for learning_sessions. The clock restarts when the attempt
+  // count resets, and active time is capped at the last answer plus a short
+  // buffer so a forgotten open tab can't inflate the minutes a teacher sees.
+  const sessionStartRef = useRef<number>(Date.now());
+  const lastActivityRef = useRef<number>(Date.now());
+  if (sessionAttempts !== sessionAttemptsRef.current) {
+    if (sessionAttempts === 0) sessionStartRef.current = Date.now();
+    else lastActivityRef.current = Date.now();
+  }
   sessionAttemptsRef.current = sessionAttempts;
   sessionCorrectRef.current = sessionCorrect;
   // Stable id for this learning session — the "lesson" the effort floor pays out
@@ -811,6 +823,19 @@ export default function DiagnosticSession({ onSelectPlan, onExitReplay }: { onSe
           questions_answered: attempts,
           correct,
           accuracy: Math.round((correct / attempts) * 100),
+        });
+        logSessionEnd({
+          studentId: p.id,
+          subject: "maths",
+          skillId: p.current_skill_id,
+          startedAt: new Date(sessionStartRef.current).toISOString(),
+          endedAt: new Date().toISOString(),
+          durationMs: Math.min(
+            Date.now() - sessionStartRef.current,
+            lastActivityRef.current - sessionStartRef.current + 2 * 60 * 1000,
+          ),
+          questionsAnswered: attempts,
+          correct,
         });
         // Rubies: finished a lesson (even with wrong answers) → effort floor.
         // Fire-and-forget; once per lesson per day server-side.
