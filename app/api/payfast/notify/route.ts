@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
     if (isOnceOff) {
       // Once-off: grant access until fixed end date (matric-pack) or 30 days
       const accessEnd = plan === "matric-pack"
-        ? new Date("2026-06-30T23:59:59Z")
+        ? new Date("2026-12-31T23:59:59Z")
         : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
 
       const { error: subErr } = await supabaseAdmin

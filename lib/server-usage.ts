@@ -7,6 +7,7 @@ const DAILY_LIMITS: Record<string, Record<UsageType, number>> = {
   freebie: { chat: 5, hint: 5, tts: 5 },
   scholar:  { chat: Infinity, hint: Infinity, tts: Infinity },
   master:   { chat: Infinity, hint: Infinity, tts: Infinity },
+  "matric-pack": { chat: Infinity, hint: Infinity, tts: Infinity },
 };
 
 function getLimit(plan: string, type: UsageType): number {
