@@ -21,7 +21,7 @@ function numericRelation(student: string, correct: string): string | null {
 // ─── Shared feedback card ────────────────────────────────────────────────────
 //
 // One feedback card for every subject. It renders the deep wrong-answer card —
-// What you put / Why it happens / How to fix it / a layman example / worked steps —
+// What you put / Why it happens / worked steps / a real-life example / where —
 // from normalized inputs, degrading gracefully when a part's data is absent.
 // The why/how/example come from the authored error-code map (lib/error-explanations).
 //
@@ -149,8 +149,8 @@ export default function FeedbackExplanation({
   }
 
   // ── Wrong — five-part explanation ───────────────────────────────────────────
-  // What went wrong · Why this happens · How to fix it · Think of it like this ·
-  // Where you'll see this. The middle three come from the authored error-code map
+  // What went wrong · Why this happens · Worked steps (calculations only) ·
+  // Real-life example · Where you'll see this. The middle three come from the authored error-code map
   // (backfilled from the misconception family, so every code carries all parts).
   //
   // The map is resolved whenever the question supplies `errorSignals`. Subjects
@@ -166,12 +166,20 @@ export default function FeedbackExplanation({
   const headerLabel = labelOverride ?? explanation?.label;
   // WHAT — an authored, behavioural line (from the map) plus/or the answer
   // comparison below. Shown for word/MCQ answers too, not just numeric ones.
-  const whatText = explanation?.what;
+  // Skipped when the subject supplies its own why: the map's generic "what"
+  // describes the same misconception and would just say it twice.
+  const whatText = whyOverride ? undefined : explanation?.what;
   // A personalised diagnosis already speaks to this answer, so don't also fall
   // back to serverFeedback for the generic "why" — it would just repeat it.
   const whyText = whyOverride || explanation?.why || (diagnosisText ? undefined : serverFeedback);
   const hasWorking = !!workingSteps && workingSteps.length > 0;
-  const howText = hasWorking ? undefined : howOverride || explanation?.how;
+  // Each part has one job, so the "how" slot is worked steps (calculation
+  // questions only) — never a prose tip, which kept restating the why and the
+  // example. Maths is the exception for now: it still carries its map fix and
+  // ruby's LLM re-teaching (howOverride), pending its own pass.
+  const howText = hasWorking
+    ? undefined
+    : howOverride || (errorNamespace === "maths" ? explanation?.how : undefined);
   const exampleText = exampleOverride || explanation?.example;
   const whereText = whereOverride || explanation?.where;
 
@@ -250,10 +258,10 @@ export default function FeedbackExplanation({
               )
             )}
 
-            {/* HOW — worked steps if the subject authors them, else the map's fix (sky block in Concept C) */}
+            {/* HOW — worked steps on calculation questions; Maths alone may fall back to its map fix (sky block in Concept C) */}
             {hasWorking && (
               <div className={`rounded-xl p-4 ${CONCEPT_C ? "bg-sky-50 border border-sky-200" : "bg-white border border-orange-200"}`}>
-                <p className={`text-sm mb-1 ${CONCEPT_C ? "font-semibold text-sky-700" : "font-medium text-gray-600"}`}>{CONCEPT_C ? "🔧 How to fix it" : "How to fix it"}</p>
+                <p className={`text-sm mb-1 ${CONCEPT_C ? "font-semibold text-sky-700" : "font-medium text-gray-600"}`}>{CONCEPT_C ? "🔧 Worked steps" : "Worked steps"}</p>
                 <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
                   {workingSteps!.map((s, i) => (
                     <li key={i}>{s}</li>
@@ -271,7 +279,7 @@ export default function FeedbackExplanation({
             {/* EXAMPLE — amber in both looks */}
             {exampleText && (
               <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-                <p className="text-sm font-medium text-amber-700 mb-1">💡 Think of it like this</p>
+                <p className="text-sm font-medium text-amber-700 mb-1">💡 Real-life example</p>
                 <p className="text-gray-800 text-sm leading-relaxed">{exampleText}</p>
               </div>
             )}

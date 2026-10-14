@@ -9,11 +9,13 @@
 //
 //   • "Where you'll see this"  — built here from CAPS strand / grade / term
 //     (no new authoring — see buildTopicWhere)
-//   • "Think of it like this"  — one everyday analogy per topic, authored in
+//   • "Real-life example"  — one everyday analogy per topic, authored in
 //     lib/<subject>-topic-feedback.ts and looked up by skill/topic id
 //
-// "Why this happens" stays the per-question `memo`; "How to fix it" is the
-// topic's `recovery_strategy`; "What went wrong" is the answer comparison.
+// "Why this happens" stays the per-question `memo`; "What went wrong" is the
+// answer comparison. The topic's `recovery_strategy` is deliberately NOT shown:
+// as a per-topic "how to fix it" it restated the memo and the example on every
+// question in the topic. Worked steps (calculation questions) fill that slot.
 
 /** Human-readable subject name for the "where" line. */
 export const SUBJECT_LABEL: Record<string, string> = {
@@ -88,9 +90,9 @@ interface TopicMeta {
 
 /**
  * Build the extra FeedbackExplanation props for a content-subject wrong answer
- * whose feedback is topic-driven (no shared error-code taxonomy): the topic's
- * recovery strategy as "how", an authored analogy as the example, a CAPS-built
- * "where" line, and the answer comparison for simple input types. Returns {} on
+ * whose feedback is topic-driven (no shared error-code taxonomy): an authored
+ * analogy as the example, a CAPS-built "where" line, and the answer comparison
+ * for simple input types. Returns {} on
  * a correct answer or when the topic can't be resolved, so it spreads harmlessly.
  */
 export function topicFeedbackProps(opts: {
@@ -103,7 +105,6 @@ export function topicFeedbackProps(opts: {
   lastAnswer: string;
   correctAnswer?: string | number | null;
 }): {
-  howOverride?: string;
   exampleOverride?: string;
   whereOverride?: string;
   studentAnswer?: string;
@@ -113,7 +114,6 @@ export function topicFeedbackProps(opts: {
   if (isCorrect || !skillId) return {};
   const simple = SIMPLE_ANSWER_TYPES.includes(inputType);
   return {
-    howOverride: topic?.recovery_strategy || undefined,
     exampleOverride: examples[skillId] || undefined,
     whereOverride: topic
       ? buildTopicWhere({
