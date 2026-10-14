@@ -1130,6 +1130,20 @@ export default function Home() {
               {isStudyGuidePurchaser ? "One step away to Ruby AI access" : "Your 7-day trial has ended"}
             </h1>
             <p className="text-gray-400 text-sm mt-1">Upgrade to keep learning</p>
+            <p className="text-sm text-gray-500 mt-3">
+              Already paid?{" "}
+              <button
+                onClick={async () => {
+                  // Same as the log-out button below: a fresh login re-reads
+                  // their plan once the payment has been recorded.
+                  await supabase.auth.signOut();
+                  window.location.reload();
+                }}
+                className="font-semibold text-[#C41930] underline underline-offset-2 hover:text-[#6B1020] transition-colors"
+              >
+                Log in again
+              </button>
+            </p>
           </div>
           <PricingPlans mode="upgrade" showHeader={false} />
           <div className="border-t border-gray-100 px-8 py-5 text-center">
