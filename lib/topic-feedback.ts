@@ -35,6 +35,8 @@ export const SUBJECT_LABEL: Record<string, string> = {
   "tourism": "Tourism",
   "physical-sciences": "Physical Sciences",
   "afrikaans": "Afrikaans First Additional Language",
+  "life-skills": "Life Skills",
+  "nst": "Natural Sciences and Technology",
 };
 
 // "G7 T1" / "G10 T3" → "Term 1"; "G7", "T1-T4" (a range) or missing → "".

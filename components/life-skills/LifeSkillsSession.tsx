@@ -13,6 +13,8 @@ import lifeSkillsTreeData from "@/data/life-skills-skill-tree.json";
 import lifeSkillsBankData from "@/data/life-skills-question-bank.json";
 import EduBackground from "@/components/EduBackground";
 import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import { topicFeedbackProps } from "@/lib/topic-feedback";
+import { TOPIC_EXAMPLES } from "@/lib/life-skills-topic-feedback";
 import { GEM_HEX } from "@/lib/design/gemColors";
 import FeedbackFooter from "@/components/shared/FeedbackFooter";
 import { scoreLifeSkills } from "@/lib/life-skills-scoring";
@@ -627,9 +629,16 @@ export default function LifeSkillsSession({ onBack }: { onBack?: () => void } = 
           isCorrect={result.is_correct}
           note={result.is_correct ? result.memo : undefined}
           whyOverride={result.is_correct ? undefined : result.memo}
-          errorSignals={result.is_correct ? undefined : result.error_signals}
-          studentAnswer={question.input_type === "sequence" ? undefined : lastAnswer}
-          correctAnswer={question.input_type === "sequence" ? undefined : String(question.expected_answer)}
+          {...topicFeedbackProps({
+            isCorrect: result.is_correct,
+            subjectSlug: "life-skills",
+            topic: skillId ? bank.topics[skillId] : null,
+            examples: TOPIC_EXAMPLES,
+            skillId,
+            inputType: question.input_type,
+            lastAnswer,
+            correctAnswer: question.expected_answer,
+          })}
           footer={
             <FeedbackFooter
               isCorrect={result.is_correct}
