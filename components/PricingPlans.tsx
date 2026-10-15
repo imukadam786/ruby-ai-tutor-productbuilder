@@ -71,7 +71,7 @@ const PLANS: PricingPlan[] = [
     ctaClass: "bg-rose-600 hover:bg-rose-700 text-white",
     ctaLabel: "Go Premium",
 
-    paymentType: "subscription",
+    paymentType: "once-off",
     features: [
       { text: "CAPS Aligned curriculum" },
       { text: "2× Discovery Activities", note: "Maths & Reading" },
