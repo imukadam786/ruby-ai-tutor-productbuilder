@@ -514,7 +514,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Ethics applies to every party in the financial environment.",
+          "memo": "Ethics applies to everyone in business, big or small.",
           "error_signals": [
             "ERR_ACC_ETHICS_SCOPE"
           ],
@@ -548,7 +548,7 @@
             "Overtime"
           ],
           "expected": "Transparency",
-          "memo": "Hiding information breaks transparency.",
+          "memo": "Hiding information from the owner breaks transparency, which means being open about the finances.",
           "error_signals": [
             "ERR_ACC_TRANSPARENCY"
           ],
@@ -582,7 +582,7 @@
             "Stock control"
           ],
           "expected": "Accountability",
-          "memo": "Being unable to account for money breaks accountability.",
+          "memo": "If you can't explain where money went, you've broken accountability: being answerable for what you're responsible for.",
           "error_signals": [
             "ERR_ACC_ACCOUNTABILITY"
           ],
@@ -768,7 +768,7 @@
             }
           ],
           "expected": "",
-          "memo": "A good point-evidence-explanation links transparency to trustworthy decisions.",
+          "memo": "Transparency means nothing is hidden, so owners and SARS see the true income and expenses. That lets them trust the figures and make good decisions.",
           "error_signals": [
             "ERR_ACC_TRANSPARENCY"
           ],
@@ -800,7 +800,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Sustainability balances profit with social and environmental responsibility.",
+          "memo": "Sustainability balances making a profit with caring for people and the environment.",
           "error_signals": [
             "ERR_ACC_SUSTAINABILITY"
           ],
@@ -817,7 +817,7 @@
             "Capital and stock"
           ],
           "expected": "Accountability and transparency",
-          "memo": "Hiding tax is dishonest and unaccountable.",
+          "memo": "Hiding tax is dishonest (breaks transparency) and avoids responsibility (breaks accountability).",
           "error_signals": [
             "ERR_ACC_TAX_ETHICS"
           ],
@@ -953,7 +953,7 @@
             "prudence"
           ],
           "expected": "going concern",
-          "memo": "Going concern assumes continued operation.",
+          "memo": "Going concern means assuming the business will keep running into the future.",
           "error_signals": [
             "ERR_ACC_GOINGCONCERN"
           ],
@@ -970,7 +970,7 @@
             "matching"
           ],
           "expected": "prudence",
-          "memo": "Prudence avoids overstating the position.",
+          "memo": "Prudence means being careful not to make profit or assets look bigger than they are.",
           "error_signals": [
             "ERR_ACC_PRUDENCE"
           ],
@@ -1004,7 +1004,7 @@
             "matching"
           ],
           "expected": "materiality",
-          "memo": "Materiality means only significant amounts need special treatment.",
+          "memo": "Materiality means only amounts big enough to affect a decision need special attention.",
           "error_signals": [
             "ERR_ACC_MATERIALITY"
           ],
@@ -1130,7 +1130,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Each example illustrates exactly one GAAP principle.",
+          "memo": "Recording things at what they cost is historical cost. Planning on the business continuing is going concern. Recording expenses in the same period as the income they help earn is matching.",
           "error_signals": [
             "ERR_ACC_PRINCIPLE_MATCH"
           ],
@@ -1145,7 +1145,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Going concern assumes the OPPOSITE — continued operation.",
+          "memo": "Going concern assumes the opposite: that the business will keep running.",
           "error_signals": [
             "ERR_ACC_GOINGCONCERN"
           ],
@@ -1337,7 +1337,7 @@
             "A type of stock"
           ],
           "expected": "The system a business uses to protect its assets and records",
-          "memo": "Internal control safeguards assets and ensures reliable records.",
+          "memo": "Internal control is the system that protects a business's assets and keeps its records reliable.",
           "error_signals": [
             "ERR_ACC_CONTROL_DEF"
           ],
@@ -1420,7 +1420,7 @@
             "discounting"
           ],
           "expected": "monitoring",
-          "memo": "Monitoring reviews whether controls keep working.",
+          "memo": "Monitoring means checking that the controls keep working.",
           "error_signals": [
             "ERR_ACC_MONITORING"
           ],
@@ -1437,7 +1437,7 @@
             "Drawings"
           ],
           "expected": "Physical controls",
-          "memo": "Cameras and safes physically protect assets.",
+          "memo": "Cameras and safes protect assets physically, so they're physical controls.",
           "error_signals": [
             "ERR_ACC_PHYSICAL"
           ],
@@ -1513,7 +1513,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Authorisation is a key control activity.",
+          "memo": "Needing a manager to approve big payments is a key control activity.",
           "error_signals": [
             "ERR_ACC_AUTHORISATION"
           ],
@@ -1581,7 +1581,7 @@
             "depreciation"
           ],
           "expected": "information",
-          "memo": "Information and communication systems support the controls.",
+          "memo": "Good information and communication between staff help the controls work.",
           "error_signals": [
             "ERR_ACC_INFO_COMM"
           ],
@@ -1691,7 +1691,7 @@
             "To avoid keeping records"
           ],
           "expected": "To make sure they keep working as the business changes",
-          "memo": "Monitoring keeps controls effective over time.",
+          "memo": "Businesses change, so monitoring makes sure the controls keep working over time.",
           "error_signals": [
             "ERR_ACC_MONITORING"
           ],
@@ -1798,7 +1798,7 @@
             "An asset"
           ],
           "expected": "Drawings",
-          "memo": "Drawings reduce owner's equity.",
+          "memo": "Drawings are money or goods the owner takes for personal use. They reduce the owner's equity.",
           "error_signals": [
             "ERR_ACC_DRAWINGS"
           ],
@@ -2020,7 +2020,7 @@
             "diminishing"
           ],
           "expected": "perpetual",
-          "memo": "The perpetual system tracks stock continuously.",
+          "memo": "In the perpetual system, stock records are updated every time something is bought or sold.",
           "error_signals": [
             "ERR_ACC_PERPETUAL"
           ],
@@ -2037,7 +2037,7 @@
             "Hiring staff"
           ],
           "expected": "Reporting past results to outside parties",
-          "memo": "Financial accounting reports historical results externally.",
+          "memo": "Financial accounting reports what has already happened to people outside the business.",
           "error_signals": [
             "ERR_ACC_FINANCIAL_ACC"
           ],
@@ -2054,7 +2054,7 @@
             "Counting customers"
           ],
           "expected": "Providing information for internal planning and decisions",
-          "memo": "Managerial accounting helps managers plan and decide.",
+          "memo": "Managerial accounting gives managers information to plan and make decisions.",
           "error_signals": [
             "ERR_ACC_MANAGERIAL_ACC"
           ],
@@ -2354,7 +2354,7 @@
           "debit": "bank",
           "credit": "capital",
           "expected": "",
-          "memo": "Capital contribution: Bank (debit), Capital (credit).",
+          "memo": "The owner putting money in is a capital contribution. Bank goes up (debit) and Capital goes up (credit).",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -2840,7 +2840,7 @@
           "debit": "stationery",
           "credit": "petty",
           "expected": "",
-          "memo": "Stationery (debit); Petty cash (credit) decreases.",
+          "memo": "Stationery is an expense, so it's debited. Petty cash goes down, so it's credited.",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -2922,7 +2922,7 @@
           "debit": "bank",
           "credit": "interestinc",
           "expected": "",
-          "memo": "Interest received: Bank (debit), Interest income (credit).",
+          "memo": "The bank balance goes up (debit Bank) and the business earns income (credit Interest income).",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -3468,7 +3468,7 @@
           "debit": "debtorsallow",
           "credit": "debtors",
           "expected": "",
-          "memo": "Customer returns: Debtors' allowances (debit), Debtors control (credit).",
+          "memo": "When a customer returns goods, Debtors' allowances is debited and Debtors control is credited, because the customer now owes less.",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -3607,7 +3607,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The control account summarises the individual debtors.",
+          "memo": "The control account is a summary of all the individual debtors, so the totals should match.",
           "error_signals": [
             "ERR_ACC_CONTROL_MATCH"
           ],
@@ -3736,7 +3736,7 @@
             "Petty Cash"
           ],
           "expected": "General",
-          "memo": "The control account sits in the General Ledger; individual creditors in the Creditors' Ledger.",
+          "memo": "The control account sits in the General Ledger. Each creditor's own account sits in the Creditors' Ledger.",
           "error_signals": [
             "ERR_ACC_CONTROL_ACCOUNT"
           ],
@@ -3867,7 +3867,7 @@
             "To avoid keeping a ledger"
           ],
           "expected": "To confirm the individual accounts agree with the total owed",
-          "memo": "Reconciliation confirms the detail matches the summary.",
+          "memo": "Reconciling checks that the detailed list agrees with the total in the control account.",
           "error_signals": [
             "ERR_ACC_CONTROL_MATCH"
           ],
@@ -4209,7 +4209,7 @@
             "L": "increase"
           },
           "expected": "",
-          "memo": "Trading stock (asset) up; creditors (liability) up; equity unchanged.",
+          "memo": "Trading stock (an asset) goes up and creditors (a liability) go up by the same amount. Equity doesn't change.",
           "error_signals": [
             "ERR_ACC_EQUATION"
           ],
@@ -4239,7 +4239,7 @@
             "L": "decrease"
           },
           "expected": "",
-          "memo": "Bank (asset) down; creditors (liability) down; equity unchanged.",
+          "memo": "Bank (an asset) goes down and creditors (a liability) go down by the same amount. Equity doesn't change.",
           "error_signals": [
             "ERR_ACC_EQUATION"
           ],
@@ -4299,7 +4299,7 @@
             "L": "no_effect"
           },
           "expected": "",
-          "memo": "The asset's carrying value (asset) falls; depreciation is an expense reducing equity.",
+          "memo": "The equipment's value (an asset) goes down. Depreciation is an expense, so equity goes down too.",
           "error_signals": [
             "ERR_ACC_EQUATION"
           ],
@@ -4363,7 +4363,7 @@
             "Liabilities = Assets + Owner's equity"
           ],
           "expected": "Assets = Owner's equity + Liabilities",
-          "memo": "This is the fundamental accounting equation.",
+          "memo": "The basic accounting equation is: Assets = Owner's equity + Liabilities.",
           "error_signals": [
             "ERR_ACC_EQUATION_FORM"
           ],
@@ -4394,7 +4394,7 @@
           "debit": "bank",
           "credit": "capital",
           "expected": "",
-          "memo": "Capital: Bank (debit), Capital (credit).",
+          "memo": "The owner putting in capital means Bank goes up (debit) and Capital goes up (credit).",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -4425,7 +4425,7 @@
           "debit": "vehicles",
           "credit": "creditors",
           "expected": "",
-          "memo": "Vehicle on credit: Vehicles (debit), Creditors control (credit).",
+          "memo": "The business gains a vehicle (debit Vehicles) and owes the supplier (credit Creditors control).",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -4647,7 +4647,7 @@
             "Furniture"
           ],
           "expected": "Residential rental",
-          "memo": "Residential accommodation is VAT-exempt.",
+          "memo": "Renting out a home is VAT-exempt.",
           "error_signals": [
             "ERR_ACC_VAT_EXEMPT"
           ],
@@ -4854,7 +4854,7 @@
             "To help exporters only"
           ],
           "expected": "To ease the burden on poorer households",
-          "memo": "Zero-rating basics keeps essential food affordable.",
+          "memo": "Not charging VAT on basic foods keeps essential food affordable for poorer households.",
           "error_signals": [
             "ERR_ACC_VAT_ZERO"
           ],
@@ -4871,7 +4871,7 @@
             "There is no difference"
           ],
           "expected": "Zero-rated vendors can claim input VAT; exempt vendors cannot",
-          "memo": "Input-VAT recovery is the practical difference.",
+          "memo": "The practical difference: zero-rated businesses can claim back the VAT they paid on their purchases, but exempt businesses can't.",
           "error_signals": [
             "ERR_ACC_VAT_ZERO_EXEMPT"
           ],
@@ -5148,7 +5148,7 @@
           "debit": "sars",
           "credit": "bank",
           "expected": "",
-          "memo": "Paying PAYE over: SARS (PAYE) liability (debit) decreases; Bank (credit) decreases.",
+          "memo": "Paying SARS reduces what's owed (debit the SARS PAYE liability) and reduces the bank balance (credit Bank).",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -5216,7 +5216,7 @@
             "A fixed asset"
           ],
           "expected": "An extra cost (an expense)",
-          "memo": "Employer contributions are an expense.",
+          "memo": "What the employer contributes for staff is an extra cost, so it's an expense.",
           "error_signals": [
             "ERR_ACC_CONTRIBUTION"
           ],
@@ -5260,7 +5260,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Deductions reduce the employee's pay; contributions are extra employer costs.",
+          "memo": "Deductions come off the employee's pay, like PAYE and their pension share. Contributions are extra costs the employer pays, like the Skills Development Levy and its pension share.",
           "error_signals": [
             "ERR_ACC_DED_CON"
           ],
@@ -5309,7 +5309,7 @@
             "Generously"
           ],
           "expected": "Unethically and illegally",
-          "memo": "Withholding employees' tax is unethical and illegal.",
+          "memo": "Keeping tax taken from employees' pay instead of paying it to SARS is unethical and illegal.",
           "error_signals": [
             "ERR_ACC_PAYE_ETHICS"
           ],
@@ -5497,7 +5497,7 @@
             "L": "no_effect"
           },
           "expected": "",
-          "memo": "The asset's carrying value falls; depreciation is an expense reducing equity.",
+          "memo": "The equipment's value goes down. Depreciation is an expense, so equity goes down too.",
           "error_signals": [
             "ERR_ACC_EQUATION"
           ],
@@ -5823,7 +5823,7 @@
             "To reduce the number of debtors"
           ],
           "expected": "To match income and expenses to the correct period",
-          "memo": "Adjustments apply the matching principle.",
+          "memo": "Adjustments put income and expenses into the right period. That's the matching principle.",
           "error_signals": [
             "ERR_ACC_MATCHING"
           ],
@@ -5913,7 +5913,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Balance-sheet accounts carry forward; nominal accounts are closed.",
+          "memo": "Balance sheet accounts carry over to the next year. Income and expense accounts are closed off.",
           "error_signals": [
             "ERR_ACC_CLOSING"
           ],
@@ -6060,7 +6060,7 @@
             "Nominal accounts"
           ],
           "expected": "Balance-sheet accounts (assets, liabilities, equity)",
-          "memo": "Nominal accounts are already closed, leaving balance-sheet accounts.",
+          "memo": "Income and expense accounts are already closed, so only balance sheet accounts are left.",
           "error_signals": [
             "ERR_ACC_POSTCLOSING"
           ],
@@ -6332,7 +6332,7 @@
             "Drawings"
           ],
           "expected": "Operating profit",
-          "memo": "Operating profit is after operating items.",
+          "memo": "Operating profit is what's left after operating expenses are taken off and other operating income is added.",
           "error_signals": [
             "ERR_ACC_OPERATING_PROFIT"
           ],
@@ -6410,7 +6410,7 @@
             "Trading stock"
           ],
           "expected": "Salaries",
-          "memo": "Salaries are an operating expense.",
+          "memo": "Salaries are a cost of running the business, so they're an operating expense.",
           "error_signals": [
             "ERR_ACC_OPERATING_EXPENSE"
           ],
@@ -6478,7 +6478,7 @@
             "Liability"
           ],
           "expected": "Operating expense",
-          "memo": "Depreciation is an operating expense.",
+          "memo": "Depreciation is a cost of running the business, so it's an operating expense.",
           "error_signals": [
             "ERR_ACC_OPERATING_EXPENSE"
           ],
@@ -6794,7 +6794,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Long-term assets are non-current; stock/debtors/bank are current; creditors are a current liability.",
+          "memo": "Long-term assets like equipment are non-current. Stock, debtors and bank are current assets. Creditors are a current liability.",
           "error_signals": [
             "ERR_ACC_BS_CLASSIFY"
           ],
@@ -6862,7 +6862,7 @@
             "stock"
           ],
           "expected": "drawings",
-          "memo": "Drawings reduce owner's equity.",
+          "memo": "Drawings are what the owner takes out, so they reduce the owner's equity.",
           "error_signals": [
             "ERR_ACC_EQUITY"
           ],
@@ -7057,7 +7057,7 @@
             "To pay the wages"
           ],
           "expected": "To show what the business owns and owes at a point in time",
-          "memo": "It reports financial position.",
+          "memo": "A Balance Sheet shows what the business owns and owes on a particular date.",
           "error_signals": [
             "ERR_ACC_BS_PURPOSE"
           ],
@@ -7232,7 +7232,7 @@
             "Drawings"
           ],
           "expected": "Total liabilities",
-          "memo": "Solvency = total assets : total liabilities.",
+          "memo": "The solvency ratio compares total assets with total liabilities.",
           "error_signals": [
             "ERR_ACC_SOLVENCY"
           ],
@@ -7416,7 +7416,7 @@
             "To avoid keeping records"
           ],
           "expected": "To judge performance and make better decisions",
-          "memo": "Interpretation turns figures into insight.",
+          "memo": "Interpreting statements turns the numbers into useful insight for decisions.",
           "error_signals": [
             "ERR_ACC_INTERPRET_PURPOSE"
           ],
@@ -7696,7 +7696,7 @@
             "transit"
           ],
           "expected": "process",
-          "memo": "Unfinished goods are work-in-process.",
+          "memo": "Goods that are only partly made are called work-in-process.",
           "error_signals": [
             "ERR_ACC_WIP"
           ],
@@ -7713,7 +7713,7 @@
             "A selling cost"
           ],
           "expected": "A factory overhead (indirect labour)",
-          "memo": "Supervision is indirect labour, an overhead.",
+          "memo": "A supervisor doesn't make the product directly, so their salary is indirect labour, which is a factory overhead.",
           "error_signals": [
             "ERR_ACC_OVERHEAD"
           ],
@@ -7859,7 +7859,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "They are non-manufacturing costs, not factory overheads.",
+          "memo": "Administration and selling costs aren't part of making the product, so they're not factory overheads.",
           "error_signals": [
             "ERR_ACC_OVERHEAD"
           ],
@@ -7876,7 +7876,7 @@
             "To reduce the number of staff"
           ],
           "expected": "To work out the true cost of making the product",
-          "memo": "Cost classification supports accurate product costing.",
+          "memo": "Sorting costs into direct and indirect lets the business work out the true cost of each product.",
           "error_signals": [
             "ERR_ACC_COST_PURPOSE"
           ],
@@ -7951,7 +7951,7 @@
             "long"
           ],
           "expected": "zero",
-          "memo": "Zero-based budgeting justifies every item afresh.",
+          "memo": "A zero-based budget starts from nothing each time, so every item has to be justified again.",
           "error_signals": [
             "ERR_ACC_ZERO_BASED"
           ],
@@ -8101,7 +8101,7 @@
             "Remove the owner"
           ],
           "expected": "Control and improve its performance",
-          "memo": "Budget-to-actual comparison is a control tool.",
+          "memo": "Comparing the budget with what actually happened helps the business control and improve its performance.",
           "error_signals": [
             "ERR_ACC_BUDGET_CONTROL"
           ],
@@ -8211,7 +8211,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Capital budgets cover major asset spending.",
+          "memo": "A capital budget plans big spending on assets, like vehicles and machinery.",
           "error_signals": [
             "ERR_ACC_CAPITAL_BUDGET"
           ],
@@ -8337,7 +8337,7 @@
             "Paying the least tax"
           ],
           "expected": "Being answerable for your decisions and actions",
-          "memo": "Accountability means taking responsibility and being answerable.",
+          "memo": "Accountability means taking responsibility for your decisions and being able to explain them.",
           "error_signals": [
             "ERR_ACC_ACCOUNTABILITY"
           ],
@@ -8369,7 +8369,7 @@
             "Destroyed after a year"
           ],
           "expected": "Openly disclosed and not hidden",
-          "memo": "Transparency means open, honest disclosure.",
+          "memo": "Transparency means sharing financial information openly and honestly.",
           "error_signals": [
             "ERR_ACC_TRANSPARENCY"
           ],
@@ -8386,7 +8386,7 @@
             "Materiality"
           ],
           "expected": "Sustainability",
-          "memo": "Harming the environment ignores sustainability.",
+          "memo": "Harming the environment to save money ignores sustainability.",
           "error_signals": [
             "ERR_ACC_SUSTAINABILITY"
           ],
@@ -8465,7 +8465,7 @@
             }
           ],
           "expected": "",
-          "memo": "Accountability links responsibility to trust and good stewardship.",
+          "memo": "Accountability means people must explain their decisions, like how money was used. That makes them use resources responsibly and builds trust.",
           "error_signals": [
             "ERR_ACC_ACCOUNTABILITY"
           ],
@@ -8778,7 +8778,7 @@
             "It replaces internal control"
           ],
           "expected": "Its resources and reputation must last for it to survive",
-          "memo": "Sustainable use protects future operations and reputation.",
+          "memo": "A business needs its resources and good name to last if it's going to survive. Using them sustainably protects both.",
           "error_signals": [
             "ERR_ACC_SUSTAINABILITY"
           ],
@@ -8818,7 +8818,7 @@
             "A sales promotion"
           ],
           "expected": "An independent check that the controls are working",
-          "memo": "Internal audit independently reviews the control system.",
+          "memo": "An internal audit is an independent check of whether the business's controls are working.",
           "error_signals": [
             "ERR_ACC_AUDIT_DEF"
           ],
@@ -8850,7 +8850,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Internal auditors work within the organisation.",
+          "memo": "Internal auditors work for the business itself.",
           "error_signals": [
             "ERR_ACC_INTERNAL_AUDITOR"
           ],
@@ -8915,7 +8915,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Each procedure safeguards a particular area.",
+          "memo": "Counting the till and reconciling the bank protect cash. A stock count protects stock. Reviewing how long debtors have owed protects debtors.",
           "error_signals": [
             "ERR_ACC_AUDIT_AREA"
           ],
@@ -8949,7 +8949,7 @@
             "Drawings"
           ],
           "expected": "Buying and creditors",
-          "memo": "It controls the purchasing/creditors cycle.",
+          "memo": "Checking deliveries against the order and invoice controls buying and what's owed to creditors.",
           "error_signals": [
             "ERR_ACC_BUYING_CONTROL"
           ],
@@ -8998,7 +8998,7 @@
             "Bigger discounts"
           ],
           "expected": "Locked storerooms and access control",
-          "memo": "Physical security protects stock.",
+          "memo": "Locked storerooms and controlling who can get in physically protect stock.",
           "error_signals": [
             "ERR_ACC_PHYSICAL"
           ],
@@ -9140,7 +9140,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Internal auditors work inside; external auditors are independent.",
+          "memo": "Internal auditors work inside the business. External auditors are independent outsiders.",
           "error_signals": [
             "ERR_ACC_INT_EXT"
           ],
@@ -9962,7 +9962,7 @@
             "debtors'"
           ],
           "expected": "supplier's",
-          "memo": "Our unrecorded-by-them payments reduce the supplier's balance.",
+          "memo": "Payments we've made that the supplier hasn't recorded yet are taken off the supplier's statement balance.",
           "error_signals": [
             "ERR_ACC_CREDREC"
           ],
@@ -10026,7 +10026,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Each supplier account is reconciled separately.",
+          "memo": "Each supplier's account is reconciled on its own.",
           "error_signals": [
             "ERR_ACC_CREDREC"
           ],
@@ -10118,7 +10118,7 @@
             "replacement"
           ],
           "expected": "carrying",
-          "memo": "Carrying (book) value = cost − accumulated depreciation.",
+          "memo": "Carrying value, also called book value, is the cost minus all the depreciation so far.",
           "error_signals": [
             "ERR_ACC_CARRYING_VALUE"
           ],
@@ -10181,7 +10181,7 @@
           "debit": "depreciation",
           "credit": "accdep",
           "expected": "",
-          "memo": "Depreciation (debit, expense); Accumulated depreciation (credit).",
+          "memo": "Depreciation is an expense, so it's debited. Accumulated depreciation is credited.",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -10243,7 +10243,7 @@
           "debit": "equipment",
           "credit": "creditors",
           "expected": "",
-          "memo": "Equipment on credit: Equipment (debit), Creditors control (credit).",
+          "memo": "The business gains equipment (debit Equipment) and owes the supplier (credit Creditors control).",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -10456,7 +10456,7 @@
           "debit": "vehicles",
           "credit": "creditors",
           "expected": "",
-          "memo": "Vehicle on credit: Vehicles (debit), Creditors control (credit).",
+          "memo": "The business gains a vehicle (debit Vehicles) and owes the supplier (credit Creditors control).",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -10991,7 +10991,7 @@
           "debit": "appropriation",
           "credit": "currentA",
           "expected": "",
-          "memo": "Interest on capital: Appropriation (debit), Current account: A (credit).",
+          "memo": "Interest on capital is a share of profit, so the Appropriation account is debited and Partner A's current account is credited.",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -11022,7 +11022,7 @@
           "debit": "appropriation",
           "credit": "currentB",
           "expected": "",
-          "memo": "Partner salary: Appropriation (debit), Current account: B (credit).",
+          "memo": "A partner's salary is a share of profit, so the Appropriation account is debited and Partner B's current account is credited.",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -11242,7 +11242,7 @@
             "A current liability"
           ],
           "expected": "An appropriation of profit",
-          "memo": "Partner salaries appropriate profit.",
+          "memo": "Partners' salaries are a way of sharing out profit, not a normal expense.",
           "error_signals": [
             "ERR_ACC_APPROPRIATION"
           ],
@@ -11274,7 +11274,7 @@
             "Higher sales"
           ],
           "expected": "Debit balances on their current accounts",
-          "memo": "Over-distribution leaves debit current balances.",
+          "memo": "If partners are given more than the profit, their current accounts end up with debit balances.",
           "error_signals": [
             "ERR_ACC_CURRENT_ACCOUNT"
           ],
@@ -11410,7 +11410,7 @@
             "Bank plus debtors"
           ],
           "expected": "Capital accounts plus current accounts",
-          "memo": "Equity = capital + current accounts.",
+          "memo": "Partnership equity is the capital accounts plus the current accounts.",
           "error_signals": [
             "ERR_ACC_PARTNER_EQUITY"
           ],
@@ -11588,7 +11588,7 @@
             "Bank"
           ],
           "expected": "Current accounts",
-          "memo": "Equity = capital + current accounts.",
+          "memo": "Equity is the capital accounts plus the current accounts.",
           "error_signals": [
             "ERR_ACC_PARTNER_EQUITY"
           ],
@@ -11732,7 +11732,7 @@
             "To replace the ledger"
           ],
           "expected": "To keep each partner's profit share and drawings separate from fixed capital",
-          "memo": "Current accounts separate ongoing movements from capital.",
+          "memo": "Current accounts keep each partner's share of profit and their drawings separate from the capital they put in.",
           "error_signals": [
             "ERR_ACC_CURRENT_ACCOUNT"
           ],
@@ -11747,7 +11747,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Assets always equal equity plus liabilities.",
+          "memo": "Assets always equal equity plus liabilities, so the Balance Sheet must balance.",
           "error_signals": [
             "ERR_ACC_EQUATION_FORM"
           ],
@@ -12158,7 +12158,7 @@
             "To avoid keeping records"
           ],
           "expected": "To judge profitability, liquidity and risk",
-          "memo": "Interpretation informs decisions.",
+          "memo": "Interpreting the statements shows how profitable, liquid and risky the business is, which helps with decisions.",
           "error_signals": [
             "ERR_ACC_INTERPRET_PURPOSE"
           ],
@@ -13713,7 +13713,7 @@
             "Delivery costs"
           ],
           "expected": "Office and management running costs",
-          "memo": "Admin covers office/management costs.",
+          "memo": "Administration costs are the costs of running the office and management.",
           "error_signals": [
             "ERR_ACC_ADMIN_COST"
           ],
@@ -13793,7 +13793,7 @@
             "Factory wages"
           ],
           "expected": "Office salaries",
-          "memo": "Office salaries are administration, not factory cost.",
+          "memo": "Office salaries are administration costs, not factory costs.",
           "error_signals": [
             "ERR_ACC_COST_CATEGORY"
           ],
@@ -13845,7 +13845,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Only factory-floor costs are manufacturing costs.",
+          "memo": "Timber is direct material, the carpenter's wages are direct labour and factory rent is an overhead. Advertising isn't a factory cost at all.",
           "error_signals": [
             "ERR_ACC_COST_CATEGORY"
           ],
@@ -13876,7 +13876,7 @@
           "debit": "depreciation",
           "credit": "accdep",
           "expected": "",
-          "memo": "Depreciation (debit, an overhead); Accumulated depreciation (credit).",
+          "memo": "Depreciation on factory equipment is a factory overhead, so it's debited. Accumulated depreciation is credited.",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -13927,7 +13927,7 @@
             "Administration cost"
           ],
           "expected": "Factory overhead",
-          "memo": "Indirect materials are a factory overhead.",
+          "memo": "Materials that don't become part of the product, like consumable stores, are a factory overhead.",
           "error_signals": [
             "ERR_ACC_OVERHEAD"
           ],
@@ -14146,7 +14146,7 @@
             "projected"
           ],
           "expected": "actual",
-          "memo": "Budget-to-actual comparison drives control.",
+          "memo": "Comparing the budget with what actually happened is a key way to keep control.",
           "error_signals": [
             "ERR_ACC_BUDGET_CONTROL"
           ],
@@ -14307,7 +14307,7 @@
             "Rent paid"
           ],
           "expected": "Depreciation",
-          "memo": "Depreciation is non-cash.",
+          "memo": "Depreciation doesn't involve any cash changing hands, so it's not in the cash budget.",
           "error_signals": [
             "ERR_ACC_NONCASH"
           ],
@@ -14397,7 +14397,7 @@
             "Never"
           ],
           "expected": "With every purchase and sale",
-          "memo": "Perpetual = continuous updating.",
+          "memo": "In the perpetual system, stock records are updated with every purchase and sale.",
           "error_signals": [
             "ERR_ACC_PERPETUAL"
           ],
@@ -14507,7 +14507,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Perpetual updates continuously; periodic relies on a year-end count.",
+          "memo": "The perpetual system updates stock and cost of sales with every sale. The periodic system uses a Purchases account and counts stock at year-end.",
           "error_signals": [
             "ERR_ACC_INVENTORY_SYSTEM"
           ],
@@ -14541,7 +14541,7 @@
             "Cost of sales is recorded each sale"
           ],
           "expected": "It is simpler and cheaper to run",
-          "memo": "Periodic needs less continuous recording.",
+          "memo": "The periodic system is simpler and cheaper because you don't have to record stock all the time.",
           "error_signals": [
             "ERR_ACC_PERIODIC"
           ],
@@ -14751,7 +14751,7 @@
             "It pays less VAT"
           ],
           "expected": "High-value items need continuous tracking",
-          "memo": "Valuable goods justify continuous control.",
+          "memo": "Expensive items are worth tracking all the time, so the perpetual system suits them.",
           "error_signals": [
             "ERR_ACC_PERPETUAL"
           ],
@@ -15249,7 +15249,7 @@
             "Loan"
           ],
           "expected": "Dividend",
-          "memo": "Dividends distribute profit to shareholders.",
+          "memo": "Dividends are the share of profit paid out to shareholders.",
           "error_signals": [
             "ERR_ACC_DIVIDEND"
           ],
@@ -15471,7 +15471,7 @@
             "Set the dividend"
           ],
           "expected": "Give an independent opinion on the financial statements",
-          "memo": "External auditors express an opinion.",
+          "memo": "External auditors give an independent opinion on whether the financial statements are fair.",
           "error_signals": [
             "ERR_ACC_AUDITORS"
           ],
@@ -15503,7 +15503,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Retained income is shareholders' undistributed profit.",
+          "memo": "Retained income is profit that hasn't been paid out yet. It belongs to the shareholders.",
           "error_signals": [
             "ERR_ACC_RETAINED"
           ],
@@ -15595,7 +15595,7 @@
             "provision"
           ],
           "expected": "distribution",
-          "memo": "Dividends distribute profit.",
+          "memo": "Dividends share out profit to shareholders. They aren't a cost of running the business.",
           "error_signals": [
             "ERR_ACC_DIVIDEND"
           ],
@@ -15770,7 +15770,7 @@
             "issued"
           ],
           "expected": "capitalised",
-          "memo": "Mortgage interest is capitalised.",
+          "memo": "Mortgage interest is capitalised, meaning it's added to the loan.",
           "error_signals": [
             "ERR_ACC_CAPITALISED"
           ],
@@ -16085,7 +16085,7 @@
             "An expense"
           ],
           "expected": "Current liability",
-          "memo": "Shareholders for dividends is a current liability.",
+          "memo": "A dividend that's been declared but not paid is owed to shareholders soon, so it's a current liability.",
           "error_signals": [
             "ERR_ACC_DIVIDEND_PAYABLE"
           ],
@@ -16147,7 +16147,7 @@
           "debit": "dividends",
           "credit": "shareholders",
           "expected": "",
-          "memo": "Declaring a dividend: Dividends (debit), Shareholders for dividends (credit).",
+          "memo": "Declaring a dividend debits Dividends and credits Shareholders for dividends, because it's now owed.",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -16302,7 +16302,7 @@
           "debit": "depreciation",
           "credit": "accdep",
           "expected": "",
-          "memo": "Depreciation (debit); Accumulated depreciation (credit).",
+          "memo": "Depreciation is an expense, so it's debited. Accumulated depreciation is credited.",
           "error_signals": [
             "ERR_ACC_DOUBLE_ENTRY_SIDE"
           ],
@@ -16319,7 +16319,7 @@
             "Share capital"
           ],
           "expected": "Capitalised (added to the loan)",
-          "memo": "Mortgage interest is capitalised.",
+          "memo": "Mortgage interest is capitalised, meaning it's added to the loan.",
           "error_signals": [
             "ERR_ACC_CAPITALISED"
           ],
@@ -16571,7 +16571,7 @@
             "Trading activities"
           ],
           "expected": "Investing activities",
-          "memo": "Asset purchases/sales are investing activities.",
+          "memo": "Buying or selling assets like equipment counts as investing activities.",
           "error_signals": [
             "ERR_ACC_INVESTING"
           ],
@@ -16586,7 +16586,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Raising capital is a financing activity.",
+          "memo": "Raising money by issuing shares or taking loans counts as financing activities.",
           "error_signals": [
             "ERR_ACC_FINANCING"
           ],
@@ -16634,7 +16634,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Trading is operating; assets are investing; shares/loans/dividends are financing.",
+          "memo": "Day-to-day trading is operating. Buying or selling assets is investing. Shares, loans and dividends are financing.",
           "error_signals": [
             "ERR_ACC_CASHFLOW_SECTIONS"
           ],
@@ -17276,7 +17276,7 @@
             "To avoid records"
           ],
           "expected": "To judge profitability, liquidity, gearing and returns",
-          "memo": "Interpretation informs investment and management decisions.",
+          "memo": "Interpreting the statements shows profitability, liquidity, debt levels and returns, which helps investors and managers decide.",
           "error_signals": [
             "ERR_ACC_INTERPRET_PURPOSE"
           ],
@@ -17366,7 +17366,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Unqualified = no material reservations.",
+          "memo": "An unqualified (clean) report means the auditor has no serious concerns.",
           "error_signals": [
             "ERR_ACC_UNQUALIFIED"
           ],
@@ -17383,7 +17383,7 @@
             "No audit was done"
           ],
           "expected": "The auditor has reservations about part of the statements",
-          "memo": "A qualification flags specific concerns.",
+          "memo": "A qualified report flags specific concerns the auditor has about part of the statements.",
           "error_signals": [
             "ERR_ACC_QUALIFIED"
           ],
@@ -17400,7 +17400,7 @@
             "Each debtor's balance"
           ],
           "expected": "The company's performance and activities",
-          "memo": "Directors review performance and operations.",
+          "memo": "The directors review how the company performed and what it did during the year.",
           "error_signals": [
             "ERR_ACC_DIRECTORS_REPORT"
           ],
@@ -17563,7 +17563,7 @@
             "The staff roster"
           ],
           "expected": "Whether they can rely on the figures",
-          "memo": "The opinion signals reliability.",
+          "memo": "The auditor's opinion tells investors whether they can trust the figures.",
           "error_signals": [
             "ERR_ACC_AUDIT_REPORT"
           ],
@@ -17709,7 +17709,7 @@
             "Set the dividend"
           ],
           "expected": "Could not get enough evidence to give an opinion",
-          "memo": "A disclaimer means insufficient evidence.",
+          "memo": "A disclaimer means the auditor couldn't get enough evidence to give an opinion.",
           "error_signals": [
             "ERR_ACC_DISCLAIMER"
           ],
@@ -17758,7 +17758,7 @@
             "There is no auditor"
           ],
           "expected": "The company is run responsibly and accountably",
-          "memo": "Governance is responsible, accountable management.",
+          "memo": "Good corporate governance means the company is run responsibly and its leaders are answerable for their decisions.",
           "error_signals": [
             "ERR_ACC_GOVERNANCE"
           ],
@@ -18141,7 +18141,7 @@
             "Required by King"
           ],
           "expected": "Unethical and illegal",
-          "memo": "Share-price manipulation is market abuse.",
+          "memo": "Manipulating the share price is market abuse, which is unethical and illegal.",
           "error_signals": [
             "ERR_ACC_MANIPULATION"
           ],
@@ -18242,7 +18242,7 @@
             "Helping shareholders"
           ],
           "expected": "Acting unethically (insider trading)",
-          "memo": "Insider trading is unethical and illegal.",
+          "memo": "Trading shares using secret company information is called insider trading. It's unethical and illegal.",
           "error_signals": [
             "ERR_ACC_INSIDER"
           ],
@@ -18259,7 +18259,7 @@
             "Remove shareholders"
           ],
           "expected": "Ensure the company is directed responsibly and accountably",
-          "memo": "Governance ensures responsible direction.",
+          "memo": "Corporate governance makes sure the company is run responsibly and its leaders answer for their decisions.",
           "error_signals": [
             "ERR_ACC_GOVERNANCE"
           ],
@@ -18514,7 +18514,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The register supports control and interpretation.",
+          "memo": "An up-to-date asset register helps control the assets and understand their condition.",
           "error_signals": [
             "ERR_ACC_ASSET_REGISTER"
           ],
@@ -18548,7 +18548,7 @@
             "Fully depreciated"
           ],
           "expected": "Relatively new",
-          "memo": "Little accumulated depreciation means newer assets.",
+          "memo": "If little depreciation has built up compared with the cost, the assets haven't been used for long, so they're fairly new.",
           "error_signals": [
             "ERR_ACC_ASSET_AGE"
           ],
@@ -18944,7 +18944,7 @@
             "They have no owners"
           ],
           "expected": "They have a different legal structure",
-          "memo": "Different structure, different terminology.",
+          "memo": "A close corporation has a different legal structure from a company, so it uses different terms.",
           "error_signals": [
             "ERR_ACC_CC_STATEMENTS"
           ],
@@ -19044,7 +19044,7 @@
             "Fixed assets"
           ],
           "expected": "Retained income / members' interest",
-          "memo": "Distributions reduce members' interest.",
+          "memo": "Paying out to members reduces their interest in the close corporation.",
           "error_signals": [
             "ERR_ACC_CC_DISTRIBUTION"
           ],
@@ -19194,7 +19194,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Internal auditors work inside; external auditors are independent.",
+          "memo": "Internal auditors work inside the company and check controls all year. External auditors are independent and give an opinion on the annual statements.",
           "error_signals": [
             "ERR_ACC_INT_EXT"
           ],
@@ -19228,7 +19228,7 @@
             "The general public"
           ],
           "expected": "Management or those charged with governance",
-          "memo": "Internal audit reports internally.",
+          "memo": "An internal audit report goes to people inside: management or those in charge of governance.",
           "error_signals": [
             "ERR_ACC_AUDIT_REPORT"
           ],
@@ -19243,7 +19243,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Independence underpins the audit's credibility.",
+          "memo": "People can only trust an audit if the auditor is independent of management.",
           "error_signals": [
             "ERR_ACC_INDEPENDENCE"
           ],
@@ -19304,7 +19304,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Inspection, recalculation and observation gather evidence; guessing does not.",
+          "memo": "Inspecting documents, redoing calculations and watching a stock count all gather evidence. Guessing doesn't.",
           "error_signals": [
             "ERR_ACC_AUDIT_EVIDENCE"
           ],
@@ -19321,7 +19321,7 @@
             "External auditors run the company"
           ],
           "expected": "Internal auditors work for the company; external auditors are independent",
-          "memo": "Employment and independence distinguish them.",
+          "memo": "Internal auditors are employed by the company. External auditors are independent of it.",
           "error_signals": [
             "ERR_ACC_INT_EXT"
           ],
@@ -19370,7 +19370,7 @@
             "Writing the budget"
           ],
           "expected": "Observing procedures being performed",
-          "memo": "Observation is an evidence-gathering method.",
+          "memo": "Watching procedures being carried out is one way of gathering audit evidence.",
           "error_signals": [
             "ERR_ACC_AUDIT_EVIDENCE"
           ],
@@ -19404,7 +19404,7 @@
             "The suppliers"
           ],
           "expected": "The audit committee",
-          "memo": "Reporting to the audit committee protects independence.",
+          "memo": "Reporting to the audit committee, not to the managers being checked, protects the internal auditor's independence.",
           "error_signals": [
             "ERR_ACC_AUDIT_REPORT"
           ],
@@ -19453,7 +19453,7 @@
             "To pay no tax"
           ],
           "expected": "To protect assets and ensure reliable reporting",
-          "memo": "They safeguard assets and reporting integrity.",
+          "memo": "Controls and audits protect the company's assets and make sure its reports can be trusted.",
           "error_signals": [
             "ERR_ACC_CONTROL_PURPOSE"
           ],
@@ -19576,7 +19576,7 @@
             "A sweet shop"
           ],
           "expected": "A car dealership",
-          "memo": "High-value, unique items suit specific identification.",
+          "memo": "Specific identification suits expensive, one-of-a-kind items, like cars.",
           "error_signals": [
             "ERR_ACC_SPECIFIC_ID"
           ],
@@ -19724,7 +19724,7 @@
             "Periodic only"
           ],
           "expected": "Specific identification",
-          "memo": "Unique items are tracked individually.",
+          "memo": "Unique, expensive items are tracked one by one, using specific identification.",
           "error_signals": [
             "ERR_ACC_SPECIFIC_ID"
           ],
@@ -19834,7 +19834,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Consistency aids comparability.",
+          "memo": "Valuing stock the same way every year means the figures can be compared fairly.",
           "error_signals": [
             "ERR_ACC_CONSISTENCY"
           ],
@@ -20162,7 +20162,7 @@
             "Avoid the audit"
           ],
           "expected": "Control cash, debtors and creditors and detect errors",
-          "memo": "Reconciliation analysis strengthens control.",
+          "memo": "Looking closely at reconciliations helps control cash, debtors and creditors and catch errors.",
           "error_signals": [
             "ERR_ACC_RECON"
           ],
@@ -20739,7 +20739,7 @@
             "Selling cost"
           ],
           "expected": "Total manufacturing cost",
-          "memo": "Adding overheads gives total manufacturing cost.",
+          "memo": "Add the factory overheads to prime cost and you get total manufacturing cost.",
           "error_signals": [
             "ERR_ACC_MANUF_COST"
           ],
@@ -20910,7 +20910,7 @@
             "Direct labour"
           ],
           "expected": "Office salaries",
-          "memo": "Office salaries are administration, not production cost.",
+          "memo": "Office salaries are administration costs, not production costs.",
           "error_signals": [
             "ERR_ACC_COST_CATEGORY"
           ],
@@ -21562,7 +21562,7 @@
             "planned"
           ],
           "expected": "actual",
-          "memo": "Budget-to-actual comparison controls performance.",
+          "memo": "Comparing the budget with what actually happened is a key way to control performance.",
           "error_signals": [
             "ERR_ACC_BUDGET_CONTROL"
           ],
@@ -21781,7 +21781,7 @@
             "Zero"
           ],
           "expected": "Higher than budgeted",
-          "memo": "Unfavourable expense variance = overspend.",
+          "memo": "An unfavourable expense variance means the business spent more than it budgeted.",
           "error_signals": [
             "ERR_ACC_VARIANCE"
           ],
@@ -21847,7 +21847,7 @@
             "To remove the auditor"
           ],
           "expected": "To control performance and correct problems",
-          "memo": "Comparison enables control and correction.",
+          "memo": "Comparing results with the budget lets the business spot and fix problems.",
           "error_signals": [
             "ERR_ACC_BUDGET_CONTROL"
           ],

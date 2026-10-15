@@ -1,119 +1,120 @@
-// ─── Business Studies — per-topic "think of it like this" illustrations ─────
+// ─── Business Studies — per-topic "real-life example" pictures ─────────────
 //
-// One concrete illustration per topic (55, Grades 10–12), keyed by skill/topic
-// id. Feeds the wrong-answer card's example slot via FeedbackExplanation's
-// `exampleOverride`. Register: FET / matric band. "why" = the question's memo,
-// "how" = the topic's recovery_strategy, "where" = buildTopicWhere().
+// One everyday picture per topic (55), keyed by skill/topic id. Feeds the
+// wrong-answer card's example slot via FeedbackExplanation's `exampleOverride`.
+// Rules in docs/feedback-writing-guide.md: an everyday South African picture,
+// no facts, terms or numbers from the topic, and no instructions. "why" = the
+// question's memo, "where" = buildTopicWhere().
 
 export const TOPIC_EXAMPLES: Record<string, string> = {
   "BUS.G10.T1.MICRO.A1":
-    "The micro environment is what management can change with a memo: the vision, the goals, the staff structure, the culture. If a decision by the boss can fix it, it's micro.",
+    "Think of your own household: you decide the rules, the budget and who does which chores. Inside your home, you're in charge.",
   "BUS.G10.T1.FUNCTIONS.A1":
-    "Picture a spaza shop growing into a supermarket: someone must buy stock (purchasing), make and price the product (production), draw customers (marketing), run the books (finance), hire and pay staff (HR), protect the name (PR), and tie it together (general management).",
+    "Think of a school concert: someone buys supplies, someone builds the stage, someone sells tickets, someone handles the parents. Each job is different, and all are needed.",
   "BUS.G10.T1.MGMT.A1":
-    "Levels are WHO (top, middle, lower); tasks are WHAT every manager does (plan, organise, lead, control). The owner plans next year's expansion; the shift supervisor just makes sure today's shelves get packed.",
+    "Think of a school: the principal plans the year, the heads of department run their subjects, and class teachers manage each lesson. Different levels, different jobs.",
   "BUS.G10.T1.QUALITY.A1":
-    "Quality is a chain: production must make defect-free goods, finance must keep accurate books, HR must supply skilled staff. A weak link anywhere — sloppy records, say — drags the whole business down.",
+    "Think of a restaurant meal: great food means little if the plate is dirty or the bill is wrong. Every part of the visit has to be good.",
   "BUS.G10.T1.MARKET.A1":
-    "The market environment is your street: your suppliers, your customers, the shop across the road. You can't order them around, but you can negotiate, advertise and compete — you influence, you don't control.",
+    "Think of the people around your spaza: customers, the supplier's truck and the rival shop across the road. You deal with them daily, but you can't control them.",
   "BUS.G10.T1.MACRO.A1":
-    "The macro environment is the weather — the economy, new laws, technology, social change. A business can't switch it off; it can only carry an umbrella and adapt. A market factor is a specific rival; a macro factor is a fuel-price hike.",
+    "It's like the weather on a school sports day. Nobody at school controls it; all you can do is plan for rain or sun.",
   "BUS.G10.T1.INTERREL.A1":
-    "Control fades as you move outward: full control inside (micro), influence nearby (market), none over the wide world (macro). A new macro law — a minimum wage — forces the business to rethink its own micro staffing plans.",
+    "Think of a family: you control your house rules, you can persuade the neighbours, but you can only adapt to the price of bread.",
   "BUS.G10.T1.SECTORS.A1":
-    "Follow a loaf of bread: a farm grows wheat (primary), a mill and bakery turn it into bread (secondary), a shop sells it and a truck delivers it (tertiary). Registered and taxed = formal; a street vendor = informal.",
+    "Follow a loaf of bread: the farmer grows the wheat, the bakery bakes it, and the shop sells it. Three different kinds of work.",
   "BUS.G10.T2.SOCIOECON.A1":
-    "Every socio-economic issue reaches a business through cost or output: crime pushes up the security bill, strikes stop production, counterfeiting steals sales, HIV/Aids thins the workforce.",
+    "Think of a tuck shop in a neighbourhood where many parents have lost their jobs. Even good food sells less when people have little money.",
   "BUS.G10.T2.SOCRESP.A1":
-    "Social responsibility is what a business does beyond the law's minimum — sponsoring a school, cleaning a river. CSR is the organised programme that runs those projects, not a one-off donation.",
+    "It's like a learner who isn't forced to, but chooses to help younger kids with reading. Doing good beyond what's required builds goodwill.",
   "BUS.G10.T2.ENTRE.A1":
-    "Entrepreneurial qualities describe how the person thinks and acts — willing to risk, quick to adapt, hard to discourage — not what they own. A bank loan is a resource; perseverance is a quality.",
+    "Think of a learner who starts selling sweets, loses money, then tries again with a better plan. Courage and refusing to give up count more than having money.",
   "BUS.G10.T2.OWNERSHIP.A1":
-    "In a sole trader or partnership the business and the owner are legally the same, so a business debt can take the owner's house — unlimited liability. A partnership just spreads that risk (and the capital and skills) across a few people.",
+    "Think of running a car wash alone versus with a friend. Alone, you keep everything and carry every risk; with a friend, you share both.",
   "BUS.G10.T2.OWNERSHIP.A2":
-    "A company is a separate legal 'person' — it owes its own debts, so shareholders can lose only what they put in (limited liability). A private (Pty) Ltd can't sell shares to the public; a public (Ltd) can. No new close corporations may be registered.",
+    "It's like a stokvel that keeps going even when members change. The group carries on, and no single member is personally on the hook for everything.",
   "BUS.G10.T3.CREATIVE.A1":
-    "Problem-solving is the whole repair job — spot it, find options, choose, act, check. Decision-making is just the 'choose' step. Brainstorming and mind-maps are the tools that fill the option list.",
+    "Think of a class trying to raise money for a trip. Everyone throws out ideas first, then the class picks the best one and tests it.",
   "BUS.G10.T3.OPPORTUNITY.A1":
-    "SWOT splits into inside and outside: strengths and weaknesses are yours (a skilled team, weak cash flow); opportunities and threats come from outside (a new market gap, a bigger competitor).",
+    "It's like checking whether classmates actually want a homework club before starting one: asking around, and weighing what's good and bad about the idea.",
   "BUS.G10.T3.LOCATION.A1":
-    "Match the location to the business: a sawmill sits near the forest (raw materials), a hair salon sits near foot traffic (customers), a factory weighs transport and labour costs.",
+    "Think of where to put a vetkoek stall: next to the taxi rank with hungry commuters, or on an empty side road. The spot can make or break it.",
   "BUS.G10.T3.CONTRACTS.A1":
-    "Every contract has two named sides: employment = employer and employee; a lease = lessor and lessee; hire-purchase = seller and buyer; a rental = landlord and tenant. Learn them in pairs.",
+    "It's like agreeing with a friend to share a rented room. Who pays what, who's responsible for what, and what happens if something breaks.",
   "BUS.G10.T3.PRESENT.A1":
-    "Verbal is words — the talk you give, the paragraphs in a report. Non-verbal is the visuals — the graph, the table, the diagram. A good presentation leads with the key point and keeps the visuals clean.",
+    "Think of explaining your idea to the class: a clear poster and confident talk beat a page of messy notes read aloud.",
   "BUS.G10.T3.BUSPLAN.A1":
-    "A business plan is the case that the venture will work. Each part has a job: the executive summary is the elevator pitch, the marketing plan shows how customers will be reached, the financial analysis shows it makes money.",
+    "It's like planning a matric dance: a quick summary for parents, then details on the venue, how you'll invite people and what it'll cost.",
   "BUS.G10.T4.SELFMAN.A1":
-    "Self-management is running yourself without a supervisor — your time, your goals, your image, your stress. It's the practice run before you're asked to manage other people.",
+    "Think of a learner who plans study time, stays calm before exams and arrives on time. Managing yourself well makes everything else easier.",
   "BUS.G10.T4.TEAM.A1":
-    "A strong team shares clear goals, openness, trust and respect. The barriers are the mirror image — prejudice, poor communication, distrust. Handled well, a mix of different people is a strength.",
+    "It's like a group project where people talk openly and respect each other. The same group fails if one person is judged unfairly or ignored.",
   "BUS.G11.T1.INFLUENCE.A1":
-    "The rule holds at every grade: full control of the micro, influence over the market, none over the macro — you adapt. But a business can still lobby government (get involved in the macro) when a policy affects it.",
+    "Think of a soccer coach: they control training, can talk to the referee, but can only adapt to the weather on match day.",
   "BUS.G11.T1.CHALLENGES.A1":
-    "Sort a challenge by where it starts: a difficult employee or a weak vision is inside (micro); a price war with a rival is close outside (market); a new tax or a global recession is the wide world (macro).",
+    "Think of a family's problems: a broken fridge at home, a rude landlord next door, and rising petrol prices across the country. Each comes from a different place.",
   "BUS.G11.T1.ADAPT.A1":
-    "You can't control the macro world, so you prepare for it: lobbying nudges decision-makers, networking builds useful contacts, mergers and alliances add strength, and good information management means change doesn't catch you flat-footed.",
+    "It's like a school that can't stop a taxi strike but can start classes later, organise lifts and team up with nearby schools. You respond even when you can't control it.",
   "BUS.G11.T1.SOCIOECON.A1":
-    "Socio-economic issues cost money, output or sales. Know the protections: copyright covers creative work, a patent covers an invention, a trademark covers a brand. A go-slow is deliberate slow work; a lockout is the employer shutting workers out.",
+    "Think of a shop selling a brand-name jersey while fake copies are sold cheaply outside. The fakes steal sales from the real thing.",
   "BUS.G11.T1.SECTORS.A1":
-    "Each sector depends on the one before it: the mine or farm (primary) feeds the factory (secondary), which feeds the shop, bank and transport firm (tertiary). Break one link and the chain stalls.",
+    "Follow a pair of school shoes: hide from the farm, leather from the tannery, shoes from the factory, sold at the store. If one link breaks, the rest suffer.",
   "BUS.G11.T1.COMPANY.A1":
-    "A company gives limited liability and lives on after the owners leave, but comes with more paperwork and tax. A sole trader is simple to run but risks everything. Weigh capital, liability, tax and continuity for the venture in front of you.",
+    "It's like a stokvel registered properly: more paperwork, but the group carries on when members change, and no one loses their own house if things go wrong.",
   "BUS.G11.T1.ACQUIRE.A1":
-    "Three ways in without building from scratch: franchising buys the right to trade under a proven brand for a royalty; outsourcing pays another firm to do a task; leasing rents an asset instead of buying it.",
+    "Think of starting a hair salon: build your own from scratch, buy an existing one, or open a well-known brand's branch. Each road has its own costs and risks.",
   "BUS.G11.T2.CREATIVE.A1":
-    "Routine thinking follows the known steps; creative thinking deliberately breaks the pattern for a new idea. Mental blocks — fear of failure, assuming one right answer — shut it down. Brainstorming, mind-mapping, Delphi and force-field analysis reopen it.",
+    "Think of a bakery with leftover bread. Throwing it away is the usual answer; turning it into cheap sandwiches for a shelter is the creative one.",
   "BUS.G11.T2.STRESS.A1":
-    "Keep three apart: stress is pressure on a person (manage with time, exercise, support); a crisis is a sudden serious threat to the business; change management is leading people through change so they adapt instead of digging in.",
+    "Think of three different days at school: a learner overwhelmed by deadlines, a burst pipe flooding the hall, and a new timetable everyone must learn.",
   "BUS.G11.T2.ACTIONPLAN.A1":
-    "A business plan says what and why; an action plan says who does which task by when. A Gantt chart lays tasks against a calendar; a Work Breakdown Structure chops a big job into small, assignable pieces.",
+    "It's like turning 'we'll have a great matric dance' into a list: who books the venue, by which date, and who checks it's done.",
   "BUS.G11.T2.SETUP.A1":
-    "Two kinds of money start a business: equity is the owner's or investors' cash — no repayment, but you share ownership; debt is a loan — you keep full ownership but repay it with interest.",
+    "Think of starting a car wash with borrowed money versus with partners who chip in. A loan must be repaid every month, even in a slow month.",
   "BUS.G11.T2.PROFETHICS.A1":
-    "Ethics is doing what's morally right — honest, fair. Professionalism is the standard of your conduct at work — reliable, respectful, competent. You can be perfectly professional and still face a hard ethical call; the two support each other.",
+    "Think of a referee: being on time and fit is professionalism; refusing a bribe to favour one team is ethics. A good referee needs both.",
   "BUS.G11.T2.PRESENT.A1":
-    "Verbal is words, non-verbal is visuals. When you're questioned afterwards: answer everything, take notes, don't argue, and apologise for any mistake. Lead with the key point.",
+    "Think of a learner presenting to the class when someone asks a tough question. Staying calm and answering politely earns respect.",
   "BUS.G11.T3.ENTRE.A1":
-    "Qualities are about the person (risk-taking, perseverance, vision); success factors are about the business (a loyal customer base, profitability, sustainability). Judge the venture against the success factors, then name what to improve.",
+    "Think of a learner running a tuck shop who keeps loyal customers coming back but has only one helper about to quit. Spotting the weak point is the first step to fixing it.",
   "BUS.G11.T3.CITIZEN.A1":
-    "An NGO is an independent, often national body; a CBO is local, run by and for a community. Business people are citizens too — they can give time, money and skills to develop the place they operate in.",
+    "Think of a local shop owner who coaches the neighbourhood soccer team on weekends. Running a business and being a good neighbour go together.",
   "BUS.G11.T3.MARKETING.A1":
-    "The marketing mix pairs each activity with its policy: product is the design, packaging and brand; pricing is the number on the tag; distribution is getting it to the shelf; communication is telling people it exists.",
+    "Think of selling homemade biscuits: what they look like, what you charge, where you sell them and how you tell people about them.",
   "BUS.G11.T3.PRODUCTION.A1":
-    "Three production systems: job makes one custom item (a wedding cake), batch makes a run of identical items (a tray of the same cake), mass makes a continuous stream (a factory line). Total cost = fixed + variable; break-even is where income exactly covers cost.",
+    "Think of a kitchen preparing food for a big family event: following the recipe, keeping it clean and making sure nobody gets burnt.",
   "BUS.G11.T4.TEAM.A1":
-    "Teams grow through stages in order: forming (polite introductions) → storming (friction) → norming (settling in) → performing (working well). Conflict handled properly can actually strengthen a team.",
+    "It's like a group project where some love to lead, some love details and some keep everyone happy. When they clash, talking it through gets the project back on track.",
   "BUS.G11.T4.HR.A1":
-    "The hiring pipeline: recruitment attracts applicants, selection picks the best, induction settles the new person in. Know the Acts: the BCEA sets basic conditions, the EEA drives equity, the LRA governs labour relations, COIDA covers on-the-job injuries.",
+    "Think of choosing a new class rep: advertise the role, shortlist, hold a quick interview, then show the winner what the job involves.",
   "BUS.G12.T1.LEGISLATION.A1":
-    "Tie each Act to its one purpose: the EEA — fair, equal workplaces; the BCEA — minimum working conditions; the LRA — fair labour relations and unions; the SDA — skills and SETAs; the CPA — consumer rights; the NCA — fair credit; BBBEE — economic redress.",
+    "It's like new school rules about uniforms and fair treatment. They take effort and cost to follow, but they make the school fairer and safer.",
   "BUS.G12.T1.HR.A1":
-    "HR runs the full staff cycle: recruit, select, induct, then develop. Salary administration includes deducting PAYE tax before the worker is paid. SETAs and learnerships grow skills under the Skills Development Act.",
+    "Think of running a sports club's people side: finding new players, paying coaches correctly and sending everyone on training courses.",
   "BUS.G12.T1.ETHICS.A1":
-    "Ethical practice is honest and fair — pay a fair wage, pay your tax, advertise truthfully. Unethical practice harms others for gain — bribes, misleading ads, stealing work time. Professional conduct holds ethics steady under pressure.",
+    "Think of a shop owner who always gives correct change and pays suppliers on time. Doing what's right, even when no one's watching, builds trust.",
   "BUS.G12.T1.CREATIVE.A1":
-    "For a complex case study, don't reach for one fixed answer: generate several options, weigh each against the actual business situation, then pick the best. Advanced problem-solving blends techniques rather than relying on one.",
+    "Think of a family hit by a car breakdown, a job loss and a rent increase in one month. One quick fix won't work; they need several ideas working together.",
   "BUS.G12.T1.STRATEGY.A1":
-    "Match the strategy to the move. Integration = take over another level (a supplier is backward, a distributor forward, a rival horizontal). Intensive = push current and new products into current and new markets. Diversification = enter a new field. Defensive = cut back (retrench, divest, liquidate).",
+    "Think of a spaza owner deciding whether to buy the shop next door, add a new product, or close a section that's losing money. Each choice is a different strategy.",
   "BUS.G12.T2.CSR.A1":
-    "CSR is the whole responsible way a business runs — its ethics, its impact on the environment, its health and safety. CSI is the specific community spending inside that — the bursaries, the built clinic. CSI sits within CSR.",
+    "Think of a local business that sponsors school soccer kits. The school gains, and the business earns goodwill from every family watching.",
   "BUS.G12.T2.HUMANRIGHTS.A1":
-    "Three yardsticks for a venture: human rights (does it treat people with equality and dignity?), inclusivity (does it welcome diversity of gender, race, disability, age, language?), and the environment (does it protect nature and health?).",
+    "Think of a school that treats every learner fairly, builds ramps for wheelchair users and keeps its grounds clean. Fairness, inclusion and care all at once.",
   "BUS.G12.T2.TEAM.A1":
-    "Successful teams run on clear goals, trust, communication and commitment. Handle a grievance by the correct steps — raise it, discuss it, escalate only if it's unresolved — and deal with difficult people calmly, not personally.",
+    "Think of two friends arguing over a group project. Sitting down, finding the real problem and agreeing on a fair plan fixes it better than taking sides.",
   "BUS.G12.T2.SECTORENV.A1":
-    "It doesn't matter whether the business is primary, secondary or tertiary — the environments rule still applies: full control of the micro, influence over the market, no control over the macro.",
+    "Whether you run a farm, a factory or a shop, the same rule holds: you control your own yard, influence your neighbours and adapt to the weather.",
   "BUS.G12.T2.MGMTLEAD.A1":
-    "Management is running the work — planning, organising, controlling. Leadership is moving people toward a vision. Autocratic leaders decide alone, democratic leaders involve the team, laissez-faire leaders stand back.",
+    "Think of a soccer team: the manager arranges the fixtures and kit; the captain fires up the players on the field. Both matter, but they're different jobs.",
   "BUS.G12.T2.QUALITY.A1":
-    "Total Quality Management means every person in every function keeps improving — total customer satisfaction, ongoing training, constant tuning of processes. Poor quality in even one function can sink the business.",
+    "Think of a school where every teacher, cleaner and office worker keeps trying to do things a little better. Quality comes from everyone, all the time.",
   "BUS.G12.T3.SECURITIES.A1":
-    "Simple interest is paid on the original amount only; compound interest is paid on the amount plus all past interest, so it snowballs. Shares pay dividends (a slice of profit); bonds and savings pay interest; a unit trust spreads your money across many investments.",
+    "Think of saving in a stokvel versus betting all your money on one friend's new business. One is steady and safe; the other could win big or lose everything.",
   "BUS.G12.T3.INSURANCE.A1":
-    "Assurance covers something that WILL happen eventually (death) — life cover. Insurance covers something that MIGHT happen (fire, theft). UIF and the Road Accident Fund are compulsory. Under the principle of average, under-insuring means a smaller payout, in proportion.",
+    "It's like a group of friends each putting a little into a pot, so whoever has an accident gets helped. Some pots are required; others you choose to join.",
   "BUS.G12.T3.OWNERSHIP.A1":
-    "Judge a form of ownership by how it helps or hurts success: limited liability and continuity let a company raise capital and outlast its owners; unlimited liability and thin capital can hold a sole trader back.",
+    "Think of choosing how to run a car wash: alone, with friends, or as a registered group. The choice affects how much you can raise and how much you risk.",
   "BUS.G12.T3.PRESENT.A1":
-    "An effective presentation knows who it's for, leads with the most important point, and uses clear visuals. After feedback, actually amend the documents and carry those fixes into the next one.",
+    "Think of explaining your class's test results to parents: a clear chart, the main point first, and calm answers to their questions.",
 };

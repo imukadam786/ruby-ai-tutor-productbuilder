@@ -1,112 +1,112 @@
-// ─── Accounting — per-topic "think of it like this" illustrations ──────────
+// ─── Accounting — per-topic "real-life example" pictures ───────────────────
 //
-// One concrete illustration or worked micro-example per topic (51, Grades
-// 10–12), keyed by skill/topic id. Feeds the wrong-answer card's example slot
-// via FeedbackExplanation's `exampleOverride`. Register: FET / matric band.
-// "why" = the question's memo, "how" = the topic's recovery_strategy,
-// "where" = buildTopicWhere().
+// One everyday picture per topic (51), keyed by skill/topic id. Feeds the
+// wrong-answer card's example slot via FeedbackExplanation's `exampleOverride`.
+// Rules in docs/feedback-writing-guide.md: an everyday South African picture,
+// no facts, terms or numbers from the topic, and no instructions. "why" = the
+// question's memo, "where" = buildTopicWhere().
 
 export const TOPIC_EXAMPLES: Record<string, string> = {
   "ACC.G10.T1.INFORMAL.A1":
-    "A spaza owner who buys a case of cooldrinks for R120 and sells it for R180 made R60 — profit = selling price − cost price. A formal business tracks the same thing, just in ruled books.",
+    "Think of jotting your pocket money spending on scraps of paper versus keeping a proper notebook with dates and totals. Only one lets you check where the money went.",
   "ACC.G10.T1.ETHICS.A1":
-    "Test each principle with a plain question: transparency — is anything being hidden? accountability — will someone answer for this? fairness — do the same rules apply to everyone?",
+    "Think of a class treasurer collecting money for a trip. Being honest, open and able to explain every cent is what makes people trust them.",
   "ACC.G10.T1.GAAP.A1":
-    "Business entity rule: the owner's personal cellphone bill is not a business expense — they are separate 'people' in the books. Going concern assumes the shop trades next year too. Matching records this month's sales with the cost of those sales.",
+    "Think of the rules of soccer: every team plays by the same rules, so a score means the same thing at every ground.",
   "ACC.G10.T1.CONTROL.A1":
-    "Spotting that one person handling both the cash and the records could steal is risk assessment. Splitting those two jobs between two people is a control activity.",
+    "Think of how a school protects its tuck shop money: a locked box, two people counting together and a manager checking the totals.",
   "ACC.G10.T1.CONCEPTS.A1":
-    "Assets are what the business owns (the till, the stock, the van); liabilities are what it owes (the bank loan). Income lifts the owner's equity; expenses shrink it.",
+    "Think of a family's year: income comes in, bills go out, and at the end you check what's left. The same steps repeat every year.",
   "ACC.G10.T1.SOURCEDOCS.A1":
-    "Every transaction has two equal sides: sell stock for cash and the cash goes up AND the stock goes down by the same R500. Two debits or two credits can never balance.",
+    "It's like a till slip proving you bought something. Every exchange has two sides: something you got and something you gave.",
   "ACC.G10.T1.CASHJOURNALS.A1":
-    "Sort by direction: money coming in goes in the Cash Receipts Journal, money going out in the Cash Payments Journal, and tiny cash payments (postage, milk) in the Petty Cash Journal.",
+    "Think of a household keeping one list of all money in, another of all money out, and a small tin for the odd bits of change.",
   "ACC.G10.T1.CREDITJOURNALS.A1":
-    "Sold goods on credit → Debtors' Journal. Bought goods on credit → Creditors' Journal. When either party returns goods, it reverses into the matching Allowances journal.",
+    "Think of a spaza's book of customers who'll pay at month-end, and another book of what the spaza owes its suppliers.",
   "ACC.G10.T1.LEDGERS.A1":
-    "Two checks must pass: the Trial Balance's debit total equals its credit total, and the list of individual debtors adds up to the debtors' control account. If either doesn't, there's an error to find.",
+    "Think of sorting a pile of receipts into labelled envelopes, then checking that the envelope totals add up to the whole pile.",
   "ACC.G10.T1.EQUATION.A1":
-    "Assets = Owner's equity + Liabilities, always in balance. Buy a R10 000 van with a bank loan: assets go up R10 000 and liabilities go up R10 000 — the equation still balances.",
+    "Think of a seesaw that must always balance. Whatever you add to one side, something has to change on the other.",
   "ACC.G10.T2.VAT.A1":
-    "Zero-rated means taxed at 0% — brown bread and maize meal, so basics stay cheap. Exempt means outside VAT entirely, like some financial services. Everything else is standard-rated at the current VAT rate.",
+    "Think of a stokvel collecting a small extra on every purchase for the group's fund. Some items are let off; others pay in full.",
   "ACC.G10.T2.SALARIES.A1":
-    "A deduction like PAYE comes OUT of the worker's gross pay — they take home less. A contribution like the employer's UIF share is an EXTRA cost the business pays on top of the gross pay.",
+    "Think of a payslip: what you earn, what's taken off before you see it, and what the boss pays on top that you never see.",
   "ACC.G10.T2.ADJUSTMENTS.A1":
-    "Accrued expense = owing but not yet paid (December's rent, still unpaid at year-end). Prepaid = paid but not yet used (three months' insurance paid in advance). Each must land in the period it belongs to.",
+    "Think of the last day of the school term: you check which homework belongs to this term and which to next, before you write your report.",
   "ACC.G10.T2.FINALACCOUNTS.A1":
-    "Only nominal accounts — income and expenses — close off into Trading or Profit and Loss at year-end. Balance-sheet accounts (assets, liabilities, capital) carry their balance forward.",
+    "Think of the end of a sports season: the scores are wiped for the new season, but the trophies and kit carry over.",
   "ACC.G10.T3.INCOMESTATEMENT.A1":
-    "The Income Statement is the year's takings and spending only — sales, rent, wages, profit. Anything the business owns or owes at year-end belongs on the Balance Sheet, not here.",
+    "Think of a school fundraiser's report: what you earned, what you spent and what was left over as profit.",
   "ACC.G10.T3.BALANCESHEET.A1":
-    "The Balance Sheet must obey Assets = Owner's equity + Liabilities. Build each big total from its note — fixed assets from the fixed-asset note, receivables from the trade-and-other-receivables note.",
+    "Think of a photo of everything a household owns and owes on one particular day. It's a snapshot, not a story of the year.",
   "ACC.G10.T3.INTERPRET.A1":
-    "A current ratio of 2:1 means R2 of short-term assets for every R1 owed short-term — comfortable. Then check whether the profitability percentages held up against last year and a benchmark.",
+    "Think of reading a report card: the marks only become useful when you compare them and ask what they mean.",
   "ACC.G10.T4.COSTCONCEPTS.A1":
-    "A direct cost traces straight into the product — the wood in a table, the wage of the person who built it. An indirect cost supports the factory but isn't in the table — the factory rent, the cleaner's wage.",
+    "Think of baking a cake to sell: the flour and the baker's time go straight into the cake; the oven's electricity is shared across every cake.",
   "ACC.G10.T4.BUDGETCONCEPTS.A1":
-    "A cash budget tracks only real money moving in and out. Depreciation is a bookkeeping estimate with no cash attached, so it never appears in a cash budget.",
+    "Think of planning a month's spending before it starts, then checking afterwards where you went over or under.",
   "ACC.G11.T1.ETHICS.A1":
-    "Hold an action against three tests — accountability, transparency, sustainability. If it hides information, harms stakeholders, or can't be kept up long-term, it's unethical.",
+    "Think of a sports captain who owns up to their mistakes and keeps the team's kit money open for everyone to see. That's how trust is earned.",
   "ACC.G11.T1.AUDIT.A1":
-    "Internal control is the day-to-day system that stops errors and theft — locked safes, split duties. An internal audit is the separate check, once in a while, that those controls are actually working.",
+    "Think of a teacher checking the class register, the lost-property box and the tuck shop money, just to make sure the systems are working.",
   "ACC.G11.T1.BANKREC.A1":
-    "Start from the bank statement balance: add deposits you've recorded that the bank hasn't yet, subtract cheques you've written that haven't been cashed. Then update your own cash book for bank charges and interest.",
+    "Think of comparing your own notes of what you spent with your bank app. Some payments haven't shown up yet, so you match them up.",
   "ACC.G11.T1.CREDITORSREC.A1":
-    "Compare the supplier's statement to your Creditors' Ledger account for them, find the difference, decide which record is wrong, and fix that one. When they agree, it's reconciled.",
+    "Think of comparing your tab at the spaza with the owner's book. If the totals differ, you go line by line to find out why.",
   "ACC.G11.T1.FIXEDASSETS.A1":
-    "When you sell an asset, don't skip a step: first record depreciation right up to the sale date, then move the original cost and the accumulated depreciation to the Asset Disposal account to work out the profit or loss.",
+    "Think of a new bicycle: it's worth less each year you ride it, even though it still works.",
   "ACC.G11.T1.PARTCONCEPTS.A1":
-    "Each partner has two accounts. The capital account holds their fixed stake — money put in and left in. The current account is the moving one — yearly profit share, salary, interest on capital, minus drawings.",
+    "Think of two friends running a car wash together, agreeing upfront how much each puts in and how they'll share what they earn.",
   "ACC.G11.T1.PARTLEDGER.A1":
-    "The Profit and Loss Account gives one net profit figure. The Appropriation Account then divides it up: pay the partners' salaries first, then interest on their capital, then split what's left in the agreed ratio.",
+    "Think of friends splitting what's left of a joint fundraiser: first a fair share for the effort and money each put in, then the rest divided as agreed.",
   "ACC.G11.T1.PARTSTATEMENTS.A1":
-    "A partnership's equity is the capital accounts plus the current accounts. The current-accounts note lays out, per partner, their salary, interest on capital, profit share and drawings for the year.",
+    "Think of two friends keeping one record of what each originally put into their business, and another of what each has earned and taken out since.",
   "ACC.G11.T2.PARTINTERPRET.A1":
-    "Gearing shows how much the business runs on borrowed money. High gearing magnifies profit when times are good and losses when they're bad — compare it to last year and to what the borrowing actually costs.",
+    "Think of friends looking back over a year of running their car wash: was it worth it, did they have enough cash, and what were the risks?",
   "ACC.G11.T2.CLUBCONCEPTS.A1":
-    "A sports club isn't trying to make a profit. Its 'capital' is the accumulated fund, and its year-end result is a surplus (took in more than it spent) or a deficit — never a profit or a loss.",
+    "Think of a church choir: it collects money and spends it, but the aim is to serve members, not to make a profit.",
   "ACC.G11.T2.CLUBLEDGER.A1":
-    "Receipts and payments are just cash movements; income and expenses belong to a period. A loan the club receives is a receipt of cash, but it isn't income — it has to be paid back.",
+    "Think of the soccer club treasurer's notebook listing every rand that came in and went out this season.",
   "ACC.G11.T3.COSTCALC.A1":
-    "Contribution per unit = selling price − variable cost per unit — what each item chips in toward the fixed costs. Break-even in units = total fixed costs ÷ contribution per unit.",
+    "Think of working out what one plate of food at a fundraiser really cost: ingredients, the cook's time, and a share of the gas.",
   "ACC.G11.T3.MANUFLEDGER.A1":
-    "Sort every cost by where it happens: on the factory floor = factory overheads; in the office = administration; getting finished goods to the customer = selling and distribution.",
+    "Think of a home bakery keeping separate jars for ingredient money, baker's pay, kitchen running costs and the cost of advertising.",
   "ACC.G11.T3.BUDGETING11.A1":
-    "A cash budget records money only when it actually moves. A credit sale in March becomes a receipt only when the debtor pays — in April or May, per the expected collection pattern.",
+    "Think of a household planning the cash for next month, separately from working out if the year was profitable. Some costs never involve cash changing hands.",
   "ACC.G11.T3.INVENTORY11.A1":
-    "Perpetual = the Trading Stock account is updated with every sale and purchase, so the balance is always current. Periodic = purchases go to a Purchases account and stock is physically counted only at period-end.",
+    "Think of a school library that logs every book in and out, versus one that just counts the shelves once a year.",
   "ACC.G11.T4.VAT11.A1":
-    "To add VAT to a price: amount × 15%. To pull VAT out of a VAT-inclusive amount: amount × 15/115 — because the inclusive figure is already 115%, not 100%.",
+    "Think of a small extra collected on every sale for the government. You collect it from customers, pay some on your own purchases, and settle the difference.",
   "ACC.G12.T1.COCONCEPTS.A1":
-    "Authorised shares are the maximum the company is allowed to issue — the ceiling. Issued shares are the ones actually sold to shareholders so far — usually well below the ceiling.",
+    "Think of a big stokvel with many members: each owns a share, and what's not paid out stays in the pot for everyone.",
   "ACC.G12.T1.COBOOKKEEPING.A1":
-    "Dividends are a share of profit handed to shareholders — not a business expense. They're appropriated after the profit is worked out, so they never appear in the Income Statement.",
+    "Think of a club deciding how much of its profit to hand out to members and how much to keep for next year.",
   "ACC.G12.T1.COADJUSTMENTS.A1":
-    "Unlike a sole trader, a company pays income tax. Work down: profit before tax → subtract income tax → profit after tax → then appropriate dividends, and what's left is retained income.",
+    "Think of a promise to pay members at the year-end party. Once it's promised, it's owed, even though no money has changed hands yet.",
   "ACC.G12.T1.COSTATEMENTS.A1":
-    "The Cash Flow Statement has three drawers: operating (cash from trading), investing (buying and selling assets), financing (issuing shares, taking or repaying loans). Every cash flow drops into exactly one drawer.",
+    "Think of sorting a family's money movements: everyday spending, buying a car, and taking out a loan. Each type tells a different story.",
   "ACC.G12.T1.COINTERPRET.A1":
-    "Earnings per share = total earnings ÷ number of shares — how much profit each share earned. Dividends per share = dividends declared ÷ shares — how much cash each share actually received. A company can earn more than it pays out.",
+    "Think of judging a soccer team on more than the score: possession, injuries and how much the club owes. The full picture tells you if it's healthy.",
   "ACC.G12.T1.COPUBLISHED.A1":
-    "A clean (unqualified) audit report only says the figures fairly present the company's position — not that the company is thriving. For how it's actually performing, read the Directors' Report and the ratios.",
+    "Think of a referee's match report: if the referee is satisfied, the result stands; if they have concerns, everyone wants to know why.",
   "ACC.G12.T2.ETHICS12.A1":
-    "King III stands on four legs — responsibility, accountability, fairness, transparency. Directors must act in the company's best interest and be prepared to answer for every decision.",
+    "Think of a player who bets on a match they know is fixed. Using secret knowledge for personal gain is cheating, even if no one finds out.",
   "ACC.G12.T2.FIXEDASSETS12.A1":
-    "Compare how fast assets are being replaced with how fast they're wearing out and ageing. If old machines aren't being replaced, expect breakdowns and lost production down the line.",
+    "Think of a family car: a list of what it cost and how much it has worn shows whether it's still new or nearly ready for replacing.",
   "ACC.G12.T2.CC.A1":
-    "A close corporation has members and members' contributions — not shareholders and share capital. Profit paid out goes to members as a distribution, not to shareholders as a dividend.",
+    "Think of a small club with its own rules and names for things. It works much like a big one, but uses different words for the same ideas.",
   "ACC.G12.T2.CONTROL12.A1":
-    "Internal auditors work for the company, checking the controls all year round. External auditors are independent outsiders who give a once-a-year opinion on whether the annual statements are fair.",
+    "Think of a school's own staff checking its systems all year, while an outside inspector visits once to give an independent opinion.",
   "ACC.G12.T2.INVENTORY12.A1":
-    "FIFO — first in, first out — means the oldest stock is sold first, so whatever is left in the storeroom is valued at the newest, most recent prices. Weighted average instead blends every purchase into one average cost per unit.",
+    "Think of a car dealer, where every vehicle is tracked one by one, versus a sweet shop, where you work out the cost of sweets in bulk.",
   "ACC.G12.T2.RECONCILE12.A1":
-    "An age analysis sorts what debtors owe by how overdue it is. A lot of money stuck in the 60- and 90-day-plus columns means collections are slow and some of it may never be paid.",
+    "Think of comparing your notes with your bank app, your tab with the shop's book and your friends' IOUs. Matching them catches mistakes early.",
   "ACC.G12.T2.VAT12.A1":
-    "Output VAT is the VAT you charged on sales — you owe it to SARS. Input VAT is the VAT you paid on purchases — you claim it back. What you pay over = output VAT − input VAT.",
+    "Think of a running tally of extra money you've collected for someone and what you've paid on their behalf. At the end, you settle the difference.",
   "ACC.G12.T3.PRODCOST.A1":
-    "Cost of production of finished goods = direct materials + direct labour + factory overheads, then adjusted for work-in-progress: add what was half-made at the start, subtract what's half-made at the end.",
+    "Think of adding up everything that went into making school jerseys: the wool, the knitters' pay and a share of the factory's running costs.",
   "ACC.G12.T3.COSTANALYSIS.A1":
-    "Compare units made and sold against the break-even number: above it, every extra unit is profit; below it, the business isn't covering its costs and is running at a loss.",
+    "Think of a tuck shop that must sell enough to cover its stall fee before it makes any profit. Every sale chips away at that fixed cost.",
   "ACC.G12.T3.BUDGETING12.A1":
-    "Don't just note that actual spending was under budget — ask why. Spending far less than budgeted on maintenance or wages can mean the business is being neglected, not run tightly.",
+    "Think of comparing what you planned to spend on a party with what you actually spent, then asking why some things went over.",
 };

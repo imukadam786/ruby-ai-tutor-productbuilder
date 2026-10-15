@@ -103,7 +103,7 @@
             "The customer database"
           ],
           "expected": "Capital available to run the business",
-          "memo": "Financial resources = money/capital. Physical = buildings and equipment. Human = employees and skills. Information = data the business uses.",
+          "memo": "Financial resources are money and capital. Physical resources are buildings and equipment. Human resources are employees and their skills. Information is the data the business uses.",
           "error_signals": [
             "ERR_BUS_RESOURCES"
           ],
@@ -176,7 +176,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Human = people and their skills; physical = tangible things like buildings and equipment; financial = money and capital.",
+          "memo": "Human means people and their skills. Physical means things you can touch, like buildings and equipment. Financial means money and capital.",
           "error_signals": [
             "ERR_BUS_RESOURCES"
           ],
@@ -516,7 +516,7 @@
             "Objectives cannot be measured"
           ],
           "expected": "Objectives turn the mission into clear targets the business can control and measure",
-          "memo": "Good objectives are specific and measurable, letting management control and check progress toward the mission — an internal, controllable process.",
+          "memo": "Good objectives are specific and measurable, so management can control and check progress towards the mission. That happens inside the business, where it has control.",
           "error_signals": [
             "ERR_BUS_MICRO_CONTROL"
           ],
@@ -570,7 +570,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Internal decisions (mission, structure, staff training) are controllable. Fuel prices, competitors and legislation come from the market and macro environments — the business can only adapt.",
+          "memo": "Decisions made inside the business, like the mission, structure and staff training, can be controlled. Fuel prices, competitors and new laws come from outside, so the business can only adapt.",
           "error_signals": [
             "ERR_BUS_MICRO_CONTROL",
             "ERR_BUS_MICRO_CLASSIFY"
@@ -819,7 +819,7 @@
             "Production"
           ],
           "expected": "Public relations",
-          "memo": "Managing the business's image and relationship with the public and media is public relations (PR).",
+          "memo": "Managing the business's image and its relationship with the public and media is public relations (PR).",
           "error_signals": [
             "ERR_BUS_FUNCTION_MATCH"
           ],
@@ -834,7 +834,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Administration handles information — paperwork, filing, records and office systems — so the rest of the business can work.",
+          "memo": "Administration handles information, like paperwork, filing, records and office systems, so the rest of the business can work.",
           "error_signals": [
             "ERR_BUS_FUNCTION_MATCH"
           ],
@@ -994,7 +994,7 @@
             "Human resources must manufacture the extra stock"
           ],
           "expected": "Purchasing buys more materials and production makes more, guided by general management",
-          "memo": "A promise made by marketing needs purchasing (to buy materials) and production (to make goods), coordinated by general management — proof the functions are linked.",
+          "memo": "Marketing's promise needs purchasing to buy materials and production to make the goods, with general management coordinating. It shows the functions depend on each other.",
           "error_signals": [
             "ERR_BUS_FUNCTION_MATCH"
           ],
@@ -1052,7 +1052,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six tasks in the correct function (or ≥75%)",
-          "memo": "PR protects the image and goodwill, marketing drives sales, general management coordinates and directs the whole business. The trickiest pair is PR (reputation) versus marketing (selling).",
+          "memo": "PR protects the image and goodwill, marketing drives sales, and general management coordinates the whole business. The easiest to mix up are PR (reputation) and marketing (selling).",
           "error_signals": [
             "ERR_BUS_FUNCTION_MATCH"
           ],
@@ -1109,7 +1109,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The four tasks every manager does are planning, organising, activating/leading and controlling.",
+          "memo": "Every manager does four tasks: planning, organising, leading and controlling.",
           "error_signals": [
             "ERR_BUS_MGMT_LEVEL_TASK"
           ],
@@ -1175,7 +1175,7 @@
             "senior"
           ],
           "expected": "lower",
-          "memo": "Lower (first-line) management — supervisors and foremen — runs the day-to-day work and oversees the workers directly.",
+          "memo": "Lower management, like supervisors and foremen, runs the day-to-day work and oversees workers directly.",
           "error_signals": [
             "ERR_BUS_MGMT_LEVEL"
           ],
@@ -1348,7 +1348,7 @@
             "To replace the need for top management"
           ],
           "expected": "To turn top management's plans into action by running the departments",
-          "memo": "Middle management is the bridge: it takes top management's plans and runs the departments to make them happen, then guides lower management.",
+          "memo": "Middle management is the link: it takes top management's plans, runs the departments to make them happen, and guides lower management.",
           "error_signals": [
             "ERR_BUS_MGMT_LEVEL"
           ],
@@ -1526,7 +1526,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six activities at the correct level (or ≥75%)",
-          "memo": "Long-term, business-wide decisions sit with top management; immediate, hands-on supervision sits with lower management. The time horizon tells you the level.",
+          "memo": "Long-term decisions for the whole business belong to top management. Immediate, hands-on supervision belongs to lower management. How far ahead the decision looks tells you the level.",
           "error_signals": [
             "ERR_BUS_MGMT_LEVEL"
           ],
@@ -1616,7 +1616,7 @@
             "A friendly receptionist"
           ],
           "expected": "Accurate, up-to-date financial records",
-          "memo": "A healthy financial function keeps accurate, reliable records so the business knows its true position.",
+          "memo": "A healthy financial function keeps accurate, reliable records, so the business knows its true position.",
           "error_signals": [
             "ERR_BUS_QUALITY_SCOPE"
           ],
@@ -1740,7 +1740,7 @@
             "It replaces the need for planning"
           ],
           "expected": "It builds customer trust and repeat sales, helping the business meet its goals",
-          "memo": "Quality wins customer trust and repeat business, which helps the business achieve its sales and profit objectives.",
+          "memo": "Quality earns customers' trust and brings them back, which helps the business reach its sales and profit goals.",
           "error_signals": [
             "ERR_BUS_QUALITY_OBJECTIVES"
           ],
@@ -1772,7 +1772,7 @@
             "managers ignoring customer complaints"
           ],
           "expected": "managers planning, organising and checking work to keep standards high",
-          "memo": "Quality management is managers leading and controlling the business so standards stay high across all functions.",
+          "memo": "Quality management means managers leading and controlling the business so standards stay high in every function.",
           "error_signals": [
             "ERR_BUS_QUALITY_SCOPE"
           ],
@@ -1843,7 +1843,7 @@
             "sets the company's long-term vision"
           ],
           "expected": "keeps information accurate, organised and easy to find",
-          "memo": "Quality administration keeps records and information accurate and well organised so the business runs smoothly.",
+          "memo": "Quality administration keeps records and information accurate and well organised, so the business runs smoothly.",
           "error_signals": [
             "ERR_BUS_QUALITY_SCOPE"
           ],
@@ -1860,7 +1860,7 @@
             "Quality is decided entirely by competitors"
           ],
           "expected": "Every function affects the customer's experience, so each must keep its own standards high",
-          "memo": "From the product to the invoice to the service, every function touches the customer — so quality is everyone's responsibility.",
+          "memo": "The product, the invoice and the service all reach the customer, so every function affects quality. That makes it everyone's job.",
           "error_signals": [
             "ERR_BUS_QUALITY_SCOPE"
           ],
@@ -1935,7 +1935,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "PR = image and goodwill; administration = accurate, organised information; management = coordinating and controlling the whole business well.",
+          "memo": "PR covers image and goodwill. Administration covers accurate, organised information. Management covers coordinating and controlling the whole business.",
           "error_signals": [
             "ERR_BUS_QUALITY_SCOPE"
           ],
@@ -1969,7 +1969,7 @@
             "Only the recipe matters, nothing else"
           ],
           "expected": "Higher quality across the whole business helps it attract and keep customers",
-          "memo": "When price and product are equal, the bakery with better quality in service, cleanliness and freshness wins more loyal customers.",
+          "memo": "When the price and product are the same, the bakery with better service, cleanliness and freshness wins more loyal customers.",
           "error_signals": [
             "ERR_BUS_QUALITY_OBJECTIVES"
           ],
@@ -1986,7 +1986,7 @@
             "Quality only matters to the government"
           ],
           "expected": "Better quality reduces returns and complaints and builds loyal customers, helping the business meet its objectives",
-          "memo": "Quality cuts the cost of faults, returns and complaints, and earns loyal customers — so it usually pays for itself by helping the business reach its goals.",
+          "memo": "Quality cuts the cost of faults, returns and complaints and earns loyal customers. So it usually pays for itself by helping the business reach its goals.",
           "error_signals": [
             "ERR_BUS_QUALITY_OBJECTIVES"
           ],
@@ -2082,7 +2082,7 @@
             "The country's tax laws"
           ],
           "expected": "The business's competitors",
-          "memo": "The market environment is made up of outside groups close to the business — customers, suppliers, intermediaries and competitors.",
+          "memo": "The market environment is the outside groups close to the business: customers, suppliers, middlemen and competitors.",
           "error_signals": [
             "ERR_BUS_MARKET_CLASSIFY"
           ],
@@ -2097,7 +2097,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The market environment is outside the business, so it can only be influenced (through advertising, negotiation, service) — never fully controlled.",
+          "memo": "The market environment is outside the business, so it can only be influenced, through advertising, negotiating and service. It can never be fully controlled.",
           "error_signals": [
             "ERR_BUS_MARKET_CONTROL"
           ],
@@ -2146,7 +2146,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Intermediaries (wholesalers, retailers, agents) sit between the producer and the customer and help get products to the market.",
+          "memo": "Intermediaries, like wholesalers, retailers and agents, sit between the producer and the customer and help get products to market.",
           "error_signals": [
             "ERR_BUS_MARKET_CLASSIFY"
           ],
@@ -2287,7 +2287,7 @@
             "the business's own resources"
           ],
           "expected": "other organisations the business deals with",
-          "memo": "Besides customers, suppliers, intermediaries and competitors, the market environment includes other organisations like unions, NGOs and regulators.",
+          "memo": "As well as customers, suppliers, middlemen and competitors, the market environment includes other organisations like unions, NGOs and regulators.",
           "error_signals": [
             "ERR_BUS_MARKET_CLASSIFY"
           ],
@@ -2341,7 +2341,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Opportunities help the business (rising demand, better suppliers); threats put it at risk (stronger rivals, losing customers).",
+          "memo": "Opportunities help the business, like rising demand or better suppliers. Threats put it at risk, like stronger rivals or losing customers.",
           "error_signals": [
             "ERR_BUS_MARKET_OPP_THREAT"
           ],
@@ -2375,7 +2375,7 @@
             "These groups are part of the macro economy only"
           ],
           "expected": "The business deals with these groups daily and can influence them, but they are not inside it",
-          "memo": "The market environment is close — the business works with customers and suppliers every day — but it sits outside, so it can only be influenced.",
+          "memo": "The business works with customers and suppliers every day, so they're close. But they're outside the business, so it can only influence them.",
           "error_signals": [
             "ERR_BUS_MARKET_CONTROL"
           ],
@@ -2463,7 +2463,7 @@
             "Close the shop immediately"
           ],
           "expected": "Use the opportunity by selling fresh bread, while improving service to face the new competition",
-          "memo": "A smart business grabs opportunities (rising bread demand) and adapts to threats (new competitor) — it influences the market rather than trying to control it.",
+          "memo": "A smart business grabs opportunities, like rising demand for bread, and adapts to threats, like a new competitor. It influences the market instead of trying to control it.",
           "error_signals": [
             "ERR_BUS_MARKET_OPP_THREAT"
           ],
@@ -2628,7 +2628,7 @@
             "social"
           ],
           "expected": "legal/political",
-          "memo": "Laws, regulations and government decisions are the legal/political part of the macro environment.",
+          "memo": "Laws, regulations and government decisions are the legal and political part of the macro environment.",
           "error_signals": [
             "ERR_BUS_MACRO_CLASSIFY"
           ],
@@ -2660,7 +2660,7 @@
             "Legal/political"
           ],
           "expected": "Physical/natural",
-          "memo": "Weather, climate and natural resources are the physical/natural part of the macro environment.",
+          "memo": "Weather, climate and natural resources are the physical and natural part of the macro environment.",
           "error_signals": [
             "ERR_BUS_MACRO_CLASSIFY"
           ],
@@ -2733,7 +2733,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Economic = money forces (inflation, interest). Technological = new machines and systems. Legal/political = laws and government rules.",
+          "memo": "Economic means money forces, like inflation and interest. Technological means new machines and systems. Legal and political means laws and government rules.",
           "error_signals": [
             "ERR_BUS_MACRO_CLASSIFY"
           ],
@@ -2804,7 +2804,7 @@
             "institutional"
           ],
           "expected": "social/cultural/demographic",
-          "memo": "Population, culture and lifestyle patterns make up the social/cultural/demographic part of the macro environment.",
+          "memo": "Population, culture and lifestyle make up the social, cultural and demographic part of the macro environment.",
           "error_signals": [
             "ERR_BUS_MACRO_CLASSIFY"
           ],
@@ -2863,7 +2863,7 @@
             "It is controlled by the business owner"
           ],
           "expected": "It is made of broad forces — economy, laws, technology, society — that affect all businesses",
-          "memo": "The macro environment is the wide world of forces (economy, laws, technology, society) that surround and affect every business.",
+          "memo": "The macro environment is the wider world of forces, like the economy, laws, technology and society, that affect every business.",
           "error_signals": [
             "ERR_BUS_MACRO_CLASSIFY"
           ],
@@ -2936,7 +2936,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Physical = nature and weather; social = people and lifestyle; international = global and cross-border forces.",
+          "memo": "Physical means nature and weather. Social means people and lifestyles. International means global, cross-border forces.",
           "error_signals": [
             "ERR_BUS_MACRO_CLASSIFY"
           ],
@@ -3012,7 +3012,7 @@
             "So it can ignore its customers"
           ],
           "expected": "So it can see changes coming and adapt early instead of being caught by surprise",
-          "memo": "Watching the macro environment lets a business prepare and adapt early to changes like new laws or a weak economy, rather than being caught off guard.",
+          "memo": "Watching the macro environment lets a business prepare for changes like new laws or a weak economy, instead of being caught off guard.",
           "error_signals": [
             "ERR_BUS_MACRO_CONTROL"
           ],
@@ -3083,7 +3083,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "The macro environment is broad and uncontrollable — economy, laws, technology, society — and the business can only adapt. Single firms are market factors, not macro.",
+          "memo": "The macro environment is broad and can't be controlled: the economy, laws, technology and society. The business can only adapt. A single competitor belongs to the market environment, not the macro.",
           "error_signals": [
             "ERR_BUS_MACRO_CONTROL",
             "ERR_BUS_MACRO_CLASSIFY"
@@ -3143,7 +3143,7 @@
             "Its own vision"
           ],
           "expected": "The market environment",
-          "memo": "The market environment (suppliers, customers, competitors) can be influenced through marketing and negotiation, but not fully controlled.",
+          "memo": "The market environment, meaning suppliers, customers and competitors, can be influenced through marketing and negotiating, but not fully controlled.",
           "error_signals": [
             "ERR_BUS_CONTROL_LEVELS"
           ],
@@ -3207,7 +3207,7 @@
             "Its organisational culture"
           ],
           "expected": "The macro environment",
-          "memo": "The macro environment (economy, laws, technology) is beyond the business's control — it can only adapt.",
+          "memo": "The macro environment, like the economy, laws and technology, is beyond the business's control. It can only adapt.",
           "error_signals": [
             "ERR_BUS_CONTROL_LEVELS"
           ],
@@ -3299,7 +3299,7 @@
             "The business writes the country's laws"
           ],
           "expected": "A new competitor forces the business to retrain its staff and improve its products",
-          "memo": "A market change (new competitor) pushes the business to change inside — retraining staff, improving products — showing how the environments connect.",
+          "memo": "A change in the market, like a new competitor, pushes the business to change inside, by retraining staff and improving products. That shows how the environments connect.",
           "error_signals": [
             "ERR_BUS_INTERREL_LINK"
           ],
@@ -3390,7 +3390,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Although it cannot control the macro environment, the business can react by changing its own micro decisions — budgets, products, staffing.",
+          "memo": "The business can't control the macro environment, but it can react by changing its own decisions, like budgets, products and staffing.",
           "error_signals": [
             "ERR_BUS_INTERREL_LINK"
           ],
@@ -3448,7 +3448,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Inside actions = micro (control); dealing with suppliers/customers = market (influence); coping with laws and the economy = macro (adapt).",
+          "memo": "Things done inside are micro (control). Dealing with suppliers and customers is market (influence). Coping with laws and the economy is macro (adapt).",
           "error_signals": [
             "ERR_BUS_CONTROL_LEVELS"
           ],
@@ -3465,7 +3465,7 @@
             "Only the weather changes"
           ],
           "expected": "Borrowing becomes costly (market), so the business cuts spending and delays hiring (micro)",
-          "memo": "A macro change ripples through the market (costly borrowing) into the micro environment (cutting spending, delaying hiring) — showing how connected they are.",
+          "memo": "A macro change, higher interest rates, makes borrowing expensive in the market. The business then cuts spending and delays hiring inside. That shows how connected they are.",
           "error_signals": [
             "ERR_BUS_INTERREL_LINK"
           ],
@@ -3516,7 +3516,7 @@
             "It can control its competitors and the economy"
           ],
           "expected": "It can prepare its internal plans early when it sees a market or macro change coming",
-          "memo": "Because the environments are connected, spotting an outside change early lets a business adjust its internal plans before the risk hits hard.",
+          "memo": "Because the environments are linked, spotting an outside change early lets a business adjust its own plans before the risk hits hard.",
           "error_signals": [
             "ERR_BUS_INTERREL_LINK"
           ],
@@ -3629,7 +3629,7 @@
             "The informal sector"
           ],
           "expected": "The primary sector",
-          "memo": "The primary sector extracts raw materials from nature — mining, farming, fishing and forestry.",
+          "memo": "The primary sector takes raw materials from nature: mining, farming, fishing and forestry.",
           "error_signals": [
             "ERR_BUS_SECTOR_CLASSIFY"
           ],
@@ -3646,7 +3646,7 @@
             "public"
           ],
           "expected": "secondary",
-          "memo": "The secondary sector processes or manufactures raw materials into products — for example a factory making bread from flour.",
+          "memo": "The secondary sector turns raw materials into products, like a factory making bread from flour.",
           "error_signals": [
             "ERR_BUS_SECTOR_CLASSIFY"
           ],
@@ -3768,7 +3768,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Primary takes from nature (mine, farm); secondary makes/processes (factory, bakery); tertiary serves (shop, bank).",
+          "memo": "Primary takes from nature, like a mine or farm. Secondary makes or processes, like a factory or bakery. Tertiary provides services, like a shop or bank.",
           "error_signals": [
             "ERR_BUS_SECTOR_CLASSIFY"
           ],
@@ -3905,7 +3905,7 @@
             "There is no real difference"
           ],
           "expected": "The public sector is owned by government; the private sector is owned by private people",
-          "memo": "Ownership is the key: public = government-owned; private = owned by private individuals or companies.",
+          "memo": "The key is who owns it: the public sector is owned by government, the private sector by private people or companies.",
           "error_signals": [
             "ERR_BUS_PUBLIC_PRIVATE"
           ],
@@ -4027,7 +4027,7 @@
             "The government bans factories"
           ],
           "expected": "As economies grow, more people need and can afford services like banking, retail and transport",
-          "memo": "As an economy develops, demand for services (the tertiary sector) grows — banking, retail, transport, tourism — so that sector becomes large.",
+          "memo": "As an economy grows, people need and can afford more services, like banking, shopping, transport and tourism. So the tertiary sector gets bigger.",
           "error_signals": [
             "ERR_BUS_SECTOR_CLASSIFY"
           ],
@@ -4044,7 +4044,7 @@
             "Tertiary, formal and public sector"
           ],
           "expected": "Tertiary, informal and private sector",
-          "memo": "It sells goods (tertiary service), is unregistered (informal) and is privately owned (private) — three classifications describing the same business.",
+          "memo": "It sells goods (a tertiary service), isn't registered (informal) and is privately owned (private). Three different labels describe the same business.",
           "error_signals": [
             "ERR_BUS_SECTOR_CLASSIFY",
             "ERR_BUS_FORMAL_INFORMAL"
@@ -4099,7 +4099,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Primary = extract, secondary = make, tertiary = serve; formal = registered/taxed; public = government-owned. Each statement tests one of these rules.",
+          "memo": "Primary takes from nature, secondary makes, tertiary serves. Formal means registered and taxed. Public means owned by government. Each statement tests one of these rules.",
           "error_signals": [
             "ERR_BUS_SECTOR_CLASSIFY",
             "ERR_BUS_FORMAL_INFORMAL",
@@ -4192,7 +4192,7 @@
             "Advertising on the radio"
           ],
           "expected": "Illegally copying someone else's product, music or design",
-          "memo": "Piracy is illegally copying protected work — breaking copyright, patent or trademark rules — and selling it.",
+          "memo": "Piracy is illegally copying someone's protected work, breaking copyright, patent or trademark rules, and selling it.",
           "error_signals": [
             "ERR_BUS_SOCIOECON_ID"
           ],
@@ -4379,7 +4379,7 @@
             "Privatisation"
           ],
           "expected": "Inclusivity",
-          "memo": "Inclusivity is making sure everyone is fairly included and treated equally, whatever their background.",
+          "memo": "Inclusivity means making sure everyone is included and treated fairly, whatever their background.",
           "error_signals": [
             "ERR_BUS_SOCIOECON_ID"
           ],
@@ -4450,7 +4450,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items correctly sorted (or ≥75%)",
-          "memo": "Socio-economic issues are wider social and economic problems (unemployment, poverty, crime, HIV/Aids). Buying chairs or painting a shop is just everyday business.",
+          "memo": "Socio-economic issues are wide social and money problems, like unemployment, poverty, crime and HIV/Aids. Buying chairs or painting a shop is everyday business.",
           "error_signals": [
             "ERR_BUS_SOCIOECON_ID"
           ],
@@ -4545,7 +4545,7 @@
             "The shop's sales fall only because of its own prices"
           ],
           "expected": "Fewer people have jobs and money, so fewer can afford to buy, lowering sales",
-          "memo": "Unemployment and poverty mean less money in the community, fewer paying customers and falling sales — a clear chain from issue to business impact.",
+          "memo": "With high unemployment and poverty, there's less money in the community, so fewer people can afford to buy and sales fall.",
           "error_signals": [
             "ERR_BUS_SOCIOECON_IMPACT"
           ],
@@ -4603,7 +4603,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six impacts sorted by how they hit the business (or ≥75%)",
-          "memo": "Issues hit business three ways: raising costs (security, insurance), lowering productivity (illness, strikes) or reducing sales (poverty, counterfeits).",
+          "memo": "These issues hit a business in three ways: higher costs (security, insurance), less work done (illness, strikes), or fewer sales (poverty, fake goods).",
           "error_signals": [
             "ERR_BUS_SOCIOECON_IMPACT"
           ],
@@ -4645,7 +4645,7 @@
             "Following safety rules because it is forced to"
           ],
           "expected": "Voluntarily giving back to society and the environment, beyond what the law requires",
-          "memo": "Social responsibility is voluntary — doing good for society and the environment over and above what the law already requires.",
+          "memo": "Social responsibility is voluntary: doing good for society and the environment, on top of what the law already requires.",
           "error_signals": [
             "ERR_BUS_CSR_VOLUNTARY"
           ],
@@ -4660,7 +4660,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "CSR = Corporate Social Responsibility — the company-wide programme through which a business gives back.",
+          "memo": "CSR stands for Corporate Social Responsibility: the company-wide programme a business uses to give back.",
           "error_signals": [
             "ERR_BUS_CSR_ID"
           ],
@@ -4677,7 +4677,7 @@
             "instead of"
           ],
           "expected": "beyond",
-          "memo": "The key idea is 'beyond': social responsibility is what the business chooses to do over and above its legal duties.",
+          "memo": "The key word is 'beyond'. Social responsibility is what a business chooses to do on top of its legal duties.",
           "error_signals": [
             "ERR_BUS_CSR_VOLUNTARY"
           ],
@@ -4726,7 +4726,7 @@
             "loan"
           ],
           "expected": "programme",
-          "memo": "CSR is the organised, company-wide programme that delivers a business's social responsibility.",
+          "memo": "CSR is the organised, company-wide programme a business uses to carry out its social responsibility.",
           "error_signals": [
             "ERR_BUS_CSR_ID"
           ],
@@ -4929,7 +4929,7 @@
             "competing"
           ],
           "expected": "immediate",
-          "memo": "CSR usually starts with the immediate community — the people and area closest to where the business operates.",
+          "memo": "CSR usually starts with the immediate community: the people and area closest to where the business works.",
           "error_signals": [
             "ERR_BUS_CSR_ID"
           ],
@@ -4978,7 +4978,7 @@
             "Its own tax rate"
           ],
           "expected": "Unemployment and a shortage of skills",
-          "memo": "Bursaries that train young people directly tackle unemployment and the skills shortage — a clear CSR initiative aimed at a real issue.",
+          "memo": "Bursaries that train young people directly tackle unemployment and the shortage of skills. It's a clear CSR project aimed at a real problem.",
           "error_signals": [
             "ERR_BUS_CSR_ID"
           ],
@@ -5164,7 +5164,7 @@
             "CSR only helps the community and never the business"
           ],
           "expected": "By building goodwill and stronger communities, CSR creates loyal customers and a better workforce over time",
-          "memo": "CSR is a long-term investment: goodwill and healthier communities give the business loyal customers and better workers down the line.",
+          "memo": "CSR pays off over time: goodwill and healthier communities give the business loyal customers and better workers later on.",
           "error_signals": [
             "ERR_BUS_CSR_ID"
           ],
@@ -5238,7 +5238,7 @@
             "a vehicle"
           ],
           "expected": "perseverance",
-          "memo": "Trying again after failure is perseverance — a personal quality, not something the person owns.",
+          "memo": "Trying again after failing is perseverance. It's a personal quality, not something the person owns.",
           "error_signals": [
             "ERR_BUS_ENTRE_ID"
           ],
@@ -5255,7 +5255,7 @@
             "Determination"
           ],
           "expected": "Money in the bank",
-          "memo": "Money is a resource the business has. Confidence, vision and determination are personal qualities of the entrepreneur.",
+          "memo": "Money is something the business has. Confidence, vision and determination are personal qualities of the entrepreneur.",
           "error_signals": [
             "ERR_BUS_ENTRE_QUALITY_RESOURCE"
           ],
@@ -5287,7 +5287,7 @@
             "importing"
           ],
           "expected": "risk-taking",
-          "memo": "Risk-taking is the willingness to back a new idea despite uncertainty — a core entrepreneurial quality.",
+          "memo": "Risk-taking means being willing to back a new idea even when you can't be sure how it will turn out. It's a core entrepreneurial quality.",
           "error_signals": [
             "ERR_BUS_ENTRE_ID"
           ],
@@ -5321,7 +5321,7 @@
             "A company logo"
           ],
           "expected": "Flexibility (adaptability)",
-          "memo": "Adjusting quickly to change is flexibility or adaptability — the ability to change plans when circumstances change.",
+          "memo": "Adjusting quickly to change is flexibility, also called adaptability: being able to change plans when things change.",
           "error_signals": [
             "ERR_BUS_ENTRE_ID"
           ],
@@ -5463,7 +5463,7 @@
             "advertising"
           ],
           "expected": "adaptability",
-          "memo": "Adaptability (flexibility) is being able to change plans as the situation changes — vital for an entrepreneur.",
+          "memo": "Adaptability, or flexibility, means being able to change plans as the situation changes. It's vital for an entrepreneur.",
           "error_signals": [
             "ERR_BUS_ENTRE_ID"
           ],
@@ -5538,7 +5538,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six scenarios matched to the right quality (or ≥75%)",
-          "memo": "Risk-taking = backing an uncertain idea; perseverance = not giving up; leadership = guiding and motivating people.",
+          "memo": "Risk-taking means backing an uncertain idea. Perseverance means not giving up. Leadership means guiding and motivating people.",
           "error_signals": [
             "ERR_BUS_ENTRE_ID"
           ],
@@ -5570,7 +5570,7 @@
             "A vehicle"
           ],
           "expected": "Organisational skills",
-          "memo": "Planning, ordering tasks and meeting deadlines shows organisational skills — a personal quality.",
+          "memo": "Planning, putting tasks in order and meeting deadlines show organisational skills, which are a personal quality.",
           "error_signals": [
             "ERR_BUS_ENTRE_ID"
           ],
@@ -5786,7 +5786,7 @@
             "shared"
           ],
           "expected": "unlimited",
-          "memo": "A sole trader has unlimited liability: there is no line between the owner and the business, so personal assets can be taken for business debts.",
+          "memo": "A sole trader has unlimited liability: the owner and the business aren't separate, so the owner's own belongings can be taken to pay business debts.",
           "error_signals": [
             "ERR_BUS_OWN_LIABILITY"
           ],
@@ -5803,7 +5803,7 @@
             "Profits must be shared with partners"
           ],
           "expected": "The owner keeps all the profit and has full control",
-          "memo": "A sole trader keeps all profit and controls every decision — a key advantage. (Limited liability and separate legal identity do NOT apply.)",
+          "memo": "A sole trader keeps all the profit and makes every decision. Limited liability and being a separate legal person don't apply to a sole trader.",
           "error_signals": [
             "ERR_BUS_OWN_FEATURE"
           ],
@@ -5927,7 +5927,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six features sorted correctly (or ≥75%)",
-          "memo": "Sole trader = one owner, all profit; partnership = several owners, shared profit. BOTH have unlimited liability and no separate legal identity.",
+          "memo": "A sole trader has one owner who keeps all the profit; a partnership has several owners who share it. Both have unlimited liability and aren't separate legal persons.",
           "error_signals": [
             "ERR_BUS_OWN_FEATURE"
           ],
@@ -6113,7 +6113,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six points sorted as advantage or disadvantage (or ≥75%)",
-          "memo": "Advantages: all profit, easy to start, full control. Disadvantages: unlimited liability, limited capital, no continuity.",
+          "memo": "Advantages: all the profit, easy to start, full control. Disadvantages: unlimited liability, little money to grow, and the business ends if the owner dies.",
           "error_signals": [
             "ERR_BUS_OWN_FEATURE"
           ],
@@ -6222,7 +6222,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six statements sorted correctly (or ≥75%)",
-          "memo": "One owner and full control = sole trader; several owners and divided profit = partnership. Unlimited liability and no separate legal identity belong to BOTH.",
+          "memo": "One owner with full control is a sole trader; several owners sharing profit is a partnership. Unlimited liability and not being a separate legal person apply to both.",
           "error_signals": [
             "ERR_BUS_OWN_FEATURE"
           ],
@@ -6378,7 +6378,7 @@
             "Profits are taxed in the owner's personal name"
           ],
           "expected": "Limited liability and continuity that protect the owners and the business",
-          "memo": "A company offers limited liability and continuity — it survives changes of owner and protects personal assets.",
+          "memo": "A company gives limited liability and continuity: it carries on when owners change, and the owners' personal belongings are protected.",
           "error_signals": [
             "ERR_BUS_OWN2_FEATURE"
           ],
@@ -6620,7 +6620,7 @@
             "Because the government pays a company's debts"
           ],
           "expected": "Because the company is a separate legal person, owners risk only their investment, not their personal assets",
-          "memo": "Limited liability flows from separate legal personality: the company owes the debt, not the owners, so their personal assets are safe.",
+          "memo": "A company is a separate legal person, so the company owes the debt, not the owners. They can lose only what they invested, not their personal belongings.",
           "error_signals": [
             "ERR_BUS_OWN2_FEATURE"
           ],
@@ -6737,7 +6737,7 @@
             "Only following old rules"
           ],
           "expected": "Coming up with new and useful ideas to solve problems or improve the business",
-          "memo": "Creative thinking means generating fresh, useful ideas — to solve problems, find opportunities and keep the business growing.",
+          "memo": "Creative thinking means coming up with fresh, useful ideas to solve problems, spot opportunities and keep the business growing.",
           "error_signals": [
             "ERR_BUS_CREATIVE_MEANING"
           ],
@@ -6786,7 +6786,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Brainstorming gathers many ideas quickly without judging them at first — a popular creative-thinking technique.",
+          "memo": "Brainstorming collects lots of ideas quickly without judging them at first. It's a popular creative-thinking technique.",
           "error_signals": [
             "ERR_BUS_TECHNIQUE"
           ],
@@ -6818,7 +6818,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Creative thinking helps a business adapt, cut waste and find new opportunities — all of which support long-term sustainability.",
+          "memo": "Creative thinking helps a business adapt, cut waste and find new opportunities, which all help it last.",
           "error_signals": [
             "ERR_BUS_CREATIVE_MEANING"
           ],
@@ -6875,7 +6875,7 @@
             "They are unrelated to each other"
           ],
           "expected": "Choosing the best option is one step within the full problem-solving cycle",
-          "memo": "Problem-solving includes generating options AND choosing one. Decision-making is that choosing step, sitting inside the bigger cycle.",
+          "memo": "Problem-solving includes coming up with options and choosing one. Decision-making is the choosing step inside that bigger process.",
           "error_signals": [
             "ERR_BUS_PROBLEM_DECISION"
           ],
@@ -6929,7 +6929,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Brainstorming, mind-mapping, Delphi and Force-Field Analysis are creative-thinking techniques. Paying bills and filing tax are routine tasks, not techniques.",
+          "memo": "Brainstorming, mind-mapping, the Delphi technique and Force-Field Analysis are creative-thinking techniques. Paying bills and filing tax are routine tasks.",
           "error_signals": [
             "ERR_BUS_TECHNIQUE"
           ],
@@ -6946,7 +6946,7 @@
             "letting only the manager decide alone"
           ],
           "expected": "asking them separately, often in rounds, and combining their answers",
-          "memo": "The Delphi technique collects experts' views separately over several rounds, then combines them — useful when you want unbiased expert input.",
+          "memo": "The Delphi technique asks experts for their views separately, over several rounds, then combines them. It's useful when you want honest expert input that isn't swayed by others.",
           "error_signals": [
             "ERR_BUS_TECHNIQUE"
           ],
@@ -7083,7 +7083,7 @@
             "Deciding first is always best"
           ],
           "expected": "The team may miss a better solution it never considered",
-          "memo": "Deciding too early, before generating options, risks settling for a weak solution and missing a better idea.",
+          "memo": "Deciding too early, before coming up with options, risks settling for a weak solution and missing a better one.",
           "error_signals": [
             "ERR_BUS_PROBLEM_DECISION"
           ],
@@ -7188,7 +7188,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Problem-solving is the whole cycle; deciding is one step in it; techniques generate ideas; and you must understand a problem before solving it.",
+          "memo": "Problem-solving is the whole process, and deciding is one step in it. Techniques produce ideas, and you must understand a problem before you solve it.",
           "error_signals": [
             "ERR_BUS_PROBLEM_DECISION",
             "ERR_BUS_CYCLE_ORDER"
@@ -7294,7 +7294,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Opportunities and threats are external — they come from the market and macro environments outside the business.",
+          "memo": "Opportunities and threats come from outside the business, from the market and macro environments.",
           "error_signals": [
             "ERR_BUS_SWOT_CLASSIFY"
           ],
@@ -7536,7 +7536,7 @@
             "Sharing people's names and answers publicly"
           ],
           "expected": "Getting their consent, keeping their answers private and being honest about the purpose",
-          "memo": "Ethical research means asking permission, protecting people's privacy and being honest about why you are collecting the information.",
+          "memo": "Ethical research means asking permission, keeping people's information private and being honest about why you're collecting it.",
           "error_signals": [
             "ERR_BUS_SWOT_ID"
           ],
@@ -7587,7 +7587,7 @@
             "To copy a competitor's exact business plan"
           ],
           "expected": "To check there is a real need and to weigh the venture's strengths, weaknesses, opportunities and threats",
-          "memo": "Research confirms a real market need, and a SWOT weighs the venture's internal and external position — together they show whether it is viable.",
+          "memo": "Research checks that people really need the product. A SWOT weighs up the business's strengths and weaknesses and the outside opportunities and threats. Together they show if the idea can work.",
           "error_signals": [
             "ERR_BUS_SWOT_ID"
           ],
@@ -7662,7 +7662,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six factors in the correct SWOT category (or ≥75%)",
-          "memo": "Internal helps = strength (trusted brand, skilled managers); internal harms = weakness (staff turnover, old systems); external harms = threat (competitor, rising industry prices).",
+          "memo": "Inside and helpful is a strength, like a trusted brand. Inside and harmful is a weakness, like old systems. Outside and harmful is a threat, like a new competitor.",
           "error_signals": [
             "ERR_BUS_SWOT_CLASSIFY"
           ],
@@ -7703,7 +7703,7 @@
             "Location only matters to the government"
           ],
           "expected": "The right location can lower costs and bring in more customers",
-          "memo": "A good location can cut costs (transport, materials) and attract customers, so choosing it carefully is an important decision.",
+          "memo": "A good location can cut costs, like transport and materials, and attract customers. So choosing it carefully is an important decision.",
           "error_signals": [
             "ERR_BUS_LOCATION_MATCH"
           ],
@@ -7769,7 +7769,7 @@
             "climate"
           ],
           "expected": "labour market",
-          "memo": "The labour market is the supply of workers and their skills in an area — an important factor when a business needs many or skilled employees.",
+          "memo": "The labour market is the supply of workers and skills in an area. It matters when a business needs many or skilled employees.",
           "error_signals": [
             "ERR_BUS_LOCATION_FACTOR"
           ],
@@ -7784,7 +7784,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Crime is a location factor — a high-crime area means higher security costs and risk, which can push a business to locate elsewhere.",
+          "memo": "In a high-crime area, security costs and risks are higher, which can push a business to set up somewhere else.",
           "error_signals": [
             "ERR_BUS_LOCATION_FACTOR"
           ],
@@ -7842,7 +7842,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Match the factor to the business: material-processors locate near materials, services near customers, and delivery businesses near good transport.",
+          "memo": "Businesses that process materials set up near the materials, service businesses near customers, and delivery businesses near good transport.",
           "error_signals": [
             "ERR_BUS_LOCATION_MATCH"
           ],
@@ -7910,7 +7910,7 @@
             "transport"
           ],
           "expected": "legal/government",
-          "memo": "Municipal regulations and taxes are legal/government location factors — they affect what a business may do and what it must pay in an area.",
+          "memo": "Municipal rules and taxes are legal and government factors. They affect what a business may do and what it must pay in an area.",
           "error_signals": [
             "ERR_BUS_LOCATION_FACTOR"
           ],
@@ -8081,7 +8081,7 @@
             "Only the colour of the building"
           ],
           "expected": "Plenty of passing customers, good access and reasonable rent",
-          "memo": "A takeaway needs hungry customers passing by, easy access and affordable rent — the customer-facing factors matter most for a food service.",
+          "memo": "A takeaway needs hungry customers walking past, easy access and affordable rent. For food businesses, customer-facing factors matter most.",
           "error_signals": [
             "ERR_BUS_LOCATION_MATCH"
           ],
@@ -8316,7 +8316,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Employment = employer/employee; insurance = insurer/insured; lease = lessor/lessee. Learn each contract's pair.",
+          "memo": "An employment contract is between employer and employee, insurance between insurer and insured, and a lease between lessor and lessee.",
           "error_signals": [
             "ERR_BUS_CONTRACT_PARTIES"
           ],
@@ -8457,7 +8457,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Hire-purchase = seller/buyer; rental = landlord/tenant; employment = employer/employee. Each contract has its own pair.",
+          "memo": "Hire-purchase is between seller and buyer, rental between landlord and tenant, and employment between employer and employee.",
           "error_signals": [
             "ERR_BUS_CONTRACT_PARTIES"
           ],
@@ -8508,7 +8508,7 @@
             "Hire-purchase is used to rent out a house"
           ],
           "expected": "Insurance protects against losses like fire or theft for an agreed premium",
-          "memo": "Each contract has its job: insurance covers risks for a premium; employment hires staff; a lease/rental provides premises; hire-purchase buys goods over time.",
+          "memo": "Each contract has its own job: insurance covers risks for a premium, employment hires staff, a lease or rental provides premises, and hire-purchase buys goods over time.",
           "error_signals": [
             "ERR_BUS_CONTRACT_TYPE"
           ],
@@ -9324,7 +9324,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six matched to the correct component (or ≥75%)",
-          "memo": "Executive summary = short overview; marketing plan = how to reach customers (the Ps); financial plan = does it make money.",
+          "memo": "The executive summary is a short overview. The marketing plan shows how to reach customers (the Ps). The financial plan shows whether it will make money.",
           "error_signals": [
             "ERR_BUS_BUSPLAN_PURPOSE"
           ],
@@ -9375,7 +9375,7 @@
             "Business description → financial plan → cover page → marketing plan → executive summary"
           ],
           "expected": "Cover page → executive summary → business description → marketing plan → financial plan",
-          "memo": "A plan opens with the cover page and executive summary, then describes the business, then the marketing plan, and ends with the financial plan.",
+          "memo": "A plan starts with the cover page and executive summary, then describes the business, then the marketing plan, and ends with the financial plan.",
           "error_signals": [
             "ERR_BUS_BUSPLAN_ID"
           ],
@@ -9512,7 +9512,7 @@
             "It hides the business's weaknesses"
           ],
           "expected": "It honestly weighs the venture's strengths, weaknesses, opportunities and threats so readers can judge its chances",
-          "memo": "A SWOT shows the plan has honestly assessed the venture's internal and external position, helping readers judge whether it is viable.",
+          "memo": "A SWOT shows the plan has honestly weighed up the business's position inside and out, helping readers decide whether it can work.",
           "error_signals": [
             "ERR_BUS_BUSPLAN_PURPOSE"
           ],
@@ -9587,7 +9587,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six pieces matched to the right component (or ≥75%)",
-          "memo": "Overviews go in the executive summary; reaching customers and the Ps go in the marketing plan; income, costs and profit go in the financial plan.",
+          "memo": "Overviews go in the executive summary. Reaching customers and the Ps go in the marketing plan. Income, costs and profit go in the financial plan.",
           "error_signals": [
             "ERR_BUS_BUSPLAN_PURPOSE"
           ],
@@ -9930,7 +9930,7 @@
             "You wait for someone else to fix everything"
           ],
           "expected": "You stay calm and adjust your plans when things change",
-          "memo": "Adaptability is adjusting calmly to change — a key self-management skill when plans don't go as expected.",
+          "memo": "Adaptability means calmly adjusting when things change. It's a key self-management skill when plans don't work out.",
           "error_signals": [
             "ERR_BUS_SELFMAN_ID"
           ],
@@ -9962,7 +9962,7 @@
             "Setting clear personal goals"
           ],
           "expected": "Leaving every task to the last minute and missing deadlines",
-          "memo": "Procrastinating and missing deadlines is poor self-management. The others are all good self-management habits.",
+          "memo": "Putting things off and missing deadlines is poor self-management. The other options are all good habits.",
           "error_signals": [
             "ERR_BUS_SELFMAN_ID"
           ],
@@ -10016,7 +10016,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six habits sorted good vs poor (or ≥75%)",
-          "memo": "Good self-management: punctual, calm, professional. Poor self-management: procrastinating, neglecting health, blaming others.",
+          "memo": "Good self-management means being on time, calm and professional. Poor self-management means putting things off, neglecting your health and blaming others.",
           "error_signals": [
             "ERR_BUS_SELFMAN_ID"
           ],
@@ -10125,7 +10125,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six actions matched to the right skill (or ≥75%)",
-          "memo": "Scheduling and prioritising = time management; staying calm = stress management; dressing and behaving well = professional image.",
+          "memo": "Scheduling and prioritising are time management. Staying calm is stress management. Dressing and behaving well is your professional image.",
           "error_signals": [
             "ERR_BUS_SELFMAN_ID"
           ],
@@ -10248,7 +10248,7 @@
             "diversity"
           ],
           "expected": "prejudice",
-          "memo": "Prejudice is judging people unfairly because of their background — a barrier to good workplace relationships.",
+          "memo": "Prejudice is judging people unfairly because of their background. It gets in the way of good working relationships.",
           "error_signals": [
             "ERR_BUS_TEAM_ID"
           ],
@@ -10353,7 +10353,7 @@
             "Goals are reached faster"
           ],
           "expected": "Misunderstandings, mistakes and conflict become more likely",
-          "memo": "Poor communication leads to misunderstandings, errors and conflict — it is a barrier to good team performance.",
+          "memo": "Poor communication leads to misunderstandings, mistakes and conflict, which hurt how the team performs.",
           "error_signals": [
             "ERR_BUS_TEAM_CRITERION_BARRIER"
           ],
@@ -10809,7 +10809,7 @@
             "internal"
           ],
           "expected": "market",
-          "memo": "The market environment is made up of the close outside parties — customers, suppliers, competitors, regulators — that create opportunities and threats the business cannot control.",
+          "memo": "The market environment is the outside parties close to the business, like customers, suppliers, competitors and regulators. They create opportunities and threats it can't control.",
           "error_signals": [
             "ERR_BUS_ENV_CLASSIFY"
           ],
@@ -10918,7 +10918,7 @@
             "auditing"
           ],
           "expected": "networking",
-          "memo": "Networking means building relationships and contacts that benefit the business, such as meeting potential customers or partners.",
+          "memo": "Networking means building contacts and relationships that help the business, like meeting possible customers or partners.",
           "error_signals": [
             "ERR_BUS_MACRO_INVOLVE"
           ],
@@ -11008,7 +11008,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Internal changes act on the micro environment; negotiating and advertising influence the market; responding to inflation and laws is adapting to the macro environment.",
+          "memo": "Changes inside act on the micro environment. Negotiating and advertising influence the market. Responding to inflation and laws is adapting to the macro environment.",
           "error_signals": [
             "ERR_BUS_MACRO_ADAPT"
           ],
@@ -11084,7 +11084,7 @@
             "abandoning its micro environment"
           ],
           "expected": "using power relationships to cope with an environment it cannot control",
-          "memo": "Strategic alliances and persuading large investors are power relationships — ways to cope with environments the business cannot control, not ways to control them outright.",
+          "memo": "Alliances and winning over big investors are power relationships. They're ways to cope with environments the business can't control, not ways to control them.",
           "error_signals": [
             "ERR_BUS_MACRO_INVOLVE"
           ],
@@ -11219,7 +11219,7 @@
             "The internal environment"
           ],
           "expected": "The market environment",
-          "memo": "Competitors and suppliers are part of the market environment, so problems with them are market-environment challenges.",
+          "memo": "Competitors and suppliers belong to the market environment, so problems with them are market challenges.",
           "error_signals": [
             "ERR_BUS_CHALLENGE_CLASSIFY"
           ],
@@ -11400,7 +11400,7 @@
             "internal"
           ],
           "expected": "macro",
-          "memo": "Income levels, politics and globalisation are broad outside forces — macro-environment challenges.",
+          "memo": "Income levels, politics and globalisation are broad outside forces, so they're macro challenges.",
           "error_signals": [
             "ERR_BUS_CHALLENGE_CLASSIFY"
           ],
@@ -11417,7 +11417,7 @@
             "global"
           ],
           "expected": "micro",
-          "memo": "Managers and staff are inside the business, so these are micro-environment challenges that management can act on directly.",
+          "memo": "Managers and staff are inside the business, so these are micro challenges that management can act on directly.",
           "error_signals": [
             "ERR_BUS_CHALLENGE_CLASSIFY"
           ],
@@ -11432,7 +11432,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Shifts in what specific customers want show up in the market environment, while broad social and demographic change is a macro force — both are challenges.",
+          "memo": "Changes in what particular customers want show up in the market environment, while broad social and population changes are macro forces. Both are challenges.",
           "error_signals": [
             "ERR_BUS_CHALLENGE_CLASSIFY"
           ],
@@ -11699,7 +11699,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Lobbying — influencing decision-makers and regulators — is a recognised way of getting involved in the macro environment.",
+          "memo": "Lobbying means trying to influence decision-makers and regulators. It's a recognised way of getting involved in the macro environment.",
           "error_signals": [
             "ERR_BUS_ADAPT_METHOD"
           ],
@@ -11748,7 +11748,7 @@
             "closed"
           ],
           "expected": "strategic",
-          "memo": "A strategic alliance is an agreement where two businesses cooperate for mutual benefit while remaining separate companies.",
+          "memo": "A strategic alliance is an agreement where two businesses work together for mutual benefit but stay separate companies.",
           "error_signals": [
             "ERR_BUS_ADAPT_METHOD"
           ],
@@ -11806,7 +11806,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Mergers and takeovers combine firms; lobbying and networking influence outsiders; reorganising and cross-training build internal flexibility.",
+          "memo": "Mergers and takeovers combine businesses. Lobbying and networking influence outsiders. Reorganising and cross-training make the business more flexible inside.",
           "error_signals": [
             "ERR_BUS_ADAPT_METHOD"
           ],
@@ -11840,7 +11840,7 @@
             "Petty cash"
           ],
           "expected": "Information",
-          "memo": "Information management is collecting and using reliable information about the environment to respond well to change.",
+          "memo": "Information management means collecting and using reliable information about the environment, so the business can respond well to change.",
           "error_signals": [
             "ERR_BUS_ADAPT_METHOD"
           ],
@@ -11872,7 +11872,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Social responsibility — giving back to the community and protecting the environment — is one recognised way a business responds to its environment and builds goodwill.",
+          "memo": "Social responsibility, like giving back to the community and protecting the environment, is a recognised way for a business to respond to its environment and build goodwill.",
           "error_signals": [
             "ERR_BUS_ADAPT_METHOD"
           ],
@@ -11926,7 +11926,7 @@
             "a2",
             "a3"
           ],
-          "memo": "The strong reasons are new customers/suppliers, early information, and new opportunities. The others overclaim, are irrelevant, or wrongly limit networking to big businesses.",
+          "memo": "The strong reasons are new customers and suppliers, early warning about changes, and new opportunities. The others claim too much, are off-topic, or wrongly say only big businesses should network.",
           "error_signals": [
             "ERR_BUS_ADAPT_METHOD"
           ],
@@ -11943,7 +11943,7 @@
             "a trade union"
           ],
           "expected": "organisation design and flexibility",
-          "memo": "Changing the structure to respond quickly is organisation design and flexibility — building the ability to adapt into the business itself.",
+          "memo": "Changing the structure so the business can react quickly is organisation design and flexibility: building the ability to adapt into the business.",
           "error_signals": [
             "ERR_BUS_ADAPT_METHOD"
           ],
@@ -12001,7 +12001,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Lobbying influences rule-makers; networking builds contacts; power relationships use alliances and big investors to gain strength.",
+          "memo": "Lobbying influences the people who make the rules. Networking builds contacts. Power relationships use alliances and big investors to gain strength.",
           "error_signals": [
             "ERR_BUS_ADAPT_METHOD"
           ],
@@ -12069,7 +12069,7 @@
             "a strike"
           ],
           "expected": "a strategic alliance",
-          "memo": "Cooperating for mutual benefit while remaining separate companies is a strategic alliance — not a merger (one firm) or takeover (one buys the other).",
+          "memo": "Working together for mutual benefit while staying separate companies is a strategic alliance. A merger makes one company; a takeover is one buying the other.",
           "error_signals": [
             "ERR_BUS_ADAPT_METHOD"
           ],
@@ -12086,7 +12086,7 @@
             "Incorrect — it can simply control the macro environment"
           ],
           "expected": "Incorrect — it can adapt, manage information, build flexibility, and lobby or network",
-          "memo": "A business cannot control the macro environment but has many active responses: adapting, gathering information, staying flexible, and lobbying or networking.",
+          "memo": "A business can't control the macro environment, but it can act: adapt, gather information, stay flexible, and lobby or network.",
           "error_signals": [
             "ERR_BUS_ADAPT_RESPONSE"
           ],
@@ -12103,7 +12103,7 @@
             "lobbying campaign"
           ],
           "expected": "takeover (acquisition)",
-          "memo": "Buying out another business — here a supplier — is a takeover or acquisition, used as a strategic response to secure supply.",
+          "memo": "Buying another business, here a supplier, is a takeover (an acquisition). It's a strategic way to make sure supplies keep coming.",
           "error_signals": [
             "ERR_BUS_ADAPT_METHOD"
           ],
@@ -12145,7 +12145,7 @@
             "recruiting"
           ],
           "expected": "piracy",
-          "memo": "Piracy is the illegal copying or reproduction of someone's product, which steals sales from the original business.",
+          "memo": "Piracy is illegally copying someone's product, which steals sales from the original business.",
           "error_signals": [
             "ERR_BUS_PIRACY_TYPE"
           ],
@@ -12284,7 +12284,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Copyright = creative works (novels, songs); patent = inventions (machines, formulas); trademark = brand identity (logos, names).",
+          "memo": "Copyright protects creative work like novels and songs. Patents protect inventions like machines and formulas. Trademarks protect brand identity like logos and names.",
           "error_signals": [
             "ERR_BUS_PIRACY_TYPE"
           ],
@@ -12330,7 +12330,7 @@
           "min_correct": 2,
           "max_wrong": 1,
           "expected": "Cheap counterfeit copies of its product are flooding the market; Many job applicants cannot read instructions because of low literacy; Its delivery vans were recently broken into",
-          "memo": "Counterfeiting, illiteracy and crime are socio-economic issues hurting the business. The machine running perfectly is not a problem.",
+          "memo": "Fake copies, people who can't read, and crime are the socio-economic issues hurting the business. A machine working perfectly isn't a problem.",
           "error_signals": [
             "ERR_BUS_SOCIOECON_IMPACT"
           ],
@@ -12526,7 +12526,7 @@
             "Raising its prices sharply"
           ],
           "expected": "Creating jobs and offering skills training to local people",
-          "memo": "A constructive response to unemployment and skills shortages is to create jobs and train people, helping both the community and the business's labour supply.",
+          "memo": "Creating jobs and training people is a positive response to unemployment and skills shortages. It helps the community and gives the business workers.",
           "error_signals": [
             "ERR_BUS_SOCIOECON_SOLUTION"
           ],
@@ -12560,7 +12560,7 @@
             "The business should simply ignore the strike forever"
           ],
           "expected": "Lost production and income hurt the business, so resolving the dispute fairly is in its interest",
-          "memo": "Strikes stop production and lose income, so it is in the business's interest to deal with workers fairly through the proper industrial-relations channels.",
+          "memo": "Strikes stop production and cost income, so it's in the business's interest to deal fairly with workers through the proper channels.",
           "error_signals": [
             "ERR_BUS_INDUSTRIAL_RELATIONS"
           ],
@@ -12602,7 +12602,7 @@
             "Lend money to businesses"
           ],
           "expected": "Extract or grow raw materials",
-          "memo": "Primary enterprises extract or grow raw materials — for example mining, farming, fishing and forestry.",
+          "memo": "Primary enterprises take or grow raw materials, like mining, farming, fishing and forestry.",
           "error_signals": [
             "ERR_BUS_SECTOR_LINK"
           ],
@@ -12619,7 +12619,7 @@
             "Grow crops on a farm"
           ],
           "expected": "Process raw materials into finished or semi-finished goods",
-          "memo": "Secondary enterprises process raw materials — factories, mills and bakeries that make products.",
+          "memo": "Secondary enterprises process raw materials into products, like factories, mills and bakeries.",
           "error_signals": [
             "ERR_BUS_SECTOR_LINK"
           ],
@@ -12683,7 +12683,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The sectors are linked: secondary needs raw materials from primary, and tertiary distributes and services what secondary makes.",
+          "memo": "The sectors are linked: secondary needs raw materials from primary, and tertiary sells and services what secondary makes.",
           "error_signals": [
             "ERR_BUS_SECTOR_LINK"
           ],
@@ -12741,7 +12741,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Farms and mines extract (primary); mills and factories process (secondary); supermarkets and banks serve and distribute (tertiary).",
+          "memo": "Farms and mines take from nature (primary). Mills and factories process (secondary). Supermarkets and banks serve and distribute (tertiary).",
           "error_signals": [
             "ERR_BUS_SECTOR_LINK"
           ],
@@ -12798,7 +12798,7 @@
             "It mines its own minerals"
           ],
           "expected": "It needs the raw materials the primary enterprise produces",
-          "memo": "Secondary enterprises process raw materials, so they rely on primary enterprises to supply those materials.",
+          "memo": "Secondary enterprises process raw materials, so they depend on primary enterprises to supply them.",
           "error_signals": [
             "ERR_BUS_SECTOR_LINK"
           ],
@@ -12832,7 +12832,7 @@
             "The sectors never supply each other"
           ],
           "expected": "Primary supplies secondary, and secondary supplies tertiary",
-          "memo": "Materials flow primary → secondary → tertiary: extracted, then processed, then distributed and serviced.",
+          "memo": "Materials move from primary to secondary to tertiary: taken from nature, then processed, then sold and serviced.",
           "error_signals": [
             "ERR_BUS_SECTOR_LINK"
           ],
@@ -12905,7 +12905,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Trawlers and farms extract (primary); canning and assembly plants process (secondary); couriers and insurers provide services (tertiary).",
+          "memo": "Fishing boats and farms take from nature (primary). Canning and car plants process (secondary). Couriers and insurers provide services (tertiary).",
           "error_signals": [
             "ERR_BUS_SECTOR_LINK"
           ],
@@ -12962,7 +12962,7 @@
             "tannery, factory, farm, store"
           ],
           "expected": "farm, tannery, factory, store",
-          "memo": "Primary (farm) supplies hides; secondary (tannery, factory) processes them into shoes; tertiary (store) sells them.",
+          "memo": "The farm (primary) supplies hides. The tannery and factory (secondary) turn them into shoes. The store (tertiary) sells them.",
           "error_signals": [
             "ERR_BUS_SECTOR_CHAIN"
           ],
@@ -12979,7 +12979,7 @@
             "The drought lowers the businesses' electricity bills"
           ],
           "expected": "Secondary and tertiary enterprises also suffer because their supply is disrupted",
-          "memo": "Because the sectors are linked, a fall in primary output starves secondary enterprises of materials and reduces what tertiary enterprises have to sell.",
+          "memo": "The sectors are linked, so when farms produce less, factories run short of materials and shops have less to sell.",
           "error_signals": [
             "ERR_BUS_SECTOR_LINK"
           ],
@@ -12996,7 +12996,7 @@
             "Because the sectors never trade with one another"
           ],
           "expected": "Because each sector relies on the others for materials, processing or distribution",
-          "memo": "The sectors are interdependent — primary supplies, secondary processes, tertiary distributes — so none works in isolation.",
+          "memo": "The sectors depend on each other: primary supplies, secondary processes, tertiary distributes. None works on its own.",
           "error_signals": [
             "ERR_BUS_SECTOR_LINK"
           ],
@@ -13030,7 +13030,7 @@
             "Becoming a bank"
           ],
           "expected": "Buying or partnering with a primary enterprise that supplies its materials",
-          "memo": "By linking up the chain to its primary supplier, the manufacturer secures the raw materials its secondary processing depends on.",
+          "memo": "Linking up with the primary supplier secures the raw materials the manufacturer needs to keep producing.",
           "error_signals": [
             "ERR_BUS_SECTOR_LINK"
           ],
@@ -13070,7 +13070,7 @@
             "sawmill, forest, showroom, factory"
           ],
           "expected": "forest, sawmill, factory, showroom",
-          "memo": "Forestry (primary) supplies timber; the sawmill and factory (secondary) process it into furniture; the showroom (tertiary) sells it.",
+          "memo": "Forestry (primary) supplies the timber. The sawmill and factory (secondary) turn it into furniture. The showroom (tertiary) sells it.",
           "error_signals": [
             "ERR_BUS_SECTOR_CHAIN"
           ],
@@ -13176,7 +13176,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A company has continuity of existence — it carries on regardless of changes in its shareholders, unlike a sole trader.",
+          "memo": "A company carries on no matter who its shareholders are. That's called continuity, and a sole trader doesn't have it.",
           "error_signals": [
             "ERR_BUS_COMPANY_FEATURE"
           ],
@@ -13247,7 +13247,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Benefits: limited liability, continuity, easier capital. Challenges: more paperwork, higher costs, more regulation and disclosure.",
+          "memo": "Benefits: limited liability, continuity and raising money more easily. Challenges: more paperwork, higher costs, and more rules and financial reporting.",
           "error_signals": [
             "ERR_BUS_COMPANY_BENEFIT"
           ],
@@ -13264,7 +13264,7 @@
             "It can never be sued"
           ],
           "expected": "Limited liability protects the owners' personal assets",
-          "memo": "Because a company is a separate legal person with limited liability, owners risk only their investment, not their personal possessions.",
+          "memo": "A company is a separate legal person with limited liability, so owners can lose only what they invested, not their personal belongings.",
           "error_signals": [
             "ERR_BUS_COMPANY_BENEFIT"
           ],
@@ -13313,7 +13313,7 @@
             "Neither a company nor a sole trader pays any tax"
           ],
           "expected": "A company is taxed at a company tax rate; a sole trader's profit is taxed as the owner's personal income",
-          "memo": "A company pays tax in its own name at the company rate; a sole trader is not separate from the owner, so the profit is taxed as the owner's personal income.",
+          "memo": "A company pays tax in its own name at the company rate. A sole trader isn't separate from the owner, so the profit is taxed as the owner's personal income.",
           "error_signals": [
             "ERR_BUS_COMPANY_TAX"
           ],
@@ -13443,7 +13443,7 @@
             "Opening a savings account for a child"
           ],
           "expected": "Reserving the company name and lodging the Memorandum of Incorporation",
-          "memo": "Forming a company involves reserving the name and registering the Memorandum of Incorporation so the company can be incorporated.",
+          "memo": "To form a company, you reserve the name and register the Memorandum of Incorporation.",
           "error_signals": [
             "ERR_BUS_COMPANY_FORMATION"
           ],
@@ -13519,7 +13519,7 @@
             "When the business will never grow or take on risk"
           ],
           "expected": "When the owners want limited liability, continuity and to raise large capital",
-          "memo": "A company suits owners who value protection of personal assets, an ongoing business and access to larger capital, and who accept the extra cost and paperwork.",
+          "memo": "A company suits owners who want their personal belongings protected, a business that carries on, and access to more money, and who accept the extra cost and paperwork.",
           "error_signals": [
             "ERR_BUS_COMPANY_BENEFIT"
           ],
@@ -13536,7 +13536,7 @@
             "Because it removes the need for any capital"
           ],
           "expected": "Because limited liability and continuity reduce the owners' risk and support growth",
-          "memo": "The cost of compliance buys real advantages — protection of personal assets, an ongoing business and easier access to capital — which can be worth it for a growing venture.",
+          "memo": "The paperwork and cost buy real advantages: personal belongings protected, a business that carries on, and easier access to money. For a growing business that can be worth it.",
           "error_signals": [
             "ERR_BUS_COMPANY_BENEFIT"
           ],
@@ -13553,7 +13553,7 @@
             "Refusing all new capital"
           ],
           "expected": "Converting into a company",
-          "memo": "To gain limited liability and raise capital from outside investors, the partnership would convert to a company, accepting the added regulation in return.",
+          "memo": "To get limited liability and bring in outside investors, the partnership would become a company and accept the extra rules that come with it.",
           "error_signals": [
             "ERR_BUS_COMPANY_BENEFIT"
           ],
@@ -13993,7 +13993,7 @@
             "It has no effect on cost or control"
           ],
           "expected": "It avoids the cost and management of a fleet but means relying on another firm's reliability",
-          "memo": "Outsourcing deliveries saves the cost and effort of owning a fleet, but the business becomes dependent on the outside firm's reliability and quality.",
+          "memo": "Outsourcing saves the cost and effort of owning trucks, but the business then depends on another company being reliable and doing good work.",
           "error_signals": [
             "ERR_BUS_ACQUIRE_DISADV"
           ],
@@ -14010,7 +14010,7 @@
             "It must run every outlet personally"
           ],
           "expected": "It expands faster using franchisees' capital and effort while earning fees and royalties",
-          "memo": "Franchising lets the franchisor grow quickly using franchisees' money and management, while collecting fees and royalties — a benefit to both sides.",
+          "memo": "Franchising lets the franchisor grow fast using franchisees' money and effort, while earning fees and royalties. Both sides benefit.",
           "error_signals": [
             "ERR_BUS_ACQUIRE_ADV"
           ],
@@ -14101,7 +14101,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Brainstorming encourages many ideas without early judgement, so people feel free to contribute; evaluation comes later.",
+          "memo": "Brainstorming encourages lots of ideas without judging them early, so people feel free to speak up. Judging comes later.",
           "error_signals": [
             "ERR_BUS_CREATIVE_TECHNIQUE"
           ],
@@ -14118,7 +14118,7 @@
             "Auditing"
           ],
           "expected": "Mind-mapping",
-          "memo": "Mind-mapping is a creative-thinking technique that visually links ideas around a central topic.",
+          "memo": "Mind-mapping is a creative-thinking technique that links ideas around a central topic in a diagram.",
           "error_signals": [
             "ERR_BUS_CREATIVE_TECHNIQUE"
           ],
@@ -14135,7 +14135,7 @@
             "SWOT"
           ],
           "expected": "Delphi",
-          "memo": "The Delphi technique collects and refines expert views over several rounds without the experts meeting, reducing the influence of dominant personalities.",
+          "memo": "The Delphi technique collects and improves experts' views over several rounds without them meeting, so loud personalities can't dominate.",
           "error_signals": [
             "ERR_BUS_CREATIVE_TECHNIQUE"
           ],
@@ -14150,7 +14150,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Creative thinking generates new solutions and improvements, helping a business solve problems and work better.",
+          "memo": "Creative thinking comes up with new solutions and improvements, helping a business solve problems and work better.",
           "error_signals": [
             "ERR_BUS_CREATIVE_ROUTINE"
           ],
@@ -14204,7 +14204,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Following fixed steps is routine; generating new ideas, combinations and unconventional uses is creative thinking.",
+          "memo": "Following fixed steps is routine thinking. Coming up with new ideas, combinations and unusual uses is creative thinking.",
           "error_signals": [
             "ERR_BUS_CREATIVE_ROUTINE"
           ],
@@ -14295,7 +14295,7 @@
             "It removes the need to evaluate ideas"
           ],
           "expected": "A wider range of ideas and perspectives is produced",
-          "memo": "Different people bring different experiences, so working together produces more varied ideas than thinking alone.",
+          "memo": "Different people bring different experiences, so a group produces more varied ideas than one person thinking alone.",
           "error_signals": [
             "ERR_BUS_CREATIVE_TECHNIQUE"
           ],
@@ -14312,7 +14312,7 @@
             "There is no difference between them"
           ],
           "expected": "A conventional solution is the usual, expected one; a non-conventional solution is new or unusual",
-          "memo": "Conventional solutions follow the normal approach; non-conventional (including indigenous) solutions take a fresh, less obvious route.",
+          "memo": "A conventional solution follows the usual approach. A non-conventional one, including indigenous solutions, takes a fresh, less obvious route.",
           "error_signals": [
             "ERR_BUS_CREATIVE_SOLUTION"
           ],
@@ -14383,7 +14383,7 @@
             "It always costs more than other methods"
           ],
           "expected": "It offers local, traditional knowledge that can suggest practical solutions",
-          "memo": "Indigenous knowledge draws on local, traditional experience and can provide creative, context-appropriate solutions.",
+          "memo": "Indigenous knowledge draws on local, traditional experience, and can offer creative solutions that suit the situation.",
           "error_signals": [
             "ERR_BUS_CREATIVE_SOLUTION"
           ],
@@ -14489,7 +14489,7 @@
             "So that only the oldest idea wins"
           ],
           "expected": "So that the idea actually fits the business's resources, costs and conditions",
-          "memo": "An idea is only useful if the business can realistically afford and implement it, so creative solutions are checked against the real situation.",
+          "memo": "An idea is only useful if the business can actually afford it and carry it out, so creative solutions are checked against the real situation.",
           "error_signals": [
             "ERR_BUS_CREATIVE_ASSESS"
           ],
@@ -14506,7 +14506,7 @@
             "Closing the bakery permanently"
           ],
           "expected": "Partnering with a shelter to turn surplus bread into a low-cost evening meal range",
-          "memo": "Turning a waste problem into a new offering through a partnership is a creative, non-conventional solution that also adds value.",
+          "memo": "Turning a waste problem into a new product through a partnership is a creative, unusual solution that also adds value.",
           "error_signals": [
             "ERR_BUS_CREATIVE_SOLUTION"
           ],
@@ -14687,7 +14687,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Personal pressure = stress; a sudden serious threat = crisis; helping people adjust to something new = change management.",
+          "memo": "Personal pressure calls for stress management. A sudden serious threat calls for crisis management. Helping people adjust to something new calls for change management.",
           "error_signals": [
             "ERR_BUS_STRESS_CLASSIFY"
           ],
@@ -14973,7 +14973,7 @@
             "It has no effect on the business"
           ],
           "expected": "Healthier, less stressed staff are more productive and take less sick leave",
-          "memo": "Investing in stress management pays off through higher productivity, lower absenteeism and better staff retention.",
+          "memo": "Managing stress pays off: staff get more done, take less sick leave and are more likely to stay.",
           "error_signals": [
             "ERR_BUS_STRESS_MANAGE"
           ],
@@ -14990,7 +14990,7 @@
             "Pretend nothing is changing"
           ],
           "expected": "Explain the reasons, retrain affected staff and involve them in the rollout",
-          "memo": "Good change management communicates the reasons, supports staff with retraining and involves them, reducing resistance and anxiety.",
+          "memo": "Good change management explains why, retrains staff and involves them. That lowers worry and resistance.",
           "error_signals": [
             "ERR_BUS_CHANGE_CONCEPT"
           ],
@@ -15184,7 +15184,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Big-picture items (summary, vision, SWOT) belong in the business plan; dated, assigned tasks (Gantt, responsibilities, timeline) belong in the action plan.",
+          "memo": "Big-picture items, like the summary, vision and SWOT, go in the business plan. Tasks with dates and people assigned, like a Gantt chart and timeline, go in the action plan.",
           "error_signals": [
             "ERR_BUS_ACTIONPLAN_PURPOSE"
           ],
@@ -15378,7 +15378,7 @@
             "It only repeats the executive summary"
           ],
           "expected": "It turns intentions into concrete, dated steps people can act on",
-          "memo": "An action plan converts the broad intentions of the business plan into specific tasks, deadlines and responsibilities.",
+          "memo": "An action plan turns the business plan's broad aims into specific tasks, deadlines and people responsible.",
           "error_signals": [
             "ERR_BUS_ACTIONPLAN_PURPOSE"
           ],
@@ -15905,7 +15905,7 @@
             "Neither, because funding is never needed"
           ],
           "expected": "Equity, because there are no fixed repayments while income is uncertain",
-          "memo": "When income is unpredictable, equity is safer because the business is not forced to make fixed loan repayments it may not be able to afford.",
+          "memo": "When income is unpredictable, equity is safer because there are no fixed loan repayments the business might not be able to afford.",
           "error_signals": [
             "ERR_BUS_SETUP_FUNDING"
           ],
@@ -15922,7 +15922,7 @@
             "Loans always turn into equity"
           ],
           "expected": "High repayments and interest can sink the business before it becomes profitable",
-          "memo": "Heavy debt means large fixed repayments that a young, not-yet-profitable business may struggle to meet, threatening its survival.",
+          "memo": "Big loans mean big fixed repayments. A young business that isn't making a profit yet may struggle to pay them, which threatens its survival.",
           "error_signals": [
             "ERR_BUS_SETUP_FUNDING"
           ],
@@ -16133,7 +16133,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Conduct and competence (punctuality, preparation, politeness) is professionalism; doing what is morally right (honesty, fairness, refusing bribes) is ethics.",
+          "memo": "How you behave and how well you work, like being on time, prepared and polite, is professionalism. Doing what's morally right, like being honest and fair and refusing bribes, is ethics.",
           "error_signals": [
             "ERR_BUS_PROF_ETHICS_DIFF"
           ],
@@ -16334,7 +16334,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Honest advertising, paying tax and safe conditions are ethical; selling expired goods, taking kickbacks and misleading on price are unethical.",
+          "memo": "Honest advertising, paying tax and safe working conditions are ethical. Selling expired goods, taking kickbacks and misleading people about prices are unethical.",
           "error_signals": [
             "ERR_BUS_ETHICS_JUDGE"
           ],
@@ -16368,7 +16368,7 @@
             "Treating staff unfairly"
           ],
           "expected": "Being honest and transparent in dealings",
-          "memo": "Honesty and transparency are key skills of ethical, responsible business practice.",
+          "memo": "Being honest and open is a key skill of ethical, responsible business.",
           "error_signals": [
             "ERR_BUS_ETHICS_CONCEPT"
           ],
@@ -16419,7 +16419,7 @@
             "Professionalism encourages cutting corners"
           ],
           "expected": "Professional standards like honesty, respect and accountability make ethical conduct part of daily work",
-          "memo": "A professional standard built on honesty, respect and accountability naturally encourages and supports ethical behaviour.",
+          "memo": "Professional standards built on honesty, respect and taking responsibility naturally encourage ethical behaviour.",
           "error_signals": [
             "ERR_BUS_PROF_ETHICS_DIFF"
           ],
@@ -16436,7 +16436,7 @@
             "Ethics never involves judgement"
           ],
           "expected": "They hold different values and perspectives on what is right",
-          "memo": "Because people bring different values and perspectives, they can reach different conclusions about the same ethical question.",
+          "memo": "People have different values and points of view, so they can reach different conclusions about the same ethical question.",
           "error_signals": [
             "ERR_BUS_ETHICS_CONCEPT"
           ],
@@ -16790,7 +16790,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Professional: answer politely, note feedback, fix errors. Unprofessional: arguing, mocking, or refusing to respond.",
+          "memo": "Professional means answering politely, noting feedback and fixing mistakes. Unprofessional means arguing, mocking or refusing to respond.",
           "error_signals": [
             "ERR_BUS_PRESENT_FEEDBACK"
           ],
@@ -16881,7 +16881,7 @@
             "Refuse to continue the presentation"
           ],
           "expected": "Stay calm, answer the point factually, and keep your composure",
-          "memo": "Staying calm and answering factually keeps you professional and credible, even when a questioner is difficult.",
+          "memo": "Staying calm and answering with facts keeps you professional and believable, even when someone is being difficult.",
           "error_signals": [
             "ERR_BUS_PRESENT_FEEDBACK"
           ],
@@ -16898,7 +16898,7 @@
             "It shortens the question time helpfully"
           ],
           "expected": "It looks unprofessional and discourages useful feedback",
-          "memo": "Arguing with feedback appears defensive and unprofessional, and it stops people offering the useful comments that could improve the work.",
+          "memo": "Arguing with feedback looks defensive and unprofessional, and it stops people giving useful comments that could improve your work.",
           "error_signals": [
             "ERR_BUS_PRESENT_FEEDBACK"
           ],
@@ -16974,7 +16974,7 @@
             "Refusing to plan"
           ],
           "expected": "Risk-taking",
-          "memo": "Risk-taking is a key entrepreneurial quality — the willingness to take calculated chances to pursue an opportunity.",
+          "memo": "Risk-taking is a key entrepreneurial quality: being willing to take sensible chances to go after an opportunity.",
           "error_signals": [
             "ERR_BUS_ENTRE_QUALITY"
           ],
@@ -17023,7 +17023,7 @@
             "A clear vision"
           ],
           "expected": "Giving up easily when things get hard",
-          "memo": "Giving up easily is the opposite of perseverance. The others — perseverance, confidence and vision — are entrepreneurial qualities.",
+          "memo": "Giving up easily is the opposite of perseverance. Perseverance, confidence and vision are all entrepreneurial qualities.",
           "error_signals": [
             "ERR_BUS_ENTRE_QUALITY"
           ],
@@ -17055,7 +17055,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Perseverance is pushing on towards a goal even when problems and setbacks arise — a core entrepreneurial quality.",
+          "memo": "Perseverance means pushing on towards a goal even when problems and setbacks come up. It's a core entrepreneurial quality.",
           "error_signals": [
             "ERR_BUS_ENTRE_QUALITY"
           ],
@@ -17109,7 +17109,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Perseverance, vision, good management and confidence are entrepreneurial qualities; fearing all risk and refusing to adapt are not.",
+          "memo": "Perseverance, vision, good management and confidence are entrepreneurial qualities. Fearing every risk and refusing to adapt are not.",
           "error_signals": [
             "ERR_BUS_ENTRE_QUALITY"
           ],
@@ -17317,7 +17317,7 @@
             "Carelessness"
           ],
           "expected": "Flexibility (the ability to adapt)",
-          "memo": "Adapting quickly to change shows flexibility, an important entrepreneurial quality.",
+          "memo": "Changing quickly when customer tastes change shows flexibility, an important entrepreneurial quality.",
           "error_signals": [
             "ERR_BUS_ENTRE_QUALITY"
           ],
@@ -17334,7 +17334,7 @@
             "lighting"
           ],
           "expected": "management",
-          "memo": "Good management and leadership — planning, organising and guiding others — is a recognised entrepreneurial quality.",
+          "memo": "Good management and leadership, meaning planning, organising and guiding others, is a recognised entrepreneurial quality.",
           "error_signals": [
             "ERR_BUS_ENTRE_QUALITY"
           ],
@@ -17352,7 +17352,7 @@
             "Closing immediately"
           ],
           "expected": "Reducing reliance on one person by training or hiring more staff",
-          "memo": "Depending on a single overworked chef threatens future operations, so spreading that capacity is the key improvement for sustainability.",
+          "memo": "Depending on one overworked chef puts the café's future at risk, so training or hiring more staff is the key improvement.",
           "error_signals": [
             "ERR_BUS_ENTRE_IMPROVE"
           ],
@@ -17386,7 +17386,7 @@
             "It removes the need to make a profit"
           ],
           "expected": "Repeat customers provide steady income and often recommend the business",
-          "memo": "Loyal customers buy again and refer others, giving the business reliable income and free word-of-mouth marketing.",
+          "memo": "Loyal customers buy again and recommend the business to others, giving it steady income and free advertising.",
           "error_signals": [
             "ERR_BUS_ENTRE_SUCCESS"
           ],
@@ -17403,7 +17403,7 @@
             "Blame customers for any problems"
           ],
           "expected": "Judge the business against entrepreneurial qualities and success factors, then list specific things to improve",
-          "memo": "A useful reflection measures the venture against the qualities and success factors, then turns the gaps into concrete areas for improvement.",
+          "memo": "A useful review checks the business against the qualities and success factors, then turns any gaps into specific things to improve.",
           "error_signals": [
             "ERR_BUS_ENTRE_IMPROVE"
           ],
@@ -17477,7 +17477,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Business people are citizens too, and through their businesses they can contribute to community development.",
+          "memo": "Business people are citizens too, and through their businesses they can help develop their communities.",
           "error_signals": [
             "ERR_BUS_CITIZEN_ROLE"
           ],
@@ -17494,7 +17494,7 @@
             "Ignoring community needs"
           ],
           "expected": "Volunteering time and skills to a local cause",
-          "memo": "Giving time, skills or resources to a community cause is a clear example of a business person fulfilling a citizenship role.",
+          "memo": "Giving time, skills or resources to a community cause is a clear way a business person acts as a good citizen.",
           "error_signals": [
             "ERR_BUS_CITIZEN_ROLE"
           ],
@@ -17526,7 +17526,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "An NGO is non-governmental — independent of the government — even though it often works alongside it for public benefit.",
+          "memo": "An NGO is non-governmental, meaning it's independent of government, even though it often works alongside it for the public good.",
           "error_signals": [
             "ERR_BUS_CITIZEN_NGO"
           ],
@@ -17584,7 +17584,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "NGOs are independent (often national/international) bodies; CBOs serve a specific local community; government bodies are run by the state.",
+          "memo": "NGOs are independent organisations, often national or international. CBOs serve one local community. Government bodies are run by the state.",
           "error_signals": [
             "ERR_BUS_CITIZEN_NGO"
           ],
@@ -17601,7 +17601,7 @@
             "By avoiding the community entirely"
           ],
           "expected": "By creating jobs, training people and supporting community projects",
-          "memo": "Creating jobs, building skills and backing local projects all develop the community both socially and economically.",
+          "memo": "Creating jobs, building skills and supporting local projects all help a community develop, socially and economically.",
           "error_signals": [
             "ERR_BUS_CITIZEN_ROLE"
           ],
@@ -17731,7 +17731,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "When a business gives back, the community and customers see it positively, which strengthens its reputation.",
+          "memo": "When a business gives back, the community and customers think better of it, which strengthens its reputation.",
           "error_signals": [
             "ERR_BUS_CITIZEN_ROLE"
           ],
@@ -17785,7 +17785,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Sponsoring, volunteering and mentoring are contributions; dumping waste, overcharging and ignoring needs are not.",
+          "memo": "Sponsoring, volunteering and mentoring help the community. Dumping waste, overcharging and ignoring needs don't.",
           "error_signals": [
             "ERR_BUS_CITIZEN_ROLE"
           ],
@@ -17802,7 +17802,7 @@
             "An owner blocking a community project"
           ],
           "expected": "An owner mentoring local youth and offering work experience",
-          "memo": "Mentoring young people and offering experience uses the owner's position to develop the community.",
+          "memo": "Mentoring young people and giving them work experience uses the owner's position to help develop the community.",
           "error_signals": [
             "ERR_BUS_CITIZEN_ROLE"
           ],
@@ -17870,7 +17870,7 @@
             "Because communities owe businesses their support"
           ],
           "expected": "Because businesses use community resources and people, so they have a duty to give back",
-          "memo": "Businesses depend on the community for customers, workers and infrastructure, which is why giving back is seen as a citizenship responsibility.",
+          "memo": "Businesses rely on the community for customers, workers and infrastructure. That's why giving back is seen as a duty of citizenship.",
           "error_signals": [
             "ERR_BUS_CITIZEN_ROLE"
           ],
@@ -17887,7 +17887,7 @@
             "They should never co-operate"
           ],
           "expected": "Each contributes resources and reach to tackle social and economic needs together",
-          "memo": "Business brings resources, NGOs bring reach and expertise, and CBOs bring local knowledge — together they can address community needs more effectively.",
+          "memo": "Businesses bring resources, NGOs bring reach and expertise, and CBOs bring local knowledge. Together they meet community needs better.",
           "error_signals": [
             "ERR_BUS_CITIZEN_ROLE"
           ],
@@ -17904,7 +17904,7 @@
             "Move profits offshore and ignore local needs"
           ],
           "expected": "Partner with a CBO to run a skills programme for unemployed local youth",
-          "memo": "Partnering with a local CBO to build skills directly develops the community and reflects responsible corporate citizenship.",
+          "memo": "Partnering with a local CBO to build skills directly helps the community develop, which is what a responsible corporate citizen does.",
           "error_signals": [
             "ERR_BUS_CITIZEN_ROLE"
           ],
@@ -17963,7 +17963,7 @@
             "Communication policy"
           ],
           "expected": "Product policy",
-          "memo": "Product policy deals with the product itself — its development, design, packaging and trademark.",
+          "memo": "Product policy deals with the product itself: how it's developed, designed, packaged and branded.",
           "error_signals": [
             "ERR_BUS_MARKETING_POLICY"
           ],
@@ -18089,7 +18089,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Packaging and design = product; discounts and price = pricing; wholesalers = distribution; adverts = communication.",
+          "memo": "Packaging and design are product. Discounts and price are pricing. Wholesalers are distribution. Adverts are communication.",
           "error_signals": [
             "ERR_BUS_MARKETING_POLICY"
           ],
@@ -18106,7 +18106,7 @@
             "The advertising agency"
           ],
           "expected": "A middleman, such as a wholesaler or retailer, between producer and consumer",
-          "memo": "Intermediaries — wholesalers and retailers — sit between the producer and the consumer and help move the product along.",
+          "memo": "Intermediaries, like wholesalers and retailers, are middlemen between the producer and the customer who help move the product along.",
           "error_signals": [
             "ERR_BUS_MARKETING_POLICY"
           ],
@@ -18165,7 +18165,7 @@
             "There is no difference between them"
           ],
           "expected": "Direct sells straight to the customer; indirect uses intermediaries like wholesalers",
-          "memo": "Direct distribution goes straight from producer to customer; indirect distribution passes through intermediaries such as wholesalers and retailers.",
+          "memo": "Direct distribution goes straight from producer to customer. Indirect distribution passes through middlemen like wholesalers and retailers.",
           "error_signals": [
             "ERR_BUS_MARKETING_POLICY"
           ],
@@ -18268,7 +18268,7 @@
             "Designing the packaging"
           ],
           "expected": "A salesperson dealing directly with a customer to make a sale",
-          "memo": "Personal selling is face-to-face (or direct) contact between a salesperson and a customer, a form of marketing communication.",
+          "memo": "Personal selling is direct contact between a salesperson and a customer to make a sale. It's a form of marketing communication.",
           "error_signals": [
             "ERR_BUS_MARKETING_POLICY"
           ],
@@ -18753,7 +18753,7 @@
             "To replace the marketing function"
           ],
           "expected": "To prevent workplace injuries and protect workers",
-          "memo": "Safety management — guided by the Occupational Health and Safety Act — aims to keep workers safe and prevent accidents.",
+          "memo": "Safety management, guided by the Occupational Health and Safety Act, aims to keep workers safe and prevent accidents.",
           "error_signals": [
             "ERR_BUS_PROD_SAFETY"
           ],
@@ -18944,7 +18944,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Belbin's role theory groups team contributions into roles such as action-oriented, people-oriented and thinking (cerebral) roles.",
+          "memo": "Belbin's theory groups the ways people contribute to a team into roles, like action roles, people roles and thinking roles.",
           "error_signals": [
             "ERR_BUS_TEAM_THEORY"
           ],
@@ -19076,7 +19076,7 @@
             "Mutual trust and respect"
           ],
           "expected": "Poor communication and competing goals",
-          "memo": "Conflict often arises from poor communication, unclear roles and competing goals; the other options reduce conflict.",
+          "memo": "Conflict often comes from poor communication, unclear roles and clashing goals. The other options reduce conflict.",
           "error_signals": [
             "ERR_BUS_TEAM_CONFLICT"
           ],
@@ -19179,7 +19179,7 @@
             "To audit the company accounts"
           ],
           "expected": "To allow workers and management to consult on workplace issues",
-          "memo": "A workplace forum is a consultation structure where workers and management discuss matters affecting the workplace.",
+          "memo": "A workplace forum is a place where workers and management talk through issues that affect the workplace.",
           "error_signals": [
             "ERR_BUS_TEAM_FORUM"
           ],
@@ -19213,7 +19213,7 @@
             "Logo"
           ],
           "expected": "Conflict",
-          "memo": "Conflict-resolution skills — listening, negotiating, finding common ground — help teams settle disputes.",
+          "memo": "Conflict-resolution skills, like listening, negotiating and finding common ground, help teams settle disagreements.",
           "error_signals": [
             "ERR_BUS_TEAM_CONFLICT"
           ],
@@ -19378,7 +19378,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "An employment contract is a legal agreement stating the duties, pay and conditions agreed between employer and employee.",
+          "memo": "An employment contract is a legal agreement setting out the duties, pay and conditions agreed between employer and employee.",
           "error_signals": [
             "ERR_BUS_HR_CONTRACT"
           ],
@@ -19467,7 +19467,7 @@
             "interview, advertise, induct, shortlist"
           ],
           "expected": "advertise, shortlist, interview, induct",
-          "memo": "Recruitment then selection: advertise, shortlist, interview, then appoint and induct the chosen candidate.",
+          "memo": "First you find candidates, then you choose: advertise, shortlist, interview, then appoint and welcome the person you picked.",
           "error_signals": [
             "ERR_BUS_HR_PROCESS"
           ],
@@ -19525,7 +19525,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Recruitment attracts applicants (adverts); selection chooses the best (interviews, references); induction settles them in (orientation).",
+          "memo": "Recruitment attracts applicants, like job adverts. Selection picks the best, like interviews and reference checks. Induction settles them in on their first days.",
           "error_signals": [
             "ERR_BUS_HR_PROCESS"
           ],
@@ -19576,7 +19576,7 @@
             "The Companies Act"
           ],
           "expected": "The Employment Equity Act (EEA)",
-          "memo": "The Employment Equity Act promotes fair treatment and equal opportunity, prohibiting unfair discrimination in the workplace.",
+          "memo": "The Employment Equity Act promotes fair treatment and equal opportunity, and bans unfair discrimination at work.",
           "error_signals": [
             "ERR_BUS_HR_ACT"
           ],
@@ -19591,7 +19591,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The Compensation for Occupational Injuries and Diseases Act (COIDA) compensates workers injured or made ill on the job.",
+          "memo": "COIDA, the Compensation for Occupational Injuries and Diseases Act, pays compensation to workers who are hurt or get ill because of their job.",
           "error_signals": [
             "ERR_BUS_HR_ACT"
           ],
@@ -19683,7 +19683,7 @@
             "Designing the company logo"
           ],
           "expected": "Introducing them to the workplace, the team and their role",
-          "memo": "Induction helps a new hire settle in by introducing the workplace, colleagues and their responsibilities.",
+          "memo": "Induction helps a new employee settle in by introducing the workplace, colleagues and their responsibilities.",
           "error_signals": [
             "ERR_BUS_HR_INDUCT"
           ],
@@ -19700,7 +19700,7 @@
             "sales"
           ],
           "expected": "employment",
-          "memo": "An employment contract is the legal agreement governing the relationship between employer and employee.",
+          "memo": "An employment contract is the legal agreement that governs the relationship between employer and employee.",
           "error_signals": [
             "ERR_BUS_HR_CONTRACT"
           ],
@@ -19717,7 +19717,7 @@
             "The Hire Purchase Act"
           ],
           "expected": "The Labour Relations Act (LRA)",
-          "memo": "The Labour Relations Act governs fair labour practices, including unfair dismissals and disputes between employers and employees.",
+          "memo": "The Labour Relations Act governs fair treatment at work, including unfair dismissals and disputes between employers and employees.",
           "error_signals": [
             "ERR_BUS_HR_ACT"
           ],
@@ -19810,7 +19810,7 @@
             "Cheaper imports"
           ],
           "expected": "Equity and protection from unfair discrimination at work",
-          "memo": "The EEA promotes equal opportunity and fair treatment, prohibiting unfair discrimination in the workplace.",
+          "memo": "The EEA promotes equal opportunity and fair treatment, and bans unfair discrimination at work.",
           "error_signals": [
             "ERR_BUS_LEG_PURPOSE"
           ],
@@ -19966,7 +19966,7 @@
             "The interest rate on home loans"
           ],
           "expected": "Fair labour relations, including unions and disputes",
-          "memo": "The LRA governs the relationship between employers, employees and unions, covering bargaining, strikes and dispute resolution.",
+          "memo": "The LRA governs relationships between employers, employees and unions, including bargaining, strikes and settling disputes.",
           "error_signals": [
             "ERR_BUS_LEG_PURPOSE"
           ],
@@ -20012,7 +20012,7 @@
             "Electronic"
           ],
           "expected": "Economic",
-          "memo": "BBBEE is Broad-Based Black Economic Empowerment, aimed at broadening economic participation.",
+          "memo": "BBBEE is Broad-Based Black Economic Empowerment, which aims to let more people take part in the economy.",
           "error_signals": [
             "ERR_BUS_LEG_PURPOSE"
           ],
@@ -20098,7 +20098,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Legislation brings compliance costs (levies, admin, contributions) but also real benefits (skills, fairness, worker protection).",
+          "memo": "The laws bring costs, like levies, paperwork and contributions, but also real benefits, like better skills, fairness and protection for workers.",
           "error_signals": [
             "ERR_BUS_LEG_IMPACT"
           ],
@@ -20132,7 +20132,7 @@
             "Unlimited credit"
           ],
           "expected": "Equality, dignity and fair treatment",
-          "memo": "Constitutional human rights include equality, human dignity and fair treatment, which businesses must respect.",
+          "memo": "The Constitution's human rights include equality, dignity and fair treatment, which businesses must respect.",
           "error_signals": [
             "ERR_BUS_LEG_RIGHTS"
           ],
@@ -20446,7 +20446,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Interviewing and advertising = recruitment/selection; PAYE and net pay = salary administration; learnerships and SETA courses = skills development.",
+          "memo": "Interviewing and advertising are recruitment and selection. PAYE and net pay are salary administration. Learnerships and SETA courses are skills development.",
           "error_signals": [
             "ERR_BUS_HR12_PROCESS"
           ],
@@ -20480,7 +20480,7 @@
             "trademark"
           ],
           "expected": "learnership",
-          "memo": "A learnership combines on-the-job experience with study, leading to a recognised qualification.",
+          "memo": "A learnership combines work experience with study and leads to a recognised qualification.",
           "error_signals": [
             "ERR_BUS_HR12_SKILLS"
           ],
@@ -20765,7 +20765,7 @@
             "stock"
           ],
           "expected": "time",
-          "memo": "Using paid work hours for personal activities is abusing work time — an unprofessional and unethical practice.",
+          "memo": "Using paid work hours for personal things is abusing work time. It's unprofessional and unethical.",
           "error_signals": [
             "ERR_BUS_ETH12_JUDGE"
           ],
@@ -20780,7 +20780,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Paying tax honestly is a legal and ethical duty that supports society and reflects responsible business practice.",
+          "memo": "Paying tax honestly is a legal and ethical duty. It supports society and shows responsible business.",
           "error_signals": [
             "ERR_BUS_ETH12_JUDGE"
           ],
@@ -20814,7 +20814,7 @@
             "Hidden"
           ],
           "expected": "Ethical",
-          "memo": "Ethical behaviour and professionalism reinforce each other — professional standards make ethical conduct part of daily work.",
+          "memo": "Ethics and professionalism support each other: professional standards make ethical behaviour part of everyday work.",
           "error_signals": [
             "ERR_BUS_ETH12_LINK"
           ],
@@ -20868,7 +20868,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Honest advertising, fair wages and paying tax are ethical; overcharging, misusing funds and hiding defects are unethical.",
+          "memo": "Honest advertising, fair wages and paying tax are ethical. Overcharging, misusing company money and hiding faults are unethical.",
           "error_signals": [
             "ERR_BUS_ETH12_JUDGE"
           ],
@@ -20885,7 +20885,7 @@
             "Ethics only matters outside work"
           ],
           "expected": "They reinforce each other — professional standards support ethical conduct",
-          "memo": "A professional standard of honesty, respect and accountability naturally supports ethical behaviour, and ethics underpins professionalism.",
+          "memo": "Professional standards of honesty, respect and taking responsibility support ethical behaviour, and ethics is the base of professionalism.",
           "error_signals": [
             "ERR_BUS_ETH12_LINK"
           ],
@@ -21069,7 +21069,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Keeping promises, honest communication and respect are professional; cutting safety, shifting blame and stealing credit are unprofessional.",
+          "memo": "Keeping promises, being honest and staying respectful are professional. Skipping safety checks, shifting blame and taking credit for others' work are unprofessional.",
           "error_signals": [
             "ERR_BUS_ETH12_JUDGE"
           ],
@@ -21279,7 +21279,7 @@
             "Payroll"
           ],
           "expected": "Brainstorming",
-          "memo": "Brainstorming generates many ideas freely, making it a creative-thinking technique.",
+          "memo": "Brainstorming produces lots of ideas freely, so it's a creative-thinking technique.",
           "error_signals": [
             "ERR_BUS_CRE12_TECHNIQUE"
           ],
@@ -21453,7 +21453,7 @@
             "Random"
           ],
           "expected": "Creative",
-          "memo": "Creative thinking deliberately moves beyond the obvious to produce new, useful options.",
+          "memo": "Creative thinking deliberately goes past the obvious to come up with new, useful options.",
           "error_signals": [
             "ERR_BUS_CRE12_TECHNIQUE"
           ],
@@ -21607,7 +21607,7 @@
             "Copy a competitor's plan without checking if it fits"
           ],
           "expected": "Generate and test several combined options (e.g. route software, training, new services) against the real situation",
-          "memo": "A complex, multi-part problem calls for generating several ideas, combining them, and testing them against the business's reality.",
+          "memo": "A problem with many parts needs several ideas, combined and then tested against the business's real situation.",
           "error_signals": [
             "ERR_BUS_CRE12_PROCESS"
           ],
@@ -21624,7 +21624,7 @@
             "A single answer guarantees success"
           ],
           "expected": "Complex problems have many factors, so one rigid answer usually misses important parts",
-          "memo": "Because complex problems involve many interacting factors, a single rigid answer typically overlooks key aspects.",
+          "memo": "Complex problems have many connected parts, so one fixed answer usually misses something important.",
           "error_signals": [
             "ERR_BUS_CRE12_COMPLEX"
           ],
@@ -21717,7 +21717,7 @@
             "reverse"
           ],
           "expected": "forward",
-          "memo": "Forward integration is taking control of a distributor or retailer — moving 'forward' down the supply chain towards the customer.",
+          "memo": "Forward integration means taking over a distributor or retailer: moving 'forward' along the supply chain towards the customer.",
           "error_signals": [
             "ERR_BUS_STRAT_INTEGRATION"
           ],
@@ -21734,7 +21734,7 @@
             "vertical"
           ],
           "expected": "horizontal",
-          "memo": "Horizontal integration is taking over a competitor operating at the same level of the market.",
+          "memo": "Horizontal integration means taking over a competitor that works at the same level of the market.",
           "error_signals": [
             "ERR_BUS_STRAT_INTEGRATION"
           ],
@@ -21783,7 +21783,7 @@
             "COIDA"
           ],
           "expected": "SWOT",
-          "memo": "A SWOT analysis identifies internal strengths and weaknesses and external opportunities and threats, guiding strategy.",
+          "memo": "A SWOT analysis lists the strengths and weaknesses inside the business and the opportunities and threats outside it. That helps the business plan its strategy.",
           "error_signals": [
             "ERR_BUS_STRAT_SWOT"
           ],
@@ -21845,7 +21845,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Integration takes over suppliers/distributors/competitors; intensive grows current and new products/markets; diversification enters new areas; defensive cuts back.",
+          "memo": "Integration means taking over suppliers, distributors or competitors. Intensive means growing with current products or markets. Diversification means moving into new areas. Defensive means cutting back.",
           "error_signals": [
             "ERR_BUS_STRAT_TYPE"
           ],
@@ -21896,7 +21896,7 @@
             "Diversification"
           ],
           "expected": "Defensive",
-          "memo": "Defensive strategies cut a business back — retrenching staff, selling off parts (divestiture) or closing entirely (liquidation).",
+          "memo": "Defensive strategies shrink a business: cutting staff (retrenchment), selling off parts (divestiture) or closing completely (liquidation).",
           "error_signals": [
             "ERR_BUS_STRAT_DEFENSIVE"
           ],
@@ -21911,7 +21911,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Diversification spreads the business into new products and often new markets or industries, reducing reliance on one area.",
+          "memo": "Diversification spreads the business into new products, and often new markets or industries, so it relies less on one area.",
           "error_signals": [
             "ERR_BUS_STRAT_TYPE"
           ],
@@ -22007,7 +22007,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Expanding, improving products and entering new industries are growth strategies; cutting costs, closing divisions and liquidating are defensive.",
+          "memo": "Expanding, improving products and entering new industries are growth strategies. Cutting costs, closing divisions and shutting down are defensive.",
           "error_signals": [
             "ERR_BUS_STRAT_TYPE"
           ],
@@ -22134,7 +22134,7 @@
             "Penetration is illegal in saturated markets"
           ],
           "expected": "There is little room left to grow sales in a saturated market, so new markets or products may be needed",
-          "memo": "When a market is saturated, pushing existing products harder yields little; market development or product development may work better.",
+          "memo": "When almost everyone already owns the product, pushing it harder won't sell much more. New markets or new products may work better.",
           "error_signals": [
             "ERR_BUS_STRAT_INTENSIVE"
           ],
@@ -22193,7 +22193,7 @@
             "Central Supply Route"
           ],
           "expected": "Corporate Social Responsibility",
-          "memo": "CSR is Corporate Social Responsibility — a business operating responsibly towards society and the environment.",
+          "memo": "CSR stands for Corporate Social Responsibility: a business acting responsibly towards society and the environment.",
           "error_signals": [
             "ERR_BUS_CSR_TERM"
           ],
@@ -22225,7 +22225,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "CSR is voluntary responsibility beyond the legal minimum — giving back to society and protecting the environment.",
+          "memo": "CSR is voluntary: giving back to society and protecting the environment, on top of what the law requires.",
           "error_signals": [
             "ERR_BUS_CSR_CONCEPT"
           ],
@@ -22416,7 +22416,7 @@
             "debt"
           ],
           "expected": "reputation",
-          "memo": "Visible responsibility improves a business's reputation, which helps attract customers, staff and partners.",
+          "memo": "When people see a business acting responsibly, its reputation improves, which helps attract customers, staff and partners.",
           "error_signals": [
             "ERR_BUS_CSR_BENEFIT"
           ],
@@ -22448,7 +22448,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "CSI projects — such as supporting education, health or access for people with disabilities — can advance human rights in a community.",
+          "memo": "CSI projects, like supporting education, health or access for people with disabilities, can help protect people's rights in a community.",
           "error_signals": [
             "ERR_BUS_CSR_CSI"
           ],
@@ -22502,7 +22502,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Reputation, loyalty and morale mainly benefit the business; schooling, a cleaner environment and jobs mainly benefit the community — though the two often overlap.",
+          "memo": "Reputation, loyalty and staff morale mainly help the business. Schooling, a cleaner environment and jobs mainly help the community. The two often overlap.",
           "error_signals": [
             "ERR_BUS_CSR_BENEFIT"
           ],
@@ -22536,7 +22536,7 @@
             "Avoiding all community contact"
           ],
           "expected": "Meeting the longer-term needs of the society in which the business operates",
-          "memo": "Responsible business practice considers the long-term well-being of society, not just immediate profit.",
+          "memo": "Responsible business thinks about society's wellbeing in the long run, not just today's profit.",
           "error_signals": [
             "ERR_BUS_CSR_CONCEPT"
           ],
@@ -22604,7 +22604,7 @@
             "Because reputation never affects sales"
           ],
           "expected": "A healthier, more skilled, more stable community provides better customers, workers and operating conditions",
-          "memo": "Investing in the community strengthens the very base of customers, workers and conditions the business depends on for long-term success.",
+          "memo": "Investing in the community strengthens the customers, workers and conditions the business itself depends on to succeed long-term.",
           "error_signals": [
             "ERR_BUS_CSR_BENEFIT"
           ],
@@ -22680,7 +22680,7 @@
             "Liquidation"
           ],
           "expected": "Inclusivity",
-          "memo": "Inclusivity means valuing and accommodating people of all backgrounds and abilities in the workplace.",
+          "memo": "Inclusivity means valuing people of all backgrounds and abilities at work and making room for their needs.",
           "error_signals": [
             "ERR_BUS_HR_INCLUSIVITY"
           ],
@@ -22802,7 +22802,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Dignity and non-discrimination are human rights; accessibility and diverse hiring are inclusivity; reducing pollution and recycling are environmental.",
+          "memo": "Dignity and no discrimination are human rights. Access for disabled staff and hiring all kinds of people is inclusivity. Less pollution and recycling are environmental.",
           "error_signals": [
             "ERR_BUS_HR_ASSESS"
           ],
@@ -22917,7 +22917,7 @@
             "Inflation"
           ],
           "expected": "Diversity",
-          "memo": "Diversity is the range of different people in a workplace; inclusivity is about welcoming and accommodating that diversity.",
+          "memo": "Diversity is the range of different people in a workplace. Inclusivity is about welcoming them and meeting their needs.",
           "error_signals": [
             "ERR_BUS_HR_INCLUSIVITY"
           ],
@@ -23003,7 +23003,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Equal pay, accessibility and merit-based promotion support rights and inclusivity; discrimination, harassment and unequal pay violate them.",
+          "memo": "Equal pay, accessible facilities and promotion on merit support rights and inclusivity. Discrimination, harassment and unequal pay go against them.",
           "error_signals": [
             "ERR_BUS_HR_RIGHTS"
           ],
@@ -23020,7 +23020,7 @@
             "Discourage different languages and cultures"
           ],
           "expected": "Accommodate diversity and give everyone equal opportunity",
-          "memo": "Inclusive workplaces accommodate diverse needs and offer equal opportunity to all.",
+          "memo": "Inclusive workplaces make room for different needs and give everyone the same opportunities.",
           "error_signals": [
             "ERR_BUS_HR_INCLUSIVITY"
           ],
@@ -23037,7 +23037,7 @@
             "Dignity applies only to customers"
           ],
           "expected": "All people are treated fairly and with respect",
-          "memo": "Equality and dignity require that everyone — staff, customers and the community — is treated fairly and respectfully.",
+          "memo": "Equality and dignity mean everyone, staff, customers and the community, is treated fairly and with respect.",
           "error_signals": [
             "ERR_BUS_HR_RIGHTS"
           ],
@@ -23088,7 +23088,7 @@
             "Only profit should ever be measured"
           ],
           "expected": "A full assessment weighs all criteria, and serious environmental harm damages health and the community the business depends on",
-          "memo": "Creating jobs is positive, but a venture must also protect the environment and health; serious harm undermines the community and fails a key criterion.",
+          "memo": "Creating jobs is good, but a business must also protect the environment and people's health. Serious harm hurts the community and fails an important test.",
           "error_signals": [
             "ERR_BUS_HR_ASSESS"
           ],
@@ -23122,7 +23122,7 @@
             "Focus on profit and ignore all three"
           ],
           "expected": "Fair, non-discriminatory employment; accessible facilities; and cleaner, less wasteful operations",
-          "memo": "A strong plan covers all three: fair employment (rights), accessible and diverse workplaces (inclusivity), and cleaner operations (environment).",
+          "memo": "A strong plan covers all three: fair hiring (rights), accessible, diverse workplaces (inclusivity) and cleaner operations (environment).",
           "error_signals": [
             "ERR_BUS_HR_ASSESS"
           ],
@@ -23196,7 +23196,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Collaboration is people working together, combining effort and skills to achieve common objectives.",
+          "memo": "Collaboration means people working together, combining their effort and skills to reach shared goals.",
           "error_signals": [
             "ERR_BUS_TEAM12_COLLAB"
           ],
@@ -23230,7 +23230,7 @@
             "Group"
           ],
           "expected": "Self",
-          "memo": "Self-assessment is honestly judging your own contribution and performance against agreed criteria.",
+          "memo": "Self-assessment means honestly judging your own work and contribution against the agreed standards.",
           "error_signals": [
             "ERR_BUS_TEAM12_ASSESS"
           ],
@@ -23459,7 +23459,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Listening, focusing on behaviour and agreeing expectations help; humiliating, excluding and retaliating make things worse.",
+          "memo": "Listening, focusing on the behaviour and agreeing on expectations help. Humiliating, leaving people out and getting even make things worse.",
           "error_signals": [
             "ERR_BUS_TEAM12_DIFFICULT"
           ],
@@ -23567,7 +23567,7 @@
             "Quietly remove all their work without telling them"
           ],
           "expected": "Speak to them privately, set clear expectations and follow up",
-          "memo": "A private, respectful conversation that sets clear expectations and is followed up addresses the behaviour without damaging the team further.",
+          "memo": "A private, respectful talk that sets clear expectations, followed up later, deals with the behaviour without hurting the team more.",
           "error_signals": [
             "ERR_BUS_TEAM12_DIFFICULT"
           ],
@@ -23601,7 +23601,7 @@
             "Reassign the whole project to avoid the issue"
           ],
           "expected": "Bring them together, identify the real cause, agree a fair way forward and follow up",
-          "memo": "Combining conflict management and problem-solving means surfacing the real cause, agreeing a fair solution together, and checking it holds.",
+          "memo": "Managing conflict and solving the problem means finding the real cause, agreeing a fair solution together, and checking it works.",
           "error_signals": [
             "ERR_BUS_TEAM12_CONFLICT"
           ],
@@ -23675,7 +23675,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The macro environment is beyond any business's control, regardless of whether it is primary, secondary or tertiary.",
+          "memo": "No business can control the macro environment, whether it's in the primary, secondary or tertiary sector.",
           "error_signals": [
             "ERR_BUS_SECTENV_CONTROL"
           ],
@@ -23709,7 +23709,7 @@
             "public"
           ],
           "expected": "secondary",
-          "memo": "A factory processes materials into products, making it a secondary-sector business.",
+          "memo": "A factory turns materials into products, so it's in the secondary sector.",
           "error_signals": [
             "ERR_BUS_SECTENV_SECTOR"
           ],
@@ -23782,7 +23782,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Farms and fishing extract (primary); factories and mills process (secondary); travel agencies and brokers serve (tertiary).",
+          "memo": "Farming and fishing take from nature (primary). Factories and mills process (secondary). Travel agencies and brokers provide services (tertiary).",
           "error_signals": [
             "ERR_BUS_SECTENV_SECTOR"
           ],
@@ -23875,7 +23875,7 @@
             "Tertiary businesses control the economy"
           ],
           "expected": "The three environments work the same way no matter what a business produces or sells",
-          "memo": "Whatever a business makes or sells, its micro is controllable, its market influenceable and its macro uncontrollable.",
+          "memo": "Whatever a business makes or sells, it controls its micro environment, influences its market environment and can't control its macro environment.",
           "error_signals": [
             "ERR_BUS_SECTENV_CONTROL"
           ],
@@ -24075,7 +24075,7 @@
             "It removes the need to study the environments"
           ],
           "expected": "It shows the control rule holds across sectors, even though the specific factors differ",
-          "memo": "Comparing sectors demonstrates that the micro/market/macro control pattern is universal, while the particular factors vary by business.",
+          "memo": "Comparing sectors shows the same control pattern applies everywhere, even though the details differ from business to business.",
           "error_signals": [
             "ERR_BUS_SECTENV_CONTROL"
           ],
@@ -24134,7 +24134,7 @@
             "Leadership only means giving orders"
           ],
           "expected": "Management organises the work; leadership inspires and guides people",
-          "memo": "Management is about planning, organising and controlling tasks; leadership is about inspiring and influencing people toward a vision.",
+          "memo": "Management is planning, organising and controlling the work. Leadership is inspiring and influencing people towards a vision.",
           "error_signals": [
             "ERR_BUS_MGMT_DIFF"
           ],
@@ -24271,7 +24271,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Scheduling, budgeting and organising are management tasks; inspiring, motivating and influencing are leadership.",
+          "memo": "Scheduling, budgeting and organising are management. Inspiring, motivating and influencing people are leadership.",
           "error_signals": [
             "ERR_BUS_MGMT_DIFF"
           ],
@@ -24364,7 +24364,7 @@
             "Avoiding all targets"
           ],
           "expected": "Rewards for good performance and consequences for poor performance",
-          "memo": "Transactional leadership works through exchanges — rewarding good performance and correcting poor performance.",
+          "memo": "Transactional leadership works like a deal: good performance is rewarded and poor performance is corrected.",
           "error_signals": [
             "ERR_BUS_MGMT_THEORY"
           ],
@@ -24437,7 +24437,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Deciding alone = autocratic; consulting the team = democratic; hands-off = laissez-faire.",
+          "memo": "Deciding alone is autocratic. Asking the team first is democratic. Staying hands-off is laissez-faire.",
           "error_signals": [
             "ERR_BUS_MGMT_STYLE"
           ],
@@ -24454,7 +24454,7 @@
             "Transformational only uses punishments"
           ],
           "expected": "Transactional uses rewards and rules; transformational inspires change through a vision",
-          "memo": "Transactional leadership runs on rewards and consequences; transformational leadership inspires people to embrace change and a shared vision.",
+          "memo": "Transactional leadership runs on rewards and consequences. Transformational leadership inspires people to embrace change and a shared vision.",
           "error_signals": [
             "ERR_BUS_MGMT_THEORY"
           ],
@@ -24488,7 +24488,7 @@
             "guessing"
           ],
           "expected": "controlling",
-          "memo": "The management tasks are planning, organising, leading/activating and controlling the work.",
+          "memo": "The management tasks are planning, organising, leading and controlling the work.",
           "error_signals": [
             "ERR_BUS_MGMT_DIFF"
           ],
@@ -24547,7 +24547,7 @@
             "Leadership style never affects motivation"
           ],
           "expected": "The autocratic style is poorly matched here; a more democratic style would likely raise motivation",
-          "memo": "Style should fit the situation; for creative, long-term work, involving the team (democratic) usually lifts motivation more than strict autocratic control.",
+          "memo": "The style should suit the situation. For creative, long-term work, involving the team (democratic) usually motivates people more than strict control.",
           "error_signals": [
             "ERR_BUS_MGMT_STYLE"
           ],
@@ -24640,7 +24640,7 @@
             "Quick"
           ],
           "expected": "Quality",
-          "memo": "TQM is Total Quality Management — a whole-business approach to continuously improving quality.",
+          "memo": "TQM stands for Total Quality Management: a whole-business approach to keep improving quality.",
           "error_signals": [
             "ERR_BUS_QUAL12_TQM"
           ],
@@ -24758,7 +24758,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "TQM elements include continuous skills development, total client satisfaction and continuous improvement. Ignoring complaints or cutting quality are not.",
+          "memo": "TQM includes constantly building skills, fully satisfying clients and always improving how things are done. Ignoring complaints and cutting quality are not part of it.",
           "error_signals": [
             "ERR_BUS_QUAL12_TQM"
           ],
@@ -24846,7 +24846,7 @@
             "waste"
           ],
           "expected": "skills",
-          "memo": "Continuous skills development keeps the workforce capable of delivering and improving quality — a TQM element.",
+          "memo": "Constantly building skills keeps staff able to deliver and improve quality. It's part of TQM.",
           "error_signals": [
             "ERR_BUS_QUAL12_TQM"
           ],
@@ -24936,7 +24936,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Defect-free, consistent goods = production quality; accurate, timely records and payments = finance quality; skilled staff and fair recruitment = HR quality.",
+          "memo": "Faultless, consistent products are production quality. Accurate records and on-time payments are finance quality. Skilled staff and fair hiring are HR quality.",
           "error_signals": [
             "ERR_BUS_QUAL12_SCOPE"
           ],
@@ -24970,7 +24970,7 @@
             "Neither needs to worry about quality"
           ],
           "expected": "Both need quality, but a large business needs formal systems to maintain it across many staff",
-          "memo": "Every business needs quality; a large business relies on formal quality systems to keep standards consistent across many people and sites.",
+          "memo": "Every business needs quality. A large business uses formal quality systems to keep standards the same across many people and sites.",
           "error_signals": [
             "ERR_BUS_QUAL12_SCOPE"
           ],
@@ -25038,7 +25038,7 @@
             "Because customers do not notice quality"
           ],
           "expected": "Because quality depends on every function and person, so all must continuously improve",
-          "memo": "TQM recognises that quality is created across every function, so it makes continuous improvement everyone's job.",
+          "memo": "TQM recognises that every function creates quality, so it makes improving everyone's job.",
           "error_signals": [
             "ERR_BUS_QUAL12_TQM"
           ],
@@ -25055,7 +25055,7 @@
             "Failure happens regardless of quality"
           ],
           "expected": "High quality builds loyalty and reputation that drive success; poor quality erodes them towards failure",
-          "memo": "Quality is a major driver of success: it builds the loyalty and reputation a business depends on, while poor quality steadily undermines them.",
+          "memo": "Quality builds the loyalty and reputation a business depends on. Poor quality slowly wears them away, pushing it towards failure.",
           "error_signals": [
             "ERR_BUS_QUAL12_SUCCESS"
           ],
@@ -25457,7 +25457,7 @@
             "Putting everything into one speculative company"
           ],
           "expected": "A government retail bond",
-          "memo": "A government retail bond is relatively low-risk with predictable interest, suiting a cautious investor; single shares carry more risk.",
+          "memo": "A government retail bond is fairly low-risk and pays predictable interest, which suits a careful investor. Single shares are riskier.",
           "error_signals": [
             "ERR_BUS_SEC_RISK"
           ],
@@ -25804,7 +25804,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "UIF and the RAF levy are compulsory; insuring household goods, a cellphone or taking a voluntary life policy is non-compulsory.",
+          "memo": "UIF and the RAF fuel levy are compulsory. Insuring household goods or a cellphone, or taking out a voluntary life policy, is optional.",
           "error_signals": [
             "ERR_BUS_INS_COMPULSORY"
           ],
@@ -26100,7 +26100,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Sole trader: unlimited liability, full control, simple start. Company: limited liability, separate legal person, continuity.",
+          "memo": "Sole trader: unlimited liability, full control and easy to start. Company: limited liability, a separate legal person, and continues after owners change.",
           "error_signals": [
             "ERR_BUS_OWN12_FEATURE"
           ],
@@ -26262,7 +26262,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Large capital, limited liability and continuity favour a company; simplicity, full control and a small low-risk scale favour a sole trader.",
+          "memo": "Needing lots of money, limited liability and continuity point to a company. Wanting simplicity, full control and a small, low-risk business point to a sole trader.",
           "error_signals": [
             "ERR_BUS_OWN12_SUCCESS"
           ],
@@ -26313,7 +26313,7 @@
             "Bankruptcy"
           ],
           "expected": "Continuity",
-          "memo": "Continuity is the ability of a business — especially a company — to keep operating even as owners change.",
+          "memo": "Continuity means a business, especially a company, keeps running even when its owners change.",
           "error_signals": [
             "ERR_BUS_OWN12_FEATURE"
           ],
@@ -26372,7 +26372,7 @@
             "The form of ownership cannot affect a high-risk venture"
           ],
           "expected": "Unlimited liability and limited capital expose the owner and constrain growth",
-          "memo": "For a high-risk, capital-hungry venture, a sole trader's unlimited liability and limited capital are poorly matched and can hold it back or ruin the owner.",
+          "memo": "A risky business that needs lots of money is a poor fit for a sole trader: unlimited liability and limited money can hold it back or ruin the owner.",
           "error_signals": [
             "ERR_BUS_OWN12_SUCCESS"
           ],
@@ -26389,7 +26389,7 @@
             "It matters only for tax"
           ],
           "expected": "It strongly shapes capital, liability, tax and continuity, but success also depends on management and the market",
-          "memo": "The form of ownership powerfully influences key factors, but success ultimately also depends on good management and market conditions.",
+          "memo": "The form of ownership strongly affects money, liability, tax and continuity. But success also depends on good management and the market.",
           "error_signals": [
             "ERR_BUS_OWN12_SUCCESS"
           ],
@@ -26406,7 +26406,7 @@
             "A form with unlimited liability for all three"
           ],
           "expected": "A company, for limited liability, shared capital and continuity",
-          "memo": "A company suits a growing venture seeking investors and asset protection, offering limited liability, easier capital and continuity.",
+          "memo": "A company suits a growing business that wants investors and to protect the owners' belongings, with limited liability, easier access to money and continuity.",
           "error_signals": [
             "ERR_BUS_OWN12_SUCCESS"
           ],
@@ -26480,7 +26480,7 @@
             "doodle"
           ],
           "expected": "data",
-          "memo": "A data response involves reading, interpreting and answering questions on presented business information and figures.",
+          "memo": "A data response means reading, making sense of and answering questions about business information and figures.",
           "error_signals": [
             "ERR_BUS_PRES12_DATA"
           ],
@@ -26743,7 +26743,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "All six items in correct buckets (or ≥75%)",
-          "memo": "Professional: answer calmly, correct errors, offer to follow up. Unprofessional: aggression, blaming the audience, refusing feedback.",
+          "memo": "Professional means answering calmly, fixing mistakes and offering to follow up. Unprofessional means getting aggressive, blaming the audience or refusing feedback.",
           "error_signals": [
             "ERR_BUS_PRES12_FEEDBACK"
           ],
@@ -26885,7 +26885,7 @@
             "One who ignores the audience entirely"
           ],
           "expected": "One who knows the audience, leads with key points, uses clear visuals and handles questions calmly",
-          "memo": "Effective communication combines audience awareness, a clear structure, good visuals and a calm, professional handling of questions.",
+          "memo": "Good communication means knowing your audience, a clear structure, good visuals and handling questions calmly and professionally.",
           "error_signals": [
             "ERR_BUS_PRES12_STRUCTURE"
           ],
