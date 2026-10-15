@@ -102,7 +102,7 @@
             "regional"
           ],
           "expected": "domestic",
-          "memo": "Domestic tourism happens inside one's own country — for example a Capetonian visiting the Kruger National Park.",
+          "memo": "Domestic tourism is travel inside your own country, like someone from Cape Town visiting the Kruger National Park.",
           "error_signals": [
             "ERR_TOUR_DOMESTIC"
           ],
@@ -119,7 +119,7 @@
             "Long-haul international tourism"
           ],
           "expected": "Regional tourism",
-          "memo": "Regional tourism is travel within the same region — for South Africa that means the SADC countries close to home, such as Botswana, Namibia or Zimbabwe.",
+          "memo": "Regional tourism is travel within your own region. For South Africans, that means nearby SADC countries like Botswana, Namibia or Zimbabwe.",
           "error_signals": [
             "ERR_TOUR_REGIONAL"
           ],
@@ -185,7 +185,7 @@
             "To stop needing food and rest"
           ],
           "expected": "To visit friends and relatives",
-          "memo": "People travel for many reasons: leisure, business, visiting friends and relatives (VFR), health, religion, sport, study and more.",
+          "memo": "People travel for many reasons: holidays, work, visiting friends and family, health, religion, sport, study and more.",
           "error_signals": [
             "ERR_TOUR_TRAVEL_REASONS"
           ],
@@ -275,7 +275,7 @@
             "So it can ignore what tourists actually want"
           ],
           "expected": "So it can offer products and service that satisfy the tourist",
-          "memo": "Knowing what tourists need and expect lets a business meet those expectations, which leads to satisfied customers and repeat business.",
+          "memo": "When a business knows what tourists need and expect, it can give them that. Happy customers come back.",
           "error_signals": [
             "ERR_TOUR_NEEDS"
           ],
@@ -290,7 +290,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Different tourists want different things. A backpacker and a luxury traveller have very different needs, preferences and expectations.",
+          "memo": "Different tourists want different things. A backpacker and a luxury traveller have very different needs, likes and expectations.",
           "error_signals": [
             "ERR_TOUR_NEEDS"
           ],
@@ -341,7 +341,7 @@
             "A guarantee of perfect weather"
           ],
           "expected": "A clean, safe room and friendly service",
-          "memo": "Expectations are the reasonable standards a tourist hopes for, such as cleanliness, safety, comfort and good service.",
+          "memo": "Expectations are the reasonable standards a tourist hopes for, like a clean, safe, comfortable room and good service.",
           "error_signals": [
             "ERR_TOUR_NEEDS"
           ],
@@ -356,7 +356,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "When South Africans holiday at home, their money stays in the local economy, supporting South African businesses and jobs.",
+          "memo": "When South Africans holiday at home, their money stays in the country, supporting local businesses and jobs.",
           "error_signals": [
             "ERR_TOUR_DOMESTIC"
           ],
@@ -495,7 +495,7 @@
             "Shopping tourist"
           ],
           "expected": "Adventure tourist",
-          "memo": "Adventure tourists seek excitement and physical challenge through activities such as rafting, hiking and bungee jumping.",
+          "memo": "Adventure tourists want excitement and physical challenge, from activities like rafting, hiking and bungee jumping.",
           "error_signals": [
             "ERR_TOUR_TYPE_MATCH"
           ],
@@ -580,7 +580,7 @@
             "Only travels for business reasons"
           ],
           "expected": "Travels to pursue a specific hobby or interest, such as bird-watching or photography",
-          "memo": "Special interest tourists build their trip around one focused interest — for example wine, birding, photography or trains.",
+          "memo": "Special interest tourists plan their whole trip around one interest, like wine, birds, photography or trains.",
           "error_signals": [
             "ERR_TOUR_TYPE_MATCH"
           ],
@@ -610,7 +610,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "A gap year is an extended break (often around a year), typically taken between school and further study or work, used to travel and gain experience.",
+          "memo": "A gap year is a long break, often about a year, usually taken between school and studying or working. People use it to travel and gain experience.",
           "error_signals": [
             "ERR_TOUR_TYPE_MATCH"
           ],
@@ -678,7 +678,7 @@
             "To avoid having to advertise the package"
           ],
           "expected": "To match the products and services to what that type of tourist needs and prefers",
-          "memo": "A profile guides the business to offer the right accommodation, activities and price for that tourist, improving satisfaction and sales.",
+          "memo": "A profile tells the business which accommodation, activities and price suit that tourist. That means happier tourists and more sales.",
           "error_signals": [
             "ERR_TOUR_PROFILE"
           ],
@@ -734,7 +734,7 @@
               "correct_bucket": "vfr"
             }
           ],
-          "memo": "Identify the main purpose: thrill-seeking = adventure; work = business; seeing family or friends = VFR.",
+          "memo": "Look at the main reason for the trip: thrills means adventure, work means business, and seeing family or friends means VFR.",
           "error_signals": [
             "ERR_TOUR_TYPE_MATCH"
           ],
@@ -852,7 +852,7 @@
               "correct_bucket": "luxury"
             }
           ],
-          "memo": "Match preferences to the profile: luxury tourists value comfort and exclusivity and will pay for it; backpackers value low cost and flexibility.",
+          "memo": "Luxury tourists want comfort and exclusivity and will pay for it. Backpackers want low cost and flexibility.",
           "error_signals": [
             "ERR_TOUR_PROFILE"
           ],
@@ -1343,7 +1343,7 @@
             "A self-catering cottage"
           ],
           "expected": "A hotel",
-          "memo": "Formal-service accommodation (hotels, lodges and game lodges) provides full service, including meals and housekeeping.",
+          "memo": "Formal-service accommodation, like hotels and lodges, gives full service, including meals and room cleaning.",
           "error_signals": [
             "ERR_TOUR_ACCOM_TYPE"
           ],
@@ -1377,7 +1377,7 @@
             "A luxury game lodge"
           ],
           "expected": "A holiday chalet with its own kitchen",
-          "memo": "Self-catering accommodation (chalets, cottages, apartments) gives guests a kitchen so they can prepare their own meals.",
+          "memo": "Self-catering places, like chalets, cottages and apartments, have a kitchen so guests can cook their own meals.",
           "error_signals": [
             "ERR_TOUR_ACCOM_TYPE"
           ],
@@ -1394,7 +1394,7 @@
             "A country house"
           ],
           "expected": "A backpacker hostel",
-          "memo": "Backpacker accommodation and hostels offer low-cost, often shared, accommodation popular with young travellers.",
+          "memo": "Backpacker hostels offer cheap, often shared, rooms that are popular with young travellers.",
           "error_signals": [
             "ERR_TOUR_ACCOM_TYPE"
           ],
@@ -1411,7 +1411,7 @@
             "A type of guest house with private suites"
           ],
           "expected": "A site where guests stay in caravans or tents, often with shared facilities",
-          "memo": "Caravan and camping sites provide stands for caravans or tents, usually with shared ablutions and other facilities.",
+          "memo": "Caravan and camping sites have spaces for caravans or tents, usually with shared bathrooms and other facilities.",
           "error_signals": [
             "ERR_TOUR_ACCOM_TYPE"
           ],
@@ -1552,7 +1552,7 @@
               "correct_bucket": "guest"
             }
           ],
-          "memo": "Formal-service = hotels and lodges; guest = guest houses and B&Bs; self-catering = units with kitchens; backpacker = budget hostels.",
+          "memo": "Formal service means hotels and lodges. Guest means guest houses and B&Bs. Self-catering means places with kitchens. Backpacker means cheap hostels.",
           "error_signals": [
             "ERR_TOUR_ACCOM_TYPE"
           ],
@@ -1655,7 +1655,7 @@
             "suite"
           ],
           "expected": "hostel",
-          "memo": "Hostels offer budget, often shared, accommodation for backpackers and youth travellers.",
+          "memo": "Hostels offer cheap, often shared, places to stay for backpackers and young travellers.",
           "error_signals": [
             "ERR_TOUR_ACCOM_TYPE"
           ],
@@ -1772,7 +1772,7 @@
               "correct_bucket": "hostel"
             }
           ],
-          "memo": "Match the tourist's budget and needs to the accommodation: full service for those who will pay for comfort; hostels for budget travellers; caravan parks for self-drive campers.",
+          "memo": "Match each tourist's budget and needs: full service for people paying for comfort, hostels for budget travellers, and caravan parks for people driving with their own caravan.",
           "error_signals": [
             "ERR_TOUR_ACCOM_MATCH"
           ],
@@ -1813,7 +1813,7 @@
             "Tourism Growth Committee of South Africa"
           ],
           "expected": "Tourism Grading Council of South Africa",
-          "memo": "The TGCSA is the official, independent body that awards star grading to accommodation and venues in South Africa.",
+          "memo": "The TGCSA (Tourism Grading Council of South Africa) is the official, independent body that gives star grades to places to stay and venues.",
           "error_signals": [
             "ERR_TOUR_TGCSA"
           ],
@@ -1977,7 +1977,7 @@
             "Wait for the government to inspect it without applying"
           ],
           "expected": "Apply to the TGCSA, which then assesses the establishment",
-          "memo": "The establishment applies to the TGCSA; an assessor then evaluates it against the grading criteria before a grade is awarded.",
+          "memo": "The business applies to the TGCSA. An assessor then checks it against the grading rules before giving it a grade.",
           "error_signals": [
             "ERR_TOUR_GRADE_PROCEDURE"
           ],
@@ -1994,7 +1994,7 @@
             "No difference at all"
           ],
           "expected": "A higher standard of facilities and more extensive service",
-          "memo": "Higher grades require higher standards — 5-star establishments offer superior facilities and a wider range of quality services.",
+          "memo": "Higher grades need higher standards. A 5-star place offers better facilities and a wider range of quality services.",
           "error_signals": [
             "ERR_TOUR_GRADE_MEANING"
           ],
@@ -2041,7 +2041,7 @@
               "correct_bucket": "tourist"
             }
           ],
-          "memo": "For tourists, grading guides and reassures their choice; for establishments, it is a credibility and marketing advantage.",
+          "memo": "Grading helps tourists choose with confidence. For businesses, it adds trust and helps with marketing.",
           "error_signals": [
             "ERR_TOUR_GRADE_BENEFIT"
           ],
@@ -2058,7 +2058,7 @@
             "Ungraded hotels are illegal"
           ],
           "expected": "The grade is awarded by an independent body, so the quality has been checked",
-          "memo": "Because an independent assessor checks the establishment, the grade is a trustworthy signal of quality.",
+          "memo": "An independent assessor has checked the place, so the grade is a trustworthy sign of quality.",
           "error_signals": [
             "ERR_TOUR_GRADE_BENEFIT"
           ],
@@ -2090,7 +2090,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A single national standard means a 4-star rating should mean roughly the same quality wherever you go, keeping standards consistent.",
+          "memo": "With one national standard, a 4-star rating should mean about the same quality wherever you go.",
           "error_signals": [
             "ERR_TOUR_GRADE_MEANING"
           ],
@@ -2124,7 +2124,7 @@
             "Free five-star service"
           ],
           "expected": "Clean, basic, functional accommodation that meets minimum standards",
-          "memo": "Even the lowest grade must meet minimum standards — 1-star means clean, basic and functional, just with fewer facilities and services than higher grades.",
+          "memo": "Even the lowest grade has minimum standards. 1-star means clean, basic and working, just with fewer facilities and services than higher grades.",
           "error_signals": [
             "ERR_TOUR_GRADE_MEANING"
           ],
@@ -2139,7 +2139,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Higher grades signal higher quality, which lets establishments charge more — guests expect to pay for superior facilities and service.",
+          "memo": "A higher grade shows higher quality, so the business can charge more. Guests expect to pay for better facilities and service.",
           "error_signals": [
             "ERR_TOUR_GRADE_BENEFIT"
           ],
@@ -2186,7 +2186,7 @@
               "correct_bucket": "false"
             }
           ],
-          "memo": "Key facts: grading is voluntary, awarded by the independent TGCSA, on a 1-to-5-star scale — it is not self-awarded and not compulsory.",
+          "memo": "Grading is voluntary, given by the independent TGCSA, on a scale of 1 to 5 stars. Businesses don't grade themselves, and it isn't required by law.",
           "error_signals": [
             "ERR_TOUR_GRADE_VOLUNTARY"
           ],
@@ -2468,7 +2468,7 @@
               "correct_bucket": "comfort"
             }
           ],
-          "memo": "Match the technology to its purpose: locks and safes protect (safety); TV and music amuse (entertainment); temperature and towel rails make the stay pleasant (comfort).",
+          "memo": "Locks and safes keep guests safe. TV and music entertain them. Temperature controls and heated towel rails make the stay comfortable.",
           "error_signals": [
             "ERR_TOUR_INROOM_TECH"
           ],
@@ -2502,7 +2502,7 @@
             "Faster check-in"
           ],
           "expected": "Environmental responsibility (saving energy)",
-          "memo": "Turning off lights in an empty room saves electricity, which supports environmental responsibility.",
+          "memo": "Switching off lights in an empty room saves electricity, which is better for the environment.",
           "error_signals": [
             "ERR_TOUR_INROOM_TECH"
           ],
@@ -2665,7 +2665,7 @@
             "A shop selling only ice cream"
           ],
           "expected": "A formal restaurant with full table service and high-quality food",
-          "memo": "Fine-dining restaurants are formal full-service restaurants offering high-quality food and attentive table service.",
+          "memo": "Fine-dining restaurants are formal, with high-quality food and attentive service at your table.",
           "error_signals": [
             "ERR_TOUR_FANDB_TYPE"
           ],
@@ -2780,7 +2780,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Full-service restaurants (fine-dining and family restaurants) provide table service by waiters.",
+          "memo": "Full-service restaurants, like fine-dining and family restaurants, have waiters who serve you at the table.",
           "error_signals": [
             "ERR_TOUR_FANDB_TYPE"
           ],
@@ -2797,7 +2797,7 @@
             "free"
           ],
           "expected": "fast",
-          "memo": "Fast-food (quick-service) establishments serve food quickly, usually over a counter.",
+          "memo": "Fast-food places serve food quickly, usually over a counter.",
           "error_signals": [
             "ERR_TOUR_FANDB_TYPE"
           ],
@@ -2853,7 +2853,7 @@
               "correct_bucket": "beverage"
             }
           ],
-          "memo": "Full-service = waiters serve you; quick-service = fast counter food; beverage-focused = mainly drinks (pubs, bars).",
+          "memo": "Full service means waiters serve you. Quick service means fast food from a counter. Beverage-focused means mainly drinks, like pubs and bars.",
           "error_signals": [
             "ERR_TOUR_FANDB_TYPE"
           ],
@@ -2887,7 +2887,7 @@
             "A coffee shop"
           ],
           "expected": "A fine-dining restaurant",
-          "memo": "A fine-dining restaurant offers the formal, high-quality experience suited to a special occasion.",
+          "memo": "A fine-dining restaurant gives the formal, high-quality experience that suits a special occasion.",
           "error_signals": [
             "ERR_TOUR_FANDB_MATCH"
           ],
@@ -2904,7 +2904,7 @@
             "A stall with no seating"
           ],
           "expected": "A relaxed full-service restaurant suitable for families, often with a children's menu",
-          "memo": "Family restaurants are full-service but informal and welcoming to children.",
+          "memo": "Family restaurants have waiters, but they're relaxed and welcoming to children.",
           "error_signals": [
             "ERR_TOUR_FANDB_TYPE"
           ],
@@ -2953,7 +2953,7 @@
             "A family restaurant"
           ],
           "expected": "A pub",
-          "memo": "A pub focuses mainly on serving drinks, making it a beverage-focused establishment.",
+          "memo": "A pub mainly serves drinks, so it's a beverage-focused establishment.",
           "error_signals": [
             "ERR_TOUR_FANDB_TYPE"
           ],
@@ -3053,7 +3053,7 @@
             "A coffee shop"
           ],
           "expected": "A fine-dining restaurant",
-          "memo": "Fine-dining restaurants provide the most formal experience, with full table service and high-quality food.",
+          "memo": "Fine-dining restaurants are the most formal, with full table service and high-quality food.",
           "error_signals": [
             "ERR_TOUR_FANDB_TYPE"
           ],
@@ -3226,7 +3226,7 @@
             "Leisure"
           ],
           "expected": "Events and conferences",
-          "memo": "Conference and exhibition venues fall under the events and conferences subsector.",
+          "memo": "Conference and exhibition venues belong to the events and conferences group.",
           "error_signals": [
             "ERR_TOUR_ATTR_SUBSECTOR"
           ],
@@ -3310,7 +3310,7 @@
               "correct_bucket": "secondary"
             }
           ],
-          "memo": "The primary attraction is the main reason for the trip (the festival); the secondary attraction is the extra visit made while there.",
+          "memo": "The primary attraction is the main reason for the trip, here the festival. The secondary attraction is the extra visit made while there.",
           "error_signals": [
             "ERR_TOUR_ATTR_PRIMARY_SECONDARY"
           ],
@@ -3344,7 +3344,7 @@
             "Leisure"
           ],
           "expected": "Conservation",
-          "memo": "Protecting wildlife and natural areas falls under the conservation subsector.",
+          "memo": "Protecting wildlife and nature belongs to the conservation group.",
           "error_signals": [
             "ERR_TOUR_ATTR_SUBSECTOR"
           ],
@@ -3393,7 +3393,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "One attraction often offers many activities — for example a national park may offer game drives, hiking and bird-watching.",
+          "memo": "One attraction often has many activities. A national park, for example, may offer game drives, hiking and bird-watching.",
           "error_signals": [
             "ERR_TOUR_ATTR_ACTIVITY"
           ],
@@ -3427,7 +3427,7 @@
             "Reason for the trip"
           ],
           "expected": "Secondary attraction",
-          "memo": "The wedding is the primary reason for the trip; uShaka Marine World, visited while there, is the secondary attraction.",
+          "memo": "The wedding is the main reason for the trip. uShaka Marine World, visited while there, is the secondary attraction.",
           "error_signals": [
             "ERR_TOUR_ATTR_PRIMARY_SECONDARY"
           ],
@@ -3478,7 +3478,7 @@
               "correct_bucket": "cultural"
             }
           ],
-          "memo": "Link the attraction's appeal to the tourist type: thrills draw adventure tourists; heritage draws cultural tourists; protected nature draws eco-tourists.",
+          "memo": "Thrills attract adventure tourists, heritage attracts cultural tourists, and protected nature attracts eco-tourists.",
           "error_signals": [
             "ERR_TOUR_ATTR_APPEAL"
           ],
@@ -3495,7 +3495,7 @@
             "It has no practical use"
           ],
           "expected": "It helps understand why tourists travel and how to plan and market trips",
-          "memo": "Knowing the main draw (primary) and the extras (secondary) helps the industry plan itineraries and market destinations effectively.",
+          "memo": "Knowing the main draw and the extras helps the industry plan trips and advertise destinations well.",
           "error_signals": [
             "ERR_TOUR_ATTR_PRIMARY_SECONDARY"
           ],
@@ -3536,7 +3536,7 @@
             "Schools, banks and airlines only"
           ],
           "expected": "The public sector, the private sector and local communities",
-          "memo": "Tourism works as a partnership between government (public sector), profit-making businesses (private sector) and the communities where tourism happens.",
+          "memo": "Tourism works as a partnership between government (the public sector), businesses that make a profit (the private sector) and the communities where tourism happens.",
           "error_signals": [
             "ERR_TOUR_INDUSTRY_PARTNERS"
           ],
@@ -3619,7 +3619,7 @@
             "Tour Bus Company of South Africa"
           ],
           "expected": "Tourism Business Council of South Africa",
-          "memo": "The TBCSA is the umbrella body representing private-sector tourism businesses in South Africa.",
+          "memo": "The TBCSA (Tourism Business Council of South Africa) represents private tourism businesses in South Africa.",
           "error_signals": [
             "ERR_TOUR_ABBREV_ORG"
           ],
@@ -3636,7 +3636,7 @@
             "Airlines only"
           ],
           "expected": "The hospitality (accommodation and catering) industry",
-          "memo": "FEDHASA = Federated Hospitality Association of South Africa, representing the hospitality industry.",
+          "memo": "FEDHASA is the Federated Hospitality Association of South Africa. It represents the hospitality industry: accommodation and catering.",
           "error_signals": [
             "ERR_TOUR_ABBREV_ORG"
           ],
@@ -3653,7 +3653,7 @@
             "Airports"
           ],
           "expected": "Travel agents (Association of Southern African Travel Agents)",
-          "memo": "ASATA = Association of Southern African Travel Agents, representing travel agents.",
+          "memo": "ASATA is the Association of Southern African Travel Agents. It represents travel agents.",
           "error_signals": [
             "ERR_TOUR_ABBREV_ORG"
           ],
@@ -3788,7 +3788,7 @@
             "sole trader"
           ],
           "expected": "parastatal",
-          "memo": "A parastatal (state-owned enterprise) is a business owned by the government, such as South African Airways.",
+          "memo": "A parastatal is a business owned by the government, such as South African Airways.",
           "error_signals": [
             "ERR_TOUR_PUBLIC_PRIVATE"
           ],
@@ -3805,7 +3805,7 @@
             "They receive no benefit at all"
           ],
           "expected": "Through job creation, development, and better roads and schools",
-          "memo": "Communities benefit from tourism through jobs, local development and improved infrastructure such as roads and schools.",
+          "memo": "Communities benefit through jobs, local development and better infrastructure like roads and schools.",
           "error_signals": [
             "ERR_TOUR_COMMUNITY"
           ],
@@ -3863,7 +3863,7 @@
               "correct_bucket": "grading"
             }
           ],
-          "memo": "FEDHASA = hospitality; ASATA = travel agents; TGCSA = grading.",
+          "memo": "FEDHASA represents hospitality, ASATA represents travel agents and the TGCSA handles grading.",
           "error_signals": [
             "ERR_TOUR_ABBREV_ORG"
           ],
@@ -3878,7 +3878,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Private-sector tourism businesses exist to make a profit, unlike government bodies that provide services.",
+          "memo": "Private tourism businesses exist to make a profit, unlike government bodies, which provide services.",
           "error_signals": [
             "ERR_TOUR_PUBLIC_PRIVATE"
           ],
@@ -4134,7 +4134,7 @@
               "correct_bucket": "electronic"
             }
           ],
-          "memo": "Electronic payments move money digitally (internet, card, cellphone); cash-based payments use physical notes and coins.",
+          "memo": "Electronic payments move money digitally, by internet, card or cellphone. Cash payments use notes and coins.",
           "error_signals": [
             "ERR_TOUR_PAY_METHOD"
           ],
@@ -4251,7 +4251,7 @@
               "correct_bucket": "internet"
             }
           ],
-          "memo": "Match the method to the setting: cash for small in-person amounts; card for in-store/at-table; internet for remote online bookings.",
+          "memo": "Cash suits small, face-to-face amounts. Cards suit paying in a shop or at the table. Internet payments suit booking online from a distance.",
           "error_signals": [
             "ERR_TOUR_PAY_CHOICE"
           ],
@@ -4832,7 +4832,7 @@
             "The location of hiking trails"
           ],
           "expected": "Countries, borders, provinces and capital cities",
-          "memo": "Political maps show human-made divisions: countries, provinces, borders and capitals.",
+          "memo": "Political maps show divisions people have made: countries, provinces, borders and capital cities.",
           "error_signals": [
             "ERR_TOUR_MAP_TYPE"
           ],
@@ -4849,7 +4849,7 @@
             "Hotel prices"
           ],
           "expected": "Natural features such as mountains, rivers and the height of land",
-          "memo": "Physical maps show natural landforms — mountains, rivers, valleys and elevation.",
+          "memo": "Physical maps show natural features: mountains, rivers, valleys and how high the land is.",
           "error_signals": [
             "ERR_TOUR_MAP_TYPE"
           ],
@@ -4949,7 +4949,7 @@
             "street"
           ],
           "expected": "physical",
-          "memo": "Physical maps show natural landforms and elevation.",
+          "memo": "Physical maps show natural features of the land and how high it is.",
           "error_signals": [
             "ERR_TOUR_MAP_TYPE"
           ],
@@ -5034,7 +5034,7 @@
               "correct_bucket": "tourist"
             }
           ],
-          "memo": "Borders and capitals = political; landforms = physical; attractions and trails = tourist information.",
+          "memo": "Borders and capitals are on political maps. Mountains and rivers are on physical maps. Attractions and trails are on tourist maps.",
           "error_signals": [
             "ERR_TOUR_MAP_TYPE"
           ],
@@ -5196,7 +5196,7 @@
             "a compass rose only"
           ],
           "expected": "GPS",
-          "memo": "Navigation apps use GPS (satellite positioning) to locate the user and give directions.",
+          "memo": "Navigation apps use GPS, which finds your position using satellites, to show where you are and give directions.",
           "error_signals": [
             "ERR_TOUR_MAP_ELECTRONIC"
           ],
@@ -5440,7 +5440,7 @@
             "Cape Town, Polokwane and Mbombela"
           ],
           "expected": "Pretoria, Cape Town and Bloemfontein",
-          "memo": "South Africa has three capitals: Pretoria (executive), Cape Town (legislative) and Bloemfontein (judicial).",
+          "memo": "South Africa has three capitals: Pretoria, where government is run; Cape Town, where Parliament makes laws; and Bloemfontein, home of the top appeal court.",
           "error_signals": [
             "ERR_TOUR_SA_CAPITAL"
           ],
@@ -5455,7 +5455,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Pretoria is the executive capital, home to the government's administration.",
+          "memo": "Pretoria is the executive capital, where the government's administration is run from.",
           "error_signals": [
             "ERR_TOUR_SA_CAPITAL"
           ],
@@ -5489,7 +5489,7 @@
             "Durban"
           ],
           "expected": "Pretoria",
-          "memo": "Pretoria is the executive capital.",
+          "memo": "Pretoria is the executive capital, where government is run from.",
           "error_signals": [
             "ERR_TOUR_SA_CAPITAL"
           ],
@@ -5523,7 +5523,7 @@
             "Kimberley"
           ],
           "expected": "Durban",
-          "memo": "King Shaka International Airport serves Durban in KwaZulu-Natal.",
+          "memo": "King Shaka International Airport serves Durban, in KwaZulu-Natal.",
           "error_signals": [
             "ERR_TOUR_SA_LOCATION"
           ],
@@ -5579,7 +5579,7 @@
               "correct_bucket": "gp"
             }
           ],
-          "memo": "Anchor each feature to its city and province: Cape Town = Western Cape; Johannesburg = Gauteng; Durban = KwaZulu-Natal.",
+          "memo": "Link each place to its city first: Cape Town is in the Western Cape, Johannesburg is in Gauteng and Durban is in KwaZulu-Natal.",
           "error_signals": [
             "ERR_TOUR_SA_LOCATION"
           ],
@@ -5669,7 +5669,7 @@
               "correct_bucket": "fs"
             }
           ],
-          "memo": "Western Cape = Cape Town; KwaZulu-Natal = Pietermaritzburg; Free State = Bloemfontein.",
+          "memo": "The Western Cape's capital is Cape Town, KwaZulu-Natal's is Pietermaritzburg, and the Free State's is Bloemfontein.",
           "error_signals": [
             "ERR_TOUR_SA_CAPITAL"
           ],
@@ -5979,7 +5979,7 @@
               "correct_bucket": "africa"
             }
           ],
-          "memo": "Place each country on its continent: South Africa and Kenya in Africa; Brazil and Argentina in South America; China in Asia.",
+          "memo": "South Africa and Kenya are in Africa, Brazil and Argentina are in South America, and China is in Asia.",
           "error_signals": [
             "ERR_TOUR_CONTINENT"
           ],
@@ -6013,7 +6013,7 @@
             "The Middle East"
           ],
           "expected": "Australasia",
-          "memo": "Australasia covers Australia, New Zealand and neighbouring Pacific islands.",
+          "memo": "Australasia covers Australia, New Zealand and the nearby Pacific islands.",
           "error_signals": [
             "ERR_TOUR_REGION_VS_CONTINENT"
           ],
@@ -6101,7 +6101,7 @@
               "correct_bucket": "region"
             }
           ],
-          "memo": "Continents and oceans are fixed geographic features; tourism regions (like the Middle East or Western Europe) are industry groupings.",
+          "memo": "Continents and oceans are fixed natural features. Tourism regions, like the Middle East or Western Europe, are groupings the industry uses.",
           "error_signals": [
             "ERR_TOUR_REGION_VS_CONTINENT"
           ],
@@ -6118,7 +6118,7 @@
             "China, India, Japan, Thailand"
           ],
           "expected": "Namibia, Botswana, Zimbabwe, Mozambique",
-          "memo": "Namibia, Botswana, Zimbabwe and Mozambique all border South Africa and are SADC members.",
+          "memo": "Namibia, Botswana, Zimbabwe and Mozambique all share a border with South Africa and belong to SADC.",
           "error_signals": [
             "ERR_TOUR_SADC"
           ],
@@ -6596,7 +6596,7 @@
             "Goods being imported"
           ],
           "expected": "Residents travelling within their own country",
-          "memo": "Domestic tourism is people travelling within their own country — for example South Africans holidaying in South Africa.",
+          "memo": "Domestic tourism is people travelling inside their own country, like South Africans on holiday in South Africa.",
           "error_signals": [
             "ERR_TOUR_DOMESTIC_CONCEPT"
           ],
@@ -6630,7 +6630,7 @@
             "Fewer people are employed"
           ],
           "expected": "Tourists' spending stays in the country and supports local jobs",
-          "memo": "When residents holiday at home, their spending stays in the local economy, supporting businesses and jobs.",
+          "memo": "When people holiday at home, their money stays in the country, supporting local businesses and jobs.",
           "error_signals": [
             "ERR_TOUR_DOMESTIC_BENEFIT"
           ],
@@ -6645,7 +6645,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Domestic tourism benefits the home country — its economy, people and communities.",
+          "memo": "Domestic tourism benefits the home country: its economy, its people and its communities.",
           "error_signals": [
             "ERR_TOUR_DOMESTIC_BENEFIT"
           ],
@@ -6662,7 +6662,7 @@
             "one-way"
           ],
           "expected": "local",
-          "memo": "The campaign promotes affordable local travel within South Africa.",
+          "memo": "The Sho't Left campaign encourages South Africans to take affordable holidays in their own country.",
           "error_signals": [
             "ERR_TOUR_SHOTLEFT"
           ],
@@ -6835,7 +6835,7 @@
             "A tourist from Brazil at Kruger Park"
           ],
           "expected": "A Johannesburg family on holiday in the Western Cape",
-          "memo": "A domestic tourist travels within their own country — here, South Africans travelling inside South Africa.",
+          "memo": "A domestic tourist travels inside their own country. Here, that's South Africans travelling within South Africa.",
           "error_signals": [
             "ERR_TOUR_DOMESTIC_CONCEPT"
           ],
@@ -6852,7 +6852,7 @@
             "atlas"
           ],
           "expected": "economy",
-          "memo": "Domestic spending keeps money circulating in the local economy.",
+          "memo": "Money spent on holiday at home keeps moving around the local economy.",
           "error_signals": [
             "ERR_TOUR_DOMESTIC_BENEFIT"
           ],
@@ -6867,7 +6867,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "If people travel in quieter seasons too, business is spread more evenly through the year, easing seasonality.",
+          "memo": "If people also travel in quieter times of year, business is spread more evenly, so the busy and slow seasons are less extreme.",
           "error_signals": [
             "ERR_TOUR_DOMESTIC_BENEFIT"
           ],
@@ -6901,7 +6901,7 @@
             "It only helps foreign airlines"
           ],
           "expected": "Local travellers keep the tourism industry running and protect jobs",
-          "memo": "When foreign arrivals fall, domestic tourists help keep accommodation, attractions and transport in business.",
+          "memo": "When fewer foreign tourists come, local travellers keep hotels, attractions and transport in business.",
           "error_signals": [
             "ERR_TOUR_DOMESTIC_BENEFIT"
           ],
@@ -6948,7 +6948,7 @@
               "correct_bucket": "false"
             }
           ],
-          "memo": "Domestic tourism is home-country travel that benefits the local economy and is promoted by Sho't Left.",
+          "memo": "Domestic tourism is travel in your own country. It helps the local economy, and Sho't Left promotes it.",
           "error_signals": [
             "ERR_TOUR_DOMESTIC_CONCEPT"
           ],
@@ -6999,7 +6999,7 @@
             "International embassies"
           ],
           "expected": "Local jobs and small businesses",
-          "memo": "Domestic tourists spend at local establishments, supporting community jobs and small businesses.",
+          "memo": "Domestic tourists spend money at local places, supporting jobs in the community and small businesses.",
           "error_signals": [
             "ERR_TOUR_DOMESTIC_BENEFIT"
           ],
@@ -7072,7 +7072,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Gauteng to KwaZulu-Natal crosses provinces, so it is inter-provincial (between provinces).",
+          "memo": "Gauteng to KwaZulu-Natal crosses from one province to another, so it's inter-provincial travel.",
           "error_signals": [
             "ERR_TOUR_INTRA_INTER"
           ],
@@ -7089,7 +7089,7 @@
             "non"
           ],
           "expected": "intra",
-          "memo": "Intra-provincial = within one province.",
+          "memo": "Intra-provincial means travel that stays inside one province.",
           "error_signals": [
             "ERR_TOUR_INTRA_INTER"
           ],
@@ -7155,7 +7155,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Average expenditure per tourist shows the typical spend of one tourist, useful for measuring economic value.",
+          "memo": "Average spend per tourist shows how much a typical tourist spends. It helps measure what tourism is worth.",
           "error_signals": [
             "ERR_TOUR_STATS_TERM"
           ],
@@ -7285,7 +7285,7 @@
             "A grid reference"
           ],
           "expected": "Seasonality (a high season)",
-          "memo": "A busy December at the coast reflects seasonality — the summer-holiday high season.",
+          "memo": "A busy December at the coast shows seasonality: summer holidays are the high season.",
           "error_signals": [
             "ERR_TOUR_STATS_TERM"
           ],
@@ -7381,7 +7381,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Longer stays usually mean more spending on accommodation, meals and activities, benefiting the local economy.",
+          "memo": "Staying longer usually means spending more on rooms, meals and activities, which helps the local economy.",
           "error_signals": [
             "ERR_TOUR_STATS_TERM"
           ],
@@ -7712,7 +7712,7 @@
               "correct_bucket": "kzn"
             }
           ],
-          "memo": "Anchor each to its city: Cape Town = Western Cape; Johannesburg = Gauteng; Durban / Drakensberg = KwaZulu-Natal.",
+          "memo": "Link each place to its city first: Cape Town is in the Western Cape, Johannesburg is in Gauteng, and Durban and the Drakensberg are in KwaZulu-Natal.",
           "error_signals": [
             "ERR_TOUR_PROV_ATTR"
           ],
@@ -8004,7 +8004,7 @@
             "A type of city hotel"
           ],
           "expected": "A privately owned reserve offering exclusive, high-end wildlife experiences",
-          "memo": "Luxury private game reserves are privately run and offer exclusive services and experiences at a premium price.",
+          "memo": "Luxury private game reserves are privately run and offer exclusive service and experiences at a high price.",
           "error_signals": [
             "ERR_TOUR_PRIVATE_RESERVE"
           ],
@@ -8090,7 +8090,7 @@
               "correct_bucket": "private"
             }
           ],
-          "memo": "National parks are state-run (Kruger, Addo, Table Mountain); luxury private reserves are privately owned (Shamwari, Phinda, Madikwe, Sabi Sabi).",
+          "memo": "National parks are run by the state, like Kruger, Addo and Table Mountain. Luxury private reserves are privately owned, like Shamwari, Phinda, Madikwe and Sabi Sabi.",
           "error_signals": [
             "ERR_TOUR_PRIVATE_RESERVE"
           ],
@@ -8107,7 +8107,7 @@
             "A shopping mall food court"
           ],
           "expected": "A large conservation area involving more than one country, working together",
-          "memo": "Transfrontier conservation areas link protected land across countries to conserve nature on a larger scale.",
+          "memo": "Transfrontier conservation areas join up protected land across countries, so nature can be protected on a bigger scale.",
           "error_signals": [
             "ERR_TOUR_TRANSFRONTIER"
           ],
@@ -8141,7 +8141,7 @@
             "A business traveller wanting only a city hotel"
           ],
           "expected": "A traveller wanting exclusive service and willing to pay a premium",
-          "memo": "Luxury private reserves appeal to tourists who want exclusivity and premium experiences and can pay more.",
+          "memo": "Luxury private reserves suit tourists who want exclusive, top-end experiences and can afford to pay more.",
           "error_signals": [
             "ERR_TOUR_PRIVATE_RESERVE"
           ],
@@ -8158,7 +8158,7 @@
             "Hosting motor racing"
           ],
           "expected": "Conservation of nature and wildlife",
-          "memo": "National parks exist mainly to conserve nature and wildlife, while allowing responsible tourism.",
+          "memo": "National parks exist mainly to protect nature and wildlife, while allowing tourism that doesn't harm them.",
           "error_signals": [
             "ERR_TOUR_PARK_CONCEPT"
           ],
@@ -8173,7 +8173,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Kirstenbosch is South Africa's flagship national botanical garden, focused on indigenous plants.",
+          "memo": "Kirstenbosch is South Africa's leading national botanical garden. It focuses on plants that grow naturally here.",
           "error_signals": [
             "ERR_TOUR_PARK_CONCEPT"
           ],
@@ -8271,7 +8271,7 @@
               "correct_bucket": "single"
             }
           ],
-          "memo": "Transfrontier parks (Kgalagadi, Ai-Ais/Richtersveld, Greater Limpopo) cross borders; the rest sit within South Africa alone.",
+          "memo": "Transfrontier parks, like Kgalagadi, Ai-Ais/Richtersveld and Greater Limpopo, cross country borders. The others are inside South Africa only.",
           "error_signals": [
             "ERR_TOUR_TRANSFRONTIER"
           ],
@@ -8363,7 +8363,7 @@
             "Kept only in a zoo"
           ],
           "expected": "Naturally occurring in a particular area",
-          "memo": "Indigenous species occur naturally in an area; alien species are introduced from elsewhere.",
+          "memo": "Indigenous species grow or live naturally in an area. Alien species were brought in from somewhere else.",
           "error_signals": [
             "ERR_TOUR_INDIGENOUS_ALIEN"
           ],
@@ -8465,7 +8465,7 @@
             "Gold Reef City"
           ],
           "expected": "Kirstenbosch",
-          "memo": "Kirstenbosch National Botanical Garden in Cape Town is the flagship botanical garden.",
+          "memo": "Kirstenbosch National Botanical Garden in Cape Town is South Africa's leading botanical garden.",
           "error_signals": [
             "ERR_TOUR_BOTANICAL"
           ],
@@ -8534,7 +8534,7 @@
             "imported"
           ],
           "expected": "indigenous",
-          "memo": "Indigenous = naturally occurring in the area.",
+          "memo": "Indigenous means it occurs naturally in that area.",
           "error_signals": [
             "ERR_TOUR_INDIGENOUS_ALIEN"
           ],
@@ -8549,7 +8549,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Alien species are introduced from elsewhere; indigenous species occur naturally.",
+          "memo": "Alien species were brought in from elsewhere. Species that occur naturally here are called indigenous.",
           "error_signals": [
             "ERR_TOUR_INDIGENOUS_ALIEN"
           ],
@@ -8583,7 +8583,7 @@
             "To go deep-sea diving"
           ],
           "expected": "To enjoy and learn about indigenous plants in a beautiful setting",
-          "memo": "Botanical gardens attract tourists who enjoy plants, scenery and learning about flora.",
+          "memo": "Botanical gardens attract tourists who enjoy plants and beautiful scenery and want to learn about them.",
           "error_signals": [
             "ERR_TOUR_BOTANICAL"
           ],
@@ -8598,7 +8598,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Illegal poaching pushes already-endangered species like the rhino closer to extinction.",
+          "memo": "Illegal hunting pushes animals that are already endangered, like the rhino, closer to dying out.",
           "error_signals": [
             "ERR_TOUR_POACHING"
           ],
@@ -8645,7 +8645,7 @@
               "correct_bucket": "indigenous"
             }
           ],
-          "memo": "Indigenous = naturally belongs there; alien = brought in from elsewhere.",
+          "memo": "Indigenous means it belongs there naturally. Alien means it was brought in from somewhere else.",
           "error_signals": [
             "ERR_TOUR_INDIGENOUS_ALIEN"
           ],
@@ -8694,7 +8694,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Kirstenbosch is famous for showcasing and conserving indigenous South African flora.",
+          "memo": "Kirstenbosch is famous for showing off and protecting plants that grow naturally in South Africa.",
           "error_signals": [
             "ERR_TOUR_BOTANICAL"
           ],
@@ -8735,7 +8735,7 @@
             "Building as many hotels as possible"
           ],
           "expected": "Meeting today's needs without harming the ability of future generations to enjoy the same resources",
-          "memo": "Sustainability means using resources responsibly now so they remain for future generations.",
+          "memo": "Sustainability means using resources carefully now, so they're still there for future generations.",
           "error_signals": [
             "ERR_TOUR_SUSTAIN_CONCEPT"
           ],
@@ -8752,7 +8752,7 @@
             "Hotels, transport and food"
           ],
           "expected": "Planet, people and profit",
-          "memo": "The three pillars are planet (environment), people (society) and profit (economy).",
+          "memo": "The three pillars are planet (the environment), people (society) and profit (the economy).",
           "error_signals": [
             "ERR_TOUR_PILLARS"
           ],
@@ -8803,7 +8803,7 @@
             "Only the weather"
           ],
           "expected": "Tourism being financially viable and benefiting the local economy",
-          "memo": "The profit pillar is about tourism making enough money to survive and to benefit local economies.",
+          "memo": "The profit pillar is about tourism earning enough to survive, and helping the local economy.",
           "error_signals": [
             "ERR_TOUR_PILLARS"
           ],
@@ -8818,7 +8818,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Sustainability is all about protecting resources FOR future generations.",
+          "memo": "Sustainability is all about protecting resources for future generations.",
           "error_signals": [
             "ERR_TOUR_SUSTAIN_CONCEPT"
           ],
@@ -8891,7 +8891,7 @@
               "correct_bucket": "profit"
             }
           ],
-          "memo": "Planet = environment; people = community/society; profit = economy.",
+          "memo": "Planet means the environment, people means the community, and profit means the economy.",
           "error_signals": [
             "ERR_TOUR_PILLARS"
           ],
@@ -8908,7 +8908,7 @@
             "A lodge raising its room rates"
           ],
           "expected": "A lodge recycling its waste and saving water",
-          "memo": "Recycling and saving water protect the natural environment — the planet pillar.",
+          "memo": "Recycling and saving water protect nature, which is the planet pillar.",
           "error_signals": [
             "ERR_TOUR_PILLARS"
           ],
@@ -8925,7 +8925,7 @@
             "Investing spare cash in shares"
           ],
           "expected": "Employing and training local community members",
-          "memo": "Hiring and training local people benefits the community — the people pillar.",
+          "memo": "Hiring and training local people helps the community, which is the people pillar.",
           "error_signals": [
             "ERR_TOUR_PILLARS"
           ],
@@ -8942,7 +8942,7 @@
             "Dumping litter in a river"
           ],
           "expected": "Buying supplies from local businesses so money stays in the area",
-          "memo": "Supporting local suppliers keeps money circulating in the local economy — the profit pillar.",
+          "memo": "Buying from local suppliers keeps money moving in the local economy, which is the profit pillar.",
           "error_signals": [
             "ERR_TOUR_PILLARS"
           ],
@@ -9077,7 +9077,7 @@
               "correct_bucket": "false"
             }
           ],
-          "memo": "Sustainable tourism protects the future and balances all three pillars — it does not exhaust resources or ignore the environment.",
+          "memo": "Sustainable tourism protects the future and balances all three pillars. It doesn't use resources up or ignore the environment.",
           "error_signals": [
             "ERR_TOUR_SUSTAIN_CONCEPT"
           ],
@@ -9111,7 +9111,7 @@
             "Politics"
           ],
           "expected": "Planet (environment)",
-          "memo": "Clean energy reduces environmental harm, supporting the planet pillar (it can also save money over time).",
+          "memo": "Clean energy does less harm to the environment, so it supports the planet pillar. It can also save money over time.",
           "error_signals": [
             "ERR_TOUR_PILLARS"
           ],
@@ -9128,7 +9128,7 @@
             "Politics"
           ],
           "expected": "People (society)",
-          "memo": "Employing and developing local people supports the community — the people pillar.",
+          "memo": "Employing and training local people supports the community, which is the people pillar.",
           "error_signals": [
             "ERR_TOUR_PILLARS"
           ],
@@ -9143,7 +9143,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The profit pillar recognises that a business must be financially viable to keep operating and benefiting people and the planet.",
+          "memo": "A business has to earn enough to keep running, so it can keep helping people and the planet. That's the profit pillar.",
           "error_signals": [
             "ERR_TOUR_PILLARS"
           ],
@@ -9184,7 +9184,7 @@
             "Avoiding all natural areas"
           ],
           "expected": "Travelling in a way that minimises harm to the environment and host communities",
-          "memo": "Responsible tourism is behaviour that reduces negative impacts on nature and local people.",
+          "memo": "Responsible tourism means behaving in ways that do less harm to nature and to local people.",
           "error_signals": [
             "ERR_TOUR_RESP_CONCEPT"
           ],
@@ -9201,7 +9201,7 @@
             "Sustainability only applies overseas"
           ],
           "expected": "Sustainability is the goal; responsible behaviour is how tourists and businesses help reach it",
-          "memo": "Sustainability is the aim (lasting balance of planet/people/profit); responsible tourism is the behaviour that achieves it.",
+          "memo": "Sustainability is the goal: a lasting balance of planet, people and profit. Responsible tourism is the behaviour that gets you there.",
           "error_signals": [
             "ERR_TOUR_RESP_VS_SUSTAIN"
           ],
@@ -9267,7 +9267,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Littering harms the environment and wildlife — it is irresponsible behaviour.",
+          "memo": "Litter harms nature and wildlife, so leaving it behind is irresponsible.",
           "error_signals": [
             "ERR_TOUR_RESP_BEHAVIOUR"
           ],
@@ -9284,7 +9284,7 @@
             "legal"
           ],
           "expected": "environmental",
-          "memo": "Saving energy and water are good environmental practices.",
+          "memo": "Saving energy and water are good practices for the environment.",
           "error_signals": [
             "ERR_TOUR_RESP_PRACTICE"
           ],
@@ -9336,7 +9336,7 @@
               "correct_bucket": "irresponsible"
             }
           ],
-          "memo": "Responsible behaviour protects nature and people; irresponsible behaviour damages the environment or disrespects communities.",
+          "memo": "Responsible behaviour protects nature and people. Irresponsible behaviour damages the environment or disrespects local communities.",
           "error_signals": [
             "ERR_TOUR_RESP_BEHAVIOUR"
           ],
@@ -9409,7 +9409,7 @@
               "strength": "red_herring"
             }
           ],
-          "memo": "The strong points explain how responsible behaviour protects nature, attractions and communities. The red herrings are irrelevant.",
+          "memo": "The strong points show how responsible behaviour protects nature, attractions and communities. Nice views and hats have nothing to do with the argument.",
           "error_signals": [
             "ERR_TOUR_RESP_BEHAVIOUR"
           ],
@@ -9424,7 +9424,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Protecting the environment keeps the attractions that draw tourists, helping the industry survive long-term.",
+          "memo": "Protecting the environment keeps the attractions that bring tourists in, so the industry can survive long-term.",
           "error_signals": [
             "ERR_TOUR_RESP_PRACTICE"
           ],
@@ -9464,7 +9464,7 @@
               "correct_answer": "neither"
             }
           ],
-          "memo": "Source A shows responsible behaviour (trails, litter removal, distance); Source B shows irresponsible behaviour (off-road, feeding animals, littering). Both visit nature; neither mentions a fee.",
+          "memo": "Source A shows responsible behaviour: staying on trails, taking litter away, keeping a distance. Source B shows the opposite: driving off-road, feeding animals, littering. Both visit nature; neither mentions a fee.",
           "error_signals": [
             "ERR_TOUR_RESP_BEHAVIOUR"
           ],
@@ -9498,7 +9498,7 @@
             "inbound"
           ],
           "expected": "responsible",
-          "memo": "Such behaviour defines a responsible tourist.",
+          "memo": "Respecting the environment and the local community is what makes a tourist responsible.",
           "error_signals": [
             "ERR_TOUR_RESP_CONCEPT"
           ],
@@ -9577,7 +9577,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Feeding wild animals harms their health and natural behaviour, so it is irresponsible.",
+          "memo": "Feeding wild animals harms their health and changes how they behave, so it's irresponsible.",
           "error_signals": [
             "ERR_TOUR_RESP_BEHAVIOUR"
           ],
@@ -9611,7 +9611,7 @@
             "Printing documents you do not need"
           ],
           "expected": "Taking shorter showers to save water",
-          "memo": "Shorter showers conserve water, a scarce resource — a responsible, good environmental practice.",
+          "memo": "Shorter showers save water, which is scarce. That's responsible and good for the environment.",
           "error_signals": [
             "ERR_TOUR_RESP_PRACTICE"
           ],
@@ -9737,7 +9737,7 @@
             "Use a private car for every short trip"
           ],
           "expected": "Use public transport and take fewer unnecessary flights",
-          "memo": "Choosing public transport and limiting flights cuts a tourist's greenhouse-gas emissions.",
+          "memo": "Using public transport and flying less cuts the greenhouse gases a tourist is responsible for.",
           "error_signals": [
             "ERR_TOUR_CARBON_REDUCE"
           ],
@@ -9943,7 +9943,7 @@
             "Watering the garden during the hottest hours daily"
           ],
           "expected": "Fitting energy-saving LED lights and recycling waste",
-          "memo": "Energy-saving lighting and recycling cut emissions and waste.",
+          "memo": "LED lights save energy and recycling cuts waste, so both reduce harm to the climate.",
           "error_signals": [
             "ERR_TOUR_CARBON_REDUCE"
           ],
@@ -10005,7 +10005,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Sharing transport spreads emissions over more people, lowering each traveller's footprint.",
+          "memo": "Sharing transport spreads the pollution over many people, so each traveller's share is smaller.",
           "error_signals": [
             "ERR_TOUR_CARBON_REDUCE"
           ],
@@ -10022,7 +10022,7 @@
             "Attractions are improved by pollution"
           ],
           "expected": "Tourism depends on a healthy climate and natural attractions",
-          "memo": "Many attractions (beaches, parks, wildlife) depend on a stable climate, so global warming directly threatens tourism.",
+          "memo": "Many attractions, like beaches, parks and wildlife, depend on a stable climate. Global warming directly threatens tourism.",
           "error_signals": [
             "ERR_TOUR_GLOBALWARM_IMPACT"
           ],
@@ -10146,7 +10146,7 @@
             "Cleaning a tour bus"
           ],
           "expected": "Gathering information about customers and the market",
-          "memo": "Market research collects information about customers, competitors and trends to guide decisions.",
+          "memo": "Market research collects information about customers, competitors and trends to help a business make decisions.",
           "error_signals": [
             "ERR_TOUR_MKT_RESEARCH"
           ],
@@ -10180,7 +10180,7 @@
             "A type of bank card"
           ],
           "expected": "An advantage that makes a business stand out from its competitors",
-          "memo": "A competitive edge is something that makes a business more attractive than its rivals, such as a unique experience or better price.",
+          "memo": "A competitive edge is something that makes a business more attractive than its rivals, like a unique experience or a better price.",
           "error_signals": [
             "ERR_TOUR_MKT_TERM"
           ],
@@ -10348,7 +10348,7 @@
             "The location of the head office"
           ],
           "expected": "Advertising and communicating the product to customers",
-          "memo": "Promotion covers advertising and all communication used to make customers aware and interested.",
+          "memo": "Promotion means advertising and all the ways a business tells customers about its product and gets them interested.",
           "error_signals": [
             "ERR_TOUR_MKT_5PS"
           ],
@@ -10380,7 +10380,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "A target market is a specific group, not everyone — for example families, adventure travellers or luxury tourists.",
+          "memo": "A target market is a specific group, not everyone, like families, adventure travellers or luxury tourists.",
           "error_signals": [
             "ERR_TOUR_MKT_TERM"
           ],
@@ -10482,7 +10482,7 @@
             "Refusing to advertise"
           ],
           "expected": "Offering a unique experience that rivals cannot match",
-          "memo": "A competitive edge sets a business apart — for example a unique tour, better value or special service.",
+          "memo": "A competitive edge sets a business apart, like a unique tour, better value or special service.",
           "error_signals": [
             "ERR_TOUR_MKT_TERM"
           ],
@@ -10557,7 +10557,7 @@
             "A type of heritage plaque"
           ],
           "expected": "The variety of different cultures within a society",
-          "memo": "Cultural diversity is the presence of many different cultures — a key feature of South Africa.",
+          "memo": "Cultural diversity means many different cultures living in one society. It's a key feature of South Africa.",
           "error_signals": [
             "ERR_TOUR_CULTURE_CONCEPT"
           ],
@@ -10591,7 +10591,7 @@
             "To stop tourists from visiting"
           ],
           "expected": "So that future generations can learn from and enjoy it",
-          "memo": "Conserving heritage keeps a society's history and identity alive for future generations.",
+          "memo": "Protecting heritage keeps a society's history and identity alive for future generations.",
           "error_signals": [
             "ERR_TOUR_HERITAGE_CONCEPT"
           ],
@@ -10709,7 +10709,7 @@
             "One identical tradition shared by all"
           ],
           "expected": "Many languages, traditions and cuisines living side by side",
-          "memo": "South Africa's many languages and traditions are a clear example of cultural diversity — a tourism drawcard.",
+          "memo": "South Africa's many languages, traditions and foods show its cultural diversity, which attracts tourists.",
           "error_signals": [
             "ERR_TOUR_CULTURE_CONCEPT"
           ],
@@ -10792,7 +10792,7 @@
               "correct_bucket": "cuisine"
             }
           ],
-          "memo": "Architecture = building styles; cuisine = food; music and dance = performance traditions.",
+          "memo": "Architecture means building styles, cuisine means food, and music and dance are performance traditions.",
           "error_signals": [
             "ERR_TOUR_CULTURE_ELEMENT"
           ],
@@ -10858,7 +10858,7 @@
             "Architecture"
           ],
           "expected": "The exchange rate",
-          "memo": "Cuisine, music and architecture are cultural elements; the exchange rate is an economic figure, not a cultural element.",
+          "memo": "Food, music and buildings are parts of culture. The exchange rate is a money figure, not culture.",
           "error_signals": [
             "ERR_TOUR_CULTURE_ELEMENT"
           ],
@@ -10939,7 +10939,7 @@
             "It has no benefits at all"
           ],
           "expected": "It preserves history and identity and can attract cultural tourists",
-          "memo": "Conserving heritage protects a nation's history and identity and is itself a draw for cultural tourism.",
+          "memo": "Protecting heritage keeps a country's history and identity alive, and it also attracts cultural tourists.",
           "error_signals": [
             "ERR_TOUR_HERITAGE_CONCEPT"
           ],
@@ -11014,7 +11014,7 @@
             "Cultural sites are always underwater"
           ],
           "expected": "Cultural sites are made or shaped by people; natural sites are formed by nature",
-          "memo": "People create cultural heritage (monuments, buildings); nature creates natural heritage (mountains, caves).",
+          "memo": "People create cultural heritage, like monuments and buildings. Nature creates natural heritage, like mountains and caves.",
           "error_signals": [
             "ERR_TOUR_HERIT_CULT_NAT"
           ],
@@ -11240,7 +11240,7 @@
               "correct_bucket": "national"
             }
           ],
-          "memo": "Local sites matter mainly to a community; national sites are significant to the whole country and are nationally declared.",
+          "memo": "Local sites matter mainly to one community. National sites matter to the whole country and are officially declared.",
           "error_signals": [
             "ERR_TOUR_HERIT_LEVEL"
           ],
@@ -11257,7 +11257,7 @@
             "To stop people learning about the past"
           ],
           "expected": "To preserve history and identity and attract cultural tourists",
-          "memo": "Conserving heritage sites keeps history alive and draws cultural and heritage tourists.",
+          "memo": "Protecting heritage sites keeps history alive and attracts cultural and heritage tourists.",
           "error_signals": [
             "ERR_TOUR_HERIT_CONSERVE"
           ],
@@ -11272,7 +11272,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "National heritage sites are significant to the whole country, ranking above provincial and local sites.",
+          "memo": "National heritage sites matter to the whole country, so they rank above provincial and local sites.",
           "error_signals": [
             "ERR_TOUR_HERIT_LEVEL"
           ],
@@ -11336,7 +11336,7 @@
               "correct_bucket": "cultural"
             }
           ],
-          "memo": "Human-made or human-significant objects and buildings are cultural; landforms are natural.",
+          "memo": "Things people made, or that matter because of people, are cultural, like a graveyard or a fossil find. Landforms are natural.",
           "error_signals": [
             "ERR_TOUR_HERIT_CULT_NAT"
           ],
@@ -11353,7 +11353,7 @@
             "Tourism regions"
           ],
           "expected": "Cultural heritage sites",
-          "memo": "Graveyards and historic buildings are human-made, so they are cultural heritage.",
+          "memo": "Graveyards and historic buildings were made by people, so they're cultural heritage.",
           "error_signals": [
             "ERR_TOUR_HERIT_CULT_NAT"
           ],
@@ -11387,7 +11387,7 @@
             "National sites are always natural and local ones always cultural"
           ],
           "expected": "A national site is significant to the whole country; a local site mainly to its community",
-          "memo": "The difference is the level of significance — national sites matter countrywide; local sites matter mainly to their community.",
+          "memo": "The difference is how widely they matter: national sites matter to the whole country, local sites mainly to their community.",
           "error_signals": [
             "ERR_TOUR_HERIT_LEVEL"
           ],
@@ -11428,7 +11428,7 @@
             "A buffet table"
           ],
           "expected": "A computer with email",
-          "memo": "Communication technology includes computers (with email), telephones, cellphones, fax machines, printers and photocopiers.",
+          "memo": "Communication technology includes computers with email, phones, cellphones, fax machines, printers and photocopiers.",
           "error_signals": [
             "ERR_TOUR_COMM_TECH"
           ],
@@ -11445,7 +11445,7 @@
             "Communication by post only"
           ],
           "expected": "Communication that is spoken",
-          "memo": "Verbal communication is spoken — face-to-face or by phone.",
+          "memo": "Verbal communication is spoken, either face-to-face or on the phone.",
           "error_signals": [
             "ERR_TOUR_VERBAL_WRITTEN"
           ],
@@ -11479,7 +11479,7 @@
             "A travel document"
           ],
           "expected": "Good manners and polite behaviour when communicating by email",
-          "memo": "Netiquette is polite, professional conduct when communicating online, including in emails.",
+          "memo": "Netiquette means being polite and professional when communicating online, including in emails.",
           "error_signals": [
             "ERR_TOUR_NETIQUETTE"
           ],
@@ -11563,7 +11563,7 @@
               "correct_bucket": "written"
             }
           ],
-          "memo": "Spoken = verbal (calls, conversations, commentary); text-based = written (email, SMS, memo).",
+          "memo": "Spoken communication, like calls, conversations and commentary, is verbal. Text, like email, SMS and memos, is written.",
           "error_signals": [
             "ERR_TOUR_VERBAL_WRITTEN"
           ],
@@ -11597,7 +11597,7 @@
             "Driving a tour bus"
           ],
           "expected": "Holding meetings with people in different places using live video",
-          "memo": "Video-conferencing lets people in different locations meet live by video, saving travel time and cost.",
+          "memo": "Video-conferencing lets people in different places meet live on video, saving travel time and money.",
           "error_signals": [
             "ERR_TOUR_COMM_TECH"
           ],
@@ -11614,7 +11614,7 @@
             "A payment method"
           ],
           "expected": "Communication that guides and informs travellers",
-          "memo": "Road and tourism information signs communicate directions and information to travellers.",
+          "memo": "Road and tourism signs give travellers directions and information.",
           "error_signals": [
             "ERR_TOUR_COMM_TECH"
           ],
@@ -11727,7 +11727,7 @@
             "A verbal tour commentary"
           ],
           "expected": "A business's social-media posts and website",
-          "memo": "Websites and social-media posts are written communication often used to market tourism products.",
+          "memo": "Websites and social-media posts are written communication, often used to advertise tourism products.",
           "error_signals": [
             "ERR_TOUR_VERBAL_WRITTEN"
           ],
@@ -11759,7 +11759,7 @@
             "It has no effect on customers"
           ],
           "expected": "It creates a professional, friendly impression that satisfies customers",
-          "memo": "Polite, professional communication makes customers feel valued and reflects well on the business.",
+          "memo": "Polite, professional communication makes customers feel valued and makes the business look good.",
           "error_signals": [
             "ERR_TOUR_NETIQUETTE"
           ],
@@ -11840,7 +11840,7 @@
             "To drive guests around"
           ],
           "expected": "To produce paper copies of documents such as itineraries and vouchers",
-          "memo": "Printers and photocopiers create paper copies of documents like itineraries, tickets and vouchers.",
+          "memo": "Printers and photocopiers make paper copies of documents like itineraries, tickets and vouchers.",
           "error_signals": [
             "ERR_TOUR_COMM_TECH"
           ],
@@ -11915,7 +11915,7 @@
             "A damaged reputation"
           ],
           "expected": "Loyal, returning customers and positive word-of-mouth",
-          "memo": "Excellent service earns loyalty and good recommendations, which grow the business.",
+          "memo": "Excellent service makes customers loyal and gets the business recommended, which helps it grow.",
           "error_signals": [
             "ERR_TOUR_SERVICE_VALUE"
           ],
@@ -11981,7 +11981,7 @@
             "expiry"
           ],
           "expected": "excellence",
-          "memo": "Service excellence = consistently meeting or beating expectations.",
+          "memo": "Service excellence means always meeting or beating what customers expect.",
           "error_signals": [
             "ERR_TOUR_SERVICE_CONCEPT"
           ],
@@ -12190,7 +12190,7 @@
             "receipt"
           ],
           "expected": "reputation",
-          "memo": "Negative word-of-mouth damages a business's reputation.",
+          "memo": "When unhappy customers tell others, it damages a business's reputation.",
           "error_signals": [
             "ERR_TOUR_SERVICE_CONSEQ"
           ],
@@ -12205,7 +12205,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Happy customers recommending a business bring in new customers — free, trusted advertising.",
+          "memo": "Happy customers who recommend a business bring in new ones. It's free advertising that people trust.",
           "error_signals": [
             "ERR_TOUR_SERVICE_VALUE"
           ],
@@ -12344,7 +12344,7 @@
             "The boarding pass given to a passenger"
           ],
           "expected": "A major entry and exit point into a country or region, such as a main airport",
-          "memo": "A gateway is a main point through which tourists enter or leave a country or region — for example, OR Tambo International Airport is South Africa's busiest air gateway.",
+          "memo": "A gateway is a main point where tourists enter or leave a country or region. OR Tambo International is South Africa's busiest air gateway.",
           "error_signals": [
             "ERR_TOUR_GATEWAY"
           ],
@@ -12378,7 +12378,7 @@
             "George Airport"
           ],
           "expected": "OR Tambo International Airport in Johannesburg",
-          "memo": "OR Tambo International Airport (code JNB) in Johannesburg is the busiest airport in South Africa and on the African continent, handling the most passengers and flights.",
+          "memo": "OR Tambo International Airport (JNB) in Johannesburg is the busiest airport in South Africa and in Africa, with the most passengers and flights.",
           "error_signals": [
             "ERR_TOUR_SA_AIRPORTS"
           ],
@@ -12393,7 +12393,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "ACSA owns and operates nine of South Africa's main airports, including the three largest: OR Tambo (Johannesburg), Cape Town International and King Shaka (Durban).",
+          "memo": "ACSA owns and runs nine of South Africa's main airports, including the three biggest: OR Tambo, Cape Town International and King Shaka in Durban.",
           "error_signals": [
             "ERR_TOUR_ACSA"
           ],
@@ -12444,7 +12444,7 @@
             "Transatlantic flight"
           ],
           "expected": "Regional flight",
-          "memo": "A regional flight travels between countries in the same region — for South Africa that means nearby Southern African countries such as Namibia, Botswana or Zimbabwe.",
+          "memo": "A regional flight goes between countries in the same region. For South Africa, that means nearby countries like Namibia, Botswana or Zimbabwe.",
           "error_signals": [
             "ERR_TOUR_FLIGHT_TYPE"
           ],
@@ -12459,7 +12459,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Cape Town to London crosses international borders and continents, so it is an inter-continental (international) flight, not a domestic one.",
+          "memo": "Cape Town to London crosses borders and continents, so it's an inter-continental (international) flight, not a domestic one.",
           "error_signals": [
             "ERR_TOUR_FLIGHT_TYPE"
           ],
@@ -12549,7 +12549,7 @@
               "correct_bucket": "intercontinental"
             }
           ],
-          "memo": "Domestic = within South Africa; regional = to a nearby Southern African country; inter-continental = to another continent.",
+          "memo": "Domestic means within South Africa, regional means to a nearby Southern African country, and inter-continental means to another continent.",
           "error_signals": [
             "ERR_TOUR_FLIGHT_TYPE"
           ],
@@ -12566,7 +12566,7 @@
             "The very first flight an airline ever operated"
           ],
           "expected": "A flight a passenger changes to in order to reach a final destination",
-          "memo": "A connecting flight is a second (or further) flight a traveller takes after landing, to continue a journey when there is no direct flight to the final destination.",
+          "memo": "A connecting flight is the next flight a traveller takes after landing, to finish a journey when there's no direct flight.",
           "error_signals": [
             "ERR_TOUR_CONNECTING"
           ],
@@ -12632,7 +12632,7 @@
             "There is no difference; the two terms mean the same thing"
           ],
           "expected": "An international airport handles flights to and from other countries; a national airport mainly handles flights within the country",
-          "memo": "International airports have customs and immigration facilities for cross-border flights. National (domestic) airports mainly serve flights inside the country.",
+          "memo": "International airports have customs and immigration for flights across borders. National airports mainly handle flights within the country.",
           "error_signals": [
             "ERR_TOUR_SA_AIRPORTS"
           ],
@@ -12700,7 +12700,7 @@
               "correct_bucket": "international"
             }
           ],
-          "memo": "SAA is the national carrier; FlySafair and Lift are budget airlines; Emirates and British Airways are international carriers flying to South Africa.",
+          "memo": "SAA is the national airline, FlySafair and Lift are budget airlines, and Emirates and British Airways are international airlines that fly to South Africa.",
           "error_signals": [
             "ERR_TOUR_AIRLINES"
           ],
@@ -12715,7 +12715,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "A private landing strip is a small, privately owned runway (for example on a game farm or lodge) used by private or chartered aircraft, not a large ACSA airport with scheduled flights.",
+          "memo": "A private landing strip is a small, privately owned runway, for example at a game lodge, used by private or chartered planes. It's not a big ACSA airport.",
           "error_signals": [
             "ERR_TOUR_SA_AIRPORTS"
           ],
@@ -12940,7 +12940,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Emergency exit seats usually have extra legroom, but passengers in them must be willing and able to help open the exit and assist in an emergency.",
+          "memo": "Exit-row seats usually have more legroom, but the people sitting there must be willing and able to open the exit and help in an emergency.",
           "error_signals": [
             "ERR_TOUR_SEATING"
           ],
@@ -13154,7 +13154,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Before take-off the crew show the safety procedures — seatbelts, exits, life jackets and oxygen masks — so passengers are prepared for an emergency.",
+          "memo": "Before take-off, the crew show passengers the seatbelts, exits, life jackets and oxygen masks, so everyone knows what to do in an emergency.",
           "error_signals": [
             "ERR_TOUR_SAFETY"
           ],
@@ -13229,7 +13229,7 @@
             "Displays flight departure times"
           ],
           "expected": "Identifies a person using a body feature such as a fingerprint or face",
-          "memo": "Biometric scanners identify travellers by unique body features (fingerprints, faces or eyes), making identity checks faster and more secure.",
+          "memo": "Biometric scanners identify travellers by their fingerprints, face or eyes, making identity checks faster and safer.",
           "error_signals": [
             "ERR_TOUR_AIRTECH"
           ],
@@ -13261,7 +13261,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Walk-through and hand-held metal detectors alert security to metal objects such as keys, coins or possible weapons hidden on a passenger.",
+          "memo": "Metal detectors alert security to metal items on a passenger, like keys, coins or possible weapons.",
           "error_signals": [
             "ERR_TOUR_AIRTECH"
           ],
@@ -13400,7 +13400,7 @@
               "correct_bucket": "convenience"
             }
           ],
-          "memo": "Scanners and detectors keep people safe (security); display boards and kiosks share information; baggage wrap and self check-in make travel easier (convenience).",
+          "memo": "Scanners and detectors keep people safe. Display boards and kiosks give information. Baggage wrapping and self check-in make travel easier.",
           "error_signals": [
             "ERR_TOUR_AIRTECH"
           ],
@@ -13579,7 +13579,7 @@
             "It prints the in-flight menu"
           ],
           "expected": "It confirms identity quickly and is hard to fake",
-          "memo": "Because biometrics use unique body features, they confirm identity fast and are very difficult to forge, improving both speed and security.",
+          "memo": "Biometrics use features unique to each body, so they confirm who you are quickly and are very hard to fake.",
           "error_signals": [
             "ERR_TOUR_AIRTECH"
           ],
@@ -13596,7 +13596,7 @@
             "biometric"
           ],
           "expected": "security",
-          "memo": "X-ray security scanners are positioned at the security checkpoint so staff can check bag contents before passengers move into the airside area.",
+          "memo": "X-ray security scanners sit at the security checkpoint so staff can see what's in bags before passengers go airside.",
           "error_signals": [
             "ERR_TOUR_AIRTECH"
           ],
@@ -13637,7 +13637,7 @@
             "Long-distance overnight travel with beds"
           ],
           "expected": "City sightseeing, so tourists can view attractions from an open upper deck",
-          "memo": "Open-top sightseeing buses (such as City Sightseeing's red buses) let tourists see and photograph city attractions from an open upper deck, often hop-on hop-off.",
+          "memo": "Open-top sightseeing buses, like City Sightseeing's red buses, let tourists see and photograph city attractions from an open upper deck, often getting on and off as they like.",
           "error_signals": [
             "ERR_TOUR_BUSTYPE"
           ],
@@ -13908,7 +13908,7 @@
             "A bus reserved for airport staff"
           ],
           "expected": "A bus adapted for a particular use, such as an open-top bus for sightseeing",
-          "memo": "Special purpose buses are built or adapted for a specific use — for example open-top buses for sightseeing — rather than ordinary point-to-point travel.",
+          "memo": "Special purpose buses are built or changed for one particular job, like open-top buses for sightseeing, instead of ordinary trips from A to B.",
           "error_signals": [
             "ERR_TOUR_BUSTYPE"
           ],
@@ -14062,7 +14062,7 @@
             "A high-speed train linking different countries"
           ],
           "expected": "A commuter train for everyday local travel within cities",
-          "memo": "Metrorail is a commuter service that carries people on short, everyday trips within and around cities — not a tourist or luxury train.",
+          "memo": "Metrorail is a commuter train for short, everyday trips in and around cities. It's not a tourist or luxury train.",
           "error_signals": [
             "ERR_TOUR_TRAINTYPE"
           ],
@@ -14079,7 +14079,7 @@
             "Budget long-distance train"
           ],
           "expected": "Luxury tourist train",
-          "memo": "The Blue Train is one of South Africa's famous luxury tourist trains, offering five-star comfort and scenery on routes such as Pretoria to Cape Town.",
+          "memo": "The Blue Train is one of South Africa's famous luxury tourist trains, with five-star comfort and scenery on routes like Pretoria to Cape Town.",
           "error_signals": [
             "ERR_TOUR_LUXTRAIN"
           ],
@@ -14111,7 +14111,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Shosholoza Meyl runs long-distance passenger trains between major South African cities, offering an affordable way to travel and see the country.",
+          "memo": "Shosholoza Meyl runs long-distance passenger trains between major cities. It's an affordable way to travel and see the country.",
           "error_signals": [
             "ERR_TOUR_TRAINTYPE"
           ],
@@ -14177,7 +14177,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Rovos Rail is a famous luxury train offering classic, five-star rail journeys and is marketed to tourists seeking a special experience.",
+          "memo": "Rovos Rail is a famous luxury train offering classic, five-star journeys, sold to tourists who want a special experience.",
           "error_signals": [
             "ERR_TOUR_LUXTRAIN"
           ],
@@ -14194,7 +14194,7 @@
             "A cruise ship operating from Durban"
           ],
           "expected": "A modern high-speed rapid-rail service in Gauteng",
-          "memo": "The Gautrain is a fast, modern rapid-rail system in Gauteng, linking Johannesburg, Pretoria, Sandton and OR Tambo International Airport.",
+          "memo": "The Gautrain is a fast, modern train in Gauteng linking Johannesburg, Pretoria, Sandton and OR Tambo International Airport.",
           "error_signals": [
             "ERR_TOUR_GAUTRAIN"
           ],
@@ -14263,7 +14263,7 @@
             "A dining car serving five-course meals"
           ],
           "expected": "A reloadable smartcard for electronic ticketing and boarding",
-          "memo": "The Gautrain uses a reloadable Gautrain card for electronic ticketing and tap-in boarding, with electronic arrival and departure announcements.",
+          "memo": "The Gautrain uses a reloadable card that you tap to buy tickets and board, plus electronic announcements for arrivals and departures.",
           "error_signals": [
             "ERR_TOUR_GAUTRAIN"
           ],
@@ -14312,7 +14312,7 @@
             "It removes the need for tourists to carry passports"
           ],
           "expected": "It gives tourists a fast, safe link between the airport and city centres, reducing road traffic",
-          "memo": "The Gautrain offers tourists a quick, reliable, safe link from OR Tambo to business and city areas, easing road congestion and supporting tourism.",
+          "memo": "The Gautrain gives tourists a quick, reliable and safe link from OR Tambo to the city, easing traffic on the roads and helping tourism.",
           "error_signals": [
             "ERR_TOUR_GAUTRAIN"
           ],
@@ -14395,7 +14395,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Premier Classe offers a premium, more comfortable long-distance rail experience with better service than standard economy travel.",
+          "memo": "Premier Classe is a more comfortable, premium long-distance train, with better service than standard economy travel.",
           "error_signals": [
             "ERR_TOUR_LUXTRAIN"
           ],
@@ -14429,7 +14429,7 @@
             "Durban beachfront"
           ],
           "expected": "OR Tambo International Airport",
-          "memo": "The Gautrain links OR Tambo International Airport with Sandton, Johannesburg and Pretoria — all within Gauteng.",
+          "memo": "The Gautrain links OR Tambo International Airport with Sandton, Johannesburg and Pretoria, all in Gauteng.",
           "error_signals": [
             "ERR_TOUR_GAUTRAIN"
           ],
@@ -14602,7 +14602,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Cruises are often largely all-inclusive: the price typically covers the cabin, most meals and the onboard entertainment, though some extras cost more.",
+          "memo": "Cruises are mostly all-inclusive: the price usually covers your cabin, most meals and the entertainment on board, though some extras cost more.",
           "error_signals": [
             "ERR_TOUR_CRUISEPACKAGE"
           ],
@@ -14908,7 +14908,7 @@
             "Speak more than one language"
           ],
           "expected": "Hold a valid driver's licence",
-          "memo": "To rent a car a customer must have a valid driver's licence, meet a minimum age, be creditworthy (usually a credit card) and sign the rental contract.",
+          "memo": "To rent a car, you need a valid driver's licence, must be old enough, usually need a credit card, and must sign the rental contract.",
           "error_signals": [
             "ERR_TOUR_RENTCOND"
           ],
@@ -14942,7 +14942,7 @@
             "Advance"
           ],
           "expected": "Accident",
-          "memo": "PAI is Personal Accident Insurance, covering medical costs if the driver or passengers are injured in an accident.",
+          "memo": "PAI is Personal Accident Insurance. It covers medical costs if the driver or passengers are hurt in an accident.",
           "error_signals": [
             "ERR_TOUR_INSURANCE"
           ],
@@ -15096,7 +15096,7 @@
               "correct_bucket": "incidental"
             }
           ],
-          "memo": "Standard/additional charges (levy, surcharge) are part of the quote; optional extras (extra driver, GPS) are chosen; incidental costs (fines, accident admin) depend on what happens during the rental.",
+          "memo": "Standard charges, like the levy and airport surcharge, are part of the quote. Optional extras, like another driver or GPS, are your choice. Incidental costs, like fines, depend on what happens during the rental.",
           "error_signals": [
             "ERR_TOUR_RENTCOST"
           ],
@@ -15145,7 +15145,7 @@
             "trust"
           ],
           "expected": "credit",
-          "memo": "Being creditworthy (normally proven with a credit card) reassures the company that the renter can cover deposits, damage or extra charges.",
+          "memo": "Being creditworthy, usually shown with a credit card, reassures the company that you can pay deposits, damage or extra charges.",
           "error_signals": [
             "ERR_TOUR_RENTCOND"
           ],
@@ -15359,7 +15359,7 @@
             "To increase the number of international flights only"
           ],
           "expected": "To grow tourism by getting more South Africans to travel within their own country",
-          "memo": "The DTGS focuses on domestic tourism — encouraging South Africans to explore and travel within South Africa, which spreads the benefits of tourism more widely.",
+          "memo": "The DTGS is about getting South Africans to explore and travel within South Africa, which spreads tourism's benefits more widely.",
           "error_signals": [
             "ERR_TOUR_DTGS"
           ],
@@ -15376,7 +15376,7 @@
             "Raising the cost of domestic travel"
           ],
           "expected": "People empowerment and job creation",
-          "memo": "The DTGS objectives include sustainable growth, transforming the sector, and empowering people while creating jobs.",
+          "memo": "The DTGS aims for lasting growth, changing the sector to include more people, and giving people skills and jobs.",
           "error_signals": [
             "ERR_TOUR_DTGS"
           ],
@@ -15393,7 +15393,7 @@
             "expenditure"
           ],
           "expected": "seasonality",
-          "memo": "Reducing seasonality means spreading travel across the whole year so the industry is not overloaded in holidays and quiet the rest of the time.",
+          "memo": "Reducing seasonality means spreading travel over the whole year, so the industry isn't overloaded in the holidays and empty the rest of the time.",
           "error_signals": [
             "ERR_TOUR_DTGS_METHOD"
           ],
@@ -15408,7 +15408,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "The DTGS is about domestic tourism — South Africans travelling within South Africa — not about attracting foreign visitors.",
+          "memo": "The DTGS is about South Africans travelling within South Africa, not about attracting foreign visitors.",
           "error_signals": [
             "ERR_TOUR_DTGS"
           ],
@@ -15425,7 +15425,7 @@
             "Reducing the total number of trips taken"
           ],
           "expected": "Encouraging more trips to less popular provinces, not only the well-known spots",
-          "memo": "Improving geographic spread means getting tourists to visit a wider range of places, so quieter provinces also benefit from tourism income and jobs.",
+          "memo": "It means getting tourists to visit a wider range of places, so quieter provinces also earn money and jobs from tourism.",
           "error_signals": [
             "ERR_TOUR_DTGS_METHOD"
           ],
@@ -15459,7 +15459,7 @@
             "West"
           ],
           "expected": "South",
-          "memo": "Increasing volumes means getting a larger number of South Africans to travel domestically, growing the overall size of domestic tourism.",
+          "memo": "Increasing volumes means getting more South Africans to travel in their own country, growing domestic tourism overall.",
           "error_signals": [
             "ERR_TOUR_DTGS_METHOD"
           ],
@@ -15474,7 +15474,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Events and festivals draw visitors throughout the year, helping reduce seasonality and spread tourism to different areas.",
+          "memo": "Events and festivals bring visitors at different times of year, which evens out the busy and quiet seasons and spreads tourism to more areas.",
           "error_signals": [
             "ERR_TOUR_DTGS_METHOD"
           ],
@@ -15592,7 +15592,7 @@
             "volume"
           ],
           "expected": "transformation",
-          "memo": "Transformation means changing the industry so more South Africans, especially those previously excluded, can take part and benefit.",
+          "memo": "Transformation means changing the industry so more South Africans, especially those left out in the past, can take part and benefit.",
           "error_signals": [
             "ERR_TOUR_DTGS"
           ],
@@ -15626,7 +15626,7 @@
             "Raising the price of holidays"
           ],
           "expected": "Getting a larger number of South Africans to travel domestically",
-          "memo": "Increasing volumes is about growing the number of domestic travellers — more people taking trips within South Africa.",
+          "memo": "Increasing volumes is about growing the number of people taking trips within South Africa.",
           "error_signals": [
             "ERR_TOUR_DTGS_METHOD"
           ],
@@ -15682,7 +15682,7 @@
               "correct_bucket": "spread"
             }
           ],
-          "memo": "Longer stays and higher spend raise expenditure; off-peak travel and events reduce seasonality; marketing quieter areas improves geographic spread.",
+          "memo": "Longer stays and more spending raise expenditure. Travelling outside the holidays and winter events reduce seasonality. Promoting quieter areas improves the geographic spread.",
           "error_signals": [
             "ERR_TOUR_DTGS_METHOD"
           ],
@@ -15697,7 +15697,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Sustainable tourism sector growth and development is a core objective, so the industry grows in a lasting, responsible way.",
+          "memo": "One core aim is for tourism to grow in a lasting, responsible way.",
           "error_signals": [
             "ERR_TOUR_DTGS"
           ],
@@ -15731,7 +15731,7 @@
             "It has no effect on local people"
           ],
           "expected": "It gives people skills, work and income, improving their lives",
-          "memo": "By creating jobs and developing skills, tourism empowers local people with income and opportunities, supporting whole communities.",
+          "memo": "By creating jobs and building skills, tourism gives local people income and opportunities, which helps whole communities.",
           "error_signals": [
             "ERR_TOUR_DTGS"
           ],
@@ -16043,7 +16043,7 @@
             "A still, silent retreat with no activities"
           ],
           "expected": "Event wonders, such as a music festival",
-          "memo": "Event wonders are holidays built around events like festivals or sport, which appeal to young, energetic travellers seeking excitement.",
+          "memo": "'Event wonders' are holidays built around events like festivals or sport. They appeal to young, energetic travellers looking for excitement.",
           "error_signals": [
             "ERR_TOUR_SEGMENT_PRODUCT"
           ],
@@ -16111,7 +16111,7 @@
               "correct_bucket": "emerging"
             }
           ],
-          "memo": "Established segments travel regularly, emerging segments are increasing their travel, and untapped segments barely travel yet.",
+          "memo": "Established groups already travel regularly, emerging groups are travelling more each year, and untapped groups hardly travel yet.",
           "error_signals": [
             "ERR_TOUR_SEGMENT"
           ],
@@ -16252,7 +16252,7 @@
             "festival"
           ],
           "expected": "sangoma",
-          "memo": "A sangoma is a traditional healer who uses traditional medicine and spiritual practices. This heritage interests many cultural tourists.",
+          "memo": "A sangoma is a traditional healer who uses traditional medicine and spiritual practices. Many cultural tourists are interested in this heritage.",
           "error_signals": [
             "ERR_TOUR_CULTURE"
           ],
@@ -16267,7 +16267,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "South Africa's many cultures, languages and traditions are a unique attraction that draws both international and domestic tourists.",
+          "memo": "South Africa's many cultures, languages and traditions are a unique attraction for both foreign and local tourists.",
           "error_signals": [
             "ERR_TOUR_CULTURE_VALUE"
           ],
@@ -16284,7 +16284,7 @@
             "Polokwane"
           ],
           "expected": "Durban",
-          "memo": "Durban's beachfront is famous for its decorated rickshaws pulled by men in traditional Zulu attire — a popular cultural attraction.",
+          "memo": "Durban's beachfront is famous for its decorated rickshaws, pulled by men in traditional Zulu dress. It's a popular cultural sight.",
           "error_signals": [
             "ERR_TOUR_CULTURE"
           ],
@@ -16318,7 +16318,7 @@
             "cuisine"
           ],
           "expected": "medicine",
-          "memo": "Traditional medicine uses natural and herbal remedies, often practised by healers such as sangomas, and forms part of cultural heritage.",
+          "memo": "Traditional medicine uses natural and herbal remedies, often given by healers such as sangomas. It's part of South Africa's cultural heritage.",
           "error_signals": [
             "ERR_TOUR_CULTURE"
           ],
@@ -16406,7 +16406,7 @@
               "correct_bucket": "healing"
             }
           ],
-          "memo": "Gumboot and Zulu dancing are performances; Ndebele painting and San rock art are art forms; sangomas and traditional medicine are healing and belief practices.",
+          "memo": "Gumboot and Zulu dancing are performances. Ndebele painting and San rock art are art. Sangomas and traditional medicine are healing and belief practices.",
           "error_signals": [
             "ERR_TOUR_CULTURE"
           ],
@@ -16423,7 +16423,7 @@
             "A foreign-exchange rate"
           ],
           "expected": "A cultural performance that attracts tourists",
-          "memo": "Traditional Zulu dancing is a vibrant cultural performance that draws visitors wanting to experience South African heritage.",
+          "memo": "Traditional Zulu dancing is a lively cultural performance that attracts visitors who want to experience South African heritage.",
           "error_signals": [
             "ERR_TOUR_CULTURE"
           ],
@@ -16472,7 +16472,7 @@
             "It has no effect on foreign visitors"
           ],
           "expected": "Foreign visitors travel here to experience cultures they cannot find at home",
-          "memo": "Unique cultures give foreign tourists a reason to choose South Africa, drawing inbound visitors who want an authentic, different experience.",
+          "memo": "Unique cultures give foreign tourists a reason to pick South Africa, because they want an authentic experience they can't get at home.",
           "error_signals": [
             "ERR_TOUR_CULTURE_VALUE"
           ],
@@ -16551,7 +16551,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Traditional leadership and small chiefdoms are part of the country's living cultural heritage and can interest cultural tourists.",
+          "memo": "Traditional leaders and small chiefdoms are part of the country's living cultural heritage, and they can interest cultural tourists.",
           "error_signals": [
             "ERR_TOUR_CULTURE"
           ],
@@ -16568,7 +16568,7 @@
             "It reduces the number of attractions available"
           ],
           "expected": "Many different cultures in one country give tourists a rich variety of experiences",
-          "memo": "Having many cultures together means tourists can experience a wide variety of traditions, food, music and art in a single destination.",
+          "memo": "With many cultures in one country, tourists can experience a wide variety of traditions, food, music and art in a single trip.",
           "error_signals": [
             "ERR_TOUR_CULTURE_VALUE"
           ],
@@ -16602,7 +16602,7 @@
             "Tap"
           ],
           "expected": "Gumboot",
-          "memo": "Gumboot dancing began among mineworkers who used their boots to communicate and make rhythms, and is now a celebrated cultural performance.",
+          "memo": "Gumboot dancing began among mineworkers, who used their boots to signal to each other and make rhythms. Today it's a celebrated performance.",
           "error_signals": [
             "ERR_TOUR_CULTURE"
           ],
@@ -16643,7 +16643,7 @@
             "To run the national airline"
           ],
           "expected": "To protect and manage South Africa's heritage resources",
-          "memo": "SAHRA is the national body responsible for identifying, protecting and managing South Africa's heritage resources so they are preserved for the future.",
+          "memo": "SAHRA is the national body that identifies, protects and manages South Africa's heritage so it's preserved for the future.",
           "error_signals": [
             "ERR_TOUR_SAHRA"
           ],
@@ -16660,7 +16660,7 @@
             "South African Health Research Agency"
           ],
           "expected": "South African Heritage Resources Agency",
-          "memo": "SAHRA is the South African Heritage Resources Agency, the national heritage protection body.",
+          "memo": "SAHRA stands for the South African Heritage Resources Agency, the national body that protects heritage.",
           "error_signals": [
             "ERR_TOUR_SAHRA"
           ],
@@ -16726,7 +16726,7 @@
             "To market overseas holidays"
           ],
           "expected": "To protect and manage heritage resources at provincial level",
-          "memo": "Provincial heritage agencies look after heritage within their province, working alongside the national body, SAHRA.",
+          "memo": "Provincial heritage agencies look after heritage in their own province, working alongside the national body, SAHRA.",
           "error_signals": [
             "ERR_TOUR_SAHRA"
           ],
@@ -16743,7 +16743,7 @@
             "residential"
           ],
           "expected": "palaeontological",
-          "memo": "Palaeontological sites contain fossils, which are protected heritage materials that may not be removed without a permit.",
+          "memo": "Palaeontological sites contain fossils. Fossils are protected heritage and may not be removed without a permit.",
           "error_signals": [
             "ERR_TOUR_HERITAGE_RULE"
           ],
@@ -16775,7 +16775,7 @@
             "Because they have no value at all"
           ],
           "expected": "To preserve them for future generations and keep them as attractions",
-          "memo": "Protecting heritage keeps it intact for future generations and maintains the sites that draw cultural and heritage tourists.",
+          "memo": "Protecting heritage keeps it whole for future generations and keeps the sites that attract cultural and heritage tourists.",
           "error_signals": [
             "ERR_TOUR_HERITAGE_VALUE"
           ],
@@ -16859,7 +16859,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "SAHRA operates at national level, while provincial heritage agencies handle heritage within each province.",
+          "memo": "SAHRA works across the whole country, while provincial agencies handle heritage within each province.",
           "error_signals": [
             "ERR_TOUR_SAHRA"
           ],
@@ -16876,7 +16876,7 @@
             "voucher"
           ],
           "expected": "permit",
-          "memo": "A heritage permit gives official permission to alter, move or work on a protected site, ensuring the heritage is properly managed.",
+          "memo": "A heritage permit is official permission to change, move or work on a protected site, so the heritage is properly looked after.",
           "error_signals": [
             "ERR_TOUR_HERITAGE_RULE"
           ],
@@ -16957,7 +16957,7 @@
               "correct_bucket": "national"
             }
           ],
-          "memo": "SAHRA works at national level (national policy and protection); provincial agencies handle heritage matters within their own province.",
+          "memo": "SAHRA works nationally, setting policy and protecting heritage across the country. Provincial agencies handle heritage within their own province.",
           "error_signals": [
             "ERR_TOUR_SAHRA"
           ],
@@ -16989,7 +16989,7 @@
             "It has no link to tourism at all"
           ],
           "expected": "It keeps important sites intact so tourists can keep visiting them",
-          "memo": "Well-protected heritage sites remain attractive and authentic, so they continue to draw cultural and heritage tourists.",
+          "memo": "Well-protected heritage sites stay attractive and authentic, so they keep drawing cultural and heritage tourists.",
           "error_signals": [
             "ERR_TOUR_HERITAGE_VALUE"
           ],
@@ -17114,7 +17114,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Exchange rates fluctuate constantly because of supply, demand and economic conditions, so the rand's value against other currencies changes over time.",
+          "memo": "Exchange rates change all the time because of supply, demand and the economy, so the rand's value against other currencies keeps moving.",
           "error_signals": [
             "ERR_TOUR_FOREX"
           ],
@@ -17148,7 +17148,7 @@
             "The number of tourists doubles every month"
           ],
           "expected": "Money spent by tourists is re-spent again and again, benefiting many people",
-          "memo": "The multiplier effect means one tourist's spending passes from business to supplier to worker, so the money circulates and benefits many people, not just the first business.",
+          "memo": "The multiplier effect means a tourist's money passes from the business to its suppliers to workers, and keeps moving. It benefits many people, not just the first business.",
           "error_signals": [
             "ERR_TOUR_MULTIPLIER"
           ],
@@ -17165,7 +17165,7 @@
             "old"
           ],
           "expected": "foreign",
-          "memo": "Inbound tourists exchange their foreign currency to spend in South Africa, bringing valuable foreign earnings into the economy.",
+          "memo": "Foreign tourists change their money to spend in South Africa, bringing valuable foreign earnings into the economy.",
           "error_signals": [
             "ERR_TOUR_FOREX"
           ],
@@ -17180,7 +17180,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Through the multiplier effect, the tourist's money spreads from the hotel to its suppliers, staff and beyond, benefiting many people in the economy.",
+          "memo": "Through the multiplier effect, the tourist's money spreads from the hotel to its suppliers, staff and beyond, helping many people.",
           "error_signals": [
             "ERR_TOUR_MULTIPLIER"
           ],
@@ -17385,7 +17385,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A foreign exchange bureau exists specifically to exchange currencies for travellers, alongside commercial banks.",
+          "memo": "A foreign exchange bureau exists to change money from one currency to another for travellers, as banks do too.",
           "error_signals": [
             "ERR_TOUR_FOREX"
           ],
@@ -17940,7 +17940,7 @@
             "South African Department of Culture"
           ],
           "expected": "Southern African Development Community",
-          "memo": "SADC is the Southern African Development Community, a group of Southern African countries that cooperate on development, including tourism.",
+          "memo": "SADC is the Southern African Development Community, a group of Southern African countries that work together on development, including tourism.",
           "error_signals": [
             "ERR_TOUR_SADC"
           ],
@@ -17989,7 +17989,7 @@
             "Maseru"
           ],
           "expected": "Windhoek",
-          "memo": "Windhoek is Namibia's capital. Gaborone is in Botswana, Maputo in Mozambique and Maseru in Lesotho.",
+          "memo": "Windhoek is Namibia's capital. Gaborone is Botswana's, Maputo is Mozambique's and Maseru is Lesotho's.",
           "error_signals": [
             "ERR_TOUR_SADC_CAPITAL"
           ],
@@ -18023,7 +18023,7 @@
             "business"
           ],
           "expected": "regional",
-          "memo": "Retosa, the Regional Tourism Organisation of Southern Africa, was created to market and promote the region as a tourism destination.",
+          "memo": "Retosa, the Regional Tourism Organisation of Southern Africa, was set up to market the region as a tourist destination.",
           "error_signals": [
             "ERR_TOUR_RETOSA"
           ],
@@ -18123,7 +18123,7 @@
             "It closes airports in the region"
           ],
           "expected": "Countries can market the region together and make travel between them easier",
-          "memo": "Regional tourism lets neighbouring countries promote the region jointly, ease cross-border travel and share the economic benefits.",
+          "memo": "Regional tourism lets neighbouring countries advertise the region together, make crossing borders easier and share the money it brings in.",
           "error_signals": [
             "ERR_TOUR_REGIONAL_ADV"
           ],
@@ -18256,7 +18256,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Retosa is the Regional Tourism Organisation of Southern Africa, which promotes the region as a single tourism destination.",
+          "memo": "Retosa is the Regional Tourism Organisation of Southern Africa. It promotes the whole region as one tourist destination.",
           "error_signals": [
             "ERR_TOUR_RETOSA"
           ],
@@ -18348,7 +18348,7 @@
             "Tanzania"
           ],
           "expected": "Botswana",
-          "memo": "The Okavango Delta, a vast inland wetland rich in wildlife, is in Botswana and is one of Africa's most famous natural attractions.",
+          "memo": "The Okavango Delta, a huge inland wetland full of wildlife, is in Botswana. It's one of Africa's most famous natural attractions.",
           "error_signals": [
             "ERR_TOUR_SADCATTR"
           ],
@@ -18536,7 +18536,7 @@
               "correct_bucket": "tan"
             }
           ],
-          "memo": "The Okavango Delta and Chobe are in Botswana; the Fish River Canyon and Etosha in Namibia; the Serengeti and Kilimanjaro in Tanzania.",
+          "memo": "The Okavango Delta and Chobe are in Botswana, the Fish River Canyon and Etosha are in Namibia, and the Serengeti and Kilimanjaro are in Tanzania.",
           "error_signals": [
             "ERR_TOUR_SADCATTR"
           ],
@@ -18619,7 +18619,7 @@
             "It is a major harbour for cruise ships"
           ],
           "expected": "It is a unique inland wetland teeming with wildlife",
-          "memo": "The Okavango Delta is a rare inland water system rich in wildlife, offering world-class safaris and birdwatching.",
+          "memo": "The Okavango Delta is a rare inland wetland full of wildlife, offering world-class safaris and birdwatching.",
           "error_signals": [
             "ERR_TOUR_SADCATTR_WHY"
           ],
@@ -18675,7 +18675,7 @@
               "correct_bucket": "les"
             }
           ],
-          "memo": "The Great Zimbabwe Ruins and Hwange are in Zimbabwe; the Bazaruto Archipelago and Island of Mozambique in Mozambique; the Sani Pass and Katse Dam in Lesotho.",
+          "memo": "Great Zimbabwe and Hwange are in Zimbabwe, the Bazaruto Archipelago and the Island of Mozambique are in Mozambique, and Sani Pass and Katse Dam are in Lesotho.",
           "error_signals": [
             "ERR_TOUR_SADCATTR"
           ],
@@ -18741,7 +18741,7 @@
             "Drakensberg"
           ],
           "expected": "Kilimanjaro",
-          "memo": "Mount Kilimanjaro in Tanzania is Africa's highest peak and a world-famous attraction for climbers.",
+          "memo": "Mount Kilimanjaro in Tanzania is Africa's highest mountain and a world-famous attraction for climbers.",
           "error_signals": [
             "ERR_TOUR_SADCATTR"
           ],
@@ -18866,7 +18866,7 @@
             "Packing in so much that there is no rest"
           ],
           "expected": "A good variety of activities with time to rest",
-          "memo": "A balanced itinerary offers variety and includes rest time, so travellers stay interested and do not become exhausted.",
+          "memo": "A balanced itinerary mixes different activities and includes rest, so travellers stay interested without getting worn out.",
           "error_signals": [
             "ERR_TOUR_ITIN_FACTOR"
           ],
@@ -18898,7 +18898,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "An itinerary covers each day's transport, accommodation, attractions and activities — not just the hotel.",
+          "memo": "An itinerary covers each day's transport, accommodation, attractions and activities, not just the hotel.",
           "error_signals": [
             "ERR_TOUR_ITINERARY"
           ],
@@ -18998,7 +18998,7 @@
             "passport"
           ],
           "expected": "day",
-          "memo": "A day-by-day itinerary is organised by day, listing what happens each day: transport, accommodation, attractions and activities.",
+          "memo": "A day-by-day itinerary is set out by day, listing each day's transport, accommodation, attractions and activities.",
           "error_signals": [
             "ERR_TOUR_ITINERARY"
           ],
@@ -19247,7 +19247,7 @@
             "A billboard next to the highway"
           ],
           "expected": "Direct, targeted methods such as personal selling and sales promotions",
-          "memo": "Below-the-line uses direct, targeted methods — personal selling, sales promotions, discounts, sponsorship and expos — aimed at specific customers.",
+          "memo": "Below-the-line promotion uses direct, targeted methods aimed at specific customers: personal selling, sales promotions, discounts, sponsorship and expos.",
           "error_signals": [
             "ERR_TOUR_PROMO_LINE"
           ],
@@ -19264,7 +19264,7 @@
             "side"
           ],
           "expected": "above",
-          "memo": "Television reaches a large general audience through mass media, making it an above-the-line technique.",
+          "memo": "Television reaches a huge general audience through mass media, so it's above-the-line.",
           "error_signals": [
             "ERR_TOUR_PROMO_LINE"
           ],
@@ -19279,7 +19279,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Personal selling deals directly with individual customers, so it is a below-the-line technique.",
+          "memo": "Personal selling deals directly with one customer at a time, so it's below-the-line.",
           "error_signals": [
             "ERR_TOUR_PROMO_LINE"
           ],
@@ -19313,7 +19313,7 @@
             "A roadside billboard"
           ],
           "expected": "A stand at a travel exhibition or expo",
-          "memo": "Exhibitions and expos let a business meet potential customers directly, making them below-the-line.",
+          "memo": "At exhibitions and expos a business meets possible customers face-to-face, so they're below-the-line.",
           "error_signals": [
             "ERR_TOUR_PROMO_LINE"
           ],
@@ -19414,7 +19414,7 @@
               "correct_bucket": "below"
             }
           ],
-          "memo": "Mass-media adverts (TV, newspaper, radio) are above-the-line. Direct, targeted methods (personal selling, expos, discounts) are below-the-line.",
+          "memo": "Mass-media adverts, like TV, newspaper and radio, are above-the-line. Direct, targeted methods, like personal selling, expos and discounts, are below-the-line.",
           "error_signals": [
             "ERR_TOUR_PROMO_LINE"
           ],
@@ -19431,7 +19431,7 @@
             "A type of personal selling"
           ],
           "expected": "Above-the-line, because it reaches a wide audience through media",
-          "memo": "Web-based advertising broadcasts a message to a large online audience, so it is generally treated as above-the-line.",
+          "memo": "Online adverts send a message to a large audience, so they're usually counted as above-the-line.",
           "error_signals": [
             "ERR_TOUR_PROMO_LINE"
           ],
@@ -19446,7 +19446,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Promotional sponsorship targets a specific audience at an event, so it is a below-the-line technique.",
+          "memo": "Sponsoring an event targets a particular audience at that event, so it's below-the-line.",
           "error_signals": [
             "ERR_TOUR_PROMO_LINE"
           ],
@@ -19463,7 +19463,7 @@
             "Outdoor"
           ],
           "expected": "Personal",
-          "memo": "Personal selling is direct, face-to-face contact with a customer, making it a below-the-line method.",
+          "memo": "Personal selling is direct, face-to-face contact with a customer, so it's below-the-line.",
           "error_signals": [
             "ERR_TOUR_PROMO_LINE"
           ],
@@ -19544,7 +19544,7 @@
               "correct_bucket": "above"
             }
           ],
-          "memo": "Magazine adverts, billboards and web banners reach a mass audience (above-the-line). Sponsorship and discounts target specific customers (below-the-line).",
+          "memo": "Magazine adverts, billboards and web banners reach a mass audience, so they're above-the-line. Sponsorship and discounts target specific customers, so they're below-the-line.",
           "error_signals": [
             "ERR_TOUR_PROMO_LINE"
           ],
@@ -19576,7 +19576,7 @@
             "It removes the need to advertise at all"
           ],
           "expected": "The message reaches the people most likely to buy, so the money is well spent",
-          "memo": "Choosing the right technique for the audience means the advertising reaches likely customers, giving better value for money.",
+          "memo": "Picking the right method for the audience means the advert reaches people likely to buy, so the money is well spent.",
           "error_signals": [
             "ERR_TOUR_PROMO_MATCH"
           ],
@@ -19593,7 +19593,7 @@
             "There is no difference between them"
           ],
           "expected": "Above-the-line uses mass media for a wide audience; below-the-line is direct and targeted",
-          "memo": "Above-the-line broadcasts to a broad audience through media; below-the-line targets specific customers more directly.",
+          "memo": "Above-the-line reaches a broad audience through mass media. Below-the-line targets specific customers more directly.",
           "error_signals": [
             "ERR_TOUR_PROMO_LINE"
           ],
@@ -19610,7 +19610,7 @@
             "Televisions"
           ],
           "expected": "Exhibitions",
-          "memo": "Exhibitions, shows and expos let businesses connect with customers face-to-face, making them below-the-line techniques.",
+          "memo": "Exhibitions, shows and expos let businesses meet customers face-to-face, so they're below-the-line.",
           "error_signals": [
             "ERR_TOUR_PROMO_LINE"
           ],
@@ -19685,7 +19685,7 @@
             "Building"
           ],
           "expected": "Communication",
-          "memo": "Communication costs cover printing, telephone, fax and internet — the ways a business communicates its marketing.",
+          "memo": "Communication costs cover printing, phone, fax and internet: the ways a business gets its marketing out.",
           "error_signals": [
             "ERR_TOUR_BUDGET_COST"
           ],
@@ -19839,7 +19839,7 @@
               "correct_bucket": "travel"
             }
           ],
-          "memo": "Surveys and studying customers are research; printing and internet are communication; flights and vehicle costs are travel.",
+          "memo": "Surveys and studying customers are research. Printing and internet are communication. Flights and vehicle costs are travel.",
           "error_signals": [
             "ERR_TOUR_BUDGET_COST"
           ],
@@ -20076,7 +20076,7 @@
             "A foreign-exchange bureau"
           ],
           "expected": "A worldwide computer system that links travel suppliers with travel agents",
-          "memo": "A GDS is a worldwide computer network that connects travel agents to airlines, hotels and car-hire companies so they can check availability and book.",
+          "memo": "A GDS is a worldwide computer network that connects travel agents to airlines, hotels and car-hire companies, so they can check what's available and book.",
           "error_signals": [
             "ERR_TOUR_GDS"
           ],
@@ -20191,7 +20191,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Micros-Fidelio Opera is a central reservation/property management system widely used by hotels in South Africa.",
+          "memo": "Micros-Fidelio Opera is a central reservation and hotel management system that many South African hotels use.",
           "error_signals": [
             "ERR_TOUR_CRS"
           ],
@@ -20255,7 +20255,7 @@
               "correct_bucket": "crs"
             }
           ],
-          "memo": "Amadeus, Galileo and Worldspan are global distribution systems. Micros-Fidelio Opera and a single hotel's booking system are central reservation systems.",
+          "memo": "Amadeus, Galileo and Worldspan are global distribution systems. Micros-Fidelio Opera and one hotel's own booking system are central reservation systems.",
           "error_signals": [
             "ERR_TOUR_GDS_CRS"
           ],
@@ -20385,7 +20385,7 @@
               "correct_bucket": "gds"
             }
           ],
-          "memo": "A GDS links many suppliers worldwide for travel agents; a CRS manages the reservations of a single property, such as with Micros-Fidelio Opera.",
+          "memo": "A GDS connects many suppliers worldwide for travel agents. A CRS manages bookings for one property, as Micros-Fidelio Opera does.",
           "error_signals": [
             "ERR_TOUR_GDS_CRS"
           ],
@@ -20510,7 +20510,7 @@
             "It has no effect on the visitor's experience"
           ],
           "expected": "Visitors feel welcome and comfortable, which improves their stay",
-          "memo": "Respecting visitors' customs shows courtesy and makes them feel valued, improving their experience and impression of South Africa.",
+          "memo": "Respecting visitors' customs is polite and makes them feel valued. It improves their stay and their impression of South Africa.",
           "error_signals": [
             "ERR_TOUR_CUSTCARE_RESPECT"
           ],
@@ -20608,7 +20608,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Visitors come from different cultures with different customs and expectations, so good staff adapt their service rather than assuming everyone is the same.",
+          "memo": "Visitors come from different cultures with different customs and expectations. Good staff adjust their service instead of assuming everyone is the same.",
           "error_signals": [
             "ERR_TOUR_CUSTCARE_RESPECT"
           ],
@@ -20766,7 +20766,7 @@
             "Make fun of the custom"
           ],
           "expected": "Accept the difference politely and adapt your service",
-          "memo": "Respecting differences means accepting them politely and adjusting service, not judging or mocking the visitor.",
+          "memo": "Respecting differences means accepting them politely and adjusting your service, not judging or mocking the visitor.",
           "error_signals": [
             "ERR_TOUR_CUSTCARE_RESPECT"
           ],
@@ -20972,7 +20972,7 @@
             "listening"
           ],
           "expected": "blaming",
-          "memo": "Apologise sincerely without blaming the customer; this calms the situation and shows you take the problem seriously.",
+          "memo": "Say sorry sincerely without blaming the customer. It calms things down and shows you take the problem seriously.",
           "error_signals": [
             "ERR_TOUR_COMPLAINT_STEPS"
           ],
@@ -21458,7 +21458,7 @@
             "Reducing the quality of the product"
           ],
           "expected": "Setting standards and reviewing how well staff meet them",
-          "memo": "Performance management sets clear standards and regularly reviews staff against them, helping maintain quality service.",
+          "memo": "Performance management means setting clear standards and regularly checking how staff measure up, to keep service quality high.",
           "error_signals": [
             "ERR_TOUR_QUALITY_STRATEGY"
           ],
@@ -21529,7 +21529,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Surveys collect customer feedback, which the business uses to measure satisfaction and improve quality.",
+          "memo": "Surveys collect what customers think, which the business uses to measure how happy they are and to improve.",
           "error_signals": [
             "ERR_TOUR_QUALITY_STRATEGY"
           ],
@@ -21615,7 +21615,7 @@
             "To stop measuring satisfaction"
           ],
           "expected": "Each strategy checks a different part, helping keep service consistently high",
-          "memo": "Using surveys, training, checks and reviews together covers different angles, keeping service consistently high.",
+          "memo": "Surveys, training, checks and reviews each look at a different part of service. Using them together keeps service consistently high.",
           "error_signals": [
             "ERR_TOUR_QUALITY_STRATEGY"
           ],
@@ -21905,7 +21905,7 @@
             "A foreign-exchange teller"
           ],
           "expected": "A conference organiser",
-          "memo": "A conference organiser works in the events and conferences sector, planning and running business and special events.",
+          "memo": "A conference organiser works in events and conferences, planning and running business and special events.",
           "error_signals": [
             "ERR_TOUR_CAREER_SECTOR"
           ],
@@ -21939,7 +21939,7 @@
             "marketing"
           ],
           "expected": "hospitality",
-          "memo": "Hotel receptionists work in the hospitality (accommodation) sector, welcoming and assisting guests.",
+          "memo": "Hotel receptionists work in hospitality (accommodation), welcoming and helping guests.",
           "error_signals": [
             "ERR_TOUR_CAREER_SECTOR"
           ],
@@ -22027,7 +22027,7 @@
               "correct_bucket": "attractions"
             }
           ],
-          "memo": "Cabin crew and coach drivers are transport; chefs and receptionists are hospitality; rangers and museum guides are attractions/conservation.",
+          "memo": "Cabin crew and coach drivers work in transport. Chefs and receptionists work in hospitality. Rangers and museum guides work in attractions and conservation.",
           "error_signals": [
             "ERR_TOUR_CAREER_SECTOR"
           ],
@@ -22059,7 +22059,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Activity instructors such as scuba-diving instructors work in the sport and recreation/leisure part of tourism.",
+          "memo": "Activity instructors, like scuba-diving instructors, work in the sport, recreation and leisure part of tourism.",
           "error_signals": [
             "ERR_TOUR_CAREER_SECTOR"
           ],
@@ -22093,7 +22093,7 @@
             "A travel agent"
           ],
           "expected": "A hotel housekeeper",
-          "memo": "Housekeepers work in accommodation (hospitality), keeping guest rooms clean and comfortable.",
+          "memo": "Housekeepers work in accommodation, part of hospitality, keeping guest rooms clean and comfortable.",
           "error_signals": [
             "ERR_TOUR_CAREER_SECTOR"
           ],
@@ -22110,7 +22110,7 @@
             "Foreign exchange"
           ],
           "expected": "Events and conferences",
-          "memo": "Events managers work in the events and conferences sector, organising meetings, conferences and functions.",
+          "memo": "Events managers work in events and conferences, organising meetings, conferences and functions.",
           "error_signals": [
             "ERR_TOUR_CAREER_SECTOR"
           ],
@@ -22166,7 +22166,7 @@
               "correct_bucket": "conservation"
             }
           ],
-          "memo": "Travel agents and tour operators are travel trade; conference organisers and events managers are events; rangers and wardens are conservation.",
+          "memo": "Travel agents and tour operators are in the travel trade. Conference organisers and events managers are in events. Rangers and wardens are in conservation.",
           "error_signals": [
             "ERR_TOUR_CAREER_SECTOR"
           ],
@@ -22273,7 +22273,7 @@
             "No knowledge of the destination"
           ],
           "expected": "Good communication skills",
-          "memo": "A tour guide must communicate clearly and engagingly to inform and entertain visitors, so good communication is essential.",
+          "memo": "A tour guide has to explain things clearly and in an interesting way to inform and entertain visitors, so good communication is essential.",
           "error_signals": [
             "ERR_TOUR_REQ_QUALITY"
           ],
@@ -22290,7 +22290,7 @@
             "The uniform they wear"
           ],
           "expected": "A natural personal characteristic, such as patience or friendliness",
-          "memo": "Inherent qualities are personal characteristics a person has, such as patience, friendliness and a positive attitude.",
+          "memo": "Inherent qualities are part of who a person is, like patience, friendliness and a positive attitude.",
           "error_signals": [
             "ERR_TOUR_REQ_QUALITY"
           ],
@@ -22606,7 +22606,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Preparing documents and bookings requires accuracy, so attention to detail helps avoid costly mistakes.",
+          "memo": "Documents and bookings must be accurate, so attention to detail helps avoid expensive mistakes.",
           "error_signals": [
             "ERR_TOUR_REQ_QUALITY"
           ],
@@ -22657,7 +22657,7 @@
             "diving"
           ],
           "expected": "communication",
-          "memo": "Communication skills underpin nearly every tourism job, helping staff explain, listen and assist guests well.",
+          "memo": "Almost every tourism job depends on communication: explaining clearly, listening and helping guests well.",
           "error_signals": [
             "ERR_TOUR_REQ_SKILL"
           ],
@@ -22747,7 +22747,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Setting up your own guided-tour business is a clear example of an entrepreneurial opportunity in tourism.",
+          "memo": "Starting your own guided-tour business is a clear example of an entrepreneurial opportunity in tourism.",
           "error_signals": [
             "ERR_TOUR_ENTRE_OPP"
           ],
@@ -22882,7 +22882,7 @@
               "correct_bucket": "yes"
             }
           ],
-          "memo": "Money management, creativity, risk-taking and determination help an entrepreneur. Giving up easily and refusing to plan do not.",
+          "memo": "Managing money, creativity, taking sensible risks and determination help an entrepreneur. Giving up easily and not planning don't.",
           "error_signals": [
             "ERR_TOUR_ENTRE_SKILL"
           ],
@@ -23027,7 +23027,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Communication wins customers and partners, while money management keeps the business healthy — both help success.",
+          "memo": "Good communication wins customers and partners, and managing money keeps the business healthy. Both help it succeed.",
           "error_signals": [
             "ERR_TOUR_ENTRE_SKILL"
           ],
@@ -23119,7 +23119,7 @@
             "How far a tourist has to travel to reach the business"
           ],
           "expected": "The overall impression a business and its staff give to customers through how they look and behave",
-          "memo": "A professional image is the impression created by both the company (logo, look, policies) and its staff (appearance, behaviour, communication).",
+          "memo": "A professional image is the impression given by the company (logo, look, policies) and its staff (appearance, behaviour, communication).",
           "error_signals": [
             "ERR_TOUR_PROIMAGE_CONCEPT"
           ],
@@ -23185,7 +23185,7 @@
             "It increases the price tourists must pay"
           ],
           "expected": "It makes staff easy to identify and shows a neat, professional standard",
-          "memo": "Uniforms make staff recognisable to customers and present a tidy, unified, professional look.",
+          "memo": "Uniforms make staff easy for customers to spot and give a neat, matching, professional look.",
           "error_signals": [
             "ERR_TOUR_PROIMAGE_STAFF"
           ],
@@ -23219,7 +23219,7 @@
             "Ignoring complaints to save time"
           ],
           "expected": "Training staff in good communication and a polite, helpful manner",
-          "memo": "Communication skills and a helpful attitude are central to a professional staff image and good customer interaction.",
+          "memo": "Good communication and a helpful attitude are central to how professional staff seem when dealing with customers.",
           "error_signals": [
             "ERR_TOUR_PROIMAGE_STAFF"
           ],
@@ -23403,7 +23403,7 @@
             "An employee answering a question politely"
           ],
           "expected": "An untidy employee arguing loudly with a customer",
-          "memo": "Untidy appearance combined with rude behaviour damages the impression customers form of the whole business.",
+          "memo": "Looking untidy and being rude damages how customers see the whole business.",
           "error_signals": [
             "ERR_TOUR_PROIMAGE_STAFF"
           ],
@@ -23472,7 +23472,7 @@
               "correct_bucket": "weakens"
             }
           ],
-          "memo": "Neatness, helpfulness and clear materials strengthen the image; untidiness, rudeness and careless materials weaken it.",
+          "memo": "Neatness, helpfulness and clear materials strengthen the image. Untidiness, rudeness and careless materials weaken it.",
           "error_signals": [
             "ERR_TOUR_PROIMAGE_VALUE"
           ],
@@ -23504,7 +23504,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Both the company image (branding, premises, policies) and the staff image (appearance, conduct, communication) must work together to create a professional image.",
+          "memo": "The company's image (branding, premises, policies) and the staff's image (appearance, behaviour, communication) have to work together.",
           "error_signals": [
             "ERR_TOUR_PROIMAGE_CONCEPT"
           ],
@@ -23562,7 +23562,7 @@
             "The National Water Act"
           ],
           "expected": "The Basic Conditions of Employment Act",
-          "memo": "The Basic Conditions of Employment Act, overseen by the Department of Labour, sets the legal minimum working conditions in South Africa.",
+          "memo": "The Basic Conditions of Employment Act, overseen by the Department of Labour, sets the minimum working conditions the law allows in South Africa.",
           "error_signals": [
             "ERR_TOUR_CONDEMP_LAW"
           ],
@@ -23778,7 +23778,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "While the legal minimum applies to all, specific conditions (shifts, allowances, duties) vary between fields such as airlines, hotels and national parks.",
+          "memo": "The legal minimum applies to everyone, but details like shifts, allowances and duties differ between fields such as airlines, hotels and national parks.",
           "error_signals": [
             "ERR_TOUR_CONDEMP_CONCEPT"
           ],
@@ -24189,7 +24189,7 @@
             "Pension deduction"
           ],
           "expected": "Professional accountability and service ethics",
-          "memo": "Professional accountability and service ethics describe the standard of honest, responsible behaviour expected of the employee.",
+          "memo": "Professional accountability and service ethics mean the honest, responsible behaviour expected of an employee.",
           "error_signals": [
             "ERR_TOUR_CONTRACT_CONTENT"
           ],
@@ -24431,7 +24431,7 @@
             "It lowers the cost of fuel"
           ],
           "expected": "It creates a co-operative atmosphere and promotes integrity",
-          "memo": "A code of conduct builds a co-operative, collaborative atmosphere and encourages honest, ethical behaviour (integrity).",
+          "memo": "A code of conduct helps people work well together and encourages honest, ethical behaviour, which is called integrity.",
           "error_signals": [
             "ERR_TOUR_CODECON_VALUE"
           ],
@@ -25524,7 +25524,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Icons strengthen a country's image abroad and attract international tourists, supporting the tourism economy.",
+          "memo": "Icons strengthen how a country is seen abroad and attract foreign tourists, which helps the tourism economy.",
           "error_signals": [
             "ERR_TOUR_ICON_VALUE"
           ],
@@ -25599,7 +25599,7 @@
             "There is no safety or crime prevention"
           ],
           "expected": "Visitor numbers exceed the target",
-          "memo": "Beating the target number of visitors is a measurable sign (characteristic) that an attraction is successful.",
+          "memo": "Getting more visitors than the target is a measurable sign that an attraction is successful.",
           "error_signals": [
             "ERR_TOUR_ATTRSUCC_CHAR"
           ],
@@ -25631,7 +25631,7 @@
             "seasonal"
           ],
           "expected": "universal",
-          "memo": "Universal access means everyone, including people with disabilities, can use the attraction — a factor in its success.",
+          "memo": "Universal access means everyone, including people with disabilities, can use the attraction. That helps it succeed.",
           "error_signals": [
             "ERR_TOUR_ATTRSUCC_FACTOR"
           ],
@@ -25665,7 +25665,7 @@
             "Upkeep only matters for the staff car park"
           ],
           "expected": "A clean, well-kept attraction gives a positive experience and draws repeat visits",
-          "memo": "A well-maintained, attractive site improves the visitor experience, encouraging people to return and recommend it.",
+          "memo": "A clean, well-kept site makes visits more enjoyable, so people come back and recommend it.",
           "error_signals": [
             "ERR_TOUR_ATTRSUCC_FACTOR"
           ],
@@ -25756,7 +25756,7 @@
               "correct_bucket": "characteristic"
             }
           ],
-          "memo": "Factors are things management does (marketing, staff, safety, upkeep). Characteristics are measurable results (visitors and income beating targets, repeat visits).",
+          "memo": "Factors are things management does: marketing, staff, safety and upkeep. Characteristics are results you can measure: visitors and income beating targets, and repeat visits.",
           "error_signals": [
             "ERR_TOUR_ATTRSUCC_CHAR"
           ],
@@ -25771,7 +25771,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Income exceeding the target is a measurable characteristic of a successful attraction.",
+          "memo": "Earning more than the target is a measurable sign of a successful attraction.",
           "error_signals": [
             "ERR_TOUR_ATTRSUCC_CHAR"
           ],
@@ -25805,7 +25805,7 @@
             "temporary"
           ],
           "expected": "sustainable",
-          "memo": "Sustainable and responsible management protects the environment and community, helping the attraction succeed long-term.",
+          "memo": "Sustainable, responsible management protects the environment and the community, which helps the attraction succeed in the long run.",
           "error_signals": [
             "ERR_TOUR_ATTRSUCC_FACTOR"
           ],
@@ -25822,7 +25822,7 @@
             "Visitors feel unsafe the whole time"
           ],
           "expected": "Visitors enjoy their time and recommend the attraction to others",
-          "memo": "A positive experience means visitors enjoy themselves and recommend the attraction, supporting its success.",
+          "memo": "A positive experience means visitors enjoy themselves and recommend the attraction, which helps it succeed.",
           "error_signals": [
             "ERR_TOUR_ATTRSUCC_FACTOR"
           ],
@@ -25837,7 +25837,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Providing universal access widens the market and improves the experience, contributing to success.",
+          "memo": "Making it easy for everyone to get around brings in more visitors and improves the experience, which helps it succeed.",
           "error_signals": [
             "ERR_TOUR_ATTRSUCC_FACTOR"
           ],
@@ -25854,7 +25854,7 @@
             "It keeps all its income overseas"
           ],
           "expected": "It creates jobs and supports local businesses",
-          "memo": "A positive community impact — jobs and support for local business — is a characteristic of a successful, responsible attraction.",
+          "memo": "Creating jobs and supporting local businesses is a sign of a successful, responsible attraction.",
           "error_signals": [
             "ERR_TOUR_ATTRSUCC_CHAR"
           ],
@@ -25920,7 +25920,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A successful, responsibly run attraction benefits both the local economy and environment.",
+          "memo": "A successful attraction that's run responsibly benefits both the local economy and the environment.",
           "error_signals": [
             "ERR_TOUR_ATTRSUCC_CHAR"
           ],
@@ -26444,7 +26444,7 @@
             "The company's pension fund"
           ],
           "expected": "Transport, accommodation, attractions and activities",
-          "memo": "The main aspects of an itinerary are transport, accommodation, attractions, activities and meal stops.",
+          "memo": "An itinerary mainly describes transport, accommodation, attractions, activities and where to stop for meals.",
           "error_signals": [
             "ERR_TOUR_ITIN_CONTENT"
           ],
@@ -26581,7 +26581,7 @@
             "Star grading"
           ],
           "expected": "Budget",
-          "memo": "An itinerary table commonly includes a budget column alongside transport, accommodation, attractions and activities.",
+          "memo": "An itinerary table usually includes a budget column, next to transport, accommodation, attractions and activities.",
           "error_signals": [
             "ERR_TOUR_ITIN_CONTENT"
           ],
@@ -26615,7 +26615,7 @@
             "expensive"
           ],
           "expected": "appropriate",
-          "memo": "Appropriateness means choosing activities that suit the tourists' interests, ages and abilities.",
+          "memo": "Appropriate activities suit the tourists' interests, ages and abilities.",
           "error_signals": [
             "ERR_TOUR_ITIN_LOGIC"
           ],
@@ -26715,7 +26715,7 @@
             "Which attraction the group will visit"
           ],
           "expected": "The bank's profit forecast for next year",
-          "memo": "A travel itinerary covers transport, meals, attractions and accommodation — not a bank's profit forecast.",
+          "memo": "A travel itinerary covers transport, meals, attractions and accommodation, not a bank's profit forecast.",
           "error_signals": [
             "ERR_TOUR_ITIN_CONTENT"
           ],
@@ -27267,7 +27267,7 @@
             "A souvenir shop"
           ],
           "expected": "A travel clinic",
-          "memo": "Travel clinics provide vaccinations, health certificates and advice for travellers.",
+          "memo": "Travel clinics give vaccinations, health certificates and health advice for travellers.",
           "error_signals": [
             "ERR_TOUR_HS_CLINIC"
           ],
@@ -27301,7 +27301,7 @@
             "uniforms"
           ],
           "expected": "medicine",
-          "memo": "Preventative medicine (such as anti-malaria tablets) is a key health precaution in malaria areas.",
+          "memo": "Taking medicine to prevent malaria, like anti-malaria tablets, is a key health precaution in malaria areas.",
           "error_signals": [
             "ERR_TOUR_HS_RISK"
           ],
@@ -27368,7 +27368,7 @@
               "correct_bucket": "safety"
             }
           ],
-          "memo": "Health precautions guard against illness (tablets, water, vaccines); safety precautions guard against crime and accidents (locking doors, hiding valuables).",
+          "memo": "Health precautions protect against illness, like tablets, bottled water and vaccines. Safety precautions protect against crime and accidents, like locking doors and hiding valuables.",
           "error_signals": [
             "ERR_TOUR_HS_SORT"
           ],
@@ -27402,7 +27402,7 @@
             "It changes the country's time zone"
           ],
           "expected": "Tourists who feel safe return and recommend the country, supporting tourism",
-          "memo": "Tourist safety protects the country's reputation; safe tourists return and recommend it, helping the tourism industry.",
+          "memo": "Keeping tourists safe protects the country's reputation. Tourists who feel safe come back and recommend it, which helps tourism.",
           "error_signals": [
             "ERR_TOUR_HS_SAFETY"
           ],
@@ -27994,7 +27994,7 @@
               "correct_bucket": "not"
             }
           ],
-          "memo": "Passports, visas, health certificates and international driver's licences are travel documents; a menu or shopping receipt is not.",
+          "memo": "Passports, visas, health certificates and international driver's licences are travel documents. A menu or a till slip isn't.",
           "error_signals": [
             "ERR_TOUR_DOC_PASSPORT"
           ],
@@ -28236,7 +28236,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "World Heritage status raises a site's profile and prestige, attracting more international visitors and tourism income.",
+          "memo": "World Heritage status makes a site better known and more respected, bringing more foreign visitors and tourism income.",
           "error_signals": [
             "ERR_TOUR_WHS_VALUE"
           ],
@@ -28353,7 +28353,7 @@
             "A hotel star grading"
           ],
           "expected": "The link between cultural (human-made) and natural heritage",
-          "memo": "The emblem represents the connection between cultural and natural heritage that UNESCO protects.",
+          "memo": "The emblem stands for the connection between cultural and natural heritage, which UNESCO protects.",
           "error_signals": [
             "ERR_TOUR_WHS_UNESCO"
           ],
@@ -28595,7 +28595,7 @@
               "correct_bucket": "cultural"
             }
           ],
-          "memo": "Natural: iSimangaliso, Cape Floral Region, Vredefort Dome (made by nature). Cultural: Robben Island, Mapungubwe, Cradle of Humankind (human history).",
+          "memo": "Natural sites were made by nature: iSimangaliso, the Cape Floral Region and the Vredefort Dome. Cultural sites come from human history: Robben Island, Mapungubwe and the Cradle of Humankind.",
           "error_signals": [
             "ERR_TOUR_WHSSA_TYPE"
           ],
@@ -28678,7 +28678,7 @@
             "Free State"
           ],
           "expected": "KwaZulu-Natal",
-          "memo": "iSimangaliso stretches along the KwaZulu-Natal coast.",
+          "memo": "iSimangaliso stretches along the coast of KwaZulu-Natal.",
           "error_signals": [
             "ERR_TOUR_WHSSA_LOCATION"
           ],
@@ -28693,7 +28693,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "World Heritage status raises the sites' profile, helping South Africa attract international visitors.",
+          "memo": "World Heritage status makes the sites better known, helping South Africa attract foreign visitors.",
           "error_signals": [
             "ERR_TOUR_WHSSA_VALUE"
           ],
@@ -28744,7 +28744,7 @@
             "So airports can be built on them"
           ],
           "expected": "So tourism does not damage them and they last for future generations",
-          "memo": "Responsible management protects the sites from damage so they survive for future generations while still benefiting tourism.",
+          "memo": "Careful management stops tourism from damaging the sites, so they survive for future generations and keep benefiting tourism.",
           "error_signals": [
             "ERR_TOUR_WHSSA_VALUE"
           ],
@@ -30236,7 +30236,7 @@
             "imaginary"
           ],
           "expected": "developing",
-          "memo": "A weak rand pushes travellers towards cheaper, often nearby developing destinations rather than costly developed ones.",
+          "memo": "A weak rand makes overseas trips expensive, so travellers choose cheaper destinations, often nearby developing countries.",
           "error_signals": [
             "ERR_TOUR_EXRATE_OUTBOUND"
           ],
@@ -30578,7 +30578,7 @@
             "seasonal"
           ],
           "expected": "telegraphic",
-          "memo": "A telegraphic (SWIFT) transfer moves money electronically between banks across borders.",
+          "memo": "A telegraphic (SWIFT) transfer sends money electronically between banks in different countries.",
           "error_signals": [
             "ERR_TOUR_PAY_SWIFT"
           ],
@@ -30661,7 +30661,7 @@
             "SANParks"
           ],
           "expected": "American Express",
-          "memo": "Visa, MasterCard, American Express and Diners Club are widely accepted international card brands.",
+          "memo": "Visa, MasterCard, American Express and Diners Club are card brands accepted around the world.",
           "error_signals": [
             "ERR_TOUR_PAY_CARD"
           ],
@@ -30851,7 +30851,7 @@
             "A planned trade show"
           ],
           "expected": "A sudden, unexpected event such as a natural disaster, disease outbreak or unrest",
-          "memo": "An unforeseen occurrence is sudden and unexpected — a disaster, disease, recession or unrest — not something planned.",
+          "memo": "An unforeseen occurrence is sudden and unexpected, like a disaster, disease outbreak, recession or unrest. It isn't planned.",
           "error_signals": [
             "ERR_TOUR_GLOBE_UNFORESEEN"
           ],
@@ -30900,7 +30900,7 @@
             "Permanent loss of all jobs"
           ],
           "expected": "New infrastructure, investment and foreign-exchange income",
-          "memo": "Hosting can bring improved infrastructure, investment and foreign-exchange income — positive impacts.",
+          "memo": "Hosting can bring better infrastructure, investment and money from foreign visitors.",
           "error_signals": [
             "ERR_TOUR_GLOBE_IMPACT"
           ],
@@ -31035,7 +31035,7 @@
             "Strengthen the local currency"
           ],
           "expected": "Discourage tourists and reduce international arrivals",
-          "memo": "Unrest and terrorism make tourists feel unsafe, reducing international arrivals to the affected country.",
+          "memo": "Unrest and terrorism make tourists feel unsafe, so fewer foreign visitors come.",
           "error_signals": [
             "ERR_TOUR_GLOBE_UNFORESEEN"
           ],
@@ -31052,7 +31052,7 @@
             "summit"
           ],
           "expected": "tsunami",
-          "memo": "A tsunami is a natural disaster — an unforeseen occurrence that can damage a destination's tourism.",
+          "memo": "A tsunami is a natural disaster: a sudden, unexpected event that can hurt a destination's tourism.",
           "error_signals": [
             "ERR_TOUR_GLOBE_UNFORESEEN"
           ],
@@ -31101,7 +31101,7 @@
             "Time zones"
           ],
           "expected": "Foreign-exchange income",
-          "memo": "International visitors spending foreign currency provide foreign-exchange income for the host country.",
+          "memo": "Foreign visitors spending their own currency bring foreign-exchange income into the host country.",
           "error_signals": [
             "ERR_TOUR_GLOBE_IMPACT"
           ],
@@ -31118,7 +31118,7 @@
             "Blame the tourists"
           ],
           "expected": "Reassure tourists with clear safety information and recovery plans",
-          "memo": "Clear, honest safety communication and recovery efforts help rebuild tourist confidence after an unforeseen occurrence.",
+          "memo": "Clear, honest safety information and recovery plans help tourists trust a destination again after a sudden crisis.",
           "error_signals": [
             "ERR_TOUR_GLOBE_UNFORESEEN"
           ],
@@ -31150,7 +31150,7 @@
             "It only affects foreign countries"
           ],
           "expected": "It can reduce tourism income and damage businesses that rely on visitors",
-          "memo": "Fewer tourists after an unforeseen occurrence means less income for tourism businesses and the wider economy.",
+          "memo": "Fewer tourists after a sudden crisis means less money for tourism businesses and the wider economy.",
           "error_signals": [
             "ERR_TOUR_GLOBE_UNFORESEEN"
           ],
@@ -31274,7 +31274,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Most-visited-province statistics reveal which parts of South Africa foreign tourists favour.",
+          "memo": "Figures on the most-visited provinces show which parts of South Africa foreign tourists like best.",
           "error_signals": [
             "ERR_TOUR_MS_DATA"
           ],
@@ -31382,7 +31382,7 @@
             "freeze"
           ],
           "expected": "rise",
-          "memo": "More foreign arrivals generally means more foreign currency spent, raising foreign-exchange income.",
+          "memo": "More foreign visitors usually means more foreign money spent, which raises foreign-exchange income.",
           "error_signals": [
             "ERR_TOUR_MS_DATA"
           ],
@@ -31546,7 +31546,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Besides StatsSA and SA Tourism, travel journals, magazines and provincial authorities also provide tourism information.",
+          "memo": "Besides StatsSA and SA Tourism, travel journals, magazines and provincial tourism authorities also give useful tourism information.",
           "error_signals": [
             "ERR_TOUR_MS_SOURCE"
           ],
@@ -31587,7 +31587,7 @@
             "Sun, sea and sand"
           ],
           "expected": "People, profit and planet",
-          "memo": "The three pillars of sustainable tourism are people (social), profit (economic) and planet (environmental).",
+          "memo": "The three pillars are people (society), profit (the economy) and planet (the environment).",
           "error_signals": [
             "ERR_TOUR_PILLARS_CONCEPT"
           ],
@@ -31670,7 +31670,7 @@
             "Only the passport pillar"
           ],
           "expected": "Profit (economy), benefiting the local economy responsibly",
-          "memo": "Local employment and procurement are part of the profit (economic) pillar, helping the local economy responsibly.",
+          "memo": "Hiring local people and buying locally is part of the profit pillar: helping the local economy in a responsible way.",
           "error_signals": [
             "ERR_TOUR_PILLARS_PROFIT"
           ],
@@ -31726,7 +31726,7 @@
               "correct_bucket": "profit"
             }
           ],
-          "memo": "Planet = environment (water, energy, recycling); people = community and culture (CSI, respect); profit = responsible economy (local jobs and supplies).",
+          "memo": "Planet is the environment: water, energy and recycling. People is the community and culture: projects and respect. Profit is a responsible economy: local jobs and suppliers.",
           "error_signals": [
             "ERR_TOUR_PILLARS_SORT"
           ],
@@ -31758,7 +31758,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Promoting indigenous plants and removing invasive aliens protects the environment — the planet pillar.",
+          "memo": "Growing indigenous plants and removing invasive alien ones protects the environment, which is the planet pillar.",
           "error_signals": [
             "ERR_TOUR_PILLARS_PLANET"
           ],
@@ -31809,7 +31809,7 @@
             "So it can ignore the community"
           ],
           "expected": "It must stay financially viable to keep operating and supporting people and the planet",
-          "memo": "A business must remain viable (profitable) to keep running and continue benefiting people and the environment.",
+          "memo": "A business has to earn enough to keep running, so it can keep helping people and the environment.",
           "error_signals": [
             "ERR_TOUR_PILLARS_PROFIT"
           ],
@@ -31858,7 +31858,7 @@
             "border"
           ],
           "expected": "resource",
-          "memo": "Resource management (energy and water) is a good environmental practice under the planet pillar.",
+          "memo": "Using energy and water carefully is good resource management, part of the planet pillar.",
           "error_signals": [
             "ERR_TOUR_PILLARS_PLANET"
           ],
@@ -31875,7 +31875,7 @@
             "A lodge wastes water and energy"
           ],
           "expected": "A lodge buys food from nearby farmers and hires local staff",
-          "memo": "Procuring local goods and employing local people keeps money in the community — responsible profit.",
+          "memo": "Buying local goods and hiring local people keeps money in the community. That's profit made responsibly.",
           "error_signals": [
             "ERR_TOUR_PILLARS_PROFIT"
           ],
@@ -31890,7 +31890,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Responsible tourists support businesses that care for the environment and community, reflecting all three pillars.",
+          "memo": "Responsible tourists support businesses that care for the environment and the community, which covers all three pillars.",
           "error_signals": [
             "ERR_TOUR_PILLARS_RESP"
           ],
@@ -31999,7 +31999,7 @@
             "medical"
           ],
           "expected": "environmental",
-          "memo": "Tourist codes of conduct cover social, economic and environmental behaviour — matching the three pillars.",
+          "memo": "Tourist codes of conduct cover social, economic and environmental behaviour, matching the three pillars.",
           "error_signals": [
             "ERR_TOUR_TC_TYPE"
           ],
@@ -32016,7 +32016,7 @@
             "Picking protected plants as souvenirs"
           ],
           "expected": "Taking all litter away and staying on marked trails",
-          "memo": "Removing litter and staying on trails protects the environment — environmentally responsible behaviour.",
+          "memo": "Taking your litter away and staying on trails protects the environment.",
           "error_signals": [
             "ERR_TOUR_TC_ENV"
           ],
@@ -32033,7 +32033,7 @@
             "Mechanical"
           ],
           "expected": "Economic",
-          "memo": "Supporting local business and fair pay is economically responsible behaviour, helping the local economy.",
+          "memo": "Supporting local businesses and paying fairly is economically responsible, because it helps the local economy.",
           "error_signals": [
             "ERR_TOUR_TC_ECON"
           ],
@@ -32050,7 +32050,7 @@
             "chemical"
           ],
           "expected": "social",
-          "memo": "Respecting local people, customs and culture is socially responsible tourist behaviour.",
+          "memo": "Respecting local people, customs and culture is socially responsible behaviour.",
           "error_signals": [
             "ERR_TOUR_TC_SOCIAL"
           ],
@@ -32065,7 +32065,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "More tourists now seek responsible, sustainable options, increasing demand for responsible tourism.",
+          "memo": "More and more tourists are looking for responsible, sustainable options.",
           "error_signals": [
             "ERR_TOUR_TC_DEMAND"
           ],
@@ -32160,7 +32160,7 @@
               "correct_bucket": "environmental"
             }
           ],
-          "memo": "Social = respecting people and culture; economic = supporting local business and fair pay; environmental = protecting nature and resources.",
+          "memo": "Social means respecting people and culture. Economic means supporting local businesses and paying fairly. Environmental means protecting nature and resources.",
           "error_signals": [
             "ERR_TOUR_TC_TYPE"
           ],
@@ -32177,7 +32177,7 @@
             "By removing all nature reserves"
           ],
           "expected": "By offering genuine eco-friendly, responsible tourism options",
-          "memo": "Destinations attract conscious tourists by genuinely offering responsible, eco-friendly experiences.",
+          "memo": "Destinations attract tourists who care about the environment by offering genuinely eco-friendly, responsible experiences.",
           "error_signals": [
             "ERR_TOUR_TC_DEMAND"
           ],
@@ -32211,7 +32211,7 @@
             "expensive"
           ],
           "expected": "responsible",
-          "memo": "FTTSA certifies businesses that practise responsible and sustainable, fair-trade tourism.",
+          "memo": "FTTSA certifies businesses that practise responsible, sustainable, fair-trade tourism.",
           "error_signals": [
             "ERR_TOUR_TC_FTTSA"
           ],
@@ -32228,7 +32228,7 @@
             "Buying from local traders"
           ],
           "expected": "Carving your name into an ancient monument",
-          "memo": "Damaging a monument is irresponsible; the other options respect heritage, the environment and the economy.",
+          "memo": "Damaging a monument is irresponsible. The other options respect heritage, the environment and the local economy.",
           "error_signals": [
             "ERR_TOUR_TC_ENV"
           ],
@@ -32243,7 +32243,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Responsible behaviour protects attractions and the environment so future visitors can enjoy them too.",
+          "memo": "Behaving responsibly protects attractions and nature, so future visitors can enjoy them too.",
           "error_signals": [
             "ERR_TOUR_TC_CONCEPT"
           ],
@@ -32260,7 +32260,7 @@
             "It only matters to tourists, not businesses"
           ],
           "expected": "Businesses that meet it can attract more customers and stay competitive",
-          "memo": "As demand grows, businesses offering responsible options attract more customers and stay competitive.",
+          "memo": "As more tourists want responsible options, businesses that offer them attract more customers and stay competitive.",
           "error_signals": [
             "ERR_TOUR_TC_DEMAND"
           ],
@@ -32277,7 +32277,7 @@
             "medical"
           ],
           "expected": "environmental",
-          "memo": "Protecting wildlife by keeping your distance is environmentally responsible behaviour.",
+          "memo": "Keeping your distance protects wildlife, so it's environmentally responsible behaviour.",
           "error_signals": [
             "ERR_TOUR_TC_ENV"
           ],
@@ -32294,7 +32294,7 @@
             "Star grading"
           ],
           "expected": "Local economy",
-          "memo": "Spending on local guides and restaurants supports the local economy — economically responsible behaviour.",
+          "memo": "Spending money on local guides and restaurants supports the local economy, which is economically responsible.",
           "error_signals": [
             "ERR_TOUR_TC_ECON"
           ],
@@ -32326,7 +32326,7 @@
             "Bargaining unfairly to underpay a trader"
           ],
           "expected": "Asking permission before photographing local people",
-          "memo": "Asking permission shows respect for local people — socially responsible behaviour.",
+          "memo": "Asking permission shows respect for local people, which is socially responsible.",
           "error_signals": [
             "ERR_TOUR_TC_SOCIAL"
           ],
@@ -32343,7 +32343,7 @@
             "It removes the need for a passport"
           ],
           "expected": "It shows the business meets fair, responsible and sustainable standards",
-          "memo": "FTTSA certification signals that a business meets recognised responsible and sustainable standards.",
+          "memo": "FTTSA certification shows that a business meets recognised standards for being fair, responsible and sustainable.",
           "error_signals": [
             "ERR_TOUR_TC_FTTSA"
           ],
@@ -32360,7 +32360,7 @@
             "It decides which currency to use"
           ],
           "expected": "It guides tourists to behave responsibly towards people, the economy and the environment",
-          "memo": "A tourist code of conduct guides responsible behaviour across the social, economic and environmental areas.",
+          "memo": "A tourist code of conduct guides you to behave responsibly towards people, the local economy and the environment.",
           "error_signals": [
             "ERR_TOUR_TC_CONCEPT"
           ],
@@ -32435,7 +32435,7 @@
             "By polluting as much as possible"
           ],
           "expected": "By running responsibly, creating jobs and protecting the environment",
-          "memo": "Businesses contribute by operating responsibly, employing people and caring for the environment.",
+          "memo": "Businesses help by running responsibly, employing people and looking after the environment.",
           "error_signals": [
             "ERR_TOUR_RP_BUS"
           ],
@@ -32452,7 +32452,7 @@
             "time zones"
           ],
           "expected": "communities",
-          "memo": "Local communities are role players who protect heritage and benefit from responsible tourism.",
+          "memo": "Local communities protect their heritage and benefit when tourism is run responsibly.",
           "error_signals": [
             "ERR_TOUR_RP_COMM"
           ],
@@ -32523,7 +32523,7 @@
               "correct_bucket": "tourist"
             }
           ],
-          "memo": "Government makes policy and standards; businesses run responsibly and employ locals; tourists behave responsibly.",
+          "memo": "Government makes policies and sets standards. Businesses run responsibly and employ local people. Tourists behave responsibly.",
           "error_signals": [
             "ERR_TOUR_RP_SORT"
           ],
@@ -32672,7 +32672,7 @@
             "vaccinations"
           ],
           "expected": "culture",
-          "memo": "Communities contribute by sharing and protecting their culture and traditions, enriching tourism responsibly.",
+          "memo": "Communities help by sharing and protecting their culture and traditions, which makes tourism richer in a responsible way.",
           "error_signals": [
             "ERR_TOUR_RP_COMM"
           ],
@@ -32689,7 +32689,7 @@
             "A lodge ignores the community completely"
           ],
           "expected": "A lodge employs local people and supports a nearby clinic",
-          "memo": "Employing locals and supporting community facilities shows a business and community cooperating responsibly.",
+          "memo": "Hiring locals and supporting a community clinic shows a business and a community working together responsibly.",
           "error_signals": [
             "ERR_TOUR_RP_BUS"
           ],
@@ -32704,7 +32704,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Sustainability needs ALL role players; government acting alone is not enough without businesses, communities and tourists.",
+          "memo": "Sustainability needs everyone. Government alone isn't enough without businesses, communities and tourists doing their part.",
           "error_signals": [
             "ERR_TOUR_RP_CONCEPT"
           ],
@@ -32738,7 +32738,7 @@
             "Businesses — set the exchange rate; communities — fly the planes"
           ],
           "expected": "Government — sets policy; businesses — operate responsibly; tourists — behave responsibly",
-          "memo": "Each role player has a distinct job: government sets policy, businesses operate responsibly, tourists behave responsibly.",
+          "memo": "Each role player has its own job: government sets policy, businesses run responsibly and tourists behave responsibly.",
           "error_signals": [
             "ERR_TOUR_RP_SORT"
           ],
@@ -32796,7 +32796,7 @@
             "A map of the customer's route"
           ],
           "expected": "Information from customers about their experience of a product or service",
-          "memo": "Customer feedback is the information customers give about their experience, used to measure satisfaction.",
+          "memo": "Customer feedback is what customers tell a business about their experience. It's used to measure how happy they are.",
           "error_signals": [
             "ERR_TOUR_FB_CONCEPT"
           ],
@@ -32935,7 +32935,7 @@
             "longitude"
           ],
           "expected": "satisfaction",
-          "memo": "Analysing feedback lets a business measure customer satisfaction — how happy customers are.",
+          "memo": "Looking closely at feedback lets a business measure customer satisfaction: how happy customers are.",
           "error_signals": [
             "ERR_TOUR_FB_SATISFACTION"
           ],
@@ -33209,7 +33209,7 @@
             "Differences in the exchange rate"
           ],
           "expected": "Differences in staff training, attitude, management and resources",
-          "memo": "Service quality varies because of differences in training, staff attitude, management and the resources available.",
+          "memo": "Service is different from place to place because of differences in training, staff attitude, management and resources.",
           "error_signals": [
             "ERR_TOUR_SERV_REASON"
           ],
@@ -33260,7 +33260,7 @@
             "ruder"
           ],
           "expected": "better",
-          "memo": "Training and motivation improve service, so well-trained staff generally deliver better service.",
+          "memo": "Training and motivation improve service, so well-trained staff usually give better service.",
           "error_signals": [
             "ERR_TOUR_SERV_REASON"
           ],
@@ -33275,7 +33275,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Service quality directly affects customer loyalty and reputation, which in turn affect profit.",
+          "memo": "Service quality affects whether customers come back and what people say about the business, and both affect profit.",
           "error_signals": [
             "ERR_TOUR_SERV_PROFIT"
           ],
@@ -33383,7 +33383,7 @@
             "Ignore the business entirely"
           ],
           "expected": "Return and recommend the business to others",
-          "memo": "Excellent service encourages customers to return and recommend the business, boosting income.",
+          "memo": "Excellent service makes customers come back and recommend the business, which brings in more money.",
           "error_signals": [
             "ERR_TOUR_SERV_PROFIT"
           ],
@@ -33449,7 +33449,7 @@
             "Raising the exchange rate"
           ],
           "expected": "Putting off potential customers and reducing bookings",
-          "memo": "Bad reviews discourage potential customers, reducing bookings and harming profit.",
+          "memo": "Bad reviews put off possible customers, so bookings drop and profit suffers.",
           "error_signals": [
             "ERR_TOUR_SERV_PROFIT"
           ],
@@ -33498,7 +33498,7 @@
             "duty-free"
           ],
           "expected": "loyal",
-          "memo": "Loyal customers return again and again, providing steady income that supports profitability.",
+          "memo": "Loyal customers come back again and again, giving the business a steady income.",
           "error_signals": [
             "ERR_TOUR_SERV_PROFIT"
           ],
@@ -33530,7 +33530,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Staff attitude strongly affects service quality, helping explain why organisations differ.",
+          "memo": "Staff attitude has a big effect on service, which helps explain why places differ.",
           "error_signals": [
             "ERR_TOUR_SERV_REASON"
           ],
@@ -33622,7 +33622,7 @@
             "To raise the price of fuel"
           ],
           "expected": "To increase foreign arrivals and awareness of South Africa as a place to visit",
-          "memo": "International marketing aims to raise awareness of South Africa and increase the number of foreign arrivals.",
+          "memo": "Marketing abroad makes more people aware of South Africa and brings in more foreign visitors.",
           "error_signals": [
             "ERR_TOUR_MSA_IMPORTANCE"
           ],
@@ -33705,7 +33705,7 @@
             "TGCSA"
           ],
           "expected": "TOMSA (Tourism Marketing Levy South Africa)",
-          "memo": "TOMSA is the tourism marketing levy that helps fund SA Tourism's international marketing initiatives.",
+          "memo": "TOMSA is the tourism marketing levy that helps pay for SA Tourism's marketing overseas.",
           "error_signals": [
             "ERR_TOUR_MSA_TOMSA"
           ],
@@ -33810,7 +33810,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Good international marketing raises awareness and can increase the yearly number of foreign arrivals.",
+          "memo": "Good marketing abroad makes more people aware of South Africa and can raise the number of foreign visitors each year.",
           "error_signals": [
             "ERR_TOUR_MSA_IMPORTANCE"
           ],
@@ -33827,7 +33827,7 @@
             "taxation"
           ],
           "expected": "awareness",
-          "memo": "Marketing builds international awareness of South Africa as a desirable travel destination.",
+          "memo": "Marketing makes people around the world aware of South Africa as a great place to visit.",
           "error_signals": [
             "ERR_TOUR_MSA_IMPORTANCE"
           ],
@@ -33976,7 +33976,7 @@
             "South Africa is never marketed abroad"
           ],
           "expected": "SA Tourism markets the country internationally to grow awareness and foreign arrivals",
-          "memo": "SA Tourism markets South Africa internationally to raise awareness and increase foreign arrivals, supported by TOMSA funding and trade shows.",
+          "memo": "SA Tourism markets South Africa abroad to make it better known and bring in more foreign visitors, helped by TOMSA funding and trade shows.",
           "error_signals": [
             "ERR_TOUR_MSA_IMPORTANCE"
           ],

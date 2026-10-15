@@ -156,7 +156,7 @@
             "Fish overpopulation"
           ],
           "expected": "Run-off of fertilisers from farmland",
-          "memo": "Nitrate and phosphate fertilisers wash into rivers → algae multiply rapidly → bloom dies → bacteria use oxygen decomposing them → fish suffocate.",
+          "memo": "Fertiliser with nitrates and phosphates washes into the river, so algae grow fast. When the algae die, bacteria break them down and use up the oxygen, so fish suffocate.",
           "error_signals": [
             "ERR_LSC_EUTROPHICATION"
           ],
@@ -167,7 +167,7 @@
           "question": "Explain in one sentence why fish die after an algal bloom dies.",
           "input_type": "choice",
           "expected": "Bacteria decomposing the dead algae use up the dissolved oxygen, so the fish suffocate.",
-          "memo": "Photosynthesis adds O2 while algae are alive, but the bloom blocks light below the surface and the decomposition phase strips dissolved O2.",
+          "memo": "Living algae add oxygen, but a bloom blocks light from reaching deeper water. When the algae die, the bacteria rotting them use up the oxygen in the water.",
           "error_signals": [
             "ERR_LSC_EUTROPHICATION"
           ],
@@ -372,7 +372,7 @@
             "Hydrochloric acid only"
           ],
           "expected": "ATP, DNA and cell membranes",
-          "memo": "Phosphate groups sit inside ATP (energy currency), nucleic acids (DNA, RNA), and phospholipid bilayers (cell membranes).",
+          "memo": "Phosphate is part of ATP (the cell's energy carrier), of DNA and RNA, and of the layers that make up cell membranes.",
           "error_signals": [
             "ERR_LSC_MINERAL_FUNCTION"
           ],
@@ -650,7 +650,7 @@
             "lactic"
           ],
           "expected": "nucleic",
-          "memo": "DNA = deoxyribonucleic acid. RNA = ribonucleic acid. Monomer = nucleotide.",
+          "memo": "DNA is deoxyribonucleic acid and RNA is ribonucleic acid. Both are built from smaller units called nucleotides.",
           "error_signals": [
             "ERR_LSC_NUCLEIC_NAME"
           ],
@@ -1271,7 +1271,7 @@
             "Z"
           ],
           "expected": "X",
-          "memo": "Mitochondria have smooth outer + folded inner membrane (cristae) — bigger surface area for respiration enzymes.",
+          "memo": "Mitochondria have a smooth outer membrane and a folded inner one. The folds give more space for the enzymes that release energy.",
           "error_signals": [
             "ERR_LSC_ORGANELLE_ID"
           ],
@@ -1305,7 +1305,7 @@
             "Chloroplast"
           ],
           "expected": "Lysosome",
-          "memo": "Lysosomes contain digestive enzymes — recycle damaged organelles and destroy engulfed invaders.",
+          "memo": "Lysosomes contain digestive enzymes. They recycle damaged parts of the cell and destroy invaders the cell swallows.",
           "error_signals": [
             "ERR_LSC_ORGANELLE_FUNCTION"
           ],
@@ -1354,7 +1354,7 @@
             "1-B, 2-A, 3-C, 4-D"
           ],
           "expected": "1-B, 2-C, 3-A, 4-D",
-          "memo": "Mito → respiration. Ribosome → protein. Chloroplast → photosynthesis. Lysosome → digestion.",
+          "memo": "Mitochondria release energy (respiration), ribosomes make proteins, chloroplasts do photosynthesis and lysosomes digest.",
           "error_signals": [
             "ERR_LSC_ORGANELLE_MATCH"
           ],
@@ -1563,7 +1563,7 @@
             "Oxygen only"
           ],
           "expected": "Water across a partially permeable membrane",
-          "memo": "Osmosis is specifically water, across a partially permeable membrane, toward the side with more solute.",
+          "memo": "Osmosis is only about water. Water moves across a membrane that lets some things through, towards the side with more dissolved substance.",
           "error_signals": [
             "ERR_LSC_OSMOSIS_DEF"
           ],
@@ -1580,7 +1580,7 @@
             "Happens only in plants"
           ],
           "expected": "Moves substances against the concentration gradient and uses ATP",
-          "memo": "Active = uphill, energy-requiring, via carrier proteins. Example: root cells pumping in minerals.",
+          "memo": "Active transport moves substances uphill, from low to high concentration, using energy and carrier proteins. Root cells pumping in minerals is an example.",
           "error_signals": [
             "ERR_LSC_ACTIVE_TRANSPORT"
           ],
@@ -1663,7 +1663,7 @@
             "Make more chloroplasts"
           ],
           "expected": "Lose water; cytoplasm pulls away from cell wall (plasmolysis)",
-          "memo": "Strong salt outside = lower water concentration outside → water leaves cell → vacuole shrinks → membrane peels off the wall (plasmolysis).",
+          "memo": "Strong salt outside means less water outside, so water leaves the cell. The vacuole shrinks and the membrane pulls away from the wall. That's plasmolysis.",
           "error_signals": [
             "ERR_LSC_PLASMOLYSIS"
           ],
@@ -2297,7 +2297,7 @@
             "8"
           ],
           "expected": "2",
-          "memo": "Mitosis = ONE parent → TWO identical daughters. (Meiosis gives 4 non-identical cells.)",
+          "memo": "Mitosis turns one parent cell into two identical daughter cells. Meiosis is the one that makes four different cells.",
           "error_signals": [
             "ERR_LSC_DAUGHTER_COUNT"
           ],
@@ -2485,7 +2485,7 @@
             "d → a → b → c"
           ],
           "expected": "a → b → d → c",
-          "memo": "DNA replicates during interphase → chromatids pulled apart in anaphase → nuclear membrane reforms in telophase → cytokinesis splits the cell.",
+          "memo": "DNA copies itself in interphase, the chromatids are pulled apart in anaphase, the nucleus re-forms in telophase, then cytokinesis splits the cell.",
           "error_signals": [
             "ERR_LSC_CYCLE_ORDER"
           ],
@@ -2502,7 +2502,7 @@
             "Nuclear membrane"
           ],
           "expected": "Spindle fibres",
-          "memo": "Spindle fibres (microtubules) attach to centromeres and shorten, dragging chromatids to opposite poles.",
+          "memo": "Spindle fibres attach to the centromeres and shorten, pulling the chromatids to opposite ends of the cell.",
           "error_signals": [
             "ERR_LSC_SPINDLE"
           ],
@@ -2841,7 +2841,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The National Health Act and SAMRC guidelines regulate stem-cell research in SA — it's allowed under specific ethical oversight.",
+          "memo": "The National Health Act and SAMRC guidelines allow stem-cell research in South Africa, but only under strict ethical rules.",
           "error_signals": [
             "ERR_LSC_SA_LAW"
           ],
@@ -2858,7 +2858,7 @@
             "Making perfect copies of pets"
           ],
           "expected": "Bone-marrow transplants for leukaemia",
-          "memo": "Bone-marrow transplants use blood-forming (haematopoietic) stem cells to replace cancerous marrow. A long-established treatment.",
+          "memo": "Bone-marrow transplants use blood-making stem cells to replace cancerous marrow. It's a long-established treatment.",
           "error_signals": [
             "ERR_LSC_STEM_CELL_USE"
           ],
@@ -2869,7 +2869,7 @@
           "question": "Explain in two sentences how chemotherapy can have side effects like hair loss and gut problems.",
           "input_type": "choice",
           "expected": "Chemo targets rapidly dividing cells, and hair and gut-lining cells also divide quickly.",
-          "memo": "Side effects are usually temporary — these healthy fast-dividing tissues recover after treatment ends.",
+          "memo": "Chemo attacks cells that divide fast. Hair and gut-lining cells divide fast too, so they get hit. These side effects usually pass once treatment ends.",
           "error_signals": [
             "ERR_LSC_CANCER_TREATMENT"
           ],
@@ -2892,7 +2892,7 @@
             "Using soil only"
           ],
           "expected": "Tissue culture — growing many identical plants from a few cells",
-          "memo": "Tissue culture lets nurseries mass-produce disease-free identical seedlings (e.g. bananas, orchids, some indigenous SA plants).",
+          "memo": "Tissue culture lets nurseries grow huge numbers of identical, disease-free seedlings, like bananas, orchids and some indigenous South African plants.",
           "error_signals": [
             "ERR_LSC_CLONING_USE"
           ],
@@ -3016,7 +3016,7 @@
             "A type of DNA"
           ],
           "expected": "A group of similar cells working together for a function",
-          "memo": "Hierarchy: cells → tissues → organs → organ systems → organism.",
+          "memo": "Living things are built in levels: cells make tissues, tissues make organs, organs make systems, and systems make the organism.",
           "error_signals": [
             "ERR_LSC_TISSUE_DEF"
           ],
@@ -3084,7 +3084,7 @@
             "Reproductive tissues"
           ],
           "expected": "Support tissues",
-          "memo": "Collenchyma = flexible support (often in growing stems). Sclerenchyma = rigid support (often in mature/woody tissue, with lignin).",
+          "memo": "Collenchyma gives flexible support, often in growing stems. Sclerenchyma gives rigid support, often in older, woody parts, thanks to lignin.",
           "error_signals": [
             "ERR_LSC_SUPPORT_TISSUE"
           ],
@@ -3135,7 +3135,7 @@
             "Pumps blood"
           ],
           "expected": "Covers and lines body surfaces",
-          "memo": "Skin epidermis, gut lining, lung lining, blood-vessel lining = all epithelial. Protective + absorbing + secreting.",
+          "memo": "Epithelial tissue covers and lines surfaces, like skin and the linings of the gut, lungs and blood vessels. It protects, absorbs and releases substances.",
           "error_signals": [
             "ERR_LSC_ANIMAL_TISSUE"
           ],
@@ -3169,7 +3169,7 @@
             "Epithelial muscle"
           ],
           "expected": "Cardiac muscle",
-          "memo": "Three muscle types: Skeletal (voluntary, moves bones), Smooth (involuntary, gut wall, blood vessels), Cardiac (heart only, involuntary, striated).",
+          "memo": "There are three muscle types. Skeletal muscle moves bones and you control it. Smooth muscle lines the gut and vessels. Cardiac muscle is only in the heart and works on its own.",
           "error_signals": [
             "ERR_LSC_MUSCLE_TYPES"
           ],
@@ -3186,7 +3186,7 @@
             "Carrying water in plants"
           ],
           "expected": "Sending electrical signals quickly",
-          "memo": "Neurons have long projections (axons) that conduct electrical impulses to communicate between body parts.",
+          "memo": "Nerve cells have long extensions called axons that carry electrical signals between parts of the body.",
           "error_signals": [
             "ERR_LSC_NERVE"
           ],
@@ -3203,7 +3203,7 @@
             "1-A, 2-B, 3-C, 4-D"
           ],
           "expected": "1-C, 2-D, 3-B, 4-A",
-          "memo": "Xylem→water. Phloem→sugar. Epithelial→cover. Nerve→signals.",
+          "memo": "Xylem carries water, phloem carries sugar, epithelial tissue covers surfaces, and nerve tissue sends signals.",
           "error_signals": [
             "ERR_LSC_TISSUE_MATCH"
           ],
@@ -3289,7 +3289,7 @@
             "Only in the brain"
           ],
           "expected": "The gut and blood vessels",
-          "memo": "Smooth muscle = involuntary, no stripes, slow + sustained contraction — squeezes gut contents (peristalsis), narrows blood vessels.",
+          "memo": "Smooth muscle works without you thinking about it. It squeezes slowly and steadily, pushing food through the gut and narrowing blood vessels.",
           "error_signals": [
             "ERR_LSC_MUSCLE_LOCATION"
           ],
@@ -3334,7 +3334,7 @@
           "question": "Explain in two sentences why animal cells form many different tissue types instead of all being the same.",
           "input_type": "choice",
           "expected": "Different jobs need different cell structures, so specialisation lets each tissue work efficiently.",
-          "memo": "Division of labour. One generic cell can't be good at everything; specialisation = better performance overall.",
+          "memo": "It's division of labour. One all-purpose cell can't be good at everything, so specialised cells do each job better.",
           "error_signals": [
             "ERR_LSC_SPECIALISATION"
           ],
@@ -3413,7 +3413,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Cold = virus → antibiotics don't help. Misusing antibiotics drives antibiotic RESISTANCE in bacteria.",
+          "memo": "Colds are caused by viruses, and antibiotics don't work on viruses. Using antibiotics when you don't need them helps bacteria become resistant.",
           "error_signals": [
             "ERR_LSC_ANTIBIOTIC"
           ],
@@ -3496,7 +3496,7 @@
             "It is used for fuel"
           ],
           "expected": "Indigenous knowledge said it suppresses appetite",
-          "memo": "Khoisan hunters chewed Hoodia to suppress hunger and thirst during long trips. Researchers identified the active compound (P57); legal benefit-sharing arrangements followed.",
+          "memo": "Khoisan hunters chewed Hoodia to stop hunger and thirst on long trips. Scientists found the active compound (P57), and legal benefit-sharing agreements followed.",
           "error_signals": [
             "ERR_LSC_IK",
             "ERR_LSC_SA_CONTEXT"
@@ -3532,7 +3532,7 @@
             "It is bright pink"
           ],
           "expected": "Indigenous knowledge linked it to immune support and cancer-related symptoms",
-          "memo": "Traditional Xhosa and Sotho healers used Sutherlandia for many conditions including cancer-related ones. Clinical trials underway.",
+          "memo": "Traditional Xhosa and Sotho healers used Sutherlandia for many illnesses, including cancer-related ones. Clinical trials are now testing it.",
           "error_signals": [
             "ERR_LSC_IK"
           ],
@@ -3549,7 +3549,7 @@
             "They use plants"
           ],
           "expected": "Unknown active doses, side effects or interactions with other medicine",
-          "memo": "Traditional remedies CAN be effective, but without testing the dose and interactions are uncertain — some are dangerous with prescription drugs (especially ARVs).",
+          "memo": "Traditional remedies can work, but without testing, the right dose and how they mix with other medicines are unknown. Some are dangerous with prescription drugs, especially ARVs.",
           "error_signals": [
             "ERR_LSC_IK_RISK"
           ],
@@ -3632,7 +3632,7 @@
             "Replacing rain"
           ],
           "expected": "Producing many copies of rare/endangered plants for replanting",
-          "memo": "Endangered SA plants like some cycads and orchids are propagated by tissue culture to support conservation and reduce wild harvesting.",
+          "memo": "Endangered South African plants, like some cycads and orchids, are grown by tissue culture to support conservation and reduce taking them from the wild.",
           "error_signals": [
             "ERR_LSC_CLONING_USE",
             "ERR_LSC_SA_CONTEXT"
@@ -3666,7 +3666,7 @@
             "Pre-1940 was safer"
           ],
           "expected": "Antibiotics massively reduced deaths from post-surgery infection",
-          "memo": "Penicillin became widely available in the 1940s. Survival after surgery jumped — many infections that were once fatal became treatable.",
+          "memo": "Penicillin became widely available in the 1940s. After that, far more people survived surgery, because many infections that used to kill became treatable.",
           "error_signals": [
             "ERR_LSC_DATA_READ",
             "ERR_LSC_VACCINE_HISTORY"
@@ -3678,7 +3678,7 @@
           "question": "Explain in two sentences why indigenous knowledge and modern science can complement each other.",
           "input_type": "choice",
           "expected": "Indigenous knowledge identifies useful plants, and science tests and standardises them for safety.",
-          "memo": "Two-way street: IK guides discovery (saves time); science validates and ensures dose/safety. SA has formal biodiversity benefit-sharing laws to protect IK contributors.",
+          "memo": "Indigenous knowledge points scientists to useful plants, which saves time. Science then tests their safety and dose. South African law protects the communities who shared that knowledge.",
           "error_signals": [
             "ERR_LSC_IK"
           ],
@@ -3791,7 +3791,7 @@
             "Stores starch"
           ],
           "expected": "Has lignified cell walls and is found in mature/woody tissue",
-          "memo": "Collenchyma = flexible support in growing parts. Sclerenchyma = rigid support in mature parts (lignified, often dead at maturity).",
+          "memo": "Collenchyma gives flexible support in growing parts. Sclerenchyma gives rigid support in older parts; its walls contain lignin and its cells are often dead.",
           "error_signals": [
             "ERR_LSC_SUPPORT_COMPARE"
           ],
@@ -3894,7 +3894,7 @@
             "Pith"
           ],
           "expected": "Collenchyma",
-          "memo": "Collenchyma forms a continuous flexible support ring under the epidermis in many young stems — feel a celery stalk's tough outer 'string' = bundles of collenchyma.",
+          "memo": "Collenchyma forms a flexible support ring just under the outer layer of many young stems. The tough 'strings' on a celery stalk are collenchyma.",
           "error_signals": [
             "ERR_LSC_TISSUE_LOCATION"
           ],
@@ -3911,7 +3911,7 @@
             "It grows in shade"
           ],
           "expected": "It stores large amounts of water in fleshy leaves and stems",
-          "memo": "Succulents are built for SA's dry biomes — water-storing tissue + waxy cuticle + reduced surface area minimise water loss.",
+          "memo": "Succulents are built for South Africa's dry areas: they store water, have a waxy coating, and have less surface to lose water from.",
           "error_signals": [
             "ERR_LSC_ADAPTATION",
             "ERR_LSC_SA_CONTEXT"
@@ -3944,7 +3944,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Add water → vacuoles refill → cells become turgid again → plant 'perks up'. (Plasmolysis can sometimes be reversed too, if not too severe.)",
+          "memo": "Add water and the vacuoles refill, so the cells become firm again and the plant perks up. Mild plasmolysis can sometimes be reversed too.",
           "error_signals": [
             "ERR_LSC_TURGOR"
           ],
@@ -3972,7 +3972,7 @@
           "question": "Why is xylem suitable for BOTH transport and support?",
           "input_type": "choice",
           "expected": "Xylem is hollow for water flow and has thick lignified walls that give support.",
-          "memo": "Two-for-one: structure (rigid wall) AND function (transport channel). Beautiful example of evolutionary efficiency.",
+          "memo": "Xylem's rigid walls hold the plant up, and its hollow tubes carry water. One structure does two jobs.",
           "error_signals": [
             "ERR_LSC_STRUCTURE_FUNCTION"
           ],
@@ -3995,7 +3995,7 @@
             "Wilting is normal"
           ],
           "expected": "Cells have plasmolysed and some have died from severe dehydration",
-          "memo": "Brief wilting is reversible (just flaccid). Prolonged severe wilting → plasmolysis → cell death = irreversible damage.",
+          "memo": "Brief wilting can be reversed. But long, severe wilting causes plasmolysis and cells die, and that damage is permanent.",
           "error_signals": [
             "ERR_LSC_PLASMOLYSIS"
           ],
@@ -4350,7 +4350,7 @@
             "Transpiration"
           ],
           "expected": "The movement of sugars in the phloem",
-          "memo": "Translocation = sugar transport (phloem). Distinct from transpiration (xylem water).",
+          "memo": "Translocation is sugar moving through the phloem. It's different from transpiration, which is water moving through the xylem.",
           "error_signals": [
             "ERR_LSC_TRANSLOCATION"
           ],
@@ -4411,7 +4411,7 @@
           "question": "Explain in two sentences how stomata closing helps a plant during a hot dry day.",
           "input_type": "choice",
           "expected": "Closing the stomata reduces transpiration, conserving water and helping avoid wilting.",
-          "memo": "Trade-off: closing stomata also slows photosynthesis — but in extreme conditions surviving is more important than growing.",
+          "memo": "Closing the stomata also slows photosynthesis. But in extreme heat, surviving matters more than growing.",
           "error_signals": [
             "ERR_LSC_STOMATA"
           ],
@@ -4492,7 +4492,7 @@
             "Production of blood cells"
           ],
           "expected": "Photosynthesis",
-          "memo": "Skeleton roles: support, protection, movement (with muscles), blood-cell formation, mineral storage. Photosynthesis is for plants.",
+          "memo": "The skeleton supports, protects, helps movement with the muscles, makes blood cells and stores minerals. Photosynthesis is something plants do.",
           "error_signals": [
             "ERR_LSC_SKELETON_FUNCTION"
           ],
@@ -4797,7 +4797,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Bone is living tissue — constantly remodelled. Weight-bearing exercise increases density; inactivity (e.g. astronauts) loses bone mass.",
+          "memo": "Bone is living tissue that's always being rebuilt. Weight-bearing exercise makes it denser; not using it, as astronauts find, makes it lose mass.",
           "error_signals": [
             "ERR_LSC_BONE_LIVING"
           ],
@@ -5043,7 +5043,7 @@
             "Vitamin C"
           ],
           "expected": "Willow tree bark (traditional remedy)",
-          "memo": "Willow bark contains salicin. Indigenous use → scientists isolated and synthesised acetylsalicylic acid (aspirin) in the 1800s. Great IK → science example.",
+          "memo": "Willow bark contains salicin. People used it as a traditional remedy, and in the 1800s scientists isolated and made aspirin from it. It's a good example of traditional knowledge leading to science.",
           "error_signals": [
             "ERR_LSC_IK"
           ],
@@ -5120,7 +5120,7 @@
           "question": "Compare osteoarthritis and rheumatoid arthritis briefly.",
           "input_type": "choice",
           "expected": "Osteoarthritis is wear of joint cartilage; rheumatoid arthritis is an autoimmune attack.",
-          "memo": "Different causes, different treatments. Osteo = pain relief + joint replacement if severe. Rheumatoid = immune-modifying drugs.",
+          "memo": "They have different causes, so they're treated differently. Osteoarthritis is treated with pain relief and joint replacement if severe. Rheumatoid arthritis is treated with drugs that calm the immune system.",
           "error_signals": [
             "ERR_LSC_ARTHRITIS"
           ],
@@ -5284,7 +5284,7 @@
             "Smooth muscles"
           ],
           "expected": "An antagonistic pair",
-          "memo": "Antagonistic pair = opposite actions. Biceps bends elbow; triceps straightens elbow.",
+          "memo": "An antagonistic pair work in opposite directions. The biceps bends the elbow; the triceps straightens it.",
           "error_signals": [
             "ERR_LSC_ANTAGONISTIC"
           ],
@@ -5455,7 +5455,7 @@
             "Too much oxygen"
           ],
           "expected": "Build-up of lactic acid from anaerobic respiration",
-          "memo": "When O2 supply can't keep up, cells use anaerobic respiration → lactic acid builds up → 'burn' + fatigue. (Aerobic respiration covered in Grade 11.)",
+          "memo": "When muscles can't get oxygen fast enough, they release energy without it. Lactic acid builds up, causing the burn and tiredness.",
           "error_signals": [
             "ERR_LSC_FATIGUE"
           ],
@@ -5648,7 +5648,7 @@
             "Lymph"
           ],
           "expected": "Deoxygenated blood from the right ventricle to the lungs",
-          "memo": "Pulmonary artery is the EXCEPTION: arteries usually carry oxygenated blood, but the pulmonary artery carries DEoxygenated blood.",
+          "memo": "The pulmonary artery is the exception. Most arteries carry blood rich in oxygen, but this one carries blood low in oxygen to the lungs.",
           "error_signals": [
             "ERR_LSC_PULMONARY_VESSELS"
           ],
@@ -5736,7 +5736,7 @@
             "b → a → c → d"
           ],
           "expected": "d → a → b → c",
-          "memo": "Blood fills atria (during diastole) → atria contract (atrial systole) → ventricles contract (ventricular systole) → all chambers relax (diastole) → cycle repeats.",
+          "memo": "Blood fills the atria, the atria squeeze, then the ventricles squeeze, then all the chambers relax. Then it starts again.",
           "error_signals": [
             "ERR_LSC_CYCLE_ORDER"
           ],
@@ -5770,7 +5770,7 @@
             "Arteries are blocked"
           ],
           "expected": "The natural pacemaker (SA node) fails or beats irregularly",
-          "memo": "Pacemaker = small electronic device that delivers regular electrical impulses to keep the heart beating reliably.",
+          "memo": "A pacemaker is a small electronic device that sends regular electrical pulses to keep the heart beating steadily.",
           "error_signals": [
             "ERR_LSC_PACEMAKER"
           ],
@@ -5840,7 +5840,7 @@
             "In the lungs"
           ],
           "expected": "Exits of the ventricles into the aorta and pulmonary artery",
-          "memo": "Semilunar valves prevent backflow of blood from the arteries into the ventricles when ventricles relax.",
+          "memo": "Semilunar valves stop blood flowing back from the arteries into the ventricles when the ventricles relax.",
           "error_signals": [
             "ERR_LSC_SEMILUNAR"
           ],
@@ -5891,7 +5891,7 @@
             "They don't need oxygen"
           ],
           "expected": "A trained heart pumps more blood per beat, so it needs fewer beats per minute",
-          "memo": "Endurance training makes the heart muscle stronger and the chambers slightly larger → higher stroke volume → lower resting pulse to deliver the same output.",
+          "memo": "Training makes the heart muscle stronger and its chambers a bit bigger, so it pumps more blood per beat. It needs fewer beats to deliver the same amount.",
           "error_signals": [
             "ERR_LSC_TRAINING_HEART"
           ],
@@ -5902,7 +5902,7 @@
           "question": "Explain in two sentences why double circulation in mammals is more efficient than the single circulation in a fish.",
           "input_type": "choice",
           "expected": "Double circulation keeps oxygenated and deoxygenated blood separate and lets the heart pump at high pressure to the body but gentler to the lungs.",
-          "memo": "Mammals (and birds) are 'high-performance' animals — high O2 demand for warm-bloodedness needs the more efficient double circulation.",
+          "memo": "Mammals and birds are warm-blooded and need lots of oxygen. Double circulation delivers it more efficiently.",
           "error_signals": [
             "ERR_LSC_DOUBLE_CIRC"
           ],
@@ -6214,7 +6214,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Wrong-group transfusion → recipient's antibodies attack donor cells → potentially fatal. Universal donor = O-negative; universal recipient = AB-positive.",
+          "memo": "With the wrong blood group, the recipient's antibodies attack the donor's cells, which can kill. O-negative can be given to anyone; AB-positive can receive from anyone.",
           "error_signals": [
             "ERR_LSC_TRANSFUSION"
           ],
@@ -6231,7 +6231,7 @@
             "Bone needs cap networks"
           ],
           "expected": "Active tissues need fast O2 supply and waste removal — more capillaries = more exchange surface",
-          "memo": "More demand = more capillaries. Training increases capillary density in trained muscles — one of many endurance adaptations.",
+          "memo": "The more a tissue works, the more capillaries it needs. Training even adds capillaries to the muscles you train.",
           "error_signals": [
             "ERR_LSC_CAPILLARY"
           ],
@@ -6358,7 +6358,7 @@
             "Blood becomes too thick"
           ],
           "expected": "A coronary artery is blocked, starving heart muscle of oxygen",
-          "memo": "Coronary arteries supply heart muscle. Blocked by atherosclerotic plaque + blood clot → muscle dies (infarction).",
+          "memo": "Coronary arteries feed the heart muscle. When fatty build-up and a clot block one, that part of the muscle dies.",
           "error_signals": [
             "ERR_LSC_HEART_ATTACK"
           ],
@@ -6649,7 +6649,7 @@
           "question": "Explain in two sentences why CVD is a major public-health problem in SA.",
           "input_type": "choice",
           "expected": "Risk factors like high salt intake, smoking and obesity are common in SA, making CVD a leading cause of death in adults.",
-          "memo": "Health system challenge: prevention (education, screening) + treatment + lifestyle change. Multiple government programmes target diet, smoking, exercise.",
+          "memo": "Tackling heart disease needs prevention (education and screening), treatment and healthier lifestyles. Government programmes target diet, smoking and exercise.",
           "error_signals": [
             "ERR_LSC_SA_PUBLIC_HEALTH"
           ],
@@ -6833,7 +6833,7 @@
             "Pine plantations only"
           ],
           "expected": "Grassland with scattered trees, summer rainfall, large mammals",
-          "memo": "Classic SA savanna: Acacia + grass + zebra/giraffe/lion. Covers Limpopo, Mpumalanga, parts of North West.",
+          "memo": "South African savanna is grassland with acacia trees and animals like zebra, giraffe and lion. It covers Limpopo, Mpumalanga and parts of North West.",
           "error_signals": [
             "ERR_LSC_SA_BIOMES"
           ],
@@ -6882,7 +6882,7 @@
             "Cell"
           ],
           "expected": "Biome",
-          "memo": "Hierarchy: organism → population → community → ecosystem → biome → biosphere.",
+          "memo": "The levels go: organism, population, community, ecosystem, biome, biosphere.",
           "error_signals": [
             "ERR_LSC_HIERARCHY"
           ],
@@ -6937,7 +6937,7 @@
             "A whole biome"
           ],
           "expected": "All the members of one species in an area",
-          "memo": "Population = same species. Community = all populations together. Ecosystem = community + abiotic.",
+          "memo": "A population is one species. A community is all the populations together. An ecosystem is the community plus non-living things like water and soil.",
           "error_signals": [
             "ERR_LSC_POPULATION_DEF"
           ],
@@ -7049,7 +7049,7 @@
           "question": "Why does an ecosystem need BOTH biotic and abiotic components?",
           "input_type": "choice",
           "expected": "Living organisms depend on abiotic resources like water and light, and living things in turn shape those abiotic conditions.",
-          "memo": "Two-way relationship. Forest creates its own microclimate; soil nutrients depend on decomposition by organisms.",
+          "memo": "Living and non-living parts affect each other. A forest creates its own local climate, and soil nutrients depend on living things breaking down dead matter.",
           "error_signals": [
             "ERR_LSC_INTERDEPENDENCE"
           ],
@@ -7147,7 +7147,7 @@
             "Rocks"
           ],
           "expected": "Producers (plants)",
-          "memo": "Primary consumers = herbivores (zebra, antelope, caterpillars). They directly eat producers.",
+          "memo": "Primary consumers are herbivores, like zebra, antelope and caterpillars. They eat producers (plants) directly.",
           "error_signals": [
             "ERR_LSC_PRIMARY_CONSUMER"
           ],
@@ -7164,7 +7164,7 @@
             "Soil"
           ],
           "expected": "Primary consumers (herbivores)",
-          "memo": "Secondary consumer = small/medium carnivore. Snake eats mouse = secondary consumer.",
+          "memo": "A secondary consumer is a small or medium carnivore that eats herbivores. A snake eating a mouse is a secondary consumer.",
           "error_signals": [
             "ERR_LSC_CONSUMER_LEVELS"
           ],
@@ -7218,7 +7218,7 @@
             "Worm"
           ],
           "expected": "Vulture (eats lion remains)",
-          "memo": "Producer→primary→secondary→tertiary. Vulture eating lion remains makes it tertiary. (Scavengers don't fit neatly — flexibility in food webs.)",
+          "memo": "The chain goes producer, primary, secondary, tertiary. The vulture eats the lion's remains, so it's the tertiary consumer. Scavengers don't always fit neatly.",
           "error_signals": [
             "ERR_LSC_TROPHIC"
           ],
@@ -7338,7 +7338,7 @@
             "Trees become carnivores"
           ],
           "expected": "Herbivore numbers may rise initially, then overgrazing damages the vegetation",
-          "memo": "Top predators control herbivore numbers. Remove them → too many herbivores → overgrazing → habitat damage. Classic 'trophic cascade'.",
+          "memo": "Top predators keep herbivore numbers down. Remove them and herbivores multiply, overgraze and damage the habitat. This knock-on effect is called a trophic cascade.",
           "error_signals": [
             "ERR_LSC_TROPHIC_CASCADE"
           ],
@@ -7372,7 +7372,7 @@
             "Always the same as fish"
           ],
           "expected": "Producers (phytoplankton) and primary consumers (zooplankton)",
-          "memo": "Phytoplankton = microscopic plant-like producers. Zooplankton = microscopic animal-like primary consumers. Foundation of ocean ecosystems.",
+          "memo": "Phytoplankton are tiny plant-like producers. Zooplankton are tiny animal-like primary consumers. Together they're the base of ocean food webs.",
           "error_signals": [
             "ERR_LSC_PLANKTON"
           ],
@@ -7567,7 +7567,7 @@
             "Breath of animals only"
           ],
           "expected": "Evaporation from oceans, lakes, and rivers + transpiration from plants",
-          "memo": "Together: evapotranspiration. Oceans contribute the largest single share, but plants are very important too.",
+          "memo": "Evaporation and plant transpiration together are called evapotranspiration. Oceans give the biggest single share, but plants matter a lot too.",
           "error_signals": [
             "ERR_LSC_WATER_CYCLE"
           ],
@@ -7751,7 +7751,7 @@
             "Plants don't need nitrogen"
           ],
           "expected": "Crops removed each season take nitrogen out faster than fixation puts it back",
-          "memo": "Removing harvest = removing N. Solutions: legume rotation, fertiliser, composting. Sustainable farming balances inputs and outputs.",
+          "memo": "Harvesting crops removes nitrogen from the soil. Rotating with legumes, fertiliser and compost put it back. Sustainable farming balances what goes in with what comes out.",
           "error_signals": [
             "ERR_LSC_SOIL_DEPLETION",
             "ERR_LSC_SA_CONTEXT"
@@ -8080,7 +8080,7 @@
             "Soil becomes liquid"
           ],
           "expected": "Soil drier at 3 pm due to evaporation during the heat of day",
-          "memo": "Sun + heat = evaporation. Why ecologists time measurements (e.g. early morning) to standardise comparisons.",
+          "memo": "Sun and heat cause evaporation during the day. That's why ecologists take measurements at the same time each day, often early morning, so results can be compared fairly.",
           "error_signals": [
             "ERR_LSC_FIELD_PRACTICAL"
           ],
@@ -8291,7 +8291,7 @@
             "All plants"
           ],
           "expected": "Mostly single-celled eukaryotes (e.g. Amoeba, Paramecium, algae)",
-          "memo": "Protista is a 'catch-all' kingdom for eukaryotic organisms that don't fit Plantae, Animalia, or Fungi.",
+          "memo": "Protista is a catch-all kingdom for organisms with a nucleus that don't fit into plants, animals or fungi.",
           "error_signals": [
             "ERR_LSC_PROTISTA"
           ],
@@ -8445,7 +8445,7 @@
             "Discovering antibiotics"
           ],
           "expected": "Creating the binomial naming system in the 1700s",
-          "memo": "Linnaeus standardised biological naming and classification. The basis of modern taxonomy.",
+          "memo": "Linnaeus created a standard way of naming and grouping living things in the 1700s. It's the base of modern classification.",
           "error_signals": [
             "ERR_LSC_LINNAEUS"
           ],
@@ -8462,7 +8462,7 @@
             "Body weight"
           ],
           "expected": "DNA sequence comparison",
-          "memo": "Molecular phylogenetics has changed the tree of life — sometimes a 'plant'-like organism turns out to be more closely related to fungi (etc.).",
+          "memo": "Comparing DNA has redrawn the tree of life. Sometimes an organism that looks like a plant turns out to be more closely related to fungi.",
           "error_signals": [
             "ERR_LSC_MOLECULAR_CLASS"
           ],
@@ -8620,7 +8620,7 @@
             "Eats meat"
           ],
           "expected": "Faces a high risk of extinction in the wild",
-          "memo": "IUCN Red List categories: Least Concern → Near Threatened → Vulnerable → Endangered → Critically Endangered → Extinct in Wild → Extinct.",
+          "memo": "The IUCN Red List goes from Least Concern, through Near Threatened, Vulnerable, Endangered and Critically Endangered, to Extinct in the Wild and Extinct.",
           "error_signals": [
             "ERR_LSC_ENDANGERED"
           ],
@@ -8906,7 +8906,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Ecotourism funds reserves + employs local communities → biodiversity is worth more alive than poached.",
+          "memo": "Ecotourism pays for reserves and employs local people, so wildlife becomes worth more alive than poached.",
           "error_signals": [
             "ERR_LSC_ECOTOURISM"
           ],
@@ -9133,7 +9133,7 @@
             "Today"
           ],
           "expected": "Permian–Triassic (250+ million years ago)",
-          "memo": "Karoo rocks preserve life before, during and after the end-Permian extinction — a globally unique record of mammal-like reptiles (therapsids).",
+          "memo": "Karoo rocks hold fossils from before, during and after a mass extinction about 250 million years ago. They're a world-famous record of mammal-like reptiles.",
           "error_signals": [
             "ERR_LSC_KAROO",
             "ERR_LSC_SA_CONTEXT"
@@ -9151,7 +9151,7 @@
             "Robben Island"
           ],
           "expected": "Sterkfontein and Malapa (Australopithecus and Homo fossils)",
-          "memo": "UNESCO World Heritage Site. Sterkfontein = 'Mrs Ples'. Malapa = Australopithecus sediba. Rising Star = Homo naledi.",
+          "memo": "The Cradle of Humankind is a UNESCO World Heritage Site. Sterkfontein gave us 'Mrs Ples', Malapa gave Australopithecus sediba, and Rising Star gave Homo naledi.",
           "error_signals": [
             "ERR_LSC_CRADLE",
             "ERR_LSC_SA_CONTEXT"
@@ -9594,7 +9594,7 @@
             "Lignin"
           ],
           "expected": "Peptidoglycan",
-          "memo": "Bacterial walls = peptidoglycan. Plant walls = cellulose. Fungal walls = chitin. Lignin = woody plants. Antibiotics like penicillin target peptidoglycan.",
+          "memo": "Bacterial walls are made of peptidoglycan, plant walls of cellulose, and fungal walls of chitin. Lignin is in woody plants. Penicillin works by attacking peptidoglycan.",
           "error_signals": [
             "ERR_LSC_CELL_WALLS"
           ],
@@ -9628,7 +9628,7 @@
             "Fungi"
           ],
           "expected": "Protista",
-          "memo": "Plasmodium is a protist. Carried by Anopheles mosquitoes. Malaria treatment uses antimalarial drugs, not antibiotics.",
+          "memo": "Plasmodium is a protist, carried by Anopheles mosquitoes. Malaria is treated with antimalarial drugs, not antibiotics.",
           "error_signals": [
             "ERR_LSC_MALARIA"
           ],
@@ -9643,7 +9643,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Most bacteria are harmless or beneficial — gut microbes (digestion + immunity), nitrogen-fixing bacteria, food bacteria (yoghurt, cheese). Only a small fraction cause disease.",
+          "memo": "Most bacteria are harmless or helpful: gut bacteria help digestion and immunity, some fix nitrogen, and some make yoghurt and cheese. Only a few cause disease.",
           "error_signals": [
             "ERR_LSC_BACTERIA_MYTH"
           ],
@@ -9752,7 +9752,7 @@
             "Mosquitoes"
           ],
           "expected": "A bacterium spread via contaminated water (Vibrio cholerae)",
-          "memo": "Cholera causes severe diarrhoea — dehydration is the main killer. Treatment: rehydration + antibiotics. Prevention: clean water + sanitation.",
+          "memo": "Cholera causes severe diarrhoea, and losing that much water is what kills. It's treated with fluids and antibiotics, and prevented with clean water and sanitation.",
           "error_signals": [
             "ERR_LSC_CHOLERA"
           ],
@@ -9769,7 +9769,7 @@
             "Air"
           ],
           "expected": "Female Anopheles mosquitoes carrying Plasmodium",
-          "memo": "The mosquito is the vector; the protist Plasmodium is the actual cause. Endemic in low-altitude tropical/sub-tropical SA areas (Limpopo, Mpumalanga, KZN).",
+          "memo": "The mosquito carries it, but the protist Plasmodium causes it. In South Africa, malaria is found in low, warm areas of Limpopo, Mpumalanga and KZN.",
           "error_signals": [
             "ERR_LSC_MALARIA"
           ],
@@ -9889,7 +9889,7 @@
             "Just remove water"
           ],
           "expected": "Break down organic waste into safer compounds",
-          "memo": "Aerobic + anaerobic stages use microbial communities. Without microbes, treating sewage would be impossible.",
+          "memo": "Sewage works use communities of bacteria, some needing oxygen and some not, to break down waste. Without microbes, treating sewage would be impossible.",
           "error_signals": [
             "ERR_LSC_SEWAGE"
           ],
@@ -9965,7 +9965,7 @@
             "Boosting only the heart"
           ],
           "expected": "Blocking the virus's ability to replicate, lowering viral load",
-          "memo": "ARVs target different viral steps. Effective enough that viral load becomes undetectable + untransmittable (U=U).",
+          "memo": "ARVs block different steps the virus uses to copy itself. They work so well the virus can drop to undetectable levels and can't be passed on.",
           "error_signals": [
             "ERR_LSC_ARVS"
           ],
@@ -10328,7 +10328,7 @@
             "Spores become roots"
           ],
           "expected": "A plant's life cycle alternates between haploid (gametophyte) and diploid (sporophyte) stages",
-          "memo": "Gametophyte (n) → gametes → fertilisation → sporophyte (2n) → meiosis → spores → gametophyte (n). Two generations alternate.",
+          "memo": "A plant's life cycle switches between a stage with one set of chromosomes (gametophyte) and a stage with two sets (sporophyte). The two stages take turns.",
           "error_signals": [
             "ERR_LSC_ALTERNATION"
           ],
@@ -10607,7 +10607,7 @@
             "Fern"
           ],
           "expected": "Dicot angiosperm",
-          "memo": "Marula = SA indigenous tree, dicot. Famous fruit, traditional uses. Cultural significance in many SA communities.",
+          "memo": "The marula is an indigenous South African tree and a dicot. It's famous for its fruit and important in many communities' traditions.",
           "error_signals": [
             "ERR_LSC_MARULA",
             "ERR_LSC_SA_CONTEXT"
@@ -10659,7 +10659,7 @@
             "Ferns"
           ],
           "expected": "Dicot angiosperms",
-          "memo": "Most fynbos species are dicots — proteaceae, ericaceae, fabaceae. Famous for bird-pollinated flowers + fire-adapted biology.",
+          "memo": "Most fynbos plants, like proteas and ericas, are dicots. Fynbos is known for flowers pollinated by birds and for plants adapted to fire.",
           "error_signals": [
             "ERR_LSC_FYNBOS_TYPE",
             "ERR_LSC_SA_CONTEXT"
@@ -10942,7 +10942,7 @@
             "Pollen production"
           ],
           "expected": "The transfer of pollen from anther to stigma",
-          "memo": "Pollination ≠ fertilisation. Pollination is movement of pollen. Fertilisation happens later after pollen grows down to the ovule.",
+          "memo": "Pollination is pollen moving from the anther to the stigma. Fertilisation comes later, after the pollen grows a tube down to the ovule.",
           "error_signals": [
             "ERR_LSC_POLLINATION_DEF"
           ],
@@ -11011,7 +11011,7 @@
             "Self-fertilisation"
           ],
           "expected": "Pollen transfer between flowers on DIFFERENT plants of the same species",
-          "memo": "Cross-pollination = genetic mixing → variation → adaptability. Most flowering plants favour cross over self-pollination.",
+          "memo": "Cross-pollination mixes genes from different plants, which creates variety and helps plants adapt. Most flowering plants prefer it to self-pollination.",
           "error_signals": [
             "ERR_LSC_CROSS_POLLINATION"
           ],
@@ -11156,7 +11156,7 @@
           "question": "Explain in two sentences why a decline in INSECT POLLINATORS is a serious problem.",
           "input_type": "choice",
           "expected": "Many wild plants and crops depend on insect pollination for seeds and fruit, so losing pollinators would reduce food supply and damage ecosystems.",
-          "memo": "Pesticides, habitat loss, climate change → global pollinator decline. SA monitors honeybee health, supports indigenous bee research.",
+          "memo": "Pesticides, habitat loss and climate change are causing pollinators to decline worldwide. South Africa monitors honeybee health and supports research on indigenous bees.",
           "error_signals": [
             "ERR_LSC_POLLINATOR_DECLINE"
           ],
@@ -11326,7 +11326,7 @@
             "No protection"
           ],
           "expected": "Fleshy fruit (eaten) or hooks/burrs (carried)",
-          "memo": "Two animal strategies: eaten + pooped out (berries, marula) OR hooked onto fur (cocklebur, Tribulus terrestris devil's-thorn).",
+          "memo": "Animals spread seeds in two ways: eating fruit and dropping the seeds elsewhere, like marula, or carrying hooked seeds stuck to their fur, like devil's-thorn.",
           "error_signals": [
             "ERR_LSC_ANIMAL_DISPERSAL"
           ],
@@ -11639,7 +11639,7 @@
             "Platyhelminthes"
           ],
           "expected": "Annelida (segmented worms)",
-          "memo": "Annelids = ringed/segmented worms (earthworms, leeches, marine worms). Bilateral symmetry, true body cavity (coelom).",
+          "memo": "Annelids are segmented worms, like earthworms and leeches. Their bodies are symmetrical and have a true body cavity.",
           "error_signals": [
             "ERR_LSC_ANNELIDA"
           ],
@@ -12158,7 +12158,7 @@
             "It has fur"
           ],
           "expected": "It was thought extinct for 65 million years until rediscovered in 1938",
-          "memo": "Marjorie Courtenay-Latimer discovered the first specimen off East London in 1938 — one of the most famous biological discoveries.",
+          "memo": "Marjorie Courtenay-Latimer found the first coelacanth off East London in 1938. It was thought to have died out 65 million years ago.",
           "error_signals": [
             "ERR_LSC_COELACANTH",
             "ERR_LSC_SA_CONTEXT"
@@ -12582,7 +12582,7 @@
           "question": "Explain in two sentences why photosynthesis is the BASE of nearly all food chains.",
           "input_type": "choice",
           "expected": "Photosynthesis captures solar energy and stores it as glucose, and all other organisms depend on this energy, directly as herbivores or indirectly as carnivores.",
-          "memo": "Without photosynthesis, no producers → no food → no consumers → no decomposers → no ecosystems.",
+          "memo": "Without photosynthesis there'd be no producers, so no food for consumers or decomposers, and no ecosystems.",
           "error_signals": [
             "ERR_LSC_PHOTO_FOUNDATION"
           ],
@@ -12616,7 +12616,7 @@
           "question": "Explain in two sentences why CHLOROPLASTS are thought to have evolved from a free-living bacterium.",
           "input_type": "choice",
           "expected": "Chloroplasts have their own DNA, ribosomes and two membranes like an engulfed cell, supporting the endosymbiotic theory that they were once free-living photosynthetic bacteria.",
-          "memo": "Same idea applies to mitochondria. Strong DNA + structural + biochemical evidence supports endosymbiotic theory.",
+          "memo": "Mitochondria are thought to have formed the same way. Evidence from their DNA, structure and chemistry supports this idea, called endosymbiotic theory.",
           "error_signals": [
             "ERR_LSC_ENDOSYMBIOSIS"
           ],
@@ -12986,7 +12986,7 @@
           "question": "Explain in two sentences why understanding LIMITING FACTORS helps SA farmers and gardeners.",
           "input_type": "choice",
           "expected": "Knowing the limiting factor lets farmers add exactly what is needed, like water in drought or fertiliser in poor soil, avoiding wasted effort on factors that aren't the bottleneck.",
-          "memo": "Smart farming = identify the bottleneck. Common SA limit = water. Many smart-farming initiatives focus on irrigation efficiency.",
+          "memo": "Smart farming means finding the one thing holding growth back. In South Africa that's often water, so many projects focus on using irrigation water efficiently.",
           "error_signals": [
             "ERR_LSC_LIMITING_PRACTICAL",
             "ERR_LSC_SA_CONTEXT"
@@ -13156,7 +13156,7 @@
             "D (large brown organ on right)"
           ],
           "expected": "B (long coiled tube after stomach)",
-          "memo": "Order: mouth → oesophagus → stomach → small intestine → large intestine → rectum → anus. Liver/pancreas/gall bladder = accessory.",
+          "memo": "Food goes through the mouth, oesophagus, stomach, small intestine, large intestine, rectum and anus. The liver, pancreas and gall bladder help but food doesn't pass through them.",
           "error_signals": [
             "ERR_LSC_DIGESTIVE_ID"
           ],
@@ -13173,7 +13173,7 @@
             "Mucus only"
           ],
           "expected": "Pancreatic juice with amylase, lipase, trypsin + sodium bicarbonate",
-          "memo": "Pancreas = digestive enzymes (amylase, lipase, trypsin) + bicarbonate (neutralises stomach acid). Also makes hormones (insulin, glucagon).",
+          "memo": "The pancreas makes digestive enzymes (amylase, lipase, trypsin) and bicarbonate, which neutralises stomach acid. It also makes the hormones insulin and glucagon.",
           "error_signals": [
             "ERR_LSC_PANCREAS"
           ],
@@ -13258,7 +13258,7 @@
             "d → b → a → c"
           ],
           "expected": "a → c → d → b",
-          "memo": "Mouth (salivary amylase) → stomach (acid stops it) → small intestine (pancreatic amylase + maltase) → absorption in villi.",
+          "memo": "Saliva starts breaking down starch in the mouth, stomach acid stops it, enzymes finish the job in the small intestine, and the sugars are absorbed through the villi.",
           "error_signals": [
             "ERR_LSC_DIGESTION_ORDER"
           ],
@@ -14315,7 +14315,7 @@
             "Only carbon dioxide"
           ],
           "expected": "The food (glucose) AND oxygen needed for respiration",
-          "memo": "Beautiful interlock: photosynthesis makes both ingredients for respiration. Respiration releases the inputs for photosynthesis. Cycle perfect.",
+          "memo": "Photosynthesis makes both things respiration needs, glucose and oxygen. Respiration gives back what photosynthesis needs. They fit together like a cycle.",
           "error_signals": [
             "ERR_LSC_PHOTO_PROVIDES"
           ],
@@ -14332,7 +14332,7 @@
             "Light"
           ],
           "expected": "CO2 (waste from respiration)",
-          "memo": "Respiratory waste CO2 + water are exactly what photosynthesis needs.",
+          "memo": "Respiration gives off carbon dioxide and water, which are exactly what photosynthesis uses.",
           "error_signals": [
             "ERR_LSC_PHOTO_PROVIDES"
           ],
@@ -14525,7 +14525,7 @@
             "Bronchi → trachea → nose → alveoli"
           ],
           "expected": "Nose → trachea → bronchi → bronchioles → alveoli",
-          "memo": "Nose/mouth → pharynx → larynx → trachea → left+right bronchi → bronchioles → alveolar sacs → alveoli.",
+          "memo": "Air goes through the nose or mouth, pharynx, larynx, trachea, the two bronchi, the bronchioles, and finally into the alveoli.",
           "error_signals": [
             "ERR_LSC_RESP_PATHWAY"
           ],
@@ -14596,7 +14596,7 @@
             "A rib"
           ],
           "expected": "The dome-shaped muscle below the lungs",
-          "memo": "Diaphragm = main breathing muscle. Hiccups = sudden involuntary diaphragm contractions.",
+          "memo": "The diaphragm is the main muscle for breathing. Hiccups are sudden, uncontrolled twitches of the diaphragm.",
           "error_signals": [
             "ERR_LSC_DIAPHRAGM_ID"
           ],
@@ -14731,7 +14731,7 @@
             "Pure oxygen only"
           ],
           "expected": "Bronchodilator drugs that relax bronchiole muscles",
-          "memo": "Quick-relief inhalers (salbutamol) open bronchioles in minutes. Steroid inhalers reduce inflammation longer-term.",
+          "memo": "Quick-relief inhalers like salbutamol open the airways within minutes. Steroid inhalers reduce swelling over a longer time.",
           "error_signals": [
             "ERR_LSC_ASTHMA_TREATMENT"
           ],
@@ -14780,7 +14780,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Surfactant lowers surface tension inside alveoli, stopping them collapsing as you exhale. Premature babies often need surfactant therapy.",
+          "memo": "Surfactant stops the alveoli from sticking shut when you breathe out. Babies born too early often need it given to them.",
           "error_signals": [
             "ERR_LSC_SURFACTANT"
           ],
@@ -15025,7 +15025,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Universal principles: thin walls for short diffusion distance, moisture (gases must dissolve to cross membranes), large surface area, good supply/transport on both sides.",
+          "memo": "All gas exchange surfaces are thin (short distance to cross), moist (gases must dissolve to cross), large, and well supplied on both sides.",
           "error_signals": [
             "ERR_LSC_GAS_PRINCIPLES"
           ],
@@ -15189,7 +15189,7 @@
           "question": "Explain in two sentences how the SURFACE-AREA-TO-VOLUME ratio limits how big a single CELL can be for gas exchange.",
           "input_type": "choice",
           "expected": "As a cell grows its volume increases faster than its surface area, so eventually the surface cannot supply the inside fast enough, forcing larger organisms to use specialised exchange surfaces.",
-          "memo": "Universal biological principle. Why all organisms above microbial size need specialised exchange surfaces.",
+          "memo": "This rule applies to all living things. It's why anything bigger than a microbe needs special surfaces for exchanging gases.",
           "error_signals": [
             "ERR_LSC_SA_VOLUME"
           ],
@@ -15287,7 +15287,7 @@
             "Renal vein"
           ],
           "expected": "The Bowman's capsule (around the glomerulus)",
-          "memo": "Blood pushed through glomerular capillaries under pressure → small molecules (water, salts, glucose, urea) forced into Bowman's capsule.",
+          "memo": "Blood is pushed hard through the tiny vessels of the glomerulus, forcing small molecules like water, salts, glucose and urea into the Bowman's capsule.",
           "error_signals": [
             "ERR_LSC_ULTRAFILTRATION"
           ],
@@ -15753,7 +15753,7 @@
             "Blood is filtered with paper"
           ],
           "expected": "Blood pumped past a semipermeable membrane; waste diffuses into dialysate, blood returned",
-          "memo": "Same diffusion principle as a kidney. Dialysate flows opposite direction (countercurrent) to maximise efficiency.",
+          "memo": "Dialysis uses diffusion, just like a kidney. The cleaning fluid flows the opposite way to the blood, which makes it work better.",
           "error_signals": [
             "ERR_LSC_HAEMODIALYSIS"
           ],
@@ -15802,7 +15802,7 @@
             "EPO is a painkiller"
           ],
           "expected": "Damaged kidneys make less erythropoietin → low red blood cells → injections compensate",
-          "memo": "Erythropoietin stimulates red blood cell production. Kidney failure → low EPO → anaemia → fatigue.",
+          "memo": "EPO tells the body to make red blood cells. Failing kidneys make less of it, so people become anaemic and tired.",
           "error_signals": [
             "ERR_LSC_EPO"
           ],
@@ -15868,7 +15868,7 @@
             "There are too many organs available"
           ],
           "expected": "Emotional, religious, cultural and practical considerations all play a role",
-          "memo": "Discussing donation in advance + registering as donor helps families decide. SA Organ Donor Foundation campaigns for awareness.",
+          "memo": "Talking about donation in advance and registering as a donor helps families decide. The SA Organ Donor Foundation runs campaigns to raise awareness.",
           "error_signals": [
             "ERR_LSC_DONATION_ETHICS",
             "ERR_LSC_SA_CONTEXT"
@@ -16067,7 +16067,7 @@
             "Volcanic eruptions"
           ],
           "expected": "Disease, predation, food competition — worse when population is denser",
-          "memo": "Crowded → diseases spread, predators concentrate, food gets short. Density-dependent = self-regulating effect.",
+          "memo": "When a population is crowded, diseases spread faster, predators gather and food runs short. These factors get worse the denser the population, which keeps numbers in check.",
           "error_signals": [
             "ERR_LSC_DENSITY_DEPENDENT"
           ],
@@ -16257,7 +16257,7 @@
             "Elephants change species"
           ],
           "expected": "Lower birth rate, more starvation deaths, possible vegetation damage",
-          "memo": "Real management challenge. Kruger has historically used culling, contraception, or translocation to manage elephant numbers.",
+          "memo": "This is a real problem for managers. Kruger has used culling, contraception and moving elephants elsewhere to control numbers.",
           "error_signals": [
             "ERR_LSC_KRUGER_ELEPHANTS",
             "ERR_LSC_SA_CONTEXT"
@@ -16303,7 +16303,7 @@
           "question": "Explain in two sentences why understanding CARRYING CAPACITY matters for SA conservation.",
           "input_type": "choice",
           "expected": "Knowing carrying capacity guides how many animals or plants a reserve can support, so SA conservationists can set reserve sizes and manage numbers, preventing overshoot and crashes.",
-          "memo": "Used by SANParks for stocking decisions, fence placement, culling/translocation. Vital for conservation planning.",
+          "memo": "SANParks uses carrying capacity to decide how many animals to keep, where to put fences, and when to cull or move animals. It's vital for conservation planning.",
           "error_signals": [
             "ERR_LSC_K_SA",
             "ERR_LSC_SA_CONTEXT"
@@ -16437,7 +16437,7 @@
             "1-C, 2-B, 3-D, 4-A"
           ],
           "expected": "1-A, 2-D, 3-B, 4-C",
-          "memo": "Lion-zebra = predation. Honeyguide-honey badger = mutualism (badger opens hive, both eat honey). Tick = parasite. Lions/hyenas = competition.",
+          "memo": "Lion and zebra is predation. Honeyguide and honey badger is mutualism: the badger opens the hive and both eat. A tick is a parasite. Lions and hyenas compete.",
           "error_signals": [
             "ERR_LSC_INTERACTION_MATCH",
             "ERR_LSC_SA_CONTEXT"
@@ -16639,7 +16639,7 @@
           "question": "Explain in two sentences why DIVERSITY in a community often makes it more STABLE.",
           "input_type": "choice",
           "expected": "A diverse community has more species to fill ecological roles if one declines, making it more resistant to disturbance and better able to recover.",
-          "memo": "Diversity → redundancy → stability. Why monoculture farms are vulnerable to pest outbreaks.",
+          "memo": "With many species, others can take over if one declines, which keeps the community stable. That's why farms with a single crop are easily hit by pests.",
           "error_signals": [
             "ERR_LSC_DIVERSITY_STABILITY"
           ],
@@ -16993,7 +16993,7 @@
             "Makes water from nothing"
           ],
           "expected": "Releases large amounts of O2 and absorbs CO2 through photosynthesis",
-          "memo": "Huge area + dense vegetation = important global carbon sink. Deforestation reduces this capacity.",
+          "memo": "The Amazon is huge and densely planted, so it soaks up a lot of the world's carbon dioxide. Cutting it down reduces that.",
           "error_signals": [
             "ERR_LSC_AMAZON"
           ],
@@ -17209,7 +17209,7 @@
             "Studies fish only"
           ],
           "expected": "Clears alien invasive plants, restoring water flow and biodiversity, creating jobs",
-          "memo": "Win-win-win programme. Environmental + economic + social benefits. Model for sustainable development.",
+          "memo": "Working for Water helps nature, the economy and people at once. It's a model for sustainable development.",
           "error_signals": [
             "ERR_LSC_WORKING_FOR_WATER",
             "ERR_LSC_SA_CONTEXT"
@@ -17364,7 +17364,7 @@
             "Excessive irrigation"
           ],
           "expected": "Crop rotation, cover crops, conservation tillage, integrated pest management",
-          "memo": "Build soil + reduce inputs + protect biodiversity. Many SA farmers + agroecology projects piloting these methods.",
+          "memo": "These methods build healthy soil, use fewer chemicals and protect wildlife. Many South African farmers and projects are trying them.",
           "error_signals": [
             "ERR_LSC_SUSTAINABLE_AG"
           ],
@@ -17390,7 +17390,7 @@
           "question": "Explain in two sentences why SA invests in clearing ALIEN INVASIVE plants.",
           "input_type": "choice",
           "expected": "Alien plants use far more water than native vegetation, so clearing them restores river flow, supports biodiversity and provides jobs for unemployed people.",
-          "memo": "Working for Water = win-win-win programme. Environmental restoration + water security + poverty alleviation.",
+          "memo": "Working for Water restores nature, secures water supplies and creates jobs for people living in poverty, all at once.",
           "error_signals": [
             "ERR_LSC_WORKING_FOR_WATER",
             "ERR_LSC_SA_CONTEXT"
@@ -17473,7 +17473,7 @@
             "Sunspots"
           ],
           "expected": "Habitat loss (farming, development, infrastructure)",
-          "memo": "Habitat loss > climate change > overharvesting > invasive species > pollution. Habitat loss = biggest single driver.",
+          "memo": "Habitat loss is the biggest cause, followed by climate change, overharvesting, invasive species and pollution.",
           "error_signals": [
             "ERR_LSC_HABITAT_LOSS"
           ],
@@ -17526,7 +17526,7 @@
             "Species move"
           ],
           "expected": "Roads, fences, or development split habitat into smaller disconnected pieces",
-          "memo": "Even if total habitat area is preserved, fragmentation isolates populations → genetic + ecological problems.",
+          "memo": "Even if the total area stays the same, cutting habitat into pieces isolates populations, which causes genetic and ecological problems.",
           "error_signals": [
             "ERR_LSC_FRAGMENTATION"
           ],
@@ -17629,7 +17629,7 @@
             "Diet"
           ],
           "expected": "Risk of extinction (Critically Endangered to Least Concern)",
-          "memo": "International standard. Categories: Extinct, Extinct in Wild, Critically Endangered, Endangered, Vulnerable, Near Threatened, Least Concern.",
+          "memo": "The Red List is the international standard. Its categories are Extinct, Extinct in the Wild, Critically Endangered, Endangered, Vulnerable, Near Threatened and Least Concern.",
           "error_signals": [
             "ERR_LSC_RED_LIST"
           ],
@@ -17736,7 +17736,7 @@
             "Communities don't care"
           ],
           "expected": "Communities living near reserves must benefit + participate, not be excluded",
-          "memo": "Top-down conservation often fails. SA's land reform + community conservancies + benefit-sharing are part of success.",
+          "memo": "Conservation forced on people from above often fails. Land reform, community-run conservation areas and sharing the benefits are part of what makes it work in South Africa.",
           "error_signals": [
             "ERR_LSC_COMMUNITY_CONSERVATION",
             "ERR_LSC_SA_CONTEXT"
@@ -17882,7 +17882,7 @@
             "All bases pair with all"
           ],
           "expected": "A with T, G with C",
-          "memo": "Complementary base pairing. Adenine-Thymine (2 H-bonds). Guanine-Cytosine (3 H-bonds, stronger).",
+          "memo": "The bases always pair the same way: adenine with thymine (held by 2 bonds) and guanine with cytosine (held by 3 bonds, so stronger).",
           "error_signals": [
             "ERR_LSC_BASE_PAIRING"
           ],
@@ -18123,7 +18123,7 @@
             "It looks better"
           ],
           "expected": "They are hydrophobic and shielded from water; pairing holds the strands together",
-          "memo": "Hydrophilic sugar-phosphate backbone faces water; hydrophobic bases tucked inside. Structure follows chemistry.",
+          "memo": "The sugar-phosphate backbone mixes well with water, so it faces outwards. The bases avoid water, so they're tucked inside. The structure follows the chemistry.",
           "error_signals": [
             "ERR_LSC_HELIX_STABILITY"
           ],
@@ -19212,7 +19212,7 @@
           "question": "Explain in two sentences why some MUTATIONS lead to TOTAL loss of protein function.",
           "input_type": "choice",
           "expected": "Some mutations create early STOP codons or disrupt the active site, so the protein is shortened or wrongly folded and cannot work.",
-          "memo": "Severe mutations → loss-of-function. Often disease-causing in essential genes.",
+          "memo": "Severe mutations can stop a protein working at all. When that happens in an important gene, it often causes disease.",
           "error_signals": [
             "ERR_LSC_LOSS_OF_FUNCTION"
           ],
@@ -19229,7 +19229,7 @@
           "question": "Explain in two sentences why MUTATIONS are NECESSARY for EVOLUTION.",
           "input_type": "choice",
           "expected": "Mutations create new genetic variation in a population, and natural selection then acts on this variation, favouring traits that aid survival or reproduction.",
-          "memo": "No mutation = no new alleles = no evolution. Balance between mutation and selection drives biological diversity.",
+          "memo": "Without mutations there would be no new versions of genes, so nothing new for selection to act on. Mutation and selection together create the variety of life.",
           "error_signals": [
             "ERR_LSC_MUTATION_EVOLUTION"
           ],
@@ -19264,7 +19264,7 @@
           "question": "Explain in two sentences why prenatal screening for DOWN SYNDROME is offered to many pregnant women.",
           "input_type": "choice",
           "expected": "Screening detects trisomy 21 early so parents can prepare and make informed decisions, and it is especially recommended because risk rises with the mother's age.",
-          "memo": "Ethical + medical consideration. Non-invasive prenatal testing now widely available in SA private sector.",
+          "memo": "It's both a medical and an ethical question. Non-invasive prenatal tests are now widely available in South Africa's private sector.",
           "error_signals": [
             "ERR_LSC_PRENATAL",
             "ERR_LSC_SA_CONTEXT"
@@ -19533,7 +19533,7 @@
             "Fertilisation kills the gametes"
           ],
           "expected": "Two haploid gametes (n + n) combine → diploid zygote (2n)",
-          "memo": "Meiosis halves; fertilisation restores. Balanced cycle. Without meiosis, chromosome number would double every generation.",
+          "memo": "Meiosis halves the chromosome number, and fertilisation brings it back to normal. Without meiosis, the number would double every generation.",
           "error_signals": [
             "ERR_LSC_FERTILISATION_MEIOSIS"
           ],
@@ -19550,7 +19550,7 @@
             "Mutations only"
           ],
           "expected": "Crossing over + independent assortment + random fertilisation",
-          "memo": "Three sources during meiosis + fertilisation. Mutations add new variation; meiosis shuffles existing variation.",
+          "memo": "Meiosis creates variety in three ways: crossing over, independent assortment and random fertilisation. Mutations add brand-new variation; meiosis shuffles what's already there.",
           "error_signals": [
             "ERR_LSC_VARIATION_SOURCES"
           ],
@@ -19886,7 +19886,7 @@
             "Two Y chromosomes"
           ],
           "expected": "Female with one X missing → reduced fertility, shorter stature",
-          "memo": "Only viable single-chromosome monosomy in humans. Hormone therapy + medical management help.",
+          "memo": "Turner syndrome is the only case in humans where a person survives with one chromosome missing. Hormone therapy and medical care help.",
           "error_signals": [
             "ERR_LSC_TURNER"
           ],
@@ -19901,7 +19901,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Most chromosomal abnormalities are not compatible with development. ~50%+ of first-trimester miscarriages involve chromosomal errors.",
+          "memo": "Most chromosome errors stop a baby from developing. More than half of miscarriages in the first three months involve chromosome errors.",
           "error_signals": [
             "ERR_LSC_MISCARRIAGE"
           ],
@@ -20309,7 +20309,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Strategies (numbers, timing, care) are products of natural selection. Different strategies for different environments and lifestyles.",
+          "memo": "How many young an animal has, when, and how much care it gives were all shaped by natural selection. Different environments favour different strategies.",
           "error_signals": [
             "ERR_LSC_STRATEGY_EVOLUTION"
           ],
@@ -20470,7 +20470,7 @@
             "Hormones only"
           ],
           "expected": "Seminal fluid that nourishes sperm and protects it from acidity",
-          "memo": "Seminal fluid contains sugars (energy), enzymes (clotting/dissolving), alkaline buffers (neutralise vaginal acid). With sperm = semen.",
+          "memo": "Seminal fluid contains sugars for energy, enzymes, and alkaline substances that neutralise the acid in the vagina. Mixed with sperm, it's called semen.",
           "error_signals": [
             "ERR_LSC_SEMINAL_FLUID"
           ],
@@ -20590,7 +20590,7 @@
             "1-D, 2-C, 3-A, 4-B"
           ],
           "expected": "1-C, 2-B, 3-D, 4-A",
-          "memo": "Testes = sperm. Ovaries = eggs. Fallopian = fertilisation. Uterus = implantation + development.",
+          "memo": "Testes make sperm, ovaries make eggs, fertilisation happens in the fallopian tube, and the uterus is where the embryo implants and grows.",
           "error_signals": [
             "ERR_LSC_REPRO_MATCH"
           ],
@@ -20735,7 +20735,7 @@
           "question": "Explain in two sentences why the FEMALE reproductive system has fallopian tubes connected to BOTH ovaries.",
           "input_type": "choice",
           "expected": "Each fallopian tube collects eggs from the ovary on its side, so if one is blocked the other can still allow fertilisation, giving a backup.",
-          "memo": "Bilateral anatomy = redundancy. Surgical removal of one (some cancers) doesn't end fertility.",
+          "memo": "Having one on each side means there's a backup. Removing one tube, for example because of cancer, doesn't end fertility.",
           "error_signals": [
             "ERR_LSC_BILATERAL"
           ],
@@ -21062,7 +21062,7 @@
           "question": "Explain in two sentences why the MENSTRUAL CYCLE is hormonally regulated.",
           "input_type": "choice",
           "expected": "Hormones from the pituitary and ovary coordinate egg development, ovulation and endometrium preparation, timing them to maximise the chance of fertilisation and implantation.",
-          "memo": "Beautifully synchronised system involving pituitary, ovary, uterus, brain. Disruption (stress, illness, low body fat) can stop cycles.",
+          "memo": "The pituitary, ovaries, uterus and brain all work together in sync. Stress, illness or very low body fat can disrupt the cycle and stop it.",
           "error_signals": [
             "ERR_LSC_CYCLE_CONTROL"
           ],
@@ -21097,7 +21097,7 @@
           "question": "Explain in two sentences why the human PREGNANCY is so LONG compared to many other mammals.",
           "input_type": "choice",
           "expected": "Humans have large brains and complex bodies needing extended development, so the long gestation produces relatively well-developed babies but usually only one at a time.",
-          "memo": "Trade-off: longer development = more capable baby but slower reproduction = K-strategy.",
+          "memo": "It's a trade-off: a longer pregnancy produces a more capable baby but means fewer babies over a lifetime.",
           "error_signals": [
             "ERR_LSC_HUMAN_GESTATION"
           ],
@@ -21195,7 +21195,7 @@
             "Barrier method"
           ],
           "expected": "Permanent surgical method blocking sperm or eggs",
-          "memo": "Considered permanent (though sometimes reversible). Vasectomy = cut vas deferens. Tubal ligation = cut/block fallopian tubes.",
+          "memo": "Sterilisation is treated as permanent, though it can sometimes be reversed. A vasectomy cuts the sperm ducts; tubal ligation cuts or blocks the fallopian tubes.",
           "error_signals": [
             "ERR_LSC_STERILISATION"
           ],
@@ -21317,7 +21317,7 @@
             "A protist"
           ],
           "expected": "A bacterium (Neisseria gonorrhoeae)",
-          "memo": "STI → treated with antibiotics. Now showing antibiotic resistance globally. Untreated → infertility.",
+          "memo": "Gonorrhoea is a sexually transmitted infection treated with antibiotics, though it's becoming resistant worldwide. Left untreated, it can cause infertility.",
           "error_signals": [
             "ERR_LSC_GONORRHOEA"
           ],
@@ -21619,7 +21619,7 @@
             "Blood vessels only"
           ],
           "expected": "Three protective membranes around brain + spinal cord",
-          "memo": "Dura mater, arachnoid mater, pia mater. Inflammation = meningitis (often serious infection).",
+          "memo": "The three membranes are the dura mater, arachnoid mater and pia mater. When they become inflamed, it's called meningitis, often a serious infection.",
           "error_signals": [
             "ERR_LSC_MENINGES"
           ],
@@ -21653,7 +21653,7 @@
             "1-D, 2-C, 3-A, 4-B"
           ],
           "expected": "1-C, 2-B, 3-D, 4-A",
-          "memo": "Cerebrum=thinking. Cerebellum=balance. Medulla=vital reflexes. Hypothalamus=homeostasis.",
+          "memo": "The cerebrum handles thinking, the cerebellum balance, the medulla vital automatic functions, and the hypothalamus keeping the body's conditions steady.",
           "error_signals": [
             "ERR_LSC_BRAIN_MATCH"
           ],
@@ -21705,7 +21705,7 @@
             "Parietal lobe"
           ],
           "expected": "Occipital lobe (back)",
-          "memo": "Each lobe specialised: frontal=planning/movement, parietal=touch/space, temporal=hearing/memory, occipital=vision.",
+          "memo": "Each lobe has its own job: frontal for planning and movement, parietal for touch and space, temporal for hearing and memory, occipital for vision.",
           "error_signals": [
             "ERR_LSC_LOBES"
           ],
@@ -21737,7 +21737,7 @@
             "Spinal cord only"
           ],
           "expected": "Cerebellum",
-          "memo": "Cerebellum damage = ataxia (uncoordinated movement). Can result from stroke, alcohol abuse, brain injury.",
+          "memo": "Damage to the cerebellum causes clumsy, uncoordinated movement. It can come from a stroke, heavy drinking or a brain injury.",
           "error_signals": [
             "ERR_LSC_CEREBELLUM_DAMAGE"
           ],
@@ -21984,7 +21984,7 @@
             "d → e → a → c → b"
           ],
           "expected": "a → d → c → e → b",
-          "memo": "Stimulus → receptor → sensory → relay → motor → effector → response. Critical for survival.",
+          "memo": "The receptor detects the change, a sensory neuron carries the signal, a relay neuron passes it on, a motor neuron carries it out, and the effector responds.",
           "error_signals": [
             "ERR_LSC_REFLEX_ORDER"
           ],
@@ -22018,7 +22018,7 @@
             "Light"
           ],
           "expected": "Neurotransmitter chemicals released into the synaptic gap",
-          "memo": "Examples: dopamine, serotonin, acetylcholine. Drugs (caffeine, nicotine, antidepressants) affect this.",
+          "memo": "Neurotransmitters include dopamine, serotonin and acetylcholine. Drugs like caffeine, nicotine and antidepressants work by affecting them.",
           "error_signals": [
             "ERR_LSC_NEUROTRANSMITTERS"
           ],
@@ -22069,7 +22069,7 @@
             "Bone"
           ],
           "expected": "Myelin sheath of neurons",
-          "memo": "Autoimmune disease — immune system attacks myelin → signals slow → various neurological symptoms.",
+          "memo": "MS is an autoimmune disease: the immune system attacks the myelin coating on nerves, so signals slow down and cause various symptoms.",
           "error_signals": [
             "ERR_LSC_MS"
           ],
@@ -22183,7 +22183,7 @@
           "question": "Explain in two sentences how an electrical signal CROSSES a synapse.",
           "input_type": "choice",
           "expected": "At the axon end, vesicles release neurotransmitters into the synaptic gap, which bind to receptors on the next neuron and trigger a new electrical signal.",
-          "memo": "Chemical messenger system. Modular design — different transmitters for different functions.",
+          "memo": "The signal crosses as a chemical message. Different neurotransmitters carry out different jobs.",
           "error_signals": [
             "ERR_LSC_SYNAPTIC_TRANSMISSION"
           ],
@@ -22438,7 +22438,7 @@
             "Colour blindness"
           ],
           "expected": "Clouding of the lens, causing blurred vision",
-          "memo": "Common in older age + UV-exposed populations. SA initiatives provide cataract surgery — major cause of preventable blindness.",
+          "memo": "Cataracts are common in older people and those exposed to a lot of sun. They're a major cause of blindness that surgery can prevent, and South African programmes provide it.",
           "error_signals": [
             "ERR_LSC_CATARACTS",
             "ERR_LSC_SA_CONTEXT"
@@ -22874,7 +22874,7 @@
             "Only cosmetic"
           ],
           "expected": "Improve communication + social engagement + cognitive health",
-          "memo": "Hearing loss linked to social isolation + faster cognitive decline. Hearing aids = significant quality-of-life improvement.",
+          "memo": "Hearing loss is linked to loneliness and faster mental decline. Hearing aids make a big difference to quality of life.",
           "error_signals": [
             "ERR_LSC_HEARING_AIDS"
           ],
@@ -23121,7 +23121,7 @@
             "1-D, 2-C, 3-B, 4-A"
           ],
           "expected": "1-B, 2-D, 3-A, 4-C",
-          "memo": "Thyroid=thyroxine. Pancreas=insulin. Adrenal=cortisol. Ovary=oestrogen.",
+          "memo": "The thyroid makes thyroxine, the pancreas makes insulin, the adrenal glands make cortisol and the ovaries make oestrogen.",
           "error_signals": [
             "ERR_LSC_HORMONE_MATCH"
           ],
@@ -23303,7 +23303,7 @@
           "question": "Explain in two sentences how the HYPOTHALAMUS + PITUITARY connect NERVOUS + ENDOCRINE systems.",
           "input_type": "choice",
           "expected": "The hypothalamus senses body state and signals the pituitary, which releases hormones controlling other glands, linking the nervous and endocrine systems.",
-          "memo": "Central integration point. Damage = wide-ranging hormonal + neural problems.",
+          "memo": "They're the main link between the nervous and hormone systems. Damage here causes wide-ranging hormone and nerve problems.",
           "error_signals": [
             "ERR_LSC_NEURO_ENDOCRINE"
           ],
@@ -23688,7 +23688,7 @@
           "question": "Explain in two sentences why MANAGING diabetes well requires more than just MEDICATION.",
           "input_type": "choice",
           "expected": "Diet, exercise and weight management directly affect blood sugar and complication risk, so medication alone cannot fully control diabetes without these lifestyle elements.",
-          "memo": "Integrated approach = best outcomes. Medication adherence + lifestyle = synergy.",
+          "memo": "The best results come from combining things: taking medication as prescribed and living a healthy lifestyle work better together.",
           "error_signals": [
             "ERR_LSC_DIABETES_MGMT"
           ],
@@ -23837,7 +23837,7 @@
             "Never"
           ],
           "expected": "Body is dehydrated → makes urine more concentrated",
-          "memo": "Hypothalamus detects high blood concentration → ADH from pituitary → kidney reabsorbs more water → less urine.",
+          "memo": "When the hypothalamus senses the blood is too concentrated, the pituitary releases ADH. The kidneys then take back more water, so you pass less urine.",
           "error_signals": [
             "ERR_LSC_ADH"
           ],
@@ -24004,7 +24004,7 @@
             "Random reasons"
           ],
           "expected": "Multiple backup mechanisms ensure stability even if one fails",
-          "memo": "Body has fast (nervous) + slow (hormonal) + behavioural responses. Redundancy = robustness.",
+          "memo": "The body has fast responses (nerves), slow ones (hormones) and changes in behaviour. Having backups makes it more reliable.",
           "error_signals": [
             "ERR_LSC_HOMEOSTATIC_REDUNDANCY"
           ],
@@ -24032,7 +24032,7 @@
           "question": "Explain in two sentences how the KIDNEY adjusts urine VOLUME to body water needs.",
           "input_type": "choice",
           "expected": "When dehydrated more ADH is released, making the collecting duct more water-permeable, so more water is reabsorbed and small, concentrated urine is produced.",
-          "memo": "Hypothalamic osmoreceptors → ADH → kidney. Beautiful 3-step regulation.",
+          "memo": "Sensors in the hypothalamus detect the water level, ADH is released, and the kidneys adjust. It's a three-step control system.",
           "error_signals": [
             "ERR_LSC_ADH"
           ],
@@ -24252,7 +24252,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "T2 = insulin resistance + reduced insulin production. T1 = NO insulin produced (autoimmune). Different mechanisms.",
+          "memo": "In type 2 diabetes the body doesn't respond well to insulin and makes less of it. In type 1, the immune system destroys the cells that make insulin, so none is made.",
           "error_signals": [
             "ERR_LSC_T1_VS_T2"
           ],
@@ -24400,7 +24400,7 @@
           "question": "Explain in two sentences why DIABETES is essentially a homeostasis FAILURE.",
           "input_type": "choice",
           "expected": "Diabetes is a homeostasis failure: normally insulin and glucagon hold blood sugar in a narrow range, but in T1 there is no insulin and in T2 insulin does not work, so blood sugar swings dangerously.",
-          "memo": "Beautiful framing: diabetes = homeostasis breaking. Treatment = restoring control externally.",
+          "memo": "Diabetes is the body's sugar control breaking down. Treatment means restoring that control from outside the body.",
           "error_signals": [
             "ERR_LSC_DIABETES_HOMEOSTASIS"
           ],
@@ -24464,7 +24464,7 @@
             "Disease"
           ],
           "expected": "Change in inherited traits in a population over generations",
-          "memo": "Populations evolve, not individuals. Over generations, not lifetimes.",
+          "memo": "Populations evolve, not individuals. And it happens over generations, not within one lifetime.",
           "error_signals": [
             "ERR_LSC_EVOLUTION_DEF"
           ],
@@ -24549,7 +24549,7 @@
             "Nothing useful"
           ],
           "expected": "Recording species over geological time + transitional forms",
-          "memo": "Tiktaalik = fish-tetrapod transition. Archaeopteryx = dinosaur-bird transition. Powerful evidence of evolution.",
+          "memo": "Fossils show in-between forms: Tiktaalik links fish and four-legged animals, and Archaeopteryx links dinosaurs and birds. That's strong evidence for evolution.",
           "error_signals": [
             "ERR_LSC_FOSSILS"
           ],
@@ -24634,7 +24634,7 @@
             "1-C, 2-D, 3-A, 4-B"
           ],
           "expected": "1-A, 2-B, 3-C, 4-D",
-          "memo": "Each evidence type with classic example. Each independently supports evolution. Together = overwhelming case.",
+          "memo": "Each type of evidence has a classic example, and each supports evolution on its own. Together they make an overwhelming case.",
           "error_signals": [
             "ERR_LSC_EVIDENCE_MATCH"
           ],
@@ -24683,7 +24683,7 @@
             "Skin defects"
           ],
           "expected": "Reduced features inherited from ancestors who needed them more",
-          "memo": "Appendix = cellulose digestion in herbivore ancestors. Wisdom teeth = larger jaw in ancestors. Evidence of evolutionary history.",
+          "memo": "The appendix helped plant-eating ancestors digest cellulose. Wisdom teeth fitted ancestors' larger jaws. Both are clues to our evolutionary history.",
           "error_signals": [
             "ERR_LSC_VESTIGIAL"
           ],
@@ -24698,7 +24698,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Common misconception. Individuals develop + age. POPULATIONS evolve through changes in gene frequencies over generations.",
+          "memo": "This is a common mix-up. Individuals grow and age. Populations evolve as the mix of genes changes over generations.",
           "error_signals": [
             "ERR_LSC_EVOLUTION_LEVEL"
           ],
@@ -24732,7 +24732,7 @@
             "Just tradition"
           ],
           "expected": "Testable predictions + repeatedly confirmed by independent evidence types",
-          "memo": "Predictions about transitional fossils, DNA similarities, biogeography, embryology — all confirmed. Falsifiable + tested.",
+          "memo": "Evolution made predictions about in-between fossils, DNA, where species live and how embryos develop, and they've all been confirmed. It can be tested and could be proved wrong.",
           "error_signals": [
             "ERR_LSC_EVOLUTION_SCIENCE"
           ],
@@ -24760,7 +24760,7 @@
           "question": "Explain in two sentences why MOLECULAR evidence is so POWERFUL.",
           "input_type": "choice",
           "expected": "DNA sequences give a detailed record of evolutionary relationships across all life that can be quantitatively compared and produce trees consistent with other evidence.",
-          "memo": "Mathematical + reproducible + universal. Changed evolutionary biology since 1960s.",
+          "memo": "DNA evidence can be measured, repeated and applies to all living things. It has transformed evolutionary biology since the 1960s.",
           "error_signals": [
             "ERR_LSC_MOLECULAR_POWER"
           ],
@@ -25009,7 +25009,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Examples: lactose tolerance evolved with dairying. High-altitude adaptation in Tibetans. Even modern medicine doesn't stop evolution.",
+          "memo": "Being able to digest milk as an adult evolved where people kept dairy animals, and Tibetans adapted to high altitude. Modern medicine doesn't stop evolution.",
           "error_signals": [
             "ERR_LSC_HUMAN_EVOLUTION"
           ],
@@ -25064,7 +25064,7 @@
             "Mixed"
           ],
           "expected": "Rising — selection from antibiotic use driving resistance",
-          "memo": "Methicillin-resistant Staph aureus. Real-time natural selection. Why antibiotic stewardship matters globally.",
+          "memo": "Bacteria like MRSA are natural selection happening right now. That's why using antibiotics carefully matters worldwide.",
           "error_signals": [
             "ERR_LSC_DATA_READ",
             "ERR_LSC_SA_CONTEXT"
@@ -25082,7 +25082,7 @@
             "Animals don't reproduce"
           ],
           "expected": "When populations can no longer interbreed and produce fertile offspring",
-          "memo": "Cornerstone of biological species concept. Once isolated, populations evolve independently.",
+          "memo": "Reproductive isolation is central to how we define a species. Once populations can't interbreed, they evolve separately.",
           "error_signals": [
             "ERR_LSC_REPRODUCTIVE_ISOLATION"
           ],
@@ -25099,7 +25099,7 @@
             "Random"
           ],
           "expected": "Natural selection: poison killed susceptible rats; resistant ones bred",
-          "memo": "Warfarin-resistant rats common in many cities. Same principle as antibiotic resistance, pesticide resistance.",
+          "memo": "Rats resistant to warfarin poison are common in many cities. It's the same process as bacteria resisting antibiotics or insects resisting pesticides.",
           "error_signals": [
             "ERR_LSC_RAT_RESISTANCE"
           ],
@@ -25210,7 +25210,7 @@
             "All mammals"
           ],
           "expected": "Humans + extinct relatives + ancestors after split from chimps",
-          "memo": "Includes Homo sapiens + extinct species like Australopithecus, Homo erectus, Neanderthals.",
+          "memo": "Hominins include modern humans and extinct species like Australopithecus, Homo erectus and Neanderthals.",
           "error_signals": [
             "ERR_LSC_HOMININ"
           ],
@@ -25714,7 +25714,7 @@
             "Random work"
           ],
           "expected": "Discovering Australopithecus sediba + Homo naledi",
-          "memo": "Modern SA palaeoanthropologist. Used new methods (citizen scientists, social media announcement, open access).",
+          "memo": "Berger is a modern South African scientist who studies human origins. He used new methods, like involving public volunteers, announcing finds on social media and sharing research openly.",
           "error_signals": [
             "ERR_LSC_BERGER",
             "ERR_LSC_SA_CONTEXT"
@@ -25732,7 +25732,7 @@
             "No contribution"
           ],
           "expected": "Major work on Sterkfontein australopiths + brain evolution",
-          "memo": "Wits University professor. International authority on hominin brain evolution. Highly respected globally.",
+          "memo": "Tobias was a Wits University professor and a world expert on how the hominin brain evolved. He was highly respected globally.",
           "error_signals": [
             "ERR_LSC_TOBIAS",
             "ERR_LSC_SA_CONTEXT"
@@ -25750,7 +25750,7 @@
             "Random selection"
           ],
           "expected": "Globally unique density + diversity of hominin fossils",
-          "memo": "Declared 1999. Recognises scientific + cultural significance for understanding human origins.",
+          "memo": "It was declared a World Heritage Site in 1999 because of its scientific and cultural importance for understanding where humans came from.",
           "error_signals": [
             "ERR_LSC_UNESCO",
             "ERR_LSC_SA_CONTEXT"

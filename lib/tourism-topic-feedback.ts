@@ -1,170 +1,170 @@
-// ─── Tourism — per-topic "think of it like this" illustrations ─────────────
+// ─── Tourism — per-topic "real-life example" pictures ──────────────────────
 //
-// One concrete illustration per topic (80, Grades 10–12), keyed by skill/topic
-// id. Feeds the wrong-answer card's example slot via FeedbackExplanation's
-// `exampleOverride`. Register: FET / matric band, South African contexts.
-// "why" = the question's memo, "how" = the topic's recovery_strategy,
-// "where" = buildTopicWhere().
+// One everyday picture per topic (80), keyed by skill/topic id. Feeds the
+// wrong-answer card's example slot via FeedbackExplanation's `exampleOverride`.
+// Rules in docs/feedback-writing-guide.md: an everyday South African picture,
+// no facts, terms or numbers from the topic, and no instructions. "why" = the
+// question's memo, "where" = buildTopicWhere().
 
 export const TOPIC_EXAMPLES: Record<string, string> = {
   "TOUR.G10.T1.INTRO.A1":
-    "Think from the traveller's front door: a German flying to Cape Town is inbound to South Africa; a South African flying to Mauritius is outbound; a Joburg family driving to Durban is domestic.",
+    "Think of visiting your gran in another town versus flying overseas for a soccer final. Both are trips, but who goes where, and why, changes what kind of trip it is.",
   "TOUR.G10.T1.TYPES.A1":
-    "Name the trip by its main reason. Staying with your cousin in Durban = VFR (visiting friends and relatives); a low-impact game walk = eco-tourism; a sales award trip your company paid for = incentive tourism.",
+    "It's like planning a birthday party: a quiet dinner suits one friend, a loud club suits another. You first find out who the guest is, then plan around them.",
   "TOUR.G10.T1.TRANSPORT.A1":
-    "Sort by the surface the vehicle uses: road (car, bus, minibus taxi), rail (train, Gautrain), air (plane, helicopter), water (cruise ship, ferry), extraordinary (a hot-air balloon over the Magaliesberg, a camel).",
+    "Getting to school can mean walking, a taxi, a bus or a lift. Each suits a different distance, budget and hurry.",
   "TOUR.G10.T1.ACCOM.A1":
-    "A facility is a thing the guest uses — a pool, a gym, a gift shop. A service is something staff do for the guest — laundry, a guided walk, an airport shuttle.",
+    "Think of staying with relatives, sleeping over at a friend's, or booking a room with breakfast made for you. Each gives a different level of service and cost.",
   "TOUR.G10.T1.GRADING.A1":
-    "Star grading in South Africa is voluntary and handed out by an independent body, the TGCSA — a guesthouse can't award itself five stars. More stars means better facilities and service, checked against a set standard.",
+    "It's like a report card from an outside examiner. The grade means more because someone independent checked the work, not the learner marking themselves.",
   "TOUR.G10.T1.ACCOMTERMS.A1":
-    "Break the abbreviation into parts: pp = per person, pps = per person sharing (the rate when two people share a room), pppn = per person per night.",
+    "Think of the features of a good cellphone: some keep it secure, some entertain you, some just make life easier. Each extra has its own purpose.",
   "TOUR.G10.T1.FANDB.A1":
-    "Match the place to its service and speed: fine-dining = full table service and a set menu, slow; quick-service = order at a counter, fast; a coffee shop = light meals and drinks in between.",
+    "Think of buying lunch: a vetkoek from a stall, a burger from a counter, or a sit-down meal where someone brings it to your table. Same hunger, different service.",
   "TOUR.G10.T1.ATTRSECTOR.A1":
-    "The primary attraction is the reason someone booked the trip — Kruger for a safari. Secondary attractions are the extras they fit in while there — a craft market, a nearby waterfall. Man-made is built; natural occurs in nature.",
+    "You go to a cousin's wedding, and while you're in town you pop into the mall. The wedding is why you went; the mall is the extra.",
   "TOUR.G10.T1.INDUSTRY.A1":
-    "Three partners run tourism together: the public sector (government and agencies like SA Tourism, funded by the state), the private sector (businesses making a profit — hotels, tour operators), and the communities where tourism happens.",
+    "It's like a school fundraiser run by the principal, local businesses and parents together. Each group has its own job, and it only works if they all pitch in.",
   "TOUR.G10.T1.PAYMENT.A1":
-    "A debit card spends money you already have in your account. A credit card borrows the bank's money now, to be paid back later with interest if you don't settle it.",
+    "Paying for things can mean coins at a spaza, tapping a card at a till, or a payment app on your phone. The right one depends on where you are and how much it costs.",
   "TOUR.G10.T2.MAPTERMS.A1":
-    "Latitude lines run across, like the rungs of a ladder, telling you how far north or south you are. Longitude lines run top to bottom between the poles, telling you how far east or west.",
+    "It's like the icons on your phone screen: a small picture stands for something bigger, and once you know the key, you can read it at a glance.",
   "TOUR.G10.T2.MAPTYPES.A1":
-    "Match the map to the question: borders and capital cities → a political map; mountains and rivers → a physical map; getting from A to B → a road map or GPS; what to see in an area → a tourist information map.",
+    "Think of the different apps on your phone: one for the weather, one for taxi routes, one for nearby food. Each shows the same area for a different purpose.",
   "TOUR.G10.T2.SAMAP.A1":
-    "Build the map from the coast inward: the coastal provinces — Western Cape, Eastern Cape, KwaZulu-Natal — wrap the south and east; the interior holds Free State, Gauteng, North West, Mpumalanga, Limpopo and Northern Cape.",
+    "It's like knowing your own neighbourhood: which street the school is on, which corner the clinic is on. Once you know the landmarks, everything else falls into place.",
   "TOUR.G10.T2.WORLDMAP.A1":
-    "There are seven continents and three oceans — those are fixed. Tourism regions (Far East, Middle East, the Americas) are groupings the travel industry uses; they can cross continents.",
+    "Think of a school with grades, classes and sports houses. The same learner belongs to several groups at once, depending on how you're sorting them.",
   "TOUR.G10.T2.DISTANCE.A1":
-    "Find one city along the top row and the other down the side column; the block where they meet is the distance between them. Divide the kilometres by 100 for a rough drive time in hours.",
+    "It's like a taxi fare chart on the rank wall: find where you're starting and where you're going, and read across to where they meet.",
   "TOUR.G10.T2.DOMESTIC.A1":
-    "Domestic tourism is residents holidaying inside their own country. 'Sho't Left' is South Africa's campaign nudging locals to take short, affordable trips at home instead of only travelling abroad.",
+    "Think of buying from the spaza down the road instead of ordering from overseas. Your money stays in the neighbourhood and helps the people around you.",
   "TOUR.G10.T2.DOMSTATS.A1":
-    "Intra- means inside one province (a Durban family holidaying in the Drakensberg); inter- means between provinces (Gauteng to the Western Cape). Read the graph's title and axis labels before you draw a conclusion.",
+    "Think of your school's tuck shop records: which months are busiest, and how much each learner spends. The numbers tell the story of the year.",
   "TOUR.G10.T3.PROVATTR.A1":
-    "Anchor each attraction to its nearest big city, then to that city's province: Table Mountain → Cape Town → Western Cape; the Union Buildings → Pretoria → Gauteng.",
+    "Think of each family member's favourite room at home. Every room has its own special thing that draws people in.",
   "TOUR.G10.T3.SANPARKS.A1":
-    "A national park sits inside one country. A transfrontier park straddles an international border and is run jointly by two or more countries — like the Kgalagadi, shared by South Africa and Botswana.",
+    "Think of a public library versus a private reading club. Both have books, but one is open to all and run for everyone; the other is exclusive and costs more.",
   "TOUR.G10.T3.FAUNAFLORA.A1":
-    "Indigenous means it naturally occurs here — the protea, the springbok. Alien means it was brought in from elsewhere — black wattle. Endangered means at risk of dying out; extinct means already gone.",
+    "Think of plants that grew in your gran's garden for generations versus a weed that arrived on someone's shoe. One belongs; the other can take over.",
   "TOUR.G10.T3.SUSTAIN.A1":
-    "The three Ps: Planet (the environment), People (the local community), Profit (the business staying viable). For any example, ask which of the three it mostly affects.",
+    "It's like a three-legged potjie. It needs all three legs to stand: take one away and the whole pot tips over.",
   "TOUR.G10.T3.RESPONSIBLE.A1":
-    "Sustainable tourism is the goal — a lasting balance of planet, people and profit. Responsible tourism is the behaviour that gets you there — a tourist sticking to the path, a lodge hiring locally.",
+    "It's like being a good guest at someone's house: you clean up after yourself, don't break anything and respect how they do things.",
   "TOUR.G10.T3.GLOBALWARM.A1":
-    "A carbon footprint measures the greenhouse gases an activity releases. In tourism the biggest contributors are transport — especially long flights — and the energy hotels use for lighting, heating and air-con.",
+    "Think of a soccer team whose home ground keeps flooding. If the field gets ruined, nobody comes to watch, so looking after it protects the club.",
   "TOUR.G10.T3.MARKETING.A1":
-    "The target market is the group a product is aimed at — say, young backpackers. Market share is the slice of total sales a business holds. The marketing mix is the five Ps: product, promotion, price, place, people.",
+    "Think of a learner running for class rep. They figure out what classmates want, what makes them different, and how to get the message out.",
   "TOUR.G10.T4.CULTURE.A1":
-    "Culture is a group's shared way of life right now — the food, music and dress people actually use. Heritage is what's been handed down from the past and is worth conserving — a monument, a language, a craft.",
+    "Think of your family's recipes, songs and stories. They're passed down, they make you who you are, and once they're lost, they're hard to get back.",
   "TOUR.G10.T4.HERITSITES.A1":
-    "Cultural heritage is made or shaped by people — the Voortrekker Monument, the District Six Museum. Natural heritage is formed by nature — the Cango Caves, the Tugela Falls.",
+    "Think of a family photo album and a national museum. Both keep memories, but one matters to your family and the other matters to the whole country.",
   "TOUR.G10.T4.COMMS.A1":
-    "Verbal communication is spoken — a phone call, a face-to-face chat. Written communication is recorded in text — an email, an SMS, a memo. Netiquette is simply good manners when you communicate online.",
+    "Think of reaching a friend: you can phone, send a voice note, text or chat face-to-face. The tool you pick changes how the message comes across.",
   "TOUR.G10.T4.SERVICE.A1":
-    "Great service pays for itself: the guest comes back, tells friends, leaves a good review — all of which lift profit. Poor service does the reverse — the guest leaves, complains online, and the reputation takes the hit.",
+    "Think of the hairdresser you keep going back to. It's not just the cut; it's how they treat you, and you tell all your friends about them.",
   "TOUR.G11.T1.AIRPORTS.A1":
-    "Read a departure board like a sorting exercise: a Cape Town–Durban flight is domestic; Johannesburg–Windhoek is regional; Johannesburg–London is long-haul intercontinental. OR Tambo is the main international gateway.",
+    "Think of the main taxi rank in town. Taxis from everywhere meet there, and it's where most people start or end their trip.",
   "TOUR.G11.T1.AIRTERMS.A1":
-    "Follow a passenger from the kerb inward: landside (check-in, shops anyone can reach) → through security → airside (the boarding gates) → onto the aircraft, past the galley to the seat.",
+    "It's like the rules on a school bus: where to sit, what to do in an emergency, and why some seats come with extra responsibility.",
   "TOUR.G11.T1.AIRTECH.A1":
-    "Match each device to the problem it solves: an X-ray scanner and metal detector = security; a biometric or thermal scanner = identifying people and screening for illness; the flight information display board = information.",
+    "Think of the turnstiles, cameras and info screens at a stadium. Some keep people safe, some tell them where to go, some just speed things up.",
   "TOUR.G11.T1.BUS.A1":
-    "Match the bus to the trip: a minibus for a small day tour, a large coach for a cross-country group, a sleeper coach for an overnight route, an open-top double-decker for a city sightseeing loop.",
+    "Think of a regular school bus versus a party bus hired for a matric dance. Both are buses, but one is built for a special purpose.",
   "TOUR.G11.T1.RAIL.A1":
-    "Metrorail is an everyday commuter train — get on, stand, get off. Shosholoza Meyl and the luxury tourist trains are a journey in themselves — a coupé or compartment, a dining car, bedding for the night.",
+    "It's like the difference between a daily school lift and a luxury limo for prom. Both get you there, but one is about the trip itself.",
   "TOUR.G11.T1.CRUISE.A1":
-    "Walk a cruise ship from the outside in: the ship docks at a port, passengers pass through the cruise terminal, then find their state room, cabin or suite on one of the decks, with restaurants and shows in between.",
+    "It's like a school camp where meals, a bed and activities are all included in one price. You pay once and everything is sorted.",
   "TOUR.G11.T1.CARRENTAL.A1":
-    "Sort a rental quote into three piles: compulsory (the daily rate, basic insurance), optional (extra cover like a super waiver, an additional driver), and incidental (fuel, tolls, a late-return fee).",
+    "It's like borrowing a friend's bike: you need to show you can ride, agree on rules, and pay extra if you break something.",
   "TOUR.G11.T2.DTGS.A1":
-    "Split it into 'why' and 'how'. The why (objectives): grow local travel sustainably, transform the sector, create jobs. The how (methods): campaigns like Sho't Left, affordable packages, marketing to under-served groups.",
+    "It's like a school trying to get more learners to use its own library, not just in exam season but all year, and in every grade.",
   "TOUR.G11.T2.SEGMENTS.A1":
-    "Picture each segment as a real person: 'golden active couples' are retired, comfortable and time-rich, so a slow scenic rail trip fits; 'striving families' need a budget, kid-friendly, school-holiday option.",
+    "Think of a teacher who sorts a class into groups by what each group enjoys, so every group gets work that suits it.",
   "TOUR.G11.T2.CULTURE.A1":
-    "Link each feature to what the tourist actually does: Ndebele wall art → a village visit to see and photograph the painted homes; gumboot dancing → a live performance; a sangoma → a guided cultural explanation.",
+    "Think of a school talent show with dancers, singers and artists from different backgrounds. The variety is exactly what makes people want to watch.",
   "TOUR.G11.T2.HERITAGE.A1":
-    "SAHRA (and its provincial partners) is the watchdog for heritage — it protects things over 60 years old, graves, rock art and shipwrecks, and you need its permit to alter or move them.",
+    "It's like a school having a principal for the whole school and a head of each grade. One looks after everything; the others look after their own part.",
   "TOUR.G11.T2.FOREX.A1":
-    "Follow one tourist's euros: they're changed to rand, spent at the hotel, which pays its staff and buys local food, which pays the farmer — the foreign money ripples through the whole economy.",
+    "Think of money a visitor spends at a spaza. The owner pays the supplier, the supplier pays a driver, and the same money keeps helping people down the line.",
   "TOUR.G11.T2.CURRENCY.A1":
-    "Fix one rule: rand to a foreign currency, divide by the rate; foreign currency to rand, multiply by the rate. If 1 USD = R18, then R900 ÷ 18 = 50 dollars, and 50 dollars × 18 = R900 back.",
+    "It's like swapping stickers with a friend at an agreed rate. You need to know which way you're swapping before you work out how many you get.",
   "TOUR.G11.T3.SADC.A1":
-    "Learn each SADC country as a small set: country → capital → main gateway. Namibia → Windhoek → Hosea Kutako International Airport; Botswana → Gaborone → Sir Seretse Khama Airport.",
+    "Think of neighbouring schools forming a sports league together. They share fields, advertise the league as one, and everyone gets more games.",
   "TOUR.G11.T3.SADCATTR.A1":
-    "Pair each attraction with its country and its draw: the Okavango Delta → Botswana → a water-wilderness safari; Victoria Falls → Zambia and Zimbabwe → one of the world's largest waterfalls.",
+    "Think of each friend's house having its own special thing: one has the pool, one has the best food. Visiting the neighbourhood means getting all of them.",
   "TOUR.G11.T3.ITINERARY.A1":
-    "Plot the stops on a map first. A logical itinerary joins nearby places in a sensible line with no doubling back — Cape Town → Hermanus → Mossel Bay → Knysna along the coast, not zig-zagging inland and back.",
+    "It's like planning a sleepover: who's coming, what you'll do, when you'll eat and when everyone rests. Too much packed in and everyone gets tired.",
   "TOUR.G11.T3.PROMO.A1":
-    "Above-the-line is mass media aimed at everyone — a TV advert, a billboard, a radio spot. Below-the-line is direct and targeted — a personal sales call, an email to past guests, a stand at a travel show.",
+    "Think of a school event advertised on a big banner at the gate versus a teacher personally inviting each learner. One reaches many; the other reaches the right few.",
   "TOUR.G11.T3.BUDGET.A1":
-    "Group the costs so nothing is missed: research (surveys), communication (printing brochures, phone, internet, a website), travel (attending trade shows), and personnel (the marketing staff's time).",
+    "It's like planning money for a class fundraiser: some for printing posters, some for transport, some for finding out what people want to buy.",
   "TOUR.G11.T3.GDS.A1":
-    "A Global Distribution System like Amadeus or Galileo is a worldwide switchboard linking many airlines, hotels and car firms so a travel agent books them all in one place. A Central Reservation System is one company's own booking system for its own properties.",
+    "Think of a booking app that shows every taxi company's seats at once, versus one company's own booking book. One covers everyone; the other covers just itself.",
   "TOUR.G11.T4.CUSTCARE.A1":
-    "Assume nothing about a foreign visitor's customs — gestures, food, personal space and greetings differ. The respectful choice is to ask, speak clearly and simply, use pictures or maps, and be patient.",
+    "It's like hosting a friend from another culture: you learn how they greet, what they eat, and you make them feel welcome without judging.",
   "TOUR.G11.T4.COMPLAINTS.A1":
-    "A complaint is a free tip on what to fix. Handle a verbal one in order: listen fully, ask questions, apologise, solve it, offer something extra, thank them for raising it.",
+    "Think of a friend who's upset with you. Listening, saying sorry without blaming them, and fixing it keeps the friendship.",
   "TOUR.G11.T4.QUALITY.A1":
-    "Match the tool to the gap: staff who don't know the standard → training; standards slipping unnoticed → quality-control checks; not knowing what guests think → customer surveys. One weak link — a rude shuttle driver — sours the whole trip.",
+    "It's like a sports coach who sets standards, checks every practice and asks the players how it's going. Doing all of these keeps the team sharp.",
   "TOUR.G11.T4.CAREERS.A1":
-    "Sort each job into its sector: a game ranger → conservation; a flight attendant → transport; a chef → hospitality; a museum guide → attractions; a conference organiser → events.",
+    "Think of everyone who makes a school concert happen: the people on stage, in the kitchen, at the door and driving the bus. Many different jobs, one event.",
   "TOUR.G11.T4.REQUIREMENTS.A1":
-    "Match the job to what it demands: a tour guide needs strong communication, patience and stamina; a reservations clerk needs accuracy and computer skills; a chef needs creativity and to work under pressure.",
+    "It's like being a good class rep: being friendly, patient and a good listener matters as much as knowing the rules.",
   "TOUR.G11.T4.ENTREPRENEUR.A1":
-    "Spot a gap and match a skill to it: no one runs township food tours in your area → you need marketing and people skills to start one; tourists struggle to find airport transfers → a shuttle service needs planning and reliability.",
+    "Think of a learner who sees classmates need snacks after sport and starts selling them. Spotting a need and taking a chance is how a business starts.",
   "TOUR.G12.T1.PROIMAGE.A1":
-    "Split the image in two. The business's image is its logo, slogan, website, stationery and policies. The staff's image is the person in front of you — uniform, grooming, hygiene and how they speak. Both together are the professional image.",
+    "Think of how a school is judged by its uniforms, its gate and how learners behave on the taxi. The image comes from everyone, not just the principal.",
   "TOUR.G12.T1.CONDEMP.A1":
-    "There's a legal floor set by the Basic Conditions of Employment Act — maximum hours, minimum leave, notice periods. An employer may offer better than the minimum, but never worse.",
+    "It's like school rules that every school must follow, plus extra rules each school adds for its own needs.",
   "TOUR.G12.T1.CONTRACT.A1":
-    "Sort each item by whether the worker gains or loses money: a fringe benefit is something extra they get — travel perks, a uniform allowance. A deduction is money taken off their pay — PAYE tax, UIF, pension.",
+    "It's like a written agreement before you start a part-time job: what you'll do, what you'll be paid and how you're expected to behave.",
   "TOUR.G12.T1.CODECON.A1":
-    "A contract sets the deal — pay, hours, leave. A code of conduct guides behaviour — how staff should act and what to do when facing an ethical choice, like being offered a bribe by a supplier.",
+    "It's like a class's agreed rules for group work: everyone knows what's expected, so they work well together and trust each other.",
   "TOUR.G12.T1.TIMEZONES.A1":
-    "Travelling east, put your clock forward (add hours); travelling west, put it back (subtract hours). UTC is the world's reference time at Greenwich — add a country's offset to get its local time.",
+    "Think of phoning a cousin overseas: when you're eating supper, they might still be asleep. The same moment shows a different time on each clock.",
   "TOUR.G12.T2.ICONS.A1":
-    "An attraction is somewhere worth visiting; an icon is instantly recognised and stands for its whole country. Learn each as a pair: Eiffel Tower → Paris, France; Big Ben → London, England; Statue of Liberty → New York, USA.",
+    "Think of a school famous for its choir. Even people who've never been there know the name, and the choir makes them curious to visit.",
   "TOUR.G12.T2.ATTRSUCCESS.A1":
-    "Separate what management does from the result it gets. Factors: market it well, keep it safe and clean, train the staff. Characteristics: visitor numbers and income beat target, and visitors come back.",
+    "Think of a tuck shop that's clean, friendly and easy for everyone to reach. The things it does well show up in long queues and full takings.",
   "TOUR.G12.T2.TOURPLAN.A1":
-    "Start with the tourist, not the trip. A retired couple with plenty of money and three weeks wants comfort and a slow pace; a student with two weeks and a tight budget wants backpackers and buses. Build the plan around who they are.",
+    "It's like planning a taxi route through town to drop off several friends: you pick the order and roads that waste the least time.",
   "TOUR.G12.T2.ITINERARY.A1":
-    "An itinerary should flow like a good drive: group places that are close together, never double back, keep each day's travel time sensible, and mix busy activities with rest.",
+    "It's like a matric dance-day schedule: hair, photos, transport, the venue. Each part is listed so nothing gets forgotten.",
   "TOUR.G12.T2.BUDGET.A1":
-    "List every cost type — travel, accommodation, meals, entrance fees, shopping, tips — total them carefully, then compare with the money available. Over budget? Cut or downgrade one item, like a cheaper guesthouse.",
+    "It's like planning money for a class outing: transport, food, entry tickets and a little extra for surprises, all added up before you go.",
   "TOUR.G12.T2.HEALTHSAFE.A1":
-    "Health precautions guard against illness — vaccinations, malaria tablets, bottled water. Safety precautions guard against crime and accidents — lock your door, don't flash valuables, be careful after dark. Ask: getting sick, or getting hurt or robbed?",
+    "It's like packing for a camp: medicine in case you get sick, and a lock for your bag in case things go missing. Two different kinds of protection.",
   "TOUR.G12.T2.TRAVELDOC.A1":
-    "A passport says who you are; a visa is a specific country's permission to enter. At customs, the green channel means nothing to declare; the red channel means you have goods to declare or are over your allowance.",
+    "It's like what you need to write an exam: your ID, your exam number and your permission slip. Without the right papers, you can't get in.",
   "TOUR.G12.T3.WHSUNESCO.A1":
-    "UNESCO, a United Nations body, declares and helps protect World Heritage Sites — the site owner doesn't award the status. Natural sites are made by nature (wetlands, fossils); cultural sites are made by people (buildings, rock art).",
+    "It's like an award from a respected outside body. The badge puts the school on the map and comes with a promise to keep standards up.",
   "TOUR.G12.T3.WHSSA.A1":
-    "Learn each SA site by type and province: Robben Island and Mapungubwe are cultural (human history); iSimangaliso and the Cape Floral Region are natural (ecosystems); the Cradle of Humankind (fossils) is in Gauteng.",
+    "Think of a school with trophies for both sport and music. Some honours are for what people achieved; others are for natural talent.",
   "TOUR.G12.T3.RAND.A1":
-    "A strong rand buys more foreign currency — great for South Africans travelling out, but it makes South Africa expensive for inbound tourists. A weak rand is the opposite. Always ask who's travelling which way.",
+    "It's like your pocket money being worth more or less depending on the day. On a good day it buys a lot; on a bad day the same coins buy less.",
   "TOUR.G12.T3.FOREX.A1":
-    "Use the rate exactly as the question writes it. If 1 USD = R18, then dollars to rand means multiply by 18, and rand to dollars means divide by 18. Then sanity-check the size of the answer.",
+    "Think of swapping your lunch for a friend's at an agreed trade. You need to know the swap rate and which way you're trading.",
   "TOUR.G12.T3.BSRBBR.A1":
-    "Read the rate from the bank's side. The bank SELLING rate applies when the bank sells you foreign currency before your trip. The bank BUYING rate applies when it buys back your leftover currency after. The selling rate is the worse deal for you.",
+    "Think of a second-hand textbook shop. It pays you less to buy your old book than it charges to sell you one. The gap is how the shop earns.",
   "TOUR.G12.T3.EXRATE.A1":
-    "Follow the money to the tourist's wallet. A weaker rand makes South Africa cheaper for inbound visitors (more arrivals) and makes overseas trips dearer for South Africans (fewer going out). A stronger rand flips both.",
+    "It's like prices at the mall going up just as your pocket money shrinks. You go to the cheaper shop nearby instead.",
   "TOUR.G12.T3.PAYMENT.A1":
-    "Weigh each on safety, convenience and cost. Cash is easy but gone if it's stolen; a card or preloaded travel card is safer and can be cancelled; traveller's cheques can be replaced but few places still take them.",
+    "It's like going on a school trip with some cash, a bank card and money on your phone. Different places accept different things, so you take a mix.",
   "TOUR.G12.T3.GLOBALEVENTS.A1":
-    "A global event is planned and hosted on purpose — the FIFA World Cup, the Olympics — and usually lifts tourism. An unforeseen occurrence is sudden and unwanted — a pandemic, a tsunami, unrest — and usually hurts it. Ask: planned, or unexpected?",
+    "Think of a school sports day ruined by a sudden storm, versus one boosted by a big visiting team. Some events are planned; others come out of nowhere.",
   "TOUR.G12.T3.MARKETSHARE.A1":
-    "Read the table heading and units first. Market share is a country's slice of total arrivals — a percentage. Raw arrivals is just a count of people. Make sure you're answering from the right column.",
+    "Think of a school counting how many visitors came to its open day and from which areas. The numbers show where interest is coming from.",
   "TOUR.G12.T4.PILLARS.A1":
-    "Sort each action to its pillar: switching a lodge to solar → Planet; hiring and training locals → People; keeping the business profitable so it survives → Profit. Ask which one the action mainly protects.",
+    "It's like a three-legged potjie: it needs all three legs to stand. A good guest helps keep every leg strong.",
   "TOUR.G12.T4.TOURISTCODE.A1":
-    "Sort responsible behaviour by pillar: dress respectfully at a sacred site → social; buy from local crafters at a fair price → economic; take your litter out of the park → environmental. Fair Trade Tourism (FTTSA) certifies businesses that meet these standards.",
+    "It's like the rules for visiting someone's home: respect the people, pay your share and leave the place as you found it.",
   "TOUR.G12.T4.ROLEPLAYERS.A1":
-    "Match the job to the player: government makes the policy and laws; businesses run sustainably and create jobs; communities protect heritage and share the benefits; tourists behave responsibly; FTTSA certifies fair-trade operators.",
+    "It's like keeping a school clean: the principal sets rules, the cleaners do their part, and learners don't litter. It fails if any one group stops.",
   "TOUR.G12.T4.FEEDBACK.A1":
-    "Feedback is a loop: collect it (surveys, cards, follow-up calls) → analyse it (spot the repeated complaint) → act on it (make a plan) → improve. Collecting feedback and then ignoring it changes nothing.",
+    "Think of a teacher handing out a quick survey at the end of the term. What learners say shows what's working and what to fix.",
   "TOUR.G12.T4.SERVICE.A1":
-    "Trace the chain: good service → happy customers → repeat visits, recommendations and good reviews → more income. Poor service → lost customers and a bad name → falling profit. The two are linked.",
+    "Think of two hair salons with the same prices. The one with friendlier, better-trained staff is the one with the full appointment book.",
   "TOUR.G12.T4.MARKETSA.A1":
-    "Keep the names straight: SA Tourism does the international marketing; TOMSA is the small levy on tourism bills that funds that marketing; INDABA, ITB Berlin and the World Travel Market are trade shows where South Africa is promoted to the industry.",
+    "It's like a school advertising itself at other schools' open days, so more families hear about it and want to come.",
 };

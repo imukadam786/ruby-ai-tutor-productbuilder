@@ -1,150 +1,150 @@
-// ─── Life Sciences — per-topic "think of it like this" analogies ────────────
+// ─── Life Sciences — per-topic "real-life example" pictures ────────────────
 //
-// One everyday analogy per topic (70, Grades 10–12), keyed by skill/topic id.
-// Feeds the wrong-answer card's example slot via FeedbackExplanation's
-// `exampleOverride`. Register: FET / matric band (ages ~15–18) — a concrete
-// analogy, but textbook-precise where it matters. "why" = the question's memo,
-// "how" = the topic's recovery_strategy, "where" = buildTopicWhere().
+// One everyday picture per topic (70), keyed by skill/topic id. Feeds the
+// wrong-answer card's example slot via FeedbackExplanation's `exampleOverride`.
+// Rules in docs/feedback-writing-guide.md: an everyday South African picture,
+// no facts, terms or numbers from the topic, and no instructions. "why" = the
+// question's memo, "where" = buildTopicWhere().
 
 export const TOPIC_EXAMPLES: Record<string, string> = {
   "LSC.G10.S1.CHEM.A1":
-    "Each food test is a colour alarm: iodine turns blue-black for starch, warm Benedict's turns brick-orange for simple sugars, Biuret turns purple for protein. No colour change means the nutrient isn't there.",
+    "It's like checking a plate of food for what's in it: some things you need in large amounts, some only in tiny pinches, but you can't go without either.",
   "LSC.G10.S1.CHEM.A2":
-    "Carbohydrates are sugar units clipped together: a single unit is glucose, two clipped is sucrose, a long chain is starch — one brick, a pair, then a wall.",
+    "Think of building with Lego: a few kinds of small bricks snap together to make everything else. Living things build their bodies the same way.",
   "LSC.G10.S1.CHEM.A3":
-    "An enzyme is a lock and the substrate its one matching key. Heat it too far and the lock warps out of shape (denatures) — the key no longer fits, and it won't spring back.",
+    "It's like a key that fits only one lock. Heat it and bend it out of shape, and it won't open anything anymore.",
   "LSC.G10.S1.CELL.A1":
-    "A cell is a small factory: mitochondria are the generators, the nucleus is the office with the plans, ribosomes are the assembly benches. A plant cell adds a brick wall and solar panels (chloroplasts).",
+    "Think of a school: the office runs things, the kitchen provides energy, the bins handle waste. Each room has its own job.",
   "LSC.G10.S1.CELL.A2":
-    "Diffusion is a crowd spreading from a packed doorway into an empty hall — no effort. Active transport is pushing people back through the door into the crowded room: it needs energy (ATP).",
+    "Think of a crowded taxi: people spread out into empty seats on their own. Pushing someone into an already full taxi takes extra effort.",
   "LSC.G10.S1.CELL.A3":
-    "Magnification makes the image bigger; resolution keeps it sharp. Zoom a phone photo too far and you get a huge but blurry picture — big magnification, poor resolution.",
+    "It's like zooming in on a phone photo. You need to know how much you zoomed in before you can tell how big something really is.",
   "LSC.G10.S1.MITO.A1":
-    "Mitosis is a photocopier: one cell in, two identical cells out. The stages PMAT are just the steps of lining chromosomes up and pulling exact copies to each end.",
+    "It's like photocopying a document, then splitting the pile into two identical sets. Each new set is an exact copy of the original.",
   "LSC.G10.S1.MITO.A2":
-    "A normal cell obeys a 'stop dividing' signal like a car obeying a red light. A cancer cell ignores the light and keeps going, so a pile-up of cells (a tumour) builds.",
+    "Think of a photocopier that won't stop printing. Most of the time copying is useful; when it runs out of control, it causes a mess.",
   "LSC.G10.S1.TISS.A1":
-    "Tissues are teams with one job: xylem is the plumbing carrying water up, phloem is the delivery van moving sugar both ways, muscle is the team that pulls, nerve is the team that signals.",
+    "Think of a soccer team: defenders, midfielders and strikers are all players, but each is trained for a different job.",
   "LSC.G10.S1.TISS.A2":
-    "A vaccine is a wanted poster shown to your immune system before the criminal arrives, so it recognises the real virus fast. An antibiotic is a weapon that works on bacteria only, not viruses.",
+    "Think of your gran's home remedy that a pharmacist later tests and turns into a proper medicine with a safe dose. Old knowledge, new checking.",
   "LSC.G10.S2.PTRN.A1":
-    "A soft herb stands up like a balloon full of air — water pressure (turgor) inflates its cells. Lose the water and it flops. A tree stands on woody scaffolding instead.",
+    "Think of a tent: the poles keep it standing, and the air inside pressing outwards keeps the walls taut. Let the air out and it sags.",
   "LSC.G10.S2.PTRN.A2":
-    "Water rises up the xylem because it's pulled from the top — leaves lose vapour and drag the whole thread up, like sipping juice through a straw. Sun, heat and wind speed the sipping; humid air slows it.",
+    "Think of drinking through a long straw: as you suck at the top, liquid is pulled up from the bottom.",
   "LSC.G10.S2.ASUP.A1":
-    "The skeleton splits in two: the axial part is the central pole (skull, spine, ribs); the appendicular part is the limbs and the girdles that hang them on, like arms bolted onto a frame.",
+    "Think of the frame of a house: it holds everything up, protects what's inside and gives the walls something to attach to.",
   "LSC.G10.S2.ASUP.A2":
-    "Think of bone as reinforced concrete: rickets in children is concrete that never set hard (missing vitamin D and calcium); osteoporosis in adults is old concrete crumbling thin.",
+    "Think of a door hinge: it can wear out from years of use, or rust from the inside. Two different problems, two different fixes.",
   "LSC.G10.S2.ASUP.A3":
-    "Muscles only pull, never push — so they work in opposing pairs like two people on a rope: the biceps pulls the forearm up, the triceps pulls it back down. A tendon ties muscle to bone; a ligament ties bone to bone.",
+    "Think of a tug-of-war rope tied to a gate. One team pulls it open, the other pulls it shut. They work in opposite directions.",
   "LSC.G10.S2.CIRC.A1":
-    "The heart is a two-sided pump: the right side sends 'used' blood the short trip to the lungs, the left side pumps fresh blood the long way round the whole body — which is why its wall is thicker.",
+    "Think of a double taxi route: one loop to fetch fresh supplies, another to deliver them across town. Keeping the loops separate makes deliveries faster.",
   "LSC.G10.S2.CIRC.A2":
-    "Arteries are thick high-pressure hoses leaving the heart; veins are thin return pipes with one-way valves so blood can't slide back; capillaries are the fine mesh where delivery and pickup actually happen.",
+    "Think of a city's road system: highways out from the centre, small streets reaching every house, and roads back in. Each type is built for its job.",
   "LSC.G10.S2.CIRC.A3":
-    "A heart attack is a blocked pipe feeding the heart muscle itself; a stroke is the same kind of blockage or burst in the brain. LDL cholesterol furs up the pipes; HDL helps clear it.",
+    "Think of a kitchen pipe slowly clogged by years of grease. It works fine until one day it blocks completely.",
   "LSC.G10.S3.ECO.A1":
-    "Zoom out in steps: an ecosystem is a dam and everything living in and around it; a biome is every grassland on Earth grouped by climate; the biosphere is the whole thin film of life wrapping the planet.",
+    "Think of your household, your street, your suburb and your city. Each is part of a bigger whole, and what happens in one affects the others.",
   "LSC.G10.S3.ECO.A2":
-    "A food-chain arrow points the way energy travels — from the eaten to the eater. Only about a tenth passes up each step, so a huge field of grass feeds a few buck to feed one lion.",
+    "Think of passing a bucket of water down a line of people. A little spills at each handover, so there's less left at the end.",
   "LSC.G10.S3.ECO.A3":
-    "Carbon, nitrogen and water aren't used up — they cycle, like one set of dishes washed and reused. Photosynthesis and respiration pass carbon back and forth; burning fuel adds a big extra dose.",
+    "Think of a stokvel: the same money goes round and round the members. Nothing is new; it's just passed along and reused.",
   "LSC.G10.S3.ECO.A4":
-    "A field study is a fair-test recipe outdoors: measure the same abiotic and biotic things, the same way, at the same spots, then repeat each season. Succession is the slow hand-over from weeds to forest.",
+    "Think of weighing yourself at the same time every day. If you weigh at different times, you can't tell if you've really changed.",
   "LSC.G10.S4.BIO.A1":
-    "Classification is nested boxes from big to small — Kingdom down to Species. A species name is like surname-then-first-name: Genus capitalised, species small, both italic — Homo sapiens.",
+    "Think of how a school sorts learners into grades, classes and houses, and gives each learner a full name. It makes it easy to find anyone.",
   "LSC.G10.S4.BIO.A2":
-    "Endemic means found only here and nowhere else, like Cape fynbos. Endangered means close to gone for good. South Africa's Cape Floral Kingdom is tiny but packed with more plant species per hectare than almost anywhere.",
+    "Think of a family heirloom that's one of a kind. Once it's lost or broken, it can't be replaced.",
   "LSC.G10.S4.HOL.A1":
-    "Read Earth's history like a very long book: simple cells for most of it, then a burst of animal life (Cambrian), then dinosaurs, then mammals. The end-Permian was the near-total wipeout (volcanoes); an asteroid ended the dinosaurs.",
+    "Think of layers of old newspapers stacked in a garage. The deeper you dig, the older the news, and each layer tells you what was happening then.",
   "LSC.G11.S4.MICR.A1":
-    "Sort microbes by one question — is it even a cell? A virus is not. A bacterium is a cell with no nucleus. A protist is a single cell with a nucleus. A fungus has a chitin wall and feeds by soaking up nutrients.",
+    "Think of all the different visitors who might come to a house: some helpful, some harmless, some troublemakers. They're not all the same kind of guest.",
   "LSC.G11.S4.MICR.A2":
-    "Match the disease to the culprit: TB and cholera are bacteria, HIV is a virus, malaria is a protist. That matters — antibiotics work on bacteria only, so taking them for a viral flu does nothing.",
+    "Think of yeast in bread dough: tiny helpers that make the bread rise. Other tiny visitors make you sick, so it depends which one you meet.",
   "LSC.G11.S4.PLNT.A1":
-    "Mosses and ferns are still tied to water for reproduction — the sperm has to swim to the egg — so they hug damp places. Mosses have no plumbing and stay small; ferns have plumbing so they grow taller, but still no seeds.",
+    "Think of the first homes people built: simple, low to the ground and needing to be near water. Later designs could stand taller and further away.",
   "LSC.G11.S4.PLNT.A2":
-    "A gymnosperm carries naked seeds on a cone (a pine); an angiosperm wraps its seeds in a fruit (an apple). Among flowering plants, a monocot has one seed leaf, parallel veins and stringy roots (maize); a dicot has two, net veins and a taproot (a bean).",
+    "Think of packing a lunchbox for a long trip. Some plants pack their babies' food with them, so they can start growing anywhere.",
   "LSC.G11.S4.PREP.A1":
-    "A flower is an advertising billboard for pollinators: bright petals, scent and nectar say 'land here' to insects and birds. Wind-pollinated flowers skip the advertising — dull, no nectar — because the wind can't be tempted.",
+    "Think of a courier delivering a parcel from one house to another. The parcel has to reach the right door before anything else can happen.",
   "LSC.G11.S4.PREP.A2":
-    "After fertilisation the ovary swells into the fruit and each ovule inside becomes a seed — the fruit is the lunchbox, the seeds are the meal. A seed then needs water, warmth and oxygen to germinate.",
+    "Think of a parent packing a lunchbox and sending a child off to school. The food and the trip give the child the best chance.",
   "LSC.G11.S4.ANIM.A1":
-    "Name most invertebrate groups by body plan: arthropods wear their skeleton outside and have jointed legs (crabs, spiders, insects); molluscs are soft-bodied, often shelled; annelids are built from repeated segments, like a stack of rings.",
+    "Think of sorting all the tools in a garage into groups by how they're built, not by colour. Similar designs go together.",
   "LSC.G11.S4.ANIM.A2":
-    "The five backboned classes each have a signature: fish breathe with gills, amphibians have moist skin and water-bound young, reptiles have dry scales and land eggs, birds have feathers, mammals have fur and feed milk.",
+    "Think of a family tree: the oldest branch lived in water, later branches moved onto land, and each new branch added something new.",
   "LSC.G11.S2.PHOT.A1":
-    "Photosynthesis runs in two rooms of the chloroplast: the light reactions in the thylakoids split water for energy carriers and release oxygen; the Calvin cycle in the stroma builds glucose from CO2. The oxygen came from water, not carbon dioxide.",
+    "Think of a solar panel charging a battery. Light goes in, stored energy comes out, and that stored energy powers everything else.",
   "LSC.G11.S2.PHOT.A2":
-    "The limiting factor is whatever is in shortest supply — like a production line held up by the one slow machine. On a rate graph the line climbs then flattens; the flat part shows that factor is no longer the bottleneck.",
+    "Think of baking bread: you can add all the flour you like, but if you run out of yeast, the bread won't rise. The thing in shortest supply holds everything back.",
   "LSC.G11.S2.NUTR.A1":
-    "Digestion is an assembly line with a different tool at each station: amylase in the mouth on starch, pepsin in the stomach on protein, lipase from the pancreas on fat. The small molecules are absorbed through the villi — millions of tiny fingers widening the gut's surface.",
+    "Think of a factory line that breaks big boxes into smaller pieces at each station, until the parts are small enough to send out.",
   "LSC.G11.S2.NUTR.A2":
-    "Kwashiorkor and marasmus are two shortfalls: kwashiorkor is enough kilojoules but too little protein (the swollen belly); marasmus is too little of everything. At the other extreme, too much energy and poor diet drive obesity and Type 2 diabetes.",
+    "Think of a car that needs the right fuel, oil and water. Too little of one, or too much of another, and it starts breaking down.",
   "LSC.G11.S2.RESP.A1":
-    "With oxygen, a glucose molecule is fully 'burned' for about 36 ATP. Without it — a sprinter's muscles mid-race — the same glucose yields only 2 ATP and leaves lactic acid. Yeast does the oxygen-free version, making ethanol and CO2.",
+    "Think of a car engine: with plenty of air it runs smoothly; choke the air and it splutters, gives less power and leaves a mess behind.",
   "LSC.G11.S2.RESP.A2":
-    "Plants do both jobs: they photosynthesise in daylight but respire around the clock — like a shop that manufactures by day but keeps its own lights on 24/7. Oxygen debt is the extra breathing after a sprint, repaying the oxygen you skipped.",
+    "Think of two neighbours swapping: one gives the other its leftovers, and the other gives back exactly what the first one needs. Each relies on the other.",
   "LSC.G11.S2.GAS.A1":
-    "Breathing in is making the chest bigger so air is sucked in: the diaphragm flattens, the ribs lift, the space grows, the pressure drops, air rushes in — the same reason a syringe pulls in liquid when you draw the plunger back.",
+    "Think of a sponge: the more holes and folds it has, the more water it can soak up quickly.",
   "LSC.G11.S2.GAS.A2":
-    "Every gas-exchange surface follows one rule — large area, thin and moist. Leaves use pores (stomata), fish use gills with water flowing opposite to the blood, and insects pipe air straight to their cells through tubes (tracheae), skipping blood.",
+    "Think of different ways to get fresh air in a house: windows, vents or a fan. Different homes use different systems, but the job is the same.",
   "LSC.G11.S2.EXCR.A1":
-    "A nephron cleans blood in three moves: force everything small out under pressure (ultrafiltration), claw back the useful stuff — glucose, salts, water (reabsorption), then dump a little extra waste in (secretion). What's left is urine.",
+    "Think of sorting rubbish: everything is tipped onto a table, the useful things are picked back out, and only the real waste goes in the bin.",
   "LSC.G11.S2.EXCR.A2":
-    "When the kidneys fail, dialysis is a machine standing in — blood is run past a filter and cleaned outside the body. A transplant is a replacement kidney. In South Africa the biggest causes are uncontrolled diabetes and high blood pressure.",
+    "Think of a broken water filter at home. A machine can do the filtering for you, but it takes hours and needs regular visits.",
   "LSC.G11.S3.POP.A1":
-    "A J-curve is a population growing unchecked — straight up, like money at compound interest. An S-curve is that growth flattening as it hits carrying capacity, the ceiling the environment can feed. Crowding-linked limits are density-dependent; a drought hits regardless of numbers.",
+    "Think of a school hall: it can only fit so many people. Once it's full, no matter how many more arrive, there's simply no more space.",
   "LSC.G11.S3.POP.A2":
-    "Sort interactions by who wins: mutualism, both gain (bees and flowers); commensalism, one gains and the other is unbothered; parasitism, one gains at the other's cost (ticks on a dog); predation, one eats the other; competition, both after the same limited thing.",
+    "Think of the different relationships in a neighbourhood: neighbours who help each other, one who borrows and never returns, and two shops competing for customers.",
   "LSC.G11.S3.IMP.A1":
-    "Keep two problems apart: the enhanced greenhouse effect is extra CO2 and methane trapping heat near the ground; ozone depletion is CFCs thinning a protective layer high above. Different gases, different heights, different fixes.",
+    "Think of sleeping under a thick blanket. A light one keeps you comfortable; pile on too many and you overheat.",
   "LSC.G11.S3.IMP.A2":
-    "An alien invasive is a species brought in from elsewhere that spreads with no natural checks — like black wattle or water hyacinth guzzling water and choking rivers. Working for Water clears them to free up water and let indigenous plants return.",
+    "It's like a weed in a vegetable garden that grows fast and drinks all the water, crowding out what you actually planted.",
   "LSC.G11.S3.IMP.A3":
-    "Conservation in South Africa is a layered defence: government parks (SANParks, CapeNature), NGOs like WWF-SA, community and private reserves, and the CITES treaty controlling trade across borders.",
+    "Think of a spider web cut into pieces by a broom. Even if most of the threads remain, the web can't do its job anymore.",
   "LSC.G12.S1.DNA.A1":
-    "DNA is a twisted ladder: the sides are alternating sugar and phosphate, the rungs are base pairs. A always pairs with T, G always with C — like a zip whose teeth only mesh one specific way.",
+    "Think of a zip: each tooth on one side fits only one matching tooth on the other side, so the two sides lock together perfectly.",
   "LSC.G12.S1.DNA.A2":
-    "Replication is semi-conservative: the ladder unzips down the middle and each old half is a template for a new matching half. Every new DNA molecule keeps one original strand and one fresh one.",
+    "Think of unzipping a jacket and using each side as a template to build a new matching half. You end up with two complete zips.",
   "LSC.G12.S1.PROT.A1":
-    "Making a protein is copy-then-build: transcription copies a gene from DNA into a portable mRNA message (in the nucleus), and translation reads it three letters (a codon) at a time at the ribosome, adding one amino acid per codon.",
+    "It's like copying a recipe from a precious recipe book onto a card, taking the card to the kitchen, and cooking the dish from it.",
   "LSC.G12.S1.PROT.A2":
-    "A point mutation swaps one letter — often harmless, sometimes serious like sickle cell. A frameshift adds or drops a letter, shifting every codon after it, like deleting one letter from a sentence and re-spacing it into gibberish.",
+    "Think of a typo in a recipe. Some make no difference, some spoil the dish, and some accidentally make it better.",
   "LSC.G12.S1.MEI.A1":
-    "Meiosis is two divisions, not one. The first separates the chromosome pairs, halving the number. The second splits the sister copies, like mitosis. Four cells come out, each haploid and each genetically different.",
+    "Think of shuffling a deck of cards and dealing out half to each player. Every hand is different from the others.",
   "LSC.G12.S1.MEI.A2":
-    "Meiosis shuffles the genetic deck, so no two gametes are alike — the raw material for evolution. If a pair fails to separate (non-disjunction), a gamete ends up with an extra or missing chromosome, as in Down syndrome.",
+    "Think of dealing cards where one player accidentally gets an extra card and another gets one fewer. The game doesn't go the way it should.",
   "LSC.G12.S2.VREP.A1":
-    "There's a trade-off between number and care. r-strategists (fish, frogs) release thousands of eggs and walk away — wasteful, but some survive. K-strategists (elephants, humans) have few young and invest heavily in each.",
+    "Think of two families: one has many children and can give each little attention; the other has few and gives each a lot. Both are strategies.",
   "LSC.G12.S2.HREP.A1":
-    "Trace the route: sperm are made in the testes, an egg is released from an ovary, they meet in the fallopian tube where fertilisation happens, and the embryo then settles into the wall of the uterus.",
+    "Think of a delivery system: one place makes the parcels, another sends them out, and a third is the safe home where they're received.",
   "LSC.G12.S2.HREP.A2":
-    "The 28-day cycle is a monthly build-and-clear: FSH grows a follicle in the first half, a surge of LH triggers ovulation around day 14, and if no pregnancy follows, the lining is shed as menstruation to start again.",
+    "Think of preparing a guest room every month: clean sheets, everything ready. If no guest arrives, it's cleared out and prepared again next month.",
   "LSC.G12.S2.HREP.A3":
-    "A condom is the only method that blocks both pregnancy and infection; the pill stops pregnancy only. HIV is a virus managed for life with ARVs ('undetectable = untransmittable'), while many other STIs are bacterial and curable.",
+    "Think of locking a door, a gate and a window. Each lock works differently, and none of them protects you in every situation.",
   "LSC.G12.S2.NRV.A1":
-    "The brain divides the work: the cerebrum thinks and decides, the cerebellum keeps you balanced and coordinated, and the medulla quietly runs the automatic jobs — heartbeat and breathing — without you noticing.",
+    "Think of a school office: different staff handle different jobs, like timetables, discipline and fees, and the main corridor carries messages to every classroom.",
   "LSC.G12.S2.NRV.A2":
-    "A reflex takes a shortcut. Touch something hot and the signal runs sensory neuron → spinal cord → motor neuron → muscle, and your hand pulls back before the message even reaches the brain to feel pain.",
+    "Think of touching a hot pot: you pull your hand away before you've even thought about it. The message takes a shortcut.",
   "LSC.G12.S2.SENS.A1":
-    "Rods see in dim light but only in grey; cones need brighter light and give you colour. In short sight (myopia) the eyeball is too long, so the image lands short of the retina — a concave lens spreads the light to fix it.",
+    "Think of a camera with a cloudy lens. Everything is still there, but the picture comes out blurry.",
   "LSC.G12.S2.SENS.A2":
-    "Sound is passed on and amplified like a bucket line: the eardrum vibrates, three tiny bones (hammer, anvil, stirrup) magnify the movement, and the coiled cochlea turns it into nerve signals. The separate loops (semicircular canals) handle balance, not sound.",
+    "Think of a microphone that picks up sound and a spirit level that tells you if a shelf is straight. Two jobs, both important.",
   "LSC.G12.S2.END.A1":
-    "Hormones are chemical messages posted into the blood, reaching every cell but only affecting the ones with the matching receptor — like a group text only certain phones are set up to open. The pituitary is the 'master gland' directing several others.",
+    "Think of a school's PA system: one announcement reaches every classroom, slower than a shout but lasting much longer.",
   "LSC.G12.S2.END.A2":
-    "Type 1 diabetes is a factory that stopped making insulin (an immune attack on the pancreas); Type 2 is a factory still making it, but the cells no longer respond well. One needs insulin injections, the other is managed largely with diet, weight and activity.",
+    "Think of a thermostat that's stopped working. Without it, the room gets far too hot or cold, and someone has to adjust it by hand.",
   "LSC.G12.S2.HOM.A1":
-    "Homeostasis is a thermostat with air-con. Too hot: sweat and widen skin blood vessels to shed heat. Too cold: shiver and narrow them to keep heat in. Too little water: ADH tells the kidney to hold water back, so the urine is small and concentrated.",
+    "Think of a geyser with a thermostat: when the water gets too hot it switches off, and when it cools it switches on again.",
   "LSC.G12.S2.HOM.A2":
-    "Blood sugar is kept level by two opposing hormones, like a hot and a cold tap. Insulin turns the level down (storing glucose as glycogen after a meal); glucagon turns it up (releasing it again between meals).",
+    "Think of a bank account managed to stay within a set range: deposit when it's low, withdraw when it's high, so it never runs dry or overflows.",
   "LSC.G12.S4.DAR.A1":
-    "Natural selection is a filter running every generation: individuals vary, more are born than can survive, the ones whose traits fit the environment survive and breed, and those traits are inherited. Fossils, shared anatomy, embryos and DNA all point the same way.",
+    "Think of a family resemblance across generations in old photos. Small changes add up over time, and the photos are the evidence.",
   "LSC.G12.S4.DAR.A2":
-    "Allopatric speciation is a population split by a barrier — a river, a mountain — drifting apart until they can't interbreed. You can watch selection in fast-forward when bacteria evolve antibiotic resistance or insects shrug off pesticides.",
+    "Think of two groups of friends who move to different towns and stop meeting. Over the years they develop their own slang until they barely understand each other.",
   "LSC.G12.S4.HUM.A1":
-    "Human evolution is a branching bush, not a ladder. We didn't come from chimps — we share a common ancestor and split from it. Our line went through australopithecines, Homo habilis and Homo erectus to us, gaining upright walking, then bigger brains and tools.",
+    "Think of a big family tree with many branches, some still alive and some ended long ago. We're one surviving branch.",
   "LSC.G12.S4.HUM.A2":
-    "South Africa's Cradle of Humankind is a key address for these fossils — Mrs Ples (Australopithecus africanus), Karabo (A. sediba) and the Homo naledi finds. The Out-of-Africa model says Homo sapiens arose in Africa around 300 000 years ago and spread from there.",
+    "Think of finding your family's oldest letters in your grandparents' attic. The best clues to where your family began are kept right here at home.",
 };

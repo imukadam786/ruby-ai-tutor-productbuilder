@@ -53,7 +53,7 @@
             "geography"
           ],
           "expected": "macroeconomics",
-          "memo": "Macroeconomics studies the economy as a whole; microeconomics studies single markets.",
+          "memo": "Macroeconomics looks at the whole economy. Microeconomics looks at single markets, like one product or one firm.",
           "error_signals": [
             "ERR_ECON_MACROMICRO"
           ],
@@ -87,7 +87,7 @@
             "personal"
           ],
           "expected": "positive",
-          "memo": "Positive statements are factual and testable; normative statements are opinions.",
+          "memo": "A positive statement is a fact you can test. A normative statement is an opinion about what should happen.",
           "error_signals": [
             "ERR_ECON_POSNORM"
           ],
@@ -275,7 +275,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Whole-economy topics are macro; single-market topics are micro.",
+          "memo": "Topics about the whole economy are macro. Topics about one market or one firm are micro.",
           "error_signals": [
             "ERR_ECON_MACROMICRO"
           ],
@@ -292,7 +292,7 @@
             "a dancer"
           ],
           "expected": "an economist or financial analyst",
-          "memo": "Economics opens careers like analyst, economist, banker and policy advisor.",
+          "memo": "Economics leads to careers like economist, analyst, banker and policy advisor.",
           "error_signals": [
             "ERR_ECON_CAREERS"
           ],
@@ -375,7 +375,7 @@
             "Micro — what is the national unemployment rate?"
           ],
           "expected": "Macro — what causes national inflation?",
-          "memo": "National inflation is an economy-wide (macro) question.",
+          "memo": "National inflation affects the whole economy, so it's a macro question.",
           "error_signals": [
             "ERR_ECON_MACROMICRO"
           ],
@@ -595,7 +595,7 @@
             "nothing"
           ],
           "expected": "the hour of TV she gives up",
-          "memo": "Opportunity cost is the next-best activity foregone — watching TV.",
+          "memo": "Opportunity cost is the next-best thing you give up. If she studies, she gives up the hour of TV.",
           "error_signals": [
             "ERR_ECON_OPP_COST"
           ],
@@ -915,7 +915,7 @@
             }
           ],
           "expected": "",
-          "memo": "Opportunity cost = the next-best alternative foregone.",
+          "memo": "Opportunity cost is the next-best option you give up. Resources are limited, so every choice means giving something else up.",
           "error_signals": [
             "ERR_ECON_OPP_COST"
           ],
@@ -1160,7 +1160,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Leakages: saving, taxes, imports. Injections: investment, government spending, exports.",
+          "memo": "Leakages take money out of the flow: saving, taxes and imports. Injections put money in: investment, government spending and exports.",
           "error_signals": [
             "ERR_ECON_LEAK_INJECT"
           ],
@@ -1204,7 +1204,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Goods/services = product market; factors of production = factor market.",
+          "memo": "Buying and selling goods and services happens in the product market. Hiring workers or renting land happens in the factor market.",
           "error_signals": [
             "ERR_ECON_CF_MARKETS"
           ],
@@ -1632,7 +1632,7 @@
             "It shows one firm's profit"
           ],
           "expected": "It is a broad measure of the size of an economy",
-          "memo": "GDP gauges total economic activity and the economy's size.",
+          "memo": "GDP measures all the economic activity in a country, so it shows how big the economy is.",
           "error_signals": [
             "ERR_ECON_GDP_USE"
           ],
@@ -1766,7 +1766,7 @@
             "GNI counts only exports"
           ],
           "expected": "GDP = inside the borders; GNI = earned by citizens",
-          "memo": "GDP is location-based; GNI is nationality-based.",
+          "memo": "GDP counts what's produced inside the country's borders. GNI counts what the country's citizens earn, wherever they are.",
           "error_signals": [
             "ERR_ECON_GDP_GNI"
           ],
@@ -1828,7 +1828,7 @@
             }
           ],
           "expected": "",
-          "memo": "GDP = location-based; GNI = nationality-based.",
+          "memo": "GDP counts output inside the borders; GNI counts income earned by citizens. They differ by the income flowing in from and out to other countries.",
           "error_signals": [
             "ERR_ECON_GDP_GNI"
           ],
@@ -2002,7 +2002,7 @@
             "household savings only"
           ],
           "expected": "outside the economy, like a war or oil-price shock",
-          "memo": "Exogenous = from outside; endogenous = from inside the system.",
+          "memo": "Exogenous means coming from outside the economy, like a war or an oil-price shock. Endogenous means coming from inside.",
           "error_signals": [
             "ERR_ECON_BC_CAUSES"
           ],
@@ -2019,7 +2019,7 @@
             "the printing of textbooks"
           ],
           "expected": "inside the economy, like changes in investment or confidence",
-          "memo": "Endogenous causes arise within the economy itself.",
+          "memo": "Endogenous causes come from inside the economy, like changes in investment or business confidence.",
           "error_signals": [
             "ERR_ECON_BC_CAUSES"
           ],
@@ -2180,7 +2180,7 @@
             "disappear"
           ],
           "expected": "turn downward into recession",
-          "memo": "Falling investment (an endogenous cause) pushes activity down.",
+          "memo": "When firms stop investing, there's less spending and less production, so the economy heads down into recession.",
           "error_signals": [
             "ERR_ECON_BC_CAUSES"
           ],
@@ -2239,7 +2239,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Outside the economy = exogenous; inside = endogenous.",
+          "memo": "Causes from outside the economy are exogenous. Causes from inside are endogenous.",
           "error_signals": [
             "ERR_ECON_BC_CAUSES"
           ],
@@ -2301,7 +2301,7 @@
             }
           ],
           "expected": "",
-          "memo": "Recession = falling output, rising unemployment, hardship for the vulnerable.",
+          "memo": "In a recession, production falls and unemployment rises. People who are already struggling suffer most as jobs and income disappear.",
           "error_signals": [
             "ERR_ECON_BC_EFFECTS"
           ],
@@ -2576,7 +2576,7 @@
             "the tax on a good"
           ],
           "expected": "the satisfaction a good gives",
-          "memo": "Utility is the usefulness or satisfaction from consuming a good.",
+          "memo": "Utility is the usefulness or satisfaction you get from something you buy.",
           "error_signals": [
             "ERR_ECON_UTILITY"
           ],
@@ -2625,7 +2625,7 @@
             "Buyers and sellers ignore price"
           ],
           "expected": "Surpluses push price down and shortages push price up until they clear",
-          "memo": "Price adjusts until quantity demanded equals quantity supplied.",
+          "memo": "Prices move until the amount people want to buy equals the amount sellers want to sell. A surplus pushes prices down; a shortage pushes them up.",
           "error_signals": [
             "ERR_ECON_EQUILIBRIUM"
           ],
@@ -2865,7 +2865,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Perfect competition has many traders and a homogeneous product.",
+          "memo": "In a perfect market there are many buyers and sellers, and everyone sells the same product.",
           "error_signals": [
             "ERR_ECON_PERFECT"
           ],
@@ -2960,7 +2960,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Many sellers + identical product = perfect; otherwise imperfect.",
+          "memo": "Many sellers with an identical product means a perfect market. Anything else is imperfect.",
           "error_signals": [
             "ERR_ECON_MARKET_STRUCTURE"
           ],
@@ -3004,7 +3004,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Finished goods/services = product; inputs = factor.",
+          "memo": "Finished goods and services are bought in the product market. Inputs, like workers and land, are hired in the factor market.",
           "error_signals": [
             "ERR_ECON_MARKET_TYPE"
           ],
@@ -3036,7 +3036,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Imperfect markets (monopoly, oligopoly) give sellers price-setting power.",
+          "memo": "In imperfect markets, like a monopoly or a few big firms, sellers have some power to set the price.",
           "error_signals": [
             "ERR_ECON_MARKET_STRUCTURE"
           ],
@@ -3053,7 +3053,7 @@
             "sellers fix all prices together"
           ],
           "expected": "prices adjust to balance supply and demand without a planner",
-          "memo": "Free prices coordinate the market automatically.",
+          "memo": "In a free market, prices rise and fall on their own to balance buyers and sellers. Nobody has to plan it.",
           "error_signals": [
             "ERR_ECON_MARKET_FUNCTION"
           ],
@@ -3121,7 +3121,7 @@
             "factor market"
           ],
           "expected": "monopoly",
-          "memo": "A single national electricity supplier is a monopoly.",
+          "memo": "When one supplier provides all the electricity in the country, that's a monopoly.",
           "error_signals": [
             "ERR_ECON_MARKET_STRUCTURE"
           ],
@@ -3439,7 +3439,7 @@
             "A drought"
           ],
           "expected": "Economic growth — more or better resources",
-          "memo": "More/better resources or technology expand the PPC.",
+          "memo": "More or better resources, or better technology, let the economy produce more, so the whole curve moves outward.",
           "error_signals": [
             "ERR_ECON_PPC_SHIFT"
           ],
@@ -3487,7 +3487,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "On = efficient, inside = inefficient, beyond = unattainable.",
+          "memo": "A point on the curve means resources are fully used. A point inside means some are idle. A point outside is impossible with current resources.",
           "error_signals": [
             "ERR_ECON_PPC_POINTS"
           ],
@@ -3502,7 +3502,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Fewer resources shrink the production possibilities.",
+          "memo": "Destroying factories leaves fewer resources, so the economy can produce less and the curve moves inward.",
           "error_signals": [
             "ERR_ECON_PPC_SHIFT"
           ],
@@ -3553,7 +3553,7 @@
             "make the PPC vertical"
           ],
           "expected": "shift the PPC outward over time",
-          "memo": "Better skills and capital raise future production capacity.",
+          "memo": "Better skills and more machines increase what the economy can produce in future, so the curve moves outward.",
           "error_signals": [
             "ERR_ECON_PPC_SHIFT"
           ],
@@ -3821,7 +3821,7 @@
             "content": "g10-price-ceiling",
             "caption": "Maximum price (ceiling) below equilibrium."
           },
-          "memo": "Below equilibrium, quantity demanded exceeds quantity supplied — a shortage.",
+          "memo": "If the price is held below equilibrium, people want to buy more than sellers offer. That's a shortage.",
           "error_signals": [
             "ERR_ECON_MAX_PRICE"
           ],
@@ -3846,7 +3846,7 @@
             "content": "g10-price-floor",
             "caption": "Minimum price (floor) above equilibrium."
           },
-          "memo": "Above equilibrium, quantity supplied exceeds quantity demanded — a surplus.",
+          "memo": "If the price is held above equilibrium, sellers offer more than people want to buy. That's a surplus.",
           "error_signals": [
             "ERR_ECON_MIN_PRICE"
           ],
@@ -3863,7 +3863,7 @@
             "set interest rates"
           ],
           "expected": "support the poor and reduce hardship",
-          "memo": "Welfare transfers income to vulnerable households.",
+          "memo": "Welfare grants move income to vulnerable households to reduce hardship.",
           "error_signals": [
             "ERR_ECON_WELFARE"
           ],
@@ -4245,7 +4245,7 @@
             "shortage"
           ],
           "expected": "division",
-          "memo": "Division of labour raises output through specialisation.",
+          "memo": "Division of labour means each worker focuses on one task. Specialising like this raises output.",
           "error_signals": [
             "ERR_ECON_SPECIALISATION"
           ],
@@ -4277,7 +4277,7 @@
             "banning trade"
           ],
           "expected": "machines and new energy sources",
-          "memo": "Mechanisation and energy (steam) boosted output massively.",
+          "memo": "Machines and new energy, like steam power, increased production enormously.",
           "error_signals": [
             "ERR_ECON_INDUSTRIAL"
           ],
@@ -4294,7 +4294,7 @@
             "Money → self-sufficiency → barter → globalisation → industrialisation"
           ],
           "expected": "Self-sufficiency → barter → money → industrialisation → globalisation",
-          "memo": "Economies broadly moved from self-sufficiency to a connected global system.",
+          "memo": "Economies broadly moved from people making everything themselves, to swapping goods, to money, to factories, to a connected global economy.",
           "error_signals": [
             "ERR_ECON_DEV_STAGES"
           ],
@@ -4311,7 +4311,7 @@
             "stopped trade"
           ],
           "expected": "let many people invest while risking only what they put in",
-          "memo": "Limited liability encouraged investment by capping investors' risk.",
+          "memo": "Limited liability capped how much investors could lose, so more people were willing to invest.",
           "error_signals": [
             "ERR_ECON_INSTITUTIONS"
           ],
@@ -4404,7 +4404,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Globalisation links national economies through trade and finance.",
+          "memo": "Globalisation connects countries' economies through trade and finance.",
           "error_signals": [
             "ERR_ECON_GLOBALISATION"
           ],
@@ -4472,7 +4472,7 @@
             "money should be abolished"
           ],
           "expected": "trade and shared rules can benefit all sides",
-          "memo": "Cooperation and trade can raise prosperity for participants.",
+          "memo": "Countries saw that trading and agreeing on shared rules could make everyone involved better off.",
           "error_signals": [
             "ERR_ECON_GLOBALISATION"
           ],
@@ -4521,7 +4521,7 @@
             "the end of cities"
           ],
           "expected": "poor working and living conditions for many workers",
-          "memo": "Early industrialisation often brought harsh conditions and crowding.",
+          "memo": "Early industrialisation often meant harsh working conditions and crowded, unhealthy living for workers.",
           "error_signals": [
             "ERR_ECON_INDUSTRIAL"
           ],
@@ -4623,7 +4623,7 @@
             }
           ],
           "expected": "",
-          "memo": "Money removes the double-coincidence-of-wants problem of barter.",
+          "memo": "Barter only works if each person has what the other wants. Money removes that problem, so trade could grow much more easily.",
           "error_signals": [
             "ERR_ECON_BARTER"
           ],
@@ -4681,7 +4681,7 @@
             "fishing only"
           ],
           "expected": "mining",
-          "memo": "Mineral discoveries made mining central to the economy.",
+          "memo": "Finding diamonds and gold made mining the centre of South Africa's economy.",
           "error_signals": [
             "ERR_ECON_SAH_MINING"
           ],
@@ -4698,7 +4698,7 @@
             "mining"
           ],
           "expected": "manufacturing",
-          "memo": "Manufacturing (secondary sector) grew after mining.",
+          "memo": "After mining, manufacturing grew: making finished goods in factories, which is the secondary sector.",
           "error_signals": [
             "ERR_ECON_SAH_MANUF"
           ],
@@ -4764,7 +4764,7 @@
             "free education for all"
           ],
           "expected": "discriminatory laws that excluded many people",
-          "memo": "Exclusionary policies blocked many from the economy.",
+          "memo": "Laws that shut many people out of the economy held back fair development.",
           "error_signals": [
             "ERR_ECON_SAH_FACTORS"
           ],
@@ -4812,7 +4812,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Primary extracts; secondary manufactures; tertiary serves.",
+          "memo": "Primary activities take from nature, secondary activities make things, and tertiary activities provide services.",
           "error_signals": [
             "ERR_ECON_SECTORS"
           ],
@@ -4895,7 +4895,7 @@
             "there is no trade"
           ],
           "expected": "the economy becomes exposed to swings in commodity prices",
-          "memo": "Commodity dependence ties the economy to volatile world prices.",
+          "memo": "Depending on mining exports ties the economy to world commodity prices, which rise and fall a lot.",
           "error_signals": [
             "ERR_ECON_SAH_COMMODITY"
           ],
@@ -4912,7 +4912,7 @@
             "Because trade ended"
           ],
           "expected": "As incomes rose, demand for finance, retail and transport grew",
-          "memo": "Richer economies demand more services.",
+          "memo": "As people earn more, they spend more on services like banking, shopping and transport.",
           "error_signals": [
             "ERR_ECON_SAH_SERVICES"
           ],
@@ -4956,7 +4956,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Infrastructure and skills help; exclusion and inequality hamper.",
+          "memo": "Railways, ports, skills and education help development. Excluding workers and unequal land ownership hold it back.",
           "error_signals": [
             "ERR_ECON_SAH_FACTORS"
           ],
@@ -5084,7 +5084,7 @@
             }
           ],
           "expected": "",
-          "memo": "Farming → mining → manufacturing → services, with unequal benefits.",
+          "memo": "South Africa moved from farming, to mining, to manufacturing, to services. But discriminatory laws meant the benefits were shared very unequally.",
           "error_signals": [
             "ERR_ECON_SAH_STAGES"
           ],
@@ -5191,7 +5191,7 @@
             "government grant offices"
           ],
           "expected": "private banks",
-          "memo": "Banking began with private banks before consolidation.",
+          "memo": "Banking in South Africa started with private banks, before they joined into bigger ones.",
           "error_signals": [
             "ERR_ECON_MH_BANKS"
           ],
@@ -5208,7 +5208,7 @@
             "were banned"
           ],
           "expected": "consolidated into fewer, larger banks",
-          "memo": "Banking consolidated into a few large institutions.",
+          "memo": "Over time, many small banks joined together into a few large banks.",
           "error_signals": [
             "ERR_ECON_MH_CONSOLIDATION"
           ],
@@ -5303,7 +5303,7 @@
             "based only on cattle"
           ],
           "expected": "coins and notes brought or issued by colonial powers",
-          "memo": "Colonial authorities introduced their own currencies.",
+          "memo": "Colonial authorities brought in or issued their own coins and notes.",
           "error_signals": [
             "ERR_ECON_MH_COLONIAL"
           ],
@@ -5435,7 +5435,7 @@
             "barter was unknown"
           ],
           "expected": "communities organised trade long before colonial money",
-          "memo": "African societies traded and used value systems before colonisation.",
+          "memo": "African communities traded and had ways of measuring value long before colonial money arrived.",
           "error_signals": [
             "ERR_ECON_MH_IKS"
           ],
@@ -5754,7 +5754,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Dependency compares dependants (young/old) to working-age people.",
+          "memo": "Dependency compares people who mostly don't work, the young and old, with people of working age.",
           "error_signals": [
             "ERR_ECON_DEPENDENCY"
           ],
@@ -5771,7 +5771,7 @@
             "out of the country only"
           ],
           "expected": "from rural areas into cities",
-          "memo": "Urbanisation is rural-to-urban migration.",
+          "memo": "Urbanisation means people moving from rural areas to cities.",
           "error_signals": [
             "ERR_ECON_URBANISATION"
           ],
@@ -5881,7 +5881,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Losing skilled workers reduces the economy's capacity.",
+          "memo": "When skilled workers leave the country, the economy loses skills and can produce less.",
           "error_signals": [
             "ERR_ECON_BRAIN_DRAIN"
           ],
@@ -5994,7 +5994,7 @@
             }
           ],
           "expected": "",
-          "memo": "Labour force = working + actively job-seeking, a subset of the population.",
+          "memo": "The labour force is people who are working or actively looking for work. Children, full-time students and pensioners aren't in it, so it's only part of the population.",
           "error_signals": [
             "ERR_ECON_LABOUR_FORCE"
           ],
@@ -6035,7 +6035,7 @@
             "studying full-time"
           ],
           "expected": "of working age, without a job, and actively looking for work",
-          "memo": "The narrow definition requires actively seeking work.",
+          "memo": "Under the narrow definition, you're unemployed only if you're of working age, have no job and are actively looking for one.",
           "error_signals": [
             "ERR_ECON_UNEMP_DEF"
           ],
@@ -6052,7 +6052,7 @@
             "voluntary"
           ],
           "expected": "cyclical",
-          "memo": "Cyclical unemployment rises in recessions.",
+          "memo": "Cyclical unemployment rises when the economy goes into a downturn.",
           "error_signals": [
             "ERR_ECON_UNEMP_TYPES"
           ],
@@ -6069,7 +6069,7 @@
             "the economy booms"
           ],
           "expected": "workers' skills do not match the jobs available",
-          "memo": "Structural unemployment is a skills/industry mismatch.",
+          "memo": "Structural unemployment happens when workers' skills don't match the jobs available.",
           "error_signals": [
             "ERR_ECON_UNEMP_TYPES"
           ],
@@ -6086,7 +6086,7 @@
             "retired"
           ],
           "expected": "briefly between jobs",
-          "memo": "Frictional unemployment is short-term, between jobs.",
+          "memo": "Frictional unemployment is the short time people spend between jobs.",
           "error_signals": [
             "ERR_ECON_UNEMP_TYPES"
           ],
@@ -6149,7 +6149,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Downturn = cyclical; skills mismatch = structural; between jobs = frictional.",
+          "memo": "Jobs lost in a downturn are cyclical. Skills no longer needed are structural. Being between jobs is frictional.",
           "error_signals": [
             "ERR_ECON_UNEMP_TYPES"
           ],
@@ -6359,7 +6359,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Unemployment falls heaviest on the already vulnerable.",
+          "memo": "Unemployment hits people who are already vulnerable, like young people and rural workers, the hardest.",
           "error_signals": [
             "ERR_ECON_UNEMP_VULNERABLE"
           ],
@@ -6513,7 +6513,7 @@
             "set the repo rate"
           ],
           "expected": "represent and protect workers",
-          "memo": "Unions defend workers' interests collectively.",
+          "memo": "Trade unions stand up for workers' interests as a group.",
           "error_signals": [
             "ERR_ECON_UNION"
           ],
@@ -6547,7 +6547,7 @@
             "school fees"
           ],
           "expected": "working hours, leave and basic conditions",
-          "memo": "The BCEA covers minimum employment conditions.",
+          "memo": "The BCEA sets the minimum conditions of work, like working hours and leave.",
           "error_signals": [
             "ERR_ECON_BCEA"
           ],
@@ -6562,7 +6562,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Bargaining collectively gives workers more power.",
+          "memo": "When workers negotiate together instead of one by one, they have more power.",
           "error_signals": [
             "ERR_ECON_BARGAINING"
           ],
@@ -6610,7 +6610,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "LRA = bargaining/disputes; CCMA = dispute resolution; BCEA = basic conditions.",
+          "memo": "The LRA governs unions, bargaining and disputes. The CCMA settles disputes between workers and employers. The BCEA sets basic conditions like hours and leave.",
           "error_signals": [
             "ERR_ECON_LABOUR_LAW"
           ],
@@ -6661,7 +6661,7 @@
             "tax is collected"
           ],
           "expected": "employers and unions in an industry negotiate together",
-          "memo": "Bargaining councils negotiate industry-wide terms.",
+          "memo": "At a bargaining council, employers and unions in one industry negotiate terms that apply across that industry.",
           "error_signals": [
             "ERR_ECON_BARGAINING"
           ],
@@ -6676,7 +6676,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "COIDA compensates for occupational injuries and diseases.",
+          "memo": "COIDA pays compensation to workers who are hurt or get ill because of their job.",
           "error_signals": [
             "ERR_ECON_COIDA"
           ],
@@ -6771,7 +6771,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Workers have rights; employers carry matching responsibilities.",
+          "memo": "Workers have rights, like joining a union and fair dismissal. Employers have matching duties, like paying the minimum wage and keeping the workplace safe.",
           "error_signals": [
             "ERR_ECON_RIGHTS"
           ],
@@ -6788,7 +6788,7 @@
             "they stop all trade"
           ],
           "expected": "fewer disputes mean steadier production and investment",
-          "memo": "Stable labour relations support production and confidence.",
+          "memo": "Fewer disputes mean production keeps running and businesses feel confident to invest.",
           "error_signals": [
             "ERR_ECON_LABREL_BENEFIT"
           ],
@@ -6956,7 +6956,7 @@
             "end taxation"
           ],
           "expected": "correct the inequalities of the past",
-          "memo": "Redress seeks to undo apartheid-era economic injustice.",
+          "memo": "Redress tries to undo the economic injustice of apartheid.",
           "error_signals": [
             "ERR_ECON_REDRESS_DEF"
           ],
@@ -6973,7 +6973,7 @@
             "The repo rate"
           ],
           "expected": "BEE",
-          "memo": "Black Economic Empowerment widens economic participation.",
+          "memo": "Black Economic Empowerment (BEE) aims to bring more black people into owning and running businesses.",
           "error_signals": [
             "ERR_ECON_BEE"
           ],
@@ -6990,7 +6990,7 @@
             "raise import tariffs"
           ],
           "expected": "make workplaces more representative and fair",
-          "memo": "Employment equity promotes fair, representative workplaces.",
+          "memo": "Employment equity aims for fair workplaces that reflect the whole population.",
           "error_signals": [
             "ERR_ECON_EQUITY"
           ],
@@ -7104,7 +7104,7 @@
             "raising unemployment"
           ],
           "expected": "helping more people start and own businesses",
-          "memo": "Supporting new entrepreneurs widens economic ownership.",
+          "memo": "Helping new entrepreneurs start businesses means more people own a share of the economy.",
           "error_signals": [
             "ERR_ECON_ENTREPRENEUR"
           ],
@@ -7136,7 +7136,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Access to finance is part of widening economic participation.",
+          "memo": "Making it easier to get finance is part of letting more people take part in the economy.",
           "error_signals": [
             "ERR_ECON_CAPITAL_ACCESS"
           ],
@@ -7170,7 +7170,7 @@
             "Inequality cannot be measured"
           ],
           "expected": "Apartheid left wealth and income very unequally shared",
-          "memo": "Redress targets the deep inequality inherited from apartheid.",
+          "memo": "Apartheid left wealth and income very unequally shared. Redress aims to reduce that gap.",
           "error_signals": [
             "ERR_ECON_INEQUALITY"
           ],
@@ -7231,7 +7231,7 @@
             "banning unions"
           ],
           "expected": "giving more people a say in economic decisions",
-          "memo": "It spreads participation in economic decision-making.",
+          "memo": "It means giving more people a say in decisions about the economy.",
           "error_signals": [
             "ERR_ECON_DEMOCRATISATION"
           ],
@@ -7246,7 +7246,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Working capital funds everyday running costs.",
+          "memo": "Working capital is the money a business needs to cover its everyday running costs.",
           "error_signals": [
             "ERR_ECON_WORKING_CAPITAL"
           ],
@@ -7491,7 +7491,7 @@
             "profit"
           ],
           "expected": "interest",
-          "memo": "Capital earns interest.",
+          "memo": "Each factor of production earns a reward. Capital earns interest.",
           "error_signals": [
             "ERR_ECON_FOP_REWARD"
           ],
@@ -7626,7 +7626,7 @@
             "are wages"
           ],
           "expected": "provide raw materials from nature",
-          "memo": "Land/natural resources supply nature's raw materials.",
+          "memo": "Natural resources, also called land, give us raw materials from nature.",
           "error_signals": [
             "ERR_ECON_FOP_LIST"
           ],
@@ -7761,7 +7761,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Preferential procurement opens markets to marginalised firms.",
+          "memo": "Giving preference to certain suppliers when buying helps businesses that were left out win contracts.",
           "error_signals": [
             "ERR_ECON_PROCUREMENT"
           ],
@@ -7915,7 +7915,7 @@
             "council"
           ],
           "expected": "consumption",
-          "memo": "C is household final consumption expenditure.",
+          "memo": "C stands for consumption: what households spend on goods and services.",
           "error_signals": [
             "ERR_ECON_GDP_C"
           ],
@@ -7932,7 +7932,7 @@
             "gross profit"
           ],
           "expected": "government spending",
-          "memo": "G is government consumption expenditure.",
+          "memo": "G stands for what the government spends on goods and services.",
           "error_signals": [
             "ERR_ECON_GDP_G"
           ],
@@ -8146,7 +8146,7 @@
             "It lowers GDP"
           ],
           "expected": "It builds the capital that produces more in future",
-          "memo": "Investment expands future productive capacity.",
+          "memo": "Investment builds machines, buildings and equipment that let the economy produce more in future.",
           "error_signals": [
             "ERR_ECON_INVESTMENT"
           ],
@@ -8178,7 +8178,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Government consumption spending (G) includes public salaries.",
+          "memo": "Government spending (G) includes paying public workers like teachers.",
           "error_signals": [
             "ERR_ECON_GDP_G"
           ],
@@ -8492,7 +8492,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Prices/profit = market; state ownership/planning = command.",
+          "memo": "Prices and profit drive a market system. State ownership and central planning drive a command system.",
           "error_signals": [
             "ERR_ECON_SYS_FEATURES"
           ],
@@ -8685,7 +8685,7 @@
             "is fully private"
           ],
           "expected": "can be uneven and inefficient in places",
-          "memo": "Service delivery is uneven and sometimes inefficient.",
+          "memo": "Service delivery in South Africa is uneven and sometimes inefficient.",
           "error_signals": [
             "ERR_ECON_SYS_DELIVERY"
           ],
@@ -8821,7 +8821,7 @@
             "grows crops"
           ],
           "expected": "manufactures and processes goods",
-          "memo": "Secondary = manufacturing and construction.",
+          "memo": "The secondary sector is manufacturing and construction: making and processing goods.",
           "error_signals": [
             "ERR_ECON_SECTORS"
           ],
@@ -8918,7 +8918,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Extract → primary; make → secondary; serve → tertiary.",
+          "memo": "Taking from nature is primary, making things is secondary, and providing services is tertiary.",
           "error_signals": [
             "ERR_ECON_SECTORS"
           ],
@@ -8952,7 +8952,7 @@
             "it stops mining"
           ],
           "expected": "factories and businesses need it to operate",
-          "memo": "Stable energy underpins production across the economy.",
+          "memo": "Factories and businesses need steady electricity to work, so energy supports production across the economy.",
           "error_signals": [
             "ERR_ECON_ENERGY"
           ],
@@ -8969,7 +8969,7 @@
             "blocking services"
           ],
           "expected": "enabling fast information flow and online business",
-          "memo": "Communication links businesses, markets and customers.",
+          "memo": "Communication networks connect businesses, markets and customers, letting information move fast.",
           "error_signals": [
             "ERR_ECON_COMMUNICATION"
           ],
@@ -8984,7 +8984,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Developing economies usually grow their services share.",
+          "memo": "As economies develop, services usually make up a bigger share.",
           "error_signals": [
             "ERR_ECON_SECTOR_SHIFT"
           ],
@@ -9001,7 +9001,7 @@
             "the state owns all firms"
           ],
           "expected": "some groups lack access to economic opportunities and services",
-          "memo": "Exclusion is unequal access to services and opportunity.",
+          "memo": "Exclusion means some groups can't get the services and opportunities others have.",
           "error_signals": [
             "ERR_ECON_EXCLUSION"
           ],
@@ -9096,7 +9096,7 @@
             "manufacturing is impossible"
           ],
           "expected": "commodity prices swing and resources can run out",
-          "memo": "Primary dependence exposes an economy to volatile prices.",
+          "memo": "Depending on mining and farming ties an economy to prices that swing a lot, and resources can run out.",
           "error_signals": [
             "ERR_ECON_PRIMARY_RISK"
           ],
@@ -9145,7 +9145,7 @@
             "A single mine and nothing else"
           ],
           "expected": "A large, productive services and manufacturing base with good infrastructure",
-          "memo": "Developed structures have diverse, productive sectors and infrastructure.",
+          "memo": "Developed economies have many productive sectors, especially services and manufacturing, plus good infrastructure.",
           "error_signals": [
             "ERR_ECON_STRUCTURE"
           ],
@@ -9224,7 +9224,7 @@
             }
           ],
           "expected": "",
-          "memo": "Infrastructure lowers costs, supports production and attracts investment.",
+          "memo": "Infrastructure is the basic systems, like transport, energy and communication. It moves goods, people and information cheaply, so it lowers costs and attracts investment.",
           "error_signals": [
             "ERR_ECON_INFRASTRUCTURE"
           ],
@@ -9265,7 +9265,7 @@
             "weather"
           ],
           "expected": "price",
-          "memo": "Price elasticity of demand = responsiveness of quantity to price.",
+          "memo": "Price elasticity of demand measures how much the amount people buy changes when the price changes.",
           "error_signals": [
             "ERR_ECON_ELAST_DEF"
           ],
@@ -9459,7 +9459,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Substitutable luxuries are elastic; necessities are inelastic.",
+          "memo": "Luxuries and goods with many substitutes are elastic: demand changes a lot. Necessities are inelastic: demand barely changes.",
           "error_signals": [
             "ERR_ECON_ELAST_FACTORS"
           ],
@@ -9574,7 +9574,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Diminishing marginal utility: extra units give less added satisfaction.",
+          "memo": "Each extra unit you consume gives you a little less satisfaction than the one before. That's diminishing marginal utility.",
           "error_signals": [
             "ERR_ECON_MARGINAL_UTILITY"
           ],
@@ -9591,7 +9591,7 @@
             "public good"
           ],
           "expected": "normal good (demand rises with income)",
-          "memo": "Normal goods have positive income elasticity.",
+          "memo": "If people buy more of something as their income rises, it's a normal good.",
           "error_signals": [
             "ERR_ECON_INCOME_ELAST"
           ],
@@ -9670,7 +9670,7 @@
             }
           ],
           "expected": "",
-          "memo": "Elasticity measures responsiveness of quantity to price and guides pricing.",
+          "memo": "Elasticity measures how strongly people's buying reacts to a price change. It guides pricing: lower prices when demand is elastic, raise them when it's inelastic.",
           "error_signals": [
             "ERR_ECON_ELAST_DEF"
           ],
@@ -9884,7 +9884,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Linked markets (substitutes, complements, factors) interact.",
+          "memo": "Linked markets, like substitutes, complements and inputs, affect each other. A change in one spills over.",
           "error_signals": [
             "ERR_ECON_MKT_LINKS"
           ],
@@ -10165,7 +10165,7 @@
             "two sellers only"
           ],
           "expected": "many sellers and an identical product",
-          "memo": "Perfect competition: many firms, homogeneous product.",
+          "memo": "Perfect competition means many firms all selling the same product.",
           "error_signals": [
             "ERR_ECON_PERFECT"
           ],
@@ -10216,7 +10216,7 @@
             "an identical product"
           ],
           "expected": "many sellers with differentiated products",
-          "memo": "Monopolistic competition: many firms, differentiated goods.",
+          "memo": "Monopolistic competition means many firms selling products that are a bit different from each other.",
           "error_signals": [
             "ERR_ECON_MONOPCOMP"
           ],
@@ -10407,7 +10407,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "One = monopoly; few = oligopoly; many = the two competitive forms.",
+          "memo": "One firm is a monopoly, a few firms is an oligopoly, and many firms means perfect or monopolistic competition.",
           "error_signals": [
             "ERR_ECON_MKT_CLASS"
           ],
@@ -10422,7 +10422,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Monopolistic competitors compete via differentiated, branded products.",
+          "memo": "In monopolistic competition, firms compete by making their products different, through branding and features.",
           "error_signals": [
             "ERR_ECON_MONOPCOMP"
           ],
@@ -10522,7 +10522,7 @@
             "oligopoly"
           ],
           "expected": "monopolistic competition",
-          "memo": "Many sellers with differentiated products = monopolistic competition.",
+          "memo": "Many sellers offering products that differ a bit, like boutiques with their own styles, is monopolistic competition.",
           "error_signals": [
             "ERR_ECON_MONOPCOMP"
           ],
@@ -10870,7 +10870,7 @@
             "maximise tax"
           ],
           "expected": "maximise profit",
-          "memo": "The standard objective is profit maximisation.",
+          "memo": "The usual goal of a business is to make as much profit as possible.",
           "error_signals": [
             "ERR_ECON_OBJECTIVE"
           ],
@@ -10936,7 +10936,7 @@
             "paying tax"
           ],
           "expected": "selling one more unit",
-          "memo": "Marginal revenue = revenue from one additional unit.",
+          "memo": "Marginal revenue is the extra money you earn from selling one more unit.",
           "error_signals": [
             "ERR_ECON_MARGINAL_REVENUE"
           ],
@@ -11375,7 +11375,7 @@
             "It removes poverty"
           ],
           "expected": "It can fuel poverty, instability and limited opportunity",
-          "memo": "Severe inequality harms social and economic outcomes.",
+          "memo": "Severe inequality can lead to poverty, instability and fewer opportunities for many people.",
           "error_signals": [
             "ERR_ECON_INEQUALITY_DEBATE"
           ],
@@ -11838,7 +11838,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Technology lifts productivity and output.",
+          "memo": "New technology makes production more efficient, so more is produced.",
           "error_signals": [
             "ERR_ECON_TECHNOLOGY"
           ],
@@ -12043,7 +12043,7 @@
             "no population growth"
           ],
           "expected": "heavy reliance on the primary sector",
-          "memo": "Developing economies often depend on primary goods.",
+          "memo": "Developing economies often depend heavily on farming and mining.",
           "error_signals": [
             "ERR_ECON_DEVELOPING"
           ],
@@ -12058,7 +12058,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Developing economies often have high unemployment.",
+          "memo": "Unemployment is often high in developing economies.",
           "error_signals": [
             "ERR_ECON_DEVELOPING"
           ],
@@ -12102,7 +12102,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Low income and primary reliance = developing; high productivity = developed.",
+          "memo": "Low incomes and depending on farming and mining point to a developing economy. High productivity and strong infrastructure point to a developed one.",
           "error_signals": [
             "ERR_ECON_DEVELOPING"
           ],
@@ -12153,7 +12153,7 @@
             "it has no effect"
           ],
           "expected": "poor roads, power and water raise costs and limit production",
-          "memo": "Weak infrastructure constrains development.",
+          "memo": "Poor roads, power and water make doing business more expensive and limit what can be produced.",
           "error_signals": [
             "ERR_ECON_INFRASTRUCTURE"
           ],
@@ -12168,7 +12168,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Local knowledge supports sustainable, relevant development.",
+          "memo": "Local knowledge can support development that suits the area and lasts.",
           "error_signals": [
             "ERR_ECON_IKS"
           ],
@@ -12295,7 +12295,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Human-capital investment can lift productivity and incomes.",
+          "memo": "Investing in people's education and health raises their productivity and income over time.",
           "error_signals": [
             "ERR_ECON_DEV_STRATEGY"
           ],
@@ -12329,7 +12329,7 @@
             "banning manufacturing"
           ],
           "expected": "developing more sectors rather than relying on one",
-          "memo": "Diversification spreads risk across sectors.",
+          "memo": "Diversifying means growing several sectors, so the economy doesn't depend on just one.",
           "error_signals": [
             "ERR_ECON_DIVERSIFICATION"
           ],
@@ -12363,7 +12363,7 @@
             "Neither has any productivity"
           ],
           "expected": "Developing: low productivity; Developed: high productivity",
-          "memo": "Productivity is typically lower in developing economies.",
+          "memo": "Developing economies usually produce less per worker than developed economies.",
           "error_signals": [
             "ERR_ECON_DEVELOPING"
           ],
@@ -12642,7 +12642,7 @@
             "the size of the army"
           ],
           "expected": "a poverty line based on income or consumption",
-          "memo": "Poverty is measured against an income/consumption line.",
+          "memo": "Poverty is usually measured with a poverty line: a set level of income or spending, below which people count as poor.",
           "error_signals": [
             "ERR_ECON_POVERTY_LINE"
           ],
@@ -12720,7 +12720,7 @@
             "It has no long-term effect"
           ],
           "expected": "It raises skills and future earning power",
-          "memo": "Education lifts long-run earning potential.",
+          "memo": "Education builds skills, which raise how much a person can earn over their working life.",
           "error_signals": [
             "ERR_ECON_POVERTY_MEASURES"
           ],
@@ -12803,7 +12803,7 @@
             "Neither involves income"
           ],
           "expected": "Absolute: cannot meet basics; Relative: far below average",
-          "memo": "Absolute is about basics; relative is about comparison.",
+          "memo": "Absolute poverty means you can't afford the basics. Relative poverty means you're far below what most people around you have.",
           "error_signals": [
             "ERR_ECON_POVERTY_TYPES"
           ],
@@ -13236,7 +13236,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Volatile inflation undermines money's ability to store value.",
+          "memo": "When prices jump around unpredictably, money loses value in ways you can't plan for, so it's a poor way to store wealth.",
           "error_signals": [
             "ERR_ECON_MONEY_VALUE"
           ],
@@ -13585,7 +13585,7 @@
             "free money"
           ],
           "expected": "small loans, often to low-income borrowers",
-          "memo": "Micro-lending provides small-scale credit.",
+          "memo": "Micro-lending means giving small loans, often to people on low incomes.",
           "error_signals": [
             "ERR_ECON_MICROLENDING"
           ],
@@ -13761,7 +13761,7 @@
             "They do exactly the same job"
           ],
           "expected": "Central bank sets policy; commercial banks serve customers",
-          "memo": "Policy and oversight = central; public services = commercial.",
+          "memo": "The central bank sets policy and oversees the system. Commercial banks provide services to the public.",
           "error_signals": [
             "ERR_ECON_BANK_ROLES"
           ],
@@ -13863,7 +13863,7 @@
             "Diamond Cartel"
           ],
           "expected": "Development Community",
-          "memo": "SADC = Southern African Development Community.",
+          "memo": "SADC stands for the Southern African Development Community.",
           "error_signals": [
             "ERR_ECON_SADC"
           ],
@@ -13897,7 +13897,7 @@
             "NASA"
           ],
           "expected": "NEPAD",
-          "memo": "NEPAD promotes African development.",
+          "memo": "NEPAD is the programme that promotes development across Africa.",
           "error_signals": [
             "ERR_ECON_NEPAD"
           ],
@@ -13929,7 +13929,7 @@
             "identical currencies forced everywhere"
           ],
           "expected": "closer cooperation and easier trade between them",
-          "memo": "Integration deepens trade and cooperation.",
+          "memo": "Economic integration means countries working more closely together and making trade between them easier.",
           "error_signals": [
             "ERR_ECON_INTEGRATION"
           ],
@@ -13973,7 +13973,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Output/trade = economic; health/education = social.",
+          "memo": "Output and trade are economic indicators. Health and education are social indicators.",
           "error_signals": [
             "ERR_ECON_INDICATORS"
           ],
@@ -14024,7 +14024,7 @@
             "less cooperation"
           ],
           "expected": "larger markets and shared infrastructure",
-          "memo": "Integration widens markets and shares infrastructure.",
+          "memo": "Integration gives businesses bigger markets and lets countries share infrastructure.",
           "error_signals": [
             "ERR_ECON_INTEGRATION"
           ],
@@ -14056,7 +14056,7 @@
             "the size of armies only"
           ],
           "expected": "how easy it is to do business and trade",
-          "memo": "These indicators capture the business environment.",
+          "memo": "These indicators show how easy it is to do business and trade in a country.",
           "error_signals": [
             "ERR_ECON_COMPETITIVENESS"
           ],
@@ -14121,7 +14121,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "SADC = regional; AU = continental; NEPAD = development.",
+          "memo": "SADC focuses on Southern Africa, the AU on the whole continent, and NEPAD on Africa's development.",
           "error_signals": [
             "ERR_ECON_BODIES"
           ],
@@ -14170,7 +14170,7 @@
             "no products at all"
           ],
           "expected": "differences in infrastructure and policies between countries",
-          "memo": "Differences in policy and infrastructure complicate integration.",
+          "memo": "Countries have different infrastructure and policies, which makes integrating them harder.",
           "error_signals": [
             "ERR_ECON_INTEGRATION_CHALLENGE"
           ],
@@ -14204,7 +14204,7 @@
             "It lowers their output"
           ],
           "expected": "Access to bigger markets, investment and infrastructure",
-          "memo": "Smaller economies gain markets and investment via cooperation.",
+          "memo": "Working together gives smaller economies access to bigger markets, investment and infrastructure.",
           "error_signals": [
             "ERR_ECON_REGIONAL_TRADE"
           ],
@@ -14324,7 +14324,7 @@
             "banning travel"
           ],
           "expected": "economies around the world becoming more connected",
-          "memo": "Globalisation links national economies more closely.",
+          "memo": "Globalisation means countries' economies becoming more closely connected.",
           "error_signals": [
             "ERR_ECON_GLOBAL_DEF"
           ],
@@ -14341,7 +14341,7 @@
             "taxation"
           ],
           "expected": "communication",
-          "memo": "Communication and transport advances drive globalisation.",
+          "memo": "Better communication and transport are what drive globalisation.",
           "error_signals": [
             "ERR_ECON_GLOBAL_CAUSES"
           ],
@@ -14358,7 +14358,7 @@
             "no new technology"
           ],
           "expected": "access to bigger markets and cheaper goods",
-          "memo": "Globalisation widens markets and consumer choice.",
+          "memo": "Globalisation opens up bigger markets and gives shoppers more choice and cheaper goods.",
           "error_signals": [
             "ERR_ECON_GLOBAL_PROS"
           ],
@@ -14424,7 +14424,7 @@
             "random choice"
           ],
           "expected": "a lower opportunity cost",
-          "memo": "Comparative advantage rests on lower opportunity cost.",
+          "memo": "Comparative advantage means producing what you give up the least to make, which is a lower opportunity cost.",
           "error_signals": [
             "ERR_ECON_COMP_ADVANTAGE"
           ],
@@ -14517,7 +14517,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Specialisation and trade expand consumption possibilities.",
+          "memo": "When countries specialise and trade, they can consume more than they could produce alone.",
           "error_signals": [
             "ERR_ECON_TRADE_GAINS"
           ],
@@ -14534,7 +14534,7 @@
             "No one can gain from trade"
           ],
           "expected": "Each specialises where its opportunity cost is lower, then trades",
-          "memo": "Mutual specialisation by comparative advantage raises total output.",
+          "memo": "When each country focuses on what costs it least to give up, total output rises, and trading shares the gain.",
           "error_signals": [
             "ERR_ECON_COMP_ADVANTAGE"
           ],
@@ -14646,7 +14646,7 @@
             "Absolute is about opportunity cost"
           ],
           "expected": "Absolute: fewer resources used; Comparative: lower opportunity cost",
-          "memo": "Absolute is resource use; comparative is opportunity cost.",
+          "memo": "Absolute advantage means using fewer resources. Comparative advantage means a lower opportunity cost.",
           "error_signals": [
             "ERR_ECON_ADVANTAGE"
           ],
@@ -14661,7 +14661,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Comparative advantage makes trade gainful even with absolute advantage.",
+          "memo": "Even if one country is better at everything, both can still gain by each focusing on what it gives up least to make.",
           "error_signals": [
             "ERR_ECON_COMP_ADVANTAGE"
           ],
@@ -14740,7 +14740,7 @@
             }
           ],
           "expected": "",
-          "memo": "Globalisation connects economies, bringing gains that can be uneven.",
+          "memo": "Globalisation connects the world's economies. It widens markets and lowers prices but can hurt local industries, and the gains can be uneven between rich and poor countries.",
           "error_signals": [
             "ERR_ECON_GLOBAL_DEF"
           ],
@@ -14780,7 +14780,7 @@
             "higher wages"
           ],
           "expected": "pollution and resource depletion",
-          "memo": "Pollution and depletion are environmental problems.",
+          "memo": "Pollution and using up resources are both ways the environment gets damaged.",
           "error_signals": [
             "ERR_ECON_ENV_PROBLEMS"
           ],
@@ -14797,7 +14797,7 @@
             "primary"
           ],
           "expected": "sustainable",
-          "memo": "Sustainable development balances present and future needs.",
+          "memo": "Sustainable development meets today's needs without harming the future.",
           "error_signals": [
             "ERR_ECON_SUSTAINABILITY"
           ],
@@ -14829,7 +14829,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Environmental protection involves trade-offs and gains.",
+          "memo": "Protecting the environment can cost money, but it also brings benefits.",
           "error_signals": [
             "ERR_ECON_ENV_TRADEOFF"
           ],
@@ -14907,7 +14907,7 @@
             "they are wasted"
           ],
           "expected": "they remain available for the future",
-          "memo": "Sustainability preserves resources for the future.",
+          "memo": "Sustainability means using resources so there's still enough for the future.",
           "error_signals": [
             "ERR_ECON_SUSTAINABILITY"
           ],
@@ -14939,7 +14939,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Global environmental issues have local impacts.",
+          "memo": "Global environmental problems like climate change affect South Africa too.",
           "error_signals": [
             "ERR_ECON_GLOBAL_ENV"
           ],
@@ -14956,7 +14956,7 @@
             "remove all regulation"
           ],
           "expected": "use renewable energy and reduce waste",
-          "memo": "Renewables and reduced waste support sustainability.",
+          "memo": "Using renewable energy and wasting less help make things sustainable.",
           "error_signals": [
             "ERR_ECON_SUSTAINABILITY"
           ],
@@ -15034,7 +15034,7 @@
             "only government"
           ],
           "expected": "economic growth, social needs and the environment",
-          "memo": "Sustainability balances economy, society and environment.",
+          "memo": "Sustainable development balances the economy, people's needs and the environment.",
           "error_signals": [
             "ERR_ECON_SUSTAINABILITY"
           ],
@@ -15049,7 +15049,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Sustainability balances production with protecting the future, not stopping it.",
+          "memo": "Sustainability doesn't mean stopping production. It means producing in a way that protects the future.",
           "error_signals": [
             "ERR_ECON_SUSTAINABILITY"
           ],
@@ -15117,7 +15117,7 @@
             "Ignoring the future"
           ],
           "expected": "Meeting present needs without harming future generations' ability to meet theirs",
-          "memo": "This is the standard definition of sustainable development.",
+          "memo": "Sustainable development means meeting today's needs without making it harder for future generations to meet theirs.",
           "error_signals": [
             "ERR_ECON_SUSTAINABILITY"
           ],
@@ -15219,7 +15219,7 @@
             }
           ],
           "expected": "",
-          "memo": "Sustainable development balances growth, society and the environment for the future.",
+          "memo": "Sustainable development meets today's needs without harming future generations. It balances growth with protecting people and nature, so the economy doesn't destroy what it depends on.",
           "error_signals": [
             "ERR_ECON_SUSTAINABILITY"
           ],
@@ -15326,7 +15326,7 @@
             "a single market price"
           ],
           "expected": "the total income, output or spending of the economy",
-          "memo": "Aggregates capture economy-wide income, output and spending.",
+          "memo": "National aggregates measure the whole economy's total income, output or spending.",
           "error_signals": [
             "ERR_ECON_AGGREGATES"
           ],
@@ -15627,7 +15627,7 @@
             "C = GDP"
           ],
           "expected": "S + T + M = I + G + X",
-          "memo": "Equilibrium is total leakages = total injections.",
+          "memo": "The economy is in balance when the money leaking out (savings, taxes, imports) equals the money coming in (investment, government spending, exports).",
           "error_signals": [
             "ERR_ECON_CF_EQUILIBRIUM"
           ],
@@ -15644,7 +15644,7 @@
             "measure rainfall"
           ],
           "expected": "let us track and compare the economy's performance",
-          "memo": "Aggregates support analysis and comparison over time.",
+          "memo": "National accounts let us track how the economy is doing and compare it over time.",
           "error_signals": [
             "ERR_ECON_AGGREGATES"
           ],
@@ -16210,7 +16210,7 @@
             "is unrelated"
           ],
           "expected": "changes at the same time as the economy",
-          "memo": "Coincident indicators move with the economy.",
+          "memo": "A coincident indicator moves at the same time as the economy.",
           "error_signals": [
             "ERR_ECON_INDICATORS_COIN"
           ],
@@ -16225,7 +16225,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Leading indicators help anticipate turning points.",
+          "memo": "Leading indicators change before the economy does, so they help predict where it's heading.",
           "error_signals": [
             "ERR_ECON_FORECAST"
           ],
@@ -16423,7 +16423,7 @@
             "They measure rainfall"
           ],
           "expected": "They give early warning of turning points",
-          "memo": "Early warning supports timely policy.",
+          "memo": "Leading indicators warn early that the economy is about to turn, so policymakers can act in time.",
           "error_signals": [
             "ERR_ECON_FORECAST"
           ],
@@ -16537,7 +16537,7 @@
             "Forecasters never use data"
           ],
           "expected": "The economy is complex and shocks are unpredictable",
-          "memo": "Complexity and shocks limit forecast accuracy.",
+          "memo": "The economy is complicated and sudden shocks can't be predicted, so forecasts are never perfect.",
           "error_signals": [
             "ERR_ECON_FORECAST_LIMITS"
           ],
@@ -16554,7 +16554,7 @@
             "Not an indicator"
           ],
           "expected": "A lagging indicator",
-          "memo": "Unemployment usually changes after the economy turns.",
+          "memo": "Unemployment usually changes after the economy has already turned, so it's a lagging indicator.",
           "error_signals": [
             "ERR_ECON_INDICATORS_LAG"
           ],
@@ -16691,7 +16691,7 @@
             "cutting exports"
           ],
           "expected": "more spending and/or lower taxes to boost the economy",
-          "memo": "Expansionary fiscal policy stimulates demand.",
+          "memo": "Expansionary fiscal policy means the government spends more or cuts taxes to boost spending in the economy.",
           "error_signals": [
             "ERR_ECON_FISCAL_EXP"
           ],
@@ -16708,7 +16708,7 @@
             "raising imports"
           ],
           "expected": "less spending and/or higher taxes to slow the economy",
-          "memo": "Contractionary fiscal policy cools demand.",
+          "memo": "Contractionary fiscal policy means the government spends less or raises taxes to slow spending in the economy.",
           "error_signals": [
             "ERR_ECON_FISCAL_CON"
           ],
@@ -16851,7 +16851,7 @@
             "guaranteed low cost"
           ],
           "expected": "inefficiency or waste without the profit incentive",
-          "memo": "Public provision can be inefficient without market discipline.",
+          "memo": "Without the need to make a profit, public services can be inefficient or wasteful.",
           "error_signals": [
             "ERR_ECON_PUBSEC_PROBLEM"
           ],
@@ -16866,7 +16866,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The Treasury/government runs fiscal policy.",
+          "memo": "The government, through the Treasury, runs fiscal policy: taxes and spending. The central bank handles interest rates.",
           "error_signals": [
             "ERR_ECON_FISCAL_WHO"
           ],
@@ -16944,7 +16944,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "More spend / lower tax = expansionary; the reverse = contractionary.",
+          "memo": "Spending more or cutting taxes is expansionary. Spending less or raising taxes is contractionary.",
           "error_signals": [
             "ERR_ECON_FISCAL"
           ],
@@ -17257,7 +17257,7 @@
             "It has no link to foreign capital"
           ],
           "expected": "It must be financed by borrowing or investment from abroad",
-          "memo": "Deficits require foreign financing.",
+          "memo": "A big deficit has to be paid for with money borrowed or invested from abroad.",
           "error_signals": [
             "ERR_ECON_BOP_FINANCING"
           ],
@@ -17399,7 +17399,7 @@
             "stops all trade"
           ],
           "expected": "makes exports cheaper and imports dearer",
-          "memo": "Depreciation improves export competitiveness.",
+          "memo": "A weaker currency makes our exports cheaper for foreigners and imports more expensive for us.",
           "error_signals": [
             "ERR_ECON_BOP_CORRECTION"
           ],
@@ -17416,7 +17416,7 @@
             "tax account"
           ],
           "expected": "current account (primary income)",
-          "memo": "Cross-border income is current-account primary income.",
+          "memo": "Income South Africans earn abroad is recorded as primary income on the current account.",
           "error_signals": [
             "ERR_ECON_CURRENT_ACCOUNT"
           ],
@@ -17634,7 +17634,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Depreciation lowers the foreign-currency price of exports.",
+          "memo": "When the rand weakens, foreign buyers need less of their own money to buy our goods.",
           "error_signals": [
             "ERR_ECON_FOREX_TRADE"
           ],
@@ -17794,7 +17794,7 @@
             "having no effect"
           ],
           "expected": "boosting exports and curbing imports",
-          "memo": "A weaker currency improves trade competitiveness.",
+          "memo": "A weaker currency makes exports cheaper and imports dearer, so exports rise and imports fall.",
           "error_signals": [
             "ERR_ECON_FOREX_BOP"
           ],
@@ -17936,7 +17936,7 @@
             "Neither affects trade"
           ],
           "expected": "Appreciation = currency gains value; depreciation = loses value",
-          "memo": "Appreciation strengthens; depreciation weakens.",
+          "memo": "Appreciation means a currency gains value. Depreciation means it loses value.",
           "error_signals": [
             "ERR_ECON_FOREX_TERMS"
           ],
@@ -18107,7 +18107,7 @@
             "ignoring local firms"
           ],
           "expected": "shielding local industries from foreign competition",
-          "memo": "Protectionism guards domestic industries.",
+          "memo": "Protectionism means shielding local industries from foreign competition.",
           "error_signals": [
             "ERR_ECON_PROTECTIONISM"
           ],
@@ -18122,7 +18122,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Import substitution replaces imports with local production.",
+          "memo": "Import substitution means making locally what used to be imported.",
           "error_signals": [
             "ERR_ECON_IMPORT_SUB"
           ],
@@ -18383,7 +18383,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Policy often blends openness with selective protection.",
+          "memo": "Many countries mix mostly open trade with some protection for chosen industries.",
           "error_signals": [
             "ERR_ECON_TRADE_MIX"
           ],
@@ -18553,7 +18553,7 @@
             "vertical"
           ],
           "expected": "perfectly elastic",
-          "memo": "A price-taker faces a horizontal (perfectly elastic) demand.",
+          "memo": "A firm in perfect competition has to accept the market price, so its demand curve is flat (perfectly elastic).",
           "error_signals": [
             "ERR_ECON_PERFECT_DEMAND"
           ],
@@ -18610,7 +18610,7 @@
             "content": "g12-perfect-competition",
             "caption": "A perfectly competitive firm in equilibrium."
           },
-          "memo": "A price-taker's demand is horizontal.",
+          "memo": "A firm that has to accept the market price faces a flat, horizontal demand curve.",
           "error_signals": [
             "ERR_ECON_PERFECT_DEMAND"
           ],
@@ -18811,7 +18811,7 @@
             "ban small firms"
           ],
           "expected": "keep markets competitive and curb abuse of market power",
-          "memo": "Competition policy protects competition.",
+          "memo": "Competition policy keeps markets competitive and stops big firms abusing their power.",
           "error_signals": [
             "ERR_ECON_COMPETITION_POLICY"
           ],
@@ -19256,7 +19256,7 @@
             "ban the product"
           ],
           "expected": "protect consumers from excessive prices",
-          "memo": "Regulation curbs monopoly pricing.",
+          "memo": "Regulation stops a monopoly from charging customers too much.",
           "error_signals": [
             "ERR_ECON_MONOPOLY_REGULATION"
           ],
@@ -19441,7 +19441,7 @@
             "an identical product"
           ],
           "expected": "many firms selling differentiated products",
-          "memo": "Monopolistic competition: many firms, differentiated goods.",
+          "memo": "Monopolistic competition means many firms selling products that are a bit different from each other.",
           "error_signals": [
             "ERR_ECON_MONOPCOMP"
           ],
@@ -19507,7 +19507,7 @@
             "exit the market"
           ],
           "expected": "agree to fix prices or output (often illegally)",
-          "memo": "Collusion is firms cooperating to limit competition.",
+          "memo": "Collusion is when firms secretly agree on prices or output instead of competing. It's often illegal.",
           "error_signals": [
             "ERR_ECON_COLLUSION"
           ],
@@ -19532,7 +19532,7 @@
             "content": "g12-oligopoly-kinked",
             "caption": "The kinked demand curve of an oligopoly."
           },
-          "memo": "The kinked demand model describes oligopoly price rigidity.",
+          "memo": "The kinked demand curve explains why prices in an oligopoly tend to stay put.",
           "error_signals": [
             "ERR_ECON_KINKED"
           ],
@@ -19711,7 +19711,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Few interdependent firms = oligopoly; many differentiated sellers = monopolistic competition.",
+          "memo": "A few firms that watch and react to each other is an oligopoly. Many sellers with slightly different products is monopolistic competition.",
           "error_signals": [
             "ERR_ECON_IMPERFECT_CLASS"
           ],
@@ -19760,7 +19760,7 @@
             "free goods"
           ],
           "expected": "monopolistic competition and oligopoly",
-          "memo": "Differentiated/imperfect markets rely on advertising.",
+          "memo": "Firms selling products that differ, in imperfect markets, rely on advertising to stand out.",
           "error_signals": [
             "ERR_ECON_NON_PRICE"
           ],
@@ -19794,7 +19794,7 @@
             "ban advertising"
           ],
           "expected": "prevent collusion and price-fixing",
-          "memo": "Regulators guard against anti-competitive collusion.",
+          "memo": "Regulators watch oligopolies to stop the few big firms from secretly fixing prices.",
           "error_signals": [
             "ERR_ECON_COMPETITION_POLICY"
           ],
@@ -19856,7 +19856,7 @@
             }
           ],
           "expected": "",
-          "memo": "Oligopoly = few interdependent firms; collusion risk draws regulators.",
+          "memo": "An oligopoly has a few big firms that react to each other, and prices often stay fixed. They may agree to fix prices, which hurts consumers, so regulators watch them.",
           "error_signals": [
             "ERR_ECON_OLIGOPOLY"
           ],
@@ -19931,7 +19931,7 @@
             "free good"
           ],
           "expected": "negative externality",
-          "memo": "Pollution imposes costs on others — a negative externality.",
+          "memo": "Pollution harms people who had nothing to do with the sale. That's a negative externality.",
           "error_signals": [
             "ERR_ECON_EXTERNALITY"
           ],
@@ -19948,7 +19948,7 @@
             "no one"
           ],
           "expected": "others not party to the transaction (e.g. vaccination)",
-          "memo": "Positive externalities spill benefits onto others.",
+          "memo": "A positive externality is a benefit that spills over to other people, like vaccination protecting others.",
           "error_signals": [
             "ERR_ECON_EXTERNALITY"
           ],
@@ -19963,7 +19963,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Non-excludable public goods are under-supplied by markets.",
+          "memo": "You can't stop people using public goods like street lights for free, so businesses don't provide enough of them.",
           "error_signals": [
             "ERR_ECON_PUBLIC_GOODS"
           ],
@@ -20013,7 +20013,7 @@
             "content": "g12-positive-externality",
             "caption": "A positive externality: MSB above MPB."
           },
-          "memo": "Positive externalities lead to under-production.",
+          "memo": "When a good benefits other people too, the market produces less of it than society would want.",
           "error_signals": [
             "ERR_ECON_EXTERNALITY_GRAPH"
           ],
@@ -20057,7 +20057,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Spill-over costs are negative; spill-over benefits are positive.",
+          "memo": "Costs that spill over onto others are negative externalities. Benefits that spill over are positive.",
           "error_signals": [
             "ERR_ECON_EXTERNALITY"
           ],
@@ -20123,7 +20123,7 @@
             "There is no demand"
           ],
           "expected": "Producers ignore the costs imposed on others",
-          "memo": "Ignoring spill-over costs leads to over-production.",
+          "memo": "Producers don't pay for the harm they cause others, so they produce more than society would want.",
           "error_signals": [
             "ERR_ECON_EXTERNALITY"
           ],
@@ -20167,7 +20167,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Externalities, public goods and monopoly cause failure; competition does not.",
+          "memo": "Externalities, public goods and monopoly power cause markets to fail. Lots of competing firms don't.",
           "error_signals": [
             "ERR_ECON_MKTFAIL_CAUSES"
           ],
@@ -20184,7 +20184,7 @@
             "ignore it"
           ],
           "expected": "subsidise it (e.g. fund education)",
-          "memo": "Subsidies raise activities with positive externalities.",
+          "memo": "Subsidising something, like paying towards education, encourages activities that benefit others.",
           "error_signals": [
             "ERR_ECON_EXTERNALITY_POLICY"
           ],
@@ -20250,7 +20250,7 @@
             "Ignoring it"
           ],
           "expected": "A tax or regulation on the polluter",
-          "memo": "Taxes/regulation make polluters bear the external cost.",
+          "memo": "A tax or rules on the polluter makes them pay for the harm they cause others.",
           "error_signals": [
             "ERR_ECON_EXTERNALITY_POLICY"
           ],
@@ -20267,7 +20267,7 @@
             "Neither affects others"
           ],
           "expected": "Negative: cost on others; Positive: benefit to others",
-          "memo": "Negative imposes costs; positive confers benefits.",
+          "memo": "A negative externality puts a cost on other people. A positive externality gives other people a benefit.",
           "error_signals": [
             "ERR_ECON_EXTERNALITY"
           ],
@@ -20369,7 +20369,7 @@
             "ignore demand"
           ],
           "expected": "raise total spending (C + I + G) in the economy",
-          "memo": "Demand-side policy lifts aggregate demand.",
+          "memo": "Demand-side policies try to raise total spending in the economy: households, businesses and government.",
           "error_signals": [
             "ERR_ECON_DEMAND_SIDE"
           ],
@@ -20386,7 +20386,7 @@
             "ban investment"
           ],
           "expected": "improve the economy's capacity to produce",
-          "memo": "Supply-side policy raises productive capacity.",
+          "memo": "Supply-side policies try to increase how much the economy is able to produce.",
           "error_signals": [
             "ERR_ECON_SUPPLY_SIDE"
           ],
@@ -20403,7 +20403,7 @@
             "import"
           ],
           "expected": "supply",
-          "memo": "These raise capacity — supply-side policies.",
+          "memo": "Skills, infrastructure and technology increase how much the economy can produce, so they're supply-side policies.",
           "error_signals": [
             "ERR_ECON_SUPPLY_SIDE"
           ],
@@ -20418,7 +20418,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Reducing barriers raises productive capacity.",
+          "memo": "Cutting red tape removes barriers to doing business, so the economy can produce more.",
           "error_signals": [
             "ERR_ECON_SUPPLY_SIDE"
           ],
@@ -20462,7 +20462,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Boosting spending = demand-side; raising capacity = supply-side.",
+          "memo": "Policies that boost spending are demand-side. Policies that boost how much can be produced are supply-side.",
           "error_signals": [
             "ERR_ECON_POLICY_SIDE"
           ],
@@ -20496,7 +20496,7 @@
             "rainfall"
           ],
           "expected": "how other comparable countries perform",
-          "memo": "International comparisons benchmark policy success.",
+          "memo": "Comparing South Africa with similar countries shows how well its policies are working.",
           "error_signals": [
             "ERR_ECON_BENCHMARK"
           ],
@@ -20589,7 +20589,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Spending policies lift demand; capacity policies lift supply.",
+          "memo": "Tax cuts and government spending raise demand. New colleges and better transport raise supply.",
           "error_signals": [
             "ERR_ECON_POLICY_SIDE"
           ],
@@ -20638,7 +20638,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Without skills, capacity-building stalls.",
+          "memo": "Without enough skilled people, efforts to increase production stall.",
           "error_signals": [
             "ERR_ECON_SUPPLY_CONSTRAINT"
           ],
@@ -20655,7 +20655,7 @@
             "Cutting interest rates only"
           ],
           "expected": "Improving education and infrastructure",
-          "memo": "Education and infrastructure raise capacity (supply-side).",
+          "memo": "Better education and infrastructure increase what the economy can produce, so they're supply-side reforms.",
           "error_signals": [
             "ERR_ECON_SUPPLY_SIDE"
           ],
@@ -20825,7 +20825,7 @@
             "remove all jobs"
           ],
           "expected": "develop manufacturing and key industries",
-          "memo": "Industrial policy grows manufacturing and industry.",
+          "memo": "Industrial policy aims to grow manufacturing and important industries.",
           "error_signals": [
             "ERR_ECON_INDPOL_DEF"
           ],
@@ -20859,7 +20859,7 @@
             "stop all investment"
           ],
           "expected": "spread economic activity more evenly across areas",
-          "memo": "Regional policy reduces spatial inequality.",
+          "memo": "Regional policy tries to spread economic activity more evenly, so some areas aren't left behind.",
           "error_signals": [
             "ERR_ECON_REGIONAL"
           ],
@@ -20874,7 +20874,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Incentives encourage industrial investment.",
+          "memo": "Incentives like tax breaks encourage businesses to invest in manufacturing.",
           "error_signals": [
             "ERR_ECON_INCENTIVES"
           ],
@@ -20891,7 +20891,7 @@
             "stop exports"
           ],
           "expected": "build manufacturing, exports and jobs",
-          "memo": "SA industrial policy targets manufacturing and jobs.",
+          "memo": "South Africa's industrial policy aims to grow manufacturing, exports and jobs.",
           "error_signals": [
             "ERR_ECON_SA_INDPOL"
           ],
@@ -20952,7 +20952,7 @@
             "It lowers exports"
           ],
           "expected": "Manufacturing adds more value and diversifies the economy",
-          "memo": "Manufacturing adds value and reduces commodity dependence.",
+          "memo": "Manufacturing adds more value to raw materials and spreads the economy across more activities, so it depends less on mining.",
           "error_signals": [
             "ERR_ECON_MANUF_VALUE"
           ],
@@ -20984,7 +20984,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Spreading activity narrows regional gaps.",
+          "memo": "Spreading economic activity across the country narrows the gaps between provinces.",
           "error_signals": [
             "ERR_ECON_REGIONAL"
           ],
@@ -21077,7 +21077,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Complementary infrastructure and skills boost industrial policy.",
+          "memo": "Industrial policy works better when good infrastructure and skilled workers are in place too.",
           "error_signals": [
             "ERR_ECON_INDPOL_SUPPORT"
           ],
@@ -21094,7 +21094,7 @@
             "stop all manufacturing"
           ],
           "expected": "build sectors where it can compete and add value",
-          "memo": "Focus on competitive, value-adding sectors.",
+          "memo": "The best strategy focuses on sectors where South Africa can compete and add value.",
           "error_signals": [
             "ERR_ECON_STRATEGY"
           ],
@@ -21111,7 +21111,7 @@
             "It lowers value added"
           ],
           "expected": "It reduces reliance on a few commodities",
-          "memo": "Diversification spreads risk across sectors.",
+          "memo": "Diversifying spreads the risk, so the economy doesn't depend on a few commodities.",
           "error_signals": [
             "ERR_ECON_DIVERSIFICATION"
           ],
@@ -21143,7 +21143,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Ongoing evaluation keeps policy effective.",
+          "memo": "Checking policy regularly makes sure it's actually working.",
           "error_signals": [
             "ERR_ECON_EVALUATION"
           ],
@@ -21160,7 +21160,7 @@
             "An interest-rate cut"
           ],
           "expected": "Incentives to grow local car manufacturing and exports",
-          "memo": "Backing car manufacturing is classic industrial policy.",
+          "memo": "Using incentives to grow local car manufacturing and exports is a classic example of industrial policy.",
           "error_signals": [
             "ERR_ECON_INDPOL_TOOLS"
           ],
@@ -21177,7 +21177,7 @@
             "Remove infrastructure"
           ],
           "expected": "Grow manufacturing, exports and value-added jobs",
-          "memo": "Industrial policy targets manufacturing and quality jobs.",
+          "memo": "Industrial policy aims to grow manufacturing, exports and good jobs.",
           "error_signals": [
             "ERR_ECON_INDPOL_DEF"
           ],
@@ -21239,7 +21239,7 @@
             }
           ],
           "expected": "",
-          "memo": "Industrial policy grows manufacturing/exports but risks backing weak firms.",
+          "memo": "Industrial policy uses incentives and special economic zones to grow manufacturing and exports. It can diversify the economy and create good jobs, but badly designed policy wastes money on weak industries.",
           "error_signals": [
             "ERR_ECON_INDPOL_DEF"
           ],
@@ -21280,7 +21280,7 @@
             "a sports score"
           ],
           "expected": "how the economy is performing",
-          "memo": "Economic indicators track economic performance.",
+          "memo": "Economic indicators are statistics that show how the economy is doing.",
           "error_signals": [
             "ERR_ECON_INDICATOR_DEF"
           ],
@@ -21373,7 +21373,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Rising employment/productivity = strong; high inflation/falling output = weak.",
+          "memo": "More jobs and higher productivity are signs of a strong economy. High inflation and falling output are signs of a weak one.",
           "error_signals": [
             "ERR_ECON_INDICATOR_SIGNAL"
           ],
@@ -21439,7 +21439,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Low, steady inflation supports stability.",
+          "memo": "Low, steady inflation keeps the economy stable.",
           "error_signals": [
             "ERR_ECON_INFLATION_HEALTH"
           ],
@@ -21456,7 +21456,7 @@
             "output falls"
           ],
           "expected": "more is produced from the same resources",
-          "memo": "Higher productivity raises output and competitiveness.",
+          "memo": "Higher productivity means more is produced from the same resources, which makes the economy more competitive.",
           "error_signals": [
             "ERR_ECON_PRODUCTIVITY"
           ],
@@ -21500,7 +21500,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Inflation, employment and interest are economic; literacy is social.",
+          "memo": "Inflation, employment and interest rates are economic indicators. Literacy is a social indicator.",
           "error_signals": [
             "ERR_ECON_INDICATOR_TYPE"
           ],
@@ -21532,7 +21532,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Joblessness signals labour-market weakness.",
+          "memo": "High unemployment shows the job market is weak.",
           "error_signals": [
             "ERR_ECON_UNEMP_SIGNAL"
           ],
@@ -21566,7 +21566,7 @@
             "choose school subjects"
           ],
           "expected": "judge how a country performs against others",
-          "memo": "Comparisons benchmark performance.",
+          "memo": "Comparing indicators with other countries shows how well a country is doing.",
           "error_signals": [
             "ERR_ECON_COMPARISON"
           ],
@@ -21753,7 +21753,7 @@
             "Exchange rate"
           ],
           "expected": "Literacy rate",
-          "memo": "Literacy is a social indicator.",
+          "memo": "Literacy measures people's wellbeing, so it's a social indicator.",
           "error_signals": [
             "ERR_ECON_SOCIAL_TYPE"
           ],
@@ -21770,7 +21770,7 @@
             "money"
           ],
           "expected": "life",
-          "memo": "Life expectancy is a health/social indicator.",
+          "memo": "Life expectancy measures how long people live on average. It's a health and social indicator.",
           "error_signals": [
             "ERR_ECON_LIFE_EXPECTANCY"
           ],
@@ -21829,7 +21829,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Output/money = economic; health/education = social.",
+          "memo": "Output and money are economic indicators. Health and education are social indicators.",
           "error_signals": [
             "ERR_ECON_INDICATOR_TYPE"
           ],
@@ -21846,7 +21846,7 @@
             "company profits"
           ],
           "expected": "the size and structure of the population",
-          "memo": "Demographics describe the population.",
+          "memo": "Demographics describe the population: how big it is and how it's made up.",
           "error_signals": [
             "ERR_ECON_DEMOGRAPHICS"
           ],
@@ -21863,7 +21863,7 @@
             "the repo rate"
           ],
           "expected": "the share of people living in towns and cities",
-          "memo": "Urbanisation tracks city-dwelling shares.",
+          "memo": "Urbanisation measures the share of people living in towns and cities.",
           "error_signals": [
             "ERR_ECON_URBANISATION"
           ],
@@ -21912,7 +21912,7 @@
             "falling incomes"
           ],
           "expected": "higher productivity and incomes over time",
-          "memo": "Education raises long-run productivity and income.",
+          "memo": "Better education raises productivity and incomes over time.",
           "error_signals": [
             "ERR_ECON_EDUCATION_INDICATOR"
           ],
@@ -21992,7 +21992,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Comparing wellbeing measures gauges development progress.",
+          "memo": "Comparing wellbeing measures with other countries shows how far development has come.",
           "error_signals": [
             "ERR_ECON_COMPARISON"
           ],
@@ -22009,7 +22009,7 @@
             "Worsening housing"
           ],
           "expected": "Rising literacy and life expectancy",
-          "memo": "Better education and health signal improvement.",
+          "memo": "Rising literacy and longer lives show that education and health are improving.",
           "error_signals": [
             "ERR_ECON_SOCIAL_SIGNAL"
           ],
@@ -22075,7 +22075,7 @@
             "Neither is measurable"
           ],
           "expected": "Economic measure output/money; social measure wellbeing",
-          "memo": "Economic = output/money; social = wellbeing.",
+          "memo": "Economic indicators measure output and money. Social indicators measure wellbeing.",
           "error_signals": [
             "ERR_ECON_INDICATOR_TYPE"
           ],
@@ -22311,7 +22311,7 @@
             "content": "g12-inflation-trend",
             "caption": "Inflation rate over time with the 3–6% target band."
           },
-          "memo": "Above-target inflation prompts higher rates.",
+          "memo": "When inflation goes above the target range, the Reserve Bank may raise interest rates to bring it down.",
           "error_signals": [
             "ERR_ECON_INFLATION_POLICY"
           ],
@@ -22438,7 +22438,7 @@
             "stable prices"
           ],
           "expected": "extremely rapid, out-of-control inflation",
-          "memo": "Hyperinflation is runaway price increases.",
+          "memo": "Hyperinflation is when prices rise extremely fast and get out of control.",
           "error_signals": [
             "ERR_ECON_HYPERINFLATION"
           ],
@@ -22812,7 +22812,7 @@
             "lowering interest"
           ],
           "expected": "offering authentic cultural experiences",
-          "memo": "Cultural heritage attracts tourists.",
+          "memo": "Cultural heritage and local knowledge offer authentic experiences that attract tourists.",
           "error_signals": [
             "ERR_ECON_IKS_TOURISM"
           ],
@@ -22971,7 +22971,7 @@
             "it has no risks"
           ],
           "expected": "income can be seasonal and sensitive to global events",
-          "memo": "Tourism income is volatile and event-sensitive.",
+          "memo": "Tourism income rises and falls with the seasons and with events around the world.",
           "error_signals": [
             "ERR_ECON_TOURISM_RISK"
           ],
@@ -23124,7 +23124,7 @@
             "the economy stops"
           ],
           "expected": "they remain available for future generations",
-          "memo": "Sustainability preserves resources for the future.",
+          "memo": "Sustainability means using resources so there's still enough for future generations.",
           "error_signals": [
             "ERR_ECON_SUSTAINABILITY"
           ],
@@ -23158,7 +23158,7 @@
             "removing all rules"
           ],
           "expected": "using renewable energy and reducing waste",
-          "memo": "Renewables and less waste support sustainability.",
+          "memo": "Using renewable energy and wasting less help make things sustainable.",
           "error_signals": [
             "ERR_ECON_SUSTAINABILITY_MEASURE"
           ],
@@ -23173,7 +23173,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "These summits set sustainable-development goals.",
+          "memo": "The summits in Rio de Janeiro and Johannesburg set goals for sustainable development.",
           "error_signals": [
             "ERR_ECON_SUMMITS"
           ],
@@ -23190,7 +23190,7 @@
             "ignore the environment"
           ],
           "expected": "coordinate action across countries",
-          "memo": "Agreements coordinate global environmental action.",
+          "memo": "International agreements get countries working together on the environment.",
           "error_signals": [
             "ERR_ECON_AGREEMENTS"
           ],
@@ -23234,7 +23234,7 @@
           ],
           "pass_threshold": 0.75,
           "expected": "",
-          "memo": "Renewables and recycling help; deforestation and pollution harm.",
+          "memo": "Renewable energy and recycling help sustainability. Cutting down forests and unchecked pollution harm it.",
           "error_signals": [
             "ERR_ECON_SUSTAINABILITY"
           ],
@@ -23427,7 +23427,7 @@
             "raising emissions"
           ],
           "expected": "sharing the burden of protecting the global environment",
-          "memo": "Agreements coordinate and share environmental effort.",
+          "memo": "International agreements share the work of protecting the environment between countries.",
           "error_signals": [
             "ERR_ECON_AGREEMENTS"
           ],
@@ -23442,7 +23442,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Environmental damage undermines future growth.",
+          "memo": "Damaging the environment weakens the economy's ability to grow in future.",
           "error_signals": [
             "ERR_ECON_ENV_GROWTH"
           ],
@@ -23538,7 +23538,7 @@
             }
           ],
           "expected": "",
-          "memo": "Sustainability protects the resources the economy depends on, needing global cooperation.",
+          "memo": "Sustainability means using resources without harming future generations. Pollution and climate change threaten farming, water and health, so protecting the environment supports growth, often with countries working together.",
           "error_signals": [
             "ERR_ECON_SUSTAINABILITY"
           ],
