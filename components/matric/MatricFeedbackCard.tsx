@@ -83,6 +83,31 @@ function MathMarkdown({ content }: { content: string }) {
   );
 }
 
+// The grader ends a lost-marks reply with a bold answer line ("**Correct
+// answer: B, ...**", "**Correct answers:**" + rows, or "**Model answer:**" +
+// points). Lift that tail out so it can be shown in its own box instead of
+// sitting at the bottom of the explanation. Returns null when there is none
+// (full marks, or a translation that renamed the label), so nothing is lost.
+const ANSWER_LINE = /\*\*\s*(Correct answers?|Model answer|Korrekte antwoorde?|Regte antwoorde?|Modelantwoord)\s*:?\s*/i;
+
+function splitAnswer(content: string): { explanation: string; label: string; answer: string } | null {
+  const match = ANSWER_LINE.exec(content);
+  if (!match) return null;
+  let answer = content.slice(match.index + match[0].length);
+  // "**Correct answer: B, text**" closes its bold on the same line; "**Model
+  // answer:**" closes it right after the label. Drop either closing marker.
+  answer = answer.replace(/^\*\*\s*/, "");
+  const [first, ...rest] = answer.split("\n");
+  answer = [first.replace(/\s*\*\*\s*$/, ""), ...rest].join("\n").trim();
+  if (!answer) return null;
+  const isModel = /model/i.test(match[1]);
+  return {
+    explanation: content.slice(0, match.index).trim(),
+    label: isModel ? "Model answer" : "Correct answer",
+    answer,
+  };
+}
+
 export interface MatricFeedbackCardProps {
   content: string;
   marksEarned?: number;
@@ -106,6 +131,7 @@ export default function MatricFeedbackCard({
   const tier = tierOf(marksEarned, totalMarks);
   const t: FeedbackTier = tier ?? "zero";
   const header = tier ? HEADER[tier] : null;
+  const split = splitAnswer(content);
 
   return (
     <div className={`${cc("border-2", "border")} rounded-2xl px-4 py-4 space-y-3 ${CARD[t]}`}>
@@ -116,12 +142,24 @@ export default function MatricFeedbackCard({
         </div>
       )}
 
-      <div className="space-y-1">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">🧠 Explanation</p>
-        <div className="text-sm text-gray-700 leading-relaxed">
-          <MathMarkdown content={content} />
+      {split && (
+        <div className="rounded-xl border-2 border-green-500 bg-green-50 px-4 py-3 shadow-sm">
+          <p className="text-sm font-extrabold text-green-800 mb-1">✅ {split.label}</p>
+          <div className="text-base font-semibold text-gray-900 leading-relaxed">
+            {/* Hard line breaks so match-group rows ("1.2.1: D") stay one per line. */}
+            <MathMarkdown content={split.answer.replace(/\n(?![\s\n]*[-*] )/g, "  \n")} />
+          </div>
         </div>
-      </div>
+      )}
+
+      {(!split || split.explanation) && (
+        <div className="space-y-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">🧠 Explanation</p>
+          <div className="text-sm text-gray-700 leading-relaxed">
+            <MathMarkdown content={split ? split.explanation : content} />
+          </div>
+        </div>
+      )}
 
       {breakdown && breakdown.length > 0 && (
         <div className={`pt-2 space-y-1.5 border-t ${DIVIDER[t]}`}>
