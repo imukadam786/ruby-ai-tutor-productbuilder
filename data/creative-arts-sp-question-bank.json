@@ -1091,7 +1091,7 @@
             "a very loud rhythm"
           ],
           "expected": "two or more different rhythms played at the same time",
-          "memo": "Poly = many; a polyrhythm layers two or more rhythms together, common in African drumming.",
+          "memo": "'Poly' means many. A polyrhythm layers two or more different rhythms at the same time, which is common in African drumming.",
           "error_signals": [
             "ERR_CA_G7MULA3_POLY"
           ],
@@ -1309,7 +1309,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Sight-singing is reading and singing a melody at first sight, often using sol-fa.",
+          "memo": "Sight-singing means reading a melody and singing it the first time you see it, often using sol-fa.",
           "error_signals": [
             "ERR_CA_G7MULA4_SIGHTSING"
           ],
@@ -1750,7 +1750,7 @@
             "mood"
           ],
           "expected": "dynamics",
-          "memo": "Dynamics = volume (loudness).",
+          "memo": "Dynamics means how loud or soft the music is.",
           "error_signals": [
             "ERR_CA_G7MUEA1_DYNCLOZE"
           ],
@@ -1784,7 +1784,7 @@
             "Empty"
           ],
           "expected": "Exciting or energetic",
-          "memo": "Fast, loud, driving music usually feels exciting and energetic.",
+          "memo": "Fast, loud music with a strong beat usually feels exciting and full of energy.",
           "error_signals": [
             "ERR_CA_G7MUEA1_EXCITED"
           ],
@@ -1926,7 +1926,7 @@
           ],
           "expected": "Fast and slow describe tempo; loud and soft describe dynamics.",
           "pass_threshold": 0.75,
-          "memo": "Tempo = speed (fast/slow); dynamics = volume (loud/soft).",
+          "memo": "Tempo is the speed (fast or slow). Dynamics is the volume (loud or soft).",
           "error_signals": [
             "ERR_CA_G7MUEA1_SORT"
           ],
@@ -1943,7 +1943,7 @@
             "It speeds the song up"
           ],
           "expected": "It helps you compare pieces and explain how they make you feel",
-          "memo": "Describing tempo, dynamics, texture and mood lets you talk about and compare music.",
+          "memo": "Describing tempo, dynamics, texture and mood gives you words to talk about music and compare pieces.",
           "error_signals": [
             "ERR_CA_G7MUEA1_WHY"
           ],
@@ -2168,7 +2168,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Active listening lets you identify instruments by their distinct sounds.",
+          "memo": "Listening carefully helps you pick out each instrument by its own sound.",
           "error_signals": [
             "ERR_CA_G7MUEA2_LISTEN"
           ],
@@ -2234,7 +2234,7 @@
             "singing words"
           ],
           "expected": "clapping, clicking, stamping or patting yourself",
-          "memo": "Body percussion uses your own body — clapping, stamping, clicking — as the instrument.",
+          "memo": "Body percussion uses your own body as the instrument: clapping, stamping and clicking.",
           "error_signals": [
             "ERR_CA_G7MUEA2_BODYPERC"
           ],
@@ -2333,7 +2333,7 @@
             "It picks the lyrics"
           ],
           "expected": "You hear how different sounds blend to make the music",
-          "memo": "Recognising instruments deepens your listening and appreciation of how music is built.",
+          "memo": "Recognising the instruments helps you hear how the music is put together, so you enjoy it more.",
           "error_signals": [
             "ERR_CA_G7MUEA2_WHY"
           ],
@@ -2392,7 +2392,7 @@
             "a type of clef"
           ],
           "expected": "a short pattern repeated over and over",
-          "memo": "An ostinato is a short rhythmic or melodic pattern repeated throughout a piece.",
+          "memo": "An ostinato is a short rhythm or tune that repeats over and over through a piece.",
           "error_signals": [
             "ERR_CA_G7MUPA1_OSTINATO"
           ],
@@ -2441,7 +2441,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Repetition gives music shape and makes patterns memorable.",
+          "memo": "Repetition gives music shape and makes patterns easy to remember.",
           "error_signals": [
             "ERR_CA_G7MUPA1_REPETITION"
           ],
@@ -2458,7 +2458,7 @@
             "photographs of the band"
           ],
           "expected": "pictures, shapes or symbols instead of normal notes",
-          "memo": "A graphic score uses drawings and symbols to show sounds — non-conventional notation.",
+          "memo": "A graphic score uses drawings and symbols to show sounds, instead of normal music notes.",
           "error_signals": [
             "ERR_CA_G7MUPA1_GRAPHIC"
           ],
@@ -2507,7 +2507,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Rhythmic improvisation means making up rhythms over an ostinato or steady beat.",
+          "memo": "Improvising a rhythm means making up rhythms over a steady beat or a repeated pattern.",
           "error_signals": [
             "ERR_CA_G7MUPA1_RHYTHMIMPROV"
           ],
@@ -2541,7 +2541,7 @@
             "Turning up the volume"
           ],
           "expected": "Creating your own music and being able to keep it",
-          "memo": "Composing is creating original music, often written or recorded so it can be repeated.",
+          "memo": "Composing means creating your own music, often writing or recording it so it can be played again.",
           "error_signals": [
             "ERR_CA_G7MUPA1_COMPOSE"
           ],
@@ -2573,7 +2573,7 @@
             "anthem"
           ],
           "expected": "ostinato",
-          "memo": "The repeating drum pattern is an ostinato that others improvise over.",
+          "memo": "The repeating drum pattern is an ostinato, and the others improvise over it.",
           "error_signals": [
             "ERR_CA_G7MUPA1_DRUMOST"
           ],
@@ -2590,7 +2590,7 @@
             "tuning"
           ],
           "expected": "improvising",
-          "memo": "Improvising = making up music in the moment.",
+          "memo": "Improvising means making up music on the spot.",
           "error_signals": [
             "ERR_CA_G7MUPA1_IMPROVCLOZE"
           ],
@@ -2656,7 +2656,7 @@
             "It removes the beat"
           ],
           "expected": "It makes patterns easy to remember and hold a piece together",
-          "memo": "Repeated patterns are memorable and give a piece unity and structure.",
+          "memo": "Repeated patterns are easy to remember, and they hold a piece of music together.",
           "error_signals": [
             "ERR_CA_G7MUPA1_WHYREPEAT"
           ],
@@ -2715,7 +2715,7 @@
           ],
           "expected": "Improvising and using an ostinato create music; reading covers and choosing poster colours do not.",
           "pass_threshold": 0.75,
-          "memo": "Creating music means making sound patterns — improvising, repeating, composing.",
+          "memo": "Creating music means making patterns of sound, like improvising, repeating and composing.",
           "error_signals": [
             "ERR_CA_G7MUPA1_SORT"
           ],
@@ -2973,7 +2973,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Indigenous and cultural songs are traditional folk songs of a community.",
+          "memo": "Indigenous and cultural songs are a community's traditional folk songs.",
           "error_signals": [
             "ERR_CA_G7MUPA2_INDIGENOUS"
           ],
@@ -3117,7 +3117,7 @@
           ],
           "expected": "Rounds overlap the same tune at staggered starts; folk songs are traditional and handed down.",
           "pass_threshold": 0.75,
-          "memo": "A round layers one tune at different entries; a folk song is a traditional cultural song.",
+          "memo": "In a round, groups sing the same tune but start at different times. A folk song is a traditional song passed down in a culture.",
           "error_signals": [
             "ERR_CA_G7MUPA2_SORT"
           ],
@@ -3134,7 +3134,7 @@
             "It is only for choirs"
           ],
           "expected": "It brings people together across languages and cultures",
-          "memo": "The anthem unites people across South Africa's languages and cultures.",
+          "memo": "The anthem brings people together across all of South Africa's languages and cultures.",
           "error_signals": [
             "ERR_CA_G7MUPA2_WHYANTHEM"
           ],
@@ -3408,7 +3408,7 @@
             "colours"
           ],
           "expected": "free, natural shapes like leaves or clouds",
-          "memo": "Organic shapes are irregular and natural; geometric shapes are regular like circles and squares.",
+          "memo": "Organic shapes are free and natural, like leaves. Geometric shapes are regular, like circles and squares.",
           "error_signals": [
             "ERR_CA_G7VAEA1_ORGANIC"
           ],
@@ -3501,7 +3501,7 @@
           ],
           "expected": "Line and texture are art elements; tempo and loudness are music words.",
           "pass_threshold": 0.75,
-          "memo": "Visual art elements: line, shape, tone, texture, colour. Tempo/loudness are musical.",
+          "memo": "Line, shape, tone, texture and colour are art elements. Tempo and loudness are music words.",
           "error_signals": [
             "ERR_CA_G7VAEA1_SORT"
           ],
@@ -3577,7 +3577,7 @@
             "metallic colour"
           ],
           "expected": "secondary colour",
-          "memo": "Secondary colours (green, orange, purple) come from mixing two primaries.",
+          "memo": "Mixing two primary colours makes a secondary colour: green, orange or purple.",
           "error_signals": [
             "ERR_CA_G7VAEA2_SECONDARY"
           ],
@@ -3628,7 +3628,7 @@
             "are the primary colours only"
           ],
           "expected": "sit opposite each other on the colour wheel",
-          "memo": "Complementary colours are opposites on the wheel, like red and green, and contrast strongly.",
+          "memo": "Complementary colours sit opposite each other on the colour wheel, like red and green, and they contrast strongly.",
           "error_signals": [
             "ERR_CA_G7VAEA2_COMPLEMENTARY"
           ],
@@ -3662,7 +3662,7 @@
             "monochromatic"
           ],
           "expected": "complementary",
-          "memo": "Opposites on the wheel are complementary.",
+          "memo": "Colours opposite each other on the wheel are complementary.",
           "error_signals": [
             "ERR_CA_G7VAEA2_COMPCLOZE"
           ],
@@ -3679,7 +3679,7 @@
             "rainbow"
           ],
           "expected": "monochromatic",
-          "memo": "One colour in many shades = monochromatic.",
+          "memo": "Using one colour in lots of shades is a monochromatic colour scheme.",
           "error_signals": [
             "ERR_CA_G7VAEA2_MONOCLOZE"
           ],
@@ -3889,7 +3889,7 @@
             "To save paint"
           ],
           "expected": "To create strong contrast that makes each colour stand out",
-          "memo": "Complementary pairs contrast strongly and make each colour appear more vivid.",
+          "memo": "Complementary colours contrast strongly, which makes each colour look brighter.",
           "error_signals": [
             "ERR_CA_G7VAEA2_WHYCOMP"
           ],
@@ -3946,7 +3946,7 @@
             "the size of the frame"
           ],
           "expected": "ways of arranging the art elements in an artwork",
-          "memo": "Design principles are 'rules' for arranging elements: balance, contrast, pattern, proportion, emphasis.",
+          "memo": "Design principles are guides for arranging the art elements, like balance, contrast, pattern, proportion and emphasis.",
           "error_signals": [
             "ERR_CA_G7VAEA3_DEF"
           ],
@@ -3980,7 +3980,7 @@
             "leaving the page blank"
           ],
           "expected": "placing very different elements together",
-          "memo": "Contrast sets different elements side by side — light/dark, big/small — to create interest.",
+          "memo": "Contrast puts very different things side by side, like light and dark or big and small, to make the work interesting.",
           "error_signals": [
             "ERR_CA_G7VAEA3_CONTRAST"
           ],
@@ -4046,7 +4046,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Regular repetition of a motif makes a pattern.",
+          "memo": "Repeating a shape regularly makes a pattern.",
           "error_signals": [
             "ERR_CA_G7VAEA3_REPEAT"
           ],
@@ -4195,7 +4195,7 @@
             "Contrast"
           ],
           "expected": "Pattern",
-          "memo": "Pattern is built from regular repetition.",
+          "memo": "Pattern is made by regular repetition.",
           "error_signals": [
             "ERR_CA_G7VAEA3_REPPRINCIPLE"
           ],
@@ -4277,7 +4277,7 @@
             "To sign their name"
           ],
           "expected": "To arrange elements so the artwork is clear and pleasing",
-          "memo": "Principles guide how elements are arranged so the work communicates well.",
+          "memo": "Design principles guide how you arrange the elements, so the artwork is clear and pleasing.",
           "error_signals": [
             "ERR_CA_G7VAEA3_WHY"
           ],
@@ -4294,7 +4294,7 @@
             "Tone"
           ],
           "expected": "Pattern",
-          "memo": "Regular repetition of a motif creates pattern.",
+          "memo": "Repeating the same motif regularly makes a pattern.",
           "error_signals": [
             "ERR_CA_G7VAEA3_SUP"
           ],
@@ -4404,7 +4404,7 @@
             "the canvas size"
           ],
           "expected": "the different ways you can move and use a brush",
-          "memo": "Brush manipulation is controlling the brush — strokes, pressure, angle — for different effects.",
+          "memo": "Brush manipulation means controlling the brush, with different strokes, pressure and angles, to get different effects.",
           "error_signals": [
             "ERR_CA_G7VAMA1_BRUSH"
           ],
@@ -4421,7 +4421,7 @@
             "printing with a stamp"
           ],
           "expected": "scratching through a dark surface to reveal a light layer beneath",
-          "memo": "Scraperboard is scratched to reveal the light layer under the dark coating — a simple etching technique.",
+          "memo": "You scratch through the dark coating on a scraperboard to show the light layer underneath. It's a simple etching technique.",
           "error_signals": [
             "ERR_CA_G7VAMA1_SCRAPER"
           ],
@@ -4470,7 +4470,7 @@
             "stretching canvas"
           ],
           "expected": "drawing letters and words as part of an artwork",
-          "memo": "Lettering is designing letters and text, often combining images and words.",
+          "memo": "Lettering means designing letters and words, often combined with pictures.",
           "error_signals": [
             "ERR_CA_G7VAMA1_LETTERING"
           ],
@@ -4487,7 +4487,7 @@
             "framing"
           ],
           "expected": "repeating shapes or motifs to decorate a surface",
-          "memo": "Pattern-making repeats motifs across a surface as decoration.",
+          "memo": "Pattern-making means repeating shapes or motifs across a surface to decorate it.",
           "error_signals": [
             "ERR_CA_G7VAMA1_PATTERNMAKE"
           ],
@@ -4551,7 +4551,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Lettering projects often blend images and words together.",
+          "memo": "Lettering projects often combine pictures and words.",
           "error_signals": [
             "ERR_CA_G7VAMA1_IMAGETEXT"
           ],
@@ -4568,7 +4568,7 @@
             "only buys frames"
           ],
           "expected": "tries different materials to see their effects",
-          "memo": "Exploring media means experimenting with many materials and techniques.",
+          "memo": "Exploring media means trying out lots of different materials and techniques.",
           "error_signals": [
             "ERR_CA_G7VAMA1_VARIETY"
           ],
@@ -4600,7 +4600,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Personal interpretation adds the artist's own ideas and feelings, beyond mere copying.",
+          "memo": "Personal interpretation means the artist adds their own ideas and feelings, instead of just copying.",
           "error_signals": [
             "ERR_CA_G7VAMA1_PERSONAL"
           ],
@@ -4661,7 +4661,7 @@
             "To avoid drawing"
           ],
           "expected": "To widen the range of effects and ideas they can express",
-          "memo": "Practising techniques expands what an artist can express.",
+          "memo": "Practising different techniques gives an artist more ways to express ideas.",
           "error_signals": [
             "ERR_CA_G7VAMA1_WHY"
           ],
@@ -4837,7 +4837,7 @@
             "the title"
           ],
           "expected": "care for the environment",
-          "memo": "Reusing recyclable materials reduces waste and shows concern for the environment.",
+          "memo": "Reusing recyclable materials cuts down waste and shows you care about the environment.",
           "error_signals": [
             "ERR_CA_G7VAMA2_RECYCLE"
           ],
@@ -4935,7 +4935,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Understanding planes and depth develops spatial awareness in 3D work.",
+          "memo": "Understanding planes and depth helps you think about space when making 3D work.",
           "error_signals": [
             "ERR_CA_G7VAMA2_PLANE"
           ],
@@ -4984,7 +4984,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Looking after tools and the workspace is part of working carefully and safely.",
+          "memo": "Looking after your tools and workspace is part of working carefully and safely.",
           "error_signals": [
             "ERR_CA_G7VAMA2_CLEANUP"
           ],
@@ -5045,7 +5045,7 @@
             "It frames the work"
           ],
           "expected": "It helps you judge form, depth and how parts fit in space",
-          "memo": "Spatial awareness lets you build believable, well-proportioned 3D forms.",
+          "memo": "Spatial awareness helps you judge shape, depth and how parts fit together, so your 3D work looks right.",
           "error_signals": [
             "ERR_CA_G7VAMA2_WHY"
           ],
@@ -5102,7 +5102,7 @@
             "sing in tune"
           ],
           "expected": "look at, understand and talk about images and artworks",
-          "memo": "Visual literacy is 'reading' images — understanding and discussing what you see.",
+          "memo": "Visual literacy means 'reading' images: understanding and talking about what you see.",
           "error_signals": [
             "ERR_CA_G7VALA1_DEF"
           ],
@@ -5119,7 +5119,7 @@
             "frame it"
           ],
           "expected": "look carefully and describe what you see",
-          "memo": "Analysis begins with careful looking and describing the elements you notice.",
+          "memo": "Start by looking carefully and describing the elements you notice.",
           "error_signals": [
             "ERR_CA_G7VALA1_FIRST"
           ],
@@ -5136,7 +5136,7 @@
             "a landscape only"
           ],
           "expected": "an arrangement of non-moving objects, like fruit or a vase",
-          "memo": "A still life depicts arranged inanimate objects.",
+          "memo": "A still life shows an arrangement of objects that don't move, like fruit or a vase.",
           "error_signals": [
             "ERR_CA_G7VALA1_STILLLIFE"
           ],
@@ -5170,7 +5170,7 @@
             "measuring rainfall"
           ],
           "expected": "ceremonies, storytelling or representing spirits",
-          "memo": "Masks carry cultural meaning, used in ceremony, dance and storytelling.",
+          "memo": "Masks have cultural meaning. They are used in ceremonies, dance and storytelling.",
           "error_signals": [
             "ERR_CA_G7VALA1_MASK"
           ],
@@ -5202,7 +5202,7 @@
             "title"
           ],
           "expected": "symbol",
-          "memo": "A symbol represents an idea visually.",
+          "memo": "A symbol is a picture that stands for an idea.",
           "error_signals": [
             "ERR_CA_G7VALA1_SYMCLOZE"
           ],
@@ -5251,7 +5251,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Interpretation can vary; viewers bring their own ideas and experiences.",
+          "memo": "People can understand the same artwork differently, because they bring their own ideas and experiences.",
           "error_signals": [
             "ERR_CA_G7VALA1_DIFFERENT"
           ],
@@ -5268,7 +5268,7 @@
             "a frame"
           ],
           "expected": "several people shown together",
-          "memo": "A composition of several figures shows people grouped together.",
+          "memo": "Groups of figures means several people shown together in an artwork.",
           "error_signals": [
             "ERR_CA_G7VALA1_FIGURES"
           ],
@@ -5300,7 +5300,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Expressing your observations in words deepens your understanding.",
+          "memo": "Putting what you notice into words helps you understand art more deeply.",
           "error_signals": [
             "ERR_CA_G7VALA1_TALK"
           ],
@@ -5317,7 +5317,7 @@
             "the frame size"
           ],
           "expected": "love, danger or energy depending on context",
-          "memo": "Colours carry symbolic meaning that depends on context — red can mean love, danger or energy.",
+          "memo": "Colours can stand for ideas, depending on the situation. Red can mean love, danger or energy.",
           "error_signals": [
             "ERR_CA_G7VALA1_REDSYMBOL"
           ],
@@ -5334,7 +5334,7 @@
             "computer games"
           ],
           "expected": "hand-made objects from a community, like beadwork or pottery",
-          "memo": "Local craft is hand-made work by community crafters — beadwork, weaving, pottery.",
+          "memo": "Local craft is handmade work by people in a community, like beadwork, weaving and pottery.",
           "error_signals": [
             "ERR_CA_G7VALA1_CRAFT"
           ],
@@ -5366,7 +5366,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Masks convey identity, emotion and cultural significance.",
+          "memo": "Masks can show who a character is, a mood, and what matters in a culture.",
           "error_signals": [
             "ERR_CA_G7VALA1_MASKMEANING"
           ],
@@ -5427,7 +5427,7 @@
             "It chooses the price"
           ],
           "expected": "It helps you understand meaning and improve your own work",
-          "memo": "Analysing art builds understanding and informs your own making.",
+          "memo": "Analysing art helps you understand what it means, and gives you ideas for your own work.",
           "error_signals": [
             "ERR_CA_G7VALA1_WHY"
           ],
@@ -5503,7 +5503,7 @@
             "delivering post"
           ],
           "expected": "adding beauty, ideas and meaning through their work",
-          "memo": "Artists contribute culture, beauty, ideas and questions to society.",
+          "memo": "Artists give society culture, beauty, ideas and questions through their work.",
           "error_signals": [
             "ERR_CA_G7VALA2_CONTRIBUTE"
           ],
@@ -5537,7 +5537,7 @@
             "framing"
           ],
           "expected": "gathering information, images and ideas for your work",
-          "memo": "Researching collects references, information and inspiration before making.",
+          "memo": "Research means collecting information, pictures and ideas before you start making.",
           "error_signals": [
             "ERR_CA_G7VALA2_RESEARCH"
           ],
@@ -5569,7 +5569,7 @@
             "throw away your sketchbook"
           ],
           "expected": "gather pictures and information about your subject",
-          "memo": "Start by collecting visual references and information about the subject.",
+          "memo": "Start by collecting pictures and information about your subject.",
           "error_signals": [
             "ERR_CA_G7VALA2_FIRSTSTEP"
           ],
@@ -5603,7 +5603,7 @@
             "no jobs exist in art"
           ],
           "expected": "graphic designer, illustrator or art teacher",
-          "memo": "Art-related careers include designers, illustrators, animators, art teachers and more.",
+          "memo": "Art careers include designers, illustrators, animators, art teachers and more.",
           "error_signals": [
             "ERR_CA_G7VALA2_CAREERS"
           ],
@@ -5618,7 +5618,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Design, illustration, animation, teaching and more all use art skills.",
+          "memo": "Design, illustration, animation, teaching and many other jobs use art skills.",
           "error_signals": [
             "ERR_CA_G7VALA2_MANYCAREERS"
           ],
@@ -5635,7 +5635,7 @@
             "frame work"
           ],
           "expected": "develop and remember ideas over time",
-          "memo": "A sketchbook records and develops ideas and references for projects.",
+          "memo": "A sketchbook keeps a record of your ideas and references, so you can develop them for projects.",
           "error_signals": [
             "ERR_CA_G7VALA2_SKETCHBOOK"
           ],
@@ -5652,7 +5652,7 @@
             "engineer"
           ],
           "expected": "observer of society",
-          "memo": "Depicting community life is the artist observing and reflecting society.",
+          "memo": "Showing everyday community life means the artist is watching society and reflecting it back.",
           "error_signals": [
             "ERR_CA_G7VALA2_OBSERVER"
           ],
@@ -5667,7 +5667,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Studying other artists is a valuable source of inspiration and technique.",
+          "memo": "Studying other artists' work is a great source of ideas and techniques.",
           "error_signals": [
             "ERR_CA_G7VALA2_OTHERARTISTS"
           ],
@@ -5684,7 +5684,7 @@
             "doctor"
           ],
           "expected": "designer",
-          "memo": "A graphic designer creates visual communication like logos and posters.",
+          "memo": "A graphic designer creates things like logos, posters and layouts.",
           "error_signals": [
             "ERR_CA_G7VALA2_GRAPHIC"
           ],
@@ -5750,7 +5750,7 @@
             "the gallery"
           ],
           "expected": "early rough drawings to plan a final work",
-          "memo": "Preliminary sketches explore and plan ideas before the final artwork.",
+          "memo": "Preliminary sketches are rough early drawings that explore and plan ideas before the final artwork.",
           "error_signals": [
             "ERR_CA_G7VALA2_PRELIM"
           ],
@@ -5811,7 +5811,7 @@
           ],
           "expected": "Collecting references and reading are research; shading and mixing paint are making.",
           "pass_threshold": 0.75,
-          "memo": "Research gathers ideas; making produces the artwork.",
+          "memo": "Research is collecting ideas. Making is producing the artwork.",
           "error_signals": [
             "ERR_CA_G7VALA2_SORT"
           ],
@@ -7077,7 +7077,7 @@
             "very loud"
           ],
           "expected": "a moderate, medium speed",
-          "memo": "Moderato means a moderate, medium speed.",
+          "memo": "Moderato means a medium speed.",
           "error_signals": [
             "ERR_CA_G8MUEA1_MODERATO"
           ],
@@ -7111,7 +7111,7 @@
             "getting louder"
           ],
           "expected": "gradually getting slower",
-          "memo": "Ritardando means gradually slowing down.",
+          "memo": "Ritardando means slowing down gradually.",
           "error_signals": [
             "ERR_CA_G8MUEA1_RIT"
           ],
@@ -7243,7 +7243,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Both describe articulation — smooth versus detached.",
+          "memo": "Legato (smooth) and staccato (short and separate) both describe articulation, which is how notes are played.",
           "error_signals": [
             "ERR_CA_G8MUEA1_ARTICTERMS"
           ],
@@ -7260,7 +7260,7 @@
             "stop dead"
           ],
           "expected": "slow down",
-          "memo": "Ritardando slows the music gradually, even after a fast presto.",
+          "memo": "Ritardando slows the music down gradually, even after a fast presto section.",
           "error_signals": [
             "ERR_CA_G8MUEA1_SLOWDOWN"
           ],
@@ -7326,7 +7326,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Many traditional musical terms come from Italian.",
+          "memo": "Many traditional music terms come from Italian.",
           "error_signals": [
             "ERR_CA_G8MUEA1_ITALIAN"
           ],
@@ -7421,7 +7421,7 @@
             "Forte"
           ],
           "expected": "Ritardando",
-          "memo": "Ritardando means gradually getting slower.",
+          "memo": "Ritardando means slowing down gradually.",
           "error_signals": [
             "ERR_CA_G8MUEA1_SUP"
           ],
@@ -7497,7 +7497,7 @@
             "the loudest note"
           ],
           "expected": "a rhythm or melody that comes back again",
-          "memo": "Repetition is a returning pattern — rhythmic or melodic.",
+          "memo": "Repetition is a rhythm or tune that comes back again.",
           "error_signals": [
             "ERR_CA_G8MUEA2_REPETITION"
           ],
@@ -7514,7 +7514,7 @@
             "one repeated note"
           ],
           "expected": "a clear change, e.g. from soft to loud or slow to fast",
-          "memo": "Contrast is a noticeable change in an element — tempo, dynamics, texture.",
+          "memo": "Contrast is a clear change in the music, like going from soft to loud or slow to fast.",
           "error_signals": [
             "ERR_CA_G8MUEA2_CONTRAST"
           ],
@@ -7563,7 +7563,7 @@
             "written scores only"
           ],
           "expected": "rhythm, drumming and call-and-response",
-          "memo": "Much African music emphasises rhythm, drumming and call-and-response.",
+          "memo": "A lot of African music focuses on rhythm, drumming and call-and-response.",
           "error_signals": [
             "ERR_CA_G8MUEA2_AFRICAN"
           ],
@@ -7580,7 +7580,7 @@
             "tuning"
           ],
           "expected": "repetition",
-          "memo": "A returning pattern is repetition.",
+          "memo": "A pattern that comes back again is repetition.",
           "error_signals": [
             "ERR_CA_G8MUEA2_REPCLOZE"
           ],
@@ -7788,7 +7788,7 @@
             "It changes the key"
           ],
           "expected": "It broadens your understanding and appreciation of music",
-          "memo": "Listening widely builds appreciation of the world's varied music.",
+          "memo": "Listening to music from many cultures helps you appreciate how varied the world's music is.",
           "error_signals": [
             "ERR_CA_G8MUEA2_WHY"
           ],
@@ -7896,7 +7896,7 @@
             "plucked strings"
           ],
           "expected": "the vibration of its own solid body",
-          "memo": "Idiophones — shakers, xylophone, bells — sound from the whole body vibrating.",
+          "memo": "Idiophones, like shakers, xylophones and bells, make sound when their whole solid body vibrates.",
           "error_signals": [
             "ERR_CA_G8MUEA3_IDIO"
           ],
@@ -7964,7 +7964,7 @@
             "membranophone"
           ],
           "expected": "idiophone",
-          "memo": "Shakers and xylophones vibrate as a whole body — idiophones.",
+          "memo": "Shakers and xylophones make sound when the whole instrument vibrates, so they are idiophones.",
           "error_signals": [
             "ERR_CA_G8MUEA3_SHAKER"
           ],
@@ -8013,7 +8013,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "A drum (skin = membranophone) and a shaker (whole body = idiophone) make sound differently.",
+          "memo": "A drum makes sound with a vibrating skin (membranophone). A shaker vibrates as a whole (idiophone). They work differently.",
           "error_signals": [
             "ERR_CA_G8MUEA3_DRUMSHAKER"
           ],
@@ -8096,7 +8096,7 @@
             "chordophone"
           ],
           "expected": "membranophone",
-          "memo": "Membrane = skin; membranophone.",
+          "memo": "'Membrane' means skin, so a drum with a vibrating skin is a membranophone.",
           "error_signals": [
             "ERR_CA_G8MUEA3_MEMCLOZE"
           ],
@@ -8111,7 +8111,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "This system (chord/membrano/aero/idiophone) works for instruments worldwide.",
+          "memo": "Grouping instruments by how they make sound works for instruments from all over the world.",
           "error_signals": [
             "ERR_CA_G8MUEA3_WHYSYSTEM"
           ],
@@ -8159,7 +8159,7 @@
           ],
           "expected": "Guitar and violin are chordophones; the djembe is a membranophone; the flute is an aerophone.",
           "pass_threshold": 0.75,
-          "memo": "Chordophone = strings, membranophone = skins, aerophone = air, idiophone = whole body.",
+          "memo": "Chordophones use strings, membranophones use skins, aerophones use air, and idiophones vibrate as a whole.",
           "error_signals": [
             "ERR_CA_G8MUEA3_SORT"
           ],
@@ -8176,7 +8176,7 @@
             "It sets the price"
           ],
           "expected": "It works for instruments from every culture, not just the orchestra",
-          "memo": "The chord/membrano/aero/idiophone system describes instruments worldwide.",
+          "memo": "Grouping instruments by how they make sound works for instruments from every culture, not just the orchestra.",
           "error_signals": [
             "ERR_CA_G8MUEA3_WHY"
           ],
@@ -8318,7 +8318,7 @@
             "framing"
           ],
           "expected": "composing",
-          "memo": "Composing = creating original music.",
+          "memo": "Composing means creating your own original music.",
           "error_signals": [
             "ERR_CA_G8MUPA1_COMPCLOZE"
           ],
@@ -8448,7 +8448,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Developing a motif means varying it — higher, lower, longer, decorated.",
+          "memo": "Developing a motif means changing it a little: playing it higher, lower, longer or decorated.",
           "error_signals": [
             "ERR_CA_G8MUPA1_DEVELOP"
           ],
@@ -8482,7 +8482,7 @@
             "stay silent"
           ],
           "expected": "share ideas and listen to each other",
-          "memo": "Group composing needs cooperation, sharing ideas and listening.",
+          "memo": "Composing in a group needs teamwork: sharing ideas and listening to each other.",
           "error_signals": [
             "ERR_CA_G8MUPA1_GROUPCOMPOSE"
           ],
@@ -8497,7 +8497,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Compositions can be written in standard notation or with graphic/non-conventional symbols.",
+          "memo": "You can write music in standard notation, or with graphic and other non-standard symbols.",
           "error_signals": [
             "ERR_CA_G8MUPA1_NOTATION"
           ],
@@ -8576,7 +8576,7 @@
           ],
           "expected": "Making a motif and adding contrast are composing; buying posters and frames are not.",
           "pass_threshold": 0.75,
-          "memo": "Composing creates and develops musical ideas.",
+          "memo": "Composing means creating and developing musical ideas.",
           "error_signals": [
             "ERR_CA_G8MUPA1_SORT"
           ],
@@ -8593,7 +8593,7 @@
             "title"
           ],
           "expected": "motif",
-          "memo": "A motif is a short, developable musical idea.",
+          "memo": "A motif is a short musical idea that a composer can develop.",
           "error_signals": [
             "ERR_CA_G8MUPA1_SUP"
           ],
@@ -8652,7 +8652,7 @@
             "Red, yellow, blue"
           ],
           "expected": "Yellow, yellow-green, green",
-          "memo": "Yellow, yellow-green and green are neighbours — analogous.",
+          "memo": "Yellow, yellow-green and green sit next to each other on the colour wheel, so they are analogous.",
           "error_signals": [
             "ERR_CA_G8VAEA1_SET"
           ],
@@ -8669,7 +8669,7 @@
             "invisible"
           ],
           "expected": "harmonious and calm",
-          "memo": "Because they are related, analogous colours blend harmoniously.",
+          "memo": "Analogous colours are closely related, so they blend together in a calm, harmonious way.",
           "error_signals": [
             "ERR_CA_G8VAEA1_HARMONY"
           ],
@@ -8684,7 +8684,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Analogous = neighbours; complementary = opposites on the wheel.",
+          "memo": "Analogous colours are neighbours on the colour wheel. Complementary colours are opposite each other.",
           "error_signals": [
             "ERR_CA_G8VAEA1_VSCOMP"
           ],
@@ -8718,7 +8718,7 @@
             "neutral"
           ],
           "expected": "analogous",
-          "memo": "Neighbouring colours are analogous.",
+          "memo": "Colours that are neighbours on the wheel are analogous.",
           "error_signals": [
             "ERR_CA_G8VAEA1_CLOZE"
           ],
@@ -8784,7 +8784,7 @@
             "names the artist"
           ],
           "expected": "shows how colours relate to each other",
-          "memo": "The colour wheel arranges colours so you can see analogous and complementary relationships.",
+          "memo": "The colour wheel arranges colours so you can see which are neighbours (analogous) and which are opposites (complementary).",
           "error_signals": [
             "ERR_CA_G8VAEA1_WHEEL"
           ],
@@ -8799,7 +8799,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Yellow and purple are OPPOSITE (complementary), not neighbours (analogous).",
+          "memo": "Yellow and purple are opposite each other (complementary), not neighbours (analogous).",
           "error_signals": [
             "ERR_CA_G8VAEA1_YELPURP"
           ],
@@ -8882,7 +8882,7 @@
             "primary"
           ],
           "expected": "analogous",
-          "memo": "Neighbouring colours make an analogous scheme.",
+          "memo": "Colours next to each other on the wheel make an analogous scheme.",
           "error_signals": [
             "ERR_CA_G8VAEA1_REDORANGE"
           ],
@@ -8941,7 +8941,7 @@
           ],
           "expected": "Neighbouring colours are analogous; opposite colours are complementary.",
           "pass_threshold": 0.75,
-          "memo": "Analogous = next to each other; complementary = opposite on the wheel.",
+          "memo": "Analogous colours are next to each other on the wheel. Complementary colours are opposite.",
           "error_signals": [
             "ERR_CA_G8VAEA1_SORT"
           ],
@@ -9017,7 +9017,7 @@
             "frame works"
           ],
           "expected": "arrange the art elements effectively",
-          "memo": "Principles organise the elements into an effective composition.",
+          "memo": "Design principles organise the art elements into a composition that works well.",
           "error_signals": [
             "ERR_CA_G8VAEA2_DEF"
           ],
@@ -9100,7 +9100,7 @@
             "there is no balance"
           ],
           "expected": "the two sides differ but still feel balanced",
-          "memo": "Asymmetrical balance uses different elements that still feel evenly weighted.",
+          "memo": "Asymmetrical balance means the two sides are different but still feel evenly weighted.",
           "error_signals": [
             "ERR_CA_G8VAEA2_ASYMMETRY"
           ],
@@ -9200,7 +9200,7 @@
             "emptiness"
           ],
           "expected": "unity",
-          "memo": "Unity = a coherent whole.",
+          "memo": "Unity means all the parts work together as one whole.",
           "error_signals": [
             "ERR_CA_G8VAEA2_UNITYCLOZE"
           ],
@@ -9329,7 +9329,7 @@
           ],
           "expected": "Repetition/eye-paths = rhythm & movement; a standout = emphasis; coherence = unity.",
           "pass_threshold": 0.66,
-          "memo": "Rhythm/movement guide the eye; emphasis makes a focal point; unity ties it together.",
+          "memo": "Rhythm and movement lead your eye around. Emphasis creates a focal point that stands out. Unity ties it all together.",
           "error_signals": [
             "ERR_CA_G8VAEA2_SORT"
           ],
@@ -9346,7 +9346,7 @@
             "They choose the title"
           ],
           "expected": "They help the work communicate clearly and look intentional",
-          "memo": "Principles make a composition clear, organised and deliberate.",
+          "memo": "Design principles make a composition clear, organised and deliberate.",
           "error_signals": [
             "ERR_CA_G8VAEA2_WHY"
           ],
@@ -9405,7 +9405,7 @@
             "buys frames"
           ],
           "expected": "works with more kinds of materials and techniques",
-          "memo": "Extending media means exploring more materials and techniques.",
+          "memo": "Using a wider range of media means trying out more kinds of materials and techniques.",
           "error_signals": [
             "ERR_CA_G8VAMA1_MEDIA"
           ],
@@ -9456,7 +9456,7 @@
             "smell"
           ],
           "expected": "shape and orientation (e.g. tall, wide, square)",
-          "memo": "Format is the shape/orientation — portrait, landscape, square.",
+          "memo": "Format is the shape and direction of the work: portrait (tall), landscape (wide) or square.",
           "error_signals": [
             "ERR_CA_G8VAMA1_FORMAT"
           ],
@@ -9586,7 +9586,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Portrait orientation is vertical (taller than wide); landscape is horizontal.",
+          "memo": "Portrait format is taller than it is wide. Landscape is wider than it is tall.",
           "error_signals": [
             "ERR_CA_G8VAMA1_PORTRAIT"
           ],
@@ -9603,7 +9603,7 @@
             "smell"
           ],
           "expected": "format",
-          "memo": "Format = shape/orientation.",
+          "memo": "Format means the shape and direction of the artwork.",
           "error_signals": [
             "ERR_CA_G8VAMA1_FORMATCLOZE"
           ],
@@ -9789,7 +9789,7 @@
             "naming colours"
           ],
           "expected": "joining and building forms in more advanced ways",
-          "memo": "Complex construction builds richer 3D forms by joining materials skilfully.",
+          "memo": "Complex construction means joining materials skilfully to build more detailed 3D forms.",
           "error_signals": [
             "ERR_CA_G8VAMA2_CONSTRUCT"
           ],
@@ -9840,7 +9840,7 @@
             "the weather forecast"
           ],
           "expected": "community life, friendship or popular culture",
-          "memo": "Social-world themes explore community, relationships and popular culture.",
+          "memo": "Themes from the social world include community, relationships and popular culture.",
           "error_signals": [
             "ERR_CA_G8VAMA2_THEMES"
           ],
@@ -9872,7 +9872,7 @@
             "the title"
           ],
           "expected": "concern for the environment",
-          "memo": "Reusing recyclables shows environmental concern.",
+          "memo": "Reusing recyclable materials shows you care about the environment.",
           "error_signals": [
             "ERR_CA_G8VAMA2_RECYCLE"
           ],
@@ -9921,7 +9921,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Three-dimensional works have many viewpoints, unlike a flat picture.",
+          "memo": "You can look at a 3D artwork from many sides, unlike a flat picture.",
           "error_signals": [
             "ERR_CA_G8VAMA2_ANGLES"
           ],
@@ -9955,7 +9955,7 @@
             "the price"
           ],
           "expected": "spatial awareness",
-          "memo": "Building and shaping forms deepens spatial awareness.",
+          "memo": "Building and shaping forms helps you get better at judging space.",
           "error_signals": [
             "ERR_CA_G8VAMA2_DEVELOP"
           ],
@@ -10004,7 +10004,7 @@
             "imported"
           ],
           "expected": "recyclable",
-          "memo": "Found, reusable materials are recyclable materials.",
+          "memo": "Found things you can reuse, like boxes and bottle tops, are recyclable materials.",
           "error_signals": [
             "ERR_CA_G8VAMA2_RECYCLECLOZE"
           ],
@@ -10021,7 +10021,7 @@
             "framing them"
           ],
           "expected": "bending, joining or shaping them on purpose",
-          "memo": "Manipulating is deliberately bending, joining and shaping materials.",
+          "memo": "Manipulating materials means bending, joining and shaping them on purpose.",
           "error_signals": [
             "ERR_CA_G8VAMA2_MANIP"
           ],
@@ -10129,7 +10129,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Reusing recyclables reduces waste and shows environmental care.",
+          "memo": "Reusing recyclable materials cuts down waste and shows you care about the environment.",
           "error_signals": [
             "ERR_CA_G8VAMA2_SUP"
           ],
@@ -10171,7 +10171,7 @@
             "framing text"
           ],
           "expected": "designing letters in interesting, decorative ways",
-          "memo": "Creative lettering treats letters as a designed, decorative image.",
+          "memo": "Creative lettering treats letters as a designed, decorative picture.",
           "error_signals": [
             "ERR_CA_G8VALA1_LETTERING"
           ],
@@ -10237,7 +10237,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Design analysis considers both appearance and function.",
+          "memo": "Analysing a design means looking at both how it looks and how well it works.",
           "error_signals": [
             "ERR_CA_G8VALA1_LOOKWORK"
           ],
@@ -10271,7 +10271,7 @@
             "a melody"
           ],
           "expected": "creative lettering",
-          "memo": "Designed poster letters are creative lettering.",
+          "memo": "Designed, decorative letters on a poster are creative lettering.",
           "error_signals": [
             "ERR_CA_G8VALA1_POSTER"
           ],
@@ -10288,7 +10288,7 @@
             "song"
           ],
           "expected": "shape, materials, colour and purpose",
-          "memo": "Design analysis looks at shape, materials, colour and purpose.",
+          "memo": "When you analyse a design, you look at its shape, materials, colour and purpose.",
           "error_signals": [
             "ERR_CA_G8VALA1_ANALYSE"
           ],
@@ -10352,7 +10352,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Communicating views in talk and writing is part of visual literacy.",
+          "memo": "Sharing your views by talking and writing is part of understanding images (visual literacy).",
           "error_signals": [
             "ERR_CA_G8VALA1_COMMUNICATE"
           ],
@@ -10369,7 +10369,7 @@
             "weight only"
           ],
           "expected": "shape, colour, texture and decoration",
-          "memo": "Creative lettering plays with shape, colour, texture and decoration.",
+          "memo": "Creative lettering plays with a letter's shape, colour, texture and decoration.",
           "error_signals": [
             "ERR_CA_G8VALA1_CHANGE"
           ],
@@ -10403,7 +10403,7 @@
             "Only the title matters"
           ],
           "expected": "Materials affect how it works, lasts and looks",
-          "memo": "Material choice affects function, durability and appearance.",
+          "memo": "The material chosen affects how well the object works, how long it lasts and how it looks.",
           "error_signals": [
             "ERR_CA_G8VALA1_MATERIALS"
           ],
@@ -10418,7 +10418,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Good design unites beauty and usefulness.",
+          "memo": "Good design is both beautiful and useful.",
           "error_signals": [
             "ERR_CA_G8VALA1_BEAUTIFULUSEFUL"
           ],
@@ -10496,7 +10496,7 @@
             "It frames pictures"
           ],
           "expected": "Design adds the question of how well something works, not just how it looks",
-          "memo": "Analysing design adds function to the appearance you analyse in art.",
+          "memo": "With art you mostly ask how it looks. Design adds the question of how well it works.",
           "error_signals": [
             "ERR_CA_G8VALA1_WHY"
           ],
@@ -10555,7 +10555,7 @@
             "banker"
           ],
           "expected": "contributor and observer beyond their own community",
-          "memo": "Artists contribute to and observe the wider society, not just their immediate community.",
+          "memo": "Artists contribute to and comment on the wider society, not only their own community.",
           "error_signals": [
             "ERR_CA_G8VALA2_ROLE"
           ],
@@ -10606,7 +10606,7 @@
             "a photo of the gallery"
           ],
           "expected": "a rough drawing made to plan the final piece",
-          "memo": "Preliminary sketches are rough planning drawings.",
+          "memo": "Preliminary sketches are rough drawings made to plan the final piece.",
           "error_signals": [
             "ERR_CA_G8VALA2_PRELIM"
           ],
@@ -10638,7 +10638,7 @@
             "sold"
           ],
           "expected": "preliminary",
-          "memo": "Preliminary = planning sketches.",
+          "memo": "Preliminary sketches are rough drawings for planning.",
           "error_signals": [
             "ERR_CA_G8VALA2_PRELIMCLOZE"
           ],
@@ -10672,7 +10672,7 @@
             "pilot and nurse only"
           ],
           "expected": "architect, animator and illustrator",
-          "memo": "Arts and design careers are wide — architecture, animation, illustration and more.",
+          "memo": "Arts and design careers are wide, including architecture, animation, illustration and more.",
           "error_signals": [
             "ERR_CA_G8VALA2_CAREERS"
           ],
@@ -10753,7 +10753,7 @@
             "nothing"
           ],
           "expected": "issues that affect many people, not just their street",
-          "memo": "Wider-society artists engage with broader issues.",
+          "memo": "Artists in the wider society take on bigger issues that affect many people.",
           "error_signals": [
             "ERR_CA_G8VALA2_WIDER"
           ],
@@ -10770,7 +10770,7 @@
             "cleaning"
           ],
           "expected": "research",
-          "memo": "Gathering reliable information is research.",
+          "memo": "Finding reliable information for a project is research.",
           "error_signals": [
             "ERR_CA_G8VALA2_RESCLOZE"
           ],
@@ -10787,7 +10787,7 @@
             "Buying a frame first"
           ],
           "expected": "Collecting references and sketching ideas",
-          "memo": "Good preparation gathers references and explores ideas in sketches.",
+          "memo": "Good preparation means collecting references and trying out ideas in sketches.",
           "error_signals": [
             "ERR_CA_G8VALA2_GOODPREP"
           ],
@@ -13533,7 +13533,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Recognising families deepens your listening and understanding.",
+          "memo": "Recognising instrument families by ear helps you follow and understand the music better.",
           "error_signals": [
             "ERR_CA_G9MUEA1_BYEAR"
           ],
@@ -13925,7 +13925,7 @@
             "lower the price"
           ],
           "expected": "appreciate and describe different kinds of music",
-          "memo": "Wide listening builds appreciation and a vocabulary to describe music.",
+          "memo": "Listening to lots of styles helps you appreciate music and gives you words to describe it.",
           "error_signals": [
             "ERR_CA_G9MUEA2_APPRECIATE"
           ],
@@ -14279,7 +14279,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Operas are typically accompanied by a full orchestra.",
+          "memo": "Operas are usually accompanied by a full orchestra.",
           "error_signals": [
             "ERR_CA_G9MUEA3_ORCHESTRA"
           ],
@@ -14345,7 +14345,7 @@
             "They are cheap to stage"
           ],
           "expected": "They combine music and drama to tell powerful stories",
-          "memo": "These works unite music and drama into powerful storytelling.",
+          "memo": "These works combine music and drama to tell powerful stories.",
           "error_signals": [
             "ERR_CA_G9MUEA3_VALUE"
           ],
@@ -14695,7 +14695,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Compositions may use standard notes or graphic/non-conventional notation.",
+          "memo": "You can write music in standard notes or with graphic and other non-standard symbols.",
           "error_signals": [
             "ERR_CA_G9MUPA1_NOTATION"
           ],
@@ -14914,7 +14914,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Related colours harmonise; opposite colours contrast.",
+          "memo": "Colours that are related blend in harmony. Opposite colours contrast.",
           "error_signals": [
             "ERR_CA_G9VAEA1_HARMONYCONTRAST"
           ],
@@ -14948,7 +14948,7 @@
             "neutral"
           ],
           "expected": "analogous",
-          "memo": "Neighbouring colours are analogous.",
+          "memo": "Colours that are neighbours on the wheel are analogous.",
           "error_signals": [
             "ERR_CA_G9VAEA1_CLOZE"
           ],
@@ -15063,7 +15063,7 @@
             "Red and red-orange"
           ],
           "expected": "Blue and orange",
-          "memo": "Blue and orange are opposite — complementary, high contrast.",
+          "memo": "Blue and orange are opposite each other, so they are complementary and contrast strongly.",
           "error_signals": [
             "ERR_CA_G9VAEA1_COMP"
           ],
@@ -15112,7 +15112,7 @@
             "No colour"
           ],
           "expected": "Complementary colours",
-          "memo": "Complementary (opposite) colours create the strongest, most eye-catching contrast.",
+          "memo": "Complementary (opposite) colours give the strongest, most eye-catching contrast.",
           "error_signals": [
             "ERR_CA_G9VAEA1_PROTEST"
           ],
@@ -15171,7 +15171,7 @@
           ],
           "expected": "Neighbouring colours are analogous; opposite colours are complementary.",
           "pass_threshold": 0.75,
-          "memo": "Analogous = neighbours (harmony); complementary = opposites (contrast).",
+          "memo": "Analogous colours are neighbours and look harmonious. Complementary colours are opposites and contrast.",
           "error_signals": [
             "ERR_CA_G9VAEA1_SORT"
           ],
@@ -15298,7 +15298,7 @@
             "removing the subject"
           ],
           "expected": "drawing the eye to the key message",
-          "memo": "Emphasis directs attention to the most important message.",
+          "memo": "Emphasis draws attention to the most important message.",
           "error_signals": [
             "ERR_CA_G9VAEA2_POSTER"
           ],
@@ -15364,7 +15364,7 @@
             "clash badly"
           ],
           "expected": "differ but still feel balanced",
-          "memo": "Asymmetrical balance uses different elements that still feel even.",
+          "memo": "Asymmetrical balance means the two sides are different but still feel evenly weighted.",
           "error_signals": [
             "ERR_CA_G9VAEA2_ASYMMETRY"
           ],
@@ -15379,7 +15379,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Principles guide making and provide criteria for critique.",
+          "memo": "Design principles guide you when making art, and they give you criteria for judging it.",
           "error_signals": [
             "ERR_CA_G9VAEA2_JUDGE"
           ],
@@ -15430,7 +15430,7 @@
             "emptiness"
           ],
           "expected": "unity",
-          "memo": "Coherence is unity.",
+          "memo": "When all the parts belong together, the work has unity.",
           "error_signals": [
             "ERR_CA_G9VAEA2_UNITYCLOZE"
           ],
@@ -15494,7 +15494,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Proportion keeps relative sizes convincing.",
+          "memo": "Good proportion keeps the sizes of things compared to each other believable.",
           "error_signals": [
             "ERR_CA_G9VAEA2_PROPTF"
           ],
@@ -15559,7 +15559,7 @@
           ],
           "expected": "Standing out / focal point = emphasis; even weight = balance; connected parts = unity.",
           "pass_threshold": 0.66,
-          "memo": "Emphasis = focal point; balance = even weight; unity = coherence.",
+          "memo": "Emphasis creates a focal point that stands out. Balance spreads the visual weight evenly. Unity makes all the parts feel connected.",
           "error_signals": [
             "ERR_CA_G9VAEA2_SORT"
           ],
@@ -15701,7 +15701,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Care, skill and safety remain essential, especially with harder materials.",
+          "memo": "Care, skill and safety still matter, especially with harder materials.",
           "error_signals": [
             "ERR_CA_G9VAMA1_CRAFT"
           ],
@@ -15784,7 +15784,7 @@
             "Buying the most plastic"
           ],
           "expected": "Using recyclable materials",
-          "memo": "Reusing recyclable materials shows environmental care.",
+          "memo": "Reusing recyclable materials shows you care about the environment.",
           "error_signals": [
             "ERR_CA_G9VAMA1_RECYCLE"
           ],
@@ -15867,7 +15867,7 @@
             "the title"
           ],
           "expected": "developing craftsmanship",
-          "memo": "Handling harder materials well demonstrates growing craftsmanship.",
+          "memo": "Handling harder materials well shows your craftsmanship is growing.",
           "error_signals": [
             "ERR_CA_G9VAMA1_DEVELOP"
           ],
@@ -15960,7 +15960,7 @@
             "It removes meaning"
           ],
           "expected": "It lets you express your personal ideas and develop independence",
-          "memo": "Personal choices grow independence and personal expression.",
+          "memo": "Making your own choices helps you become more independent and express your own ideas.",
           "error_signals": [
             "ERR_CA_G9VAMA1_WHY"
           ],
@@ -16017,7 +16017,7 @@
             "a pattern"
           ],
           "expected": "a person (their likeness)",
-          "memo": "A portrait depicts a person, capturing their likeness and often character.",
+          "memo": "A portrait shows a person, capturing what they look like and often their character.",
           "error_signals": [
             "ERR_CA_G9VALA1_PORTRAIT"
           ],
@@ -16083,7 +16083,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Strong portraits capture appearance and hint at personality.",
+          "memo": "Strong portraits show what a person looks like and hint at their personality.",
           "error_signals": [
             "ERR_CA_G9VALA1_CHARACTER"
           ],
@@ -16100,7 +16100,7 @@
             "pricing"
           ],
           "expected": "commentary",
-          "memo": "Commenting on society is social commentary.",
+          "memo": "Art that makes a point about society is social commentary.",
           "error_signals": [
             "ERR_CA_G9VALA1_CLOZE"
           ],
@@ -16117,7 +16117,7 @@
             "a colour wheel"
           ],
           "expected": "social commentary",
-          "memo": "A protest mural comments on a social/environmental issue.",
+          "memo": "A protest mural makes a point about a social or environmental issue, so it's social commentary.",
           "error_signals": [
             "ERR_CA_G9VALA1_MURAL"
           ],
@@ -16247,7 +16247,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Interpretation can vary between viewers.",
+          "memo": "Different viewers can understand the message differently.",
           "error_signals": [
             "ERR_CA_G9VALA1_VARY"
           ],
@@ -16264,7 +16264,7 @@
             "the price"
           ],
           "expected": "visual communication",
-          "memo": "Posters communicate visually, often with a striking image and minimal text.",
+          "memo": "Posters get their message across visually, often with a striking image and only a few words.",
           "error_signals": [
             "ERR_CA_G9VALA1_VISUALCOMM"
           ],
@@ -16323,7 +16323,7 @@
           ],
           "expected": "Likeness of a person = portrait; works making a point about an issue = social commentary.",
           "pass_threshold": 0.75,
-          "memo": "Portraits depict people; social commentary makes a point about society.",
+          "memo": "Portraits show people. Social commentary makes a point about an issue in society.",
           "error_signals": [
             "ERR_CA_G9VALA1_SORT"
           ],
@@ -16340,7 +16340,7 @@
             "It sets the tempo"
           ],
           "expected": "It shows how art can raise awareness and spark change",
-          "memo": "Such analysis reveals art's power to raise awareness and influence society.",
+          "memo": "Analysing this kind of art shows how art can make people aware of problems and push for change.",
           "error_signals": [
             "ERR_CA_G9VALA1_WHY"
           ],
@@ -16450,7 +16450,7 @@
             "nothing"
           ],
           "expected": "books, galleries, museums and trustworthy sources",
-          "memo": "Trustworthy sources underpin good independent research.",
+          "memo": "Good independent research uses trustworthy sources, like books, galleries and museums.",
           "error_signals": [
             "ERR_CA_G9VALA2_SOURCES"
           ],
@@ -16531,7 +16531,7 @@
             "flying planes"
           ],
           "expected": "sharing ideas, culture and beauty",
-          "memo": "Artists contribute ideas, culture and beauty.",
+          "memo": "Artists add ideas, culture and beauty to society.",
           "error_signals": [
             "ERR_CA_G9VALA2_CONTRIBUTE"
           ],
@@ -16563,7 +16563,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Working independently shows growing artistic maturity.",
+          "memo": "Being able to research and plan on your own shows you are growing as an artist.",
           "error_signals": [
             "ERR_CA_G9VALA2_MATURE"
           ],
@@ -16614,7 +16614,7 @@
             "a banker"
           ],
           "expected": "both subject and social commentator",
-          "memo": "A self-portrait about identity makes the artist both subject and commentator.",
+          "memo": "A self-portrait about identity makes the artist both the subject and the person commenting on society.",
           "error_signals": [
             "ERR_CA_G9VALA2_SELFPORTRAIT"
           ],
@@ -16646,7 +16646,7 @@
             "a high price tag"
           ],
           "expected": "a clear message and deliberate choices",
-          "memo": "Effective commentary art carries a clear message through deliberate choices.",
+          "memo": "Strong commentary art has a clear message, and every choice in it is made on purpose.",
           "error_signals": [
             "ERR_CA_G9VALA2_CLEAR"
           ],
@@ -16661,7 +16661,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Roles such as editorial illustrator or documentary photographer comment on society.",
+          "memo": "Jobs like editorial illustrator or documentary photographer involve commenting on society.",
           "error_signals": [
             "ERR_CA_G9VALA2_CAREERS"
           ],
@@ -16740,7 +16740,7 @@
             "s4"
           ],
           "expected": "Choose an issue, research it, plan and sketch the message, then make and present the work.",
-          "memo": "Independent commentary: issue → research → plan/sketch → make and present.",
+          "memo": "Choose an issue, research it, plan and sketch your message, then make and present the work.",
           "error_signals": [
             "ERR_CA_G9VALA2_SEQ"
           ],

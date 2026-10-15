@@ -137,7 +137,7 @@
             "A suitable temperature"
           ],
           "expected": "Plastic",
-          "memo": "Living things need air, water, food, shelter and a suitable temperature — not plastic.",
+          "memo": "Living things need air, water, food, shelter and a suitable temperature. They don't need plastic.",
           "error_signals": [
             "ERR_NSSP_LIFE_REQUIREMENT"
           ],
@@ -241,7 +241,7 @@
           ],
           "expected": "Land features → lithosphere; water → hydrosphere; air and clouds → atmosphere.",
           "pass_threshold": 0.75,
-          "memo": "Solid land (mountain, soil) is the lithosphere; water (ocean, river) is the hydrosphere; air and clouds are the atmosphere.",
+          "memo": "Solid land, like mountains and soil, is the lithosphere. Water, like oceans and rivers, is the hydrosphere. Air and clouds are the atmosphere.",
           "error_signals": [
             "ERR_NSSP_SPHERE_CONFUSION"
           ],
@@ -356,7 +356,7 @@
             "It spins too fast"
           ],
           "expected": "It has no air, no liquid water and no suitable temperature",
-          "memo": "The Moon lacks air, liquid water and a stable suitable temperature, so it cannot support life.",
+          "memo": "The Moon has no air, no liquid water and no steady, suitable temperature, so nothing can live there.",
           "error_signals": [
             "ERR_NSSP_LIFE_REQUIREMENT"
           ],
@@ -432,7 +432,7 @@
             "The size of the biggest animal"
           ],
           "expected": "The variety of different living things",
-          "memo": "Bio- means life and diversity means variety, so biodiversity is the variety of living things.",
+          "memo": "'Bio' means life and 'diversity' means variety, so biodiversity is the variety of living things.",
           "error_signals": [
             "ERR_NSSP_BIODIVERSITY_DEF"
           ],
@@ -858,7 +858,7 @@
             "A flower opening in the morning"
           ],
           "expected": "Pollen moving from the anther to the stigma",
-          "memo": "Pollination is the transfer of pollen from the anther (male part) to the stigma (female part).",
+          "memo": "Pollination is when pollen moves from the anther (the male part) to the stigma (the female part).",
           "error_signals": [
             "ERR_NSSP_POLLINATION_FERTILISATION"
           ],
@@ -961,7 +961,7 @@
             "seed",
             "fruit"
           ],
-          "memo": "The order is pollination → fertilisation → seed develops → fruit develops.",
+          "memo": "First pollination, then fertilisation, then the seed develops, then the fruit develops around it.",
           "error_signals": [
             "ERR_NSSP_POLLINATION_FERTILISATION"
           ],
@@ -1012,7 +1012,7 @@
             "Respiration"
           ],
           "expected": "Pollination",
-          "memo": "Moving pollen between flowers is pollination.",
+          "memo": "Moving pollen from one flower to another is pollination.",
           "error_signals": [
             "ERR_NSSP_POLLINATION_FERTILISATION"
           ],
@@ -1029,7 +1029,7 @@
             "Evaporation"
           ],
           "expected": "Pollination",
-          "memo": "Pollen must first reach the stigma (pollination) before fertilisation can happen.",
+          "memo": "Pollen has to reach the stigma first (pollination) before fertilisation can happen.",
           "error_signals": [
             "ERR_NSSP_POLLINATION_FERTILISATION"
           ],
@@ -1163,7 +1163,7 @@
             "It will make more petals"
           ],
           "expected": "It will not be pollinated",
-          "memo": "With no insects or wind to carry pollen, pollination cannot happen.",
+          "memo": "With no insects or wind to carry the pollen, the flower can't be pollinated.",
           "error_signals": [
             "ERR_NSSP_POLLINATION_FERTILISATION"
           ],
@@ -1197,7 +1197,7 @@
             "By moonlight"
           ],
           "expected": "By wind",
-          "memo": "Dull, scentless flowers with light dry pollen are usually wind-pollinated — they do not need to attract insects.",
+          "memo": "Dull flowers with no scent and lots of light, dry pollen are usually pollinated by wind. They don't need to attract insects.",
           "error_signals": [
             "ERR_NSSP_POLLINATION_FERTILISATION"
           ],
@@ -1238,7 +1238,7 @@
             "The death of a plant"
           ],
           "expected": "Differences between individuals of the same kind (species)",
-          "memo": "Variation is the small differences between individuals of the same species.",
+          "memo": "Variation means the small differences between individuals of the same species.",
           "error_signals": [
             "ERR_NSSP_VARIATION_DEF"
           ],
@@ -1321,7 +1321,7 @@
             "It has no effect at all"
           ],
           "expected": "The faster ones can catch more food and survive better",
-          "memo": "Variation means some individuals are better suited to survive — here, the faster cheetahs catch more food.",
+          "memo": "Variation means some individuals are better at surviving. Here, the faster cheetahs catch more food.",
           "error_signals": [
             "ERR_NSSP_VARIATION_SURVIVAL"
           ],
@@ -1338,7 +1338,7 @@
             "rock"
           ],
           "expected": "species",
-          "memo": "Variation describes differences within a single species.",
+          "memo": "Variation means the differences inside one species.",
           "error_signals": [
             "ERR_NSSP_VARIATION_DEF"
           ],
@@ -1404,7 +1404,7 @@
             "Evaporation"
           ],
           "expected": "Variation",
-          "memo": "Natural differences (variation) meant a few rabbits were resistant and survived.",
+          "memo": "Natural differences between the rabbits (variation) meant a few could resist the disease and survive.",
           "error_signals": [
             "ERR_NSSP_VARIATION_SURVIVAL"
           ],
@@ -1470,7 +1470,7 @@
             "Use of food for energy"
           ],
           "expected": "Fingerprints",
-          "memo": "Fingerprints are unique to each person — a clear example of variation.",
+          "memo": "Every person's fingerprints are different. That's a clear example of variation.",
           "error_signals": [
             "ERR_NSSP_VARIATION_DEF"
           ],
@@ -1504,7 +1504,7 @@
             "above"
           ],
           "expected": "within",
-          "memo": "Variation describes differences within (inside) one species.",
+          "memo": "Variation means differences within (inside) one species.",
           "error_signals": [
             "ERR_NSSP_VARIATION_SPECIES"
           ],
@@ -1555,7 +1555,7 @@
             "Less variation is always safer"
           ],
           "expected": "Some individuals are more likely to be naturally resistant",
-          "memo": "More variation raises the chance that at least some individuals are resistant and survive to reproduce.",
+          "memo": "With more variation, it's more likely that at least some individuals can resist the disease and live to reproduce.",
           "error_signals": [
             "ERR_NSSP_VARIATION_SURVIVAL"
           ],
@@ -1631,7 +1631,7 @@
             "Magnetism"
           ],
           "expected": "Flexibility",
-          "memo": "Flexibility is the ability to bend without breaking.",
+          "memo": "Flexibility means a material can bend without breaking.",
           "error_signals": [
             "ERR_NSSP_PROPERTY_NAME"
           ],
@@ -1663,7 +1663,7 @@
             "It floats on water"
           ],
           "expected": "It conducts electricity well",
-          "memo": "Copper is chosen because it is an excellent conductor of electricity.",
+          "memo": "Copper is used because it conducts electricity very well.",
           "error_signals": [
             "ERR_NSSP_PROPERTY_USE"
           ],
@@ -1746,7 +1746,7 @@
           ],
           "expected": "Metals (copper, iron, aluminium) conduct; rubber and wood are insulators.",
           "pass_threshold": 0.75,
-          "memo": "Metals conduct electricity; rubber and wood are insulators that block it.",
+          "memo": "Metals conduct electricity. Rubber and wood are insulators, which block it.",
           "error_signals": [
             "ERR_NSSP_CONDUCTOR_INSULATOR"
           ],
@@ -1948,7 +1948,7 @@
             "A magnet wrapped in cloth"
           ],
           "expected": "A conductor (copper) covered by an insulator (plastic)",
-          "memo": "The metal conductor carries the current; the plastic insulator around it keeps people safe from shocks.",
+          "memo": "The copper conductor carries the electricity, and the plastic insulator around it stops people getting shocked.",
           "error_signals": [
             "ERR_NSSP_PROPERTY_USE"
           ],
@@ -2042,7 +2042,7 @@
             "Sieving"
           ],
           "expected": "Evaporation",
-          "memo": "Heating the water makes it evaporate, leaving the dissolved salt behind.",
+          "memo": "Heat the water so it evaporates. The salt that was dissolved in it is left behind.",
           "error_signals": [
             "ERR_NSSP_SEPARATION_METHOD"
           ],
@@ -2111,7 +2111,7 @@
           ],
           "expected": "Different sizes → sieving; insoluble solid in water → filtration; dissolved solid → evaporation; iron → magnet.",
           "pass_threshold": 0.75,
-          "memo": "Pick the method by the difference: size (sieve), insoluble solid (filter), dissolved solid (evaporate), magnetic (magnet).",
+          "memo": "Choose the method by what's different: size (sieve), a solid that doesn't dissolve (filter), a dissolved solid (evaporate) or magnetic (magnet).",
           "error_signals": [
             "ERR_NSSP_SEPARATION_METHOD"
           ],
@@ -2126,7 +2126,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "False — the substances in a mixture are not chemically joined, so they can be separated by physical methods.",
+          "memo": "In a mixture, the substances aren't chemically joined, so physical methods can separate them.",
           "error_signals": [
             "ERR_NSSP_MIXTURE_DEF"
           ],
@@ -2143,7 +2143,7 @@
             "freezing"
           ],
           "expected": "evaporation",
-          "memo": "Evaporation removes the water as vapour and leaves the dissolved solid behind.",
+          "memo": "Evaporation turns the water into vapour and leaves the dissolved solid behind.",
           "error_signals": [
             "ERR_NSSP_SEPARATION_METHOD"
           ],
@@ -2177,7 +2177,7 @@
             "Water"
           ],
           "expected": "Iron",
-          "memo": "Only magnetic materials like iron are attracted to a magnet.",
+          "memo": "A magnet only attracts magnetic materials, like iron.",
           "error_signals": [
             "ERR_NSSP_SEPARATION_METHOD"
           ],
@@ -2228,7 +2228,7 @@
             "Use a magnet only"
           ],
           "expected": "Magnet for the iron, then add water and filter out the sand, then evaporate to get the salt",
-          "memo": "Remove iron with a magnet, dissolve and filter out the insoluble sand, then evaporate the water to recover the salt.",
+          "memo": "Take out the iron with a magnet. Add water and filter out the sand, which doesn't dissolve. Then evaporate the water to get the salt back.",
           "error_signals": [
             "ERR_NSSP_SEPARATION_METHOD"
           ],
@@ -2404,7 +2404,7 @@
             "Neutrals"
           ],
           "expected": "Acids",
-          "memo": "Lemon juice and vinegar are common everyday acids.",
+          "memo": "Lemon juice and vinegar are common acids you find at home.",
           "error_signals": [
             "ERR_NSSP_ACID_BASE_PROPERTY"
           ],
@@ -2611,7 +2611,7 @@
           ],
           "expected": "Lemon juice and vinegar are acids; soap and baking soda are bases; pure water is neutral.",
           "pass_threshold": 0.75,
-          "memo": "Sour kitchen liquids (lemon, vinegar) are acids; soapy substances (soap, baking soda) are bases; pure water is neutral.",
+          "memo": "Sour kitchen liquids, like lemon juice and vinegar, are acids. Soap and baking soda are bases. Pure water is neutral.",
           "error_signals": [
             "ERR_NSSP_ACID_BASE_PROPERTY"
           ],
@@ -2643,7 +2643,7 @@
             "A metal"
           ],
           "expected": "Neutral",
-          "memo": "Green is the middle colour of universal indicator, which means the substance is neutral.",
+          "memo": "Green is the colour in the middle of the universal indicator range, which means the substance is neutral.",
           "error_signals": [
             "ERR_NSSP_INDICATOR_COLOUR"
           ],
@@ -2876,7 +2876,7 @@
             "They are always liquids"
           ],
           "expected": "They are shiny and conduct electricity",
-          "memo": "Most metals are shiny and good conductors of electricity and heat.",
+          "memo": "Most metals are shiny and conduct electricity and heat well.",
           "error_signals": [
             "ERR_NSSP_METAL_NONMETAL"
           ],
@@ -2957,7 +2957,7 @@
           ],
           "expected": "Iron, copper and gold are metals; oxygen and sulfur are non-metals.",
           "pass_threshold": 0.75,
-          "memo": "Iron, copper and gold are shiny metals; oxygen and sulfur are non-metals.",
+          "memo": "Iron, copper and gold are shiny metals. Oxygen and sulfur are non-metals.",
           "error_signals": [
             "ERR_NSSP_METAL_NONMETAL"
           ],
@@ -2974,7 +2974,7 @@
             "acids"
           ],
           "expected": "semi-metals",
-          "memo": "Semi-metals (metalloids) sit on the line and share properties of both metals and non-metals.",
+          "memo": "Semi-metals (metalloids) sit on the dividing line and have some properties of metals and some of non-metals.",
           "error_signals": [
             "ERR_NSSP_METAL_NONMETAL"
           ],
@@ -2991,7 +2991,7 @@
             "Chlorine"
           ],
           "expected": "Iron",
-          "memo": "Iron is a metal; oxygen, sulfur and chlorine are non-metals.",
+          "memo": "Iron is a metal. Oxygen, sulfur and chlorine are non-metals.",
           "error_signals": [
             "ERR_NSSP_METAL_NONMETAL"
           ],
@@ -3008,7 +3008,7 @@
             "Mixture"
           ],
           "expected": "Metal",
-          "memo": "Shiny, conducts electricity, and bends — these are classic metal properties.",
+          "memo": "Being shiny, conducting electricity and bending without breaking are typical properties of a metal.",
           "error_signals": [
             "ERR_NSSP_METAL_NONMETAL"
           ],
@@ -3040,7 +3040,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "True — every element has its own short chemical symbol, like O for oxygen.",
+          "memo": "Every element has its own short chemical symbol, like O for oxygen.",
           "error_signals": [
             "ERR_NSSP_ELEMENT_DEF"
           ],
@@ -3111,7 +3111,7 @@
             "To hide the metals"
           ],
           "expected": "So that elements with similar properties are grouped together",
-          "memo": "The arrangement groups elements with similar properties together, making patterns easy to see.",
+          "memo": "The table groups elements with similar properties together, so patterns are easy to see.",
           "error_signals": [
             "ERR_NSSP_PT_DEF"
           ],
@@ -3128,7 +3128,7 @@
             "It cannot be an element"
           ],
           "expected": "Metal",
-          "memo": "Shiny, bendable and a good conductor are all metal properties.",
+          "memo": "Being shiny, bendable and a good conductor are all properties of metals.",
           "error_signals": [
             "ERR_NSSP_METAL_NONMETAL"
           ],
@@ -3162,7 +3162,7 @@
             "Scattered randomly"
           ],
           "expected": "Along the line between metals and non-metals",
-          "memo": "Semi-metals lie along the staircase line that divides metals from non-metals.",
+          "memo": "Semi-metals sit along the staircase-shaped line that separates metals from non-metals.",
           "error_signals": [
             "ERR_NSSP_METAL_NONMETAL"
           ],
@@ -3179,7 +3179,7 @@
             "Mixture"
           ],
           "expected": "Semi-metal",
-          "memo": "Sharing some metal and some non-metal properties (shiny but brittle, conducts a little) describes a semi-metal.",
+          "memo": "It has some metal properties and some non-metal ones (shiny but brittle, conducts a little). That describes a semi-metal.",
           "error_signals": [
             "ERR_NSSP_METAL_NONMETAL"
           ],
@@ -3319,7 +3319,7 @@
           ],
           "expected": "Sun, wind and moving water are renewable; coal and oil are non-renewable.",
           "pass_threshold": 0.75,
-          "memo": "Ask if it refills in a human lifetime: sun, wind and water do (renewable); coal and oil do not (non-renewable).",
+          "memo": "Ask whether it gets replaced within a human lifetime. Sun, wind and moving water do (renewable). Coal and oil don't (non-renewable).",
           "error_signals": [
             "ERR_NSSP_RENEWABLE_CLASS"
           ],
@@ -3370,7 +3370,7 @@
             "Uranium"
           ],
           "expected": "Sunlight, a renewable source",
-          "memo": "Solar panels capture energy from sunlight, which is renewable.",
+          "memo": "Solar panels collect energy from sunlight, which is renewable.",
           "error_signals": [
             "ERR_NSSP_RENEWABLE_CLASS"
           ],
@@ -3453,7 +3453,7 @@
             "Coal power"
           ],
           "expected": "Hydropower from the moving water",
-          "memo": "Fast-flowing water can turn turbines to make electricity (hydropower), even when there is little sun or wind.",
+          "memo": "Fast-flowing water can turn turbines to make electricity (hydropower), even when there's little sun or wind.",
           "error_signals": [
             "ERR_NSSP_RENEWABLE_CLASS"
           ],
@@ -3470,7 +3470,7 @@
             "magnetic"
           ],
           "expected": "renewable",
-          "memo": "Moving water is renewable — rivers keep flowing and rain keeps refilling them.",
+          "memo": "Moving water is renewable. Rivers keep flowing and rain keeps filling them up.",
           "error_signals": [
             "ERR_NSSP_RENEWABLE_CLASS"
           ],
@@ -3612,7 +3612,7 @@
             "sound only"
           ],
           "expected": "movement",
-          "memo": "Kinetic energy is the energy of a moving object.",
+          "memo": "Kinetic energy is the energy something has because it is moving.",
           "error_signals": [
             "ERR_NSSP_PE_KE"
           ],
@@ -3629,7 +3629,7 @@
             "lost forever"
           ],
           "expected": "stored",
-          "memo": "Potential energy is stored energy — for example, in a raised object or stretched spring.",
+          "memo": "Potential energy is stored energy, like in something lifted up high or a stretched spring.",
           "error_signals": [
             "ERR_NSSP_PE_KE"
           ],
@@ -3663,7 +3663,7 @@
             "no energy"
           ],
           "expected": "kinetic energy",
-          "memo": "A moving object has kinetic energy.",
+          "memo": "Something that is moving has kinetic energy.",
           "error_signals": [
             "ERR_NSSP_PE_KE"
           ],
@@ -3678,7 +3678,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "True — energy changes form, for example potential energy changing into kinetic energy.",
+          "memo": "Energy can change from one form to another, like potential energy changing into kinetic energy.",
           "error_signals": [
             "ERR_NSSP_ENERGY_CONSERVATION"
           ],
@@ -3695,7 +3695,7 @@
             "only found in batteries"
           ],
           "expected": "never made or destroyed, only changed from one form to another",
-          "memo": "Energy is conserved — it cannot be created or destroyed, only changed into a different form.",
+          "memo": "Energy can't be made or destroyed. It can only change into a different form.",
           "error_signals": [
             "ERR_NSSP_ENERGY_CONSERVATION"
           ],
@@ -3724,7 +3724,7 @@
             "down",
             "bottom"
           ],
-          "memo": "Potential energy is greatest at the top; as the car drops it turns into kinetic energy, which is greatest at the bottom.",
+          "memo": "At the top, the car has the most potential energy. As it drops, that turns into kinetic energy, which is greatest at the bottom.",
           "error_signals": [
             "ERR_NSSP_PE_KE"
           ],
@@ -3758,7 +3758,7 @@
             "chemical"
           ],
           "expected": "kinetic",
-          "memo": "Movement energy is kinetic energy.",
+          "memo": "The energy of movement is kinetic energy.",
           "error_signals": [
             "ERR_NSSP_PE_KE"
           ],
@@ -3792,7 +3792,7 @@
             "nothing"
           ],
           "expected": "kinetic energy",
-          "memo": "As it falls and speeds up, the stored potential energy turns into kinetic energy.",
+          "memo": "As the ball falls and speeds up, its stored potential energy turns into kinetic energy.",
           "error_signals": [
             "ERR_NSSP_PE_KE"
           ],
@@ -3824,7 +3824,7 @@
             "only sound energy"
           ],
           "expected": "the most potential energy and the least kinetic energy",
-          "memo": "At the highest point the swing is momentarily still, so its energy is mostly stored as potential energy.",
+          "memo": "At its highest point the swing stops for a moment, so its energy is mostly stored as potential energy.",
           "error_signals": [
             "ERR_NSSP_PE_KE"
           ],
@@ -3892,7 +3892,7 @@
             "Nothing happens"
           ],
           "expected": "It changes into kinetic energy and the toy moves",
-          "memo": "Winding stores potential energy; releasing it changes that into kinetic energy that moves the toy.",
+          "memo": "Winding the toy stores potential energy. Letting go changes it into kinetic energy, which makes the toy move.",
           "error_signals": [
             "ERR_NSSP_PE_KE"
           ],
@@ -3909,7 +3909,7 @@
             "A flying bird"
           ],
           "expected": "A stretched spring",
-          "memo": "A stretched spring stores potential energy; the others are moving, so they have kinetic energy.",
+          "memo": "A stretched spring stores potential energy. The other things are moving, so they have kinetic energy.",
           "error_signals": [
             "ERR_NSSP_PE_KE"
           ],
@@ -3941,7 +3941,7 @@
             "All her energy is destroyed"
           ],
           "expected": "Potential energy changes into kinetic energy",
-          "memo": "Standing high up she has potential energy; as she falls and speeds up it becomes kinetic energy.",
+          "memo": "Standing up high, she has potential energy. As she falls and speeds up, it becomes kinetic energy.",
           "error_signals": [
             "ERR_NSSP_PE_KE"
           ],
@@ -4049,7 +4049,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "True — solids, especially metals, conduct heat well.",
+          "memo": "Solids, especially metals, conduct heat well.",
           "error_signals": [
             "ERR_NSSP_HEAT_TRANSFER_TYPE"
           ],
@@ -4102,7 +4102,7 @@
           ],
           "expected": "Through solids → conduction; moving warm fluids → convection; across space without a medium → radiation.",
           "pass_threshold": 0.75,
-          "memo": "Solid touching solid is conduction; warm liquid or gas moving is convection; heat crossing space is radiation.",
+          "memo": "Heat passing through solids that touch is conduction. Warm liquid or gas moving around is convection. Heat crossing empty space is radiation.",
           "error_signals": [
             "ERR_NSSP_HEAT_TRANSFER_TYPE"
           ],
@@ -4136,7 +4136,7 @@
             "reflection"
           ],
           "expected": "conduction",
-          "memo": "Particle-to-particle heat transfer through a solid is conduction.",
+          "memo": "Heat passing from particle to particle through a solid is conduction.",
           "error_signals": [
             "ERR_NSSP_HEAT_TRANSFER_TYPE"
           ],
@@ -4153,7 +4153,7 @@
             "All of them need material"
           ],
           "expected": "Radiation",
-          "memo": "Radiation can travel through a vacuum (empty space); conduction and convection both need material.",
+          "memo": "Radiation can travel through empty space. Conduction and convection both need a material to travel through.",
           "error_signals": [
             "ERR_NSSP_HEAT_TRANSFER_TYPE"
           ],
@@ -4219,7 +4219,7 @@
             "The floor pushes the heat up"
           ],
           "expected": "Warm air rises and cooler air sinks, setting up a convection current",
-          "memo": "The heater warms the air, which rises; cooler air sinks to replace it, circulating heat around the room (convection).",
+          "memo": "The heater warms the air, which rises. Cooler air sinks to take its place, so the heat moves around the room. This is convection.",
           "error_signals": [
             "ERR_NSSP_CONVECTION"
           ],
@@ -4304,7 +4304,7 @@
             "magnetic"
           ],
           "expected": "heat (thermal)",
-          "memo": "Heating transfers thermal (heat) energy to an object, raising its temperature.",
+          "memo": "Heating gives an object thermal (heat) energy, which raises its temperature.",
           "error_signals": [
             "ERR_NSSP_HEAT_FLOW"
           ],
@@ -4336,7 +4336,7 @@
             "Metal traps air better than wood"
           ],
           "expected": "Metal conducts heat much better than wood",
-          "memo": "Metal is a good conductor, so heat travels quickly up the handle; wood is an insulator and stays cooler.",
+          "memo": "Metal conducts heat well, so heat travels quickly up the handle. Wood is an insulator, so it stays cooler.",
           "error_signals": [
             "ERR_NSSP_HEAT_TRANSFER_TYPE"
           ],
@@ -4509,7 +4509,7 @@
           ],
           "expected": "Wool, polystyrene and trapped air are insulators; copper and iron are conductors.",
           "pass_threshold": 0.75,
-          "memo": "Materials that trap air (wool, polystyrene) insulate; metals (copper, iron) conduct heat.",
+          "memo": "Materials that trap air, like wool and polystyrene, are insulators. Metals like copper and iron conduct heat.",
           "error_signals": [
             "ERR_NSSP_INSULATOR_CONDUCTOR"
           ],
@@ -4626,7 +4626,7 @@
             "indicator"
           ],
           "expected": "insulator",
-          "memo": "Insulators slow heat loss; metals (conductors) let heat escape quickly.",
+          "memo": "Insulators slow down heat loss. Metals are conductors, so they let heat escape quickly.",
           "error_signals": [
             "ERR_NSSP_INSULATOR_CONDUCTOR"
           ],
@@ -4677,7 +4677,7 @@
             "they cool the room down"
           ],
           "expected": "they add insulation and reduce heat loss through the windows",
-          "memo": "Curtains add a layer of insulation over the windows, slowing the heat escaping.",
+          "memo": "Curtains add a layer of insulation over the windows, which slows down the heat escaping.",
           "error_signals": [
             "ERR_NSSP_INSULATION_USE"
           ],
@@ -4767,7 +4767,7 @@
             "battery"
           ],
           "expected": "surroundings",
-          "memo": "In any transfer, some energy always escapes to the surroundings, usually as heat.",
+          "memo": "Whenever energy is transferred, some always escapes into the surroundings, usually as heat.",
           "error_signals": [
             "ERR_NSSP_WASTED_ENERGY"
           ],
@@ -5153,7 +5153,7 @@
             "In the soil"
           ],
           "expected": "At a power station",
-          "memo": "Power stations generate the electricity that is then sent out across the country.",
+          "memo": "Power stations make the electricity, which is then sent all over the country.",
           "error_signals": [
             "ERR_NSSP_GRID_PATH"
           ],
@@ -5170,7 +5170,7 @@
             "food chain"
           ],
           "expected": "national grid",
-          "memo": "The national grid is the system of power lines that carries electricity around the country.",
+          "memo": "The national grid is the network of power lines that carries electricity around the country.",
           "error_signals": [
             "ERR_NSSP_GRID_PATH"
           ],
@@ -5187,7 +5187,7 @@
             "stores the electricity"
           ],
           "expected": "increases (steps up) the voltage",
-          "memo": "A step-up transformer raises the voltage so electricity can be sent over long distances with less energy loss.",
+          "memo": "A step-up transformer raises the voltage, so less energy is lost when electricity travels long distances.",
           "error_signals": [
             "ERR_NSSP_TRANSFORMER"
           ],
@@ -5204,7 +5204,7 @@
             "turns it into heat"
           ],
           "expected": "decreases (steps down) the voltage",
-          "memo": "A step-down transformer lowers the voltage to a safer level before it enters homes.",
+          "memo": "A step-down transformer lowers the voltage to a safer level before electricity goes into homes.",
           "error_signals": [
             "ERR_NSSP_TRANSFORMER"
           ],
@@ -5258,7 +5258,7 @@
             "stepdown",
             "home"
           ],
-          "memo": "Power station → step-up transformer → power lines → step-down transformer → home.",
+          "memo": "Power station, then step-up transformer, then power lines, then step-down transformer, then the home.",
           "error_signals": [
             "ERR_NSSP_GRID_PATH"
           ],
@@ -5292,7 +5292,7 @@
             "double"
           ],
           "expected": "less",
-          "memo": "Using less electricity at home means the station generates less.",
+          "memo": "When homes use less electricity, the power station makes less.",
           "error_signals": [
             "ERR_NSSP_SAVE_ELECTRICITY"
           ],
@@ -5326,7 +5326,7 @@
             "It is cheaper to make at the home"
           ],
           "expected": "Less energy is lost along the power lines",
-          "memo": "High voltage means less energy is wasted as the electricity travels the long distance through the lines.",
+          "memo": "At high voltage, less energy is wasted as electricity travels the long distance through the lines.",
           "error_signals": [
             "ERR_NSSP_GRID_PATH"
           ],
@@ -5358,7 +5358,7 @@
             "A clock"
           ],
           "expected": "A geyser heating water",
-          "memo": "Heating water in a geyser uses a large amount of electricity compared with small devices.",
+          "memo": "Heating water in a geyser uses much more electricity than small devices do.",
           "error_signals": [
             "ERR_NSSP_SAVE_ELECTRICITY"
           ],
@@ -5375,7 +5375,7 @@
             "Open the windows while heating"
           ],
           "expected": "Use energy-saving lights and switch off appliances not in use",
-          "memo": "Energy-saving habits like LED lights and switching off appliances cut the electricity used and the bill.",
+          "memo": "Energy-saving habits, like LED lights and switching off appliances, use less electricity and lower the bill.",
           "error_signals": [
             "ERR_NSSP_SAVE_ELECTRICITY"
           ],
@@ -5392,7 +5392,7 @@
             "forest"
           ],
           "expected": "grid",
-          "memo": "The national grid carries electricity across the country.",
+          "memo": "The national grid carries electricity around the country.",
           "error_signals": [
             "ERR_NSSP_GRID_PATH"
           ],
@@ -5426,7 +5426,7 @@
             "The wall makes electricity"
           ],
           "expected": "Standby still uses some electricity",
-          "memo": "Devices on standby keep drawing a little electricity, so switching them off fully saves energy.",
+          "memo": "Devices on standby still use a little electricity, so switching them off at the wall saves energy.",
           "error_signals": [
             "ERR_NSSP_SAVE_ELECTRICITY"
           ],
@@ -5475,7 +5475,7 @@
           ],
           "expected": "Switching off lights, using LEDs and insulating the geyser save; leaving the fridge open and over-boiling waste.",
           "pass_threshold": 0.75,
-          "memo": "Actions that cut needless use save electricity; actions that let energy escape or use more than needed waste it.",
+          "memo": "Actions that cut out unnecessary use save electricity. Actions that let energy escape or use more than you need waste it.",
           "error_signals": [
             "ERR_NSSP_SAVE_ELECTRICITY"
           ],
@@ -5524,7 +5524,7 @@
             "It has no real effect"
           ],
           "expected": "It lowers demand, so power stations generate less and waste less",
-          "memo": "When many homes use less, total demand drops, so power stations generate less and waste fewer resources.",
+          "memo": "When lots of homes use less, the total demand drops, so power stations make less and waste fewer resources.",
           "error_signals": [
             "ERR_NSSP_SAVE_ELECTRICITY"
           ],
@@ -5669,7 +5669,7 @@
             "blocking the Sun"
           ],
           "expected": "tilted toward the Sun",
-          "memo": "In southern-hemisphere summer, that hemisphere is tilted toward the Sun.",
+          "memo": "When it's summer in the southern hemisphere, that half of the Earth is tilted towards the Sun.",
           "error_signals": [
             "ERR_NSSP_SEASONS_TILT"
           ],
@@ -6290,7 +6290,7 @@
             "build roads"
           ],
           "expected": "tell the time of year and find their direction",
-          "memo": "People used the stars as a natural calendar and compass to track seasons and find direction.",
+          "memo": "People used the stars like a calendar and a compass, to follow the seasons and find their way.",
           "error_signals": [
             "ERR_NSSP_INDIGENOUS_KNOWLEDGE"
           ],
@@ -6305,7 +6305,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "True — indigenous communities watched the sky carefully and built up useful knowledge.",
+          "memo": "Indigenous communities watched the sky carefully and built up useful knowledge.",
           "error_signals": [
             "ERR_NSSP_INDIGENOUS_KNOWLEDGE"
           ],
@@ -6356,7 +6356,7 @@
             "forgetting"
           ],
           "expected": "observation",
-          "memo": "Early astronomy came from careful, patient observation of the sky.",
+          "memo": "Early astronomy came from watching the sky carefully and patiently for many years.",
           "error_signals": [
             "ERR_NSSP_INDIGENOUS_KNOWLEDGE"
           ],
@@ -6373,7 +6373,7 @@
             "stay warm"
           ],
           "expected": "navigate and find their way at sea",
-          "memo": "Before modern instruments, sailors used the stars to navigate across the oceans.",
+          "memo": "Before modern instruments, sailors used the stars to find their way across the oceans.",
           "error_signals": [
             "ERR_NSSP_INDIGENOUS_KNOWLEDGE"
           ],
@@ -6390,7 +6390,7 @@
             "It replaced the need for food"
           ],
           "expected": "It helped people farm, navigate and track the seasons",
-          "memo": "Star knowledge had practical value — farming, navigation and knowing the seasons.",
+          "memo": "Knowing the stars was practical. It helped with farming, finding the way and knowing the seasons.",
           "error_signals": [
             "ERR_NSSP_INDIGENOUS_KNOWLEDGE"
           ],
@@ -6407,7 +6407,7 @@
             "No — but their knowledge was useless"
           ],
           "expected": "No — they had detailed, useful knowledge of the sky",
-          "memo": "It is a misconception that early people knew nothing. Their careful observations were detailed and useful.",
+          "memo": "It's a mistake to think early people knew nothing. Their careful observations were detailed and useful.",
           "error_signals": [
             "ERR_NSSP_INDIGENOUS_KNOWLEDGE"
           ],
@@ -6422,7 +6422,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "True — today's astronomy grew from the careful observations of earlier people.",
+          "memo": "Today's astronomy grew out of the careful observations made by earlier people.",
           "error_signals": [
             "ERR_NSSP_MODERN_ASTRONOMY"
           ],
@@ -6488,7 +6488,7 @@
           ],
           "expected": "Naked-eye watching, tracking seasons and oral star stories are early; telescopes and space probes are modern.",
           "pass_threshold": 0.75,
-          "memo": "Early knowledge came from naked-eye observation and oral tradition; modern astronomy uses instruments like telescopes and probes.",
+          "memo": "Early knowledge came from watching with the eyes alone and from stories passed down. Modern astronomy uses instruments like telescopes and space probes.",
           "error_signals": [
             "ERR_NSSP_MODERN_ASTRONOMY"
           ],
@@ -6522,7 +6522,7 @@
             "the star's heat to warm the soil"
           ],
           "expected": "star knowledge to track the season",
-          "memo": "Using a star's appearance to time planting is practical, observation-based seasonal knowledge.",
+          "memo": "Timing planting by when a star appears is practical knowledge of the seasons, based on observation.",
           "error_signals": [
             "ERR_NSSP_INDIGENOUS_KNOWLEDGE"
           ],
@@ -6539,7 +6539,7 @@
             "It ignores the seasons"
           ],
           "expected": "It uses instruments like telescopes and satellites, not just the naked eye",
-          "memo": "Modern astronomy adds powerful instruments to the careful observation that early people began.",
+          "memo": "Modern astronomy adds powerful instruments to the careful observation that early people started.",
           "error_signals": [
             "ERR_NSSP_MODERN_ASTRONOMY"
           ],
@@ -6554,7 +6554,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "True — South Africa hosts large modern telescopes used by astronomers.",
+          "memo": "South Africa has large modern telescopes that astronomers use.",
           "error_signals": [
             "ERR_NSSP_MODERN_ASTRONOMY"
           ],
@@ -6571,7 +6571,7 @@
             "Taking photos with a space telescope"
           ],
           "expected": "Using star patterns to mark the seasons",
-          "memo": "Reading star patterns to mark seasons is indigenous sky knowledge; the others are modern technology.",
+          "memo": "Reading star patterns to mark the seasons is indigenous knowledge of the sky. The others are modern technology.",
           "error_signals": [
             "ERR_NSSP_INDIGENOUS_KNOWLEDGE"
           ],
@@ -6588,7 +6588,7 @@
             "It was exactly the same as modern astronomy"
           ],
           "expected": "It was careful science that helped people survive and laid the groundwork for today's astronomy",
-          "memo": "Indigenous astronomy was careful, practical observation that helped communities and built a foundation for modern science.",
+          "memo": "Indigenous astronomy was careful, practical observation. It helped communities survive and laid the foundation for modern science.",
           "error_signals": [
             "ERR_NSSP_INDIGENOUS_KNOWLEDGE"
           ],
@@ -6622,7 +6622,7 @@
             "Passing down star stories by word of mouth"
           ],
           "expected": "Space telescopes and probes",
-          "memo": "Space telescopes and probes are modern developments; the others are early, naked-eye methods.",
+          "memo": "Space telescopes and probes are modern. The others are early methods that used only the eyes.",
           "error_signals": [
             "ERR_NSSP_MODERN_ASTRONOMY"
           ],
@@ -6639,7 +6639,7 @@
             "Astronomy has never changed over time"
           ],
           "expected": "Indigenous people built useful sky knowledge through careful observation, and modern astronomers extended it using telescopes and other instruments",
-          "memo": "Modern astronomy grew out of the careful observations of earlier people, then extended them with new instruments.",
+          "memo": "Modern astronomy grew out of earlier people's careful observations, then took them further with new instruments.",
           "error_signals": [
             "ERR_NSSP_MODERN_ASTRONOMY"
           ],
@@ -6799,7 +6799,7 @@
             "only soil"
           ],
           "expected": "carbon dioxide and water",
-          "memo": "Respiration uses glucose and oxygen, releasing energy plus carbon dioxide and water.",
+          "memo": "Respiration uses glucose and oxygen to release energy. It gives out carbon dioxide and water.",
           "error_signals": [
             "ERR_NSSP_RESPIRATION"
           ],
@@ -6880,7 +6880,7 @@
             "No — they take in nothing at all"
           ],
           "expected": "No — they take in carbon dioxide and give out oxygen",
-          "memo": "A common mix-up: in photosynthesis plants take IN carbon dioxide and give OUT oxygen.",
+          "memo": "It's easy to mix these up. In photosynthesis, plants take in carbon dioxide and give out oxygen.",
           "error_signals": [
             "ERR_NSSP_PHOTOSYNTHESIS"
           ],
@@ -6948,7 +6948,7 @@
             "They only take in oxygen"
           ],
           "expected": "They release the oxygen animals need to breathe",
-          "memo": "Plants release oxygen during photosynthesis, which animals need for respiration.",
+          "memo": "Plants give out oxygen during photosynthesis, and animals need that oxygen to breathe.",
           "error_signals": [
             "ERR_NSSP_PHOTOSYNTHESIS"
           ],
@@ -6980,7 +6980,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "True — photosynthesis stores the Sun's energy in food; respiration releases it for use.",
+          "memo": "Photosynthesis stores the Sun's energy in food. Respiration releases that energy so it can be used.",
           "error_signals": [
             "ERR_NSSP_RESPIRATION"
           ],
@@ -7014,7 +7014,7 @@
             "They are exactly the same process"
           ],
           "expected": "Photosynthesis makes glucose and oxygen; respiration uses them up",
-          "memo": "Photosynthesis builds glucose and releases oxygen; respiration uses glucose and oxygen to release energy — opposite directions.",
+          "memo": "Photosynthesis makes glucose and gives out oxygen. Respiration uses glucose and oxygen to release energy. They work in opposite directions.",
           "error_signals": [
             "ERR_NSSP_RESPIRATION"
           ],
@@ -7313,7 +7313,7 @@
           ],
           "expected": "Grass and tree make their own food (producers); lion and zebra eat others (consumers); the mushroom breaks down dead matter (decomposer).",
           "pass_threshold": 0.75,
-          "memo": "Producers make food, consumers eat other living things, and decomposers break down dead matter.",
+          "memo": "Producers make their own food. Consumers eat other living things. Decomposers break down dead matter.",
           "error_signals": [
             "ERR_NSSP_FEEDING_ROLE"
           ],
@@ -7362,7 +7362,7 @@
             "Only producers are present"
           ],
           "expected": "The numbers of predators and prey stay roughly steady over time",
-          "memo": "In a balanced ecosystem, populations stay fairly stable because the feeding links keep them in check.",
+          "memo": "In a balanced ecosystem, the numbers of each kind of living thing stay fairly steady, because who eats whom keeps them in check.",
           "error_signals": [
             "ERR_NSSP_ECOSYSTEM_BALANCE"
           ],
@@ -7413,7 +7413,7 @@
             "To use up all the resources quickly"
           ],
           "expected": "To protect the variety of living things and keep ecosystems healthy",
-          "memo": "Conservation protects biodiversity and keeps ecosystems working well for the future.",
+          "memo": "Conservation protects the variety of living things and keeps ecosystems working well for the future.",
           "error_signals": [
             "ERR_NSSP_CONSERVATION"
           ],
@@ -7447,7 +7447,7 @@
             "The new predator will become a producer"
           ],
           "expected": "The insects the birds used to eat may increase, upsetting the balance",
-          "memo": "Removing the small birds releases the insects they ate, so insect numbers can rise and the ecosystem's balance is disturbed.",
+          "memo": "With the small birds gone, nothing eats the insects they used to eat. Insect numbers can rise, and the ecosystem's balance is upset.",
           "error_signals": [
             "ERR_NSSP_ECOSYSTEM_BALANCE"
           ],
@@ -7507,7 +7507,7 @@
             "A rock"
           ],
           "expected": "Bacteria",
-          "memo": "Bacteria are micro-organisms; the others are large or non-living.",
+          "memo": "Bacteria are micro-organisms. The others are large or not living.",
           "error_signals": [
             "ERR_NSSP_MICROBE_DEF"
           ],
@@ -7522,7 +7522,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "True — many micro-organisms are useful, for example in making food and medicine.",
+          "memo": "Many micro-organisms are useful, for example in making food and medicine.",
           "error_signals": [
             "ERR_NSSP_MICROBE_USEFUL"
           ],
@@ -7605,7 +7605,7 @@
           ],
           "expected": "Food-poisoning bacteria and the flu virus are harmful; bread yeast, yoghurt bacteria and decomposing bacteria are useful.",
           "pass_threshold": 0.75,
-          "memo": "Judge each by what it does: causing illness or spoiling food is harmful; making food or recycling dead matter is useful.",
+          "memo": "Judge each one by what it does. Causing illness or spoiling food is harmful. Making food or breaking down dead matter is useful.",
           "error_signals": [
             "ERR_NSSP_MICROBE_ALL_HARMFUL"
           ],
@@ -7622,7 +7622,7 @@
             "dangerous"
           ],
           "expected": "useful",
-          "memo": "Yoghurt-making bacteria are useful micro-organisms.",
+          "memo": "The bacteria that make yoghurt are useful micro-organisms.",
           "error_signals": [
             "ERR_NSSP_MICROBE_USEFUL"
           ],
@@ -7722,7 +7722,7 @@
             "fertilisers"
           ],
           "expected": "antibiotics",
-          "memo": "Antibiotics, often made with the help of micro-organisms, fight bacterial infections.",
+          "memo": "Antibiotics fight infections caused by bacteria, and they are often made with the help of micro-organisms.",
           "error_signals": [
             "ERR_NSSP_MICROBE_USEFUL"
           ],
@@ -8036,7 +8036,7 @@
             "metal"
           ],
           "expected": "compound",
-          "memo": "Different atoms chemically joined make a compound.",
+          "memo": "When different atoms are chemically joined, they make a compound.",
           "error_signals": [
             "ERR_NSSP_ELEMENT_COMPOUND"
           ],
@@ -8085,7 +8085,7 @@
           ],
           "expected": "Oxygen, gold and iron are elements; water and carbon dioxide are compounds.",
           "pass_threshold": 0.75,
-          "memo": "One kind of atom = element (oxygen, gold, iron); different atoms joined = compound (water, carbon dioxide).",
+          "memo": "Only one kind of atom makes an element, like oxygen, gold or iron. Different atoms joined together make a compound, like water or carbon dioxide.",
           "error_signals": [
             "ERR_NSSP_ELEMENT_COMPOUND"
           ],
@@ -8151,7 +8151,7 @@
             "A mixture is made of one kind of atom"
           ],
           "expected": "In a mixture the substances are not chemically joined and can be separated",
-          "memo": "In a mixture the substances are simply mixed (not chemically joined), so they can be separated; in a compound they are chemically joined.",
+          "memo": "In a mixture, the substances are just mixed, not chemically joined, so they can be separated. In a compound they are chemically joined.",
           "error_signals": [
             "ERR_NSSP_ELEMENT_COMPOUND"
           ],
@@ -8236,7 +8236,7 @@
             "It is made of only carbon atoms"
           ],
           "expected": "It is a compound of carbon and oxygen atoms joined together",
-          "memo": "CO2 shows carbon and oxygen atoms chemically joined, so carbon dioxide is a compound.",
+          "memo": "CO2 shows carbon and oxygen atoms chemically joined together, so carbon dioxide is a compound.",
           "error_signals": [
             "ERR_NSSP_ELEMENT_COMPOUND"
           ],
@@ -8279,7 +8279,7 @@
             "Matter has no particles"
           ],
           "expected": "All matter is made of tiny particles that are always moving",
-          "memo": "The particle model says all matter is made of tiny, constantly moving particles.",
+          "memo": "The particle model says all matter is made of tiny particles that are always moving.",
           "error_signals": [
             "ERR_NSSP_PARTICLE_MODEL"
           ],
@@ -8632,7 +8632,7 @@
             "The particles stop moving in the heat"
           ],
           "expected": "The air particles gain energy, move faster and push the balloon outward",
-          "memo": "Heat gives the air particles more energy; they move faster and hit the balloon harder and more often, pushing it outward.",
+          "memo": "The heat gives the air particles more energy. They move faster and hit the inside of the balloon harder and more often, so it pushes outwards.",
           "error_signals": [
             "ERR_NSSP_PRESSURE"
           ],
@@ -8840,7 +8840,7 @@
           ],
           "expected": "Burning paper and rusting iron are chemical changes; melting ice, dissolving salt and boiling water are physical changes.",
           "pass_threshold": 0.75,
-          "memo": "If a new substance forms (burning, rusting) it is chemical; if not (melting, dissolving, boiling) it is physical.",
+          "memo": "If a new substance forms, like when paper burns or iron rusts, it's a chemical change. If not, like melting, dissolving or boiling, it's physical.",
           "error_signals": [
             "ERR_NSSP_PHYSICAL_CHEMICAL"
           ],
@@ -9006,7 +9006,7 @@
             "The substance got slightly colder while staying the same"
           ],
           "expected": "A new substance with new properties has formed",
-          "memo": "The clearest evidence of a chemical reaction is the formation of a new substance with new properties.",
+          "memo": "The clearest sign of a chemical reaction is that a new substance with new properties has formed.",
           "error_signals": [
             "ERR_NSSP_CHEMICAL_CHANGE"
           ],
@@ -9065,7 +9065,7 @@
             "painted"
           ],
           "expected": "rubbed together (friction)",
-          "memo": "Rubbing (friction) moves tiny charges between materials, building up static electricity.",
+          "memo": "Rubbing two materials together (friction) moves tiny charges between them, which builds up static electricity.",
           "error_signals": [
             "ERR_NSSP_STATIC_CAUSE"
           ],
@@ -9392,7 +9392,7 @@
             "Two objects with the same charge"
           ],
           "expected": "A positively charged object and a negatively charged object",
-          "memo": "Opposite charges attract, so a positive and a negative object pull together.",
+          "memo": "Opposite charges attract, so a positive object and a negative object pull towards each other.",
           "error_signals": [
             "ERR_NSSP_ATTRACT_REPEL"
           ],
@@ -9604,7 +9604,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "True — a current flowing in a wire produces a magnetic effect (used in electromagnets).",
+          "memo": "A current flowing in a wire makes a magnetic effect. That's how electromagnets work.",
           "error_signals": [
             "ERR_NSSP_CURRENT_EFFECT"
           ],
@@ -11172,7 +11172,7 @@
             "Astronomers cannot count in kilometres"
           ],
           "expected": "The distances are so huge that kilometres would be impractically large numbers",
-          "memo": "Space distances are so vast that light-years are a more practical unit than enormous numbers of kilometres.",
+          "memo": "Distances in space are so huge that kilometres would give ridiculously big numbers. Light-years are easier to use.",
           "error_signals": [
             "ERR_NSSP_LIGHTYEAR"
           ],
@@ -11223,7 +11223,7 @@
             "just empty kilometres of road"
           ],
           "expected": "many other galaxies",
-          "memo": "The Universe contains many billions of other galaxies beyond the Milky Way.",
+          "memo": "There are billions of other galaxies beyond the Milky Way.",
           "error_signals": [
             "ERR_NSSP_GALAXY"
           ],
@@ -11366,7 +11366,7 @@
             "It removes the atmosphere"
           ],
           "expected": "It gathers light to make distant objects look closer and clearer",
-          "memo": "A telescope collects light from distant objects, making them appear bigger, brighter and clearer.",
+          "memo": "A telescope collects light from faraway objects, so they look bigger, brighter and clearer.",
           "error_signals": [
             "ERR_NSSP_TELESCOPE"
           ],
@@ -11530,7 +11530,7 @@
             "a thermometer"
           ],
           "expected": "a powerful telescope",
-          "memo": "A powerful telescope gathers enough light to study faint, distant galaxies.",
+          "memo": "A powerful telescope collects enough light to study faint galaxies that are very far away.",
           "error_signals": [
             "ERR_NSSP_TELESCOPE"
           ],
@@ -11581,7 +11581,7 @@
             "watching the tides"
           ],
           "expected": "very tiny, nearby objects",
-          "memo": "A microscope magnifies tiny objects up close — the opposite job to a telescope.",
+          "memo": "A microscope makes tiny things up close look bigger. It does the opposite job to a telescope.",
           "error_signals": [
             "ERR_NSSP_TELESCOPE"
           ],
@@ -11961,7 +11961,7 @@
           "input_type": "choice",
           "options": ["To transport blood around the body", "To break down food", "To take in oxygen", "To support the body"],
           "expected": "To transport blood around the body",
-          "memo": "The circulatory system transports blood, carrying oxygen and nutrients around the body.",
+          "memo": "The circulatory system moves blood around the body, carrying oxygen and nutrients.",
           "error_signals": ["ERR_NSSP_SYSTEM_JOB"],
           "difficulty": 1
         },
@@ -12021,7 +12021,7 @@
           ],
           "expected": "Circulatory → transports blood; respiratory → takes in oxygen; digestive → breaks down food.",
           "pass_threshold": 0.75,
-          "memo": "Match each system to its one key job: circulatory transports, respiratory takes in oxygen, digestive breaks down food.",
+          "memo": "Each system has one key job: the circulatory system moves blood, the respiratory system takes in oxygen, and the digestive system breaks down food.",
           "error_signals": ["ERR_NSSP_SYSTEM_JOB"],
           "difficulty": 3
         },
@@ -12061,7 +12061,7 @@
           "input_type": "choice",
           "options": ["No — that is the job of the circulatory system", "Yes — the lungs pump the blood", "Yes — breathing pumps the blood", "No — blood is not pumped at all"],
           "expected": "No — that is the job of the circulatory system",
-          "memo": "Pumping blood is the circulatory system's job; the respiratory system handles breathing.",
+          "memo": "Pumping blood is the circulatory system's job. The respiratory system handles breathing.",
           "error_signals": ["ERR_NSSP_SYSTEM_JOB"],
           "difficulty": 3
         },
@@ -12071,7 +12071,7 @@
           "input_type": "true-false",
           "options": ["True", "False"],
           "expected": "True",
-          "memo": "True — the systems depend on each other; for example, the circulatory and respiratory systems work together.",
+          "memo": "The body's systems depend on each other. For example, the circulatory and respiratory systems work together.",
           "error_signals": ["ERR_NSSP_SYSTEM_COOP"],
           "difficulty": 2
         },
@@ -12081,7 +12081,7 @@
           "input_type": "scenario",
           "options": ["The muscular and skeletal systems (working with the circulatory and respiratory systems)", "Only the digestive system", "Only the nervous system on its own", "None of the body's systems"],
           "expected": "The muscular and skeletal systems (working with the circulatory and respiratory systems)",
-          "memo": "Running uses muscles and bones to move, supported by the heart and lungs delivering oxygen — several systems together.",
+          "memo": "Running uses your muscles and bones to move, with your heart and lungs delivering oxygen. Several systems work together.",
           "error_signals": ["ERR_NSSP_SYSTEM_COOP"],
           "difficulty": 3
         },
@@ -12121,7 +12121,7 @@
           "input_type": "true-false",
           "options": ["True", "False"],
           "expected": "False",
-          "memo": "False — the systems are interdependent and work together, not in isolation.",
+          "memo": "The body's systems depend on each other and work together. They don't work on their own.",
           "error_signals": ["ERR_NSSP_SYSTEM_COOP"],
           "difficulty": 2
         },
@@ -12151,7 +12151,7 @@
           "input_type": "choice",
           "options": ["Each system does a special job, and together they keep the whole body working", "One system would be cheaper", "The body has systems only for decoration", "Systems do not actually do anything"],
           "expected": "Each system does a special job, and together they keep the whole body working",
-          "memo": "Different systems handle different needs, and together they keep the whole body alive and healthy.",
+          "memo": "Different systems take care of different needs, and together they keep the whole body alive and healthy.",
           "error_signals": ["ERR_NSSP_SYSTEM_COOP"],
           "difficulty": 3
         },
@@ -12161,7 +12161,7 @@
           "input_type": "choice",
           "options": ["Blood would no longer deliver oxygen and nutrients to the rest of the body", "The bones would dissolve instantly", "The body would have too much energy", "Nothing would change at all"],
           "expected": "Blood would no longer deliver oxygen and nutrients to the rest of the body",
-          "memo": "The circulatory system delivers oxygen and nutrients everywhere, so if it stops, the other systems are quickly starved and fail.",
+          "memo": "The circulatory system delivers oxygen and nutrients everywhere. If it stops, the other systems quickly run out of what they need and fail.",
           "error_signals": ["ERR_NSSP_SYSTEM_COOP"],
           "difficulty": 4
         }
@@ -12197,7 +12197,7 @@
           "input_type": "choice",
           "options": ["To produce new individuals and continue the species", "To give the body energy", "To digest food", "To remove waste"],
           "expected": "To produce new individuals and continue the species",
-          "memo": "Reproduction produces offspring so the species continues.",
+          "memo": "Reproduction produces offspring, so the species carries on.",
           "error_signals": ["ERR_NSSP_REPRO_PURPOSE"],
           "difficulty": 1
         },
@@ -12252,7 +12252,7 @@
             { "id": "birth", "text": "Birth" }
           ],
           "expected_order": ["fert", "develop", "grow", "birth"],
-          "memo": "The order is fertilisation → development in the uterus → growth → birth.",
+          "memo": "First fertilisation, then development in the uterus, then the baby grows, then birth.",
           "error_signals": ["ERR_NSSP_REPRO_STAGE"],
           "difficulty": 3
         },
@@ -12312,7 +12312,7 @@
           "input_type": "choice",
           "options": ["In the fallopian tube (oviduct)", "In the lungs", "In the stomach", "In the brain"],
           "expected": "In the fallopian tube (oviduct)",
-          "memo": "Fertilisation usually happens in the fallopian tube, after which the fertilised egg moves to the uterus.",
+          "memo": "Fertilisation usually happens in the fallopian tube. Then the fertilised egg moves to the uterus.",
           "error_signals": ["ERR_NSSP_REPRO_ORGAN"],
           "difficulty": 3
         },
@@ -12509,7 +12509,7 @@
           "input_type": "choice",
           "options": ["The lungs add oxygen to the blood, and the heart pumps that blood around the body", "They work completely separately", "The heart breathes and the lungs pump", "Neither system carries oxygen"],
           "expected": "The lungs add oxygen to the blood, and the heart pumps that blood around the body",
-          "memo": "The respiratory system loads oxygen into the blood; the circulatory system carries it everywhere.",
+          "memo": "The respiratory system puts oxygen into the blood, and the circulatory system carries it everywhere.",
           "error_signals": ["ERR_NSSP_CIRC_RESP_COOP"],
           "difficulty": 3
         },
@@ -12723,7 +12723,7 @@
             { "id": "large", "text": "Large intestine" }
           ],
           "expected_order": ["mouth", "oeso", "stomach", "small", "large"],
-          "memo": "Food travels: mouth → oesophagus → stomach → small intestine → large intestine.",
+          "memo": "Food travels from the mouth, down the oesophagus, into the stomach, then the small intestine, then the large intestine.",
           "error_signals": ["ERR_NSSP_DIGESTION_ORDER"],
           "difficulty": 3
         },
@@ -12888,7 +12888,7 @@
           "input_type": "choice",
           "options": ["When two or more different elements join chemically", "When one element is cut in half", "When a metal is melted", "When a mixture is stirred"],
           "expected": "When two or more different elements join chemically",
-          "memo": "A compound forms when different elements join chemically in fixed proportions.",
+          "memo": "A compound forms when different elements join chemically, always in the same proportions.",
           "error_signals": ["ERR_NSSP_COMPOUND_FORM"],
           "difficulty": 1
         },
@@ -12918,7 +12918,7 @@
           "input_type": "choice",
           "options": ["Calcium carbonate", "Sodium chloride", "Iron sulfide", "Magnesium nitride"],
           "expected": "Calcium carbonate",
-          "memo": "Names ending in -ate (like carbonate) usually contain oxygen joined with another element in a group.",
+          "memo": "Names ending in '-ate', like carbonate, usually mean oxygen is joined with another element in a group.",
           "error_signals": ["ERR_NSSP_NAMING"],
           "difficulty": 3
         },
@@ -12999,7 +12999,7 @@
           ],
           "expected": "Oxygen and iron are elements; sodium chloride, water and carbon dioxide are compounds.",
           "pass_threshold": 0.75,
-          "memo": "One kind of atom = element; different elements chemically joined = compound.",
+          "memo": "Only one kind of atom makes an element. Different elements chemically joined make a compound.",
           "error_signals": ["ERR_NSSP_COMPOUND_FORM"],
           "difficulty": 3
         },
@@ -13059,7 +13059,7 @@
           "input_type": "scenario",
           "options": ["calcium oxide", "calcium oxate", "oxygen calcide", "calcium hydroxide"],
           "expected": "calcium oxide",
-          "memo": "Calcium + oxygen → calcium oxide.",
+          "memo": "Calcium and oxygen react to make calcium oxide.",
           "error_signals": ["ERR_NSSP_NAMING"],
           "difficulty": 3
         },
@@ -13349,7 +13349,7 @@
           "input_type": "choice",
           "options": ["metal oxide", "metal acid", "pure metal", "salt and water"],
           "expected": "metal oxide",
-          "memo": "The general reaction is metal + oxygen → metal oxide.",
+          "memo": "A metal reacting with oxygen makes a metal oxide.",
           "error_signals": ["ERR_NSSP_METAL_OXYGEN"],
           "difficulty": 1
         },
@@ -13419,7 +13419,7 @@
           "input_type": "cloze",
           "options": ["oxide", "sulfide", "acid", "carbonate"],
           "expected": "oxide",
-          "memo": "metal + oxygen → metal oxide.",
+          "memo": "Metal plus oxygen makes a metal oxide.",
           "error_signals": ["ERR_NSSP_METAL_OXYGEN"],
           "difficulty": 2
         },
@@ -13585,7 +13585,7 @@
           "input_type": "choice",
           "options": ["non-metal oxide", "metal oxide", "pure metal", "salt and hydrogen"],
           "expected": "non-metal oxide",
-          "memo": "The general reaction is non-metal + oxygen → non-metal oxide.",
+          "memo": "A non-metal reacting with oxygen makes a non-metal oxide.",
           "error_signals": ["ERR_NSSP_NONMETAL_OXYGEN"],
           "difficulty": 1
         },
@@ -13605,7 +13605,7 @@
           "input_type": "choice",
           "options": ["sulfur dioxide", "sulfur oxide salt", "sulfuric metal", "sodium sulfide"],
           "expected": "sulfur dioxide",
-          "memo": "Sulfur + oxygen → sulfur dioxide.",
+          "memo": "Sulfur and oxygen react to make sulfur dioxide.",
           "error_signals": ["ERR_NSSP_NONMETAL_OXYGEN"],
           "difficulty": 2
         },
@@ -13655,7 +13655,7 @@
           "input_type": "cloze",
           "options": ["oxide", "acid", "salt", "hydroxide"],
           "expected": "oxide",
-          "memo": "non-metal + oxygen → non-metal oxide.",
+          "memo": "Non-metal plus oxygen makes a non-metal oxide.",
           "error_signals": ["ERR_NSSP_NONMETAL_OXYGEN"],
           "difficulty": 2
         },
@@ -13685,7 +13685,7 @@
           ],
           "expected": "Non-metal oxides (carbon dioxide, sulfur dioxide) form acids; metal oxides (magnesium oxide, calcium oxide) tend to be basic.",
           "pass_threshold": 0.75,
-          "memo": "Non-metal oxides → acids; metal oxides → basic.",
+          "memo": "Non-metal oxides make acids in water. Metal oxides make bases.",
           "error_signals": ["ERR_NSSP_OXIDE_ACID_BASE"],
           "difficulty": 3
         },
@@ -14133,7 +14133,7 @@
           "input_type": "scenario",
           "options": ["is a base that neutralises the excess acid", "adds more acid to the stomach", "removes all water from the stomach", "has no effect on acid"],
           "expected": "is a base that neutralises the excess acid",
-          "memo": "An antacid is a base that neutralises the extra stomach acid, easing indigestion.",
+          "memo": "An antacid is a base. It neutralises the extra stomach acid, which eases indigestion.",
           "error_signals": ["ERR_NSSP_NEUTRALISATION"],
           "difficulty": 3
         },
@@ -14357,7 +14357,7 @@
           "input_type": "choice",
           "options": ["No — it gives off hydrogen", "Yes — it gives off oxygen", "Yes — it gives off carbon dioxide", "No — no gas is given off"],
           "expected": "No — it gives off hydrogen",
-          "memo": "Acid + metal releases hydrogen, not oxygen.",
+          "memo": "An acid reacting with a metal gives off hydrogen, not oxygen.",
           "error_signals": ["ERR_NSSP_ACID_METAL"],
           "difficulty": 3
         },
@@ -14377,7 +14377,7 @@
           "input_type": "choice",
           "options": ["zinc chloride", "zinc oxide", "zinc carbonate", "zinc sulfate"],
           "expected": "zinc chloride",
-          "memo": "Zinc + hydrochloric acid → zinc chloride + hydrogen.",
+          "memo": "Zinc and hydrochloric acid react to make zinc chloride and hydrogen.",
           "error_signals": ["ERR_NSSP_ACID_METAL"],
           "difficulty": 3
         },
@@ -14397,7 +14397,7 @@
           "input_type": "choice",
           "options": ["hydrogen", "oxygen", "water", "carbon dioxide"],
           "expected": "hydrogen",
-          "memo": "Magnesium + sulfuric acid → magnesium sulfate + hydrogen.",
+          "memo": "Magnesium and sulfuric acid react to make magnesium sulfate and hydrogen.",
           "error_signals": ["ERR_NSSP_ACID_METAL"],
           "difficulty": 3
         },
@@ -14417,7 +14417,7 @@
           "input_type": "cloze",
           "options": ["hydrogen", "oxygen", "carbon dioxide", "nitrogen"],
           "expected": "hydrogen",
-          "memo": "The squeaky pop test identifies hydrogen.",
+          "memo": "The squeaky pop test shows the gas is hydrogen.",
           "error_signals": ["ERR_NSSP_HYDROGEN_TEST"],
           "difficulty": 2
         },
@@ -14769,7 +14769,7 @@
           "input_type": "choice",
           "options": ["Chemical energy", "Light energy", "Sound energy", "Magnetic energy"],
           "expected": "Chemical energy",
-          "memo": "A cell stores chemical energy, ready to be changed into electrical energy.",
+          "memo": "A cell stores chemical energy, ready to change into electrical energy.",
           "error_signals": ["ERR_NSSP_CELL_ENERGY"],
           "difficulty": 1
         },
@@ -14779,7 +14779,7 @@
           "input_type": "choice",
           "options": ["electrical energy", "nuclear energy", "sound energy", "light energy directly"],
           "expected": "electrical energy",
-          "memo": "A cell changes chemical energy into electrical energy to drive a current.",
+          "memo": "A cell changes chemical energy into electrical energy, which makes a current flow.",
           "error_signals": ["ERR_NSSP_CELL_ENERGY"],
           "difficulty": 2
         },
@@ -14859,7 +14859,7 @@
           "input_type": "choice",
           "options": ["Chemical energy → electrical energy", "Electrical energy → chemical energy", "Light energy → chemical energy", "Sound energy → electrical energy"],
           "expected": "Chemical energy → electrical energy",
-          "memo": "A cell changes chemical energy into electrical energy.",
+          "memo": "A working cell changes chemical energy into electrical energy.",
           "error_signals": ["ERR_NSSP_CELL_ENERGY"],
           "difficulty": 2
         },
@@ -14879,7 +14879,7 @@
           "input_type": "choice",
           "options": ["Charging puts chemical energy back into the cell", "Charging makes brand-new atoms", "Charging cools the cell down", "Charging removes the cell's energy"],
           "expected": "Charging puts chemical energy back into the cell",
-          "memo": "Charging restores the chemical energy, so the cell can supply electrical energy again.",
+          "memo": "Charging puts the chemical energy back, so the cell can supply electrical energy again.",
           "error_signals": ["ERR_NSSP_CELL_ENERGY"],
           "difficulty": 3
         },
@@ -14899,7 +14899,7 @@
           "input_type": "true-false",
           "options": ["True", "False"],
           "expected": "False",
-          "memo": "False — a cell changes stored chemical energy into electrical energy; it does not create energy.",
+          "memo": "A cell doesn't create energy. It changes stored chemical energy into electrical energy.",
           "error_signals": ["ERR_NSSP_CELL_ENERGY"],
           "difficulty": 2
         },
@@ -14949,7 +14949,7 @@
           "input_type": "true-false",
           "options": ["True", "False"],
           "expected": "True",
-          "memo": "True — a cell transfers chemical energy into electrical energy, in line with conservation of energy.",
+          "memo": "A cell changes chemical energy into electrical energy. Energy is never made or destroyed, only changed.",
           "error_signals": ["ERR_NSSP_CELL_ENERGY"],
           "difficulty": 2
         },
@@ -15465,7 +15465,7 @@
           "input_type": "choice",
           "options": ["dangerous", "perfectly safe", "harmless", "helpful"],
           "expected": "dangerous",
-          "memo": "Water conducts electricity, so the two together are dangerous.",
+          "memo": "Water conducts electricity, so electricity and water together are dangerous.",
           "error_signals": ["ERR_NSSP_ELEC_SAFETY"],
           "difficulty": 1
         },
@@ -15656,7 +15656,7 @@
           "input_type": "cloze",
           "options": ["dangerous", "safe", "helpful", "harmless"],
           "expected": "dangerous",
-          "memo": "Wet hands conduct electricity, making them a dangerous combination with electrical devices.",
+          "memo": "Wet hands conduct electricity, so touching electrical devices with wet hands is dangerous.",
           "error_signals": ["ERR_NSSP_ELEC_SAFETY"],
           "difficulty": 2
         },
@@ -15722,7 +15722,7 @@
           "input_type": "choice",
           "options": ["turbines, which generate electricity", "the coal", "the national grid", "the homes"],
           "expected": "turbines, which generate electricity",
-          "memo": "The steam spins turbines connected to generators, which produce the electricity.",
+          "memo": "The steam spins turbines connected to generators, and the generators make the electricity.",
           "error_signals": ["ERR_NSSP_GENERATION"],
           "difficulty": 2
         },
@@ -15768,7 +15768,7 @@
           "input_type": "cloze",
           "options": ["coal", "water", "wind", "wood"],
           "expected": "coal",
-          "memo": "Most South African electricity is generated by burning coal.",
+          "memo": "Most of South Africa's electricity is made by burning coal.",
           "error_signals": ["ERR_NSSP_GENERATION"],
           "difficulty": 2
         },
@@ -15798,7 +15798,7 @@
           "input_type": "true-false",
           "options": ["True", "False"],
           "expected": "True",
-          "memo": "True — although coal dominates, South Africa also uses nuclear and growing amounts of renewable energy.",
+          "memo": "Coal is the main source, but South Africa also uses nuclear power and more and more renewable energy.",
           "error_signals": ["ERR_NSSP_GENERATION"],
           "difficulty": 2
         },
@@ -15858,7 +15858,7 @@
           "input_type": "choice",
           "options": ["the network of power lines across the country", "a single power station", "a type of cell", "a home appliance"],
           "expected": "the network of power lines across the country",
-          "memo": "The national grid is the country-wide network of power lines that distributes electricity.",
+          "memo": "The national grid is the network of power lines across the country that carries electricity.",
           "error_signals": ["ERR_NSSP_GRID"],
           "difficulty": 2
         },
@@ -15878,7 +15878,7 @@
           "input_type": "choice",
           "options": ["To reduce pollution and its reliance on coal", "To make electricity run out faster", "To increase air pollution", "To stop using the grid"],
           "expected": "To reduce pollution and its reliance on coal",
-          "memo": "More renewables cut pollution and reduce dependence on coal, which is non-renewable.",
+          "memo": "More renewable energy means less pollution and less need for coal, which will run out.",
           "error_signals": ["ERR_NSSP_GENERATION"],
           "difficulty": 3
         },
@@ -15898,7 +15898,7 @@
           "input_type": "choice",
           "options": ["Burning coal heats water to steam, which spins turbines that generate electricity", "Coal is turned straight into electricity with no steam", "Coal is cooled into electricity", "Coal is sent directly down the wires"],
           "expected": "Burning coal heats water to steam, which spins turbines that generate electricity",
-          "memo": "The chemical energy in coal becomes heat, then steam, then movement of turbines, then electrical energy.",
+          "memo": "Burning coal turns its chemical energy into heat. The heat makes steam, the steam spins turbines, and the turbines make electricity.",
           "error_signals": ["ERR_NSSP_GENERATION"],
           "difficulty": 4
         }
@@ -16011,7 +16011,7 @@
           "input_type": "choice",
           "options": ["In units of energy (kilowatt-hours)", "In litres", "In degrees", "In metres"],
           "expected": "In units of energy (kilowatt-hours)",
-          "memo": "Electricity is billed in units of energy called kilowatt-hours.",
+          "memo": "You pay for electricity by the amount of energy you use, measured in kilowatt-hours.",
           "error_signals": ["ERR_NSSP_POWER_COST"],
           "difficulty": 2
         },
@@ -16245,7 +16245,7 @@
           ],
           "expected": "Mountain → lithosphere; ocean → hydrosphere; air → atmosphere; forest → biosphere.",
           "pass_threshold": 0.75,
-          "memo": "Rock/land = lithosphere; water = hydrosphere; air = atmosphere; living things = biosphere.",
+          "memo": "Rock and land are the lithosphere, water is the hydrosphere, air is the atmosphere, and living things are the biosphere.",
           "error_signals": ["ERR_NSSP_SPHERE_IDENTITY"],
           "difficulty": 3
         },
@@ -16375,7 +16375,7 @@
           "input_type": "choice",
           "options": ["All four — lithosphere, hydrosphere, atmosphere and biosphere", "Only one", "Only two", "None of them"],
           "expected": "All four — lithosphere, hydrosphere, atmosphere and biosphere",
-          "memo": "Soil (lithosphere), water (hydrosphere), air (atmosphere) and living things (biosphere) all interact here.",
+          "memo": "Soil (lithosphere), water (hydrosphere), air (atmosphere) and living things (biosphere) all work together here.",
           "error_signals": ["ERR_NSSP_EARTH_SPHERES"],
           "difficulty": 4
         }
@@ -16492,7 +16492,7 @@
           ],
           "expected": "Cooling molten rock → igneous; pressed sediment → sedimentary; heat and pressure → metamorphic.",
           "pass_threshold": 0.75,
-          "memo": "Igneous = cooled magma; sedimentary = pressed layers; metamorphic = changed by heat and pressure.",
+          "memo": "Igneous rock is melted rock that cooled. Sedimentary rock is layers pressed together. Metamorphic rock was changed by heat and pressure.",
           "error_signals": ["ERR_NSSP_ROCK_TYPE"],
           "difficulty": 3
         },
@@ -16527,7 +16527,7 @@
             { "id": "metamorphic", "text": "Heat and pressure change it into metamorphic rock" }
           ],
           "expected_order": ["igneous", "weather", "sedimentary", "metamorphic"],
-          "memo": "Molten rock → igneous rock → worn into sediment → sedimentary rock → heat and pressure → metamorphic rock.",
+          "memo": "Melted rock cools into igneous rock. It wears down into sediment, which is pressed into sedimentary rock. Heat and pressure then change it into metamorphic rock.",
           "error_signals": ["ERR_NSSP_ROCK_CYCLE"],
           "difficulty": 3
         },
@@ -16547,7 +16547,7 @@
           "input_type": "true-false",
           "options": ["True", "False"],
           "expected": "True",
-          "memo": "True — sedimentary rocks usually show layers, because they form from layers of sediment.",
+          "memo": "Sedimentary rocks form from layers of sediment, so you can usually see layers in them.",
           "error_signals": ["ERR_NSSP_ROCK_TYPE"],
           "difficulty": 2
         },
@@ -16587,7 +16587,7 @@
           "input_type": "choice",
           "options": ["Sedimentary rock", "Igneous rock", "Metamorphic rock", "Molten rock"],
           "expected": "Sedimentary rock",
-          "memo": "Settled, compacted sediment forms sedimentary rock.",
+          "memo": "Sand and mud that settle and get pressed together form sedimentary rock.",
           "error_signals": ["ERR_NSSP_ROCK_TYPE"],
           "difficulty": 2
         },
@@ -16728,7 +16728,7 @@
           "input_type": "choice",
           "options": ["To make it pure by removing impurities", "To dig it out of the ground", "To mix it with rock", "To bury it again"],
           "expected": "To make it pure by removing impurities",
-          "memo": "Refining removes impurities to give a purer metal.",
+          "memo": "Refining removes impurities, so the metal is purer.",
           "error_signals": ["ERR_NSSP_MINING"],
           "difficulty": 2
         },
@@ -16798,7 +16798,7 @@
           "input_type": "scenario",
           "options": ["environmental damage and pollution", "more rain", "cleaner air", "no change at all"],
           "expected": "environmental damage and pollution",
-          "memo": "Alongside its benefits, mining can damage the environment and cause pollution.",
+          "memo": "As well as its benefits, mining can damage the environment and cause pollution.",
           "error_signals": ["ERR_NSSP_MINING_IMPACT"],
           "difficulty": 3
         },
@@ -16808,7 +16808,7 @@
           "input_type": "true-false",
           "options": ["True", "False"],
           "expected": "True",
-          "memo": "True — refining purifies the metal by removing impurities.",
+          "memo": "Refining makes a metal purer by removing impurities.",
           "error_signals": ["ERR_NSSP_MINING"],
           "difficulty": 2
         },
@@ -16838,7 +16838,7 @@
           "input_type": "choice",
           "options": ["It provides jobs, materials and export income", "It makes the country smaller", "It removes all the soil", "It has no economic value"],
           "expected": "It provides jobs, materials and export income",
-          "memo": "Mining supports the economy through jobs, useful materials and income from exports.",
+          "memo": "Mining supports the economy with jobs, useful materials and money from selling to other countries.",
           "error_signals": ["ERR_NSSP_MINING_SA"],
           "difficulty": 3
         },
@@ -16980,7 +16980,7 @@
             { "id": "thermo", "text": "Thermosphere" }
           ],
           "expected_order": ["tropo", "strato", "meso", "thermo"],
-          "memo": "From the ground up: troposphere → stratosphere → mesosphere → thermosphere.",
+          "memo": "From the ground up, the layers are the troposphere, stratosphere, mesosphere, then thermosphere.",
           "error_signals": ["ERR_NSSP_ATMOSPHERE_LAYER"],
           "difficulty": 3
         },

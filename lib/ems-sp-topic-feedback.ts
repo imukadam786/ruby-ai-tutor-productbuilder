@@ -1,215 +1,214 @@
-// ─── EMS SP — per-topic "think of it like this" analogies ──────────────────
+// ─── EMS — per-topic "real-life example" pictures ──────────────────────────
 //
-// One everyday analogy per topic (102: Economics + Financial Literacy +
-// Entrepreneurship, Grades 7–9), keyed by skill/topic id. Feeds the wrong-
-// answer card's example slot via FeedbackExplanation's `exampleOverride`.
-// Register: Grade 7–9, concrete, everyday South African reference points
-// (spaza shop, stokvel, taxi rank, pocket money). "why" = the question's memo,
-// "how" = the topic's recovery_strategy, "where" = buildTopicWhere().
+// One everyday picture per topic (102), keyed by skill/topic id. Feeds the
+// wrong-answer card's example slot via FeedbackExplanation's `exampleOverride`.
+// Rules in docs/feedback-writing-guide.md: an everyday South African picture,
+// no facts, terms or numbers from the topic, and no instructions. "why" = the
+// question's memo, "where" = buildTopicWhere().
 
 export const TOPIC_EXAMPLES: Record<string, string> = {
   "EMS.G7.E1.A1":
-    "Barter is swapping straight across — your two chickens for my bag of mealies. It only works if I happen to want chickens right now; money removes that lucky-match problem.",
+    "It's like swapping lunch at school. It only works if the friend with the sandwich you want happens to want your apple right now.",
   "EMS.G7.E1.A2":
-    "Money is a middle step everyone accepts: sell your chickens for cash, then spend the cash on mealies whenever you like. No perfect swap needed.",
+    "It's like collecting tokens at a fair. You win tokens at one stall and spend them at any other stall you like.",
   "EMS.G7.E1.A3":
-    "Money does three jobs at once, like a Swiss-army knife: it pays for things now, it stores value for later (savings), and it puts a price on everything so you can compare.",
+    "It's like a multi-tool penknife. One small thing does several different jobs, depending on what you need.",
   "EMS.G7.E2.A1":
-    "A need scales up: one person needs water, a household needs a tap, a town needs a reservoir, a country needs dams and pipelines — same need, bigger version.",
+    "It's like thirst. One person needs a cup, a family needs a tap, and a whole town needs a dam. The same need, just bigger.",
   "EMS.G7.E2.A2":
-    "Primary needs keep you alive — food, water, shelter. Secondary needs make life better — a bed instead of the floor, a phone, a uniform that fits.",
+    "It's like packing for a camping trip. Some things you can't survive without, and others just make the trip more comfortable.",
   "EMS.G7.E2.A3":
-    "Your wish list is endless but your pocket money isn't — so you pick one thing and leave the rest. That choice is the whole of economics in miniature.",
+    "It's like standing at the tuck shop with a little money and a long list of things you'd love. You have to choose.",
   "EMS.G7.E3.A1":
-    "A good is a thing you can hold — a loaf of bread. A service is a job someone does for you — the baker's time, a haircut, a taxi ride.",
+    "It's like the difference between buying a loaf of bread and paying someone to cut your hair. One you carry home, the other is something done for you.",
   "EMS.G7.E3.A2":
-    "A household wears both hats: it earns money by producing (going to work) and spends money by consuming (buying groceries). Everyone is on both sides of the counter.",
+    "It's like a parent who goes to work during the day and then does the shopping on the way home. They're on both sides of the counter.",
   "EMS.G7.E3.A3":
-    "Using resources wisely is making one loaf stretch the week — no waste, reuse the crusts, and the limited flour goes further.",
+    "It's like making one loaf of bread last the whole week. No waste, you use every slice, and it goes further.",
   "EMS.G7.E4.A1":
-    "Inequality has deep roots — like a race where some runners started decades behind. History, unequal schooling and unemployment all hold people back.",
+    "It's like a race where some runners start much further back than others. It's hard to catch up, however fast you run.",
   "EMS.G7.E4.A2":
-    "Poverty looks different by place: in a city it's an informal settlement with no services; in a rural area it's a village far from clinics, jobs and the nearest shop.",
+    "It's like the same problem looking different in two places. In one, the shop is too crowded. In the other, the nearest shop is a long walk away.",
   "EMS.G7.E4.A3":
-    "A once-off food parcel feeds someone today; a skill and a job feed them every month after. Education and work are the long-term tools against inequality.",
+    "It's like the difference between giving someone a meal and teaching them to cook. The meal helps today, the skill helps every day after.",
   "EMS.G7.E5.A1":
-    "Production is a kitchen: inputs are the flour, water and the baker's effort; the output is the bread that comes out.",
+    "It's like a kitchen. What goes in is the ingredients and the cook's effort, and what comes out is the meal.",
   "EMS.G7.E5.A2":
-    "Productivity is baking twelve loaves from the same flour and hours that used to make ten — more output, same inputs. Do that across a country and the economy grows.",
+    "It's like a baker who finds a smarter way to work and bakes more loaves in the same hours with the same flour.",
   "EMS.G7.E5.A3":
-    "A new oven bakes more bread per hour (technology lifts output); using only as much wood as the forest can regrow (sustainability) means there's still fuel next year.",
+    "It's like using a better stove that cooks faster, while only cutting as much firewood as the trees can grow back.",
   "EMS.G7.F1.A1":
-    "Picture a tuck shop: the stock and the till are assets (what it owns), the supplier's unpaid bill is a liability (what it owes), and the owner's own money put in is capital.",
+    "It's like a tuck shop. There's what it owns, what it still owes the supplier, and what the owner put in to start it.",
   "EMS.G7.F1.A2":
-    "Profit is what's left after the shop pays its bills: R500 taken in, R350 spent, R150 profit. If expenses had been R600, that's a R100 loss.",
+    "It's like counting what's left in your pocket after a day out. Money came in, money went out, and what's left tells you how you did.",
   "EMS.G7.F1.A3":
-    "Records are the rear-view mirror — what money already came and went. A budget is the road map — where it's planned to go next month.",
+    "It's like a car's rear-view mirror compared to the map for where you're going. One shows where you've been, the other plans where you're heading.",
   "EMS.G7.F2.A1":
-    "Income is every stream of money flowing in — a wage, a salary, pocket money, interest on savings — like several taps filling one bucket.",
+    "It's like several taps all filling one bucket. Each tap is a different way money flows in.",
   "EMS.G7.F2.A2":
-    "Net worth is a simple subtraction: everything you own (phone, savings) minus everything you owe (money borrowed). The leftover is where you actually stand.",
+    "It's like adding up everything in your cupboard, then taking away what you borrowed from friends. What's left is really yours.",
   "EMS.G7.F2.A3":
-    "A business has the same money-in and money-out as a person, just bigger — a salary becomes 'sales', a grocery bill becomes 'stock and wages'.",
+    "It's like a family's money but on a bigger scale. The same idea of money in and money out, just with bigger amounts and different names.",
   "EMS.G7.F3.A1":
-    "A budget is a referee for your spending: it checks that what goes out each month never beats what comes in.",
+    "It's like a referee for your spending. It blows the whistle if what goes out is more than what comes in.",
   "EMS.G7.F3.A2":
-    "A business budget is the same plan on a firm's scale — expected sales down one side, expected costs down the other, checked so the firm doesn't overspend.",
+    "It's like a family's spending plan, but for a shop. Expected money in on one side, expected costs on the other, checked before the month starts.",
   "EMS.G7.F4.A1":
-    "Saving is spending less than you earn and keeping the gap — putting R20 of every R100 aside so there's something there when the geyser bursts.",
+    "It's like putting a few coins in a jar every week. When something breaks, there's money waiting.",
   "EMS.G7.F4.A2":
-    "A bank does three things: it keeps your money safe, it lends money out to others, and it moves payments around so you don't carry cash.",
+    "It's like a safe, a lending library and a post office rolled into one place.",
   "EMS.G7.F4.A3":
-    "There are many ways to save: a bank savings account, a fixed deposit, or a stokvel where a group pools money and each member takes a turn with the pot.",
+    "It's like keeping savings in different jars. One is locked at home, one stays closed for a whole year, and one is shared by a group of friends.",
   "EMS.G7.B1.A1":
-    "A registered supermarket that pays tax is a formal business; the person selling airtime and sweets from a table on the corner is an informal one.",
+    "It's like the difference between a big supermarket with a sign and a till, and someone selling sweets from a table on the corner.",
   "EMS.G7.B1.A2":
-    "Three kinds by what they do: a spaza shop trades (buys and resells), a bakery manufactures (makes goods), a hair salon provides a service (does a job).",
+    "It's like the shops on one street. One resells things, one makes things, and one does a job for you.",
   "EMS.G7.B1.A3":
-    "A business sits on both sides of a shock: a flood or an epidemic can stop it selling AND stop its suppliers delivering.",
+    "It's like a road closure during a storm. The shop can't get its deliveries, and customers can't get to the shop.",
   "EMS.G7.B2.A1":
-    "An entrepreneur spots a gap — no one sells cold drinks at the taxi rank — and takes the risk of buying stock to fill it, hoping to end up with more than they spent.",
+    "It's like noticing nobody sells cold drinks at the soccer field on a hot day, and taking a chance by bringing a cooler box to sell from.",
   "EMS.G7.B2.A2":
-    "The entrepreneur's cycle is buy, add value, then sell — aiming to bank more at the end than they laid out at the start.",
+    "It's like buying plain T-shirts, printing a cool design on them, and selling them for more than you paid.",
   "EMS.G7.B3.A1":
-    "SWOT sorts four things into inside and outside: strengths and weaknesses are yours to control; opportunities and threats come from the world around you.",
+    "It's like a soccer team preparing for a match. You look at your own players' strengths and weaknesses, and at what the weather and other team might do.",
   "EMS.G7.B3.A2":
-    "Good advertising tells the right people, in the right place, one clear reason to buy — a poster at the school gate for matric-dance dress hire, not on a farm road.",
+    "It's like putting up a poster where the right people will see it, with one clear reason to come and buy.",
   "EMS.G7.B3.A3":
-    "Fixed costs don't move with output — the table rent stays R100 whether you sell 1 cupcake or 100. Variable costs rise with each one — more cupcakes, more flour and eggs.",
+    "It's like running a stall. The rent for the table stays the same however much you sell, but you need more ingredients for every extra item.",
   "EMS.G7.B4.A1":
-    "Run the stall like a real business: decide the product, set a price that covers costs, list what you'll spend, and write it into a small budget before the day.",
+    "It's like planning a school fun-day stall. You decide what to sell, set a fair price, list what you'll spend, and plan it all before the day.",
   "EMS.G7.B4.A2":
-    "At the end of the day, subtract what you spent from what you took in. A positive number is profit; a negative one means the stall cost more than it earned.",
+    "It's like counting the cash box after a market day. You take away what you spent from what you took in, and see if you came out ahead.",
   "EMS.G8.E1.A1":
-    "Government works at three levels like a school: national sets the curriculum, provincial runs the district, local is the principal handling the daily building.",
+    "It's like how a school system is run. Some decisions are made for the whole country, some for the area, and some by your own school.",
   "EMS.G8.E1.A2":
-    "Government serves households — schools, clinics, roads — and also acts like a big household itself, buying supplies and paying staff.",
+    "It's like a big landlord who looks after the building for the tenants, and also has to buy supplies and pay staff to do it.",
   "EMS.G8.E1.A3":
-    "Government touches business three ways: it buys from them (tenders), it sets rules they must follow (regulation), and it helps some grow (grants, training).",
+    "It's like a school and its suppliers. The school buys from them, sets rules they must follow, and helps some of them get started.",
   "EMS.G8.E2.A1":
-    "Direct tax comes off your income before you see it (PAYE on a payslip). Indirect tax is added when you spend (the VAT line on a till slip).",
+    "It's like two ways of paying club fees. Some are taken off your pocket money before you get it, others are added when you buy something.",
   "EMS.G8.E2.A2":
-    "Tax money is pooled and spent on things everyone can use — public schools, hospitals, police, roads — that no single household could pay for alone.",
+    "It's like a street collecting money to fix the road and put up streetlights. Things everyone uses, that no single house could pay for alone.",
   "EMS.G8.E2.A3":
-    "The national budget is a big steering wheel: spend more on schools and grants in poorer areas and you can nudge the economy to grow more evenly.",
+    "It's like a family deciding where to spend this year. Giving more help to the child who's struggling helps the whole family move forward together.",
   "EMS.G8.E3.A1":
-    "Standard of living is how comfortably people can actually live — running water, electricity, enough food, a safe home — not just how much money passes through.",
+    "It's like judging a home by how comfortable life is inside it, not just by how much money passes through the door.",
   "EMS.G8.E3.A2":
-    "More factories and roads raise living standards but can foul rivers and air. Development has to be weighed against that environmental bill.",
+    "It's like building a new road through a park. Travel gets easier, but you lose the trees and the clean air.",
   "EMS.G8.E4.A1":
-    "The goods market is the ordinary shop floor: households hand over money, businesses hand over bread, clothes and haircuts.",
+    "It's like the counter at a shop. You hand over money, and the shop hands over what you're buying.",
   "EMS.G8.E4.A2":
-    "The factor market is the other counter: here businesses are the buyers — they pay households for labour (wages) and for the use of money (interest).",
+    "It's like the counter at a job interview. This time the business is the one paying, and you're the one offering your time and skills.",
   "EMS.G8.F1.A1":
-    "A sole trader is one person owning the whole business. Every entry in the books has two sides — a debit and a credit — like every payment having a payer and a receiver.",
+    "It's like every payment having a payer and a receiver. Each one is written down from both sides.",
   "EMS.G8.F1.A2":
-    "The accounting equation always balances like a seesaw: what the business owns (assets) equals the owner's stake plus what it owes others.",
+    "It's like a seesaw that always stays level. Whatever is on one side is matched exactly by what's on the other.",
   "EMS.G8.F1.A3":
-    "Every transaction pushes at least two parts of the equation at once, so the seesaw stays level — pay a supplier and both your cash and your debt go down together.",
+    "It's like a seesaw with people climbing on and off. Every move changes at least two places, so it stays level.",
   "EMS.G8.F2.A1":
-    "A source document is the paper proof — the till slip, the deposit slip — that a transaction really happened. No document, no entry.",
+    "It's like keeping the slip when you buy something. Without the slip, there's no proof it happened.",
   "EMS.G8.F2.A2":
-    "The counterfoil is the stub you keep when you tear out a cheque — your own record of who you paid and how much.",
+    "It's like the stub you keep when you hand in a raffle ticket. It's your own record of what you gave away.",
   "EMS.G8.F2.A3":
-    "A bank statement is the bank's own diary of your account — every deposit, every withdrawal, in date order — which you check against your records.",
+    "It's like a friend keeping a diary of everything you've borrowed and paid back. You check their list against your own.",
   "EMS.G8.F3.A1":
-    "The accounting cycle is a fixed conveyor belt: a transaction happens, a source document proves it, it's written in a journal, posted to the ledger, checked on a trial balance, then summed into statements.",
+    "It's like a conveyor belt in a factory. Each item passes through every station in the same order before it's finished.",
   "EMS.G8.F3.A2":
-    "Cash journals are the first notebooks: one lists every rand received, the other every rand paid out, before anything moves further down the belt.",
+    "It's like two notebooks at a till. One lists every coin coming in, and the other lists every coin going out.",
   "EMS.G8.F4.A1":
-    "The Cash Receipts Journal is the 'money in' book — every payment the business receives gets written up here first.",
+    "It's like a notebook just for money people give you. Every amount coming in gets written there first.",
   "EMS.G8.F4.A2":
-    "Each receipt becomes exactly one line in the CRJ — date, who paid, how much — like one row per SMS in your phone's inbox.",
+    "It's like the inbox on your phone. Every message gets its own line, with who sent it and when.",
   "EMS.G8.F4.A3":
-    "Closing the CRJ means adding up the columns for the month; those totals then flow into the ledger and keep the accounting equation balanced.",
+    "It's like adding up the score at the end of a match. You total each column, then carry the totals over to the main scoreboard.",
   "EMS.G8.F5.A1":
-    "The Cash Payments Journal is the 'money out' book — every rand the business pays for stock, wages or rent is listed here.",
+    "It's like a notebook just for money you hand out. Every amount going out gets written down there.",
   "EMS.G8.F5.A2":
-    "Same rule as the receipts book: one payment, one line; then total the columns at month-end to carry into the ledger.",
+    "It's like a shopping list you tick off. One item per line, then you add it all up at the end of the month.",
   "EMS.G8.F5.A3":
-    "The receipts book and the payments book together account for every cent of cash — nothing in or out of the till is missed.",
+    "It's like two security guards at a gate, one counting people in and one counting people out. Together, nobody is missed.",
   "EMS.G8.F6.A1":
-    "Double entry means every transaction is recorded twice — once as a debit, once as a credit — like writing 'lent to Sipho' in your book and 'borrowed from you' in his.",
+    "It's like lending a friend money. You write 'lent' in your book, and they write 'borrowed' in theirs. The same thing, recorded twice.",
   "EMS.G8.F6.A2":
-    "Posting is copying the monthly journal totals into their proper ledger accounts — moving the summary from the day-book into the filing cabinet.",
+    "It's like moving your rough notes into a neat file. The totals get copied into the right folders.",
   "EMS.G8.F6.A3":
-    "A Trial Balance is a quick health check: add every debit, add every credit, and if the two totals match, the books are arithmetically in order.",
+    "It's like checking that a scale balances. If both sides come out exactly the same, the sums are in order.",
   "EMS.G8.B1.A1":
-    "Capital is what a business works with — the money put in plus the equipment it buys: the sewing machines, the delivery bakkie, the cash float.",
+    "It's like the tools and starting cash for a car wash: the buckets, the hosepipe and the money in the float.",
   "EMS.G8.B1.A2":
-    "Labour is the human effort a business hires. A skilled welder and an unskilled packer are both labour, but their scarcity means they're paid differently.",
+    "It's like the people on a building site. Some have rare skills and some don't, so they get paid differently.",
   "EMS.G8.B1.A3":
-    "Four factors combine to produce: land (natural resources), labour (people), capital (money and tools), and entrepreneurship (bringing the other three together) — each earning rent, wages, interest and profit.",
+    "It's like making a pot of stew. You need the ingredients, someone to cook, the pots and stove, and someone to plan the meal. Each gets something back.",
   "EMS.G8.B2.A1":
-    "A sole trader carries the whole business alone. A partnership is a few people sharing the load, the decisions and the profits — like siblings running the family shop together.",
+    "It's like the difference between running a spaza shop on your own and running it with your brother, sharing the work, the decisions and the money.",
   "EMS.G8.B2.A2":
-    "A company is treated as its own legal 'person' — it can own things and owe money in its own name — owned by shareholders who each hold a slice.",
+    "It's like a club that exists on its own, apart from its members. It can own things and owe money, and each member holds a share of it.",
   "EMS.G8.B2.A3":
-    "Bigger ownership forms can raise more money — many shareholders each chipping in — so a company can build a factory and hire hundreds where a sole trader could hire two.",
+    "It's like many people each putting a little into a big pot. Together they can afford something no single person could, and it can employ far more people.",
   "EMS.G8.B3.A1":
-    "Management stacks like a school: top management (the principal) plans the year, middle management (heads of department) organises it, lower management (senior teachers) supervises the daily class.",
+    "It's like the staff at a school. Some people plan the whole year, some organise their department, and some run the class every day.",
   "EMS.G8.B3.A2":
-    "Whatever the level, a manager does four things: plan the goal, organise the people and tools, lead them day to day, and control by checking results against the plan.",
+    "It's like a coach preparing a team. Make a game plan, organise the players, lead them on the day, then check the result against the plan.",
   "EMS.G8.B3.A3":
-    "Styles sit on a line from 'I decide, you do' (autocratic) to 'let's decide together' (democratic) — a strict coach at one end, a captain who asks the team at the other.",
+    "It's like two kinds of captain. One makes every call alone, and the other asks the team before deciding.",
   "EMS.G9.E1.A1":
-    "In a planned economy the government is the shop manager for the whole country — it decides what gets made, how much, and at what price.",
+    "It's like a house where the parents decide every meal, how much each person gets and when they eat.",
   "EMS.G9.E1.A2":
-    "In a market economy no one is in charge — prices rise and fall on their own as buyers and sellers meet, like the price of tomatoes at the market changing through the day.",
+    "It's like a fruit market where nobody sets the prices. They change through the day as buyers and sellers bargain.",
   "EMS.G9.E1.A3":
-    "A mixed economy is the middle road South Africa takes: mostly free markets, but government still runs schools, sets a minimum wage and provides grants.",
+    "It's like a school where learners choose most things for themselves, but the school still provides some basics for everyone.",
   "EMS.G9.E2.A1":
-    "Households and businesses lean on each other like two people carrying a table: households supply workers and buy goods, businesses supply goods and pay wages. Remove one and it collapses.",
+    "It's like two people carrying a heavy table. Each relies on the other, and if one lets go, the table falls.",
   "EMS.G9.E2.A2":
-    "In the circular flow, money runs around the loop one way and goods and labour run the opposite way — like a chain passing buckets one direction and empty pails back.",
+    "It's like a chain of people passing full buckets one way and empty buckets back the other way.",
   "EMS.G9.E3.A1":
-    "The law of demand is everyday shopping: when the price of meat jumps, people buy less and switch to chicken. Price up, quantity wanted down.",
+    "It's like what happens when your favourite snack suddenly costs much more. You buy less of it, or switch to something cheaper.",
   "EMS.G9.E3.A2":
-    "The law of supply is the seller's side: if tomatoes fetch a high price, farmers plant more and bring more to market. Price up, quantity offered up.",
+    "It's like a learner who sells sweets at break. If they start fetching a good price, they bring more to sell.",
   "EMS.G9.E3.A3":
-    "Equilibrium is the price where the amount shoppers want to buy exactly matches the amount sellers want to sell — the point where the demand and supply lines cross.",
+    "It's like haggling at a market until the buyer and the seller agree. That's the point where both are happy.",
   "EMS.G9.E4.A1":
-    "A trade union is workers bargaining as one voice. One worker asking for a raise is easy to ignore; a thousand asking together is not — like one learner versus the whole class complaining.",
+    "It's like one learner asking for a change compared to the whole class asking together. Together, it's much harder to ignore.",
   "EMS.G9.E4.A2":
-    "Unions push for their members on wages, hours and safety — and because they're large, a strike or a wage deal can ripple out and affect the whole economy.",
+    "It's like a class representative speaking up for everyone. Because so many stand behind them, what they agree can affect the whole school.",
   "EMS.G9.F1.A1":
-    "A trading business buys stock to resell — a clothing shop buying shirts wholesale and selling them on. Those cash buys and sells are recorded in the cash journals.",
+    "It's like buying sweets in bulk and selling them one by one at break. Every buy and every sale gets written down.",
   "EMS.G9.F1.A2":
-    "Even for a shop that trades stock, every transaction keeps assets = owner's equity + liabilities balanced — sell stock for cash and one asset simply swaps for another.",
+    "It's like swapping one thing for another of the same value. You still have the same total, just in a different form.",
   "EMS.G9.F2.A1":
-    "Posting moves the month's journal totals into the ledger accounts — like transferring your weekly spending notes into a proper monthly summary per category.",
+    "It's like moving a week of rough notes into a neat monthly summary, sorted by category.",
   "EMS.G9.F2.A2":
-    "The Trial Balance lists every ledger account with its balance in a debit or credit column, then checks the two columns add up to the same total.",
+    "It's like a final score sheet with two columns. You list everything, then check both columns add up to the same total.",
   "EMS.G9.F3.A1":
-    "A debtor is a customer who took the goods now and will pay later — they owe you. The National Credit Act sets rules so people aren't given credit they can't afford.",
+    "It's like letting a friend take something now and pay you later. There are rules so nobody takes more than they can pay back.",
   "EMS.G9.F3.A2":
-    "The Debtors Journal records goods sold on credit; the Debtors Allowance Journal records the ones customers brought back — sales in one book, returns in the other.",
+    "It's like a shop keeping one book for things sold to customers who'll pay later, and another for things those customers brought back.",
   "EMS.G9.F3.A3":
-    "Each credit customer gets their own account so you can see exactly who owes what; posting those entries keeps the accounting equation in balance.",
+    "It's like a separate page for each friend who owes you money, so you can see exactly who owes what.",
   "EMS.G9.F4.A1":
-    "A creditor is the mirror image of a debtor — someone you owe because you bought on credit. A creditors allowance is stock you sent back to that supplier.",
+    "It's like the shop that let you take something now and pay later. You owe them, and if you send something back, you owe them less.",
   "EMS.G9.F4.A2":
-    "The Creditors Journal records what you bought on credit; the Creditors Allowance Journal records what you returned to suppliers — purchases in one, returns in the other.",
+    "It's like keeping one book for things you bought to pay later, and another for things you sent back.",
   "EMS.G9.F4.A3":
-    "Paying a creditor shrinks two things at once: your cash goes down, and the amount you owe goes down by the same rand value.",
+    "It's like paying back a friend. The money in your pocket goes down, and so does what you owe them, by the same amount.",
   "EMS.G9.F5.A1":
-    "By Grade 9 you juggle every journal at once — cash in, cash out, credit sales, credit purchases, returns — each transaction going into the one book that fits it.",
+    "It's like sorting post into the right pigeonholes. Each letter goes into the one box that fits it.",
   "EMS.G9.F5.A2":
-    "The final check of the whole system: post every journal's totals to the ledger, then draw up a Trial Balance and confirm total debits equal total credits.",
+    "It's like the final check before handing in a test. You make sure everything adds up before you're done.",
   "EMS.G9.B1.A1":
-    "Follow a loaf: the primary sector grows the wheat, the secondary sector mills and bakes it, the tertiary sector delivers and sells it in the shop.",
+    "It's like following a loaf of bread. Someone grows the wheat, someone bakes the bread, and someone sells it to you.",
   "EMS.G9.B1.A2":
-    "The sectors form a relay: raw materials pass from primary to secondary to tertiary, each adding value, before the finished product reaches you.",
+    "It's like a relay race. The baton passes from one runner to the next, and each runner moves it further along.",
   "EMS.G9.B2.A1":
-    "A business runs eight departments at once — like a soccer club needing coaching, medical, kit, tickets, marketing and finance all working, not just the players.",
+    "It's like a soccer club. It needs coaches, medics, kit staff, ticket sellers and accountants, not just the players.",
   "EMS.G9.B2.A2":
-    "Each business function has its own focus: purchasing hunts for good stock prices, marketing chases customers, human resources looks after staff — different jobs, one firm.",
+    "It's like the different jobs in a household: one person shops, another cooks, another pays the bills. Different jobs, one home.",
   "EMS.G9.B2.A3":
-    "The functions have to pull together like a band — if production makes plenty but marketing sells nothing, or finance runs dry, the whole business stalls.",
+    "It's like a band. If the drummer plays well but the singer stays silent, the whole song falls apart.",
   "EMS.G9.B3.A1":
-    "A business plan is a written map drawn before the journey — what you'll sell, to whom, how, and what it'll cost — so you're not just driving and hoping.",
+    "It's like planning a road trip on paper before you leave, instead of just driving and hoping.",
   "EMS.G9.B3.A2":
-    "A business plan runs in a set order, like a school project: cover page, contents, description of the product, goals, the marketing and operations plans, a SWOT, then the conclusion.",
+    "It's like a school project with a set layout. Each section has its place, and the order makes it easy for anyone to follow.",
   "EMS.G9.B3.A3":
-    "Break-even is the point where the money coming in has finally covered every cost — below it the business runs at a loss, above it each sale is profit.",
+    "It's like a fundraising car wash. At first you're just paying back what you spent on soap and buckets, and only after that do you start making money.",
 };

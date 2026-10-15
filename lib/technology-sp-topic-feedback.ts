@@ -1,134 +1,134 @@
-// ─── Technology SP — per-topic "think of it like this" analogies ────────────
+// ─── Technology — per-topic "real-life example" pictures ───────────────────
 //
-// One everyday analogy per topic (62, Grades 7–9), keyed by skill/topic id.
-// Feeds the wrong-answer card's example slot via FeedbackExplanation's
-// `exampleOverride`. Register: Grade 7–9, concrete, everyday South African
-// reference points. "why" = the question's memo, "how" = the topic's
-// recovery_strategy, "where" = buildTopicWhere().
+// One everyday picture per topic (62), keyed by skill/topic id. Feeds the
+// wrong-answer card's example slot via FeedbackExplanation's `exampleOverride`.
+// Rules in docs/feedback-writing-guide.md: an everyday South African picture,
+// no facts, terms or numbers from the topic, and no instructions. "why" = the
+// question's memo, "where" = buildTopicWhere().
 
 export const TOPIC_EXAMPLES: Record<string, string> = {
   "TECH.G7.DG.A1":
-    "Technology isn't just gadgets — it's using what you know and have to fix a real problem, like bending a wire hanger to unblock a drain.",
+    "It's like bending a wire hanger to unblock a drain. You use what you know and what you have to sort out a real problem.",
   "TECH.G7.DG.A2":
-    "The design process is a fixed order: Investigate the problem, Design a solution, Make it, Evaluate how it worked, Communicate it. Skip 'investigate' and you solve the wrong problem.",
+    "It's like planning a family braai. You find out who's coming, plan the menu, cook, see what people enjoyed, then tell everyone how it went.",
   "TECH.G7.DG.A3":
-    "Fit-for-purpose is like choosing shoes: school shoes for school, takkies for sport. A beautiful shoe that hurts your feet fails the test.",
+    "It's like choosing shoes. School shoes for school, takkies for sport. A beautiful shoe that hurts your feet has failed its job.",
   "TECH.G7.DG.A4":
-    "Drawing lines are a code: a bold line is the real edge you can see, a faint line is scaffolding you rub out, a dashed line is an edge hidden behind the object.",
+    "It's like the lines on a road. A solid line, a broken line and a faint painted guide each tell drivers something different.",
   "TECH.G7.DG.A5":
-    "A quick sketch, a flat working drawing and a 3D drawing are like a voice note, a written list and a photo of the same thing — each shows it a different way for a different reason.",
+    "It's like a voice note, a written list and a photo of the same thing. Each shows it differently, for a different reason.",
   "TECH.G7.ST.A1":
-    "Every structure does one of four jobs: a cup contains, a table supports, a helmet protects, a bridge spans. A tree is a natural structure; a house is man-made.",
+    "It's like the things in a kitchen. A cup holds tea, a table holds plates up, a pot lid keeps things covered. Each thing has its own job.",
   "TECH.G7.ST.A2":
-    "An egg is a shell structure (hollow, strong skin), a jungle gym is a frame (bars joined), a brick is solid (one mass). Same idea, different build.",
+    "It's like comparing an egg, a jungle gym and a brick. One is a hollow skin, one is bars joined together, and one is a single solid lump.",
   "TECH.G7.ST.A3":
-    "A flat sheet of paper flops; fold it into a fan or roll it into a tube and it holds weight. A triangle in a frame does the same — it can't be pushed out of shape.",
+    "It's like a flat sheet of paper that flops over. Fold it into a fan or roll it into a tube, and suddenly it can hold weight.",
   "TECH.G7.ST.A4":
-    "A person stands steadier with feet apart than together. A wide base and low weight make a bookshelf, a crane or a table hard to tip over.",
+    "It's like standing on a moving bus. With your feet apart and knees bent, you're much harder to knock over.",
   "TECH.G7.MS.A1":
-    "A lever's class is about where the pivot sits: a seesaw has it in the middle, a wheelbarrow has it at the end, tweezers have the effort in the middle. Move the pivot, change the machine.",
+    "It's like a seesaw. Sit closer to the middle or further out, and the same push lifts your friend more easily or with more effort.",
   "TECH.G7.MS.A2":
-    "Scissors are two levers joined at one bolt: press the handles together and the blades close together. A linkage makes two parts move as one.",
+    "It's like a pair of scissors. Two pieces joined at one point, so moving one part makes the other move with it.",
   "TECH.G7.MS.A3":
-    "Squeeze one end of a full water bottle and the other end bulges — hydraulics pushing force through liquid. A bicycle pump does the same with air; that's pneumatics.",
+    "It's like squeezing a full water bottle. Push on one end and the other end bulges straight away.",
   "TECH.G7.MS.A4":
-    "A bicycle pedal is a crank: your legs go round, but the crank arm swings back and forth. A pulley is just a wheel on an axle with a rope over it, like a washing line.",
+    "It's like pedalling a bicycle or pulling a washing line. Your legs go up and down to turn something round, and a rope over a wheel lifts a load.",
   "TECH.G7.ES.A1":
-    "A fridge magnet grabs the steel door but slides off the plastic handle and won't touch a copper coin. Magnets only pull on iron, steel and nickel.",
+    "It's like a fridge magnet. It grabs the fridge door but slides right off the plastic handle and a coin.",
   "TECH.G7.ES.A2":
-    "A circuit is a loop like a running track: the cell is the start, the wire is the lane, the switch is a gate, the bulb is the runner. Break the loop anywhere and everything stops.",
+    "It's like a running track. Runners have to get all the way round the loop. Block the track anywhere and the race stops.",
   "TECH.G7.ES.A3":
-    "Coil wire around a nail, connect a battery, and the nail picks up paper clips — but only while the current flows. Switch off and they drop. That's an electromagnet, like a scrapyard crane.",
+    "It's like a scrapyard crane that grabs scrap metal and then drops it. It only holds on while the power is switched on.",
   "TECH.G7.PR.A1":
-    "Processing turns a raw thing into a useful one: flour, water and yeast become bread; milk becomes maas. The ingredients go in one form and come out another.",
+    "It's like making maas from milk or bread from flour. The ingredients go in one form and come out as something more useful.",
   "TECH.G7.PR.A2":
-    "You wouldn't make a raincoat from cotton or a vest from plastic. Each material's properties — waterproof, stretchy, warm — decide the job it suits.",
+    "It's like choosing what to wear in the rain. You wouldn't wear a cotton T-shirt as a raincoat. What the fabric does decides its job.",
   "TECH.G7.PR.A3":
-    "A traditional rondavel uses clay, thatch and stone from nearby — materials that are cheap, suited to the climate, and gentle on the land.",
+    "It's like a traditional rondavel built from clay and thatch found nearby. It's cheap, it suits the weather, and it's gentle on the land.",
   "TECH.G7.PR.A4":
-    "A new road helps drivers but can cut a village in two and push out the people with no car. Technology almost always helps some people more than others.",
+    "It's like a new road through a village. It helps people with cars but can split the village in two for those who walk.",
   "TECH.G8.DG.A1":
-    "Drawing conventions are like the rules of a form: measurements in millimetres, a centre line down the middle, the scale noted in the corner — so everyone reads it the same way.",
+    "It's like filling in a form. Everyone uses the same boxes and the same format, so anyone can read it the same way.",
   "TECH.G8.DG.A2":
-    "Isometric drawing keeps edges on a fixed slanted grid, like a video-game world. Two-point perspective sends edges to two far-off points, like a photo of a building corner.",
+    "It's like the difference between a video-game map seen from a slanted angle and a photo of a building corner. Both look solid, drawn in different ways.",
   "TECH.G8.DG.A3":
-    "A cereal box flattened out is a net: the exact shape that folds back up into the box. Cut the net wrong and the box won't close.",
+    "It's like a cereal box flattened out. That flat shape folds right back up into the box. Cut it wrong and it won't close.",
   "TECH.G8.ST.A1":
-    "A roof truss is a team: rafters take the slope, ties across the bottom stop the walls spreading, struts prop up the middle. Remove one and the roof sags.",
+    "It's like a team holding up a tent. Each person holds a different pole, and if one lets go, part of the tent sags.",
   "TECH.G8.ST.A2":
-    "Tug-of-war rope is in tension (pulled), a table leg is in compression (squashed), scissors put paper in shear, wringing a wet cloth is torsion (twist), a diving board bends.",
+    "It's like a tug-of-war rope being pulled, a table leg being squashed, and a wet cloth being wrung. Each is being forced in a different way.",
   "TECH.G8.ST.A3":
-    "A plank across a stream is a beam, a stone bridge is an arch, a balcony with no post under its end is a cantilever — three ways to cross a gap.",
+    "It's like crossing a stream on a plank, over a curved stone bridge, or by reaching out over the water from a branch. Three ways to get across a gap.",
   "TECH.G8.ST.A4":
-    "A structure can fail three ways: it snaps because it's too weak, it sags because it's not stiff enough, or it tips because it's not stable. Each needs a different fix.",
+    "It's like a shelf that can fail in three ways: it snaps, it sags in the middle, or it tips off the wall. Each problem needs a different fix.",
   "TECH.G8.MS.A1":
-    "An axe head is a wedge that turns one big push into two sideways pushes. A doorknob is a wheel-and-axle — a small turn of the big knob turns the thin shaft with more force.",
+    "It's like an axe splitting wood, or turning a big doorknob. A simple shape turns your push into a bigger or more useful push.",
   "TECH.G8.MS.A2":
-    "Two touching gears spin opposite ways, like two people facing each other turning a rope. Drop a small 'idler' gear between them and now they turn the same way.",
+    "It's like two people facing each other turning a skipping rope. Their hands go round in opposite directions.",
   "TECH.G8.MS.A3":
-    "On a bicycle, a low gear climbs a hill slowly but with lots of force; a high gear flies on the flat but is hard to start. You trade speed for force.",
+    "It's like the gears on a bicycle. A low gear climbs a hill slowly but easily, and a high gear flies on the flat but is hard to start.",
   "TECH.G8.MS.A4":
-    "A cam is an egg-shaped disc on a spinning shaft; as it turns it lifts and drops a follower, like the bumps in a music box flicking the teeth.",
+    "It's like the bumps inside a music box. As it turns, each bump lifts something and lets it drop again.",
   "TECH.G8.MS.A5":
-    "Mechanical advantage is load ÷ effort. If a pulley lifts a 100 N load with 25 N of pull, the advantage is 4 — the machine multiplies your effort four times.",
+    "It's like using a long spanner on a stuck nut. The tool lets a small push from you do the work of a much bigger one.",
   "TECH.G8.MS.A6":
-    "Every system is input → process → output, like a kettle: input is water and electricity, the process is heating, the output is steam and hot water.",
+    "It's like a kettle. Water and power go in, heating happens inside, and hot water comes out.",
   "TECH.G8.ES.A1":
-    "Circuit parts have three jobs: input (the cell gives energy), control (the switch decides), output (the lamp or buzzer does the work). Sorting a part is asking which job it does.",
+    "It's like a school bell system. Something gives the power, someone decides when to ring, and the bell does the job.",
   "TECH.G8.ES.A2":
-    "Cells in series stack their push, like two people lifting one end each — more voltage. Cells in parallel share the load and last longer, like taking turns carrying.",
+    "It's like carrying a heavy load. Two people stacking their strength lift it higher, and two people taking turns can carry it for longer.",
   "TECH.G8.ES.A3":
-    "A power station is like a big tap; transformers step the voltage up for the long journey along the pylons, then step it down again before it reaches your plug.",
+    "It's like water from a big dam. It's sent out under high pressure for the long trip, and the pressure is lowered before it reaches your tap.",
   "TECH.G8.ES.A4":
-    "Add more cells and more current flows, like opening a tap wider. A logic gate is a rule for the switch: AND needs both conditions true, OR needs just one.",
+    "It's like a gate that only opens if two friends both press their buttons, compared to a gate that opens if either one does.",
   "TECH.G8.PR.A1":
-    "A plastic bag can outlast you by centuries; a paper bag rots in weeks. 'Biodegradable' means nature can break it down safely.",
+    "It's like an apple core and a plastic bottle tossed in the bush. The apple core is gone in weeks, but the bottle is still there years later.",
   "TECH.G8.PR.A2":
-    "Good packaging is like a lunchbox — just enough to protect what's inside, no more. Paper and many plastics can then be pulped or melted into something new.",
+    "It's like a lunchbox. Just enough to protect what's inside, and you can wash it and use it again tomorrow.",
   "TECH.G8.PR.A3":
-    "Cellphones connect families across the country but also fill landfills with dead batteries. Good design keeps the benefit and cuts the harm.",
+    "It's like cellphones. They connect families across the country, but old batteries pile up in the dump. Good design keeps the benefit and cuts the harm.",
   "TECH.G8.PR.A4":
-    "A mine brings jobs and money to a town but leaves holes, dust and polluted water behind — and the people nearest the mine often carry more of the harm than the profit.",
+    "It's like a big factory opening near a small town. It brings jobs and money, but the people living closest often get the most noise and dirt.",
   "TECH.G9.DG.A1":
-    "Orthographic projection is three photos of one object — front, top and side — laid out flat so a builder can read every measurement without a 3D model.",
+    "It's like taking photos of a car from the front, the top and the side, then laying them flat on a table so you can measure everything.",
   "TECH.G9.DG.A2":
-    "A working drawing is judged like a homework answer: neat handwriting doesn't matter if the answer is wrong. It has to actually solve the design problem.",
+    "It's like a homework answer. Neat handwriting doesn't help if the answer is wrong. It has to actually solve the problem.",
   "TECH.G9.DG.A3":
-    "An exploded view is a flat-pack furniture diagram — the parts floated apart along dotted lines so you can see exactly how they slot together.",
+    "It's like the instruction sheet for flat-pack furniture. The parts are drawn floating apart so you can see exactly how they slot together.",
   "TECH.G9.ST.A1":
-    "A parked car is a static load on a bridge; the same car driving across and bouncing over a bump is a dynamic load — moving forces hit harder than still ones.",
+    "It's like standing still on a trampoline compared to jumping on it. The moving weight hits much harder than the still one.",
   "TECH.G9.ST.A2":
-    "An I-beam is shaped like a capital I because most of the metal sits top and bottom where bending pulls hardest — same strength as a solid bar, far less weight.",
+    "It's like the shape of a ruler. Flat, it bends easily. Turn it on its edge, and the same ruler hardly bends at all.",
   "TECH.G9.ST.A3":
-    "Choosing a building material is like choosing a phone: you weigh up weight, toughness, how much it bends and how fast it wears — no single one wins every time.",
+    "It's like choosing a phone. You weigh up how heavy it is, how tough it is and how long it lasts. No single phone wins on everything.",
   "TECH.G9.ST.A4":
-    "A tender is a written quote to do a job. Costing it is a shopping list plus wages: materials AND the hours of labour, not just the bricks.",
+    "It's like a builder's quote to fix your roof. It has to cover the materials and the hours of work, not just the materials.",
   "TECH.G9.MS.A1":
-    "Press a full sealed bottle and the pressure reaches every wall equally. Car brakes use this: a small push on the pedal presses fluid that clamps all four wheels.",
+    "It's like pressing on a sealed bottle full of water. The push reaches every part of the bottle at once.",
   "TECH.G9.MS.A2":
-    "A block-and-tackle with several pulleys lets one person hoist an engine — you pull more rope but with far less force. A ratchet lets a winch hold without slipping back.",
+    "It's like a hand winch on a boat trailer. You turn it many times with little effort, and a click stops the boat rolling back.",
   "TECH.G9.MS.A3":
-    "Bevel gears turn a corner, like the drive in a hand drill. A rack-and-pinion turns spin into a straight slide, like a steering rack. A worm gear crawls — huge speed reduction, huge force.",
+    "It's like the inside of a hand drill or a car's steering. Spinning gets turned around a corner, or turned into a straight slide.",
   "TECH.G9.MS.A4":
-    "An electric car window mixes systems: an electrical switch, a motor, and mechanical gears and linkages all working as one. Real machines are usually mixes.",
+    "It's like an electric car window. A switch, a motor and moving parts all work together as one.",
   "TECH.G9.ES.A1":
-    "Ohm's law, V = I × R, is a triangle of three friends — cover the one you want and the other two tell you how to find it. Know two, get the third.",
+    "It's like a recipe where you know two of the three amounts. If you know two, you can always work out the third.",
   "TECH.G9.ES.A2":
-    "A resistor's coloured bands are a number code — the stripes tell you the value in ohms, and the last band says how accurate it is.",
+    "It's like the coloured stripes on a team kit. Each colour stands for something, so you can read the stripes like a code.",
   "TECH.G9.ES.A3":
-    "Each component has one trick: a diode is a one-way gate for current, a transistor is a switch or a volume knob, a capacitor is a tiny rechargeable bucket of charge.",
+    "It's like the gadgets in a kitchen drawer. A one-way valve, a light switch and a small water tank each do one special trick.",
   "TECH.G9.ES.A4":
-    "A sensor changes its resistance when the world changes: an LDR when a light comes on, a thermistor when it gets hot, a moisture sensor when soil gets wet.",
+    "It's like a security light that switches on by itself when it gets dark. It notices a change and responds without anyone touching it.",
   "TECH.G9.ES.A5":
-    "Two switches in a row (series) is AND — both must be on for the light. Two switches side by side (parallel) is OR — either one turns it on, like two doorbells to one chime.",
+    "It's like a gate that needs both a key and a code, compared to a house with two doorbells where either one rings the chime.",
   "TECH.G9.ES.A6":
-    "An automatic night light wires a few parts to do one job: the LDR senses dark, that switches a transistor, which powers the LED. Parts combine like a small team.",
+    "It's like a small relay team. One notices the change, one passes on the message, and one does the job at the end.",
   "TECH.G9.PR.A1":
-    "Bare steel rusts like a cut apple browns. Paint, a zinc coat (galvanising) or a thin plated layer all seal the surface so air and water can't reach the metal.",
+    "It's like a cut apple going brown in the air. Covering the cut side keeps the air off and stops it going brown.",
   "TECH.G9.PR.A2":
-    "Stopping food going off means starving the germs: keep it bone-dry (biltong), soak it in vinegar (pickles), or dry and salt it. All remove what mould and bacteria need.",
+    "It's like making biltong. Taking away what germs need to grow is how you stop food going off.",
   "TECH.G9.PR.A3":
-    "A thermoplastic is like candle wax — heat it and it softens and can be reshaped again and again. A thermoset is like a boiled egg — once set by heat, it stays hard for good.",
+    "It's like candle wax compared to a boiled egg. Wax softens every time you heat it, but an egg stays hard once it's cooked.",
   "TECH.G9.PR.A4":
-    "Reduce, reuse, recycle in that order: best not to make the waste, next best to use it again, and last, shred it into pellets to melt into new bottles or benches.",
+    "It's like a cooldrink bottle. Best not to buy one you don't need, next best to refill it, and last, send it off to be made into something new.",
 };

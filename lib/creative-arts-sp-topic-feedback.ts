@@ -1,96 +1,96 @@
-// ─── Creative Arts SP — per-topic "think of it like this" analogies ─────────
+// ─── Creative Arts — per-topic "real-life example" pictures ────────────────
 //
-// One everyday analogy per topic (43: Music + Visual Arts, Grades 7–9), keyed
-// by skill/topic id. Feeds the wrong-answer card's example slot via
-// FeedbackExplanation's `exampleOverride`. Register: Grade 7–9, concrete,
-// everyday South African reference points. "why" = the question's memo,
-// "how" = the topic's recovery_strategy, "where" = buildTopicWhere().
+// One everyday picture per topic (43), keyed by skill/topic id. Feeds the
+// wrong-answer card's example slot via FeedbackExplanation's `exampleOverride`.
+// Rules in docs/feedback-writing-guide.md: an everyday South African picture,
+// no facts, terms or numbers from the topic, and no instructions. "why" = the
+// question's memo, "where" = buildTopicWhere().
 
 export const TOPIC_EXAMPLES: Record<string, string> = {
   "CA.G7.MUL.A1":
-    "Note values are like coins adding up: a semibreve is worth four beats, a crotchet one, a quaver a half. Every bar has to total the same amount.",
+    "It's like paying for a taxi with coins. Different coins are worth different amounts, but each trip must add up to exactly the same fare.",
   "CA.G7.MUL.A2":
-    "A clef is like the label on a tap: the same pipe (the staff) carries different notes depending on the label. Treble marks the higher notes, bass the lower ones.",
+    "It's like the label on a set of stairs saying 'upstairs' or 'downstairs'. The steps look the same, but the label tells you which floor you're on.",
   "CA.G7.MUL.A3":
-    "Metre is like walking: in 4/4 you count 'ONE two three four', stepping hardest on ONE — the way your left foot lands first each time.",
+    "It's like walking in step with a friend. Your feet keep a steady pattern, and one foot always lands a little harder than the others.",
   "CA.G7.MUL.A4":
-    "Tonic sol-fa is like naming the rungs of a ladder — doh, re, mi — so you can call out where to put your foot instead of guessing the height.",
+    "It's like the floor buttons in a lift. Each step up has its own name, so you can say exactly where to go without guessing.",
   "CA.G7.MUE.A1":
-    "Describing music is like describing a taxi ride: how fast it went (tempo), how loud the hooter was (dynamics), and how it made you feel (mood).",
+    "It's like telling a friend about a taxi ride: how fast it went, how loud the radio was, and how the trip made you feel.",
   "CA.G7.MUE.A2":
-    "Picking instruments out of a song by ear is like knowing your family's voices from the next room — each drum, guitar or flute has a sound you learn to recognise.",
+    "It's like recognising each family member's voice from the next room. Once you know how each one sounds, you can pick them out even when everyone talks at once.",
   "CA.G7.MUP.A1":
-    "A riff or ostinato is like the repeated line in a struggle song — one short pattern everyone keeps while other parts change over the top. Question-and-answer is one phrase calling, another replying.",
+    "It's like a crowd at a soccer match. One group keeps the same chant going while others add new shouts over the top.",
   "CA.G7.MUP.A2":
-    "A round is like people joining a queue one after another and all doing the same steps — the same tune sung by groups starting at different times. Body percussion is your hands and feet as the drum.",
+    "It's like a Mexican wave at a stadium. Each section does the same move, just starting a moment after the section before.",
   "CA.G7.VAE.A1":
-    "The art elements — line, shape, tone, texture, colour — are like the ingredients in a pot of food. Every artwork is made from them, just mixed in different amounts.",
+    "It's like the ingredients in a pot of food. Every dish uses the same basic ingredients, just mixed in different amounts.",
   "CA.G7.VAE.A2":
-    "Complementary colours sit opposite on the colour wheel and make each other pop, like a yellow shirt against a green field. Monochromatic stays with one colour, light to dark.",
+    "It's like picking a school uniform. Some colours sit calmly together, while others clash and make each other stand out.",
   "CA.G7.VAE.A3":
-    "Design principles are the rules for arranging the elements, like setting a table: balance so it's not all on one side, emphasis so the main dish stands out, pattern so it looks tidy.",
+    "It's like setting a table for guests. You spread things evenly, put the main dish where everyone sees it, and keep the place settings neat and matching.",
   "CA.G7.VAM.A1":
-    "Different drawing media make different marks, like different pens on a form — a soft pencil smudges soft shadow, a hard one scratches thin lines, charcoal blocks in dark fast.",
+    "It's like writing with different pens. A soft pencil, a thin pen and a thick marker all leave very different marks, even for the same word.",
   "CA.G7.VAM.A2":
-    "Working in 3D is like building a wire car: you think about it from every side, join it neatly so it holds its shape, and don't waste or litter your materials.",
+    "It's like building a wire car. You keep turning it to check every side, join each piece firmly, and don't waste or leave wire lying around.",
   "CA.G7.VAL.A1":
-    "Analysing an artwork is like giving a match report: first describe what's actually there using the art elements, then say what the symbols might mean.",
+    "It's like giving a match report. First you say what actually happened on the field, then you say what you think it meant.",
   "CA.G7.VAL.A2":
-    "Researching an artist is like doing a school project on a soccer club — you gather pictures, facts and history before you can say anything useful about them.",
+    "It's like doing a school project on your favourite soccer club. You gather pictures and facts first, before you can say anything useful about them.",
   "CA.G8.MUL.A1":
-    "The top number of a time signature is like how many people must fit on one bench: 4/4 fits four crotchet beats a bar; 6/8 packs six quavers, felt in two groups of three.",
+    "It's like a minibus with a set number of seats. Every trip must fill exactly the same number of seats, whether people sit alone or in pairs.",
   "CA.G8.MUL.A2":
-    "A major scale is a fixed staircase of steps — tone, tone, semitone, tone, tone, tone, semitone. Start on any note, follow that exact pattern, and it always sounds 'major'.",
+    "It's like a staircase where some steps are big and some are small, always in the same order. Start on any floor and the climb feels the same.",
   "CA.G8.MUL.A3":
-    "A key signature is like a sign at the classroom door: 'in this room, every F is sharp'. You apply it to every F in the piece without it being marked again.",
+    "It's like a notice on a classroom door that says 'no caps in this room'. It applies the whole lesson, without anyone repeating it.",
   "CA.G8.MUE.A1":
-    "Music terms are like road signs in another language: 'presto' means go fast (tempo), 'staccato' means short sharp taps (how you play the notes). Learn the signs and you can read any score.",
+    "It's like road signs. Some tell you how fast to go, others tell you how to drive. Once you learn the signs, you can read any road.",
   "CA.G8.MUE.A2":
-    "Gospel, kwaito and rock all use the same elements — beat, dynamics, repetition, contrast — the way different dishes all use salt, heat and time, just in their own measures.",
+    "It's like different dishes from different homes. They all use salt, heat and time, just in their own amounts, so each tastes different.",
   "CA.G8.MUE.A3":
-    "Instruments group by how they make sound: strings are plucked or bowed (chordophones), drums are struck skins (membranophones), a shaker is its own body vibrating (idiophone), a whistle needs blown air (aerophone).",
+    "It's like sorting the noises in a kitchen by what makes them: a pot lid clanging, water boiling, a kettle whistling. You group sounds by how they're made.",
   "CA.G8.MUP.A1":
-    "Composing with structure is like writing a proper letter — greeting, body, sign-off — not just random words. Your piece needs a beginning, middle and end too.",
+    "It's like writing a proper letter: a greeting, the main message, and a sign-off. Random sentences thrown together don't make a letter.",
   "CA.G8.VAE.A1":
-    "Analogous colours are neighbours on the colour wheel — blue, blue-green, green — like the shades of one tree from shadow to sunlight. They blend calmly.",
+    "It's like the leaves on one tree, from deep shade to bright sunlight. The shades are close relatives, so they sit together calmly.",
   "CA.G8.VAE.A2":
-    "The design principles are like arranging a shop window: the eye-catching item goes centre (emphasis), heavy and light are spread evenly (balance), repeats keep it neat (pattern).",
+    "It's like arranging a shop window. The best item goes where the eye lands first, heavy and light things are spread out, and repeats keep it tidy.",
   "CA.G8.VAM.A1":
-    "Trying different media and sizes is like cooking the same meat three ways — braai, stew, fry. The idea is the same; the treatment changes what it says.",
+    "It's like cooking the same chicken three ways: braaied, stewed or fried. It's the same chicken, but each way gives a different result.",
   "CA.G8.VAM.A2":
-    "More complex 3D work is like moving from a wire car to a working wire bicycle — more parts and planning, but the same care with craftsmanship, safety and reusing materials.",
+    "It's like moving from building a wire car to a wire bicycle that actually works. There are more parts and more planning, but the same care.",
   "CA.G8.VAL.A1":
-    "Reading design means asking two things about an object: how does it look, and how does it work? A takkie's stripes are style; its grip is function. Fashion design blends both.",
+    "It's like choosing takkies. You ask whether they look good, and whether they grip and last. A good pair does both.",
   "CA.G8.VAL.A2":
-    "Planning an art project is like planning a trip: you gather references, make rough sketches and pack your materials before you set off on the final piece.",
+    "It's like planning a trip. You check the route, look at pictures of where you're going, and pack before you set off.",
   "CA.G9.MUL.A1":
-    "The same scale in treble and bass clef is like the same phone number written by two people — the digits are identical, they just sit differently on the page.",
+    "It's like the same phone number written by two different people. The digits are the same, they just sit differently on the page.",
   "CA.G9.MUL.A2":
-    "Key signatures are like uniform rules per grade: C major wears no sharps or flats, G major always sharpens F, D major sharpens F and C. Learn the list and you know the key at a glance.",
+    "It's like each school having its own uniform rules. Once you know which school you're at, you know the rules without being told each day.",
   "CA.G9.MUL.A3":
-    "Ledger lines are like extra bricks added under or over a wall so it reaches higher or lower — short lines that extend the staff for notes that don't fit on it.",
+    "It's like adding extra rungs to a ladder so you can reach higher or lower than it normally goes.",
   "CA.G9.MUL.A4":
-    "Counting an interval is like counting fence posts, not the gaps: from C up to G you count C-D-E-F-G, so it's a 5th. Always include both the note you start on and the one you land on.",
+    "It's like counting the fence posts, not the gaps between them. You count the post you start at and the post you end at.",
   "CA.G9.MUL.A5":
-    "A triad is like stacking three tyres with one letter skipped between each — root, skip a letter, next note, skip a letter, top note. C-E-G is a triad.",
+    "It's like stacking tins on a shelf, skipping a space between each one. The same skipping pattern always builds the same neat stack.",
   "CA.G9.MUL.A6":
-    "Writing a scale rhythmically is like reciting the alphabet to a clap pattern — the right letters (pitches) in the right order, fitted to note values that fill the bar.",
+    "It's like saying the alphabet to a clapping rhythm. The letters stay in order, but each one has to fit the beat.",
   "CA.G9.MUE.A1":
-    "The orchestra sorts instruments the way a hardware shop sorts stock — strings, woodwind, brass, percussion — each shelf grouped by how the sound is made, not by size.",
+    "It's like a hardware shop sorting its stock into aisles. Things are grouped by what they do, not by how big they are.",
   "CA.G9.MUE.A2":
-    "Every style has a fingerprint: kwaito is slowed-down house with a South African groove; reggae leans on the off-beat 'chop'. Learn the fingerprint and you name the style in a few bars.",
+    "It's like recognising a friend's walk from far away. Each style has its own way of moving that gives it away in seconds.",
   "CA.G9.MUE.A3":
-    "A musical or opera tells its story through singing instead of speaking. Our national anthem stitches five languages and two older melodies into one song.",
+    "It's like a story told around the fire, but sung instead of spoken, with everyone joining in different languages.",
   "CA.G9.MUP.A1":
-    "Completing a musical phrase is like finishing someone's sentence so it lands — the 'answer' balances the 'question'. A jingle is that in miniature: a short, sticky advert tune.",
+    "It's like finishing a friend's sentence so it lands properly. Their half asks something, and your half answers it neatly.",
   "CA.G9.VAE.A1":
-    "Analogous colours sit side by side on the wheel and agree with each other, like family members at a table. The art elements stay the bricks; colour harmony is how you lay them.",
+    "It's like family members sitting together at a table. They look related, so the group feels comfortable and calm.",
   "CA.G9.VAE.A2":
-    "By Grade 9, using the design principles is like being your own coach — you plan a piece with balance, contrast and emphasis, then step back and critique your own work against them.",
+    "It's like being your own coach. You plan the game, play it, then watch the replay and judge it against your own plan.",
   "CA.G9.VAM.A1":
-    "Personalised making is like cooking a family recipe your own way — you pick the materials and techniques that carry your idea, and you still make it neatly and safely.",
+    "It's like cooking a family recipe your own way. You choose the ingredients that suit your taste, but you still cook it carefully and safely.",
   "CA.G9.VAL.A1":
-    "A poster or mural can carry a message as well as a picture, like a slogan painted on a taxi — the image says one thing, the words and symbols push another.",
+    "It's like a slogan painted on the back of a taxi. The picture catches your eye, but the words are pushing a message.",
   "CA.G9.VAL.A2":
-    "A social-commentator artist is like a newspaper cartoonist — the drawing entertains, but it's really pointing at something in society. By Grade 9 you plan such projects yourself.",
+    "It's like a newspaper cartoonist. The drawing makes you smile, but it's really pointing at a problem in society.",
 };

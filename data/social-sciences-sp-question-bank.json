@@ -39,7 +39,7 @@
             "Oxen"
           ],
           "expected": "Camels",
-          "memo": "Camels can travel long distances across the desert with little water, so traders moved goods in camel caravans.",
+          "memo": "Camels can travel long distances across the desert with little water, so traders moved their goods in camel caravans.",
           "error_signals": [
             "ERR_SSSP_G7H1_CARAVAN"
           ],
@@ -71,7 +71,7 @@
             "Ivory"
           ],
           "expected": "Tea from China",
-          "memo": "Sahara trade moved gold, salt, ivory, enslaved people and ostrich feathers — not tea from China.",
+          "memo": "Traders carried gold, salt, ivory, enslaved people and ostrich feathers across the Sahara. Tea from China was not one of them.",
           "error_signals": [
             "ERR_SSSP_G7H1_GOODS"
           ],
@@ -88,7 +88,7 @@
             "Roman soldiers"
           ],
           "expected": "Traders crossing the Sahara",
-          "memo": "Muslim traders carried their religion along the caravan routes, so Islam spread into West Africa through trade.",
+          "memo": "Muslim traders brought their religion with them along the caravan routes. That is how Islam spread into West Africa.",
           "error_signals": [
             "ERR_SSSP_G7H1_ISLAM"
           ],
@@ -105,7 +105,7 @@
             "herd"
           ],
           "expected": "caravan",
-          "memo": "A caravan is a group of traders and pack animals travelling together for safety across the desert.",
+          "memo": "A caravan is a group of traders and pack animals travelling together across the desert, for safety.",
           "error_signals": [
             "ERR_SSSP_G7H1_CARAVAN_WORD"
           ],
@@ -120,7 +120,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Goods, ideas and religion flowed between West Africa and North Africa across the Sahara trade routes.",
+          "memo": "The Sahara trade routes linked West Africa with North Africa. Goods, ideas and religion travelled along them.",
           "error_signals": [
             "ERR_SSSP_G7H1_CONNECT"
           ],
@@ -137,7 +137,7 @@
             "It was used to make weapons"
           ],
           "expected": "It was scarce and needed to preserve food",
-          "memo": "Salt was rare in West Africa and essential for preserving food and health, which made it extremely valuable.",
+          "memo": "West Africa had very little salt, and people needed it to keep food from going off and to stay healthy. That made it very valuable.",
           "error_signals": [
             "ERR_SSSP_G7H1_SALT_VALUE"
           ],
@@ -247,7 +247,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Crossing the desert was dangerous, so traders travelled together in large caravans for safety.",
+          "memo": "Crossing the desert was dangerous, so traders travelled together in big caravans to stay safe.",
           "error_signals": [
             "ERR_SSSP_G7H1_ALONE"
           ],
@@ -264,7 +264,7 @@
             "From the 20th century"
           ],
           "expected": "From around the 9th century",
-          "memo": "From about the 9th century, Muslim traders spread Islam south along the caravan routes into West Africa.",
+          "memo": "From about the 9th century, Muslim traders carried Islam south along the caravan routes into West Africa.",
           "error_signals": [
             "ERR_SSSP_G7H1_WHEN_ISLAM"
           ],
@@ -379,7 +379,7 @@
             "A kind of salt"
           ],
           "expected": "A regular path traders followed across the desert",
-          "memo": "Caravan routes were the established paths traders used across the Sahara.",
+          "memo": "A caravan route was a regular path that traders followed across the Sahara.",
           "error_signals": [
             "ERR_SSSP_G7H1A1_B07"
           ],
@@ -460,7 +460,7 @@
             "A football score"
           ],
           "expected": "Travellers' written accounts",
-          "memo": "Written accounts by travellers are valuable historical sources.",
+          "memo": "Accounts written by travellers who saw things for themselves are useful sources for historians.",
           "error_signals": [
             "ERR_SSSP_G7H1A1_B12"
           ],
@@ -536,7 +536,7 @@
             "Coal"
           ],
           "expected": "Gold",
-          "memo": "Mali's power rested on its control of West African gold, which made its rulers extremely wealthy.",
+          "memo": "Mali controlled West Africa's gold. That is what made its rulers so rich and powerful.",
           "error_signals": [
             "ERR_SSSP_G7H1A2_GOLD"
           ],
@@ -602,7 +602,7 @@
             "China"
           ],
           "expected": "Arabia",
-          "memo": "Mecca, the holiest city of Islam, is in Arabia — a very long journey from Mali.",
+          "memo": "Mecca, the holiest city in Islam, is in Arabia. That was a very long journey from Mali.",
           "error_signals": [
             "ERR_SSSP_G7H1A2_MECCA"
           ],
@@ -651,7 +651,7 @@
             "expedition"
           ],
           "expected": "pilgrimage",
-          "memo": "A pilgrimage is a religious journey to a holy place — for Muslims, the hajj to Mecca.",
+          "memo": "A pilgrimage is a religious journey to a holy place. For Muslims, the journey to Mecca is called the hajj.",
           "error_signals": [
             "ERR_SSSP_G7H1A2_PILGRIM"
           ],
@@ -668,7 +668,7 @@
             "He printed his own money"
           ],
           "expected": "He controlled vast amounts of gold",
-          "memo": "His control over West Africa's gold made him fabulously wealthy by any measure.",
+          "memo": "He controlled West Africa's gold, which made him incredibly rich.",
           "error_signals": [
             "ERR_SSSP_G7H1A2_RICH"
           ],
@@ -683,7 +683,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Mali's Muslim rulers supported religion and learning, funding mosques and centres of study.",
+          "memo": "Mali's Muslim rulers did care about religion and learning. They paid for mosques and places of study.",
           "error_signals": [
             "ERR_SSSP_G7H1A2_LEARNING"
           ],
@@ -732,7 +732,7 @@
             "Cape Town"
           ],
           "expected": "Cairo",
-          "memo": "Mansa Musa's pilgrimage passed through Cairo, where his spending became legendary.",
+          "memo": "Mansa Musa travelled through Cairo on his way to Mecca, and people there talked about his spending for years.",
           "error_signals": [
             "ERR_SSSP_G7H1A2_B03"
           ],
@@ -813,7 +813,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Mali traded heavily across the Sahara with North Africa.",
+          "memo": "Mali did trade with North Africa. It traded a lot with North Africa across the Sahara.",
           "error_signals": [
             "ERR_SSSP_G7H1A2_B08"
           ],
@@ -862,7 +862,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Mali's gold was valued across North Africa, the Mediterranean and beyond.",
+          "memo": "People valued Mali's gold across North Africa, around the Mediterranean and further away.",
           "error_signals": [
             "ERR_SSSP_G7H1A2_B11"
           ],
@@ -938,7 +938,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Timbuktu's position on the caravan route made it a busy meeting point for traders.",
+          "memo": "Timbuktu was on the caravan route, so it became a busy place where traders met.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_ROUTE"
           ],
@@ -989,7 +989,7 @@
             "Only painting"
           ],
           "expected": "Mathematics, astronomy, medicine and law",
-          "memo": "Timbuktu's scholars studied mathematics, astronomy, medicine, law, history and more.",
+          "memo": "Scholars in Timbuktu studied mathematics, astronomy, medicine, law, history and more.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_SUBJECTS"
           ],
@@ -1004,7 +1004,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The manuscripts are precious handwritten records of the scholarship of Timbuktu, now being preserved.",
+          "memo": "The manuscripts are precious handwritten books that record what Timbuktu's scholars knew. People are working to protect them today.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_MANUSCRIPTS"
           ],
@@ -1021,7 +1021,7 @@
             "Its beaches"
           ],
           "expected": "Its great history of trade and learning",
-          "memo": "Timbuktu is a World Heritage Site because of its outstanding history as a centre of trade and learning.",
+          "memo": "Timbuktu is a World Heritage Site because of its great history as a centre of trade and learning.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_HERITAGE"
           ],
@@ -1038,7 +1038,7 @@
             "maps"
           ],
           "expected": "manuscripts",
-          "memo": "Manuscripts are handwritten documents — Timbuktu's are a treasured record of African scholarship.",
+          "memo": "Manuscripts are handwritten books or documents. Timbuktu's are a treasured record of African learning.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_MANU_WORD"
           ],
@@ -1053,7 +1053,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "South Africa collaborated on a project to help conserve and study the Timbuktu manuscripts.",
+          "memo": "South Africa worked on a project to help protect and study the Timbuktu manuscripts.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_SA"
           ],
@@ -1094,7 +1094,7 @@
           ],
           "min_correct": 1,
           "max_wrong": 1,
-          "memo": "The scholars, libraries and manuscripts all point to learning; the salt-for-gold line is about trade.",
+          "memo": "The scholars, libraries and manuscripts all show learning. The line about swapping salt for gold is about trade.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_HIGHLIGHT"
           ],
@@ -1109,7 +1109,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Timbuktu was a famous, wealthy and connected city known across the Muslim world for trade and learning.",
+          "memo": "Timbuktu was a famous, wealthy city with links to many places. It was known across the Muslim world for trade and learning.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_POOR"
           ],
@@ -1158,7 +1158,7 @@
             "Are made of gold"
           ],
           "expected": "Record knowledge from the past",
-          "memo": "Manuscripts preserve past knowledge, making them precious historical sources.",
+          "memo": "Manuscripts keep a record of what people knew in the past, which makes them precious to historians.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_B03"
           ],
@@ -1207,7 +1207,7 @@
             "A gold mine"
           ],
           "expected": "Important to all of humanity",
-          "memo": "World Heritage status marks a place of outstanding value to all humanity.",
+          "memo": "A World Heritage Site is a place that matters to all of humanity.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_B06"
           ],
@@ -1224,7 +1224,7 @@
             "Television"
           ],
           "expected": "Astronomy, medicine and law",
-          "memo": "The manuscripts cover astronomy, medicine, law, history and more.",
+          "memo": "The manuscripts cover subjects like astronomy, medicine, law and history.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_B07"
           ],
@@ -1239,7 +1239,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Conserving the manuscripts safeguards a record of African scholarship.",
+          "memo": "Protecting the manuscripts keeps a record of African learning safe.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_B08"
           ],
@@ -1288,7 +1288,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Leo Africanus described Timbuktu after visiting it, in his 1550 book.",
+          "memo": "Leo Africanus visited Timbuktu and wrote about it in his book in 1550.",
           "error_signals": [
             "ERR_SSSP_G7H1A3_B11"
           ],
@@ -1349,7 +1349,7 @@
             "Only after 1900"
           ],
           "expected": "Yes, but it was different from Atlantic slavery",
-          "memo": "Forms of slavery existed in West Africa before Europeans, but the Atlantic trade was far larger and more brutal.",
+          "memo": "Some kinds of slavery did exist in West Africa before Europeans came. But the Atlantic slave trade was far bigger and far more cruel.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_BEFORE"
           ],
@@ -1364,7 +1364,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The Atlantic trade forcibly moved millions of people — far more than earlier West African slavery.",
+          "memo": "The Atlantic slave trade forced millions of people across the ocean, far more than earlier West African slavery.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_SCALE"
           ],
@@ -1381,7 +1381,7 @@
             "Only deserts with no people"
           ],
           "expected": "Organised societies, kingdoms and trade",
-          "memo": "West Africa had well-organised societies, kingdoms and busy trade long before Europeans arrived.",
+          "memo": "Long before Europeans arrived, West Africa had well-organised societies, kingdoms and busy trade.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_SOCIETIES"
           ],
@@ -1396,7 +1396,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "West Africa already had rich trade networks, including the trans-Saharan trade, before the Atlantic trade.",
+          "memo": "West Africa already had big trade networks before the Atlantic trade, including the trade across the Sahara.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_TRADE"
           ],
@@ -1413,7 +1413,7 @@
             "It lasted only one day"
           ],
           "expected": "Enslaved people could sometimes keep rights or status",
-          "memo": "In some West African societies enslaved people kept certain rights — unlike the harsh, permanent plantation slavery of the Americas.",
+          "memo": "In some West African societies, enslaved people kept some rights. Plantation slavery in the Americas was harsh and lasted for life.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_DIFF"
           ],
@@ -1430,7 +1430,7 @@
             "railways"
           ],
           "expected": "kingdoms",
-          "memo": "West Africa had kingdoms with their own rulers, trade and culture before European contact.",
+          "memo": "Before Europeans came, West Africa had kingdoms with their own rulers, trade and culture.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_KINGDOMS"
           ],
@@ -1447,7 +1447,7 @@
             "The Silk Road to Japan"
           ],
           "expected": "The trans-Saharan trade",
-          "memo": "The trans-Saharan trade had long connected West Africa northwards across the desert.",
+          "memo": "The trade across the Sahara had linked West Africa to the north for a long time.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_SAHARA"
           ],
@@ -1462,7 +1462,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "European demand for plantation labour turned slavery into a vast, brutal trade across the Atlantic.",
+          "memo": "Europeans wanted workers for their plantations. This turned slavery into a huge, cruel trade across the Atlantic.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_CHANGE"
           ],
@@ -1479,7 +1479,7 @@
             "Oil wells"
           ],
           "expected": "Trade, farming and rulers",
-          "memo": "These societies had rulers, farming and busy trade long before Europeans.",
+          "memo": "These kingdoms had rulers, farming and busy trade long before Europeans arrived.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_B01"
           ],
@@ -1494,7 +1494,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The Atlantic trade was vastly larger in scale than earlier West African slavery.",
+          "memo": "The Atlantic slave trade was much, much bigger than earlier slavery in West Africa.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_B02"
           ],
@@ -1543,7 +1543,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Slavery took different forms; Atlantic plantation slavery was uniquely vast and brutal.",
+          "memo": "Slavery was not the same everywhere. Plantation slavery across the Atlantic was much bigger and crueller than other forms.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_B05"
           ],
@@ -1592,7 +1592,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Europe's plantation economy drove the huge expansion of the Atlantic slave trade.",
+          "memo": "Europe's plantations needed huge numbers of workers, which is what made the Atlantic slave trade grow so big.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_B08"
           ],
@@ -1626,7 +1626,7 @@
             "Arctic"
           ],
           "expected": "Atlantic",
-          "memo": "The trade carried people across the Atlantic to the Americas.",
+          "memo": "The trade carried people across the Atlantic Ocean to the Americas.",
           "error_signals": [
             "ERR_SSSP_G7H2A1_B10"
           ],
@@ -1719,7 +1719,7 @@
             "All of these"
           ],
           "expected": "All of these",
-          "memo": "Cotton, rice, sugar cane and tobacco were all grown on plantations using enslaved labour.",
+          "memo": "Cotton, rice, sugar cane and tobacco were all grown on plantations by enslaved people.",
           "error_signals": [
             "ERR_SSSP_G7H2A2_CROPS"
           ],
@@ -1736,7 +1736,7 @@
             "Royal"
           ],
           "expected": "Middle",
-          "memo": "The Middle Passage was the brutal Atlantic crossing in which many enslaved people died.",
+          "memo": "The Middle Passage was the cruel journey across the Atlantic. Many enslaved people died on it.",
           "error_signals": [
             "ERR_SSSP_G7H2A2_MIDDLE"
           ],
@@ -1785,7 +1785,7 @@
             "c",
             "d"
           ],
-          "memo": "Capture → sale on the coast → Middle Passage → plantation labour: the path of the Atlantic slave trade.",
+          "memo": "First people were captured, then sold on the coast, then shipped across the Middle Passage, then forced to work on plantations.",
           "error_signals": [
             "ERR_SSSP_G7H2A2_SEQ"
           ],
@@ -1802,7 +1802,7 @@
             "Australia"
           ],
           "expected": "West Africa",
-          "memo": "Enslaved people were captured in West Africa and transported across the Atlantic to the Americas.",
+          "memo": "Enslaved people were captured in West Africa and shipped across the Atlantic to the Americas.",
           "error_signals": [
             "ERR_SSSP_G7H2A2_CAPTURE"
           ],
@@ -1817,7 +1817,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "The Middle Passage was overcrowded, cruel and deadly — conditions were horrific.",
+          "memo": "Conditions on the Middle Passage were terrible. The ships were overcrowded, cruel and deadly.",
           "error_signals": [
             "ERR_SSSP_G7H2A2_COND"
           ],
@@ -1834,7 +1834,7 @@
             "China"
           ],
           "expected": "Factories in Britain",
-          "memo": "Plantation raw materials such as cotton fed Britain's factories, linking slavery to the Industrial Revolution.",
+          "memo": "Cotton from the plantations went to factories in Britain. This links slavery to the Industrial Revolution.",
           "error_signals": [
             "ERR_SSSP_G7H2A2_RAW"
           ],
@@ -1866,7 +1866,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Over the centuries of the trade, millions of Africans were forcibly transported across the Atlantic.",
+          "memo": "Over the centuries of the trade, millions of Africans were forced across the Atlantic.",
           "error_signals": [
             "ERR_SSSP_G7H2A2_MILLIONS"
           ],
@@ -1932,7 +1932,7 @@
             "Timbuktu"
           ],
           "expected": "Britain",
-          "memo": "Southern cotton fed British textile factories.",
+          "memo": "Cotton from the American South supplied the cloth factories in Britain.",
           "error_signals": [
             "ERR_SSSP_G7H2A2_B03"
           ],
@@ -1964,7 +1964,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Overcrowding, disease and cruelty killed many during the crossing.",
+          "memo": "Overcrowding, disease and cruelty killed many people during the crossing.",
           "error_signals": [
             "ERR_SSSP_G7H2A2_B05"
           ],
@@ -1981,7 +1981,7 @@
             "To explore"
           ],
           "expected": "To increase profit by not paying wages",
-          "memo": "Forced, unpaid labour increased plantation profits.",
+          "memo": "Owners did not pay enslaved people, so they made more profit.",
           "error_signals": [
             "ERR_SSSP_G7H2A2_B06"
           ],
@@ -1998,7 +1998,7 @@
             "Caves"
           ],
           "expected": "Factories",
-          "memo": "Plantation raw materials were processed in factories, often in Britain.",
+          "memo": "Raw materials from the plantations were made into goods in factories, often in Britain.",
           "error_signals": [
             "ERR_SSSP_G7H2A2_B07"
           ],
@@ -2079,7 +2079,7 @@
             "Nobody"
           ],
           "expected": "Owners, and economies in America and Britain",
-          "memo": "Profits flowed to owners and to the American and British economies.",
+          "memo": "The profits went to the plantation owners and to the economies of America and Britain.",
           "error_signals": [
             "ERR_SSSP_G7H2A2_B12"
           ],
@@ -2123,7 +2123,7 @@
             "Joining the army"
           ],
           "expected": "Working slowly or breaking tools",
-          "memo": "Quiet (passive) resistance included working slowly, breaking tools and pretending not to understand.",
+          "memo": "Quiet resistance included working slowly, breaking tools and pretending not to understand.",
           "error_signals": [
             "ERR_SSSP_G7H2A3_PASSIVE"
           ],
@@ -2140,7 +2140,7 @@
             "Helen Joseph"
           ],
           "expected": "Harriet Tubman",
-          "memo": "Harriet Tubman escaped slavery and guided many others to freedom via the Underground Railroad.",
+          "memo": "Harriet Tubman escaped slavery and then led many others to freedom along the Underground Railroad.",
           "error_signals": [
             "ERR_SSSP_G7H2A3_TUBMAN"
           ],
@@ -2157,7 +2157,7 @@
             "A slave market"
           ],
           "expected": "A secret network of routes and safe houses for escaping slaves",
-          "memo": "The Underground Railroad was a secret network helping enslaved people escape to free areas.",
+          "memo": "The Underground Railroad was a secret network of routes and safe houses. It helped enslaved people escape to places where they could be free.",
           "error_signals": [
             "ERR_SSSP_G7H2A3_UGRR"
           ],
@@ -2233,7 +2233,7 @@
           ],
           "expected": "Slow work and breaking tools are passive; rebellion and escape are active.",
           "pass_threshold": 0.75,
-          "memo": "Resistance ranged from quiet sabotage (passive) to open revolt and escape (active).",
+          "memo": "Passive resistance was quiet, like working slowly or breaking tools. Active resistance was open, like rebelling or escaping.",
           "error_signals": [
             "ERR_SSSP_G7H2A3_SORT"
           ],
@@ -2282,7 +2282,7 @@
             "legal"
           ],
           "expected": "active",
-          "memo": "Escaping was a bold, active form of resistance against slavery.",
+          "memo": "Running away was a bold, open way of fighting slavery, so it counts as active resistance.",
           "error_signals": [
             "ERR_SSSP_G7H2A3_ESCAPE"
           ],
@@ -2299,7 +2299,7 @@
             "They had no reason to resist"
           ],
           "expected": "Open rebellion was dangerous, so they also used safer quiet methods",
-          "memo": "Open revolt risked death, so resistance ranged from quiet sabotage to escape to rebellion.",
+          "memo": "Open rebellion could get people killed, so they also used safer, quieter ways to resist, as well as escaping and rebelling.",
           "error_signals": [
             "ERR_SSSP_G7H2A3_WHY"
           ],
@@ -2314,7 +2314,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Most resistance was quieter — go-slows, sabotage, escape — alongside the rarer armed revolts.",
+          "memo": "Most resistance was quieter, like working slowly, damaging tools or escaping. Big armed revolts happened, but less often.",
           "error_signals": [
             "ERR_SSSP_G7H2A3_ONLY"
           ],
@@ -2493,7 +2493,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Escape was extremely dangerous, with severe punishment if caught.",
+          "memo": "Escaping was very dangerous. People who were caught faced harsh punishment.",
           "error_signals": [
             "ERR_SSSP_G7H2A3_B11"
           ],
@@ -2510,7 +2510,7 @@
             "Did nothing"
           ],
           "expected": "Actively fought their conditions in many ways",
-          "memo": "Resistance proves enslaved people constantly struggled against their bondage.",
+          "memo": "Resistance shows that enslaved people kept fighting against slavery all the time.",
           "error_signals": [
             "ERR_SSSP_G7H2A3_B12"
           ],
@@ -2554,7 +2554,7 @@
             "China and Japan"
           ],
           "expected": "America and Britain",
-          "memo": "America and Britain profited enormously, while West Africa suffered lasting harm.",
+          "memo": "America and Britain made huge profits, while West Africa suffered harm that lasted.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_GAIN"
           ],
@@ -2569,7 +2569,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "West Africa lost millions of people and suffered deep, lasting economic and social damage.",
+          "memo": "West Africa lost millions of people, and its economy and societies were badly damaged for a long time.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_HARM"
           ],
@@ -2586,7 +2586,7 @@
             "It had no effect at all"
           ],
           "expected": "Profits and raw materials helped fund its growth and factories",
-          "memo": "Slave-trade profits and plantation raw materials fed Britain's growing economy and industry.",
+          "memo": "Profits from the slave trade, and raw materials from plantations, helped Britain's economy and factories grow.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_BRITAIN"
           ],
@@ -2603,7 +2603,7 @@
             "Nothing"
           ],
           "expected": "Millions of young people and stability",
-          "memo": "Losing millions of mostly young people robbed West Africa of workers, families and stability.",
+          "memo": "West Africa lost millions of people, mostly young. That took away workers and families, and made societies unstable.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_LOSS"
           ],
@@ -2620,7 +2620,7 @@
             "gold"
           ],
           "expected": "damage",
-          "memo": "One side grew rich while the other suffered lasting damage — an unequal and unjust exchange.",
+          "memo": "One side got rich while the other suffered damage that lasted. That was unequal and unfair.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_DAMAGE"
           ],
@@ -2635,7 +2635,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The trade tied together West Africa, the Americas and Britain in an Atlantic economy built on enslaved labour.",
+          "memo": "The trade tied West Africa, the Americas and Britain together in one economy that ran on enslaved people's work.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_THREE"
           ],
@@ -2679,7 +2679,7 @@
           ],
           "expected": "Britain and America gained profits and materials; West Africa lost people and stability.",
           "pass_threshold": 0.75,
-          "memo": "The trade enriched Britain and America while devastating West Africa.",
+          "memo": "Britain and America gained profits and raw materials. West Africa lost people and stability.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_SORT"
           ],
@@ -2696,7 +2696,7 @@
             "It had no economic effect"
           ],
           "expected": "It enriched some regions while devastating another",
-          "memo": "The benefits and the suffering fell on different regions, making the trade deeply unequal.",
+          "memo": "Some regions got the benefits while another got the suffering. That is why the trade was so unequal.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_UNEQUAL"
           ],
@@ -2713,7 +2713,7 @@
             "All strengthened"
           ],
           "expected": "Damaged and weakened",
-          "memo": "It enriched some while damaging West Africa — an unequal outcome.",
+          "memo": "It made some economies rich while it damaged West Africa. The result was unequal.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_B01"
           ],
@@ -2728,7 +2728,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Slave-trade and plantation profits helped finance Britain's economic growth.",
+          "memo": "Profits from the slave trade and the plantations helped pay for Britain's economic growth.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_B02"
           ],
@@ -2745,7 +2745,7 @@
             "Climate"
           ],
           "expected": "Workforce and societies",
-          "memo": "Losing so many young people robbed West Africa of workers and weakened societies.",
+          "memo": "Losing so many young people took away West Africa's workers and weakened its societies.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_B03"
           ],
@@ -2762,7 +2762,7 @@
             "tiny"
           ],
           "expected": "unequal",
-          "memo": "Its effects were deeply unequal — wealth for some, devastation for others.",
+          "memo": "The effects were very unequal. Some regions got rich and another was devastated.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_B04"
           ],
@@ -2794,7 +2794,7 @@
             "The space race"
           ],
           "expected": "The Industrial Revolution",
-          "memo": "Plantation raw materials helped fuel Britain's Industrial Revolution.",
+          "memo": "Raw materials from the plantations helped drive Britain's Industrial Revolution.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_B06"
           ],
@@ -2875,7 +2875,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "The benefits and the suffering fell on different regions — it was deeply unequal.",
+          "memo": "Some regions got the benefits and another got the suffering. The trade was very unequal.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_B11"
           ],
@@ -2892,7 +2892,7 @@
             "Nothing now"
           ],
           "expected": "Inequalities that can last today",
-          "memo": "Historic injustices like the slave trade still shape inequalities today.",
+          "memo": "Past injustices like the slave trade still shape who is rich and who is poor today.",
           "error_signals": [
             "ERR_SSSP_G7H2A4_B12"
           ],
@@ -2953,7 +2953,7 @@
             "Gold miners"
           ],
           "expected": "Hunter-gatherers",
-          "memo": "The San were hunter-gatherers, living by hunting animals and gathering plants.",
+          "memo": "The San were hunter-gatherers. They lived by hunting animals and gathering plants.",
           "error_signals": [
             "ERR_SSSP_G7H3A1_SAN"
           ],
@@ -3002,7 +3002,7 @@
             "British"
           ],
           "expected": "Khoikhoi",
-          "memo": "Khoikhoi = herders; San = hunter-gatherers. Both lived at the Cape before colonisation.",
+          "memo": "The Khoikhoi were herders and the San were hunter-gatherers. Both lived at the Cape before the colonists came.",
           "error_signals": [
             "ERR_SSSP_G7H3A1_CLOZE"
           ],
@@ -3383,7 +3383,7 @@
             "Printing"
           ],
           "expected": "Wine-making and farming",
-          "memo": "French Huguenot immigrants added farming and wine-making skills at the Cape.",
+          "memo": "The French Huguenots who settled at the Cape brought farming and wine-making skills.",
           "error_signals": [
             "ERR_SSSP_G7H3A2_HUG"
           ],
@@ -3415,7 +3415,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The Huguenots were French Protestants who fled religious persecution, some settling at the Cape.",
+          "memo": "The Huguenots were French Protestants who fled because they were persecuted for their religion. Some settled at the Cape.",
           "error_signals": [
             "ERR_SSSP_G7H3A2_REFUGEE"
           ],
@@ -3530,7 +3530,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "French Huguenot settlers added farming and wine-making skills.",
+          "memo": "The French Huguenot settlers brought farming and wine-making skills.",
           "error_signals": [
             "ERR_SSSP_G7H3A2_B05"
           ],
@@ -3564,7 +3564,7 @@
             "Factories"
           ],
           "expected": "Land and labour",
-          "memo": "Farming expansion drove demand for land and labour, including enslaved people.",
+          "memo": "As their farms grew, they needed more land and more workers, including enslaved people.",
           "error_signals": [
             "ERR_SSSP_G7H3A2_B07"
           ],
@@ -3579,7 +3579,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Huguenots were Protestants who fled persecution in Catholic France.",
+          "memo": "The Huguenots were Protestants who fled persecution in Catholic France.",
           "error_signals": [
             "ERR_SSSP_G7H3A2_B08"
           ],
@@ -3706,7 +3706,7 @@
             "the Sahara"
           ],
           "expected": "East Africa, Madagascar and parts of Asia",
-          "memo": "Cape slaves came mostly from East Africa, Madagascar and Asia — not the Atlantic trade.",
+          "memo": "Most enslaved people at the Cape came from East Africa, Madagascar and Asia, not from the Atlantic trade.",
           "error_signals": [
             "ERR_SSSP_G7H3A3_ORIGIN"
           ],
@@ -3721,7 +3721,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Cape slavery drew from the Indian Ocean world, not the Atlantic plantation system — a different system.",
+          "memo": "Enslaved people at the Cape came from around the Indian Ocean, not through the Atlantic plantation trade. It was a different system.",
           "error_signals": [
             "ERR_SSSP_G7H3A3_DIFF"
           ],
@@ -3755,7 +3755,7 @@
             "French"
           ],
           "expected": "Afrikaans",
-          "memo": "Enslaved people contributed to the development of the Afrikaans language at the Cape.",
+          "memo": "Enslaved people helped shape the Afrikaans language at the Cape.",
           "error_signals": [
             "ERR_SSSP_G7H3A3_AFR"
           ],
@@ -3770,7 +3770,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Despite harsh control, enslaved people at the Cape resisted in various ways, met with severe punishment.",
+          "memo": "Even under harsh control, enslaved people at the Cape resisted in different ways, and they were punished severely for it.",
           "error_signals": [
             "ERR_SSSP_G7H3A3_RESIST"
           ],
@@ -3787,7 +3787,7 @@
             "Judaism"
           ],
           "expected": "Islam",
-          "memo": "The legacy of Cape slavery includes Islam and contributions to Afrikaans.",
+          "memo": "Cape slavery left behind Islam, and it helped shape the Afrikaans language.",
           "error_signals": [
             "ERR_SSSP_G7H3A3_CLOZE"
           ],
@@ -3804,7 +3804,7 @@
             "Nothing at all"
           ],
           "expected": "Cultural and religious heritage, including Islam",
-          "memo": "Cape slavery left a deep cultural and religious legacy, including Islam and influences on Afrikaans.",
+          "memo": "Slavery at the Cape left a deep cultural and religious heritage, including Islam and influences on Afrikaans.",
           "error_signals": [
             "ERR_SSSP_G7H3A3_LEGACY"
           ],
@@ -3851,7 +3851,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Cape slaves came largely from the Indian Ocean world (East Africa, Madagascar, Asia).",
+          "memo": "Enslaved people at the Cape came mostly from around the Indian Ocean: East Africa, Madagascar and Asia.",
           "error_signals": [
             "ERR_SSSP_G7H3A3_B02"
           ],
@@ -3868,7 +3868,7 @@
             "Nobody"
           ],
           "expected": "Enslaved people and many cultures at the Cape",
-          "memo": "Afrikaans developed from the mixing of Dutch with the languages of enslaved and local people.",
+          "memo": "Afrikaans grew out of Dutch mixing with the languages of enslaved people and local people.",
           "error_signals": [
             "ERR_SSSP_G7H3A3_B03"
           ],
@@ -3949,7 +3949,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Slavery left deep marks on Cape society, culture, religion and language.",
+          "memo": "Slavery left deep marks on the Cape's society, culture, religion and language.",
           "error_signals": [
             "ERR_SSSP_G7H3A3_B08"
           ],
@@ -3966,7 +3966,7 @@
             "No other place"
           ],
           "expected": "The Indian Ocean world",
-          "memo": "Cape slavery connected it to East Africa, Madagascar and Asia.",
+          "memo": "Enslaved people came from East Africa, Madagascar and Asia, so the Cape was linked to the Indian Ocean world.",
           "error_signals": [
             "ERR_SSSP_G7H3A3_B09"
           ],
@@ -3998,7 +3998,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The history of slavery is a vital part of understanding South Africa.",
+          "memo": "You can't understand South Africa without knowing the history of slavery.",
           "error_signals": [
             "ERR_SSSP_G7H3A3_B11"
           ],
@@ -4015,7 +4015,7 @@
             "Nothing"
           ],
           "expected": "The roots of inequality and culture in South Africa",
-          "memo": "Cape slavery helps explain later inequality and the country's mixed culture.",
+          "memo": "Cape slavery helps explain later inequality in South Africa and its mixed culture.",
           "error_signals": [
             "ERR_SSSP_G7H3A3_B12"
           ],
@@ -4125,7 +4125,7 @@
             "missionaries"
           ],
           "expected": "trekboers",
-          "memo": "Trekboers were the mobile settler farmers of the expanding Cape frontier.",
+          "memo": "Trekboers were settler farmers who kept moving inland with their animals as the Cape frontier spread.",
           "error_signals": [
             "ERR_SSSP_G7H3A4_CLOZE"
           ],
@@ -4140,7 +4140,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "The frontier's expansion dispossessed indigenous people of land and independence — a major effect.",
+          "memo": "As the frontier spread, the people already living there lost their land and their independence. That was a big effect.",
           "error_signals": [
             "ERR_SSSP_G7H3A4_EFFECT"
           ],
@@ -4157,7 +4157,7 @@
             "Trade enslaved people"
           ],
           "expected": "Spread Christianity and offer a settled community",
-          "memo": "Mission stations spread Christianity and provided settled communities, sometimes for dispossessed people.",
+          "memo": "Mission stations spread Christianity and gave people a settled community, sometimes people who had lost their land.",
           "error_signals": [
             "ERR_SSSP_G7H3A4_MISSION"
           ],
@@ -4174,7 +4174,7 @@
             "Apartheid laws"
           ],
           "expected": "San (Bushman) language and stories",
-          "memo": "Bleek and Lloyd recorded San language and folklore, preserving a precious record of San culture.",
+          "memo": "Bleek and Lloyd wrote down San language and stories, which kept a precious record of San culture.",
           "error_signals": [
             "ERR_SSSP_G7H3A4_BLEEK"
           ],
@@ -4189,7 +4189,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Indigenous people losing their land — dispossession — was a central consequence of frontier expansion.",
+          "memo": "When the frontier spread, the people already living there lost their land. This is called dispossession.",
           "error_signals": [
             "ERR_SSSP_G7H3A4_LAND"
           ],
@@ -4238,7 +4238,7 @@
             "Trade enslaved people"
           ],
           "expected": "Spread Christianity",
-          "memo": "Mission stations spread Christianity and offered settled communities.",
+          "memo": "Mission stations spread Christianity and gave people a settled community.",
           "error_signals": [
             "ERR_SSSP_G7H3A4_B03"
           ],
@@ -4336,7 +4336,7 @@
             "Sea voyage"
           ],
           "expected": "Cause of conflict over land",
-          "memo": "Expanding settlement created long-term conflict over land.",
+          "memo": "As settlement spread, it caused conflict over land that lasted a long time.",
           "error_signals": [
             "ERR_SSSP_G7H3A4_B09"
           ],
@@ -4385,7 +4385,7 @@
             "Were tiny"
           ],
           "expected": "Lasted long into the future",
-          "memo": "Land dispossession had deep, long-lasting consequences.",
+          "memo": "Losing their land had deep effects on people that lasted a very long time.",
           "error_signals": [
             "ERR_SSSP_G7H3A4_B12"
           ],
@@ -4444,7 +4444,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Under Britain, European settlement expanded, including the 1820 settlers.",
+          "memo": "Under British rule, more Europeans settled at the Cape, including the 1820 settlers.",
           "error_signals": [
             "ERR_SSSP_G7H4A1_SETTLE"
           ],
@@ -4478,7 +4478,7 @@
             "Moved back to the sea"
           ],
           "expected": "Expanded further",
-          "memo": "Under British rule, European settlement and its frontier pushed further outward.",
+          "memo": "Under British rule, European settlement kept spreading further out.",
           "error_signals": [
             "ERR_SSSP_G7H4A1_EXPAND"
           ],
@@ -4657,7 +4657,7 @@
             "No change"
           ],
           "expected": "More conflict with indigenous people",
-          "memo": "Expanding settlement increased conflict with indigenous communities.",
+          "memo": "As settlement spread, there was more conflict with the people already living there.",
           "error_signals": [
             "ERR_SSSP_G7H4A1_B09"
           ],
@@ -4767,7 +4767,7 @@
             "Building Genadendal"
           ],
           "expected": "Leading Xhosa resistance to British rule",
-          "memo": "Maqoma was a Xhosa leader who resisted British expansion on the eastern frontier.",
+          "memo": "Maqoma was a Xhosa leader who fought against the British spreading onto the eastern frontier.",
           "error_signals": [
             "ERR_SSSP_G7H4A2_MAQOMA"
           ],
@@ -4782,7 +4782,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Stockenström was a soldier and official deeply involved in eastern-frontier affairs.",
+          "memo": "Stockenström was a soldier and official who was closely involved in what happened on the eastern frontier.",
           "error_signals": [
             "ERR_SSSP_G7H4A2_STOCK"
           ],
@@ -4799,7 +4799,7 @@
             "The Khoikhoi"
           ],
           "expected": "The Boers",
-          "memo": "The Great Trek saw Boers (Dutch-descended farmers) move into the interior, away from British rule.",
+          "memo": "In the Great Trek, Boers (farmers of Dutch descent) moved into the interior to get away from British rule.",
           "error_signals": [
             "ERR_SSSP_G7H4A2_TREK"
           ],
@@ -4914,7 +4914,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Maqoma led Xhosa resistance against British expansion.",
+          "memo": "Maqoma led Xhosa resistance against the British spreading onto their land.",
           "error_signals": [
             "ERR_SSSP_G7H4A2_B02"
           ],
@@ -4963,7 +4963,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Ending slavery angered Boer slave-owners, a factor behind the Great Trek.",
+          "memo": "Ending slavery angered Boer slave owners. This was one of the reasons for the Great Trek.",
           "error_signals": [
             "ERR_SSSP_G7H4A2_B05"
           ],
@@ -5029,7 +5029,7 @@
             "British officials"
           ],
           "expected": "Bound into forced labour",
-          "memo": "Inboekselings were people, often children, bound into forced labour.",
+          "memo": "Inboekselings were people, often children, who were forced to work and not allowed to leave.",
           "error_signals": [
             "ERR_SSSP_G7H4A2_B09"
           ],
@@ -5078,7 +5078,7 @@
             "Draw maps"
           ],
           "expected": "Understand the bigger story through one example",
-          "memo": "A case study uses one example to illuminate the wider history.",
+          "memo": "A case study looks closely at one example to help you understand the bigger history.",
           "error_signals": [
             "ERR_SSSP_G7H4A2_B12"
           ],
@@ -5122,7 +5122,7 @@
             "VOC directors"
           ],
           "expected": "People of mixed descent who traded on the northern frontier",
-          "memo": "The Griqua were communities of mixed descent and runaway slaves who traded on the northern frontier.",
+          "memo": "The Griqua were communities of people of mixed descent and runaway slaves. They traded on the northern frontier.",
           "error_signals": [
             "ERR_SSSP_G7H4A3_GRIQUA"
           ],
@@ -5171,7 +5171,7 @@
             "VOC governor"
           ],
           "expected": "Missionary",
-          "memo": "Robert Moffat was a missionary based at Kuruman on the northern frontier.",
+          "memo": "Robert Moffat was a missionary who worked at Kuruman on the northern frontier.",
           "error_signals": [
             "ERR_SSSP_G7H4A3_MOFFAT"
           ],
@@ -5203,7 +5203,7 @@
             "the Huguenots"
           ],
           "expected": "the Griqua",
-          "memo": "Griqua traders and missionaries shaped contact on the northern frontier.",
+          "memo": "On the northern frontier, Griqua traders and missionaries shaped how different groups met and dealt with each other.",
           "error_signals": [
             "ERR_SSSP_G7H4A3_CLOZE"
           ],
@@ -5252,7 +5252,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Missionaries such as Robert Moffat played an important role on the northern frontier.",
+          "memo": "Missionaries did play a role. People like Robert Moffat were important on the northern frontier.",
           "error_signals": [
             "ERR_SSSP_G7H4A3_MISSION"
           ],
@@ -6298,7 +6298,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Estimating first and then measuring accurately is good practice for map distances.",
+          "memo": "It's good practice to estimate a distance on a map first and then measure it accurately.",
           "error_signals": [
             "ERR_SSSP_G7G1A3_CHECK"
           ],
@@ -6460,7 +6460,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Estimating first lets you check whether your measured answer is sensible.",
+          "memo": "Estimating first lets you check whether your measured answer makes sense.",
           "error_signals": [
             "ERR_SSSP_G7G1A3_B08"
           ],
@@ -6602,7 +6602,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A latitude and a longitude cross at one point, pinpointing a place's exact location.",
+          "memo": "A line of latitude and a line of longitude cross at one point, which gives a place's exact location.",
           "error_signals": [
             "ERR_SSSP_G7G1A4_EXACT"
           ],
@@ -6749,7 +6749,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Latitude and longitude together pinpoint a place anywhere on Earth.",
+          "memo": "Latitude and longitude together pinpoint any place on Earth.",
           "error_signals": [
             "ERR_SSSP_G7G1A4_B05"
           ],
@@ -6832,7 +6832,7 @@
             "axis"
           ],
           "expected": "equator",
-          "memo": "The equator separates the Northern and Southern Hemispheres.",
+          "memo": "The equator splits the Earth into the Northern and Southern Hemispheres.",
           "error_signals": [
             "ERR_SSSP_G7G1A4_B10"
           ],
@@ -7001,7 +7001,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Tectonic plates move extremely slowly — only a few centimetres a year.",
+          "memo": "Tectonic plates move very slowly, only a few centimetres a year.",
           "error_signals": [
             "ERR_SSSP_G7G2A1_SPEED"
           ],
@@ -7197,7 +7197,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Knowing about plates and layers explains why volcanoes and earthquakes occur.",
+          "memo": "Knowing about the Earth's layers and plates explains why volcanoes and earthquakes happen.",
           "error_signals": [
             "ERR_SSSP_G7G2A1_B11"
           ],
@@ -7258,7 +7258,7 @@
             "Only at the equator"
           ],
           "expected": "Along the edges of tectonic plates",
-          "memo": "Most volcanoes line up along tectonic plate boundaries.",
+          "memo": "Most volcanoes are found along the edges of tectonic plates.",
           "error_signals": [
             "ERR_SSSP_G7G2A2_WHERE"
           ],
@@ -7273,7 +7273,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Volcanoes are openings where magma (molten rock) erupts onto the surface.",
+          "memo": "A volcano is an opening where magma (melted rock) comes up and erupts onto the surface.",
           "error_signals": [
             "ERR_SSSP_G7G2A2_DEF"
           ],
@@ -7307,7 +7307,7 @@
             "Wind patterns"
           ],
           "expected": "Movements of tectonic plates",
-          "memo": "Volcanic activity is driven by plate movements deep in the earth.",
+          "memo": "Volcanoes happen because tectonic plates move deep under the ground.",
           "error_signals": [
             "ERR_SSSP_G7G2A2_PLATES"
           ],
@@ -7356,7 +7356,7 @@
             "Faster plate movement"
           ],
           "expected": "Lava and ash damaging the area",
-          "memo": "Eruptions can bury land in lava and ash, causing serious local damage.",
+          "memo": "An eruption can bury the land around it in lava and ash, which causes serious damage nearby.",
           "error_signals": [
             "ERR_SSSP_G7G2A2_EFFECT"
           ],
@@ -7503,7 +7503,7 @@
             "Less water"
           ],
           "expected": "Fertile soil",
-          "memo": "Fertile volcanic soil attracts farmers despite the risk.",
+          "memo": "Volcanic soil is very fertile, so farmers live near volcanoes even though it's risky.",
           "error_signals": [
             "ERR_SSSP_G7G2A2_B09"
           ],
@@ -7535,7 +7535,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Volcanoes and earthquakes often occur together along plate boundaries.",
+          "memo": "Volcanoes and earthquakes often happen in the same places, along the edges of plates.",
           "error_signals": [
             "ERR_SSSP_G7G2A2_B11"
           ],
@@ -7552,7 +7552,7 @@
             "Predict elections"
           ],
           "expected": "Understand and prepare for the hazard",
-          "memo": "Knowing where volcanoes are helps communities prepare.",
+          "memo": "Knowing where volcanoes are helps communities get ready for an eruption.",
           "error_signals": [
             "ERR_SSSP_G7G2A2_B12"
           ],
@@ -7677,7 +7677,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "People reduce impact by building stronger structures, planning and preparing emergency responses.",
+          "memo": "People can reduce the damage by building stronger buildings, planning ahead and preparing emergency services.",
           "error_signals": [
             "ERR_SSSP_G7G2A3_REDUCE"
           ],
@@ -8076,7 +8076,7 @@
             "A full moon alone"
           ],
           "expected": "A tsunami from an undersea earthquake",
-          "memo": "Tsunamis (from undersea earthquakes) can flood coastal areas.",
+          "memo": "A tsunami, caused by an earthquake under the sea, can flood areas along the coast.",
           "error_signals": [
             "ERR_SSSP_G7G2A4_TSUNAMI"
           ],
@@ -8157,7 +8157,7 @@
             "soil"
           ],
           "expected": "impact",
-          "memo": "Warnings help people prepare, reducing flood impact.",
+          "memo": "Warnings give people time to prepare, which reduces the impact of a flood.",
           "error_signals": [
             "ERR_SSSP_G7G2A4_B04"
           ],
@@ -8206,7 +8206,7 @@
             "Removing all rivers"
           ],
           "expected": "Carrying water away quickly",
-          "memo": "Drainage channels carry water away, reducing flooding.",
+          "memo": "Drains and channels carry water away quickly, so there is less flooding.",
           "error_signals": [
             "ERR_SSSP_G7G2A4_B07"
           ],
@@ -8270,7 +8270,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Warnings, drainage, vegetation and wise building all reduce flood damage.",
+          "memo": "Warnings, drainage, plants and building in safe places all reduce flood damage.",
           "error_signals": [
             "ERR_SSSP_G7G2A4_B11"
           ],
@@ -8397,7 +8397,7 @@
             "The number of schools"
           ],
           "expected": "The average number of years a person is expected to live",
-          "memo": "Life expectancy is the average lifespan people in a place can expect.",
+          "memo": "Life expectancy is the average number of years people in a place can expect to live.",
           "error_signals": [
             "ERR_SSSP_G7G3A1_LIFE"
           ],
@@ -8412,7 +8412,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Many babies dying young usually signals poorer health care and living conditions.",
+          "memo": "When many babies die young, it usually means health care and living conditions are poor.",
           "error_signals": [
             "ERR_SSSP_G7G3A1_POOR"
           ],
@@ -8527,7 +8527,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Migration changes population, alongside births and deaths.",
+          "memo": "Population changes when people move in or out (migration), as well as through births and deaths.",
           "error_signals": [
             "ERR_SSSP_G7G3A1_B05"
           ],
@@ -8610,7 +8610,7 @@
             "index"
           ],
           "expected": "expectancy",
-          "memo": "Life expectancy is the average lifespan.",
+          "memo": "The average number of years people live is called life expectancy.",
           "error_signals": [
             "ERR_SSSP_G7G3A1_B10"
           ],
@@ -8642,7 +8642,7 @@
             "Low birth rate"
           ],
           "expected": "Poor health conditions",
-          "memo": "High infant mortality usually signals poor health conditions.",
+          "memo": "When a lot of babies die, it usually means health conditions are poor.",
           "error_signals": [
             "ERR_SSSP_G7G3A1_B12"
           ],
@@ -8718,7 +8718,7 @@
             "The earth's tilt"
           ],
           "expected": "The birth rate",
-          "memo": "Government policy can encourage or limit births, changing the birth rate.",
+          "memo": "A government policy can encourage or limit how many children people have, which changes the birth rate.",
           "error_signals": [
             "ERR_SSSP_G7G3A2_POLICY"
           ],
@@ -8752,7 +8752,7 @@
             "The tide rate"
           ],
           "expected": "The birth rate",
-          "memo": "How many children families want is shaped by needs, attitudes and beliefs, affecting birth rate.",
+          "memo": "A family's needs, attitudes and beliefs shape how many children they want, which affects the birth rate.",
           "error_signals": [
             "ERR_SSSP_G7G3A2_FAMILY"
           ],
@@ -8811,7 +8811,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "In wealthier conditions, families often choose to have fewer children, lowering the birth rate.",
+          "memo": "When families are better off, they often choose to have fewer children, so the birth rate drops.",
           "error_signals": [
             "ERR_SSSP_G7G3A2_ECON"
           ],
@@ -8909,7 +8909,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Policies (like China's former one-child policy) can change the birth rate.",
+          "memo": "Policies, like China's old one-child policy, can change the birth rate.",
           "error_signals": [
             "ERR_SSSP_G7G3A2_B05"
           ],
@@ -8943,7 +8943,7 @@
             "Causes earthquakes"
           ],
           "expected": "Lowers the death rate",
-          "memo": "Better medicine keeps people alive longer, lowering death rates.",
+          "memo": "Better medicine keeps people alive longer, so the death rate drops.",
           "error_signals": [
             "ERR_SSSP_G7G3A2_B07"
           ],
@@ -8958,7 +8958,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Cultural and religious beliefs shape family size and the birth rate.",
+          "memo": "Cultural and religious beliefs shape how big families are, and so they affect the birth rate.",
           "error_signals": [
             "ERR_SSSP_G7G3A2_B08"
           ],
@@ -9100,7 +9100,7 @@
             "Longer days"
           ],
           "expected": "Better control of disease and improved sanitation",
-          "memo": "Understanding disease, better medicine and clean sanitation cut death rates.",
+          "memo": "Understanding disease, better medicine and clean sanitation meant fewer people died.",
           "error_signals": [
             "ERR_SSSP_G7G3A3_SANITATION"
           ],
@@ -9173,7 +9173,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Better health care kept more people alive longer, boosting population growth.",
+          "memo": "Better health care kept more people alive for longer, so the population grew faster.",
           "error_signals": [
             "ERR_SSSP_G7G3A3_HEALTH"
           ],
@@ -9190,7 +9190,7 @@
             "Raising the death rate"
           ],
           "expected": "Keeping food safe for longer",
-          "memo": "Preserving food (canning, refrigeration) reduced spoilage and improved nutrition.",
+          "memo": "Canning and fridges kept food from going off, so people ate better.",
           "error_signals": [
             "ERR_SSSP_G7G3A3_FRIDGE"
           ],
@@ -9224,7 +9224,7 @@
             "In reverse"
           ],
           "expected": "Very slowly",
-          "memo": "Population grew slowly for most of history before recent rapid growth.",
+          "memo": "For most of history, the population grew slowly. The fast growth only came recently.",
           "error_signals": [
             "ERR_SSSP_G7G3A3_B01"
           ],
@@ -9239,7 +9239,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Increased food production allowed the population to grow.",
+          "memo": "Producing more food meant more people could be fed, so the population could grow.",
           "error_signals": [
             "ERR_SSSP_G7G3A3_B02"
           ],
@@ -9256,7 +9256,7 @@
             "Causing floods"
           ],
           "expected": "Reducing deaths from disease",
-          "memo": "Controlling disease reduced deaths, helping population grow.",
+          "memo": "Controlling disease meant fewer people died, which helped the population grow.",
           "error_signals": [
             "ERR_SSSP_G7G3A3_B03"
           ],
@@ -9322,7 +9322,7 @@
             "Stopping farming"
           ],
           "expected": "Reducing food spoilage",
-          "memo": "Refrigeration kept food fresh longer, improving nutrition.",
+          "memo": "Fridges kept food fresh for longer, so people ate better.",
           "error_signals": [
             "ERR_SSSP_G7G3A3_B07"
           ],
@@ -9337,7 +9337,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Clean sanitation reduced disease, lowering deaths and aiding growth.",
+          "memo": "Clean sanitation reduced disease, so fewer people died and the population grew.",
           "error_signals": [
             "ERR_SSSP_G7G3A3_B08"
           ],
@@ -9386,7 +9386,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Interpreting graphs is a key skill for studying population and other data.",
+          "memo": "Reading graphs is a key skill for studying population and other information.",
           "error_signals": [
             "ERR_SSSP_G7G3A3_B11"
           ],
@@ -9403,7 +9403,7 @@
             "Adding more land"
           ],
           "expected": "Helping people live longer",
-          "memo": "Science (medicine, sanitation) helped people live longer, growing the population.",
+          "memo": "Science, like medicine and sanitation, helped people live longer, so the population grew.",
           "error_signals": [
             "ERR_SSSP_G7G3A3_B12"
           ],
@@ -9447,7 +9447,7 @@
             "A road"
           ],
           "expected": "Water",
-          "memo": "Natural resources come from nature — water, air, soil, forests, animals and marine life.",
+          "memo": "Natural resources come from nature: water, air, soil, forests, animals and sea life.",
           "error_signals": [
             "ERR_SSSP_G7G4A1_DEF"
           ],
@@ -9545,7 +9545,7 @@
             "Counting a resource"
           ],
           "expected": "Abusing a resource",
-          "memo": "Destroying a forest without replacing it abuses the resource.",
+          "memo": "Cutting down a forest without planting it again is abusing the resource.",
           "error_signals": [
             "ERR_SSSP_G7G4A1_FOREST"
           ],
@@ -9611,7 +9611,7 @@
             "counting"
           ],
           "expected": "abusing",
-          "memo": "Abusing a resource means using it harmfully or wastefully.",
+          "memo": "Abusing a resource means using it in a wasteful or harmful way.",
           "error_signals": [
             "ERR_SSSP_G7G4A1_B04"
           ],
@@ -9741,7 +9741,7 @@
             "Because they are useless"
           ],
           "expected": "So they stay healthy and available",
-          "memo": "Looking after resources keeps them available for everyone, now and later.",
+          "memo": "Looking after resources keeps them available for everyone, now and in the future.",
           "error_signals": [
             "ERR_SSSP_G7G4A1_B12"
           ],
@@ -9785,7 +9785,7 @@
             "Ignoring nature"
           ],
           "expected": "Protecting and carefully managing the environment and resources",
-          "memo": "Conservation is the careful protection and management of nature and resources.",
+          "memo": "Conservation means carefully protecting and managing nature and its resources.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_DEF"
           ],
@@ -9800,7 +9800,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Conservation areas, including marine reserves, protect plants, animals and habitats.",
+          "memo": "Conservation areas, including marine reserves, protect plants, animals and the places they live.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_RESERVE"
           ],
@@ -9817,7 +9817,7 @@
             "Builds factories in parks"
           ],
           "expected": "Respects nature and supports conservation",
-          "memo": "Eco-tourism lets people enjoy nature in ways that support conservation and communities.",
+          "memo": "Eco-tourism lets people enjoy nature in ways that help protect it and support local communities.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_ECO"
           ],
@@ -9851,7 +9851,7 @@
             "Stop all tourism"
           ],
           "expected": "Protect nature while benefiting local people",
-          "memo": "Community projects protect nature while bringing benefits, such as jobs, to local people.",
+          "memo": "Community projects protect nature and bring benefits, like jobs, to the people who live there.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_COMMUNITY"
           ],
@@ -9900,7 +9900,7 @@
             "Gold mine"
           ],
           "expected": "Conservation area",
-          "memo": "National parks protect nature and are conservation areas.",
+          "memo": "National parks protect nature, so they are conservation areas.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_B01"
           ],
@@ -9915,7 +9915,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Eco-tourism brings income in ways that support conservation.",
+          "memo": "Eco-tourism brings in money in ways that help protect nature.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_B02"
           ],
@@ -9932,7 +9932,7 @@
             "Factories"
           ],
           "expected": "Sea life and habitats",
-          "memo": "Marine reserves protect ocean life and habitats.",
+          "memo": "Marine reserves protect sea life and the places it lives.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_B03"
           ],
@@ -9949,7 +9949,7 @@
             "trade"
           ],
           "expected": "conservation",
-          "memo": "Conservation is the careful protection and management of nature.",
+          "memo": "Conservation means carefully protecting and managing nature.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_B04"
           ],
@@ -9981,7 +9981,7 @@
             "Closing schools"
           ],
           "expected": "Creating jobs and income",
-          "memo": "Community projects can create jobs while protecting nature.",
+          "memo": "Community projects can create jobs and protect nature at the same time.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_B06"
           ],
@@ -9998,7 +9998,7 @@
             "Remove all parks"
           ],
           "expected": "Protect resources for the future",
-          "memo": "Conservation keeps resources healthy for future generations.",
+          "memo": "Conservation keeps resources healthy for the people who come after us.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_B07"
           ],
@@ -10013,7 +10013,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Entry fees from eco-tourism can fund conservation work.",
+          "memo": "The entry fees that eco-tourists pay can help pay for conservation work.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_B08"
           ],
@@ -10047,7 +10047,7 @@
             "city"
           ],
           "expected": "eco",
-          "memo": "Eco-tourism is nature-respecting tourism.",
+          "memo": "Eco-tourism is tourism that respects and protects nature.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_B10"
           ],
@@ -10062,7 +10062,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Careful management lets people use resources while conserving them.",
+          "memo": "With careful management, people can use resources and still conserve them.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_B11"
           ],
@@ -10079,7 +10079,7 @@
             "Factory"
           ],
           "expected": "Purpose and management plan",
-          "memo": "Conservation areas work best with a clear purpose and management plan.",
+          "memo": "Conservation areas work best when they have a clear purpose and a plan for managing them.",
           "error_signals": [
             "ERR_SSSP_G7G4A2_B12"
           ],
@@ -10224,7 +10224,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Domestic users saving water helps conserve the country's scarce supply.",
+          "memo": "When people save water at home, it helps protect the country's small water supply.",
           "error_signals": [
             "ERR_SSSP_G7G4A3_HOME"
           ],
@@ -10307,7 +10307,7 @@
             "imaginary"
           ],
           "expected": "domestic",
-          "memo": "Agricultural, industrial and domestic (home) users all share the water.",
+          "memo": "Farms, industry and domestic (home) users all share South Africa's water.",
           "error_signals": [
             "ERR_SSSP_G7G4A3_B04"
           ],
@@ -10322,7 +10322,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Every household saving water helps the scarce national supply.",
+          "memo": "Every household that saves water helps the country's small water supply.",
           "error_signals": [
             "ERR_SSSP_G7G4A3_B05"
           ],
@@ -10356,7 +10356,7 @@
             "Nothing happens"
           ],
           "expected": "We lose their water storage and cleaning",
-          "memo": "Losing wetlands means losing their water storage and natural cleaning.",
+          "memo": "Wetlands store water and clean it naturally. When they disappear, we lose both.",
           "error_signals": [
             "ERR_SSSP_G7G4A3_B07"
           ],
@@ -10371,7 +10371,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Farming is generally the largest user of the country's water.",
+          "memo": "Farming usually uses more of South Africa's water than anything else.",
           "error_signals": [
             "ERR_SSSP_G7G4A3_B08"
           ],
@@ -10388,7 +10388,7 @@
             "Draining wetlands"
           ],
           "expected": "Not wasting water",
-          "memo": "Responsible use means avoiding waste and pollution.",
+          "memo": "Using water responsibly means not wasting it and not polluting it.",
           "error_signals": [
             "ERR_SSSP_G7G4A3_B09"
           ],
@@ -10437,7 +10437,7 @@
             "More pollution"
           ],
           "expected": "A reliable water supply for the future",
-          "memo": "Protecting wetlands and catchments secures future water supply.",
+          "memo": "Protecting wetlands and catchment areas keeps the water supply reliable for the future.",
           "error_signals": [
             "ERR_SSSP_G7G4A3_B12"
           ],
@@ -10481,7 +10481,7 @@
             "Not at all"
           ],
           "expected": "In factories using machines",
-          "memo": "The Industrial Revolution moved production from hand and home into factories using machines.",
+          "memo": "In the Industrial Revolution, goods stopped being made by hand at home and started being made by machines in factories.",
           "error_signals": [
             "ERR_SSSP_G8H1A1_DEF"
           ],
@@ -10530,7 +10530,7 @@
             "No work at all"
           ],
           "expected": "Overcrowded housing and poverty",
-          "memo": "Workers often lived in overcrowded, poor housing in the fast-growing industrial cities.",
+          "memo": "Workers often lived in crowded, poor housing in the fast-growing factory cities.",
           "error_signals": [
             "ERR_SSSP_G8H1A1_LIVING"
           ],
@@ -10594,7 +10594,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Industrialisation made Britain richer and more powerful, including as a colonial power.",
+          "memo": "Industry made Britain richer and more powerful, including as a country that ruled colonies.",
           "error_signals": [
             "ERR_SSSP_G8H1A1_WEALTH"
           ],
@@ -10628,7 +10628,7 @@
             "Japan"
           ],
           "expected": "Britain",
-          "memo": "The Industrial Revolution began in Britain before spreading.",
+          "memo": "The Industrial Revolution started in Britain and then spread to other countries.",
           "error_signals": [
             "ERR_SSSP_G8H1A1_B01"
           ],
@@ -10660,7 +10660,7 @@
             "Spears"
           ],
           "expected": "Machines",
-          "memo": "Factories gathered workers to operate machines under one roof.",
+          "memo": "Factories brought workers together under one roof to work the machines.",
           "error_signals": [
             "ERR_SSSP_G8H1A1_B03"
           ],
@@ -10807,7 +10807,7 @@
             "Farming only"
           ],
           "expected": "Power and wealth",
-          "memo": "Industrialisation made Britain wealthier and more powerful.",
+          "memo": "Industry made Britain richer and more powerful.",
           "error_signals": [
             "ERR_SSSP_G8H1A1_B12"
           ],
@@ -10883,7 +10883,7 @@
             "The British liked travel"
           ],
           "expected": "The independent Zulu kingdom meant local labour was hard to force",
-          "memo": "With the Zulu kingdom still independent, planters imported indentured Indian labour for the cane fields.",
+          "memo": "The Zulu kingdom was still independent, so planters couldn't easily force local people to work. Instead they brought in indentured workers from India.",
           "error_signals": [
             "ERR_SSSP_G8H1A2_WHY"
           ],
@@ -10917,7 +10917,7 @@
             "By force"
           ],
           "expected": "Paying their own way, often as traders",
-          "memo": "Passenger Indians paid their own passage and often came as traders, unlike indentured labourers.",
+          "memo": "Passenger Indians paid for their own journey and often came as traders. They were not indentured workers.",
           "error_signals": [
             "ERR_SSSP_G8H1A2_PASSENGER"
           ],
@@ -10932,7 +10932,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "British demand for sugar drove the expansion of Natal's sugar plantations.",
+          "memo": "People in Britain wanted lots of sugar, so Natal's sugar plantations grew.",
           "error_signals": [
             "ERR_SSSP_G8H1A2_SUGAR"
           ],
@@ -10964,7 +10964,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Indentured labourers faced harsh living and working conditions on the plantations.",
+          "memo": "Indentured workers faced harsh living and working conditions on the plantations.",
           "error_signals": [
             "ERR_SSSP_G8H1A2_HARSH"
           ],
@@ -10996,7 +10996,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Natal was under British colonial control.",
+          "memo": "Natal was ruled by Britain as a colony.",
           "error_signals": [
             "ERR_SSSP_G8H1A2_B02"
           ],
@@ -11045,7 +11045,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Passenger Indians paid their own way, often as traders, unlike indentured labourers.",
+          "memo": "Passenger Indians paid their own way, often as traders. They were not indentured workers.",
           "error_signals": [
             "ERR_SSSP_G8H1A2_B05"
           ],
@@ -11079,7 +11079,7 @@
             "Like owning a farm"
           ],
           "expected": "Hard and tightly controlled",
-          "memo": "Indentured workers faced hard, tightly controlled conditions.",
+          "memo": "Indentured workers had hard lives and were tightly controlled.",
           "error_signals": [
             "ERR_SSSP_G8H1A2_B07"
           ],
@@ -11094,7 +11094,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Indian immigration contributed to South Africa's diverse population.",
+          "memo": "Indian immigrants added to the mix of people that makes up South Africa.",
           "error_signals": [
             "ERR_SSSP_G8H1A2_B08"
           ],
@@ -11204,7 +11204,7 @@
             "Durban"
           ],
           "expected": "Kimberley",
-          "memo": "The 1867 diamond discovery at Kimberley began South Africa's Mineral Revolution.",
+          "memo": "Diamonds were found at Kimberley in 1867. This started South Africa's Mineral Revolution.",
           "error_signals": [
             "ERR_SSSP_G8H1A3_KIMBERLEY"
           ],
@@ -11253,7 +11253,7 @@
             "Anglo Bank"
           ],
           "expected": "De Beers Consolidated Mines",
-          "memo": "Rhodes's De Beers Consolidated Mines gained a near-monopoly over diamond mining.",
+          "memo": "Rhodes's company, De Beers Consolidated Mines, ended up controlling almost all diamond mining.",
           "error_signals": [
             "ERR_SSSP_G8H1A3_DEBEERS"
           ],
@@ -11351,7 +11351,7 @@
             "Used as food"
           ],
           "expected": "Rare and very hard",
-          "memo": "Diamonds are rare and the hardest natural material, making them valuable.",
+          "memo": "Diamonds are rare, and they are the hardest natural material. That makes them valuable.",
           "error_signals": [
             "ERR_SSSP_G8H1A3_B01"
           ],
@@ -11366,7 +11366,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Deeper mining required heavy investment, favouring big companies.",
+          "memo": "Mining deeper cost a lot of money, which gave big companies the advantage.",
           "error_signals": [
             "ERR_SSSP_G8H1A3_B02"
           ],
@@ -11415,7 +11415,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Controlling supply through monopoly let companies keep diamond prices high.",
+          "memo": "With a monopoly, companies controlled how many diamonds were sold, so they could keep prices high.",
           "error_signals": [
             "ERR_SSSP_G8H1A3_B05"
           ],
@@ -11432,7 +11432,7 @@
             "Blue Lagoon"
           ],
           "expected": "Big Hole",
-          "memo": "Kimberley's 'Big Hole' is the famous diamond-mining excavation.",
+          "memo": "Kimberley's Big Hole is the famous hole dug out by diamond miners.",
           "error_signals": [
             "ERR_SSSP_G8H1A3_B06"
           ],
@@ -11704,7 +11704,7 @@
             "Train teachers"
           ],
           "expected": "Control black mineworkers",
-          "memo": "Closed compounds tightly controlled black migrant mineworkers.",
+          "memo": "Closed compounds were used to tightly control black migrant mineworkers.",
           "error_signals": [
             "ERR_SSSP_G8H2A1_B01"
           ],
@@ -11817,7 +11817,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Tighter labour control defined the Mineral Revolution era.",
+          "memo": "Tighter control over black workers was a defining part of the Mineral Revolution.",
           "error_signals": [
             "ERR_SSSP_G8H2A1_B08"
           ],
@@ -12074,7 +12074,7 @@
             "In the sea"
           ],
           "expected": "Deep underground",
-          "memo": "Witwatersrand gold lay deep underground, needing expensive mining.",
+          "memo": "The gold on the Witwatersrand was deep underground, so it was expensive to mine.",
           "error_signals": [
             "ERR_SSSP_G8H2A2_B01"
           ],
@@ -12089,7 +12089,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Johannesburg boomed around the Witwatersrand gold mines.",
+          "memo": "Johannesburg grew very fast around the Witwatersrand gold mines.",
           "error_signals": [
             "ERR_SSSP_G8H2A2_B02"
           ],
@@ -12297,7 +12297,7 @@
             "Lasted one week"
           ],
           "expected": "Reshaped power, land and labour in South Africa",
-          "memo": "Minerals transformed South Africa's economy, power and labour patterns for the 20th century.",
+          "memo": "Minerals changed South Africa's economy, who held power and how people worked, right through the 20th century.",
           "error_signals": [
             "ERR_SSSP_G8H2A3_TURNING"
           ],
@@ -12412,7 +12412,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Mining wealth and colonial defeats shifted power away from independent African kingdoms.",
+          "memo": "Mining wealth and colonial wars took power away from independent African kingdoms.",
           "error_signals": [
             "ERR_SSSP_G8H2A3_POWER"
           ],
@@ -12559,7 +12559,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "It shifted power away from African kingdoms toward colonial and mining interests.",
+          "memo": "It did shift power. Power moved away from African kingdoms towards colonial rulers and mining companies.",
           "error_signals": [
             "ERR_SSSP_G8H2A3_B08"
           ],
@@ -12576,7 +12576,7 @@
             "Jan van Riebeeck"
           ],
           "expected": "Mahatma Gandhi",
-          "memo": "Gandhi led the Satyagraha (non-violent resistance) campaign in South Africa.",
+          "memo": "Gandhi led the Satyagraha campaign of non-violent resistance in South Africa.",
           "error_signals": [
             "ERR_SSSP_G8H2A3_B09"
           ],
@@ -12684,7 +12684,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Africans were not consulted as Europeans divided the continent at Berlin.",
+          "memo": "Europeans divided Africa at Berlin without asking any Africans.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_NOTINVITED"
           ],
@@ -12701,7 +12701,7 @@
             "Magic"
           ],
           "expected": "Better weapons and technology",
-          "memo": "Superior weapons, transport and medicine let Europeans colonise Africa rapidly.",
+          "memo": "Europeans had better weapons, transport and medicine, so they could take over Africa quickly.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_WEAPONS"
           ],
@@ -12718,7 +12718,7 @@
             "Charter"
           ],
           "expected": "Scramble",
-          "memo": "The 'Scramble for Africa' was the rapid European race to colonise the continent.",
+          "memo": "The Scramble for Africa was the fast race between European countries to take over the continent.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_CLOZE"
           ],
@@ -12735,7 +12735,7 @@
             "A lack of European interest"
           ],
           "expected": "Wanting raw materials and markets",
-          "memo": "Europeans wanted Africa's raw materials, markets and prestige — key causes of colonisation.",
+          "memo": "Europeans wanted Africa's raw materials, places to sell their goods, and prestige. These were key reasons for colonisation.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_CAUSE"
           ],
@@ -12750,7 +12750,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Colonisation imposed new borders and European rulers across nearly all of Africa.",
+          "memo": "Colonisation forced new borders and European rulers on nearly all of Africa.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_BORDERS"
           ],
@@ -12767,7 +12767,7 @@
             "Ruled by one African king"
           ],
           "expected": "Under European colonial control",
-          "memo": "By the early 20th century almost all of Africa was under European control.",
+          "memo": "By the early 1900s, almost all of Africa was ruled by European countries.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_RESULT"
           ],
@@ -12782,7 +12782,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The Scramble for Africa was part of Europe's worldwide colonial expansion.",
+          "memo": "The Scramble for Africa was one part of Europe taking over colonies all around the world.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_GLOBAL"
           ],
@@ -12814,7 +12814,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Colonial borders were drawn for European convenience, cutting across African societies.",
+          "memo": "Europeans drew colonial borders to suit themselves, cutting right through African societies.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_B02"
           ],
@@ -12863,7 +12863,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Many African peoples resisted European colonisation.",
+          "memo": "Many African peoples fought back against European colonisation.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_B05"
           ],
@@ -12880,7 +12880,7 @@
             "More rain"
           ],
           "expected": "A military and transport advantage",
-          "memo": "Superior weapons and transport gave Europeans a big advantage.",
+          "memo": "Better weapons and transport gave Europeans a big advantage.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_B06"
           ],
@@ -12929,7 +12929,7 @@
             "Cities only"
           ],
           "expected": "Different colonies",
-          "memo": "Arbitrary borders split peoples across different colonies.",
+          "memo": "Borders drawn without care split single peoples across different colonies.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_B09"
           ],
@@ -12946,7 +12946,7 @@
             "ignored"
           ],
           "expected": "divided",
-          "memo": "They divided Africa between the European powers.",
+          "memo": "At Berlin, the European powers divided Africa among themselves.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_B10"
           ],
@@ -12978,7 +12978,7 @@
             "The end of all trade"
           ],
           "expected": "New borders that still exist today",
-          "memo": "Many of today's African borders date from colonisation.",
+          "memo": "Many of Africa's borders today were drawn during colonisation.",
           "error_signals": [
             "ERR_SSSP_G8H3A1_B12"
           ],
@@ -13103,7 +13103,7 @@
             "It had no history"
           ],
           "expected": "It shows in detail how one African kingdom was colonised",
-          "memo": "The Ashanti are a detailed example of the wider process of colonisation.",
+          "memo": "The Ashanti give a detailed example of how colonisation happened across Africa.",
           "error_signals": [
             "ERR_SSSP_G8H3A2_CASE"
           ],
@@ -13120,7 +13120,7 @@
             "No change"
           ],
           "expected": "Loss of independence to Britain",
-          "memo": "Colonisation cost the Ashanti their independence to the British Empire.",
+          "memo": "Colonisation meant the Ashanti lost their independence to the British Empire.",
           "error_signals": [
             "ERR_SSSP_G8H3A2_RESULT"
           ],
@@ -13218,7 +13218,7 @@
             "Counting money"
           ],
           "expected": "Studying one example in detail",
-          "memo": "A case study examines one example closely to understand the bigger picture.",
+          "memo": "A case study looks closely at one example to help you understand the bigger picture.",
           "error_signals": [
             "ERR_SSSP_G8H3A2_B06"
           ],
@@ -13316,7 +13316,7 @@
             "Part of Britain"
           ],
           "expected": "An independent African country",
-          "memo": "Ghana gained independence and became a notable African nation.",
+          "memo": "Ghana won its independence and became an important African country.",
           "error_signals": [
             "ERR_SSSP_G8H3A2_B12"
           ],
@@ -13522,7 +13522,7 @@
             "Rhodes"
           ],
           "expected": "Archduke Franz Ferdinand",
-          "memo": "The Archduke's assassination at Sarajevo sparked the war.",
+          "memo": "Archduke Franz Ferdinand was killed at Sarajevo, and this set off the war.",
           "error_signals": [
             "ERR_SSSP_G8H4A1_B03"
           ],
@@ -13539,7 +13539,7 @@
             "farming"
           ],
           "expected": "nationalism",
-          "memo": "Nationalism, a long-term cause, is intense national pride and rivalry.",
+          "memo": "Nationalism means strong pride in your own country and rivalry with others. It was a long-term cause of the war.",
           "error_signals": [
             "ERR_SSSP_G8H4A1_B04"
           ],
@@ -13554,7 +13554,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The military build-up (militarism) increased tension before the war.",
+          "memo": "Countries building up their armies and navies (militarism) raised tension before the war.",
           "error_signals": [
             "ERR_SSSP_G8H4A1_B05"
           ],
@@ -13603,7 +13603,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "The spark (Sarajevo) was the immediate cause; nationalism, alliances and militarism were long-term causes.",
+          "memo": "The killing at Sarajevo was the spark, the immediate cause. Nationalism, alliances and militarism were long-term causes that built up over years.",
           "error_signals": [
             "ERR_SSSP_G8H4A1_B08"
           ],
@@ -13620,7 +13620,7 @@
             "VOC"
           ],
           "expected": "Central Powers",
-          "memo": "Germany and Austria-Hungary were Central Powers.",
+          "memo": "Germany and Austria-Hungary were on the same side, called the Central Powers.",
           "error_signals": [
             "ERR_SSSP_G8H4A1_B09"
           ],
@@ -13728,7 +13728,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Conscription is compulsory military service required by law.",
+          "memo": "Conscription means the law forces people to serve in the army.",
           "error_signals": [
             "ERR_SSSP_G8H4A2_CONSCRIPT"
           ],
@@ -13745,7 +13745,7 @@
             "Mine gold"
           ],
           "expected": "Persuade people to support the war effort",
-          "memo": "Governments used propaganda to win public support and encourage enlistment.",
+          "memo": "Governments used propaganda to get people to support the war and to join the army.",
           "error_signals": [
             "ERR_SSSP_G8H4A2_PROPAGANDA"
           ],
@@ -13794,7 +13794,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Conscientious objectors refuse to fight because of their beliefs or conscience.",
+          "memo": "A conscientious objector refuses to fight because of their beliefs or conscience.",
           "error_signals": [
             "ERR_SSSP_G8H4A2_OBJECTOR"
           ],
@@ -13858,7 +13858,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Machine guns and artillery made WWI battles extremely deadly.",
+          "memo": "Machine guns and big guns (artillery) made WWI battles extremely deadly.",
           "error_signals": [
             "ERR_SSSP_G8H4A2_B02"
           ],
@@ -13892,7 +13892,7 @@
             "migration"
           ],
           "expected": "conscription",
-          "memo": "Conscription is compulsory military service.",
+          "memo": "Conscription means the law forces people to serve in the army.",
           "error_signals": [
             "ERR_SSSP_G8H4A2_B04"
           ],
@@ -13907,7 +13907,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Governments used propaganda to maintain public support and recruitment.",
+          "memo": "Governments used propaganda to keep people supporting the war and to keep men joining up.",
           "error_signals": [
             "ERR_SSSP_G8H4A2_B05"
           ],
@@ -14194,7 +14194,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Many women worked in munitions (weapons) factories.",
+          "memo": "Many women worked in factories that made weapons (munitions).",
           "error_signals": [
             "ERR_SSSP_G8H4A3_B02"
           ],
@@ -14358,7 +14358,7 @@
             "It lowered wages"
           ],
           "expected": "Women proved their importance to society",
-          "memo": "Women's vital contribution strengthened arguments for their rights.",
+          "memo": "Women's work was vital to the war, which made the case for their rights stronger.",
           "error_signals": [
             "ERR_SSSP_G8H4A3_B12"
           ],
@@ -14417,7 +14417,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Versailles blamed Germany and imposed heavy punishments — land, money and military limits.",
+          "memo": "The Treaty of Versailles blamed Germany and punished it heavily: it lost land, had to pay money and had its military limited.",
           "error_signals": [
             "ERR_SSSP_G8H4A4_HARSH"
           ],
@@ -14530,7 +14530,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Versailles blamed Germany and demanded heavy reparations (payments).",
+          "memo": "The treaty blamed Germany for the war and made it pay large sums of money (reparations).",
           "error_signals": [
             "ERR_SSSP_G8H4A4_B02"
           ],
@@ -14547,7 +14547,7 @@
             "Population"
           ],
           "expected": "Army and military",
-          "memo": "Versailles imposed strict limits on Germany's military.",
+          "memo": "The treaty put strict limits on Germany's army and military.",
           "error_signals": [
             "ERR_SSSP_G8H4A4_B03"
           ],
@@ -14564,7 +14564,7 @@
             "language"
           ],
           "expected": "land",
-          "memo": "Germany lost territory under the Versailles terms.",
+          "memo": "Under the treaty, Germany had to give up land.",
           "error_signals": [
             "ERR_SSSP_G8H4A4_B04"
           ],
@@ -14579,7 +14579,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Germans widely resented the harsh, humiliating treaty terms.",
+          "memo": "Many Germans resented the treaty because they felt it was harsh and humiliating.",
           "error_signals": [
             "ERR_SSSP_G8H4A4_B05"
           ],
@@ -14868,7 +14868,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Lines of latitude run east–west, measuring north–south position.",
+          "memo": "Lines of latitude run across, from east to west, and show how far north or south a place is.",
           "error_signals": [
             "ERR_SSSP_G8G1A1_B02"
           ],
@@ -14902,7 +14902,7 @@
             "contour"
           ],
           "expected": "longitude",
-          "memo": "Longitude lines run north–south, measuring east–west position.",
+          "memo": "Lines of longitude run from north to south and show how far east or west a place is.",
           "error_signals": [
             "ERR_SSSP_G8G1A1_B04"
           ],
@@ -15032,7 +15032,7 @@
             "Religion"
           ],
           "expected": "Exact location",
-          "memo": "Latitude and longitude pinpoint a place's exact location.",
+          "memo": "Latitude and longitude together give a place's exact location.",
           "error_signals": [
             "ERR_SSSP_G8G1A1_B12"
           ],
@@ -15478,7 +15478,7 @@
             "cities"
           ],
           "expected": "vegetation",
-          "memo": "Green typically marks vegetation; blue water; brown/grey bare land or cities.",
+          "memo": "Green usually shows plants and trees (vegetation). Blue shows water, and brown or grey shows bare land or cities.",
           "error_signals": [
             "ERR_SSSP_G8G1A3_GREEN"
           ],
@@ -15493,7 +15493,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Google Earth displays satellite imagery of the whole planet.",
+          "memo": "Google Earth shows satellite images of the whole planet.",
           "error_signals": [
             "ERR_SSSP_G8G1A3_GOOGLE"
           ],
@@ -15559,7 +15559,7 @@
             "Deserts"
           ],
           "expected": "Water",
-          "memo": "Blue usually indicates water on a satellite image.",
+          "memo": "Blue on a satellite image usually shows water.",
           "error_signals": [
             "ERR_SSSP_G8G1A3_B03"
           ],
@@ -15625,7 +15625,7 @@
             "Weather balloons only"
           ],
           "expected": "Satellite imagery",
-          "memo": "Google Earth displays satellite imagery of the planet.",
+          "memo": "Google Earth shows satellite images of the planet.",
           "error_signals": [
             "ERR_SSSP_G8G1A3_B07"
           ],
@@ -15657,7 +15657,7 @@
             "The exact temperature"
           ],
           "expected": "A much larger area",
-          "memo": "Satellite images cover far larger areas than a ground-level photo.",
+          "memo": "A satellite image covers a much bigger area than a photo taken on the ground.",
           "error_signals": [
             "ERR_SSSP_G8G1A3_B09"
           ],
@@ -15674,7 +15674,7 @@
             "desert"
           ],
           "expected": "vegetation",
-          "memo": "Green generally indicates vegetation.",
+          "memo": "Green usually shows plants and trees (vegetation).",
           "error_signals": [
             "ERR_SSSP_G8G1A3_B10"
           ],
@@ -15706,7 +15706,7 @@
             "Music charts"
           ],
           "expected": "The environment and changes on Earth",
-          "memo": "Scientists use satellite images to monitor the environment and change.",
+          "memo": "Scientists use satellite images to keep track of the environment and how it is changing.",
           "error_signals": [
             "ERR_SSSP_G8G1A3_B12"
           ],
@@ -15782,7 +15782,7 @@
             "Hotter every day"
           ],
           "expected": "Milder (cooler summers, warmer winters)",
-          "memo": "The sea moderates temperatures, giving coastal places milder climates.",
+          "memo": "The sea keeps temperatures from getting too hot or too cold, so places on the coast have milder climates.",
           "error_signals": [
             "ERR_SSSP_G8G2A1_SEA"
           ],
@@ -15799,7 +15799,7 @@
             "Humidity"
           ],
           "expected": "Altitude",
-          "memo": "Altitude (height above sea level) lowers temperature as it increases.",
+          "memo": "Altitude is how high the land is above sea level. The higher you go, the colder it gets.",
           "error_signals": [
             "ERR_SSSP_G8G2A1_CLOZE"
           ],
@@ -15924,7 +15924,7 @@
             "Removing wind"
           ],
           "expected": "Making temperatures milder",
-          "memo": "The sea moderates coastal temperatures, making them milder.",
+          "memo": "The sea keeps temperatures on the coast milder.",
           "error_signals": [
             "ERR_SSSP_G8G2A1_B03"
           ],
@@ -15941,7 +15941,7 @@
             "city"
           ],
           "expected": "equator",
-          "memo": "Latitude — distance from the equator — strongly affects temperature.",
+          "memo": "Latitude, how far a place is from the equator, has a big effect on how hot it is.",
           "error_signals": [
             "ERR_SSSP_G8G2A1_B04"
           ],
@@ -16115,7 +16115,7 @@
             "Durban has more factories"
           ],
           "expected": "Durban is at the coast and lower altitude",
-          "memo": "Coastal, low-lying Durban stays milder than high-altitude, inland Johannesburg.",
+          "memo": "Durban is on the coast and low down, so it stays milder than Johannesburg, which is high up and inland.",
           "error_signals": [
             "ERR_SSSP_G8G2A2_DURBAN"
           ],
@@ -16179,7 +16179,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "South Africa has varied climates because the controlling factors differ across the country.",
+          "memo": "The things that control climate are different across the country, so South Africa has many different climates.",
           "error_signals": [
             "ERR_SSSP_G8G2A2_VARIED"
           ],
@@ -16213,7 +16213,7 @@
             "Cold currents only"
           ],
           "expected": "Coastal location and a winter-rainfall pattern",
-          "memo": "Cape Town is coastal with a Mediterranean-style winter-rainfall climate.",
+          "memo": "Cape Town is on the coast and gets most of its rain in winter, like countries around the Mediterranean.",
           "error_signals": [
             "ERR_SSSP_G8G2A2_CAPETOWN"
           ],
@@ -16328,7 +16328,7 @@
             "Warm currents"
           ],
           "expected": "Higher altitude inland",
-          "memo": "High-altitude inland Johannesburg is cooler than coastal Durban.",
+          "memo": "Johannesburg is high up and inland, so it is cooler than Durban on the coast.",
           "error_signals": [
             "ERR_SSSP_G8G2A2_B07"
           ],
@@ -16343,7 +16343,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "South Africa has varied climates due to differences in altitude, sea, currents and latitude.",
+          "memo": "South Africa has many climates, because altitude, the sea, ocean currents and latitude differ from place to place.",
           "error_signals": [
             "ERR_SSSP_G8G2A2_B08"
           ],
@@ -16468,7 +16468,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Weather is described by temperature, humidity, wind and precipitation (rain etc.).",
+          "memo": "Weather is described by temperature, humidity, wind and precipitation (rain, hail and so on).",
           "error_signals": [
             "ERR_SSSP_G8G2A3_ELEMENTS"
           ],
@@ -16718,7 +16718,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Temperate climates are mild, avoiding extremes.",
+          "memo": "A temperate climate is mild, without extreme heat or cold.",
           "error_signals": [
             "ERR_SSSP_G8G2A3_B08"
           ],
@@ -16735,7 +16735,7 @@
             "Election results"
           ],
           "expected": "Temperature and rainfall",
-          "memo": "Climate regions follow the factors controlling temperature and rainfall.",
+          "memo": "Climate regions follow the factors that control temperature and rainfall.",
           "error_signals": [
             "ERR_SSSP_G8G2A3_B09"
           ],
@@ -16843,7 +16843,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Cities are divided into zones: business, industry, residential and recreation.",
+          "memo": "Cities are divided into zones for business, industry, homes and recreation.",
           "error_signals": [
             "ERR_SSSP_G8G3A1_ZONES"
           ],
@@ -16909,7 +16909,7 @@
             "Office parks"
           ],
           "expected": "Rural settlements",
-          "memo": "These resource-based settlements are types of rural settlement.",
+          "memo": "Settlements built around a natural resource, like mines, forests or fishing, are rural settlements.",
           "error_signals": [
             "ERR_SSSP_G8G3A1_TYPES"
           ],
@@ -16926,7 +16926,7 @@
             "To stop trade"
           ],
           "expected": "To organise different activities sensibly",
-          "memo": "Zoning organises a city so different activities (homes, work, industry) fit together.",
+          "memo": "Zones organise a city so that different activities, like homes, work and industry, fit together.",
           "error_signals": [
             "ERR_SSSP_G8G3A1_WHY"
           ],
@@ -16958,7 +16958,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Cities zone light and heavy industry separately, often away from homes.",
+          "memo": "Cities keep light and heavy industry in separate zones, often away from homes.",
           "error_signals": [
             "ERR_SSSP_G8G3A1_B02"
           ],
@@ -17041,7 +17041,7 @@
             "Stop trade"
           ],
           "expected": "Organise activities and reduce conflict",
-          "memo": "Zoning organises activities so they fit together better.",
+          "memo": "Zones organise activities so they fit together better and clash less.",
           "error_signals": [
             "ERR_SSSP_G8G3A1_B07"
           ],
@@ -17073,7 +17073,7 @@
             "Recreation zone"
           ],
           "expected": "Rural settlement based on a resource",
-          "memo": "Mining towns are resource-based rural settlements.",
+          "memo": "A mining town is a rural settlement built around a natural resource.",
           "error_signals": [
             "ERR_SSSP_G8G3A1_B09"
           ],
@@ -17215,7 +17215,7 @@
             "satellite"
           ],
           "expected": "vertical",
-          "memo": "Straight-down = vertical; angled = oblique.",
+          "memo": "A photo taken straight down is vertical. A photo taken at an angle is oblique.",
           "error_signals": [
             "ERR_SSSP_G8G3A2_CLOZE"
           ],
@@ -17230,7 +17230,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Aerial photos reveal natural features and human-made (constructed) features alike.",
+          "memo": "Aerial photos show natural features, like rivers, and things people built, like roads.",
           "error_signals": [
             "ERR_SSSP_G8G3A2_FEATURES"
           ],
@@ -17612,7 +17612,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Apartheid population controls restricted black South Africans' movement and residence, shaping urbanisation.",
+          "memo": "Apartheid laws controlled where black South Africans could live and move, which shaped how cities grew.",
           "error_signals": [
             "ERR_SSSP_G8G3A3_APARTHEID"
           ],
@@ -17710,7 +17710,7 @@
             "Building more parks"
           ],
           "expected": "Controlling where black South Africans could live",
-          "memo": "Apartheid population controls restricted black South Africans' movement and residence.",
+          "memo": "Apartheid laws controlled where black South Africans could live and move.",
           "error_signals": [
             "ERR_SSSP_G8G3A3_B06"
           ],
@@ -17727,7 +17727,7 @@
             "People dislike cities"
           ],
           "expected": "People move to cities faster than housing is built",
-          "memo": "When migration outpaces housing, informal settlements grow.",
+          "memo": "When people move to a city faster than houses can be built, informal settlements grow.",
           "error_signals": [
             "ERR_SSSP_G8G3A3_B07"
           ],
@@ -17742,7 +17742,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Urbanisation happens across the world, not only in South Africa.",
+          "memo": "Urbanisation happens all over the world, not only in South Africa.",
           "error_signals": [
             "ERR_SSSP_G8G3A3_B08"
           ],
@@ -17808,7 +17808,7 @@
             "Tides"
           ],
           "expected": "Access to housing and health care",
-          "memo": "Urbanisation raises social issues like housing and health-care access.",
+          "memo": "When cities grow, getting enough housing and health care becomes a problem.",
           "error_signals": [
             "ERR_SSSP_G8G3A3_B12"
           ],
@@ -17993,7 +17993,7 @@
             "People across oceans"
           ],
           "expected": "Heavy goods over land",
-          "memo": "Rail efficiently moves heavy goods overland.",
+          "memo": "Trains are good at moving heavy goods over land.",
           "error_signals": [
             "ERR_SSSP_G8G4A1_B01"
           ],
@@ -18008,7 +18008,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Road transport is flexible, reaching destinations directly.",
+          "memo": "Road transport is flexible and can deliver straight to the door.",
           "error_signals": [
             "ERR_SSSP_G8G4A1_B02"
           ],
@@ -18042,7 +18042,7 @@
             "sailing ship"
           ],
           "expected": "pipeline",
-          "memo": "Pipelines efficiently move liquids like oil.",
+          "memo": "Pipelines are the best way to move liquids like oil.",
           "error_signals": [
             "ERR_SSSP_G8G4A1_B04"
           ],
@@ -18248,7 +18248,7 @@
             "Upington"
           ],
           "expected": "Durban",
-          "memo": "Durban is one of South Africa's busiest harbours; Johannesburg is inland.",
+          "memo": "Durban is one of South Africa's busiest harbours. Johannesburg is inland, far from the sea.",
           "error_signals": [
             "ERR_SSSP_G8G4A2_DURBAN"
           ],
@@ -18461,7 +18461,7 @@
             "Stopping ships"
           ],
           "expected": "Growing demand and efficiency",
-          "memo": "Planning future transport means meeting growing demand efficiently.",
+          "memo": "Planning future transport means meeting the growing need to travel without wasting time, money or fuel.",
           "error_signals": [
             "ERR_SSSP_G8G4A2_B09"
           ],
@@ -18569,7 +18569,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Minibus taxis carry large numbers of South African commuters every day.",
+          "memo": "Minibus taxis carry huge numbers of South African commuters every day.",
           "error_signals": [
             "ERR_SSSP_G8G4A3_TAXI"
           ],
@@ -18586,7 +18586,7 @@
             "No need to travel"
           ],
           "expected": "Traffic congestion and pollution",
-          "memo": "Congestion, cost and pollution are common urban transport problems.",
+          "memo": "Traffic jams, high costs and pollution are common transport problems in cities.",
           "error_signals": [
             "ERR_SSSP_G8G4A3_PROBLEM"
           ],
@@ -18635,7 +18635,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Dedicated bus and cycle lanes are public-transit strategies to ease congestion.",
+          "memo": "Lanes just for buses and bicycles help ease traffic in cities.",
           "error_signals": [
             "ERR_SSSP_G8G4A3_LANES"
           ],
@@ -18701,7 +18701,7 @@
             "Stop public transport"
           ],
           "expected": "Move many commuters quickly on dedicated routes",
-          "memo": "Rapid transit systems move many commuters efficiently on dedicated routes.",
+          "memo": "Rapid bus systems move lots of commuters quickly on routes kept just for them.",
           "error_signals": [
             "ERR_SSSP_G8G4A3_B03"
           ],
@@ -18733,7 +18733,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Vehicle exhaust contributes to urban air pollution.",
+          "memo": "Exhaust fumes from vehicles add to air pollution in cities.",
           "error_signals": [
             "ERR_SSSP_G8G4A3_B05"
           ],
@@ -18750,7 +18750,7 @@
             "Use aeroplanes"
           ],
           "expected": "Travel by bicycle safely",
-          "memo": "Cycle lanes make cycling safer, easing congestion and pollution.",
+          "memo": "Cycle lanes make cycling safer, which means less traffic and less pollution.",
           "error_signals": [
             "ERR_SSSP_G8G4A3_B06"
           ],
@@ -18848,7 +18848,7 @@
             "To remove commuters"
           ],
           "expected": "To ease congestion and pollution",
-          "memo": "Public transport and cycling help reduce congestion and pollution.",
+          "memo": "Public transport and cycling mean fewer cars on the road, so there is less traffic and pollution.",
           "error_signals": [
             "ERR_SSSP_G8G4A3_B12"
           ],
@@ -18924,7 +18924,7 @@
             "Third Reich"
           ],
           "expected": "Weimar Republic",
-          "memo": "The Weimar Republic was Germany's democracy that failed, opening the way for Hitler.",
+          "memo": "The Weimar Republic was Germany's democracy before Hitler. When it failed, Hitler was able to take over.",
           "error_signals": [
             "ERR_SSSP_G9H1A1_WEIMAR"
           ],
@@ -18958,7 +18958,7 @@
             "A peaceful republic"
           ],
           "expected": "A dictatorship that crushes opposition and rights",
-          "memo": "Fascism is a dictatorship that suppresses opposition and individual rights.",
+          "memo": "A fascist state is a dictatorship that crushes anyone who opposes it and takes away people's rights.",
           "error_signals": [
             "ERR_SSSP_G9H1A1_FASCIST"
           ],
@@ -18973,7 +18973,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The Nazis persecuted many groups, including Jews, Roma, disabled people and opponents.",
+          "memo": "The Nazis persecuted many groups, including Jews, Roma, disabled people and political opponents.",
           "error_signals": [
             "ERR_SSSP_G9H1A1_PERSECUTE"
           ],
@@ -18990,7 +18990,7 @@
             "Freeing prisoners"
           ],
           "expected": "Giving him power to make laws without parliament",
-          "memo": "The Enabling Act let Hitler rule by decree, cementing his dictatorship.",
+          "memo": "The Enabling Act let Hitler make laws on his own, without parliament, which made him a dictator.",
           "error_signals": [
             "ERR_SSSP_G9H1A1_ENABLING"
           ],
@@ -19022,7 +19022,7 @@
             "It had no leader"
           ],
           "expected": "It removed free elections and silenced opponents",
-          "memo": "Unlike a democracy, a fascist state ends free elections and silences opposition.",
+          "memo": "A democracy has free elections and allows opposition. A fascist state ends free elections and silences opponents.",
           "error_signals": [
             "ERR_SSSP_G9H1A1_DIFF"
           ],
@@ -19054,7 +19054,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The Weimar Republic faced severe economic and political instability.",
+          "memo": "The Weimar Republic had serious money problems and its politics were very unstable.",
           "error_signals": [
             "ERR_SSSP_G9H1A1_B02"
           ],
@@ -19120,7 +19120,7 @@
             "No one"
           ],
           "expected": "One leader or party with no real opposition",
-          "memo": "A dictatorship concentrates power in one leader or party, crushing opposition.",
+          "memo": "In a dictatorship, one leader or party holds all the power and crushes any opposition.",
           "error_signals": [
             "ERR_SSSP_G9H1A1_B06"
           ],
@@ -19169,7 +19169,7 @@
             "Unimportant"
           ],
           "expected": "Unfair and humiliating",
-          "memo": "Resentment at the unfair-feeling Versailles treaty helped the Nazis.",
+          "memo": "Germans felt the Treaty of Versailles was unfair, and that anger helped the Nazis win support.",
           "error_signals": [
             "ERR_SSSP_G9H1A1_B09"
           ],
@@ -19186,7 +19186,7 @@
             "French"
           ],
           "expected": "Weimar",
-          "memo": "The Weimar Republic was Germany's pre-Nazi democracy.",
+          "memo": "The Weimar Republic was Germany's democracy before the Nazis.",
           "error_signals": [
             "ERR_SSSP_G9H1A1_B10"
           ],
@@ -19360,7 +19360,7 @@
             "A trade fair"
           ],
           "expected": "Jewish resistance against the Nazis",
-          "memo": "The Warsaw Ghetto Uprising was a brave Jewish revolt against Nazi persecution.",
+          "memo": "The Warsaw Ghetto Uprising was a brave revolt by Jewish people against the Nazis.",
           "error_signals": [
             "ERR_SSSP_G9H1A2_WARSAW"
           ],
@@ -19647,7 +19647,7 @@
             "Sent to Europe to fight"
           ],
           "expected": "Forced into internment camps in the USA",
-          "memo": "The USA forced Japanese Americans into internment camps, fearing disloyalty.",
+          "memo": "The USA forced Japanese Americans into internment camps because it feared they would be disloyal.",
           "error_signals": [
             "ERR_SSSP_G9H1A3_INTERNMENT"
           ],
@@ -19679,7 +19679,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Japan expanded across Asia and the Pacific, committing atrocities, especially in China.",
+          "memo": "Japan took over large parts of Asia and the Pacific and committed atrocities, especially in China.",
           "error_signals": [
             "ERR_SSSP_G9H1A3_EXPAND"
           ],
@@ -19711,7 +19711,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Interning Japanese Americans, despite no proof of disloyalty, was an injustice driven by fear.",
+          "memo": "Japanese Americans were locked up even though there was no proof they were disloyal. Fear drove this injustice.",
           "error_signals": [
             "ERR_SSSP_G9H1A3_INJUSTICE"
           ],
@@ -19792,7 +19792,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Japan committed serious atrocities during its expansion, especially in China.",
+          "memo": "Japan committed serious atrocities as it expanded, especially in China.",
           "error_signals": [
             "ERR_SSSP_G9H1A3_B05"
           ],
@@ -20032,7 +20032,7 @@
             "They had no armies"
           ],
           "expected": "Deep distrust between their opposing systems",
-          "memo": "Opposing ideologies and mutual distrust drove the post-war tension.",
+          "memo": "The USA and USSR had opposite systems and did not trust each other, so tension grew after the war.",
           "error_signals": [
             "ERR_SSSP_G9H2A1_TENSION"
           ],
@@ -20064,7 +20064,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Communism (state control) and capitalism (private ownership) are opposing systems.",
+          "memo": "Under communism, the state controls the economy. Under capitalism, businesses are privately owned. They are opposite systems.",
           "error_signals": [
             "ERR_SSSP_G9H2A1_B02"
           ],
@@ -20272,7 +20272,7 @@
             "Russia"
           ],
           "expected": "Japan",
-          "memo": "Atomic bombs on Hiroshima and Nagasaki led to Japan's surrender, ending the war.",
+          "memo": "The atomic bombs dropped on Hiroshima and Nagasaki led Japan to surrender, which ended the war.",
           "error_signals": [
             "ERR_SSSP_G9H2A2_JAPAN"
           ],
@@ -20287,7 +20287,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Atomic bombs caused destruction on a completely new scale, opening the Nuclear Age.",
+          "memo": "Atomic bombs caused destruction on a scale never seen before. This started the Nuclear Age.",
           "error_signals": [
             "ERR_SSSP_G9H2A2_POWER"
           ],
@@ -20336,7 +20336,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Historians still debate whether using the atomic bombs was justified — a multi-perspective issue.",
+          "memo": "Historians still argue about whether using the atomic bombs was justified. People see it from different points of view.",
           "error_signals": [
             "ERR_SSSP_G9H2A2_DEBATE"
           ],
@@ -20353,7 +20353,7 @@
             "Middle Ages"
           ],
           "expected": "Nuclear Age",
-          "memo": "The atomic bombings opened the Nuclear Age of immensely powerful weapons.",
+          "memo": "The atomic bombings started the Nuclear Age, the age of hugely powerful weapons.",
           "error_signals": [
             "ERR_SSSP_G9H2A2_NUCLEAR"
           ],
@@ -20500,7 +20500,7 @@
             "Measuring rainfall"
           ],
           "expected": "Considering more than one perspective",
-          "memo": "Debating the bombings uses multi-perspective historical thinking.",
+          "memo": "Arguing about the bombings means looking at an event from more than one point of view.",
           "error_signals": [
             "ERR_SSSP_G9H2A2_B09"
           ],
@@ -21316,7 +21316,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Apartheid sorted people by superficial physical features into 'race' categories — a false basis.",
+          "memo": "Apartheid sorted people into 'race' groups by how they looked on the outside. That was a false way to divide people.",
           "error_signals": [
             "ERR_SSSP_G9H3A1_CLASSIFY"
           ],
@@ -21333,7 +21333,7 @@
             "It has nothing to say"
           ],
           "expected": "It shows all humans are closely related",
-          "memo": "Common ancestry shows humans are one closely related family, undercutting racist ideas.",
+          "memo": "We all share the same ancestors, so all humans are one closely related family. That undermines racist ideas.",
           "error_signals": [
             "ERR_SSSP_G9H3A1_CHALLENGE"
           ],
@@ -21399,7 +21399,7 @@
             "geography"
           ],
           "expected": "evolution",
-          "memo": "Human evolution shows our shared African ancestry.",
+          "memo": "Human evolution shows that we all share ancestors from Africa.",
           "error_signals": [
             "ERR_SSSP_G9H3A1_B04"
           ],
@@ -21414,7 +21414,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Apartheid sorted people by superficial physical features — a false basis.",
+          "memo": "Apartheid sorted people by how they looked on the outside, which was a false way to divide people.",
           "error_signals": [
             "ERR_SSSP_G9H3A1_B05"
           ],
@@ -21463,7 +21463,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Common ancestry shows humans are closely related, undercutting racism.",
+          "memo": "Sharing ancestors shows that all humans are closely related, which undermines racism.",
           "error_signals": [
             "ERR_SSSP_G9H3A1_B08"
           ],
@@ -21588,7 +21588,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Apartheid legally separated people by 'race' and gave power to the white minority.",
+          "memo": "Apartheid used the law to separate people by 'race' and gave power to the white minority.",
           "error_signals": [
             "ERR_SSSP_G9H3A2_DEF"
           ],
@@ -21686,7 +21686,7 @@
             "A type of mine"
           ],
           "expected": "'Apartness' — enforced racial separation",
-          "memo": "Apartheid (Afrikaans for 'apartness') was enforced racial separation.",
+          "memo": "Apartheid means 'apartness' in Afrikaans. It was racial separation forced by law.",
           "error_signals": [
             "ERR_SSSP_G9H3A2_B01"
           ],
@@ -21799,7 +21799,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Apartheid laws denied rights to the black majority while privileging the white minority.",
+          "memo": "Apartheid laws took rights away from the black majority and gave advantages to the white minority.",
           "error_signals": [
             "ERR_SSSP_G9H3A2_B08"
           ],
@@ -21816,7 +21816,7 @@
             "Ended in 1948"
           ],
           "expected": "Existed before 1948 but apartheid made it total law",
-          "memo": "Segregation predated 1948; apartheid made it total, systematic law.",
+          "memo": "Segregation existed before 1948. Apartheid turned it into a complete system of laws.",
           "error_signals": [
             "ERR_SSSP_G9H3A2_B09"
           ],
@@ -21865,7 +21865,7 @@
             "Soweto"
           ],
           "expected": "Bophuthatswana",
-          "memo": "The people of Mogopa were forcibly removed to the Bophuthatswana bantustan.",
+          "memo": "The people of Mogopa were forced off their land and moved to the Bophuthatswana homeland.",
           "error_signals": [
             "ERR_SSSP_G9H3A2_B12"
           ],
@@ -21975,7 +21975,7 @@
             "Gold mining"
           ],
           "expected": "Non-violent protest",
-          "memo": "Gandhi's philosophy of non-violent resistance influenced the anti-apartheid struggle.",
+          "memo": "Gandhi's idea of resisting without violence influenced the struggle against apartheid.",
           "error_signals": [
             "ERR_SSSP_G9H3A3_GANDHI"
           ],
@@ -21990,7 +21990,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "1950s resistance was largely organised, mass-based and non-violent.",
+          "memo": "In the 1950s, most resistance was organised, involved lots of people and was non-violent.",
           "error_signals": [
             "ERR_SSSP_G9H3A3_NONVIOLENT"
           ],
@@ -22024,7 +22024,7 @@
             "Leaving the country"
           ],
           "expected": "Breaking unjust apartheid laws peacefully",
-          "memo": "The Defiance Campaign peacefully defied unjust apartheid laws.",
+          "memo": "In the Defiance Campaign, people broke unfair apartheid laws on purpose, but peacefully.",
           "error_signals": [
             "ERR_SSSP_G9H3A3_B01"
           ],
@@ -22105,7 +22105,7 @@
             "By doing nothing"
           ],
           "expected": "Without using violence",
-          "memo": "Non-violent resistance opposes injustice peacefully.",
+          "memo": "Non-violent resistance means standing up to injustice peacefully, without violence.",
           "error_signals": [
             "ERR_SSSP_G9H3A3_B06"
           ],
@@ -22137,7 +22137,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Gandhi's philosophy of non-violence influenced the struggle.",
+          "memo": "Gandhi's idea of non-violence influenced the struggle in South Africa.",
           "error_signals": [
             "ERR_SSSP_G9H3A3_B08"
           ],
@@ -22203,7 +22203,7 @@
             "Leave history alone"
           ],
           "expected": "Organise to oppose injustice",
-          "memo": "The campaigns show people organising to resist injustice.",
+          "memo": "The campaigns show that ordinary people organised themselves to resist injustice.",
           "error_signals": [
             "ERR_SSSP_G9H3A3_B12"
           ],
@@ -22262,7 +22262,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Police fired on unarmed pass-law protesters at Sharpeville, killing many.",
+          "memo": "At Sharpeville, police fired on unarmed people protesting against pass laws and killed many.",
           "error_signals": [
             "ERR_SSSP_G9H4A1_PASS"
           ],
@@ -22311,7 +22311,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Sharpeville led to harsher government repression, including banning organisations.",
+          "memo": "After Sharpeville, the government cracked down harder, including banning organisations.",
           "error_signals": [
             "ERR_SSSP_G9H4A1_REPRESSION"
           ],
@@ -22426,7 +22426,7 @@
             "WWII"
           ],
           "expected": "Apartheid's brutality",
-          "memo": "Sharpeville drew world attention to apartheid's brutality.",
+          "memo": "Sharpeville made the world pay attention to how brutal apartheid was.",
           "error_signals": [
             "ERR_SSSP_G9H4A1_B06"
           ],
@@ -22507,7 +22507,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Sharpeville led to harsher repression and stronger resistance.",
+          "memo": "After Sharpeville, the government cracked down harder, and resistance grew stronger too.",
           "error_signals": [
             "ERR_SSSP_G9H4A1_B11"
           ],
@@ -22649,7 +22649,7 @@
             "Germany's defeat"
           ],
           "expected": "Stronger resistance and international attention",
-          "memo": "Soweto energised resistance and drew global attention to apartheid.",
+          "memo": "Soweto gave new energy to resistance and made the world pay attention to apartheid.",
           "error_signals": [
             "ERR_SSSP_G9H4A2_CONSEQUENCE"
           ],
@@ -22781,7 +22781,7 @@
             "the space race"
           ],
           "expected": "The injustice of apartheid",
-          "memo": "Soweto drew international attention to apartheid's injustice.",
+          "memo": "Soweto made the world pay attention to how unjust apartheid was.",
           "error_signals": [
             "ERR_SSSP_G9H4A2_B06"
           ],
@@ -22798,7 +22798,7 @@
             "Germany's defeat"
           ],
           "expected": "Stronger resistance to apartheid",
-          "memo": "Soweto energised resistance against apartheid.",
+          "memo": "Soweto gave new energy to resistance against apartheid.",
           "error_signals": [
             "ERR_SSSP_G9H4A2_B07"
           ],
@@ -22830,7 +22830,7 @@
             "It was too easy"
           ],
           "expected": "They saw it as the language of the oppressor and a barrier to learning",
-          "memo": "Students rejected Afrikaans-medium teaching as oppressive and a barrier to learning.",
+          "memo": "Students rejected being taught in Afrikaans. They saw it as the oppressor's language and something that made learning harder.",
           "error_signals": [
             "ERR_SSSP_G9H4A2_B09"
           ],
@@ -22987,7 +22987,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Internal resistance and external pressure (like sanctions) together helped end apartheid.",
+          "memo": "Resistance inside the country and pressure from outside, like sanctions, together helped end apartheid.",
           "error_signals": [
             "ERR_SSSP_G9H4A3_PRESSURE"
           ],
@@ -23119,7 +23119,7 @@
             "The Scramble for Africa"
           ],
           "expected": "Negotiations between leaders",
-          "memo": "The transition involved negotiations, despite some violence.",
+          "memo": "The move to democracy happened through negotiations between leaders, even though there was some violence.",
           "error_signals": [
             "ERR_SSSP_G9H4A3_B06"
           ],
@@ -23136,7 +23136,7 @@
             "Army general"
           ],
           "expected": "First democratically elected president",
-          "memo": "Mandela became South Africa's first democratically elected president in 1994.",
+          "memo": "In 1994, Mandela became South Africa's first democratically elected president.",
           "error_signals": [
             "ERR_SSSP_G9H4A3_B07"
           ],
@@ -23151,7 +23151,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Both internal resistance and external pressure helped end apartheid.",
+          "memo": "Resistance inside the country and pressure from outside both helped end apartheid.",
           "error_signals": [
             "ERR_SSSP_G9H4A3_B08"
           ],
@@ -23631,7 +23631,7 @@
             "hand-drawn"
           ],
           "expected": "vertical",
-          "memo": "Orthophoto maps come from vertical (straight-down) aerial photographs.",
+          "memo": "Orthophoto maps are made from vertical aerial photos, taken straight down.",
           "error_signals": [
             "ERR_SSSP_G9G1A2_CLOZE"
           ],
@@ -23646,7 +23646,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Orthophoto maps combine photographic detail with map accuracy.",
+          "memo": "Orthophoto maps show real detail like a photo, and they are as accurate as a map.",
           "error_signals": [
             "ERR_SSSP_G9G1A2_DETAIL"
           ],
@@ -23793,7 +23793,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Unlike ordinary photos, orthophoto maps are corrected to scale with contours added.",
+          "memo": "An ordinary photo is just a picture. An orthophoto map is corrected to scale and has contour lines added.",
           "error_signals": [
             "ERR_SSSP_G9G1A2_B08"
           ],
@@ -23842,7 +23842,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Their detail and accuracy make orthophoto maps useful for studying small areas.",
+          "memo": "Orthophoto maps are detailed and accurate, which makes them useful for studying small areas.",
           "error_signals": [
             "ERR_SSSP_G9G1A2_B11"
           ],
@@ -23952,7 +23952,7 @@
             "scales"
           ],
           "expected": "coordinates",
-          "memo": "Coordinates (using grid references or latitude/longitude) locate features exactly.",
+          "memo": "Coordinates, from grid references or latitude and longitude, give the exact position of a feature.",
           "error_signals": [
             "ERR_SSSP_G9G1A3_COORD"
           ],
@@ -24197,7 +24197,7 @@
             "Playing music"
           ],
           "expected": "Understanding the landscape and planning",
-          "memo": "Topographic maps help understand landscapes and plan activities.",
+          "memo": "Topographic maps help you understand the shape of the land and plan what to do there.",
           "error_signals": [
             "ERR_SSSP_G9G1A3_B12"
           ],
@@ -24371,7 +24371,7 @@
             "Drawing only"
           ],
           "expected": "Comparing information from more than one source",
-          "memo": "Cross-referencing compares information across sources.",
+          "memo": "Cross-referencing means comparing the information from more than one source.",
           "error_signals": [
             "ERR_SSSP_G9G1A4_B03"
           ],
@@ -24518,7 +24518,7 @@
             "There is no reason"
           ],
           "expected": "Each shows different useful information",
-          "memo": "Different sources reveal different information, giving a fuller understanding.",
+          "memo": "Each source shows different information, so using them together gives you a fuller picture.",
           "error_signals": [
             "ERR_SSSP_G9G1A4_B12"
           ],
@@ -24562,7 +24562,7 @@
             "Map scale"
           ],
           "expected": "Quality of life and well-being",
-          "memo": "Development means improving quality of life — economic, social and environmental well-being.",
+          "memo": "Development means improving people's quality of life: their money, their health and education, and their environment.",
           "error_signals": [
             "ERR_SSSP_G9G2A1_DEF"
           ],
@@ -24577,7 +24577,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The HDI combines life expectancy, education and income — not income alone.",
+          "memo": "The HDI combines life expectancy, education and income. It doesn't look at income alone.",
           "error_signals": [
             "ERR_SSSP_G9G2A1_HDI"
           ],
@@ -24594,7 +24594,7 @@
             "Wind, sun and rain"
           ],
           "expected": "Life expectancy, education and income",
-          "memo": "HDI blends life expectancy, education and per-capita income into one score.",
+          "memo": "The HDI combines life expectancy, education and income per person into one score.",
           "error_signals": [
             "ERR_SSSP_G9G2A1_THREE"
           ],
@@ -24663,7 +24663,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "True development balances economic, social and environmental well-being.",
+          "memo": "Real development balances economic, social and environmental well-being.",
           "error_signals": [
             "ERR_SSSP_G9G2A1_ASPECTS"
           ],
@@ -24680,7 +24680,7 @@
             "No problems"
           ],
           "expected": "Lower income, health and education levels",
-          "memo": "Low-development countries tend to have lower income, health and education.",
+          "memo": "Countries with low development usually have lower income, poorer health and less education.",
           "error_signals": [
             "ERR_SSSP_G9G2A1_LOW"
           ],
@@ -24761,7 +24761,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Development includes health, education and well-being, not just money.",
+          "memo": "Development is not only about money. It includes health, education and well-being.",
           "error_signals": [
             "ERR_SSSP_G9G2A1_B05"
           ],
@@ -24778,7 +24778,7 @@
             "Gold reserves"
           ],
           "expected": "Knowledge and skills in a population",
-          "memo": "Education levels reflect a population's knowledge and skills.",
+          "memo": "How educated people are shows the knowledge and skills a population has.",
           "error_signals": [
             "ERR_SSSP_G9G2A1_B06"
           ],
@@ -24827,7 +24827,7 @@
             "historical only"
           ],
           "expected": "environmental",
-          "memo": "True development includes an environmental dimension.",
+          "memo": "Real development includes looking after the environment.",
           "error_signals": [
             "ERR_SSSP_G9G2A1_B09"
           ],
@@ -24920,7 +24920,7 @@
             "Tourism"
           ],
           "expected": "Colonialism",
-          "memo": "Colonialism is a key historical factor shaping today's development differences.",
+          "memo": "Colonialism is a key reason from history for why countries differ in development today.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_COLONIAL"
           ],
@@ -24935,7 +24935,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Unequal, unfair trade relationships can hold back a country's development.",
+          "memo": "When trade between countries is unequal and unfair, it can hold a country back.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_TRADE"
           ],
@@ -24952,7 +24952,7 @@
             "Political instability"
           ],
           "expected": "Good education and health",
-          "memo": "Strong education and health support development; war and instability hold it back.",
+          "memo": "Good education and health help a country develop. War and instability hold it back.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_HELP"
           ],
@@ -24969,7 +24969,7 @@
             "collapse"
           ],
           "expected": "stability",
-          "memo": "Political stability gives the security needed for development.",
+          "memo": "Political stability, a calm and steady government, gives the security a country needs to develop.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_STABILITY"
           ],
@@ -25013,7 +25013,7 @@
           ],
           "expected": "Education, health and stability help; war and unfair trade harm development.",
           "pass_threshold": 0.75,
-          "memo": "Health, education and stability build development; conflict and unfair trade undermine it.",
+          "memo": "Health, education and stability help development. War and unfair trade hold it back.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_SORT"
           ],
@@ -25028,7 +25028,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Access to technology and industry is an important factor in development.",
+          "memo": "Having technology and industry makes a big difference to how developed a country is.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_TECH"
           ],
@@ -25045,7 +25045,7 @@
             "It is random"
           ],
           "expected": "Many factors work together",
-          "memo": "Development differences come from many interacting factors, not one cause.",
+          "memo": "Differences in development come from many factors working together, not one cause.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_MANY"
           ],
@@ -25062,7 +25062,7 @@
             "Building free hospitals"
           ],
           "expected": "Shaping economies to serve colonisers",
-          "memo": "Colonial economies were shaped to serve the colonisers, affecting later development.",
+          "memo": "Colonies' economies were set up to benefit the colonisers, and that affected how they developed later.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_B01"
           ],
@@ -25094,7 +25094,7 @@
             "Build schools"
           ],
           "expected": "Hold back development",
-          "memo": "Instability and conflict hold back development.",
+          "memo": "Instability and conflict hold development back.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_B03"
           ],
@@ -25126,7 +25126,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Access to technology and industry can boost development.",
+          "memo": "Having technology and industry can boost a country's development.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_B05"
           ],
@@ -25143,7 +25143,7 @@
             "It is random"
           ],
           "expected": "Many factors interact",
-          "memo": "Underdevelopment comes from many interacting factors.",
+          "memo": "Underdevelopment comes from many factors working together.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_B06"
           ],
@@ -25160,7 +25160,7 @@
             "Raising prices"
           ],
           "expected": "Keeping people healthy and productive",
-          "memo": "Healthy people are more productive, aiding development.",
+          "memo": "Healthy people can work and produce more, which helps a country develop.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_B07"
           ],
@@ -25175,7 +25175,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Historical factors like colonialism continue to shape development.",
+          "memo": "Things from the past, like colonialism, still affect how developed countries are today.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_B08"
           ],
@@ -25192,7 +25192,7 @@
             "Raises life expectancy"
           ],
           "expected": "Destroys lives, infrastructure and stability",
-          "memo": "War destroys lives, infrastructure and stability, harming development.",
+          "memo": "War destroys lives, roads and buildings, and stability, which harms development.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_B09"
           ],
@@ -25209,7 +25209,7 @@
             "war"
           ],
           "expected": "stability",
-          "memo": "Political stability provides security for development.",
+          "memo": "Political stability gives the security a country needs to develop.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_B10"
           ],
@@ -25224,7 +25224,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Countries developed differently because of different histories and factors.",
+          "memo": "Countries developed in different ways because their histories and circumstances were different.",
           "error_signals": [
             "ERR_SSSP_G9G2A2_B11"
           ],
@@ -25317,7 +25317,7 @@
             "Must mine more gold"
           ],
           "expected": "Do not all have to copy heavy industrialisation",
-          "memo": "Alternative development looks for paths beyond just heavy industrialisation.",
+          "memo": "Alternative development looks for other ways to develop, not only building lots of heavy industry.",
           "error_signals": [
             "ERR_SSSP_G9G2A3_ALT"
           ],
@@ -25334,7 +25334,7 @@
             "colonial"
           ],
           "expected": "sustainable",
-          "memo": "Sustainable development is development that can continue without harming the future.",
+          "memo": "Sustainable development can carry on without harming the future.",
           "error_signals": [
             "ERR_SSSP_G9G2A3_CLOZE"
           ],
@@ -25349,7 +25349,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Local, community-based projects are one approach to improving development.",
+          "memo": "Local projects run by communities are one way to improve development.",
           "error_signals": [
             "ERR_SSSP_G9G2A3_COMMUNITY"
           ],
@@ -25398,7 +25398,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Sustainable development meets today's needs without harming the future.",
+          "memo": "Sustainable development meets people's needs today without harming the future.",
           "error_signals": [
             "ERR_SSSP_G9G2A3_B02"
           ],
@@ -25415,7 +25415,7 @@
             "Mine only gold"
           ],
           "expected": "Follow paths other than heavy industrialisation",
-          "memo": "Alternative development explores paths beyond heavy industrialisation.",
+          "memo": "Alternative development looks for other ways to develop, not only heavy industry.",
           "error_signals": [
             "ERR_SSSP_G9G2A3_B03"
           ],
@@ -25432,7 +25432,7 @@
             "colonial"
           ],
           "expected": "sustainable",
-          "memo": "Sustainable development can continue without harming the future.",
+          "memo": "Sustainable development can carry on without harming the future.",
           "error_signals": [
             "ERR_SSSP_G9G2A3_B04"
           ],
@@ -25447,7 +25447,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Local, community-based projects are one route to development.",
+          "memo": "Local projects run by communities are one way to develop.",
           "error_signals": [
             "ERR_SSSP_G9G2A3_B05"
           ],
@@ -25496,7 +25496,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Fairer trade creates opportunities for development.",
+          "memo": "Fairer trade gives countries more chances to develop.",
           "error_signals": [
             "ERR_SSSP_G9G2A3_B08"
           ],
@@ -25530,7 +25530,7 @@
             "erosion"
           ],
           "expected": "development",
-          "memo": "Rural development programmes improve life in rural areas.",
+          "memo": "Rural development programmes improve life in the countryside.",
           "error_signals": [
             "ERR_SSSP_G9G2A3_B10"
           ],
@@ -25562,7 +25562,7 @@
             "Unfair trade"
           ],
           "expected": "Fair trade, sustainability and community projects",
-          "memo": "Fairer trade, sustainability and community projects are development opportunities.",
+          "memo": "Fairer trade, sustainable development and community projects are all chances for development.",
           "error_signals": [
             "ERR_SSSP_G9G2A3_B12"
           ],
@@ -25621,7 +25621,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Physical weathering breaks rock apart mechanically, without changing its chemistry.",
+          "memo": "Physical weathering breaks rock apart into smaller pieces, but the rock stays the same material.",
           "error_signals": [
             "ERR_SSSP_G9G3A1_PHYSICAL"
           ],
@@ -25713,7 +25713,7 @@
           ],
           "expected": "Freezing = physical, acid = chemical, roots = biological.",
           "pass_threshold": 0.66,
-          "memo": "Physical = mechanical breaking; chemical = changing minerals; biological = living things.",
+          "memo": "Physical weathering breaks rock apart, chemical weathering changes what the rock is made of, and biological weathering is caused by living things.",
           "error_signals": [
             "ERR_SSSP_G9G3A1_SORT"
           ],
@@ -25730,7 +25730,7 @@
             "Rust forming"
           ],
           "expected": "Water freezing and thawing in cracks",
-          "memo": "Freeze-thaw is a classic example of physical weathering.",
+          "memo": "Water freezing and thawing in cracks is a classic example of physical weathering.",
           "error_signals": [
             "ERR_SSSP_G9G3A1_EXAMPLE"
           ],
@@ -25828,7 +25828,7 @@
             "Melting it"
           ],
           "expected": "Breaking it into smaller pieces",
-          "memo": "Physical weathering breaks rock into smaller pieces without changing its chemistry.",
+          "memo": "Physical weathering breaks rock into smaller pieces without changing what it's made of.",
           "error_signals": [
             "ERR_SSSP_G9G3A1_B06"
           ],
@@ -25877,7 +25877,7 @@
             "Deposition"
           ],
           "expected": "Chemical weathering",
-          "memo": "Rusting (oxidation) is a chemical weathering process.",
+          "memo": "Rusting (oxidation) changes what the rock is made of, so it is chemical weathering.",
           "error_signals": [
             "ERR_SSSP_G9G3A1_B09"
           ],
@@ -26274,7 +26274,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Erosion and deposition continually reshape landscapes over time.",
+          "memo": "Erosion and deposition keep changing the shape of the land over time.",
           "error_signals": [
             "ERR_SSSP_G9G3A2_B11"
           ],
@@ -26367,7 +26367,7 @@
             "Builds new soil"
           ],
           "expected": "Strips away the plants that protect the soil",
-          "memo": "Overgrazing removes the protective plant cover, exposing soil to erosion.",
+          "memo": "Too many animals eat away the plants that cover and protect the soil, so the soil washes or blows away.",
           "error_signals": [
             "ERR_SSSP_G9G3A3_OVERGRAZE"
           ],
@@ -26448,7 +26448,7 @@
             "Builds mountains"
           ],
           "expected": "Removes fertile topsoil needed for farming",
-          "memo": "Erosion strips fertile topsoil, harming farming.",
+          "memo": "Erosion carries away the fertile topsoil that farming depends on.",
           "error_signals": [
             "ERR_SSSP_G9G3A3_B01"
           ],
@@ -26671,7 +26671,7 @@
             "Is always man-made"
           ],
           "expected": "Can be replaced or refilled if used carefully",
-          "memo": "Renewable resources (like forests, fish) can recover if used carefully.",
+          "memo": "Renewable resources, like forests and fish, can recover if we use them carefully.",
           "error_signals": [
             "ERR_SSSP_G9G4A1_RENEW"
           ],
@@ -26779,7 +26779,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Overgrazing damages the land, an example of using a resource unwisely.",
+          "memo": "Overgrazing damages the land. It is an example of using a resource unwisely.",
           "error_signals": [
             "ERR_SSSP_G9G4A1_OVERGRAZE"
           ],
@@ -26862,7 +26862,7 @@
             "wasted"
           ],
           "expected": "renewable",
-          "memo": "Renewable resources can be replaced if used carefully.",
+          "memo": "Renewable resources can be replaced if we use them carefully.",
           "error_signals": [
             "ERR_SSSP_G9G4A1_B04"
           ],
@@ -26894,7 +26894,7 @@
             "They are worthless"
           ],
           "expected": "They cannot be replaced once used up",
-          "memo": "Non-renewables are finite, so careful use matters.",
+          "memo": "There is only a limited amount of a non-renewable resource, so we have to use it carefully.",
           "error_signals": [
             "ERR_SSSP_G9G4A1_B06"
           ],
@@ -26992,7 +26992,7 @@
             "Richer soil"
           ],
           "expected": "Over-fishing and over-grazing",
-          "memo": "Over-fishing and over-grazing are effects of unwise resource use.",
+          "memo": "Over-fishing and over-grazing are results of using resources unwisely.",
           "error_signals": [
             "ERR_SSSP_G9G4A1_B12"
           ],
@@ -27051,7 +27051,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Sustainable fishing keeps catches within the level fish can naturally replace.",
+          "memo": "Sustainable fishing means not catching more fish than can be replaced naturally.",
           "error_signals": [
             "ERR_SSSP_G9G4A2_FISHING"
           ],
@@ -27068,7 +27068,7 @@
             "Nobody"
           ],
           "expected": "Individuals, businesses and governments",
-          "memo": "Everyone — individuals, businesses and governments — can choose more sustainable use.",
+          "memo": "Everyone can choose to use resources more sustainably: individuals, businesses and governments.",
           "error_signals": [
             "ERR_SSSP_G9G4A2_WHO"
           ],
@@ -27100,7 +27100,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Limiting animal numbers prevents overgrazing, keeping grazing land sustainable.",
+          "memo": "Keeping fewer animals on the land stops overgrazing, so the grazing land lasts.",
           "error_signals": [
             "ERR_SSSP_G9G4A2_GRAZING"
           ],
@@ -27132,7 +27132,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Sustainability balances environmental, social and economic needs together.",
+          "memo": "Sustainability is not only about the environment. It balances the needs of the environment, people and the economy together.",
           "error_signals": [
             "ERR_SSSP_G9G4A2_BALANCE"
           ],
@@ -27149,7 +27149,7 @@
             "Disappear"
           ],
           "expected": "Last into the future",
-          "memo": "Sustainable use keeps resources available for the future.",
+          "memo": "Using resources sustainably means using them in a way that keeps them available for the future.",
           "error_signals": [
             "ERR_SSSP_G9G4A2_B01"
           ],
@@ -27164,7 +27164,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Recycling reuses materials, reducing pressure on resources.",
+          "memo": "Recycling uses materials again, so we need to take less from nature.",
           "error_signals": [
             "ERR_SSSP_G9G4A2_B02"
           ],
@@ -27213,7 +27213,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Everyone — governments, businesses and individuals — can choose sustainable use.",
+          "memo": "Everyone can choose to use resources sustainably: governments, businesses and individuals.",
           "error_signals": [
             "ERR_SSSP_G9G4A2_B05"
           ],
@@ -27247,7 +27247,7 @@
             "Ploughing slopes"
           ],
           "expected": "Not putting too many animals on the land",
-          "memo": "Limiting animal numbers prevents overgrazing — sustainable grazing.",
+          "memo": "Keeping fewer animals on the land stops overgrazing. That is sustainable grazing.",
           "error_signals": [
             "ERR_SSSP_G9G4A2_B07"
           ],
@@ -27262,7 +27262,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Sustainability balances environmental, social and economic needs together.",
+          "memo": "Sustainability balances the needs of the environment, people and the economy together.",
           "error_signals": [
             "ERR_SSSP_G9G4A2_B08"
           ],
@@ -27279,7 +27279,7 @@
             "Costs the Earth nothing to ignore"
           ],
           "expected": "Does not run out",
-          "memo": "Renewable energy like solar does not run out, making it sustainable.",
+          "memo": "Renewable energy like solar power does not run out, so it is sustainable.",
           "error_signals": [
             "ERR_SSSP_G9G4A2_B09"
           ],
@@ -27311,7 +27311,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Individuals can save energy, recycle and choose wisely to help sustainability.",
+          "memo": "Individuals can help by saving energy, recycling and making wise choices.",
           "error_signals": [
             "ERR_SSSP_G9G4A2_B11"
           ],
@@ -27372,7 +27372,7 @@
             "Never farm"
           ],
           "expected": "Have reliable access to enough safe food",
-          "memo": "Food security means everyone reliably has enough safe, nutritious food.",
+          "memo": "Food security means everyone can always get enough safe, healthy food.",
           "error_signals": [
             "ERR_SSSP_G9G4A3_DEF"
           ],
@@ -27436,7 +27436,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Each food-production method has trade-offs — economic, environmental, health and ethical.",
+          "memo": "Every way of producing food has pluses and minuses for money, the environment, health and what is right.",
           "error_signals": [
             "ERR_SSSP_G9G4A3_TRADEOFF"
           ],
@@ -27453,7 +27453,7 @@
             "Stop growing food"
           ],
           "expected": "Produce food in ways that protect the land for the future",
-          "memo": "Sustainable farming produces food while protecting soil and the environment for the future.",
+          "memo": "Sustainable farming grows food while protecting the soil and the environment for the future.",
           "error_signals": [
             "ERR_SSSP_G9G4A3_SUSTAIN"
           ],
@@ -27470,7 +27470,7 @@
             "It is illegal everywhere"
           ],
           "expected": "Animal welfare and environmental effects",
-          "memo": "Factory farming raises concerns about animal welfare and environmental impact.",
+          "memo": "People worry that factory farming treats animals badly and harms the environment.",
           "error_signals": [
             "ERR_SSSP_G9G4A3_CONCERN"
           ],
@@ -27551,7 +27551,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Sustainable farming produces food while protecting the land long-term.",
+          "memo": "Sustainable farming grows food while protecting the land for the long term.",
           "error_signals": [
             "ERR_SSSP_G9G4A3_B05"
           ],
@@ -27568,7 +27568,7 @@
             "It is illegal everywhere"
           ],
           "expected": "Animal welfare and the environment",
-          "memo": "Factory farming raises concerns about animal welfare and environmental impact.",
+          "memo": "People worry that factory farming treats animals badly and harms the environment.",
           "error_signals": [
             "ERR_SSSP_G9G4A3_B06"
           ],
@@ -27585,7 +27585,7 @@
             "imaginary"
           ],
           "expected": "global",
-          "memo": "Food security applies at local, regional and global levels.",
+          "memo": "Food security can be looked at locally, in a region, or across the whole world.",
           "error_signals": [
             "ERR_SSSP_G9G4A3_B07"
           ],
@@ -27649,7 +27649,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Sustainable farming supports long-term food security.",
+          "memo": "Sustainable farming helps make sure there is enough food in the long run.",
           "error_signals": [
             "ERR_SSSP_G9G4A3_B11"
           ],
