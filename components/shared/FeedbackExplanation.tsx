@@ -18,6 +18,18 @@ function numericRelation(student: string, correct: string): string | null {
   return s > c ? `that's ${gap} too high` : `that's ${gap} too low`;
 }
 
+// A big, unmistakable red X shown on every wrong answer.
+export function WrongMark() {
+  return (
+    <span
+      aria-label="Incorrect"
+      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-600 text-3xl font-black leading-none text-white shadow-md"
+    >
+      ✕
+    </span>
+  );
+}
+
 // ─── Shared feedback card ────────────────────────────────────────────────────
 //
 // One feedback card for every subject. It renders the deep wrong-answer card —
@@ -187,7 +199,7 @@ export default function FeedbackExplanation({
     <div className={`rounded-2xl border-2 overflow-hidden ${CONCEPT_C ? "border-rose-200 bg-rose-50" : "border-orange-200 bg-orange-50"}`}>
       <div className={`px-6 py-4 flex items-center justify-between gap-3 ${CONCEPT_C ? "bg-rose-100" : "bg-orange-100"}`}>
         <div className="flex items-center gap-3">
-          <span className="text-2xl">🤔</span>
+          <WrongMark />
           <div>
             <p className={`font-bold text-lg ${CONCEPT_C ? "text-rose-900" : "text-orange-800"}`}>Not quite</p>
             {headerLabel && <p className={`text-sm ${CONCEPT_C ? "text-rose-700" : "text-orange-700"}`}>{headerLabel}</p>}
@@ -238,11 +250,10 @@ export default function FeedbackExplanation({
           </p>
         )}
 
-        {/* WHY / HOW / EXAMPLE / WHERE — paired 2-up on desktop so the whole
-            card can fit one screen instead of stacking five sections tall;
-            still a single column on mobile where the width can't take it. */}
+        {/* WHY / HOW / EXAMPLE / WHERE — each a full-width block, the same
+            shape as "What went wrong". */}
         {(whyText || hasWorking || howText || exampleText || whereText) && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="space-y-4">
             {/* WHY — violet block in Concept C */}
             {whyText && (
               CONCEPT_C ? (

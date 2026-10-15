@@ -6,7 +6,7 @@ import { useT } from "@/lib/i18n";
 import { useTTS } from "@/lib/tts";
 import { apiFetch } from "@/lib/fetch";
 import { resolveErrorExplanation } from "@/lib/error-explanations";
-import FeedbackExplanation from "@/components/shared/FeedbackExplanation";
+import FeedbackExplanation, { WrongMark } from "@/components/shared/FeedbackExplanation";
 import { GEM_HEX } from "@/lib/design/gemColors";
 import RubyIcon from "@/components/ui/RubyIcon";
 
@@ -190,7 +190,7 @@ export default function FeedbackCard({
     return (
       <div className="rounded-2xl border-2 border-orange-200 bg-orange-50 overflow-hidden">
         <div className="px-6 py-4 bg-orange-100 flex items-center gap-3">
-          <span className="text-2xl">🤔</span>
+          <WrongMark />
           <div>
             <p className="font-bold text-lg text-orange-800">Not quite</p>
             <p className="text-sm text-orange-600">What happened?</p>
@@ -216,7 +216,7 @@ export default function FeedbackCard({
     return (
       <div className="rounded-2xl border-2 border-orange-200 bg-orange-50 overflow-hidden">
         <div className="px-6 py-4 bg-orange-100 flex items-center gap-3">
-          <span className="text-2xl">🤔</span>
+          <WrongMark />
           <p className="font-bold text-lg text-orange-800">Not quite</p>
         </div>
         <div className="px-6 py-10 flex flex-col items-center gap-3 text-orange-500">

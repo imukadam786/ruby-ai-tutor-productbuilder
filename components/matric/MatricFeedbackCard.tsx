@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { CONCEPT_C } from "@/lib/flags";
+import { WrongMark } from "@/components/shared/FeedbackExplanation";
 
 // Concept C makes static cards read chunkier (2px borders, heavier labels).
 // The result-tier colours stay semantic — they encode full/partial/zero marks,
@@ -109,8 +110,8 @@ export default function MatricFeedbackCard({
   return (
     <div className={`${cc("border-2", "border")} rounded-2xl px-4 py-4 space-y-3 ${CARD[t]}`}>
       {header && (
-        <div className={`flex items-center gap-1.5 text-sm ${cc("font-extrabold", "font-bold")} ${header.color}`}>
-          <span aria-hidden>{header.icon}</span>
+        <div className={`flex items-center gap-2 text-sm ${cc("font-extrabold", "font-bold")} ${header.color}`}>
+          {t === "zero" ? <WrongMark /> : <span aria-hidden>{header.icon}</span>}
           <span>{header.label}</span>
         </div>
       )}

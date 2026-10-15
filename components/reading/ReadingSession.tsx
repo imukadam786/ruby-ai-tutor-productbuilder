@@ -5,6 +5,7 @@ import RubyLoader from "@/components/RubyLoader";
 import RubyBalance from "@/components/RubyBalance";
 import RubyIcon from "@/components/ui/RubyIcon";
 import Button from "@/components/ui/Button";
+import { WrongMark } from "@/components/shared/FeedbackExplanation";
 import { apiFetch } from "@/lib/fetch";
 import { rewardEffortFloor, rewardSkillMastered } from "@/lib/reward-client";
 import { useT } from "@/lib/i18n";
@@ -1591,11 +1592,11 @@ function ReadingFeedbackCard({
       result.is_correct ? "border-green-200" : "border-red-200"
     }`}>
       <div className="flex items-center gap-3">
-        <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xl flex-shrink-0 ${
-          result.is_correct ? "bg-green-100" : "bg-red-100"
-        }`}>
-          {result.is_correct ? "✅" : "❌"}
-        </div>
+        {result.is_correct ? (
+          <div className="w-10 h-10 rounded-full flex items-center justify-center text-xl flex-shrink-0 bg-green-100">✅</div>
+        ) : (
+          <WrongMark />
+        )}
         <div>
           <p className={`font-semibold ${result.is_correct ? "text-green-800" : "text-red-800"}`}>
             {result.is_correct ? "Correct!" : "Not quite right"}
