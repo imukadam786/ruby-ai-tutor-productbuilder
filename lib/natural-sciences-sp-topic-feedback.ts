@@ -1,118 +1,118 @@
-// ─── Natural Sciences SP — per-topic "think of it like this" analogies ──────
+// ─── Natural Sciences — per-topic "real-life example" pictures ─────────────
 //
-// One everyday analogy per topic (54, Grades 7–9), keyed by skill/topic id.
-// Feeds the wrong-answer card's example slot via FeedbackExplanation's
-// `exampleOverride`. Register: Grade 7–9, concrete, everyday South African
-// reference points. "why" = the question's memo, "how" = the topic's
-// recovery_strategy, "where" = buildTopicWhere().
+// One everyday picture per topic (54), keyed by skill/topic id. Feeds the
+// wrong-answer card's example slot via FeedbackExplanation's `exampleOverride`.
+// Rules in docs/feedback-writing-guide.md: an everyday South African picture,
+// no facts, terms or numbers from the topic, and no instructions. "why" = the
+// question's memo, "where" = buildTopicWhere().
 
 export const TOPIC_EXAMPLES: Record<string, string> = {
   "NSSP.G7.LL.A1":
-    "Picture three layers — rock (lithosphere), water (hydrosphere) and air (atmosphere). The biosphere is the thin zone where all three meet and life survives, like the moist edge of a dam where plants, fish and birds all live.",
+    "It's like the muddy edge of a dam, where land, water and air all meet. That thin strip is where you find the most life.",
   "NSSP.G7.LL.A2":
-    "Sort a creature by its features, not where you find it. A whale lives in the sea but breathes air and feeds its young milk, so it's a mammal — not a fish.",
+    "It's like sorting laundry by what each item is, not by which room you found it in. A sock in the kitchen is still a sock.",
   "NSSP.G7.LL.A3":
-    "Two steps, in order: pollination is pollen landing on the stigma (a letter reaching the postbox); fertilisation is the male cell joining the egg inside (the letter being opened). No delivery, no opening.",
+    "It's like posting a letter. First it has to reach the postbox, and only then can it be opened. No delivery, no opening.",
   "NSSP.G7.LL.A4":
-    "Variation is the differences inside one species — some people tall, some short, some left-handed. A dog and a cat aren't variation; they're different species altogether.",
+    "It's like a class photo. Everyone is a learner in the same grade, but some are tall, some short, some left-handed.",
   "NSSP.G7.MM.A1":
-    "Match the job to the property: a pot handle must NOT carry heat, so it's plastic or wood; electrical wire MUST carry current, so it's copper. Name the property the job needs first.",
+    "It's like choosing a pot. You want the base to get hot quickly but the handle to stay cool, so each part is made from something that suits its job.",
   "NSSP.G7.MM.A2":
-    "Pick the method by the difference between the parts: different sizes go through a sieve; sand in water is caught by a filter; dissolved salt is left behind when the water evaporates; iron filings jump to a magnet.",
+    "It's like sorting a jar of loose bits from a drawer. You pick the trick that suits what's different about each piece: size, weight, or whether it sticks to something.",
   "NSSP.G7.MM.A3":
-    "Litmus is a colour code: acid turns it red, a base turns it blue — 'A before B, red before blue'. Lemon juice reds it; bathroom cleaner blues it; water stays in between.",
+    "It's like a traffic light. One colour says one thing, another colour says the opposite, and the one in the middle says neither.",
   "NSSP.G7.MM.A4":
-    "The Periodic Table is a sorted shelf: metals on the left (shiny, bend, carry current — a copper pipe), non-metals on the right (dull, brittle, poor conductors — sulfur), semi-metals along the dividing line.",
+    "It's like the shelves in a spaza shop. Similar things are stored side by side, so you know roughly what to expect from where something sits.",
   "NSSP.G7.EC.A1":
-    "Ask one question: does it refill in a lifetime? Sun, wind and water do — renewable. Coal, oil and gas took millions of years and won't come back — non-renewable, a tank that only empties.",
+    "It's like the difference between a fruit tree and a tin of fruit. The tree keeps giving every season, but once the tin is empty, it's gone.",
   "NSSP.G7.EC.A2":
-    "A ball held above your head has stored (potential) energy. Drop it and that becomes movement (kinetic) energy. It hits the ground and the energy scatters as sound and heat — nothing is lost, only changed.",
+    "It's like a stretched catapult. While you hold it, the push is stored and waiting. Let go, and it turns into movement.",
   "NSSP.G7.EC.A3":
-    "Three ways heat moves: conduction needs solids touching (a metal spoon in hot tea); convection needs a moving liquid or gas (warm air rising off a heater); radiation crosses empty space (the Sun on your face).",
+    "It's like news spreading at school. It can pass hand to hand, travel with people moving around, or be heard across the field without anyone carrying it.",
   "NSSP.G7.EC.A4":
-    "An insulator traps heat by being a poor conductor and holding still air — a woolly jersey, or the polystyrene around hot food. To keep warmth in you want an insulator, not metal.",
+    "It's like a cooler box on a hot day. It doesn't make anything cold, it just slows down the heat getting in.",
   "NSSP.G7.EC.A5":
-    "'Wasted' energy hasn't vanished — it's spread into the room, usually as heat. A globe's useful output is light; the warmth it gives off is the wasted share, which is why an old bulb gets hot.",
+    "It's like spilling a little water every time you pour from one jug to another. The water isn't destroyed, it's just on the floor instead of in the jug.",
   "NSSP.G7.EC.A6":
-    "Follow the path from power station to plug: the station generates it, a transformer steps the voltage way up for the long trip along the pylons, another steps it down near town, then it reaches your house. Saving at home means the station burns less.",
+    "It's like water from a dam reaching your tap. It's sent out with lots of pressure for the long trip, then the pressure is lowered before it reaches your house.",
   "NSSP.G7.PEB.A1":
-    "Seasons come from the tilt, not the distance. The half of Earth leaning toward the Sun gets more direct rays and has summer; the half leaning away has winter — which is why December is summer here and winter in Europe.",
+    "It's like standing by a fire and leaning towards it or away. Leaning in, you feel more heat on your face, even though you haven't moved your feet.",
   "NSSP.G7.PEB.A2":
-    "Tides are mostly the Moon's gravity tugging the oceans. The water bulges toward the Moon and, oddly, away on the far side too — so most coasts get two high tides a day.",
+    "It's like a magnet held over a tray of iron filings. Even without touching, it pulls the filings into a bulge towards it.",
   "NSSP.G7.PEB.A3":
-    "Long before telescopes, people read the sky like a calendar — which stars rose told them when to plant and how to find their way. That careful watching is the root of modern astronomy.",
+    "It's like a farmer who knows it's time to plant by watching the same signs year after year. Careful watching, repeated over time, becomes real knowledge.",
   "NSSP.G8.LL.A1":
-    "The two are mirror images. Photosynthesis takes in carbon dioxide and water and makes glucose and oxygen (a plant charging up in sunlight). Respiration runs it backwards — using glucose and oxygen to release energy, giving off carbon dioxide and water.",
+    "It's like charging a phone and then using it. One process stores up energy, and the other spends it.",
   "NSSP.G8.LL.A2":
-    "In a food web the arrow always points to the eater — grass → buck → lion. Producers (plants) make the food, consumers eat it, decomposers break down what dies. Energy travels one way along the arrows.",
+    "It's like a chain of people passing buckets of water. If one person drops out, everyone further down the line runs short.",
   "NSSP.G8.LL.A3":
-    "Judge a microbe by what it does. The same kinds of tiny life that spoil milk or cause a sore throat also make bread rise, turn milk into maas, and give us antibiotics. Not all germs are bad.",
+    "It's like fire. The same thing that cooks your supper can burn your house down. What matters is what it's doing.",
   "NSSP.G8.MM.A1":
-    "An element is one kind of atom only (a bar of pure gold). A compound is different atoms chemically locked together (water = hydrogen joined to oxygen). A mixture is just stirred, not joined, so you can separate it again (sand in water).",
+    "It's like Lego. A single kind of brick, bricks clicked firmly together into a new shape, or a loose pile of bricks you can easily pull apart again.",
   "NSSP.G8.MM.A2":
-    "All matter is tiny moving particles. In a solid they're packed and locked (a brick); in a liquid they touch but slide (water taking the glass's shape); in a gas they're far apart and zooming (air filling a room). Heat gives them energy and spreads them out.",
+    "It's like people at a taxi rank. Packed tight in a queue, shuffling around in a crowd, or spread out running for different taxis. More energy, more space.",
   "NSSP.G8.MM.A3":
-    "Ask: is a NEW substance made? Burning wood to ash and rusting a nail are chemical changes — new stuff, hard to undo. Melting ice or dissolving sugar are physical changes — same substance, easily reversed.",
+    "It's like the difference between folding a piece of paper and burning it. Folded, it's still paper. Burnt, it's become something else and you can't undo it.",
   "NSSP.G8.EC.A1":
-    "Like charges push apart, unlike charges pull together. Rub a balloon on your hair and they take opposite charges, so it sticks — but two rubbed balloons swing away from each other.",
+    "It's like two learners with the same stubborn opinion who won't sit together, while two with opposite views can't stop talking.",
   "NSSP.G8.EC.A2":
-    "Current only flows around a complete loop — cell, wires, switch, bulb, back to the cell. Any break, like an open switch or a loose wire, and the whole thing stops, like a broken chain.",
+    "It's like a bicycle chain. If every link is joined, the wheel turns. Break one link anywhere, and nothing moves.",
   "NSSP.G8.EC.A3":
-    "Series is one loop of fairy lights — pull one bulb and the whole string goes dark. Parallel is like the rooms of a house, each on its own path — switch off one and the rest stay lit.",
+    "It's like one long queue versus several separate queues. In one queue, one person stopping holds everyone up. With separate queues, the others keep moving.",
   "NSSP.G8.EC.A4":
-    "Reflection is light bouncing off a surface — a mirror sends your face back at you. Refraction is light bending as it crosses into a new material — which is why a straw looks broken where it enters the water.",
+    "It's like a ball. It can bounce straight back off a wall, or change direction when it rolls from tar onto grass.",
   "NSSP.G8.PEB.A1":
-    "The Sun is a star at the centre and the planets circle it. Planets make no light of their own — you see them because they reflect the Sun, like the Moon does. Order out from the Sun: Mercury, Venus, Earth, Mars…",
+    "It's like children dancing in circles around a fire at night. Only the fire makes light. You see the children because the fire shines on them.",
   "NSSP.G8.PEB.A2":
-    "A light-year is a distance, not a time — how far light travels in a year. Our nearest star is the Sun; the Milky Way is the galaxy holding it along with billions of others.",
+    "It's like measuring a trip by how long a taxi takes instead of in metres. When distances get huge, it's easier to measure them by travel.",
   "NSSP.G8.PEB.A3":
-    "A telescope gathers faint light from far away to make distant objects look closer and clearer — the opposite job to a microscope, which magnifies tiny things right in front of you. Bigger telescopes see fainter, more distant things.",
+    "It's like cupping your hands around your ears to hear someone far away. Collecting more of the faint sound makes it clearer.",
   "NSSP.G9.LL.A1":
-    "Plant and animal cells both have a membrane, cytoplasm and a nucleus. Only plant cells add a stiff cell wall, a big water-filled vacuole and green chloroplasts. Life builds up: cells → tissues → organs → systems.",
+    "It's like bricks building a house. Bricks make walls, walls make rooms, and rooms make the whole home.",
   "NSSP.G9.LL.A2":
-    "Give each body system one job: circulatory = the delivery trucks (blood), respiratory = takes in oxygen, digestive = breaks down food, skeletal = the frame, muscular = moves it, nervous = the messaging network.",
+    "It's like the staff of a school. The cleaners, cooks, teachers and office staff each have one main job, and the school only runs when they all do theirs.",
   "NSSP.G9.LL.A3":
-    "The order is fixed: fertilisation (sperm meets egg) → the fertilised egg develops in the uterus → the baby grows → birth. Puberty is the earlier stage where the body matures enough for this to be possible.",
+    "It's like baking a cake. The steps happen in a fixed order, and you can't skip ahead to icing before it's baked.",
   "NSSP.G9.LL.A4":
-    "The two work as a team: the lungs take in oxygen and release carbon dioxide; the heart pumps blood to carry that oxygen to every cell and bring the carbon dioxide back to the lungs to breathe out.",
+    "It's like a delivery business. One team loads the goods onto the trucks, and another team drives them to every house and brings the empties back.",
   "NSSP.G9.LL.A5":
-    "Food takes one route: mouth → oesophagus → stomach → small intestine → large intestine. Along the way it's broken into pieces small enough to pass into the blood. A balanced diet just means the right mix of food groups going in.",
+    "It's like a factory line. Each station breaks things down a bit more, until the pieces are small enough to be used.",
   "NSSP.G9.MM.A1":
-    "The name tells you what joined. Two elements alone usually end in -ide: sodium + chlorine → sodium chloride (table salt). When oxygen is bundled in with another element, the ending is often -ate: carbonate, sulfate.",
+    "It's like a surname that tells you which families joined through marriage. The name gives away who's in it.",
   "NSSP.G9.MM.A2":
-    "In a reaction atoms are only rearranged, never created or destroyed — like moving the same Lego bricks into a new shape. So a balanced equation must have the same count of each atom on both sides.",
+    "It's like rebuilding a Lego car into a Lego house. You end up with something new, but you use exactly the same bricks, none more and none less.",
   "NSSP.G9.MM.A3":
-    "metal + oxygen → metal oxide. Rust is just iron slowly doing this with oxygen AND water, so you stop rust by keeping iron dry or sealing it with paint, oil or a zinc coat.",
+    "It's like leaving a bicycle out in the rain. Slowly the air and the weather eat away at it, unless you keep it dry or covered.",
   "NSSP.G9.MM.A4":
-    "non-metal + oxygen → non-metal oxide. Those oxides — carbon dioxide, sulfur dioxide — mostly dissolve in water to make ACIDS (this is how acid rain forms), whereas metal oxides tend to be basic.",
+    "It's like burning rubbish in a backyard. The smoke goes up, mixes with the clouds, and can come back down in the rain.",
   "NSSP.G9.MM.A5":
-    "The pH scale is a strength meter: below 7 is acidic, exactly 7 is neutral (pure water), above 7 is basic. The further from 7, the stronger — lemon juice around 2, bleach around 13.",
+    "It's like a thermometer for sourness and soapiness. The middle is neither, and the further you go to either end, the stronger it gets.",
   "NSSP.G9.MM.A6":
-    "Neutralisation cancels an acid and a base out: acid + base → salt + water — like an antacid tablet calming stomach acid. With a carbonate you also get fizzing carbon dioxide gas.",
+    "It's like two friends with opposite moods calming each other down. When they meet, both settle into something in between.",
   "NSSP.G9.MM.A7":
-    "acid + metal → salt + hydrogen gas. The bubbles rising off the metal are hydrogen — hold a lit splint near and it goes off with a squeaky 'pop'.",
+    "It's like dropping a tablet into a glass of water. The fizzing bubbles show a gas is being made right there.",
   "NSSP.G9.EC.A1":
-    "A contact force needs touching — friction, or a shove. A field force reaches across a gap with no contact — gravity pulling a dropped phone, or a magnet grabbing a paperclip from a distance. Ask: do they have to touch?",
+    "It's like getting someone's attention. You can tap them on the shoulder, or you can call their name from across the room.",
   "NSSP.G9.EC.A2":
-    "A cell turns stored chemical energy into electrical energy to push a current. It doesn't make energy from nothing — when the chemicals inside are used up, the battery goes flat.",
+    "It's like a lunchbox. It doesn't make food, it just carries what was packed. When it's empty, you have to refill it.",
   "NSSP.G9.EC.A3":
-    "Resistance is anything that fights the current, like a narrow pipe fights water flow. A longer wire resists more; a thicker wire resists less. More resistance, less current.",
+    "It's like water flowing through a hosepipe. A long, thin pipe slows the water down, and a short, wide one lets it rush through.",
   "NSSP.G9.EC.A4":
-    "In series, the bulbs share one loop and one supply of energy, so adding bulbs dims them all and one break kills them all. In parallel, each bulb has its own path, so each stays bright and independent.",
+    "It's like sharing one plate of food versus everyone having their own plate. Share one, and everyone gets less. Separate plates, and everyone gets a full meal.",
   "NSSP.G9.EC.A5":
-    "Treat electricity like a river you can't see: keep it away from water, never touch sockets with wet hands, don't overload a plug with adaptors, and use properly insulated wires.",
+    "It's like a dog behind a fence. You can't always see it, but you never stick your hand through the gate.",
   "NSSP.G9.EC.A6":
-    "Most of South Africa's electricity comes from burning coal to boil water into steam that spins turbines; some comes from the Koeberg nuclear station and from wind and solar. The grid then carries it nationwide.",
+    "It's like boiling a kettle to drive a pinwheel with the steam. Heat makes steam, the steam spins something, and the spinning gives you power.",
   "NSSP.G9.EC.A7":
-    "Your bill grows with power × time. A phone charger sips; a geyser or a heater gulps — leave those on and the meter races. Switching high-power appliances off when you don't need them is where the saving is.",
+    "It's like a taxi meter. The longer the trip and the bigger the vehicle, the faster the fare climbs.",
   "NSSP.G9.PEB.A1":
-    "Think of Earth as four connected parts — rock (lithosphere), water (hydrosphere), air (atmosphere) and living things (biosphere) — constantly swapping matter and energy: rain falls from air to land, plants pull gas from air, rivers carry rock to sea.",
+    "It's like a household where everyone shares. Things pass from one person to another all day, and a change for one affects the rest.",
   "NSSP.G9.PEB.A2":
-    "Three ways a rock forms: igneous when molten rock cools and sets (candle wax hardening), sedimentary when layers of grit are pressed together over ages, metamorphic when heat and pressure change a rock that already existed.",
+    "It's like candle wax. It can melt and set hard, be scraped into crumbs and pressed together again, or be softened and squashed into a new shape.",
   "NSSP.G9.PEB.A3":
-    "An ore is rock with enough useful metal packed in it to be worth digging up. The metal still has to be extracted from the rock and then refined — purified — before it's any use.",
+    "It's like finding gold flakes in river sand. You have to dig up the sand, sift the gold out, and then clean it before it's worth anything.",
   "NSSP.G9.PEB.A4":
-    "Greenhouse gases work like a blanket — they trap some of the Sun's heat and keep Earth warm enough to live on. Add too much from burning fuel and the blanket gets too thick, and the planet overheats. Weather all happens in the lowest layer, the troposphere.",
+    "It's like a blanket on a cold night. One blanket keeps you comfortable, but pile on too many and you wake up sweating.",
   "NSSP.G9.PEB.A5":
-    "A star's life runs in order: a cloud of gas and dust collapses and heats until it ignites, it shines steadily for billions of years while it has fuel, then when the fuel runs out it dies. Gas cloud → shining star → fuel gone → death.",
+    "It's like a candle's life. It's lit, it burns steadily for a long time while there's wax, and then it goes out when the wax runs out.",
 };

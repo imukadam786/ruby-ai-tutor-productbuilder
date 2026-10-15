@@ -37,7 +37,7 @@
             "Learning facts off by heart"
           ],
           "expected": "Using knowledge and skills to solve people's real problems",
-          "memo": "Technology means using knowledge, skills, values and resources to solve people's needs and wants with practical solutions.",
+          "memo": "Technology means using what you know, your skills and resources to make practical things that meet people's needs and wants.",
           "error_signals": [
             "ERR_TECH_G7DGA1_DEF"
           ],
@@ -52,7 +52,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Technology is a 'doing' subject — it uses knowledge to build practical solutions to real needs and wants.",
+          "memo": "Technology is a 'doing' subject. You use what you know to build practical solutions to real needs and wants.",
           "error_signals": [
             "ERR_TECH_G7DGA1_DOING"
           ],
@@ -69,7 +69,7 @@
             "Singing a song"
           ],
           "expected": "Designing a cheap water filter for a village",
-          "memo": "Technology meets a real need (clean water) with a practical solution — that is exactly what the subject is about.",
+          "memo": "The water filter meets a real need, clean water, with a practical solution. That is exactly what technology is about.",
           "error_signals": [
             "ERR_TECH_G7DGA1_EXAMPLE"
           ],
@@ -86,7 +86,7 @@
             "names"
           ],
           "expected": "wants",
-          "memo": "Technology develops practical solutions to people's needs AND wants.",
+          "memo": "Technology makes practical solutions for people's needs and their wants.",
           "error_signals": [
             "ERR_TECH_G7DGA1_NEEDS_WANTS"
           ],
@@ -103,7 +103,7 @@
             "A sleeper"
           ],
           "expected": "A civil engineer designing a bridge",
-          "memo": "Engineers, architects and technicians all use the design process to solve problems — these are technology careers.",
+          "memo": "Engineers, architects and technicians all use the design process to solve problems. These are technology careers.",
           "error_signals": [
             "ERR_TECH_G7DGA1_CAREER"
           ],
@@ -118,7 +118,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Technology introduces learners to careers like civil, mechanical and electrical engineering and architecture.",
+          "memo": "Technology introduces you to careers like civil, mechanical and electrical engineering, and architecture.",
           "error_signals": [
             "ERR_TECH_G7DGA1_CAREERS_TRUE"
           ],
@@ -135,7 +135,7 @@
             "To stop people inventing things"
           ],
           "expected": "To build a technologically literate population and future engineers and artisans",
-          "memo": "Technology was introduced to produce engineers, technicians and artisans, and a technologically literate society.",
+          "memo": "Technology was added to grow future engineers, technicians and skilled tradespeople, and people who understand technology.",
           "error_signals": [
             "ERR_TECH_G7DGA1_WHY"
           ],
@@ -152,7 +152,7 @@
             "loud"
           ],
           "expected": "mechanical",
-          "memo": "Mechanical engineers design machines; civil engineers design structures; electrical engineers design wiring.",
+          "memo": "Mechanical engineers design machines. Civil engineers design structures. Electrical engineers design wiring.",
           "error_signals": [
             "ERR_TECH_G7DGA1_MECH"
           ],
@@ -169,7 +169,7 @@
             "It has no real reason"
           ],
           "expected": "Our solutions affect people and the planet",
-          "memo": "Good technology weighs the impact on society and the environment — solutions must not harm people or the planet.",
+          "memo": "What we design affects people and the planet, so good technology must not harm either.",
           "error_signals": [
             "ERR_TECH_G7DGA1_SOCIETY"
           ],
@@ -184,7 +184,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Knowledge matters, but Technology assesses whether you can apply it to solve a problem.",
+          "memo": "Knowing facts matters, but Technology tests whether you can use them to solve a problem.",
           "error_signals": [
             "ERR_TECH_G7DGA1_USE"
           ],
@@ -201,7 +201,7 @@
             "Making"
           ],
           "expected": "Guessing without any plan",
-          "memo": "Technology uses investigating, designing, making, evaluating and communicating — not random guessing.",
+          "memo": "Technology uses investigating, designing, making, evaluating and communicating. Guessing without a plan is not part of it.",
           "error_signals": [
             "ERR_TECH_G7DGA1_NOTSKILL"
           ],
@@ -218,7 +218,7 @@
             "avoid all technology"
           ],
           "expected": "understand and use technology sensibly in daily life",
-          "memo": "Technological literacy means being able to understand, use and judge technology in everyday life.",
+          "memo": "Being technologically literate means you can understand, use and judge technology in everyday life.",
           "error_signals": [
             "ERR_TECH_G7DGA1_LITERATE"
           ],
@@ -250,7 +250,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Technology uses authentic, real-world contexts — problems from outside the classroom.",
+          "memo": "Technology works on real problems from outside the classroom.",
           "error_signals": [
             "ERR_TECH_G7DGA1_REALWORLD"
           ],
@@ -284,7 +284,7 @@
             "a kind of bridge"
           ],
           "expected": "a skilled worker who makes or fixes things by hand",
-          "memo": "Artisans are skilled trades-people (like welders or electricians) — a key technology career path.",
+          "memo": "Artisans are skilled tradespeople, like welders or electricians. It's a key technology career.",
           "error_signals": [
             "ERR_TECH_G7DGA1_ARTISAN"
           ],
@@ -299,7 +299,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The subject builds creative thinking, problem solving, time and resource management, and teamwork.",
+          "memo": "The subject builds creative thinking, problem solving, managing your time and materials, and teamwork.",
           "error_signals": [
             "ERR_TECH_G7DGA1_THINKING"
           ],
@@ -316,7 +316,7 @@
             "athlete"
           ],
           "expected": "electrician",
-          "memo": "An electrician designs and installs electrical wiring — an electrical-technology career.",
+          "memo": "An electrician plans and installs electrical wiring. It's an electrical technology career.",
           "error_signals": [
             "ERR_TECH_G7DGA1_ELECTRICIAN"
           ],
@@ -360,7 +360,7 @@
           ],
           "expected": "Designing a desk and building a crane solve real problems (technology); daydreaming and reciting do not.",
           "pass_threshold": 0.75,
-          "memo": "Technology means solving a real problem with a practical solution — making and designing, not just remembering.",
+          "memo": "Designing a desk and building a crane solve real problems, so they are technology. Daydreaming and reciting don't solve anything.",
           "error_signals": [
             "ERR_TECH_G7DGA1_SORT"
           ],
@@ -419,7 +419,7 @@
             "Inspect, Detail, Mark, Erase, Copy"
           ],
           "expected": "Investigate, Design, Make, Evaluate, Communicate",
-          "memo": "The design process is Investigate, Design, Make, Evaluate, Communicate — the backbone of Technology.",
+          "memo": "The design process is Investigate, Design, Make, Evaluate, Communicate. Every Technology task is built on it.",
           "error_signals": [
             "ERR_TECH_G7DGA2_IDMEC"
           ],
@@ -434,7 +434,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The design process is a systematic way of moving from a problem to a working solution.",
+          "memo": "The design process is a step-by-step way to get from a problem to a solution that works.",
           "error_signals": [
             "ERR_TECH_G7DGA2_PURPOSE"
           ],
@@ -451,7 +451,7 @@
             "Evaluate"
           ],
           "expected": "Investigate",
-          "memo": "Investigating means finding out about the context, the need, and existing products.",
+          "memo": "Investigating means finding out about the situation, the need and products that already exist.",
           "error_signals": [
             "ERR_TECH_G7DGA2_INVESTIGATE"
           ],
@@ -468,7 +468,7 @@
             "Evaluate"
           ],
           "expected": "Design",
-          "memo": "Designing includes writing the design brief and specifications and sketching initial ideas.",
+          "memo": "Designing includes writing the design brief and specifications, and sketching your first ideas.",
           "error_signals": [
             "ERR_TECH_G7DGA2_DESIGN"
           ],
@@ -502,7 +502,7 @@
             "You only colour it in"
           ],
           "expected": "You judge how well the solution works against the brief",
-          "memo": "Evaluating means checking your design and product against the design brief and criteria.",
+          "memo": "Evaluating means checking your design and product against the design brief and what it had to do.",
           "error_signals": [
             "ERR_TECH_G7DGA2_EVALUATE"
           ],
@@ -551,7 +551,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Specifications spell out the requirements (size, cost, materials, safety) the solution must satisfy.",
+          "memo": "Specifications list what the solution must meet, like size, cost, materials and safety.",
           "error_signals": [
             "ERR_TECH_G7DGA2_SPECS"
           ],
@@ -583,7 +583,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "The design process is non-linear — you can investigate or evaluate at any point and go back to improve a design.",
+          "memo": "You don't have to follow the steps strictly in one direction. You can investigate or evaluate at any point and go back to improve a design.",
           "error_signals": [
             "ERR_TECH_G7DGA2_NONLINEAR"
           ],
@@ -617,7 +617,7 @@
             "Throw it away"
           ],
           "expected": "Investigate the need",
-          "memo": "You begin by investigating the problem, need or opportunity before designing.",
+          "memo": "You start by investigating the problem or need before you design anything.",
           "error_signals": [
             "ERR_TECH_G7DGA2_FIRST"
           ],
@@ -673,7 +673,7 @@
             "d",
             "e"
           ],
-          "memo": "The usual order is Investigate, Design, Make, Evaluate, Communicate — though you may loop back at any time.",
+          "memo": "The usual order is Investigate, Design, Make, Evaluate, Communicate. You can still go back to an earlier step at any time.",
           "error_signals": [
             "ERR_TECH_G7DGA2_SEQUENCE"
           ],
@@ -736,7 +736,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Investigation can happen at any point in the design process, not only at the beginning.",
+          "memo": "You can investigate at any point in the design process, not only at the start.",
           "error_signals": [
             "ERR_TECH_G7DGA2_INV_ANYTIME"
           ],
@@ -753,7 +753,7 @@
             "To lose the drawings"
           ],
           "expected": "So others understand and can use your solution",
-          "memo": "Communicating shares the solution clearly so a client or class understands it.",
+          "memo": "Communicating shares the solution clearly, so a client or your class understands it.",
           "error_signals": [
             "ERR_TECH_G7DGA2_COMM_WHY"
           ],
@@ -770,7 +770,7 @@
             "it is only for art"
           ],
           "expected": "it structures how every task is tackled",
-          "memo": "Every Technology task is structured around the design process from start to finish.",
+          "memo": "Every Technology task follows the design process from start to finish.",
           "error_signals": [
             "ERR_TECH_G7DGA2_BACKBONE"
           ],
@@ -787,7 +787,7 @@
             "purely random"
           ],
           "expected": "repeated and improved over time",
-          "memo": "Designing is iterative — you test, evaluate and improve again and again.",
+          "memo": "Designing goes round in cycles: you test, evaluate and improve, again and again.",
           "error_signals": [
             "ERR_TECH_G7DGA2_ITERATE"
           ],
@@ -846,7 +846,7 @@
             "Its weight only"
           ],
           "expected": "How easy and comfortable it is for people to use",
-          "memo": "Ergonomics is about how comfortable and easy a product is to use for people.",
+          "memo": "Ergonomics is about how comfortable and easy a product is for people to use.",
           "error_signals": [
             "ERR_TECH_G7DGA3_ERGO"
           ],
@@ -863,7 +863,7 @@
             "How old it is"
           ],
           "expected": "How good it looks",
-          "memo": "Aesthetics is about how attractive or good-looking a product is.",
+          "memo": "Aesthetics is about how attractive a product looks.",
           "error_signals": [
             "ERR_TECH_G7DGA3_AESTH"
           ],
@@ -944,7 +944,7 @@
             "Is it big?"
           ],
           "expected": "Is it environmentally friendly?",
-          "memo": "Environmental impact asks whether the product harms or helps the environment.",
+          "memo": "Environmental impact asks whether the product harms the environment or helps it.",
           "error_signals": [
             "ERR_TECH_G7DGA3_ENV"
           ],
@@ -995,7 +995,7 @@
             "A clear display"
           ],
           "expected": "A handle too small and sharp to hold comfortably",
-          "memo": "Poor ergonomics makes a product uncomfortable or hard to use, like a sharp, tiny handle.",
+          "memo": "Poor ergonomics makes a product uncomfortable or hard to use, like a tiny, sharp handle.",
           "error_signals": [
             "ERR_TECH_G7DGA3_POOR_ERGO"
           ],
@@ -1010,7 +1010,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Good design considers bias — whether a product favours or disadvantages certain groups.",
+          "memo": "Good design checks for bias: whether a product favours some groups of people or leaves others out.",
           "error_signals": [
             "ERR_TECH_G7DGA3_BIAS"
           ],
@@ -1044,7 +1044,7 @@
             "very complicated"
           ],
           "expected": "easy to grip and switch on",
-          "memo": "Designing for the user (the elderly) means easy grip and simple switching — good ergonomics.",
+          "memo": "Designing for elderly users means making it easy to grip and simple to switch on. That's good ergonomics.",
           "error_signals": [
             "ERR_TECH_G7DGA3_TORCH"
           ],
@@ -1092,7 +1092,7 @@
           ],
           "expected": "Aesthetics is about looks; ergonomics and safety are about using it; cost-effectiveness is about money.",
           "pass_threshold": 0.75,
-          "memo": "Aesthetics = looks; ergonomics & safety = using it; cost-effectiveness = value for money.",
+          "memo": "Aesthetics is about how it looks. Ergonomics and safety are about using it. Cost-effectiveness is about value for money.",
           "error_signals": [
             "ERR_TECH_G7DGA3_SORT"
           ],
@@ -1124,7 +1124,7 @@
             "A net"
           ],
           "expected": "An insulated container with a tight lid",
-          "memo": "Fit-for-purpose for hot food means keeping heat in and not spilling — an insulated sealed container.",
+          "memo": "For hot food, the container must keep the heat in and not spill, so an insulated container with a tight lid fits the purpose.",
           "error_signals": [
             "ERR_TECH_G7DGA3_HOTFOOD"
           ],
@@ -1158,7 +1158,7 @@
             "spelling"
           ],
           "expected": "ergonomics",
-          "memo": "Good ergonomics means a product fits the user comfortably and is easy to use.",
+          "memo": "Good ergonomics means a product fits the person using it and is easy and comfortable to use.",
           "error_signals": [
             "ERR_TECH_G7DGA3_ERGO2"
           ],
@@ -1173,7 +1173,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Safety outranks looks — an unsafe design must be improved before it is acceptable.",
+          "memo": "Safety matters more than looks. An unsafe design must be improved before it's acceptable.",
           "error_signals": [
             "ERR_TECH_G7DGA3_SAFEFIRST"
           ],
@@ -1215,7 +1215,7 @@
             "To hide the design"
           ],
           "expected": "To develop ideas and communicate them clearly",
-          "memo": "Graphics serve two purposes: developing ideas and communicating them to others.",
+          "memo": "Drawings do two jobs: they help you develop ideas, and they show your ideas to others.",
           "error_signals": [
             "ERR_TECH_G7DGA4_PURPOSE"
           ],
@@ -1396,7 +1396,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Conventions are shared rules (line types, dimensions, scale) so any reader understands the drawing.",
+          "memo": "Conventions are shared rules, for lines, measurements and scale, so anyone can read the drawing.",
           "error_signals": [
             "ERR_TECH_G7DGA4_CONVENTION"
           ],
@@ -1478,7 +1478,7 @@
           ],
           "expected": "Visible edges and the final shape are thick/dark; guide lines are thin/feint; hidden edges are dashed.",
           "pass_threshold": 0.75,
-          "memo": "Thick/dark = visible edges; thin/feint = construction guides; dashed = hidden detail.",
+          "memo": "Thick, dark lines show edges you can see. Thin, light lines are guide lines. Dashed lines show hidden edges.",
           "error_signals": [
             "ERR_TECH_G7DGA4_SORT"
           ],
@@ -1495,7 +1495,7 @@
             "confuse people"
           ],
           "expected": "communicate ideas to others",
-          "memo": "Graphics develop ideas in your head and communicate them clearly to others.",
+          "memo": "Drawings help you develop ideas, and they show those ideas clearly to other people.",
           "error_signals": [
             "ERR_TECH_G7DGA4_TWO"
           ],
@@ -1636,7 +1636,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Working drawings carry dimensions and conventions so the object can be built accurately.",
+          "memo": "Working drawings show exact measurements and follow the rules, so the object can be built accurately.",
           "error_signals": [
             "ERR_TECH_G7DGA5_WORKING"
           ],
@@ -1670,7 +1670,7 @@
             "words"
           ],
           "expected": "3D",
-          "memo": "Oblique and perspective are 3D drawing techniques; a working drawing of one face is 2D.",
+          "memo": "Oblique and perspective are ways of drawing in 3D. A working drawing of one face is 2D.",
           "error_signals": [
             "ERR_TECH_G7DGA5_3D"
           ],
@@ -1687,7 +1687,7 @@
             "a price tag"
           ],
           "expected": "one point where lines meet in the distance",
-          "memo": "Single-point perspective has exactly one vanishing point.",
+          "memo": "Single-point perspective has exactly one vanishing point, where lines meet in the distance.",
           "error_signals": [
             "ERR_TECH_G7DGA5_ONEPOINT"
           ],
@@ -1736,7 +1736,7 @@
             "boring"
           ],
           "expected": "realistic",
-          "memo": "Artistic techniques like colour, texture and shading make a drawing look realistic.",
+          "memo": "Colour, texture and shading make a drawing look realistic.",
           "error_signals": [
             "ERR_TECH_G7DGA5_REALISM"
           ],
@@ -1753,7 +1753,7 @@
             "A colourful poster"
           ],
           "expected": "The working drawing with dimensions",
-          "memo": "The dimensioned working drawing is the one used to build accurately.",
+          "memo": "A working drawing with measurements is the one you use to build accurately.",
           "error_signals": [
             "ERR_TECH_G7DGA5_BUILDFROM"
           ],
@@ -1768,7 +1768,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Artistic impressions (perspective, colour, shading) communicate the look of the final product.",
+          "memo": "Artistic impressions use perspective, colour and shading to show what the final product will look like.",
           "error_signals": [
             "ERR_TECH_G7DGA5_ARTISTIC"
           ],
@@ -1845,7 +1845,7 @@
           ],
           "expected": "Sketches capture ideas, working drawings are for building, artistic impressions show the final look.",
           "pass_threshold": 0.66,
-          "memo": "Sketch = fast ideas; working drawing = accurate building; artistic impression = final appearance.",
+          "memo": "A sketch captures quick ideas. A working drawing is for building accurately. An artistic impression shows the final look.",
           "error_signals": [
             "ERR_TECH_G7DGA5_SORT"
           ],
@@ -1970,7 +1970,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A nest is built by an animal from natural materials — a natural structure.",
+          "memo": "An animal builds a nest from natural materials, so it is a natural structure.",
           "error_signals": [
             "ERR_TECH_G7STA1_NEST"
           ],
@@ -2260,7 +2260,7 @@
             "Spanning a gap"
           ],
           "expected": "Producing electricity by itself",
-          "memo": "Structures contain, support, protect or span — generating electricity is not a structural job.",
+          "memo": "Structures hold things, support loads, protect things or span gaps. Making electricity is not one of their jobs.",
           "error_signals": [
             "ERR_TECH_G7STA1_NOTJOB"
           ],
@@ -2727,7 +2727,7 @@
             "shrink to nothing"
           ],
           "expected": "stronger and stiffer than the flat sheet",
-          "memo": "Rolling paper into a tube greatly stiffens it — tubing is a reinforcing method.",
+          "memo": "Rolling paper into a tube makes it much stiffer. Making tubes is a way to strengthen a structure.",
           "error_signals": [
             "ERR_TECH_G7STA3_TUBE"
           ],
@@ -2791,7 +2791,7 @@
             "folding"
           ],
           "expected": "triangulation",
-          "memo": "Triangulation = adding diagonal members so the frame is full of rigid triangles.",
+          "memo": "Triangulation means adding diagonal pieces so the frame is made of rigid triangles.",
           "error_signals": [
             "ERR_TECH_G7STA3_TRIWORD"
           ],
@@ -2825,7 +2825,7 @@
             "it is wet"
           ],
           "expected": "the wavy folded layer stiffens it",
-          "memo": "The corrugated (folded, wavy) middle layer stiffens cardboard while staying light.",
+          "memo": "The wavy, folded middle layer makes cardboard stiff while keeping it light.",
           "error_signals": [
             "ERR_TECH_G7STA3_CORRUGATE"
           ],
@@ -2859,7 +2859,7 @@
             "For decoration only"
           ],
           "expected": "The triangles make them stiff and stable",
-          "memo": "Diagonals form triangles (triangulation) that give towers and cranes their rigidity.",
+          "memo": "The diagonal bars form triangles (triangulation), which keep towers and cranes stiff and steady.",
           "error_signals": [
             "ERR_TECH_G7STA3_CRANE"
           ],
@@ -2956,7 +2956,7 @@
           ],
           "expected": "Pleating and corrugating are folding; rolling into a dowel is tubing; adding a diagonal is triangulation.",
           "pass_threshold": 0.75,
-          "memo": "Three ways to stiffen: fold/corrugate, roll into a tube, or triangulate with diagonals.",
+          "memo": "There are three ways to stiffen: fold or corrugate it, roll it into a tube, or add diagonals to make triangles.",
           "error_signals": [
             "ERR_TECH_G7STA3_SORT"
           ],
@@ -2988,7 +2988,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Triangulation gives rigidity to trusses, pylons and cranes.",
+          "memo": "Triangulation keeps roof trusses, pylons and cranes rigid.",
           "error_signals": [
             "ERR_TECH_G7STA3_USES"
           ],
@@ -3081,7 +3081,7 @@
             "It is very light only"
           ],
           "expected": "It does not easily topple over",
-          "memo": "Stability means a structure resists toppling over.",
+          "memo": "A stable structure doesn't topple over easily.",
           "error_signals": [
             "ERR_TECH_G7STA4_STABLE"
           ],
@@ -3130,7 +3130,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Tall, narrow and top-heavy structures have a high centre of gravity and topple easily.",
+          "memo": "Tall, narrow, top-heavy structures have their weight high up (a high centre of gravity), so they topple easily.",
           "error_signals": [
             "ERR_TECH_G7STA4_TOPHEAVY"
           ],
@@ -3147,7 +3147,7 @@
             "To use more steel"
           ],
           "expected": "To give them strength, rigidity and stability",
-          "memo": "Triangulation gives towers the strength, rigidity and stability they need to stand up to wind.",
+          "memo": "Triangles make towers strong, rigid and stable, so they can stand up to the wind.",
           "error_signals": [
             "ERR_TECH_G7STA4_TOWERTRI"
           ],
@@ -3181,7 +3181,7 @@
             "make it taller"
           ],
           "expected": "widen its base",
-          "memo": "Widening the base lowers the chance of toppling — improving stability.",
+          "memo": "A wider base makes the tower less likely to topple, so it is more stable.",
           "error_signals": [
             "ERR_TECH_G7STA4_WIDEN"
           ],
@@ -3262,7 +3262,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Rigidity from triangulation keeps the frame from racking, helping overall stability.",
+          "memo": "Triangles keep the frame from bending out of shape, which helps it stay stable.",
           "error_signals": [
             "ERR_TECH_G7STA4_RIGIDSTABLE"
           ],
@@ -3296,7 +3296,7 @@
             "the wind"
           ],
           "expected": "visual pollution",
-          "memo": "Disguising towers reduces visual pollution so they blend into the environment.",
+          "memo": "Disguising a tower as a tree reduces visual pollution, because it blends into its surroundings.",
           "error_signals": [
             "ERR_TECH_G7STA4_DISGUISE"
           ],
@@ -3340,7 +3340,7 @@
           ],
           "expected": "Widening the base and lowering the weight add stability; top weight and tall-narrow shapes reduce it.",
           "pass_threshold": 0.75,
-          "memo": "Stability rises with a wider base and a lower centre of gravity; it falls when top-heavy or tall and narrow.",
+          "memo": "A wider base and keeping the weight low make a tower more stable. Weight on top, or a tall narrow shape, makes it less stable.",
           "error_signals": [
             "ERR_TECH_G7STA4_SORT"
           ],
@@ -3357,7 +3357,7 @@
             "taste"
           ],
           "expected": "rigidity and stability",
-          "memo": "Cross-bracing triangulates the frame, improving rigidity and stability.",
+          "memo": "Cross-bracing makes triangles in the frame, so it is more rigid and stable.",
           "error_signals": [
             "ERR_TECH_G7STA4_BRACING"
           ],
@@ -3389,7 +3389,7 @@
             "extra paint"
           ],
           "expected": "triangulation",
-          "memo": "Tall frame structures like headgear and windmills use triangulation for strength and stability.",
+          "memo": "Tall frame structures like mine headgear and windmills use triangles for strength and stability.",
           "error_signals": [
             "ERR_TECH_G7STA4_HEADGEAR"
           ],
@@ -3406,7 +3406,7 @@
             "sound"
           ],
           "expected": "stability",
-          "memo": "Easily toppling means poor stability.",
+          "memo": "A structure that falls over easily has poor stability.",
           "error_signals": [
             "ERR_TECH_G7STA4_POOR"
           ],
@@ -3683,7 +3683,7 @@
             "changes its colour"
           ],
           "expected": "increases the mechanical advantage",
-          "memo": "A longer effort arm increases mechanical advantage on a first-class lever.",
+          "memo": "A longer effort arm on a first-class lever gives a bigger mechanical advantage, so you need less force.",
           "error_signals": [
             "ERR_TECH_G7MSA1_ARM"
           ],
@@ -3698,7 +3698,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Moving the fulcrum changes the effort and load arm lengths, changing the mechanical advantage.",
+          "memo": "Moving the fulcrum changes how long the effort arm and load arm are, which changes the mechanical advantage.",
           "error_signals": [
             "ERR_TECH_G7MSA1_FIRSTDEPENDS"
           ],
@@ -3792,7 +3792,7 @@
             "A pulley"
           ],
           "expected": "Second-class",
-          "memo": "A nutcracker is a second-class lever (load between fulcrum and effort), giving a strong force.",
+          "memo": "A nutcracker is a second-class lever, with the load between the fulcrum and the effort. This gives a strong force.",
           "error_signals": [
             "ERR_TECH_G7MSA1_NUTCRACKER"
           ],
@@ -4003,7 +4003,7 @@
             "To save metal"
           ],
           "expected": "To increase the force at the jaws",
-          "memo": "Long handles give a bigger mechanical advantage, increasing the gripping/cutting force.",
+          "memo": "Long handles give a bigger mechanical advantage, so the jaws grip or cut with more force.",
           "error_signals": [
             "ERR_TECH_G7MSA2_LONGHANDLE"
           ],
@@ -4307,7 +4307,7 @@
             "Neither"
           ],
           "expected": "Air (a gas)",
-          "memo": "Gases like air are compressible; liquids like water are almost incompressible.",
+          "memo": "Gases like air can be squashed easily. Liquids like water can hardly be squashed at all.",
           "error_signals": [
             "ERR_TECH_G7MSA3_COMPRESS"
           ],
@@ -4322,7 +4322,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Liquids are incompressible, so hydraulic systems feel solid and transfer force well.",
+          "memo": "Liquids can't be squashed, so hydraulic systems feel firm and pass force on well.",
           "error_signals": [
             "ERR_TECH_G7MSA3_INCOMPRESS"
           ],
@@ -4339,7 +4339,7 @@
             "freeze the water"
           ],
           "expected": "move the large piston with more force but less distance",
-          "memo": "A small input to a large cylinder gives more force over a shorter movement — a mechanical advantage.",
+          "memo": "Pushing a small syringe moves a bigger one with more force, but it moves a shorter distance. That's a mechanical advantage.",
           "error_signals": [
             "ERR_TECH_G7MSA3_LARGE"
           ],
@@ -4534,7 +4534,7 @@
             "give off light"
           ],
           "expected": "transfer force to do work",
-          "memo": "Both transfer force through a fluid to do useful work, often with a mechanical advantage.",
+          "memo": "Both pass force through a fluid to do useful work, often with a mechanical advantage.",
           "error_signals": [
             "ERR_TECH_G7MSA3_BOTH"
           ],
@@ -4549,7 +4549,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Because liquids are incompressible and force can be multiplied, hydraulics lift heavy loads.",
+          "memo": "Liquids can't be squashed and the force can be multiplied, so hydraulics can lift heavy loads.",
           "error_signals": [
             "ERR_TECH_G7MSA3_HEAVY"
           ],
@@ -4566,7 +4566,7 @@
             "Air never leaks"
           ],
           "expected": "The liquid does not compress, so movement is firm and controlled",
-          "memo": "Incompressible liquid gives firm, controlled, powerful movement for heavy lifting.",
+          "memo": "A liquid doesn't squash, so the movement is firm, controlled and powerful enough for heavy lifting.",
           "error_signals": [
             "ERR_TECH_G7MSA3_ADV"
           ],
@@ -4583,7 +4583,7 @@
             "electric"
           ],
           "expected": "incompressible",
-          "memo": "Liquids are nearly incompressible; gases compress easily.",
+          "memo": "Liquids can hardly be squashed (they're incompressible). Gases squash easily.",
           "error_signals": [
             "ERR_TECH_G7MSA3_INCOMP2"
           ],
@@ -4643,7 +4643,7 @@
             "Cools water"
           ],
           "expected": "Changes round (rotary) motion into back-and-forth (reciprocating) motion",
-          "memo": "A crank converts rotary motion into reciprocating (back-and-forth) motion, and vice versa.",
+          "memo": "A crank changes round-and-round (rotary) motion into back-and-forth (reciprocating) motion, and the other way round.",
           "error_signals": [
             "ERR_TECH_G7MSA4_CRANK"
           ],
@@ -4726,7 +4726,7 @@
             "musical"
           ],
           "expected": "reciprocating",
-          "memo": "A crank changes rotary motion into reciprocating (back-and-forth) motion.",
+          "memo": "A crank changes round-and-round motion into back-and-forth (reciprocating) motion.",
           "error_signals": [
             "ERR_TECH_G7MSA4_RECIP"
           ],
@@ -4741,7 +4741,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Pulley systems can give a mechanical advantage, making lifting easier.",
+          "memo": "Pulleys can give a mechanical advantage, which makes lifting easier.",
           "error_signals": [
             "ERR_TECH_G7MSA4_EASIER"
           ],
@@ -4790,7 +4790,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Complex machinery is made by combining simple mechanisms like levers, cranks and pulleys.",
+          "memo": "Complex machines are made by combining simple mechanisms like levers, cranks and pulleys.",
           "error_signals": [
             "ERR_TECH_G7MSA4_COMBINE"
           ],
@@ -4856,7 +4856,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A fixed pulley changes direction; adding moveable pulleys multiplies the force.",
+          "memo": "A fixed pulley changes the direction of the force. Adding pulleys that move multiplies the force.",
           "error_signals": [
             "ERR_TECH_G7MSA4_DIRFORCE"
           ],
@@ -4900,7 +4900,7 @@
           ],
           "expected": "A crank changes rotary to reciprocating motion (bicycle pedal); a pulley lifts loads with a rope (flagpole).",
           "pass_threshold": 0.75,
-          "memo": "Crank = converts rotary↔reciprocating motion; pulley = wheel-and-axle for lifting and changing force direction.",
+          "memo": "A crank changes round-and-round motion into back-and-forth motion. A pulley is a wheel that lifts loads and changes the direction of a force.",
           "error_signals": [
             "ERR_TECH_G7MSA4_SORT"
           ],
@@ -5107,7 +5107,7 @@
             "wet and dry"
           ],
           "expected": "bar and horseshoe",
-          "memo": "Bar magnets and horseshoe magnets are common permanent-magnet shapes.",
+          "memo": "Bar magnets and horseshoe magnets are common shapes of permanent magnet.",
           "error_signals": [
             "ERR_TECH_G7ESA1_SHAPES"
           ],
@@ -5156,7 +5156,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Only certain metals (iron, steel, nickel) are magnetic; non-metals are never attracted.",
+          "memo": "Only some metals (iron, steel and nickel) are magnetic. Non-metals are never attracted.",
           "error_signals": [
             "ERR_TECH_G7ESA1_NONMETAL"
           ],
@@ -5207,7 +5207,7 @@
             "hot from cold"
           ],
           "expected": "iron and steel from copper and aluminium",
-          "memo": "A magnet picks up magnetic metals (iron/steel), separating them from non-magnetic ones.",
+          "memo": "A magnet picks up magnetic metals like iron and steel, which separates them from metals that aren't magnetic.",
           "error_signals": [
             "ERR_TECH_G7ESA1_SCRAP"
           ],
@@ -5239,7 +5239,7 @@
             "Paper, glass, water"
           ],
           "expected": "Iron, steel, nickel",
-          "memo": "Iron, steel and nickel are magnetic; the other lists are non-magnetic.",
+          "memo": "Iron, steel and nickel are magnetic. The materials in the other lists are not.",
           "error_signals": [
             "ERR_TECH_G7ESA1_SET"
           ],
@@ -5288,7 +5288,7 @@
           ],
           "expected": "Iron and steel are attracted; copper, aluminium and plastic are not.",
           "pass_threshold": 0.7,
-          "memo": "Magnetic: iron, steel, nickel. Not magnetic: copper, aluminium, lead, brass, and all non-metals.",
+          "memo": "Iron, steel and nickel are magnetic. Copper, aluminium, lead, brass and all non-metals are not.",
           "error_signals": [
             "ERR_TECH_G7ESA1_SORT"
           ],
@@ -5320,7 +5320,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Only certain metals (iron, steel, nickel) are magnetic; many metals are not.",
+          "memo": "Only some metals (iron, steel and nickel) are magnetic. Many metals are not.",
           "error_signals": [
             "ERR_TECH_G7ESA1_SOME"
           ],
@@ -5354,7 +5354,7 @@
             "square"
           ],
           "expected": "horseshoe",
-          "memo": "Bar and horseshoe magnets are the common permanent-magnet shapes.",
+          "memo": "Bar and horseshoe are the common shapes of permanent magnet.",
           "error_signals": [
             "ERR_TECH_G7ESA1_BAR"
           ],
@@ -5371,7 +5371,7 @@
             "schools"
           ],
           "expected": "thieves who steal copper wire and manhole covers",
-          "memo": "Honest scrap collecting helps society; metal theft (copper wire, manhole covers) is the criminal downside.",
+          "memo": "Honest scrap collecting helps society. Stealing metal, like copper wire and manhole covers, is the criminal side of it.",
           "error_signals": [
             "ERR_TECH_G7ESA1_THEFT"
           ],
@@ -5465,7 +5465,7 @@
             "The wire"
           ],
           "expected": "A light bulb or buzzer",
-          "memo": "Output devices (bulb, buzzer, motor) turn electrical energy into light, sound or movement.",
+          "memo": "Output devices, like a bulb, buzzer or motor, turn electrical energy into light, sound or movement.",
           "error_signals": [
             "ERR_TECH_G7ESA2_OUTPUT"
           ],
@@ -5482,7 +5482,7 @@
             "A kind of plastic"
           ],
           "expected": "A material that lets electricity flow through it",
-          "memo": "A conductor (like copper wire) lets electric current flow; an insulator blocks it.",
+          "memo": "A conductor, like copper wire, lets electricity flow through it. An insulator blocks it.",
           "error_signals": [
             "ERR_TECH_G7ESA2_CONDUCTOR"
           ],
@@ -5563,7 +5563,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The plastic coating is an insulator; it stops the current escaping and protects the user.",
+          "memo": "The plastic coating is an insulator. It keeps the current in the wire and protects the person using it.",
           "error_signals": [
             "ERR_TECH_G7ESA2_INSULATOR"
           ],
@@ -5597,7 +5597,7 @@
             "input"
           ],
           "expected": "insulator",
-          "memo": "Insulators (plastic, rubber) block current; conductors (metals) allow it.",
+          "memo": "Insulators, like plastic and rubber, block electricity. Conductors, like metals, let it flow.",
           "error_signals": [
             "ERR_TECH_G7ESA2_INSWORD"
           ],
@@ -5629,7 +5629,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A buzzer is an output that converts electrical energy into sound.",
+          "memo": "A buzzer is an output device that turns electrical energy into sound.",
           "error_signals": [
             "ERR_TECH_G7ESA2_BUZZER"
           ],
@@ -5728,7 +5728,7 @@
             "An aluminium strip"
           ],
           "expected": "A rubber band",
-          "memo": "Rubber is an insulator; copper, steel and aluminium are conductors.",
+          "memo": "Rubber is an insulator. Copper, steel and aluminium are conductors.",
           "error_signals": [
             "ERR_TECH_G7ESA2_NONCOND"
           ],
@@ -5820,7 +5820,7 @@
             "Shine a light on iron"
           ],
           "expected": "Coil insulated wire around an iron core and pass current through it",
-          "memo": "An electromagnet is made by coiling insulated wire (a solenoid) around an iron core and switching on current.",
+          "memo": "You make an electromagnet by coiling insulated wire around an iron core and switching on the current.",
           "error_signals": [
             "ERR_TECH_G7ESA3_MAKE"
           ],
@@ -5935,7 +5935,7 @@
             "cools it down"
           ],
           "expected": "increases its strength a little",
-          "memo": "More current (from more cells) increases the electromagnet's strength somewhat.",
+          "memo": "More cells give more current, which makes the electromagnet a bit stronger.",
           "error_signals": [
             "ERR_TECH_G7ESA3_MORECELLS"
           ],
@@ -5967,7 +5967,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Electromagnetism is behind motors, bells, speakers and many devices.",
+          "memo": "Electromagnets are behind motors, bells, speakers and many other devices.",
           "error_signals": [
             "ERR_TECH_G7ESA3_USES"
           ],
@@ -6001,7 +6001,7 @@
             "Using a soft iron core"
           ],
           "expected": "Switching the current off",
-          "memo": "Switching off the current removes the magnetism entirely — it cannot make it stronger.",
+          "memo": "Switching off the current takes away the magnetism completely, so it can't make the magnet stronger.",
           "error_signals": [
             "ERR_TECH_G7ESA3_NOTSTRONGER"
           ],
@@ -6094,7 +6094,7 @@
           ],
           "expected": "Electromagnets switch on/off and need current; permanent magnets are always magnetic.",
           "pass_threshold": 0.75,
-          "memo": "Electromagnet = magnetic only with current, switchable. Permanent magnet = always magnetic.",
+          "memo": "An electromagnet only works when current flows, so you can switch it on and off. A permanent magnet is always magnetic.",
           "error_signals": [
             "ERR_TECH_G7ESA3_SORT"
           ],
@@ -6177,7 +6177,7 @@
             "It is permanent"
           ],
           "expected": "It can release the metals it has picked up",
-          "memo": "Switching off lets the electromagnet drop the sorted metal — a permanent magnet could not.",
+          "memo": "Switching off lets the electromagnet drop the metal it picked up. A permanent magnet couldn't let go.",
           "error_signals": [
             "ERR_TECH_G7ESA3_RELEASE"
           ],
@@ -6219,7 +6219,7 @@
             "Painting materials"
           ],
           "expected": "Changing raw materials into a more useful product",
-          "memo": "Processing changes raw materials into a more useful form — like turning flour into bread.",
+          "memo": "Processing means changing raw materials into something more useful, like turning flour into bread.",
           "error_signals": [
             "ERR_TECH_G7PRA1_DEF"
           ],
@@ -6236,7 +6236,7 @@
             "drawing the food"
           ],
           "expected": "preparing or changing food so it is useful to eat",
-          "memo": "Food processing prepares or changes ingredients into edible, useful products.",
+          "memo": "Food processing means preparing or changing ingredients into food that is useful to eat.",
           "error_signals": [
             "ERR_TECH_G7PRA1_FOOD"
           ],
@@ -6268,7 +6268,7 @@
             "only for decoration"
           ],
           "expected": "nutritious and easy to prepare in basic conditions",
-          "memo": "Emergency food must be nutritious and preparable under the basic conditions of a camp.",
+          "memo": "Emergency food must be healthy and easy to prepare in the basic conditions of a camp.",
           "error_signals": [
             "ERR_TECH_G7PRA1_EMERGENCY"
           ],
@@ -6302,7 +6302,7 @@
             "To waste time"
           ],
           "expected": "So the steps are done in the right order",
-          "memo": "A sequence of manufacture lists the steps in the correct order so the product is made properly.",
+          "memo": "A sequence of manufacture lists the steps in the right order, so the product is made properly.",
           "error_signals": [
             "ERR_TECH_G7PRA1_SEQUENCE_WHY"
           ],
@@ -6319,7 +6319,7 @@
             "price of the table"
           ],
           "expected": "flavour, texture and nutritional value",
-          "memo": "Food is evaluated on flavour, texture and nutritional value.",
+          "memo": "Food is judged on its flavour, texture and how nutritious it is.",
           "error_signals": [
             "ERR_TECH_G7PRA1_EVALUATE"
           ],
@@ -6402,7 +6402,7 @@
             "c",
             "d"
           ],
-          "memo": "Gather ingredients, measure them, prepare the item, then evaluate it — a sensible sequence of manufacture.",
+          "memo": "Gather the ingredients, measure them, prepare the item, then taste and judge it. That's a sensible order.",
           "error_signals": [
             "ERR_TECH_G7PRA1_SEQUENCE"
           ],
@@ -6417,7 +6417,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Processing often improves safety, taste or shelf life of raw materials.",
+          "memo": "Processing often makes raw materials safer, tastier or able to last longer.",
           "error_signals": [
             "ERR_TECH_G7PRA1_BENEFIT"
           ],
@@ -6561,7 +6561,7 @@
             "ignore the people"
           ],
           "expected": "investigate needs, write a brief, make and evaluate",
-          "memo": "Even food design follows the design process: investigate, brief, make, evaluate.",
+          "memo": "Designing food follows the design process too: investigate, write a brief, make and evaluate.",
           "error_signals": [
             "ERR_TECH_G7PRA1_DESIGNPROCESS"
           ],
@@ -6576,7 +6576,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The design brief states the requirements (types and quantities of food) before making begins.",
+          "memo": "The design brief says what's needed, like the types and amounts of food, before you start making.",
           "error_signals": [
             "ERR_TECH_G7PRA1_BRIEFFIRST"
           ],
@@ -6650,7 +6650,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "We pick materials by their properties (strength, waterproofing, flexibility) to suit the job.",
+          "memo": "We choose materials for their properties, like strength, being waterproof or bending easily, to suit the job.",
           "error_signals": [
             "ERR_TECH_G7PRA2_PROPERTIES"
           ],
@@ -6667,7 +6667,7 @@
             "To make it heavier"
           ],
           "expected": "So the clothing resists catching fire",
-          "memo": "Firefighters need fabrics that resist burning, so burning behaviour is investigated.",
+          "memo": "Firefighters need fabric that doesn't catch fire easily, so we test how fabrics burn.",
           "error_signals": [
             "ERR_TECH_G7PRA2_BURNING"
           ],
@@ -6684,7 +6684,7 @@
             "freezing it"
           ],
           "expected": "treating it with a waterproofing chemical",
-          "memo": "Applying a waterproofing chemical stops water passing through canvas.",
+          "memo": "Treating canvas with a waterproofing chemical stops water getting through.",
           "error_signals": [
             "ERR_TECH_G7PRA2_CHEMICAL"
           ],
@@ -6733,7 +6733,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Suitability for a use depends on the material's properties.",
+          "memo": "Whether a material suits a job depends on its properties.",
           "error_signals": [
             "ERR_TECH_G7PRA2_SUITABLE"
           ],
@@ -6750,7 +6750,7 @@
             "It glows"
           ],
           "expected": "It is waterproof",
-          "memo": "A waterproof material keeps water out — essential for a raincoat.",
+          "memo": "A waterproof material keeps water out, which a raincoat needs.",
           "error_signals": [
             "ERR_TECH_G7PRA2_RAINCOAT"
           ],
@@ -6799,7 +6799,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Different textiles have different burning characteristics — some resist fire far better.",
+          "memo": "Different fabrics burn in different ways. Some resist fire far better than others.",
           "error_signals": [
             "ERR_TECH_G7PRA2_BURNSAME"
           ],
@@ -6877,7 +6877,7 @@
             "Magnetism"
           ],
           "expected": "Flexibility",
-          "memo": "Flexibility is the ability to bend without breaking.",
+          "memo": "Flexibility means a material can bend without breaking.",
           "error_signals": [
             "ERR_TECH_G7PRA2_FLEX"
           ],
@@ -6926,7 +6926,7 @@
             "sound"
           ],
           "expected": "flame",
-          "memo": "Flame-resistant textiles protect firefighters from burning.",
+          "memo": "Fabric that resists flames protects firefighters from burning.",
           "error_signals": [
             "ERR_TECH_G7PRA2_FLAME"
           ],
@@ -6943,7 +6943,7 @@
             "There is no reason"
           ],
           "expected": "To check they have the right properties for the job",
-          "memo": "Testing confirms a material's properties suit the design before you commit to it.",
+          "memo": "Testing checks that a material has the right properties for the design before you use it.",
           "error_signals": [
             "ERR_TECH_G7PRA2_TEST"
           ],
@@ -7000,7 +7000,7 @@
             "Space rockets"
           ],
           "expected": "Knowledge and methods developed by local people over time",
-          "memo": "Indigenous technology is the knowledge and methods local/traditional communities developed over generations.",
+          "memo": "Indigenous technology is the knowledge and methods that local communities developed over many generations.",
           "error_signals": [
             "ERR_TECH_G7PRA3_DEF"
           ],
@@ -7015,7 +7015,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Indigenous building uses materials that are local, available and appropriate.",
+          "memo": "Indigenous builders use materials that are local, easy to get and suit the job.",
           "error_signals": [
             "ERR_TECH_G7PRA3_LOCAL"
           ],
@@ -7032,7 +7032,7 @@
             "very expensive"
           ],
           "expected": "environmentally friendly and appropriate to the area",
-          "memo": "Indigenous materials tend to be environmentally friendly and suited to the local climate.",
+          "memo": "Indigenous materials are usually kind to the environment and suit the local climate.",
           "error_signals": [
             "ERR_TECH_G7PRA3_ENVFRIENDLY"
           ],
@@ -7049,7 +7049,7 @@
             "It harms the planet"
           ],
           "expected": "It shows clever, sustainable ways to meet needs",
-          "memo": "Indigenous knowledge offers clever, sustainable, low-impact ways to meet needs.",
+          "memo": "Indigenous knowledge shows clever, sustainable ways to meet needs without harming the environment much.",
           "error_signals": [
             "ERR_TECH_G7PRA3_VALUE"
           ],
@@ -7066,7 +7066,7 @@
             "metal"
           ],
           "expected": "local",
-          "memo": "Indigenous builders use locally available materials.",
+          "memo": "Indigenous builders use materials they can find nearby.",
           "error_signals": [
             "ERR_TECH_G7PRA3_LOCALWORD"
           ],
@@ -7083,7 +7083,7 @@
             "glass panels"
           ],
           "expected": "mud, grass or reeds",
-          "memo": "Traditional houses often use mud, grass, thatch and reeds — local natural materials.",
+          "memo": "Traditional houses often use mud, grass, thatch and reeds, which are natural local materials.",
           "error_signals": [
             "ERR_TECH_G7PRA3_EXAMPLE"
           ],
@@ -7115,7 +7115,7 @@
             "less suitable"
           ],
           "expected": "better suited to the climate and environment",
-          "memo": "Indigenous designs are often well suited to local climate using appropriate materials.",
+          "memo": "Indigenous designs are often well suited to the local climate because they use the right materials.",
           "error_signals": [
             "ERR_TECH_G7PRA3_COMPARE"
           ],
@@ -7132,7 +7132,7 @@
             "heavy"
           ],
           "expected": "friendly",
-          "memo": "Environmentally friendly designs avoid harming nature.",
+          "memo": "Environmentally friendly designs don't harm nature.",
           "error_signals": [
             "ERR_TECH_G7PRA3_FRIENDLYWORD"
           ],
@@ -7149,7 +7149,7 @@
             "They use only glass"
           ],
           "expected": "They were developed over time to fit local conditions",
-          "memo": "Generations of refining mean indigenous designs fit local conditions and climate.",
+          "memo": "Indigenous designs were improved over many generations, so they fit the local conditions and climate.",
           "error_signals": [
             "ERR_TECH_G7PRA3_CLIMATE"
           ],
@@ -7164,7 +7164,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Thatch roofing is a traditional, indigenous building method using local grass.",
+          "memo": "Thatch roofing is a traditional, indigenous way of building with local grass.",
           "error_signals": [
             "ERR_TECH_G7PRA3_THATCH"
           ],
@@ -7181,7 +7181,7 @@
             "burning them"
           ],
           "expected": "using resources so they last for the future",
-          "memo": "Sustainability means using resources carefully so they remain for the future.",
+          "memo": "Sustainability means using resources carefully so they are still there in the future.",
           "error_signals": [
             "ERR_TECH_G7PRA3_SUSTAIN"
           ],
@@ -7225,7 +7225,7 @@
           ],
           "expected": "Thatch and mud bricks are indigenous/local; steel and factory glass are modern/manufactured.",
           "pass_threshold": 0.75,
-          "memo": "Indigenous materials are local and natural (thatch, mud); modern materials are manufactured (steel, glass).",
+          "memo": "Indigenous materials are local and natural, like thatch and mud. Modern materials are made in factories, like steel and glass.",
           "error_signals": [
             "ERR_TECH_G7PRA3_SORT"
           ],
@@ -7242,7 +7242,7 @@
             "make things harder"
           ],
           "expected": "build in more sustainable, low-cost ways",
-          "memo": "Indigenous methods inspire sustainable, affordable, low-impact modern design.",
+          "memo": "Indigenous methods give modern designers ideas for building in sustainable, cheap ways that harm the environment less.",
           "error_signals": [
             "ERR_TECH_G7PRA3_LEARN"
           ],
@@ -7257,7 +7257,7 @@
             "False"
           ],
           "expected": "False",
-          "memo": "Indigenous technology offers valuable, sustainable lessons for modern design.",
+          "memo": "Indigenous technology does teach modern designers valuable lessons about sustainability.",
           "error_signals": [
             "ERR_TECH_G7PRA3_USEFUL"
           ],
@@ -7308,7 +7308,7 @@
             "They pollute heavily"
           ],
           "expected": "They are local, natural and biodegradable",
-          "memo": "Local, natural materials use little transport and break down naturally.",
+          "memo": "Local, natural materials don't need much transport, and they break down naturally.",
           "error_signals": [
             "ERR_TECH_G7PRA3_GOODENV"
           ],
@@ -7323,7 +7323,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Indigenous building relies on nearby, readily available materials.",
+          "memo": "Indigenous building uses materials that are close by and easy to get.",
           "error_signals": [
             "ERR_TECH_G7PRA3_NEARBY"
           ],
@@ -7340,7 +7340,7 @@
             "ignoring it"
           ],
           "expected": "giving credit and rights for traditional knowledge",
-          "memo": "Indigenous IP rights mean traditional knowledge is credited and protected.",
+          "memo": "Respecting indigenous intellectual property means giving credit for traditional knowledge and protecting it.",
           "error_signals": [
             "ERR_TECH_G7PRA3_RESPECT"
           ],
@@ -7382,7 +7382,7 @@
             "None at all"
           ],
           "expected": "Both positive and negative",
-          "memo": "Technology has both positive and negative impacts on people and the environment.",
+          "memo": "Technology has both good and bad effects on people and the environment.",
           "error_signals": [
             "ERR_TECH_G7PRA4_BOTH"
           ],
@@ -7399,7 +7399,7 @@
             "When a product is heavy"
           ],
           "expected": "When a product favours or disadvantages a group of people",
-          "memo": "Bias means a technology unfairly favours some groups or disadvantages others.",
+          "memo": "Bias means a technology unfairly favours some groups of people or puts others at a disadvantage.",
           "error_signals": [
             "ERR_TECH_G7PRA4_BIAS"
           ],
@@ -7414,7 +7414,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Recycling metal saves resources and creates value — a positive impact.",
+          "memo": "Recycling metal saves resources and creates value. That's a positive impact.",
           "error_signals": [
             "ERR_TECH_G7PRA4_RECYCLE"
           ],
@@ -7431,7 +7431,7 @@
             "better health"
           ],
           "expected": "pollution of the environment",
-          "memo": "Pollution is a negative impact technology can have on the environment.",
+          "memo": "Pollution is a bad effect that technology can have on the environment.",
           "error_signals": [
             "ERR_TECH_G7PRA4_NEGATIVE"
           ],
@@ -7448,7 +7448,7 @@
             "more theft"
           ],
           "expected": "faster communication and better medicine",
-          "memo": "Better communication and medicine are positive impacts of technology.",
+          "memo": "Faster communication and better medicine are good effects of technology.",
           "error_signals": [
             "ERR_TECH_G7PRA4_POSITIVE"
           ],
@@ -7465,7 +7465,7 @@
             "sound"
           ],
           "expected": "bias",
-          "memo": "Bias is unfair favouring or disadvantaging of groups by a technology.",
+          "memo": "Bias is when a technology unfairly favours some groups or disadvantages others.",
           "error_signals": [
             "ERR_TECH_G7PRA4_BIASWORD"
           ],
@@ -7514,7 +7514,7 @@
             "low cost"
           ],
           "expected": "bias against left-handed people",
-          "memo": "A right-handed-only product disadvantages left-handed users — that is bias.",
+          "memo": "A product that only works for right-handed people puts left-handed people at a disadvantage. That's bias.",
           "error_signals": [
             "ERR_TECH_G7PRA4_LEFTHAND"
           ],
@@ -7531,7 +7531,7 @@
             "weight"
           ],
           "expected": "environment",
-          "memo": "Recycling and reusing reduce waste and protect the environment.",
+          "memo": "Reusing and recycling mean less waste, which protects the environment.",
           "error_signals": [
             "ERR_TECH_G7PRA4_ENV"
           ],
@@ -7546,7 +7546,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Good technology decisions weigh positive and negative impacts together.",
+          "memo": "Good decisions about technology look at the good and bad effects together.",
           "error_signals": [
             "ERR_TECH_G7PRA4_WEIGH"
           ],
@@ -7563,7 +7563,7 @@
             "Burn all waste"
           ],
           "expected": "Reduce, reuse and recycle materials",
-          "memo": "Reduce, reuse, recycle lowers waste and environmental impact.",
+          "memo": "Reducing, reusing and recycling mean less waste and less harm to the environment.",
           "error_signals": [
             "ERR_TECH_G7PRA4_3R"
           ],
@@ -7607,7 +7607,7 @@
           ],
           "expected": "Recycling and medicine are positive; pollution and theft are negative.",
           "pass_threshold": 0.75,
-          "memo": "Technology brings both benefits (jobs, medicine) and harms (pollution, crime) — weigh both.",
+          "memo": "Technology brings benefits, like jobs and medicine, and harms, like pollution and crime. You weigh up both.",
           "error_signals": [
             "ERR_TECH_G7PRA4_SORT"
           ],
@@ -7656,7 +7656,7 @@
             "There is no reason"
           ],
           "expected": "So the product does not damage the planet",
-          "memo": "Considering the environment helps avoid lasting damage to the planet.",
+          "memo": "Thinking about the environment helps avoid causing lasting damage to the planet.",
           "error_signals": [
             "ERR_TECH_G7PRA4_WHYENV"
           ],
@@ -7799,7 +7799,7 @@
             "Degrees Celsius"
           ],
           "expected": "Millimetres (mm)",
-          "memo": "Technical drawings normally use millimetres for dimensions.",
+          "memo": "Technical drawings usually give measurements in millimetres.",
           "error_signals": [
             "ERR_TECH_G8DGA1_MM"
           ],
@@ -7848,7 +7848,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Conventions (line types, scale, dimensions) are shared rules for clear communication.",
+          "memo": "Conventions are shared rules, for line types, scale and measurements, so a drawing is clear to everyone.",
           "error_signals": [
             "ERR_TECH_G8DGA1_CONVENTION"
           ],
@@ -7997,7 +7997,7 @@
             "Chain lines for centres"
           ],
           "expected": "Writing dimensions in random units each time",
-          "memo": "Conventions require a consistent unit (mm); random units break the convention.",
+          "memo": "Conventions say you use the same unit (mm) every time. Using random units breaks the rule.",
           "error_signals": [
             "ERR_TECH_G8DGA1_NOTCONV"
           ],
@@ -8074,7 +8074,7 @@
             "curved"
           ],
           "expected": "vertical (straight up)",
-          "memo": "Isometric keeps verticals vertical, with the other two directions at 30°.",
+          "memo": "In isometric drawing, vertical edges stay vertical, and the other two directions are drawn at 30°.",
           "error_signals": [
             "ERR_TECH_G8DGA2_VERTICAL"
           ],
@@ -8123,7 +8123,7 @@
             "graph paper for maths sums"
           ],
           "expected": "an isometric (30°) grid",
-          "memo": "An isometric grid of 30° lines helps draw isometric views accurately.",
+          "memo": "An isometric grid with lines at 30° helps you draw isometric views accurately.",
           "error_signals": [
             "ERR_TECH_G8DGA2_GRID"
           ],
@@ -8223,7 +8223,7 @@
             "Perspective is faster to measure"
           ],
           "expected": "Isometric keeps true measurements along the axes",
-          "memo": "Isometric keeps measurable, equal scales, which helps with sizing.",
+          "memo": "Isometric keeps measurements true and equal along each direction, which helps when working out sizes.",
           "error_signals": [
             "ERR_TECH_G8DGA2_WHYISO"
           ],
@@ -8238,7 +8238,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Shadows enhance realism in perspective drawings.",
+          "memo": "Shadows make perspective drawings look more realistic.",
           "error_signals": [
             "ERR_TECH_G8DGA2_SHADOW"
           ],
@@ -8255,7 +8255,7 @@
             "words"
           ],
           "expected": "3D",
-          "memo": "Isometric and perspective are both 3D drawing techniques.",
+          "memo": "Isometric and perspective are both ways of drawing in 3D.",
           "error_signals": [
             "ERR_TECH_G8DGA2_3D"
           ],
@@ -8272,7 +8272,7 @@
             "diagonal"
           ],
           "expected": "vertical",
-          "memo": "Isometric keeps verticals vertical.",
+          "memo": "Isometric drawing keeps vertical edges vertical.",
           "error_signals": [
             "ERR_TECH_G8DGA2_VERTWORD"
           ],
@@ -8654,7 +8654,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Good packaging protects the product while not wasting material.",
+          "memo": "Good packaging protects the product without wasting material.",
           "error_signals": [
             "ERR_TECH_G8DGA3_EFFICIENT"
           ],
@@ -8882,7 +8882,7 @@
             "To make them heavier"
           ],
           "expected": "Triangulation makes them rigid and strong",
-          "memo": "Triangulation (cross-bracing) gives frames their rigidity and strength.",
+          "memo": "Triangles (cross-bracing) make frames rigid and strong.",
           "error_signals": [
             "ERR_TECH_G8STA1_TRIANGULATION"
           ],
@@ -9411,7 +9411,7 @@
             "name the building"
           ],
           "expected": "choose the right material and shape for each part",
-          "memo": "Understanding forces lets designers pick materials/shapes that resist them.",
+          "memo": "Knowing the forces on each part lets designers choose materials and shapes that can handle them.",
           "error_signals": [
             "ERR_TECH_G8STA2_WHY"
           ],
@@ -9911,7 +9911,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Strength prevents breaking; stability prevents toppling — they are different.",
+          "memo": "Strength stops a structure breaking. Stability stops it falling over. They are different things.",
           "error_signals": [
             "ERR_TECH_G8STA4_STRONGTOPPLE"
           ],
@@ -9945,7 +9945,7 @@
             "melting"
           ],
           "expected": "toppling",
-          "memo": "Top-heavy, narrow structures topple — a stability failure.",
+          "memo": "Tall, narrow, top-heavy structures fall over. That's a stability failure.",
           "error_signals": [
             "ERR_TECH_G8STA4_TALLNARROW"
           ],
@@ -9977,7 +9977,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Triangulation increases stiffness, helping prevent bending/buckling.",
+          "memo": "Triangles make a structure stiffer, which helps stop it bending or buckling.",
           "error_signals": [
             "ERR_TECH_G8STA4_TRI"
           ],
@@ -9994,7 +9994,7 @@
             "rusting"
           ],
           "expected": "toppling",
-          "memo": "Toppling is falling over — a stability failure.",
+          "memo": "Toppling means falling over. It's a stability failure.",
           "error_signals": [
             "ERR_TECH_G8STA4_TOPWORD"
           ],
@@ -10028,7 +10028,7 @@
             "paint it"
           ],
           "expected": "widen the base and lower the weight",
-          "memo": "Widening the base and lowering the centre of gravity improve stability.",
+          "memo": "A wider base and keeping the weight low (a lower centre of gravity) make a tower more stable.",
           "error_signals": [
             "ERR_TECH_G8STA4_FIXTOPPLE"
           ],
@@ -10091,7 +10091,7 @@
           ],
           "expected": "Snapping = lacks strength; sagging/buckling = lacks stiffness; tipping over = lacks stability.",
           "pass_threshold": 0.75,
-          "memo": "Fracture = no strength; bending/buckling = no stiffness; toppling = no stability.",
+          "memo": "Snapping means it isn't strong enough. Sagging or buckling means it isn't stiff enough. Tipping over means it isn't stable enough.",
           "error_signals": [
             "ERR_TECH_G8STA4_SORT"
           ],
@@ -10140,7 +10140,7 @@
             "weight"
           ],
           "expected": "stiffness",
-          "memo": "Excess flexing is a stiffness (rigidity) problem.",
+          "memo": "Bending too much is a stiffness (rigidity) problem.",
           "error_signals": [
             "ERR_TECH_G8STA4_FLEX"
           ],
@@ -10174,7 +10174,7 @@
             "magnetism"
           ],
           "expected": "tension and so reduce fracture/cracking",
-          "memo": "Steel adds tensile strength to concrete, reducing cracking/fracture.",
+          "memo": "Steel makes concrete better at handling pulling forces (tension), so it cracks less.",
           "error_signals": [
             "ERR_TECH_G8STA4_REINFORCE"
           ],
@@ -10493,7 +10493,7 @@
             "look good"
           ],
           "expected": "gain a mechanical advantage / make work easier",
-          "memo": "Simple machines give a mechanical advantage, making work easier.",
+          "memo": "Simple machines give a mechanical advantage, which makes work easier.",
           "error_signals": [
             "ERR_TECH_G8MSA1_MA"
           ],
@@ -10732,7 +10732,7 @@
             "random"
           ],
           "expected": "opposite",
-          "memo": "Directly meshed gears counter-rotate (opposite directions).",
+          "memo": "When two gears mesh directly, they turn in opposite directions.",
           "error_signals": [
             "ERR_TECH_G8MSA2_OPPWORD"
           ],
@@ -10971,7 +10971,7 @@
             "they are painted"
           ],
           "expected": "their teeth lock together",
-          "memo": "Interlocking teeth keep meshed gears moving together exactly.",
+          "memo": "The teeth lock together, so meshed gears always move together exactly.",
           "error_signals": [
             "ERR_TECH_G8MSA2_LOCK"
           ],
@@ -11212,7 +11212,7 @@
             "remove the gears"
           ],
           "expected": "let a large gear drive a small gear",
-          "memo": "Large-drives-small increases output speed (gearing up).",
+          "memo": "When a large gear drives a small gear, the output spins faster. This is called gearing up.",
           "error_signals": [
             "ERR_TECH_G8MSA3_FASTER"
           ],
@@ -11397,7 +11397,7 @@
             "Cools water"
           ],
           "expected": "Changes rotary motion into up-and-down (reciprocating) motion",
-          "memo": "A cam converts rotary motion into reciprocating (up-and-down) motion of a follower.",
+          "memo": "A cam changes round-and-round (rotary) motion into up-and-down (reciprocating) motion of a follower.",
           "error_signals": [
             "ERR_TECH_G8MSA4_CAM"
           ],
@@ -11431,7 +11431,7 @@
             "nothing"
           ],
           "expected": "rotary motion into reciprocating motion (and back)",
-          "memo": "A crank converts between rotary and reciprocating motion.",
+          "memo": "A crank changes round-and-round motion into back-and-forth motion, and the other way round.",
           "error_signals": [
             "ERR_TECH_G8MSA4_CRANK"
           ],
@@ -11480,7 +11480,7 @@
             "rotation only"
           ],
           "expected": "a smooth, even up-and-down motion",
-          "memo": "An eccentric (off-centre) wheel gives a smooth, regular reciprocating motion.",
+          "memo": "A wheel turning off-centre (eccentric) gives a smooth, even up-and-down motion.",
           "error_signals": [
             "ERR_TECH_G8MSA4_ECCENTRIC"
           ],
@@ -11497,7 +11497,7 @@
             "circular"
           ],
           "expected": "reciprocating",
-          "memo": "A cam produces reciprocating (back-and-forth/up-and-down) motion.",
+          "memo": "A cam makes reciprocating motion, which means back-and-forth or up-and-down.",
           "error_signals": [
             "ERR_TECH_G8MSA4_RECIPWORD"
           ],
@@ -11639,7 +11639,7 @@
           ],
           "expected": "Valve lifters and snail cams are cams; pedal arms and drill handles are cranks.",
           "pass_threshold": 0.75,
-          "memo": "Cam: rotary → reciprocating with a follower. Crank: rotary ↔ reciprocating via an arm.",
+          "memo": "A cam turns round-and-round motion into up-and-down motion with a follower. A crank does the same job using an arm.",
           "error_signals": [
             "ERR_TECH_G8MSA4_SORT"
           ],
@@ -12231,7 +12231,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Systems diagrams break a machine into clear input-process-output parts to understand it.",
+          "memo": "A systems diagram breaks a machine into input, process and output, so you can understand it.",
           "error_signals": [
             "ERR_TECH_G8MSA6_UNDERSTAND"
           ],
@@ -12314,7 +12314,7 @@
             "weighing"
           ],
           "expected": "systems analysis",
-          "memo": "Breaking a machine into input-process-output is systems analysis.",
+          "memo": "Breaking a machine into input, process and output is called systems analysis.",
           "error_signals": [
             "ERR_TECH_G8MSA6_ANALYSIS"
           ],
@@ -12391,7 +12391,7 @@
           ],
           "expected": "Electricity is the input; the heating element is the process; hot water is the output.",
           "pass_threshold": 0.66,
-          "memo": "Input = electricity; process = the element heating; output = boiled water.",
+          "memo": "The input is electricity, the process is the element heating the water, and the output is boiled water.",
           "error_signals": [
             "ERR_TECH_G8MSA6_SORT"
           ],
@@ -12452,7 +12452,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Input-process-output applies to mechanical, electrical and many other systems.",
+          "memo": "Input, process and output works for mechanical, electrical and many other kinds of systems.",
           "error_signals": [
             "ERR_TECH_G8MSA6_GENERAL"
           ],
@@ -12561,7 +12561,7 @@
             "is always a bulb"
           ],
           "expected": "puts energy or a signal into the circuit, like a cell",
-          "memo": "Input devices (cell, generator, solar panel) put energy/signals into the circuit.",
+          "memo": "Input devices, like a cell, generator or solar panel, put energy or signals into the circuit.",
           "error_signals": [
             "ERR_TECH_G8ESA1_INPUT"
           ],
@@ -12578,7 +12578,7 @@
             "stores nothing"
           ],
           "expected": "turns electricity into light, sound or movement",
-          "memo": "Output devices (lamp, buzzer, motor, heater) turn electricity into a useful effect.",
+          "memo": "Output devices, like a lamp, buzzer, motor or heater, turn electricity into something useful.",
           "error_signals": [
             "ERR_TECH_G8ESA1_OUTPUT"
           ],
@@ -12612,7 +12612,7 @@
             "A generator"
           ],
           "expected": "A motor",
-          "memo": "A motor is an output (movement); cells, solar panels and generators are inputs.",
+          "memo": "A motor is an output because it makes movement. Cells, solar panels and generators are inputs.",
           "error_signals": [
             "ERR_TECH_G8ESA1_MOTOR"
           ],
@@ -12710,7 +12710,7 @@
             "To slow building"
           ],
           "expected": "So any person can read the circuit clearly",
-          "memo": "Standard symbols make circuit diagrams universally readable.",
+          "memo": "Standard symbols mean anyone can read a circuit diagram.",
           "error_signals": [
             "ERR_TECH_G8ESA1_SYMBOLS"
           ],
@@ -12727,7 +12727,7 @@
             "broken"
           ],
           "expected": "input",
-          "memo": "Energy suppliers (cell, solar panel, generator) are input devices.",
+          "memo": "Things that supply energy, like a cell, solar panel or generator, are input devices.",
           "error_signals": [
             "ERR_TECH_G8ESA1_INWORD"
           ],
@@ -12812,7 +12812,7 @@
           ],
           "expected": "Cells and solar panels are inputs; lamps and buzzers are outputs; a switch is control.",
           "pass_threshold": 0.7,
-          "memo": "Input = supplies energy; output = gives a useful effect; control = switches the current.",
+          "memo": "An input supplies energy, an output does something useful, and a control (like a switch) turns the current on or off.",
           "error_signals": [
             "ERR_TECH_G8ESA1_SORT"
           ],
@@ -12829,7 +12829,7 @@
             "heat only"
           ],
           "expected": "movement",
-          "memo": "A motor converts electrical energy into movement (rotation).",
+          "memo": "A motor turns electrical energy into movement (spinning).",
           "error_signals": [
             "ERR_TECH_G8ESA1_MOTOROUT"
           ],
@@ -12861,7 +12861,7 @@
             "Switch, switch, switch"
           ],
           "expected": "Lamp, buzzer, motor, heater",
-          "memo": "Lamps, buzzers, motors and heaters all turn electricity into useful effects — outputs.",
+          "memo": "Lamps, buzzers, motors and heaters all turn electricity into something useful, so they're all outputs.",
           "error_signals": [
             "ERR_TECH_G8ESA1_GROUP"
           ],
@@ -12910,7 +12910,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A generator produces electrical energy — an input to the circuit.",
+          "memo": "A generator produces electrical energy, so it's an input to the circuit.",
           "error_signals": [
             "ERR_TECH_G8ESA1_GENERATOR"
           ],
@@ -12953,7 +12953,7 @@
             "A light bulb"
           ],
           "expected": "A device that makes electricity from a chemical reaction",
-          "memo": "An electrochemical cell produces electricity from a chemical reaction (a battery is made of cells).",
+          "memo": "An electrochemical cell makes electricity from a chemical reaction. A battery is made of these cells.",
           "error_signals": [
             "ERR_TECH_G8ESA2_DEF"
           ],
@@ -13002,7 +13002,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A battery is a combination of one or more electrochemical cells.",
+          "memo": "A battery is one or more electrochemical cells joined together.",
           "error_signals": [
             "ERR_TECH_G8ESA2_BATTERY"
           ],
@@ -13019,7 +13019,7 @@
             "heat from a flame"
           ],
           "expected": "sunlight",
-          "memo": "A photovoltaic cell converts sunlight directly into electricity.",
+          "memo": "A photovoltaic (solar) cell turns sunlight straight into electricity.",
           "error_signals": [
             "ERR_TECH_G8ESA2_PV"
           ],
@@ -13212,7 +13212,7 @@
             "a light"
           ],
           "expected": "an electrolyte for the chemical reaction",
-          "memo": "The acidic juice is the electrolyte that lets the cell's chemical reaction make electricity.",
+          "memo": "The acidic juice is the electrolyte, which lets the chemical reaction make electricity.",
           "error_signals": [
             "ERR_TECH_G8ESA2_ELECTROLYTE"
           ],
@@ -13227,7 +13227,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "While working, solar cells make no smoke or pollution — an environmental advantage.",
+          "memo": "Solar cells make no smoke or pollution while they work, which is good for the environment.",
           "error_signals": [
             "ERR_TECH_G8ESA2_CLEAN"
           ],
@@ -13353,7 +13353,7 @@
             "Water"
           ],
           "expected": "Coal",
-          "memo": "South Africa generates most of its electricity by burning coal.",
+          "memo": "South Africa makes most of its electricity by burning coal.",
           "error_signals": [
             "ERR_TECH_G8ESA3_COAL"
           ],
@@ -13370,7 +13370,7 @@
             "sunlight"
           ],
           "expected": "moving water",
-          "memo": "Hydroelectric stations use moving/falling water to spin turbines.",
+          "memo": "Hydroelectric power stations use moving or falling water to spin turbines.",
           "error_signals": [
             "ERR_TECH_G8ESA3_HYDRO"
           ],
@@ -13404,7 +13404,7 @@
             "river system"
           ],
           "expected": "national grid",
-          "memo": "The national grid is the network of power lines that distributes electricity.",
+          "memo": "The national grid is the network of power lines that carries electricity around the country.",
           "error_signals": [
             "ERR_TECH_G8ESA3_GRID"
           ],
@@ -13421,7 +13421,7 @@
             "make heat"
           ],
           "expected": "raise the voltage for sending power long distances",
-          "memo": "Step-up transformers raise voltage so power travels efficiently over long distances.",
+          "memo": "Step-up transformers raise the voltage, so electricity can travel long distances without wasting much.",
           "error_signals": [
             "ERR_TECH_G8ESA3_STEPUP"
           ],
@@ -13468,7 +13468,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Wind and hydro are renewable and produce little pollution during operation.",
+          "memo": "Wind and hydro power are renewable, and they make little pollution while they run.",
           "error_signals": [
             "ERR_TECH_G8ESA3_RENEWABLE"
           ],
@@ -13485,7 +13485,7 @@
             "post"
           ],
           "expected": "grid",
-          "memo": "The national grid distributes electricity from stations to users.",
+          "memo": "The national grid carries electricity from power stations to the people who use it.",
           "error_signals": [
             "ERR_TECH_G8ESA3_GRIDWORD"
           ],
@@ -13738,7 +13738,7 @@
             "more resistance"
           ],
           "expected": "more current",
-          "memo": "With constant resistance, increasing voltage increases the current.",
+          "memo": "If the resistance stays the same, more voltage gives more current.",
           "error_signals": [
             "ERR_TECH_G8ESA4_OHM"
           ],
@@ -14152,7 +14152,7 @@
             "It never decomposes"
           ],
           "expected": "It breaks down instead of lasting for years as litter",
-          "memo": "Biodegradable bags break down, reducing long-lasting plastic litter.",
+          "memo": "Biodegradable bags break down, so there's less plastic litter lying around for years.",
           "error_signals": [
             "ERR_TECH_G8PRA1_BAG"
           ],
@@ -14184,7 +14184,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "New materials are often designed to be more environmentally friendly.",
+          "memo": "New materials are often designed to be kinder to the environment.",
           "error_signals": [
             "ERR_TECH_G8PRA1_FRIENDLY"
           ],
@@ -14201,7 +14201,7 @@
             "electric"
           ],
           "expected": "biodegradable",
-          "memo": "Biodegradable = breaks down naturally.",
+          "memo": "Biodegradable means it breaks down naturally.",
           "error_signals": [
             "ERR_TECH_G8PRA1_BIOWORD"
           ],
@@ -14235,7 +14235,7 @@
             "Using grass for wiring"
           ],
           "expected": "Using plastic instead of wood for a chair",
-          "memo": "Plastic replacing wood is an example of a man-made material replacing a natural one.",
+          "memo": "Using plastic instead of wood is an example of a man-made material replacing a natural one.",
           "error_signals": [
             "ERR_TECH_G8PRA1_EXAMPLE"
           ],
@@ -14267,7 +14267,7 @@
             "edible"
           ],
           "expected": "non-biodegradable",
-          "memo": "Non-biodegradable materials do not break down naturally.",
+          "memo": "Non-biodegradable materials don't break down naturally.",
           "error_signals": [
             "ERR_TECH_G8PRA1_NONBIO"
           ],
@@ -14360,7 +14360,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A balanced report weighs a material's advantages and disadvantages.",
+          "memo": "A balanced report weighs up a material's advantages and disadvantages.",
           "error_signals": [
             "ERR_TECH_G8PRA1_REPORT"
           ],
@@ -14377,7 +14377,7 @@
             "loud speaker"
           ],
           "expected": "responsible designer",
-          "memo": "Considering environmental impact is part of responsible design.",
+          "memo": "Thinking about the effect on the environment is part of being a responsible designer.",
           "error_signals": [
             "ERR_TECH_G8PRA1_RESPONSIBLE"
           ],
@@ -14392,7 +14392,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Improved materials may be stronger, lighter or longer-lasting.",
+          "memo": "An improved material might be stronger, lighter or last longer.",
           "error_signals": [
             "ERR_TECH_G8PRA1_IMPROVED"
           ],
@@ -14458,7 +14458,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Choosing biodegradable materials helps reduce long-lasting pollution.",
+          "memo": "Choosing biodegradable materials helps cut down pollution that lasts a long time.",
           "error_signals": [
             "ERR_TECH_G8PRA1_CHOOSE"
           ],
@@ -14500,7 +14500,7 @@
             "burying waste"
           ],
           "expected": "turning used materials into new products",
-          "memo": "Recycling reprocesses used materials into new products.",
+          "memo": "Recycling turns used materials into new products.",
           "error_signals": [
             "ERR_TECH_G8PRA2_DEF"
           ],
@@ -14532,7 +14532,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Paper and cardboard are commonly recycled into new packaging.",
+          "memo": "Paper and cardboard are often recycled into new packaging.",
           "error_signals": [
             "ERR_TECH_G8PRA2_PAPER"
           ],
@@ -14549,7 +14549,7 @@
             "only metal"
           ],
           "expected": "just enough material to do the job",
-          "memo": "Efficient packaging uses just enough material — protecting the product without waste.",
+          "memo": "Good packaging uses just enough material to protect the product, without waste.",
           "error_signals": [
             "ERR_TECH_G8PRA2_EFFICIENT"
           ],
@@ -14566,7 +14566,7 @@
             "price of fuel"
           ],
           "expected": "design and material properties",
-          "memo": "What the product is (fragile, heavy, food) decides the packaging design and materials.",
+          "memo": "What the product is, like fragile, heavy or food, decides the packaging's design and materials.",
           "error_signals": [
             "ERR_TECH_G8PRA2_PRODUCT"
           ],
@@ -14583,7 +14583,7 @@
             "wasting"
           ],
           "expected": "recycling",
-          "memo": "Recycling reprocesses used material into new products.",
+          "memo": "Recycling turns used material into new products.",
           "error_signals": [
             "ERR_TECH_G8PRA2_RECYCLEWORD"
           ],
@@ -14615,7 +14615,7 @@
             "very heavy"
           ],
           "expected": "protective and cushioning",
-          "memo": "Fragile goods need cushioning, protective packaging.",
+          "memo": "Fragile goods need packaging that protects and cushions them.",
           "error_signals": [
             "ERR_TECH_G8PRA2_FRAGILE"
           ],
@@ -14664,7 +14664,7 @@
             "free"
           ],
           "expected": "bad",
-          "memo": "Over-packaging wastes material and harms the environment.",
+          "memo": "Using too much packaging wastes material and harms the environment.",
           "error_signals": [
             "ERR_TECH_G8PRA2_WASTE"
           ],
@@ -14681,7 +14681,7 @@
             "Extra layers of plastic"
           ],
           "expected": "Recyclable cardboard",
-          "memo": "Recyclable cardboard is more eco-friendly than non-recyclable plastics or foam.",
+          "memo": "Recyclable cardboard is better for the environment than plastic or foam that can't be recycled.",
           "error_signals": [
             "ERR_TECH_G8PRA2_CHOICE"
           ],
@@ -14791,7 +14791,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Excess packaging wastes both material and money and harms the environment.",
+          "memo": "Too much packaging wastes material and money, and harms the environment.",
           "error_signals": [
             "ERR_TECH_G8PRA2_OVER"
           ],
@@ -14808,7 +14808,7 @@
             "harmful impact"
           ],
           "expected": "positive impact on society and the environment",
-          "memo": "Recycling paper into packaging is a positive technological impact.",
+          "memo": "Recycling paper into packaging is a good effect of technology.",
           "error_signals": [
             "ERR_TECH_G8PRA2_POSITIVE"
           ],
@@ -14842,7 +14842,7 @@
             "There is no reason"
           ],
           "expected": "So your design can be recycled too",
-          "memo": "Understanding recycling helps you design packaging that can also be recycled.",
+          "memo": "Knowing how recycling works helps you design packaging that can be recycled too.",
           "error_signals": [
             "ERR_TECH_G8PRA2_INVESTIGATE"
           ],
@@ -14857,7 +14857,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Recycled-in and recyclable-out packaging reduces waste and resource use.",
+          "memo": "Packaging made from recycled material that can be recycled again means less waste and fewer resources used.",
           "error_signals": [
             "ERR_TECH_G8PRA2_LOOP"
           ],
@@ -14916,7 +14916,7 @@
             "More noise pollution"
           ],
           "expected": "Faster, easier communication",
-          "memo": "Easier communication is a positive impact of technology.",
+          "memo": "Easier communication is a good effect of technology.",
           "error_signals": [
             "ERR_TECH_G8PRA3_POSITIVE"
           ],
@@ -14933,7 +14933,7 @@
             "Cleaner energy"
           ],
           "expected": "Air and water pollution",
-          "memo": "Pollution is a negative impact of technology.",
+          "memo": "Pollution is a bad effect of technology.",
           "error_signals": [
             "ERR_TECH_G8PRA3_NEGATIVE"
           ],
@@ -14948,7 +14948,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Designers can create solutions that reduce or counteract negative impacts.",
+          "memo": "Designers can come up with solutions that reduce or cancel out a technology's bad effects.",
           "error_signals": [
             "ERR_TECH_G8PRA3_COUNTERACT"
           ],
@@ -15014,7 +15014,7 @@
             "free fuel"
           ],
           "expected": "air pollution (negative)",
-          "memo": "Cars provide transport but pollute the air — a clear positive-and-negative example.",
+          "memo": "Cars get us around quickly, but they also pollute the air. That's a good effect and a bad effect together.",
           "error_signals": [
             "ERR_TECH_G8PRA3_CARS"
           ],
@@ -15046,7 +15046,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Discussing ideas helps find ways to reduce a technology's negative impact.",
+          "memo": "Talking ideas through together helps find ways to reduce a technology's bad effects.",
           "error_signals": [
             "ERR_TECH_G8PRA3_DISCUSS"
           ],
@@ -15080,7 +15080,7 @@
             "the product's purpose"
           ],
           "expected": "the negative effects of a technology",
-          "memo": "Improving or adapting a product can reduce its negative effects.",
+          "memo": "Improving or changing a product can reduce its bad effects.",
           "error_signals": [
             "ERR_TECH_G8PRA3_IMPROVE"
           ],
@@ -15141,7 +15141,7 @@
             "weight only"
           ],
           "expected": "effectiveness, fairness and scope",
-          "memo": "A solution is evaluated for effectiveness, fairness, accuracy and scope.",
+          "memo": "You judge a solution on how well it works, how fair it is, how accurate it is and how much it covers.",
           "error_signals": [
             "ERR_TECH_G8PRA3_EVALUATE"
           ],
@@ -15156,7 +15156,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A technology can benefit one group while harming another — a sign to weigh carefully.",
+          "memo": "A technology can help one group and harm another, so you need to weigh it up carefully.",
           "error_signals": [
             "ERR_TECH_G8PRA3_UNEVEN"
           ],
@@ -15173,7 +15173,7 @@
             "blame the user"
           ],
           "expected": "redesign or add a solution to reduce the harm",
-          "memo": "Redesigning to reduce harm is the responsible response.",
+          "memo": "The responsible thing is to redesign it so it does less harm.",
           "error_signals": [
             "ERR_TECH_G8PRA3_REDESIGN"
           ],
@@ -15190,7 +15190,7 @@
             "useless"
           ],
           "expected": "positive",
-          "memo": "Improved medicine is a positive impact.",
+          "memo": "Better medicine is a good effect of technology.",
           "error_signals": [
             "ERR_TECH_G8PRA3_POSWORD"
           ],
@@ -15207,7 +15207,7 @@
             "There is no reason"
           ],
           "expected": "So benefits are kept and harms reduced",
-          "memo": "Considering impact lets designers keep the benefits while reducing harm.",
+          "memo": "Thinking about the effects lets designers keep the benefits and reduce the harm.",
           "error_signals": [
             "ERR_TECH_G8PRA3_WHY"
           ],
@@ -15239,7 +15239,7 @@
             "make noise"
           ],
           "expected": "reduce harm to the environment",
-          "memo": "These technologies aim to reduce environmental harm.",
+          "memo": "Recycling and pollution control aim to reduce harm to the environment.",
           "error_signals": [
             "ERR_TECH_G8PRA3_ENV"
           ],
@@ -15298,7 +15298,7 @@
             "fresh air"
           ],
           "expected": "acid mine drainage polluting water",
-          "memo": "Acid mine drainage pollutes water — a serious negative impact of mining.",
+          "memo": "Acid mine drainage pollutes water. It's a serious bad effect of mining.",
           "error_signals": [
             "ERR_TECH_G8PRA4_ACID"
           ],
@@ -15330,7 +15330,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Mining brings economic benefits but has real environmental costs.",
+          "memo": "Mining brings money and jobs, but it also harms the environment.",
           "error_signals": [
             "ERR_TECH_G8PRA4_BALANCE"
           ],
@@ -15347,7 +15347,7 @@
             "iron was never used"
           ],
           "expected": "local people had their own mining technology long ago",
-          "memo": "Indigenous communities mined and worked iron long before the modern era.",
+          "memo": "Local communities mined and worked iron long before modern times.",
           "error_signals": [
             "ERR_TECH_G8PRA4_IRONAGE"
           ],
@@ -15364,7 +15364,7 @@
             "Having no rules"
           ],
           "expected": "Unfairly favouring one gender for jobs",
-          "memo": "Gender bias unfairly favours one gender over another for opportunities.",
+          "memo": "Gender bias means unfairly favouring one gender over another for jobs and opportunities.",
           "error_signals": [
             "ERR_TECH_G8PRA4_GENDER"
           ],
@@ -15428,7 +15428,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Indigenous mining is evidence of advanced local technology in the past.",
+          "memo": "Indigenous mining shows that local people had advanced technology in the past.",
           "error_signals": [
             "ERR_TECH_G8PRA4_INDIGVALUE"
           ],
@@ -15462,7 +15462,7 @@
             "nothing"
           ],
           "expected": "both the benefits and the environmental harm",
-          "memo": "A balanced report weighs mining's benefits and its environmental harm.",
+          "memo": "A balanced report weighs up mining's benefits and the harm it does to the environment.",
           "error_signals": [
             "ERR_TECH_G8PRA4_REPORT"
           ],
@@ -15589,7 +15589,7 @@
             "To waste time"
           ],
           "expected": "To understand technology's effect on society and the environment",
-          "memo": "Studying mining shows how technology affects society and the environment.",
+          "memo": "Studying mining shows how technology affects people and the environment.",
           "error_signals": [
             "ERR_TECH_G8PRA4_WHY"
           ],
@@ -15604,7 +15604,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Traditional mining knowledge is indigenous intellectual property deserving respect.",
+          "memo": "Traditional mining knowledge is indigenous intellectual property, and it deserves respect.",
           "error_signals": [
             "ERR_TECH_G8PRA4_IP"
           ],
@@ -15621,7 +15621,7 @@
             "waste minerals"
           ],
           "expected": "get minerals while protecting people and the environment",
-          "memo": "Responsible mining balances getting minerals with protecting people and nature.",
+          "memo": "Responsible mining gets the minerals out while protecting people and nature.",
           "error_signals": [
             "ERR_TECH_G8PRA4_RESPONSIBLE"
           ],
@@ -15664,7 +15664,7 @@
             "a colour painting"
           ],
           "expected": "several flat 2D views (front, top, side)",
-          "memo": "Orthographic projection represents a 3D object as separate flat views.",
+          "memo": "Orthographic projection shows a 3D object as separate flat views, like the front, top and side.",
           "error_signals": [
             "ERR_TECH_G9DGA1_DEF"
           ],
@@ -15764,7 +15764,7 @@
             "photos"
           ],
           "expected": "views",
-          "memo": "Orthographic projection uses separate flat views.",
+          "memo": "Orthographic projection shows an object as separate flat views.",
           "error_signals": [
             "ERR_TECH_G9DGA1_VIEWS"
           ],
@@ -15781,7 +15781,7 @@
             "It hides the sizes"
           ],
           "expected": "It shows true sizes and shapes for accurate making",
-          "memo": "Orthographic views give true, measurable shapes for accurate manufacture.",
+          "memo": "Orthographic views show the true shapes and sizes, so the object can be made accurately.",
           "error_signals": [
             "ERR_TECH_G9DGA1_WHY"
           ],
@@ -15913,7 +15913,7 @@
             "electric"
           ],
           "expected": "orthographic",
-          "memo": "Grade 9 working drawings use first-angle orthographic projection.",
+          "memo": "In Grade 9, working drawings use first-angle orthographic projection.",
           "error_signals": [
             "ERR_TECH_G9DGA1_ORTHOWORD"
           ],
@@ -16103,7 +16103,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Accurate, dimensioned working drawings guide accurate making.",
+          "memo": "Accurate working drawings with measurements help the maker build it accurately.",
           "error_signals": [
             "ERR_TECH_G9DGA2_ACCURATE"
           ],
@@ -16154,7 +16154,7 @@
             "the largest possible"
           ],
           "expected": "affordable",
-          "memo": "Solutions should be workable, safe and affordable (cost-effective).",
+          "memo": "A good solution must work, be safe and be affordable.",
           "error_signals": [
             "ERR_TECH_G9DGA2_BALANCE"
           ],
@@ -16169,7 +16169,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Specifications state measurable requirements (sizes, gradient, materials).",
+          "memo": "Specifications list requirements you can measure, like sizes, slope and materials.",
           "error_signals": [
             "ERR_TECH_G9DGA2_SPECS"
           ],
@@ -16263,7 +16263,7 @@
             "hide the design"
           ],
           "expected": "show how the finished product will look",
-          "memo": "Artistic impressions communicate the look of the finished product.",
+          "memo": "An artistic impression shows what the finished product will look like.",
           "error_signals": [
             "ERR_TECH_G9DGA3_ARTISTIC"
           ],
@@ -16278,7 +16278,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Single-point perspective gives a realistic 3D impression.",
+          "memo": "Single-point perspective makes a drawing look realistically 3D.",
           "error_signals": [
             "ERR_TECH_G9DGA3_PERSPECTIVE"
           ],
@@ -16344,7 +16344,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Artistic impressions communicate appearance; working drawings give the measurements.",
+          "memo": "Artistic impressions show what something looks like. Working drawings give the measurements.",
           "error_signals": [
             "ERR_TECH_G9DGA3_COMMUNICATE"
           ],
@@ -16378,7 +16378,7 @@
             "A flow chart"
           ],
           "expected": "An artistic impression in perspective",
-          "memo": "An artistic perspective impression best shows the final appearance.",
+          "memo": "An artistic impression in perspective shows the customer best what the product will look like.",
           "error_signals": [
             "ERR_TECH_G9DGA3_CUSTOMER"
           ],
@@ -16427,7 +16427,7 @@
             "To hide parts"
           ],
           "expected": "To show clearly how the product is put together",
-          "memo": "Exploded views clearly communicate how a product assembles.",
+          "memo": "An exploded view shows clearly how the parts of a product fit together.",
           "error_signals": [
             "ERR_TECH_G9DGA3_WHY"
           ],
@@ -16476,7 +16476,7 @@
             "only colour"
           ],
           "expected": "how parts relate and assemble",
-          "memo": "Exploded 3D views show relationships and assembly; orthographic gives flat measurements.",
+          "memo": "An exploded 3D view shows how the parts fit together. An orthographic drawing gives flat measurements.",
           "error_signals": [
             "ERR_TECH_G9DGA3_VSORTHO"
           ],
@@ -16777,7 +16777,7 @@
           ],
           "expected": "Steady weights are static; moving wind and traffic are dynamic.",
           "pass_threshold": 0.75,
-          "memo": "Static = steady/unchanging; dynamic = moving/changing.",
+          "memo": "A static load is steady and doesn't change. A dynamic load moves or changes.",
           "error_signals": [
             "ERR_TECH_G9STA1_SORT"
           ],
@@ -17049,7 +17049,7 @@
             "look pretty only"
           ],
           "expected": "save material while staying strong",
-          "memo": "These sections resist forces efficiently, saving material.",
+          "memo": "These shapes handle forces well without using much material.",
           "error_signals": [
             "ERR_TECH_G9STA2_SAVE"
           ],
@@ -17081,7 +17081,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A circular cross-section resists bending evenly in all directions.",
+          "memo": "A round tube resists bending evenly in every direction.",
           "error_signals": [
             "ERR_TECH_G9STA2_ROUND"
           ],
@@ -17191,7 +17191,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Cross-section choice is key to strong, material-efficient design.",
+          "memo": "Choosing the right cross-section shape is key to a design that is strong without wasting material.",
           "error_signals": [
             "ERR_TECH_G9STA2_DESIGN"
           ],
@@ -17350,7 +17350,7 @@
             "glow"
           ],
           "expected": "bend without breaking",
-          "memo": "Flexibility is the ability to bend without breaking.",
+          "memo": "Flexibility means a material can bend without breaking.",
           "error_signals": [
             "ERR_TECH_G9STA3_FLEXIBILITY"
           ],
@@ -17399,7 +17399,7 @@
             "colour"
           ],
           "expected": "hardness",
-          "memo": "Hardness is resistance to scratching/denting.",
+          "memo": "Hardness means a material resists scratches and dents.",
           "error_signals": [
             "ERR_TECH_G9STA3_HARDWORD"
           ],
@@ -17433,7 +17433,7 @@
             "bright colour"
           ],
           "expected": "corrosion resistance",
-          "memo": "Corrosion resistance means it does not rust/corrode easily.",
+          "memo": "Corrosion resistance means a material doesn't rust or corrode easily.",
           "error_signals": [
             "ERR_TECH_G9STA3_RESIST"
           ],
@@ -17465,7 +17465,7 @@
             "corrosion"
           ],
           "expected": "flexibility",
-          "memo": "Flexibility is bending without breaking.",
+          "memo": "Flexibility means bending without breaking.",
           "error_signals": [
             "ERR_TECH_G9STA3_FLEXWORD"
           ],
@@ -17542,7 +17542,7 @@
           ],
           "expected": "Stiffness resists bending; hardness resists scratching; corrosion resistance resists rusting.",
           "pass_threshold": 0.66,
-          "memo": "Stiffness ↔ bending; hardness ↔ scratching/denting; corrosion resistance ↔ rusting.",
+          "memo": "Stiffness resists bending. Hardness resists scratches and dents. Corrosion resistance resists rust.",
           "error_signals": [
             "ERR_TECH_G9STA3_SORT"
           ],
@@ -17814,7 +17814,7 @@
             "There is no reason"
           ],
           "expected": "It helps make informed, practical decisions and career choices",
-          "memo": "Considering real costs builds practical judgement useful for careers.",
+          "memo": "Thinking about real costs builds practical judgement that helps in careers.",
           "error_signals": [
             "ERR_TECH_G9STA4_WHY"
           ],
@@ -18065,7 +18065,7 @@
             "only felt at the top"
           ],
           "expected": "passed equally in all directions",
-          "memo": "Pascal's principle: pressure applied to a confined liquid spreads equally in all directions.",
+          "memo": "Pascal's principle says pressure on a liquid in a closed system spreads out equally in all directions.",
           "error_signals": [
             "ERR_TECH_G9MSA1_PASCAL"
           ],
@@ -18182,7 +18182,7 @@
             "never"
           ],
           "expected": "equally",
-          "memo": "Pascal's principle: pressure is transmitted equally throughout the liquid.",
+          "memo": "Pascal's principle says pressure spreads equally through the whole liquid.",
           "error_signals": [
             "ERR_TECH_G9MSA1_EQUALLY"
           ],
@@ -18248,7 +18248,7 @@
             "Air never leaks"
           ],
           "expected": "Liquid does not compress, so the lift is firm and controlled",
-          "memo": "Incompressible liquid gives firm, controlled, powerful lifting.",
+          "memo": "A liquid can't be squashed, so the lifting is firm, controlled and powerful.",
           "error_signals": [
             "ERR_TECH_G9MSA1_WHYLIQUID"
           ],
@@ -18307,7 +18307,7 @@
           ],
           "expected": "Liquids are incompressible and used in jacks; gases compress and feel springy.",
           "pass_threshold": 0.75,
-          "memo": "Hydraulic (liquid) = incompressible, firm; pneumatic (gas) = compressible, springy.",
+          "memo": "Liquids (hydraulics) can't be squashed, so they feel firm. Gases (pneumatics) can be squashed, so they feel springy.",
           "error_signals": [
             "ERR_TECH_G9MSA1_SORT"
           ],
@@ -18339,7 +18339,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "The same volume of incompressible liquid moves through the system, giving the distance/force trade-off.",
+          "memo": "The same amount of liquid moves through the system. That's why you trade distance for force.",
           "error_signals": [
             "ERR_TECH_G9MSA1_VOLUME"
           ],
@@ -18465,7 +18465,7 @@
             "stores data"
           ],
           "expected": "multiplies the lifting force",
-          "memo": "A moveable pulley gives a mechanical advantage (force multiplication).",
+          "memo": "A pulley that moves with the load gives a mechanical advantage, which multiplies the force.",
           "error_signals": [
             "ERR_TECH_G9MSA2_MOVEABLE"
           ],
@@ -18880,7 +18880,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Car rack-and-pinion steering converts rotation into the linear movement that steers the wheels.",
+          "memo": "Rack-and-pinion steering turns the round motion of the steering wheel into straight movement that steers the wheels.",
           "error_signals": [
             "ERR_TECH_G9MSA3_STEERING"
           ],
@@ -19072,7 +19072,7 @@
             "light"
           ],
           "expected": "precise straight-line control from rotation",
-          "memo": "Rack-and-pinion converts rotation to precise linear movement, good for steering.",
+          "memo": "Rack-and-pinion turns round motion into precise straight movement, which is good for steering.",
           "error_signals": [
             "ERR_TECH_G9MSA3_PRECISE"
           ],
@@ -19170,7 +19170,7 @@
             "cleat"
           ],
           "expected": "rack-and-pinion",
-          "memo": "Rack-and-pinion converts the motor's rotation into straight-line movement.",
+          "memo": "A rack-and-pinion turns the motor's round motion into straight-line movement.",
           "error_signals": [
             "ERR_TECH_G9MSA3_CONVEYOR"
           ],
@@ -19213,7 +19213,7 @@
             "nothing"
           ],
           "expected": "two or more sub-systems, e.g. mechanical and electrical",
-          "memo": "Integrated systems combine sub-systems (mechanical, electrical, hydraulic/pneumatic).",
+          "memo": "An integrated system combines smaller systems, like mechanical, electrical, hydraulic or pneumatic ones.",
           "error_signals": [
             "ERR_TECH_G9MSA4_DEF"
           ],
@@ -19245,7 +19245,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A car integrates mechanical (engine, gears), electrical (lights) and hydraulic (brakes) systems.",
+          "memo": "A car combines mechanical systems (engine, gears), electrical systems (lights) and hydraulic systems (brakes).",
           "error_signals": [
             "ERR_TECH_G9MSA4_CAR"
           ],
@@ -19279,7 +19279,7 @@
             "only sound"
           ],
           "expected": "a hydraulic system to move it",
-          "memo": "An excavator combines a mechanical arm with hydraulics for powerful movement.",
+          "memo": "A digger combines a mechanical arm with hydraulics to move it powerfully.",
           "error_signals": [
             "ERR_TECH_G9MSA4_DIGGER"
           ],
@@ -19296,7 +19296,7 @@
             "broken"
           ],
           "expected": "integrated",
-          "memo": "Combining sub-systems makes an integrated system.",
+          "memo": "Combining smaller systems makes an integrated system.",
           "error_signals": [
             "ERR_TECH_G9MSA4_INTWORD"
           ],
@@ -19311,7 +19311,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Integrated systems often include control devices (switches, ratchets).",
+          "memo": "Integrated systems often include control devices like switches or ratchets.",
           "error_signals": [
             "ERR_TECH_G9MSA4_CONTROL"
           ],
@@ -19360,7 +19360,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Systems diagrams break an integrated machine into input-process-output parts.",
+          "memo": "A systems diagram breaks an integrated machine into input, process and output.",
           "error_signals": [
             "ERR_TECH_G9MSA4_SYSTEM"
           ],
@@ -19438,7 +19438,7 @@
           ],
           "expected": "Motor and switch are electrical; gears, drum and ratchet are mechanical.",
           "pass_threshold": 0.75,
-          "memo": "Electrical sub-system: motor, switch, sensor. Mechanical sub-system: gears, drum, ratchet.",
+          "memo": "The motor, switch and any sensor are electrical. The gears, drum and ratchet are mechanical.",
           "error_signals": [
             "ERR_TECH_G9MSA4_SORT"
           ],
@@ -19455,7 +19455,7 @@
             "only mechanical"
           ],
           "expected": "an integrated system",
-          "memo": "Combining a motor and a pulley makes an integrated electrical-mechanical system.",
+          "memo": "A motor driving a pulley combines electrical and mechanical parts, so it is an integrated system.",
           "error_signals": [
             "ERR_TECH_G9MSA4_MOTORPULLEY"
           ],
@@ -19487,7 +19487,7 @@
             "only sound"
           ],
           "expected": "pneumatic and electrical sub-systems",
-          "memo": "Air power plus an electrical switch is an integrated pneumatic-electrical system.",
+          "memo": "Air power controlled by an electrical switch combines pneumatic and electrical parts, so it is an integrated system.",
           "error_signals": [
             "ERR_TECH_G9MSA4_PNEU"
           ],
@@ -19536,7 +19536,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "A lift combines an electric motor, mechanical cables/pulleys and control systems.",
+          "memo": "A lift combines an electric motor, mechanical cables and pulleys, and a control system.",
           "error_signals": [
             "ERR_TECH_G9MSA4_LIFT"
           ],
@@ -20114,7 +20114,7 @@
             "There is no reason"
           ],
           "expected": "Manufacturing is never perfectly exact",
-          "memo": "Tolerance allows for small, unavoidable manufacturing differences.",
+          "memo": "Factories can never make resistors perfectly exact, so the tolerance allows for small differences.",
           "error_signals": [
             "ERR_TECH_G9ESA2_WHYTOL"
           ],
@@ -20163,7 +20163,7 @@
             "magnets"
           ],
           "expected": "bands",
-          "memo": "Colour bands code higher-value resistors.",
+          "memo": "Higher-value resistors show their value with coloured bands.",
           "error_signals": [
             "ERR_TECH_G9ESA2_BANDS"
           ],
@@ -20290,7 +20290,7 @@
             "smells"
           ],
           "expected": "numbers",
-          "memo": "Low-value resistors sometimes print numbers instead of bands.",
+          "memo": "Some low-value resistors print their value in numbers instead of colour bands.",
           "error_signals": [
             "ERR_TECH_G9ESA2_NUMWORD"
           ],
@@ -20611,7 +20611,7 @@
           ],
           "expected": "Diodes and LEDs pass current one way; a transistor switches/amplifies; a capacitor stores energy.",
           "pass_threshold": 0.75,
-          "memo": "Diode/LED = one-way current; transistor = switch or amplifier; capacitor = stores energy.",
+          "memo": "Diodes and LEDs let current flow one way only. A transistor switches or amplifies. A capacitor stores energy.",
           "error_signals": [
             "ERR_TECH_G9ESA3_SORT"
           ],
@@ -20886,7 +20886,7 @@
             "resistor"
           ],
           "expected": "thermistor",
-          "memo": "A thermistor responds to temperature.",
+          "memo": "A thermistor is the sensor that responds to temperature.",
           "error_signals": [
             "ERR_TECH_G9ESA4_THERMWORD"
           ],
@@ -20995,7 +20995,7 @@
           ],
           "expected": "LDR senses light; thermistor senses temperature; moisture detector senses wetness.",
           "pass_threshold": 0.66,
-          "memo": "LDR ↔ light; thermistor ↔ temperature; moisture detector ↔ wetness/touch.",
+          "memo": "An LDR senses light, a thermistor senses temperature, and a moisture detector senses wetness or touch.",
           "error_signals": [
             "ERR_TECH_G9ESA4_SORT"
           ],
@@ -21044,7 +21044,7 @@
             "becomes zero"
           ],
           "expected": "increases",
-          "memo": "A +t thermistor's resistance increases with temperature.",
+          "memo": "A +t thermistor's resistance goes up as it gets hotter.",
           "error_signals": [
             "ERR_TECH_G9ESA4_PTC"
           ],
@@ -21078,7 +21078,7 @@
             "store water"
           ],
           "expected": "react to changes by itself",
-          "memo": "Sensors let circuits respond automatically to changes in their surroundings.",
+          "memo": "Sensors let circuits react to changes around them by themselves, without a person switching them.",
           "error_signals": [
             "ERR_TECH_G9ESA4_AUTOMATIC"
           ],
@@ -21555,7 +21555,7 @@
             "pulley"
           ],
           "expected": "thermistor",
-          "memo": "A thermistor senses temperature for a heat-warning circuit.",
+          "memo": "A heat-warning circuit uses a thermistor, because it senses temperature.",
           "error_signals": [
             "ERR_TECH_G9ESA6_THERMCIRCUIT"
           ],
@@ -21670,7 +21670,7 @@
             "There is no reason"
           ],
           "expected": "So the circuit works and parts are not damaged",
-          "memo": "Correct connections and polarity make the circuit work and protect components.",
+          "memo": "Connecting parts in the right order and the right way round makes the circuit work and protects the parts.",
           "error_signals": [
             "ERR_TECH_G9ESA6_CORRECT"
           ],
@@ -21702,7 +21702,7 @@
             "weight"
           ],
           "expected": "temperature",
-          "memo": "A thermistor circuit responds to temperature.",
+          "memo": "A circuit with a thermistor responds to temperature.",
           "error_signals": [
             "ERR_TECH_G9ESA6_TEMP"
           ],
@@ -21877,7 +21877,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Sensors sense, transistors/logic decide, outputs act — combined in a working circuit.",
+          "memo": "Sensors sense, transistors or logic decide, and outputs act. Together they make a working circuit.",
           "error_signals": [
             "ERR_TECH_G9ESA6_SENSEACT"
           ],
@@ -21970,7 +21970,7 @@
             "sound"
           ],
           "expected": "electricity",
-          "memo": "Electroplating uses an electric current to deposit a thin metal coating.",
+          "memo": "Electroplating uses an electric current to put a thin coat of metal onto another metal.",
           "error_signals": [
             "ERR_TECH_G9PRA1_ELECTROPLATE"
           ],
@@ -22019,7 +22019,7 @@
             "To make it magnetic"
           ],
           "expected": "To make it look good and resist tarnish",
-          "memo": "Electroplating adds an attractive, protective layer (like silver) to a cheaper base.",
+          "memo": "Electroplating adds an attractive, protective layer, like silver, on top of a cheaper metal.",
           "error_signals": [
             "ERR_TECH_G9PRA1_SPOON"
           ],
@@ -22051,7 +22051,7 @@
             "drying"
           ],
           "expected": "electroplating",
-          "memo": "Electroplating uses electricity to deposit a metal coating.",
+          "memo": "Electroplating uses electricity to coat a metal with a thin layer of another metal.",
           "error_signals": [
             "ERR_TECH_G9PRA1_ELECWORD"
           ],
@@ -22143,7 +22143,7 @@
           ],
           "expected": "Painting is a barrier; galvanising is a zinc coating; electroplating uses electricity.",
           "pass_threshold": 0.66,
-          "memo": "Paint = barrier; galvanise = zinc dip; electroplate = electric metal coating.",
+          "memo": "Paint protects by forming a barrier. Galvanising coats the metal in zinc. Electroplating uses electricity to add a metal coating.",
           "error_signals": [
             "ERR_TECH_G9PRA1_SORT"
           ],
@@ -22546,7 +22546,7 @@
             "never used"
           ],
           "expected": "traditional knowledge as well as modern technology",
-          "memo": "Food preservation is both indigenous knowledge and modern technology.",
+          "memo": "Preserving food is traditional indigenous knowledge as well as modern technology.",
           "error_signals": [
             "ERR_TECH_G9PRA2_INDIGENOUS"
           ],
@@ -22752,7 +22752,7 @@
             "Always conducts electricity"
           ],
           "expected": "Light, waterproof and can be moulded",
-          "memo": "Plastics are typically light, waterproof and easily moulded.",
+          "memo": "Plastics are usually light, waterproof and easy to mould into shape.",
           "error_signals": [
             "ERR_TECH_G9PRA3_PROPERTIES"
           ],
@@ -22767,7 +22767,7 @@
             "False"
           ],
           "expected": "True",
-          "memo": "Plastics generally do not conduct electricity — good insulators.",
+          "memo": "Plastics generally don't conduct electricity, so they are good insulators.",
           "error_signals": [
             "ERR_TECH_G9PRA3_INSULATOR"
           ],
@@ -22833,7 +22833,7 @@
             "fabric"
           ],
           "expected": "thermoset",
-          "memo": "Thermosets set permanently hard.",
+          "memo": "A thermoset sets hard for good and won't soften again.",
           "error_signals": [
             "ERR_TECH_G9PRA3_SETWORD"
           ],
@@ -22928,7 +22928,7 @@
             "They conduct electricity"
           ],
           "expected": "They are light, cheap, waterproof and mouldable",
-          "memo": "Plastics' light, cheap, waterproof, mouldable nature suits packaging.",
+          "memo": "Plastics are light, cheap, waterproof and easy to mould, which suits packaging.",
           "error_signals": [
             "ERR_TECH_G9PRA3_PACKAGING"
           ],
@@ -23119,7 +23119,7 @@
             "ignore it"
           ],
           "expected": "process used material into new products",
-          "memo": "Recycling reprocesses used material into new products.",
+          "memo": "Recycling turns used material into new products.",
           "error_signals": [
             "ERR_TECH_G9PRA4_RECYCLE"
           ],
@@ -23350,7 +23350,7 @@
             "pollutes more"
           ],
           "expected": "turns waste into a useful raw material",
-          "memo": "Pelletising turns waste plastic into a reusable raw material.",
+          "memo": "Making pellets turns waste plastic into a raw material that can be used again.",
           "error_signals": [
             "ERR_TECH_G9PRA4_VALUE"
           ],
@@ -23382,7 +23382,7 @@
             "colour → weight → price"
           ],
           "expected": "input (waste) → process (shred/melt/mould) → output (new product)",
-          "memo": "Recycling fits input-process-output: waste in, processing, new product out.",
+          "memo": "Recycling fits input, process, output: waste goes in, it is shredded, melted and moulded, and a new product comes out.",
           "error_signals": [
             "ERR_TECH_G9PRA4_SYSTEM"
           ],
